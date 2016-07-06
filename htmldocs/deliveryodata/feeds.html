@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Delivery OData Feeds &mdash; QuestionmarkAPIs 2016.05 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.05',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.05 documentation" href="../index.html" />
+    <link rel="up" title="Delivery OData API" href="../deliveryodata.html" />
+    <link rel="next" title="Result Entity" href="result.html" />
+    <link rel="prev" title="Subjective Scoring" href="scoring.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="result.html" title="Result Entity"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="scoring.html" title="Subjective Scoring"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+          <li><a href="../deliveryodata.html" accesskey="U">Delivery OData API</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="delivery-odata-feeds">
+<h1>Delivery OData Feeds<a class="headerlink" href="#delivery-odata-feeds" title="Permalink to this headline">¶</a></h1>
+<p>The Delivery OData API implements version 3 of the OData standard which
+is generally compatible with both version 3 and version 2 clients.</p>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>$filter</dt>
+<dd>Supported.  Filtering is only allowed on certain property values.
+The restrictions have been put in place to ensure that API requests
+do not have a negative effect on the delivery of assessments.</dd>
+<dt>$format</dt>
+<dd>Not supported.  The service returns responses using JSON format by
+default.  To obtain XML responses you need to pass a suitably
+restrictive Accept: header as the $format query option is not
+supported.</dd>
+</dl>
+</div>
+<div class="section" id="feeds">
+<h2>Feeds<a class="headerlink" href="#feeds" title="Permalink to this headline">¶</a></h2>
+<dl class="feed">
+<dt id="od-feed.Results">
+<tt class="descname">Results</tt> Result<a class="headerlink" href="#od-feed.Results" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Results feed contains data about assessment results.  Entries
+are defined by the <a class="reference internal" href="result.html#od-type.Result" title="Result"><tt class="xref od od-type docutils literal"><span class="pre">Result</span></tt></a> type.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="entity-type-reference">
+<h2>Entity Type Reference<a class="headerlink" href="#entity-type-reference" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="result.html">Result Entity</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Delivery OData Feeds</a><ul>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#feeds">Feeds</a></li>
+<li><a class="reference internal" href="#entity-type-reference">Entity Type Reference</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scoring.html"
+                        title="previous chapter">Subjective Scoring</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="result.html"
+                        title="next chapter">Result Entity</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/deliveryodata/feeds.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="result.html" title="Result Entity"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="scoring.html" title="Subjective Scoring"
+             >previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

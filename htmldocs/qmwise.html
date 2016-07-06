@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>QMWISe &mdash; QuestionmarkAPIs 2016.05 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2016.05',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.05 documentation" href="index.html" />
+    <link rel="next" title="Web Service Methods" href="qmwise/methods.html" />
+    <link rel="prev" title="Results OData API" href="resultsodata.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="qmwise/methods.html" title="Web Service Methods"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="resultsodata.html" title="Results OData API"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="qmwise">
+<h1>QMWISe<a class="headerlink" href="#qmwise" title="Permalink to this headline">¶</a></h1>
+<p>QMWISe stands for Questionmark Web Integration Services environment.  It
+is a SOAP-based web services API that provides an alternative method of
+accessing the underlying data model of the qm:db:<cite>Delivery</cite> database.</p>
+<p>QMWISe is available in all current versions of Questionmark software.</p>
+<p>QMWISe is based on <a class="reference external" href="https://www.w3.org/TR/soap/">SOAP</a> and defines a wide range of operations (also
+referred to as <em>methods</em>) covering the underlying data model.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="qmwise/methods.html">Web Service Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qmwise/administrator.html">Administrator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qmwise/assessment.html">Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qmwise/participants.html">Participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qmwise/questions.html">Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qmwise/results.html">Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qmwise/schedules.html">Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qmwise/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qmwise/systemdata.html">System Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qmwise/urls.html">URLs</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="string-parameters">
+<span id="qmwise-string"></span><h2>String Parameters<a class="headerlink" href="#string-parameters" title="Permalink to this headline">¶</a></h2>
+<dl class="xtype">
+<dt id="qm-xtype.string">
+<em class="property">simpleType </em><tt class="descname">string</tt><a class="headerlink" href="#qm-xtype.string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Due to a limitation of the technology used in the original design of
+QMWISe all parameters of type string are marked as being <em>nillable</em>
+in the WSDL.  This means that messages in which these values have
+been omitted will validate against the WSDL, however, it does <em>not</em>
+indicate that they are valid QMWISe messages.</p>
+<p>QMWISe imposes additional rules over and above those expressed in
+the WSDL, in particular, where input parameters are of type string
+they may be required and omitting their values will result in a SOAP
+fault.</p>
+<p>As a general rule of thumb, if a string parameter maps to a required
+field in the data model then it will be required.  There are some
+exceptions, check the documentation for the method or type you are
+using for further restrictions.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="extension-types">
+<span id="id1"></span><h2>Extension Types<a class="headerlink" href="#extension-types" title="Permalink to this headline">¶</a></h2>
+<p>QMWISe uses the XML schema technique of deriving types by extension.
+For example, the <a class="reference internal" href="qmwise/results.html#qm-xtype.Result" title="Result"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result</span></tt></a> type is extended by the
+<a class="reference internal" href="qmwise/results.html#qm-xtype.Result2" title="Result2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result2</span></tt></a> type.  These extensions sometimes represent the
+development of the API from an earlier, smaller, set of return fields to
+a later revision returning more information (possibly reflecting changes
+to the underlying data model itself).  For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;s:complexType name=&quot;Result2&quot;&gt;
+    &lt;s:complexContent mixed=&quot;false&quot;&gt;
+        &lt;s:extension base=&quot;tns:Result&quot;&gt;
+            &lt;s:sequence&gt;
+                &lt;s:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;
+                    name=&quot;FirstName&quot; type=&quot;s:string&quot; /&gt;
+                &lt;s:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;
+                    name=&quot;LastName&quot; type=&quot;s:string&quot; /&gt;
+                &lt;s:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;
+                    name=&quot;PrimaryEmailAddress&quot; type=&quot;s:string&quot; /&gt;
+                &lt;s:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;
+                    name=&quot;SubgroupPath&quot; type=&quot;s:string&quot; /&gt;
+                &lt;s:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;
+                    name=&quot;CourseProperty&quot; type=&quot;s:string&quot; /&gt;
+                &lt;s:element minOccurs=&quot;1&quot; maxOccurs=&quot;1&quot;
+                    name=&quot;ScoreBandIDProperty&quot; type=&quot;s:int&quot; /&gt;
+            &lt;/s:sequence&gt;
+        &lt;/s:extension&gt;
+    &lt;/s:complexContent&gt;
+&lt;/s:complexType&gt;
+</pre></div>
+</div>
+<p>Although marked as returning type <a class="reference internal" href="qmwise/results.html#qm-xtype.Result" title="Result"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result</span></tt></a> the method
+<a class="reference internal" href="qmwise/results.html#qm-meth.GetResult" title="GetResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResult</span></tt></a> actually returns an element of type
+<a class="reference internal" href="qmwise/results.html#qm-xtype.Result2" title="Result2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result2</span></tt></a> containing these additional fields.</p>
+<p>Backwards compatibility remains an important goal of QMWISe but
+implementers using frameworks that take a snapshot of the WSDL (for
+example, to auto-generate code stubs in languages such as Java and C#)
+should be aware that additional, unexpected, elements may be returned in
+SOAP responses as a result of changes to the schema.  This should not
+cause failures as this is precisely what the XML schema extension
+element was designed to achieve.  That said, this type of change is kept
+to a minimum in QMWISe and the current pattern of development is to add
+new methods rather than extending the types returned by existing ones.</p>
+</div>
+<div class="section" id="basic-types">
+<h2>Basic Types<a class="headerlink" href="#basic-types" title="Permalink to this headline">¶</a></h2>
+<p>QMWISe makes extensive use of the following basic types from <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/">XMLSchema</a>.</p>
+<dl class="xtype">
+<dt id="qm-xtype.boolean">
+<em class="property">simpleType </em><tt class="descname">boolean</tt><a class="headerlink" href="#qm-xtype.boolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Values &#8220;true&#8221;, &#8220;false&#8221;, &#8220;1&#8221; or &#8220;0&#8221;.  See <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#boolean">boolean</a>.</p>
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.double">
+<em class="property">simpleType </em><tt class="descname">double</tt><a class="headerlink" href="#qm-xtype.double" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#double">double</a>.</p>
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.short">
+<em class="property">simpleType </em><tt class="descname">short</tt><a class="headerlink" href="#qm-xtype.short" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#short">short</a>.</p>
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.int">
+<em class="property">simpleType </em><tt class="descname">int</tt><a class="headerlink" href="#qm-xtype.int" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#int">int</a>.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">QMWISe</a><ul>
+<li><a class="reference internal" href="#string-parameters">String Parameters</a></li>
+<li><a class="reference internal" href="#extension-types">Extension Types</a></li>
+<li><a class="reference internal" href="#basic-types">Basic Types</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="resultsodata.html"
+                        title="previous chapter">Results OData API</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="qmwise/methods.html"
+                        title="next chapter">Web Service Methods</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/qmwise.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="qmwise/methods.html" title="Web Service Methods"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="resultsodata.html" title="Results OData API"
+             >previous</a> |</li>
+        <li><a href="index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

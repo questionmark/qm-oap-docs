@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Data Model &mdash; QuestionmarkAPIs 2016.05 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2016.05',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.05 documentation" href="index.html" />
+    <link rel="next" title="Answer Tables" href="model/answer.html" />
+    <link rel="prev" title="URLs" href="qmwise/urls.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="model/answer.html" title="Answer Tables"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="qmwise/urls.html" title="URLs"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="data-model">
+<h1>Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline">¶</a></h1>
+<p>Underlying the Questionmark system is a data model that describes the
+data stored about quizzes, tests and exams (content); about the delivery
+of the content and about results.</p>
+<p>Internally, that data is organized into a number of databases containing
+tables.  Users of Questionmark OnDemand access these tables indirectly
+through API calls.  Users of Questionmark OnPremise (or Perception 5)
+are encouraged to use APIs too but, in some cases, they may wish to
+access the database tables directly.  In either case, the tables define
+the underlying data model for all Questionmark data.</p>
+<p>In many cases the same data fields are exposed through multiple APIs.
+The data model is documented to provide a convenient central point for
+the detailed explanation of these data elements.</p>
+<p>You might want to look in <a class="reference internal" href="model/a_result.html#qm-table.a_result" title="A_Result"><tt class="xref qm qm-table docutils literal"><span class="pre">a_Result</span></tt></a></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="model/answer.html">Answer Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model/a_answer.html">A_Answer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model/a_result.html">A_Result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model/a_topicscore.html">A_TopicScore</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="misc-topics">
+<h2>Misc Topics<a class="headerlink" href="#misc-topics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fields-defined-with-varchar">
+<span id="varchar"></span><h3>Fields defined with varchar<a class="headerlink" href="#fields-defined-with-varchar" title="Permalink to this headline">¶</a></h3>
+<p>Users are strongly advised to use API calls where possible.  OnPremise
+or Perception users who must manipulate data in the database tables
+directly should be aware of the way text fields are encoded.</p>
+<p>For legacy reasons, many fields in the data model are defined to have
+the SQL server type <em>varchar</em>.  This represents a non-Unicode string of
+data in the database but in the Questionmark data model these fields are
+frequently used to contain Unicode data by applying a special
+transformation to the data when reading and writing to the underlying
+database field.</p>
+<p>It is important to understand that varchar fields in the database are
+strings of characters drawn from the character set defined by the
+collation in operation.  For Questionmark databases this collation will
+always be one of: SQL_Latin1_General_CP1_CI_AS or Latin1_General_CI_AS.
+In both cases, the character set is the same and is the &#8216;Latin1&#8217;
+character set defined by Microsoft.  This should not be confused with
+the ISO Latin-1 character set defined by ISO-8859-1 as it is different.
+Microsoft&#8217;s Latin1 character set is also often referred to as <a class="reference external" href="https://en.wikipedia.org/wiki/Windows-1252">CP1252</a>.</p>
+<p>To interpret data drawn directly from a Questionmark database it is
+necessary to understand the transformation applied to enable Unicode
+data to be stored in varchar fields.</p>
+<p>varchar encoding:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Convert a string of Unicode characters into bytes by applying
+the UTF-8 encoding.</li>
+<li>Transform this string of bytes back into a string of characters
+by replacing each byte with its corresponding character in
+CP1252.</li>
+<li>Store the resulting string of characters in the varchar data
+field.</li>
+</ol>
+</div></blockquote>
+<p>varchar decoding:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Retrieve the string of characters from the varchar data field</li>
+<li>Encode these characters into a string of bytes by replacing each
+character with the byte that represents it in CP1252.</li>
+<li>Decode the resulting string of bytes using UTF-8 to obtain the
+original Unicode data.</li>
+</ol>
+</div></blockquote>
+<p>The following example may help.  Suppose we have the Unicode string:</p>
+<blockquote>
+<div>© 2016</div></blockquote>
+<p>To convert this into its varchar representation for storage in a varchar
+data field we follow the encoding procedure defined above.</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Encode with UTF-8 to obtain (in hex):</p>
+<p>C2 A9 20 32 30 31 36</p>
+</li>
+<li><p class="first">Replace bytes with their CP1252 characters:</p>
+<p>Â© 2016</p>
+</li>
+</ol>
+</div></blockquote>
+<p>The above string is then saved to the varchar field.  It may appear odd
+at first that the copyright sign is itself part of the encoded string
+but this is just a quirk of the encoding algorithm (and similar
+behaviour is observed for all the characters with Unicode code points
+0x80 through to 0xBF).</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>The UTF-8 encoding may create a sequence of bytes that is longer
+than the corresponding sequence of characters.  Non-ASCII characters
+will result in 2 or 3 bytes each.  As a result, the length of a
+varchar field given in the data model represents a restriction on
+the length of the UTF-8 byte sequence and not the maximum number of
+characters.</p>
+<p class="last">In some cases, APIs are conservative in their implementation and may
+truncate or reject character strings that might exceed the
+underlying data model storage.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Due to the nature of UTF-8 and the way the western European
+characters are encoded you are highly likely to see byte values
+C0-C5 in the encoded string.  These bytes are all represented as
+upper-case &#8216;A&#8217; (with various accents) in CP1252 and if unexpectedly
+seen in Unicode data are diagnostic of a failure to decode data
+correctly (or evidence of earlier double-encoding).</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Unfortunately, the use of control characters can cause problems as
+CP1252 does not define mappings for all bytes. The values 0x81,
+0x8D, 0x8F, 0x90 and 0x9D are left undefined.  As a result, these
+values can cause issues during step 2 of the encoding/decoding
+algorithm described above if they appear in the UTF-8 encoded byte
+sequence. Windows-based technologies tend to ignore this
+inconsistency and allow such sequences to be decoded using CP1252 as
+if it contained the corresponding C1 control at that point (i.e.,
+byte 0x81 decodes to the Unicode character with codepoint 0x81 when
+using CP1252).  Other technologies may not be so generous and may
+decode such sequences as the replacement character (Unicode 0xFFFD)
+or simply raise exceptions.</p>
+<p>This is only a problem if you are attempting to read/write directly
+from/to a Questionmark database as API calls always manage the
+encoding for you.</p>
+<p class="last">Most low-level database drivers will have a &#8216;raw&#8217; mode in which
+varchar data can be read as a string of bytes (instead of
+characters) and it may be necessary to use this mode, in which case,
+you can ignore CP1252 completely and treat the raw data as if it
+were the UTF-8 encoded version of the original Unicode data string.</p>
+</div>
+</div>
+<div class="section" id="timezones">
+<span id="id1"></span><h3>Timezones<a class="headerlink" href="#timezones" title="Permalink to this headline">¶</a></h3>
+<p>Datetime values in the data model may be stored in one of three timezones.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>UTC</dt>
+<dd>Typically indicated by a _UTC suffix to the name of the field in
+the data model.</dd>
+<dt>Repository Time</dt>
+<dd><p class="first">In Questionmark&#8217;s OnDemand platform repositories have their own
+default timezone.  This is set when the repository is first
+created and does not usually change.  Historically this was the
+main timezone used for datetime values and is the timezone
+likely to be experienced in the user interface.</p>
+<p class="last">For Perception users the repository time cannot be set and is
+treated as the same as the platform time.</p>
+</dd>
+<dt>Platform Time</dt>
+<dd>In some cases, datetime values are stored using the timezone of
+the platform.  This is the default timezone of the server
+running the database.  In Questionmark OnDemand this will vary
+depending on the region in which the repository is hosted.</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="mid-and-lid">
+<span id="midlid"></span><h3>MID and LID<a class="headerlink" href="#mid-and-lid" title="Permalink to this headline">¶</a></h3>
+<p>For legacy reasons, some 64-bit integer IDs are split into two values in
+the data model.  The two values are typically indicated with a _MID and
+_LID suffix.</p>
+<p>Calculation of the 64-bit ID from a MID and LID uses a <em>decimal</em> algorithm:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ID</span> <span class="o">=</span> <span class="n">MID</span> <span class="o">*</span> <span class="mi">100000000</span> <span class="o">+</span> <span class="n">LID</span>
+</pre></div>
+</div>
+<p>Likewise, you need to use <em>decimal</em> arithmetic to split an ID into the
+two separate parts:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">MID</span> <span class="o">=</span> <span class="n">ID</span> <span class="o">/</span> <span class="mi">100000000</span>
+<span class="n">LID</span> <span class="o">=</span> <span class="n">ID</span> <span class="o">%</span> <span class="mi">100000000</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">MID</span> <span class="o">=</span> <span class="mi">80317034</span>
+<span class="n">LID</span> <span class="o">=</span> <span class="mi">6550612</span>
+<span class="n">ID</span> <span class="o">=</span> <span class="mi">8031703406550612</span>
+</pre></div>
+</div>
+<p>Values of MID and LID are limited to the range [1, 99999999].  If you
+are creating 64-bit ID values yourself you must ensure that they satisfy
+the following constraints:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ID</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">!=</span> <span class="mi">0</span>
+<span class="n">ID</span> <span class="o">&gt;</span> <span class="mi">100000000</span>
+<span class="n">ID</span> <span class="o">&lt;=</span> <span class="mi">9999999999999999</span>
+</pre></div>
+</div>
+<p>As a result, IDs contains approximately 50 bits of information.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Data Model</a><ul>
+<li><a class="reference internal" href="#misc-topics">Misc Topics</a><ul>
+<li><a class="reference internal" href="#fields-defined-with-varchar">Fields defined with varchar</a></li>
+<li><a class="reference internal" href="#timezones">Timezones</a></li>
+<li><a class="reference internal" href="#mid-and-lid">MID and LID</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="qmwise/urls.html"
+                        title="previous chapter">URLs</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="model/answer.html"
+                        title="next chapter">Answer Tables</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/data_model.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="model/answer.html" title="Answer Tables"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="qmwise/urls.html" title="URLs"
+             >previous</a> |</li>
+        <li><a href="index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

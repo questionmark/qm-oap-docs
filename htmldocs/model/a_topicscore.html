@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>A_TopicScore &mdash; QuestionmarkAPIs 2016.05 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.05',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.05 documentation" href="../index.html" />
+    <link rel="up" title="Answer Tables" href="answer.html" />
+    <link rel="next" title="PIP" href="../pip.html" />
+    <link rel="prev" title="A_Result" href="a_result.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../pip.html" title="PIP"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="a_result.html" title="A_Result"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
+          <li><a href="answer.html" accesskey="U">Answer Tables</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="a-topicscore">
+<h1>A_TopicScore<a class="headerlink" href="#a-topicscore" title="Permalink to this headline">¶</a></h1>
+<dl class="table">
+<dt id="qm-table.a_topicscore">
+<em class="property">TABLE </em><tt class="descname">A_TopicScore</tt><a class="headerlink" href="#qm-table.a_topicscore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Records in A_TopicScore are created automatically when a participant
+completes an assessment.  They contain topic-specific scoring and
+score-band information.</p>
+<dl class="field">
+<dt id="qm-field.a_topicscore.result_id">
+<em class="property">Primary Key: </em><tt class="descname">Result_ID</tt> int NOT NULL<a class="headerlink" href="#qm-field.a_topicscore.result_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refers to the associated result, see
+<a class="reference internal" href="a_result.html#qm-field.a_result.result_id" title="Result_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Result_ID</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_topicscore.topic_id">
+<em class="property">Primary Key: </em><tt class="descname">Topic_ID</tt> int NOT NULL<a class="headerlink" href="#qm-field.a_topicscore.topic_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refers to the associated topic, see <tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic.Topic_ID</span></tt>.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_topicscore.percentage_score">
+<tt class="descname">Percentage_Score</tt> float<a class="headerlink" href="#qm-field.a_topicscore.percentage_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Although stored as a float in the data model percentage scores
+are rounded to integers using the same method as
+<a class="reference internal" href="a_result.html#qm-field.a_result.percentage_score" title="Percentage_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Percentage_Score</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_topicscore.actual_score">
+<tt class="descname">Actual_Score</tt> int<a class="headerlink" href="#qm-field.a_topicscore.actual_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calcualted in the same way as <a class="reference internal" href="a_result.html#qm-field.a_result.total_score" title="Total_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Total_Score</span></tt></a>
+but counting only questions that are in the associated topic.
+Experimental questions do not contribute to the value.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_topicscore.maximum_score">
+<tt class="descname">Maximum_Score</tt> int<a class="headerlink" href="#qm-field.a_topicscore.maximum_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calcualted in the same way as <a class="reference internal" href="a_result.html#qm-field.a_result.max_score" title="Max_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Max_Score</span></tt></a> but
+counting only questions that are in the associated topic.
+Experimental questions do not contribute to the value.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_topicscore.score_band_name">
+<tt class="descname">Score_Band_Name</tt> varchar(200)<a class="headerlink" href="#qm-field.a_topicscore.score_band_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the topic scoreband that applies to this score.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_topicscore.num_questions">
+<tt class="descname">Num_Questions</tt> int<a class="headerlink" href="#qm-field.a_topicscore.num_questions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_topicscore.topic">
+<tt class="descname">Topic</tt> varchar(1020) NOT NULL<a class="headerlink" href="#qm-field.a_topicscore.topic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_topicscore.description">
+<tt class="descname">Description</tt> varchar(1020)<a class="headerlink" href="#qm-field.a_topicscore.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="a_result.html"
+                        title="previous chapter">A_Result</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../pip.html"
+                        title="next chapter">PIP</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/model/a_topicscore.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../pip.html" title="PIP"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="a_result.html" title="A_Result"
+             >previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
+          <li><a href="answer.html" >Answer Tables</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

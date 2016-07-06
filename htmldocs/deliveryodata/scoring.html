@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Subjective Scoring &mdash; QuestionmarkAPIs 2016.05 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.05',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.05 documentation" href="../index.html" />
+    <link rel="up" title="Applications" href="applications.html" />
+    <link rel="next" title="Delivery OData Feeds" href="feeds.html" />
+    <link rel="prev" title="Applications" href="applications.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="feeds.html" title="Delivery OData Feeds"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="applications.html" title="Applications"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
+          <li><a href="applications.html" accesskey="U">Applications</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="subjective-scoring">
+<h1>Subjective Scoring<a class="headerlink" href="#subjective-scoring" title="Permalink to this headline">¶</a></h1>
+<p>One application of this API is the integration of external scoring tools
+and scoring workflows with Questionmark software.</p>
+<p>This scenario requires that the rubrics for an assessment to be created
+and associated with Questions using the existing <a class="reference external" href="https://www.questionmark.com/content/what-scoring-tool">Scoring Tool</a>
+available through Enterprise Manager.</p>
+<p>A rubric is a set of instructions to a scorer, including a maximum score
+to award for a response (which must always match the maximum score of
+the question assigned to it). The rubric is broken down into various
+dimensions; individual facets of the rubric score that can be set and
+commented on separately by the scorer.  The overall score for the
+participant&#8217;s response is obtained by adding up the scores for the
+individual dimensions.</p>
+<p>The existing Scoring Tool uses a locking feature to prevent two scorers
+from marking the same question at the same time. This mechanism is not
+modeled directly in the API, though the same workflow states are
+available to external tools allowing them to emulate this behaviour. It
+is assumed that an external tool will have its own workflow rules that
+are mapped on to the limited set of status values defined here.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="applications.html"
+                        title="previous chapter">Applications</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="feeds.html"
+                        title="next chapter">Delivery OData Feeds</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/deliveryodata/scoring.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="feeds.html" title="Delivery OData Feeds"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="applications.html" title="Applications"
+             >previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
+          <li><a href="applications.html" >Applications</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>A_Answer &mdash; QuestionmarkAPIs 2016.05 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.05',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.05 documentation" href="../index.html" />
+    <link rel="up" title="Answer Tables" href="answer.html" />
+    <link rel="next" title="A_Result" href="a_result.html" />
+    <link rel="prev" title="Answer Tables" href="answer.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="a_result.html" title="A_Result"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="answer.html" title="Answer Tables"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
+          <li><a href="answer.html" accesskey="U">Answer Tables</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="a-answer">
+<h1>A_Answer<a class="headerlink" href="#a-answer" title="Permalink to this headline">¶</a></h1>
+<dl class="table">
+<dt id="qm-table.a_answer">
+<em class="property">TABLE </em><tt class="descname">A_Answer</tt><a class="headerlink" href="#qm-table.a_answer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Records in A_Answer are created/updated automatically when a
+participant submits a question block or the block is saved by the
+<em>Save As You Go</em> feature.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Perception 5.7 only creates A_Answer records on block
+submit, not during saves.</p>
+</div>
+<dl class="field">
+<dt id="qm-field.a_answer.result_id">
+<em class="property">Primary Key: </em><tt class="descname">Result_ID</tt> int NOT NULL<a class="headerlink" href="#qm-field.a_answer.result_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the associated result, see
+<a class="reference internal" href="a_result.html#qm-field.a_result.result_id" title="Result_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Result_ID</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.question_mid">
+<em class="property">Primary Key: </em><tt class="descname">Question_MID</tt> int NOT NULL<a class="headerlink" href="#qm-field.a_answer.question_mid" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the associated question is split across two fields,
+MID and LID, for legacy reasons. The ID itself can be obtained
+using the procedure outlined in <a class="reference internal" href="../data_model.html#midlid"><em>MID and LID</em></a>.</p>
+<p>The ID refers to the question with the same MID and LID in
+<tt class="xref qm qm-table docutils literal"><span class="pre">Q_Question</span></tt></p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.question_lid">
+<em class="property">Primary Key: </em><tt class="descname">Question_LID</tt> int NOT NULL<a class="headerlink" href="#qm-field.a_answer.question_lid" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="#qm-field.a_answer.question_mid" title="Question_MID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Question_MID</span></tt></a></p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.revision">
+<tt class="descname">Revision</tt> int<a class="headerlink" href="#qm-field.a_answer.revision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.occurrence">
+<em class="property">Primary Key: </em><tt class="descname">Occurrence</tt> smallint NOT NULL<a class="headerlink" href="#qm-field.a_answer.occurrence" title="Permalink to this definition">¶</a></dt>
+<dd><p>The occurrence number of the answer.  This number will generally
+be 1 and is supported only for legacy reasons.  The occurrence
+number is part of the primary key for this table in the data
+model.  In some historic data there may be multiple records
+which differ only in occurrence number.  These records should be
+treated as duplicates.  Use of the record with the lowest
+occurrence number is recommended when resolving such ambiguities.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.block_number">
+<em class="property">Primary Key: </em><tt class="descname">Block_Number</tt> smallint NOT NULL<a class="headerlink" href="#qm-field.a_answer.block_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the block in which the corresponding question was
+delivered.  This is the sequence number, so if jump blocks are
+used in such as a way as to cause the participant to visit the
+same block (definition) twice each occurrence of the block would
+have its own Block_Number.  The first question block in an
+assessment has block number 1.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.question_number">
+<tt class="descname">Question_Number</tt> smallint<a class="headerlink" href="#qm-field.a_answer.question_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the question within the block.  The first question
+is number 1.  Explanation questions do not count towards the
+numbering.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.status">
+<tt class="descname">Status</tt> smallint<a class="headerlink" href="#qm-field.a_answer.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of the question when it was delivered.  These values
+are taken from the status values of
+<tt class="xref qm qm-field docutils literal"><span class="pre">Q_Question.Status</span></tt>.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.signature">
+<tt class="descname">Signature</tt> varchar(50)<a class="headerlink" href="#qm-field.a_answer.signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a legacy field for internal use only.  It is set to an
+empty string in newer result sets.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.times_answered">
+<tt class="descname">Times_Answered</tt> smallint<a class="headerlink" href="#qm-field.a_answer.times_answered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates if the participant answered the question, takes the
+values 0 or 1 only.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.max_score">
+<tt class="descname">Max_Score</tt> int<a class="headerlink" href="#qm-field.a_answer.max_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum possible score for the question.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.actual_score">
+<tt class="descname">Actual_Score</tt> int<a class="headerlink" href="#qm-field.a_answer.actual_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>The actual score achieved by the participant on this question.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.know_time_taken">
+<tt class="descname">Know_Time_Taken</tt> bit<a class="headerlink" href="#qm-field.a_answer.know_time_taken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not the <a class="reference internal" href="#qm-field.a_answer.time_taken" title="Time_Taken"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Time_Taken</span></tt></a> field is
+valid.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.time_taken">
+<tt class="descname">Time_Taken</tt> int<a class="headerlink" href="#qm-field.a_answer.time_taken" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time the candidate took answering the question in seconds.
+To be read in conjunction with
+<a class="reference internal" href="#qm-field.a_answer.know_time_taken" title="Know_Time_Taken"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Know_Time_Taken</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.number_outcomes">
+<tt class="descname">Number_Outcomes</tt> smallint<a class="headerlink" href="#qm-field.a_answer.number_outcomes" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of question outcomes that evaluated to true during
+the scoring of this question.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.outcome_number">
+<tt class="descname">Outcome_Number</tt> smallint<a class="headerlink" href="#qm-field.a_answer.outcome_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>The order number of the first outcome to evaluate to true.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.outcome_exponential">
+<tt class="descname">Outcome_Exponential</tt> int<a class="headerlink" href="#qm-field.a_answer.outcome_exponential" title="Permalink to this definition">¶</a></dt>
+<dd><p>A bitfield representing flags indicating whether or not outcomes
+evaluated to true.  The least significant bit represents the
+result of evaluating the first outcome.  This field contains
+flags for the first 32 outcomes.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.outcome_exponential_2">
+<tt class="descname">Outcome_Exponential_2</tt> int<a class="headerlink" href="#qm-field.a_answer.outcome_exponential_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>A bitfield representing flags indicating whether or not outcomes
+evaluated to true.  The least significant bit represents the
+result of evaluating the 33rd outcome.  This field contains
+flags for outcomes 33 to 64.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.comment_id">
+<tt class="descname">Comment_ID</tt> int<a class="headerlink" href="#qm-field.a_answer.comment_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the comment associated with this answer (if given).
+This is a reference to a record in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Comment</span></tt>.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.answer_truncated">
+<tt class="descname">Answer_Truncated</tt> varchar(200)<a class="headerlink" href="#qm-field.a_answer.answer_truncated" title="Permalink to this definition">¶</a></dt>
+<dd><p>The answer given by the participant, truncated to 50 characters.
+In the case of file upload questions this is an internal file
+name used to locate the file within the repository.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.know_confidence">
+<tt class="descname">Know_Confidence</tt> bit<a class="headerlink" href="#qm-field.a_answer.know_confidence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unused, should be False.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.confidence_level">
+<tt class="descname">Confidence_Level</tt> smallint<a class="headerlink" href="#qm-field.a_answer.confidence_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unused, should be 0</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.correct_answer">
+<tt class="descname">Correct_Answer</tt> varchar(4000)<a class="headerlink" href="#qm-field.a_answer.correct_answer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unused</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.topic">
+<tt class="descname">Topic</tt> varchar(1020)<a class="headerlink" href="#qm-field.a_answer.topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the topic, obtained from the deserialised QML of
+the question in <tt class="xref qm qm-field docutils literal"><span class="pre">Q_QML_Ex.QML_Data</span></tt>.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_answer.answer_full">
+<tt class="descname">Answer_Full</tt> text<a class="headerlink" href="#qm-field.a_answer.answer_full" title="Permalink to this definition">¶</a></dt>
+<dd><p>The full answer given by the participant.</p>
+<p>The format of encoded answers depends on the question type.  In
+most cases the values representing the choices are
+colon-separated with colons escaped using back-slash (and
+back-slashes escaped by doubling).</p>
+<p>For Yes/No, Multiple choice, Multiple response, Likert and
+True/False the answer is taken as the <em>content</em> of the choice
+(effectively, the label visible to the participant taking the
+test).</p>
+<p>For Matrix, Pull-down list, Matching, Ranking and Select a blank
+questions the answer is the content of the option selected from
+the choice.</p>
+<p>The following types have their own special encoding schemes:</p>
+<dl class="docutils">
+<dt>Survey matrix</dt>
+<dd>Choices are separated by the HTML-like line break string
+&#8220;&lt;br/&gt;&#8221;</dd>
+<dt>Job task analysis</dt>
+<dd>Choices are separated by the string &#8220;|~&#8221;, choices represent
+triples of identifiers (dimension, task and selected
+option) and these are separated by the string &#8220;^~&#8221;.</dd>
+<dt>File upload</dt>
+<dd>The actual name of the file uploaded by the participant.</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="answer.html"
+                        title="previous chapter">Answer Tables</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="a_result.html"
+                        title="next chapter">A_Result</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/model/a_answer.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="a_result.html" title="A_Result"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="answer.html" title="Answer Tables"
+             >previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
+          <li><a href="answer.html" >Answer Tables</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

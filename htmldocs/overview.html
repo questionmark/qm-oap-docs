@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &mdash; QuestionmarkAPIs 2016.05 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2016.05',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.05 documentation" href="index.html" />
+    <link rel="next" title="Delivery OData API" href="deliveryodata.html" />
+    <link rel="prev" title="Questionmark’s Open Assessment Platform" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="deliveryodata.html" title="Delivery OData API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Questionmark’s Open Assessment Platform"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="database-structure">
+<h2>Database Structure<a class="headerlink" href="#database-structure" title="Permalink to this headline">¶</a></h2>
+<p>Questionmark data resides in a repository, in the context of
+Questionmark OnDemand a repository is sometimes referred to informally
+as an <em>area</em>. Repositories are identified by a simple repository name,
+often referred to as a customerid in URLs.  In Questionmark OnDemand
+repository names are allocated six-digit numbers although some older
+repositories do have alphanumeric names.  Clients of the APIs should not
+assume that repository IDs will always be numeric and should ensure
+that IDs of up to 32 ASCII characters are supported.</p>
+<p>The data in a repository is divided into three main databases covering
+the three main functions of Questionmark&#8217;s assessment management system:
+content creation, delivery, and result reporting.</p>
+<p>Historically (Perception 5.2 and earlier) all data was stored in a
+single database which is now referred to as the delivery database.  The
+older Enterprise Manager Reporter reports continue to use the delivery
+database as their primary source of information.  Reports in Analytics
+use the newer Results Warehouse (the reporting database) that was
+introduced in Perception 5.4.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Perception versions 5.4 and 5.7 continue to use the delivery
+database for storage of both authoring and delivery information.</p>
+</div>
+<p>These distinctions are important as the new OData APIs are designed to
+access specific databases and which API you use will depend on which
+data source is appropriate to your application.  For example, both
+<a class="reference internal" href="deliveryodata.html#od-service.deliveryodata" title="Delivery OData Service"><tt class="xref od od-svc docutils literal"><span class="pre">Delivery</span> <span class="pre">OData</span></tt></a> and <a class="reference internal" href="resultsodata.html#od-service.resultsodata" title="Results OData Service"><tt class="xref od od-svc docutils literal"><span class="pre">Results</span>
+<span class="pre">OData</span></tt></a> provide access to information about assessment
+results but the former affects the delivery database whereas the latter
+accesses information from the results warehouse.  The APIs that affect
+the delivery database are optimised to minimise the impact on any
+running assessments so provide limited filtering and searching options
+but do provide real-time access to information.  In contrast, the
+Results API provides more filtering options at the expense of a small
+delay in availability due to the need to wait for the ETL (Extract,
+Transform, Load) process to populate the results warehouse from the live
+data.</p>
+<p>At the time of writing, their are no publicly exposed APIs that access
+the authoring database.</p>
+</div>
+<div class="section" id="odata-primer">
+<span id="odata"></span><h2>OData Primer<a class="headerlink" href="#odata-primer" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview</a><ul>
+<li><a class="reference internal" href="#database-structure">Database Structure</a></li>
+<li><a class="reference internal" href="#odata-primer">OData Primer</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Questionmark&#8217;s Open Assessment Platform</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="deliveryodata.html"
+                        title="next chapter">Delivery OData API</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/overview.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="deliveryodata.html" title="Delivery OData API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Questionmark’s Open Assessment Platform"
+             >previous</a> |</li>
+        <li><a href="index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

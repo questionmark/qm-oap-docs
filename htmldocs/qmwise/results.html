@@ -1,0 +1,960 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Results &mdash; QuestionmarkAPIs 2016.05 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.05',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.05 documentation" href="../index.html" />
+    <link rel="up" title="Web Service Methods" href="methods.html" />
+    <link rel="next" title="Schedules" href="schedules.html" />
+    <link rel="prev" title="Questions" href="questions.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="schedules.html" title="Schedules"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="questions.html" title="Questions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+          <li><a href="../qmwise.html" >QMWISe</a> &raquo;</li>
+          <li><a href="methods.html" accesskey="U">Web Service Methods</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="results">
+<h1>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
+<p>Results methods can be used to query the delivery database for
+information about assessment results.  There are methods for obtaining
+an individual result from a result ID, <a class="reference internal" href="#qm-meth.GetResult" title="GetResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResult</span></tt></a>, or methods
+for obtaining a list of results by filtering, for example
+<a class="reference internal" href="#qm-meth.GetResultListByAssessment" title="GetResultListByAssessment"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultListByAssessment</span></tt></a>, <a class="reference internal" href="#qm-meth.GetResultListByGroup" title="GetResultListByGroup"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultListByGroup</span></tt></a>
+and qm:meth:<cite>GetResultListByParticipant</cite>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Questionmark databases may contain many millions of results, some of
+these methods were designed to work with smaller datasets and may
+not be suitable for use when the number of results returned is very
+large.  As a rule of thumb, if the returned result set exceeds
+1,000 results consider using an alternative API.  The
+<a class="reference internal" href="../deliveryodata/feeds.html#od-feed.Results" title="Results"><tt class="xref od od-feed docutils literal"><span class="pre">Results</span></tt></a> OData feed queries the same part of the data
+model and will accept more filters (including date filters) allowing
+you to return more precise result sets.</p>
+</div>
+<div class="section" id="result-methods">
+<h2>Result Methods<a class="headerlink" href="#result-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="meth">
+<dt id="qm-meth.GetResult">
+<em class="property">operation </em><tt class="descname">GetResult</tt> (Result_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.Result" title="Result">Result</a> <a class="headerlink" href="#qm-meth.GetResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a single result from the database.  The string type of the
+input parameter is an anomaly, the parameter value is required (See
+<a class="reference internal" href="../qmwise.html#qmwise-string"><em>String Parameters</em></a>) and must be the integer value of a result ID
+present in the database. See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.result_id" title="Result_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Result_ID</span></tt></a>.</p>
+<p>The output parameter returned is of type <a class="reference internal" href="#qm-xtype.Result2" title="Result2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result2</span></tt></a>, which
+is an extension of the basic <a class="reference internal" href="#qm-xtype.Result" title="Result"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result</span></tt></a> type declared in the
+WSDL.  (See <a class="reference internal" href="../qmwise.html#extension-types"><em>Extension Types</em></a>.)</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+    &lt;SOAP-ENV:Header/&gt;
+    &lt;SOAP-ENV:Body&gt;
+        &lt;GetResult xmlns=&quot;http://questionmark.com/QMWISe/&quot;&gt;
+            &lt;Result_ID&gt;218475&lt;/Result_ID&gt;
+        &lt;/GetResult&gt;
+    &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;soap:Body&gt;
+        &lt;GetResultResponse xmlns=&quot;http://questionmark.com/QMWISe/&quot;&gt;
+            &lt;Result xsi:type=&quot;Result2&quot;&gt;
+                &lt;Result_ID&gt;218475&lt;/Result_ID&gt;
+                &lt;Assessment_ID&gt;0009962000009962&lt;/Assessment_ID&gt;
+                &lt;Write_Answer_Data&gt;true&lt;/Write_Answer_Data&gt;
+                &lt;Participant&gt;miami147&lt;/Participant&gt;
+                &lt;Member_Group/&gt;
+                &lt;Participant_Details/&gt;
+                &lt;Hostname/&gt;
+                &lt;IP_Address&gt;10.30.6.5&lt;/IP_Address&gt;
+                &lt;Still_Going&gt;false&lt;/Still_Going&gt;
+                &lt;Status&gt;9&lt;/Status&gt;
+                &lt;Feedback&gt;0&lt;/Feedback&gt;
+                &lt;Number_Sections&gt;1&lt;/Number_Sections&gt;
+                &lt;Max_Score&gt;3&lt;/Max_Score&gt;
+                &lt;Total_Score&gt;3&lt;/Total_Score&gt;
+                &lt;Special_1&gt;Customer&lt;/Special_1&gt;
+                &lt;Special_2&gt;147&lt;/Special_2&gt;
+                &lt;Special_3/&gt;
+                &lt;Special_4/&gt;
+                &lt;Special_5/&gt;
+                &lt;Special_6/&gt;
+                &lt;Special_7/&gt;
+                &lt;Special_8/&gt;
+                &lt;Special_9/&gt;
+                &lt;Special_10/&gt;
+                &lt;Time_Taken&gt;0&lt;/Time_Taken&gt;
+                &lt;Score_Band_Title&gt;Thank you!&lt;/Score_Band_Title&gt;
+                &lt;Score_Band_Number&gt;2016515&lt;/Score_Band_Number&gt;
+                &lt;Percentage_Score&gt;100&lt;/Percentage_Score&gt;
+                &lt;Schedule_Name/&gt;
+                &lt;Monitored&gt;true&lt;/Monitored&gt;
+                &lt;Monitor_Name/&gt;
+                &lt;TopicScoringList&gt;
+                    &lt;TopicScoring&gt;
+                        &lt;Topic_ID&gt;58275&lt;/Topic_ID&gt;
+                        &lt;Topic_Name&gt;Printing and Scanning in Miami&lt;/Topic_Name&gt;
+                        &lt;Description/&gt;
+                        &lt;Percentage_Score&gt;100&lt;/Percentage_Score&gt;
+                        &lt;Actual_Score&gt;3&lt;/Actual_Score&gt;
+                        &lt;Maximum_Score&gt;3&lt;/Maximum_Score&gt;
+                        &lt;Num_Questions&gt;3&lt;/Num_Questions&gt;
+                    &lt;/TopicScoring&gt;
+                &lt;/TopicScoringList&gt;
+                &lt;When_Started&gt;2016-04-13T15:28:14&lt;/When_Started&gt;
+                &lt;Session_Last_Modified&gt;2016-04-12T23:01:33&lt;/Session_Last_Modified&gt;
+                &lt;When_Finished&gt;2016-04-13T15:28:14&lt;/When_Finished&gt;
+                &lt;FirstName&gt;Customer&lt;/FirstName&gt;
+                &lt;LastName&gt;147&lt;/LastName&gt;
+                &lt;PrimaryEmailAddress/&gt;
+                &lt;SubgroupPath/&gt;
+                &lt;CourseProperty&gt;Miami2016&lt;/CourseProperty&gt;
+                &lt;ScoreBandIDProperty&gt;663244283&lt;/ScoreBandIDProperty&gt;
+            &lt;/Result&gt;
+        &lt;/GetResultResponse&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetResultList">
+<em class="property">operation </em><tt class="descname">GetResultList</tt> () returns <a class="reference internal" href="#qm-xtype.ResultList" title="ResultList">ResultList</a> <a class="headerlink" href="#qm-meth.GetResultList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <em>all</em> results in the repository database.  Use of this
+method is no longer recommended due to the number of result records
+in a typical repository.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetResultListByAssessment">
+<em class="property">operation </em><tt class="descname">GetResultListByAssessment</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.ResultList" title="ResultList">ResultList</a> <a class="headerlink" href="#qm-meth.GetResultListByAssessment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <em>all</em> results in the repository database associated with a
+given assessment.  Use of this method is no longer recommended if
+the number of results for the assessment exceeds 10,000 records.</p>
+<p>The input parameter is given as type string but it must be the
+numeric ID of the assessment.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetResultListByGroup">
+<em class="property">operation </em><tt class="descname">GetResultListByGroup</tt> (Group_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.ResultList" title="ResultList">ResultList</a> <a class="headerlink" href="#qm-meth.GetResultListByGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <em>all</em> results in the repository database associated with a
+given Group.  Use of this method is no longer recommended if the
+number of results for the group exceeds 10,000 records.</p>
+<p>Notice that the group is identified by <em>name</em> and not by a numeric
+ID.  The name must be the name of a top-level group and is matched
+against <a class="reference internal" href="../model/a_result.html#qm-field.a_result.member_group" title="Member_Group"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Member_Group</span></tt></a> in the data model.</p>
+<p>For backwards compatibility, if the Group_Name input parameter
+contains the single quote character it is replaced with the
+back-quote ` before being used to filter the result set.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetResultListByParticipant">
+<em class="property">operation </em><tt class="descname">GetResultListByParticipant</tt> (Participant_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.ResultList" title="ResultList">ResultList</a> <a class="headerlink" href="#qm-meth.GetResultListByParticipant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <em>all</em> results in the repository database associated with a
+given Participant.</p>
+<p>Notice that the participant is identified by <em>name</em> and not by a
+numeric ID.  The name is matched against
+<a class="reference internal" href="../model/a_result.html#qm-field.a_result.participant" title="Participant"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Participant</span></tt></a> in the data model.</p>
+<p>For backwards compatibility, if the Participant_Name input parameter
+contains the single quote character it is replaced with the
+back-quote ` before being used to filter the result set.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetResultListBySubGroup">
+<em class="property">operation </em><tt class="descname">GetResultListBySubGroup</tt> (Event <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.EventResultList" title="EventResultList">EventResultList</a> <a class="headerlink" href="#qm-meth.GetResultListBySubGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#qm-meth.GetResultListByGroup" title="GetResultListByGroup"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultListByGroup</span></tt></a>, this returns all results
+in the repository where <a class="reference internal" href="../model/a_result.html#qm-field.a_result.member_sub_group_1" title="Member_Sub_Group_1"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Member_Sub_Group_1</span></tt></a>
+matches the input parameter.  This method imposes the additional
+constraint that the input parameter must be the name of a group as
+recorded in <tt class="xref qm qm-field docutils literal"><span class="pre">G_Group_Tree.Group_Name</span></tt>.</p>
+<p>Unlike similar methods, no character transformations are applied to
+the input parameter.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="result-types">
+<h2>Result Types<a class="headerlink" href="#result-types" title="Permalink to this headline">¶</a></h2>
+<dl class="xtype">
+<dt id="qm-xtype.Result">
+<em class="property">complexType </em><tt class="descname">Result</tt><a class="headerlink" href="#qm-xtype.Result" title="Permalink to this definition">¶</a></dt>
+<dd><p>The XML datatype representing a result.  This is a base type that is
+extended by <a class="reference internal" href="#qm-xtype.Result2" title="Result2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result2</span></tt></a> and further by <a class="reference internal" href="#qm-xtype.Result3" title="Result3"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result3</span></tt></a>.</p>
+<p>In most cases the fields returned are simply the values from
+associated record in the <a class="reference internal" href="../model/a_result.html#qm-table.a_result" title="A_Result"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Result</span></tt></a> table in the
+underlying data model.</p>
+<dl class="xfield">
+<dt id="qm-xfield.Result.Result_ID">
+<tt class="descname">Result_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Result_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.result_id" title="Result_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Result_ID</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Assessment_ID">
+<tt class="descname">Assessment_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Assessment_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.session_mid" title="Session_MID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Session_MID</span></tt></a> for more information, the
+field value here is the combined ID, as per
+<a class="reference internal" href="../model/a_result.html#qm-field.a_result.assessment_id" title="Assessment_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Assessment_ID</span></tt></a></p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Write_Answer_Data">
+<tt class="descname">Write_Answer_Data</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result.Write_Answer_Data" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.write_answer_data" title="Write_Answer_Data"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Write_Answer_Data</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Participant">
+<tt class="descname">Participant</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Participant" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.participant" title="Participant"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Participant</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Member_Group">
+<tt class="descname">Member_Group</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Member_Group" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.member_group" title="Member_Group"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Member_Group</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Participant_Details">
+<tt class="descname">Participant_Details</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Participant_Details" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.participant_details" title="Participant_Details"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Participant_Details</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Hostname">
+<tt class="descname">Hostname</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Hostname" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.hostname" title="Hostname"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Hostname</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.IP_Address">
+<tt class="descname">IP_Address</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.IP_Address" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.ip_address" title="IP_Address"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.IP_Address</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Still_Going">
+<tt class="descname">Still_Going</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result.Still_Going" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.still_going" title="Still_Going"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Still_Going</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Status">
+<tt class="descname">Status</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result.Status" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.status" title="Status"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Status</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Feedback">
+<tt class="descname">Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result.Feedback" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.feedback" title="Feedback"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Feedback</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Number_Sections">
+<tt class="descname">Number_Sections</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result.Number_Sections" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.number_sections" title="Number_Sections"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Number_Sections</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Max_Score">
+<tt class="descname">Max_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result.Max_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.max_score" title="Max_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Max_Score</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Total_Score">
+<tt class="descname">Total_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result.Total_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.total_score" title="Total_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Total_Score</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Special_1">
+<tt class="descname">Special_1</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Special_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_1" title="Special_1"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_1</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Special_2">
+<tt class="descname">Special_2</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Special_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_2" title="Special_2"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_2</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Special_3">
+<tt class="descname">Special_3</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Special_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_3" title="Special_3"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_3</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Special_4">
+<tt class="descname">Special_4</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Special_4" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_4" title="Special_4"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_4</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Special_5">
+<tt class="descname">Special_5</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Special_5" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_5" title="Special_5"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_5</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Special_6">
+<tt class="descname">Special_6</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Special_6" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_6" title="Special_6"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_6</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Special_7">
+<tt class="descname">Special_7</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Special_7" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_7" title="Special_7"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_7</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Special_8">
+<tt class="descname">Special_8</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Special_8" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_8" title="Special_8"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_8</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Special_9">
+<tt class="descname">Special_9</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Special_9" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_9" title="Special_9"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_9</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Special_10">
+<tt class="descname">Special_10</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Special_10" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_10" title="Special_10"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_10</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Time_Taken">
+<tt class="descname">Time_Taken</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result.Time_Taken" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.time_taken" title="Time_Taken"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Time_Taken</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Score_Band_Title">
+<tt class="descname">Score_Band_Title</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Score_Band_Title" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.score_band_title" title="Score_Band_Title"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Score_Band_Title</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Score_Band_Number">
+<tt class="descname">Score_Band_Number</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result.Score_Band_Number" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.score_band_number" title="Score_Band_Number"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Score_Band_Number</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Percentage_Score">
+<tt class="descname">Percentage_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result.Percentage_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.percentage_score" title="Percentage_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Percentage_Score</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Schedule_Name">
+<tt class="descname">Schedule_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Schedule_Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.schedule_name" title="Schedule_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Schedule_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Monitored">
+<tt class="descname">Monitored</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result.Monitored" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.monitored" title="Monitored"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Monitored</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Monitor_Name">
+<tt class="descname">Monitor_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Monitor_Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.monitor_name" title="Monitor_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Monitor_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.TopicScoringList">
+<tt class="descname">TopicScoringList</tt> <a class="reference internal" href="#qm-xtype.TopicScoringList" title="TopicScoringList">TopicScoringList</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.TopicScoringList" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of topic scores.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.When_Started">
+<tt class="descname">When_Started</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.When_Started" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.when_started" title="When_Started"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.When_Started</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.Session_Last_Modified">
+<tt class="descname">Session_Last_Modified</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.Session_Last_Modified" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.session_last_modified" title="Session_Last_Modified"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Session_Last_Modified</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result.When_Finished">
+<tt class="descname">When_Finished</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result.When_Finished" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.when_finished" title="When_Finished"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.When_Finished</span></tt></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.TopicScoringList">
+<em class="property">complexType </em><tt class="descname">TopicScoringList</tt><a class="headerlink" href="#qm-xtype.TopicScoringList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element used to return a list of topic scores in <a class="reference internal" href="#qm-xtype.Result" title="Result"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result</span></tt></a>.
+and <a class="reference internal" href="#qm-xtype.EventResult" title="EventResult"><tt class="xref qm qm-xtype docutils literal"><span class="pre">EventResult</span></tt></a>.</p>
+<dl class="xfield">
+<dt id="qm-xfield.TopicScoringList.TopicScoring">
+<tt class="descname">TopicScoring</tt> <a class="reference internal" href="#qm-xtype.TopicScoring" title="TopicScoring">TopicScoring</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.TopicScoringList.TopicScoring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each topic score is contained in its own TopicScoring element.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.TopicScoring">
+<em class="property">complexType </em><tt class="descname">TopicScoring</tt><a class="headerlink" href="#qm-xtype.TopicScoring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element representing a topic score.  This information is loaded from
+the <a class="reference internal" href="../model/a_topicscore.html#qm-table.a_topicscore" title="A_TopicScore"><tt class="xref qm qm-table docutils literal"><span class="pre">A_TopicScore</span></tt></a> in the data model.</p>
+<dl class="xfield">
+<dt id="qm-xfield.TopicScoring.Topic_ID">
+<tt class="descname">Topic_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.TopicScoring.Topic_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_topicscore.html#qm-field.a_topicscore.topic_id" title="Topic_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_TopicScore.Topic_ID</span></tt></a></p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.TopicScoring.Topic_Name">
+<tt class="descname">Topic_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.TopicScoring.Topic_Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_topicscore.html#qm-field.a_topicscore.topic" title="Topic"><tt class="xref qm qm-field docutils literal"><span class="pre">A_TopicScore.Topic</span></tt></a></p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.TopicScoring.Description">
+<tt class="descname">Description</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.TopicScoring.Description" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_topicscore.html#qm-field.a_topicscore.description" title="Description"><tt class="xref qm qm-field docutils literal"><span class="pre">A_TopicScore.Description</span></tt></a></p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.TopicScoring.Percentage_Score">
+<tt class="descname">Percentage_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.double" title="double">double</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.TopicScoring.Percentage_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_topicscore.html#qm-field.a_topicscore.percentage_score" title="Percentage_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_TopicScore.Percentage_Score</span></tt></a></p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.TopicScoring.Actual_Score">
+<tt class="descname">Actual_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.TopicScoring.Actual_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_topicscore.html#qm-field.a_topicscore.actual_score" title="Actual_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_TopicScore.Actual_Score</span></tt></a></p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.TopicScoring.Maximum_Score">
+<tt class="descname">Maximum_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.TopicScoring.Maximum_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_topicscore.html#qm-field.a_topicscore.maximum_score" title="Maximum_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_TopicScore.Maximum_Score</span></tt></a></p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.TopicScoring.Num_Questions">
+<tt class="descname">Num_Questions</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.TopicScoring.Num_Questions" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_topicscore.html#qm-field.a_topicscore.num_questions" title="Num_Questions"><tt class="xref qm qm-field docutils literal"><span class="pre">A_TopicScore.Num_Questions</span></tt></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.Result2">
+<em class="property">complexType </em><tt class="descname">Result2</tt> extends <a class="reference internal" href="#qm-xtype.Result" title="Result">Result</a><a class="headerlink" href="#qm-xtype.Result2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.Result2.FirstName">
+<tt class="descname">FirstName</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result2.FirstName" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.first_name" title="First_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.First_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result2.LastName">
+<tt class="descname">LastName</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result2.LastName" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.last_name" title="Last_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Last_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result2.PrimaryEmailAddress">
+<tt class="descname">PrimaryEmailAddress</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result2.PrimaryEmailAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.primary_email" title="Primary_Email"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Primary_Email</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result2.SubgroupPath">
+<tt class="descname">SubgroupPath</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result2.SubgroupPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the result is associated with a sub-group then this field may
+contain the path to the subgroup with the top-level group as the
+first path component.  The path separator is the back-slash
+character.</p>
+<p>Whether or not the value of this element is set on a retrieved
+result will depend on the delivery mode used to create it.  See
+<a class="reference internal" href="../model/a_result.html#qm-field.a_result.member_sub_group_1" title="Member_Sub_Group_1"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Member_Sub_Group_1</span></tt></a> for more information.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result2.CourseProperty">
+<tt class="descname">CourseProperty</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result2.CourseProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.course" title="Course"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Course</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result2.ScoreBandIDProperty">
+<tt class="descname">ScoreBandIDProperty</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result2.ScoreBandIDProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.scoreband_id" title="ScoreBand_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.ScoreBand_ID</span></tt></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.Result3">
+<em class="property">complexType </em><tt class="descname">Result3</tt> extends <a class="reference internal" href="#qm-xtype.Result2" title="Result2">Result2</a><a class="headerlink" href="#qm-xtype.Result3" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO</p>
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.ResultList">
+<em class="property">complexType </em><tt class="descname">ResultList</tt><a class="headerlink" href="#qm-xtype.ResultList" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type used to serialize a list of results.</p>
+<dl class="xfield">
+<dt id="qm-xfield.ResultList.Result">
+<tt class="descname">Result</tt> <a class="reference internal" href="#qm-xtype.Result" title="Result">Result</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.ResultList.Result" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.EventResult">
+<em class="property">complexType </em><tt class="descname">EventResult</tt><a class="headerlink" href="#qm-xtype.EventResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>The XML datatype representing a result as returned by the special
+method <a class="reference internal" href="#qm-meth.GetResultListBySubGroup" title="GetResultListBySubGroup"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultListBySubGroup</span></tt></a>.</p>
+<p>In most cases the fields returned are simply the values from
+associated record in the <a class="reference internal" href="../model/a_result.html#qm-table.a_result" title="A_Result"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Result</span></tt></a> table in the
+underlying data model.</p>
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Result_ID">
+<tt class="descname">Result_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Result_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.result_id" title="Result_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Result_ID</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Assessment_ID">
+<tt class="descname">Assessment_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Assessment_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.session_mid" title="Session_MID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Session_MID</span></tt></a> for more information, the
+field value here is the combined ID, as per
+<a class="reference internal" href="../model/a_result.html#qm-field.a_result.assessment_id" title="Assessment_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Assessment_ID</span></tt></a></p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Write_Answer_Data">
+<tt class="descname">Write_Answer_Data</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.EventResult.Write_Answer_Data" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.write_answer_data" title="Write_Answer_Data"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Write_Answer_Data</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Participant">
+<tt class="descname">Participant</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Participant" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.participant" title="Participant"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Participant</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Member_Group">
+<tt class="descname">Member_Group</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Member_Group" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.member_group" title="Member_Group"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Member_Group</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Participant_Details">
+<tt class="descname">Participant_Details</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Participant_Details" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.participant_details" title="Participant_Details"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Participant_Details</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Hostname">
+<tt class="descname">Hostname</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Hostname" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.hostname" title="Hostname"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Hostname</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.IP_Address">
+<tt class="descname">IP_Address</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.IP_Address" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.ip_address" title="IP_Address"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.IP_Address</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Still_Going">
+<tt class="descname">Still_Going</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.EventResult.Still_Going" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.still_going" title="Still_Going"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Still_Going</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Status">
+<tt class="descname">Status</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.EventResult.Status" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.status" title="Status"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Status</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Feedback">
+<tt class="descname">Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.EventResult.Feedback" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.feedback" title="Feedback"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Feedback</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Number_Sections">
+<tt class="descname">Number_Sections</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.EventResult.Number_Sections" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.number_sections" title="Number_Sections"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Number_Sections</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Max_Score">
+<tt class="descname">Max_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.EventResult.Max_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.max_score" title="Max_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Max_Score</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Total_Score">
+<tt class="descname">Total_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.EventResult.Total_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.total_score" title="Total_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Total_Score</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Special_1">
+<tt class="descname">Special_1</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Special_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_1" title="Special_1"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_1</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Special_2">
+<tt class="descname">Special_2</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Special_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_2" title="Special_2"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_2</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Special_3">
+<tt class="descname">Special_3</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Special_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_3" title="Special_3"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_3</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Special_4">
+<tt class="descname">Special_4</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Special_4" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_4" title="Special_4"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_4</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Special_5">
+<tt class="descname">Special_5</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Special_5" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_5" title="Special_5"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_5</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Special_6">
+<tt class="descname">Special_6</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Special_6" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_6" title="Special_6"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_6</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Special_7">
+<tt class="descname">Special_7</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Special_7" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_7" title="Special_7"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_7</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Special_8">
+<tt class="descname">Special_8</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Special_8" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_8" title="Special_8"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_8</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Special_9">
+<tt class="descname">Special_9</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Special_9" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_9" title="Special_9"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_9</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Special_10">
+<tt class="descname">Special_10</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Special_10" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_10" title="Special_10"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_10</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Time_Taken">
+<tt class="descname">Time_Taken</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.EventResult.Time_Taken" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.time_taken" title="Time_Taken"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Time_Taken</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Score_Band_Title">
+<tt class="descname">Score_Band_Title</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Score_Band_Title" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.score_band_title" title="Score_Band_Title"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Score_Band_Title</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Score_Band_Number">
+<tt class="descname">Score_Band_Number</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.EventResult.Score_Band_Number" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.score_band_number" title="Score_Band_Number"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Score_Band_Number</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Percentage_Score">
+<tt class="descname">Percentage_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.EventResult.Percentage_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.percentage_score" title="Percentage_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Percentage_Score</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Schedule_Name">
+<tt class="descname">Schedule_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Schedule_Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.schedule_name" title="Schedule_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Schedule_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Monitored">
+<tt class="descname">Monitored</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.EventResult.Monitored" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.monitored" title="Monitored"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Monitored</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Monitor_Name">
+<tt class="descname">Monitor_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Monitor_Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.monitor_name" title="Monitor_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Monitor_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.topicScoringList">
+<tt class="descname">topicScoringList</tt> <a class="reference internal" href="#qm-xtype.TopicScoringList" title="TopicScoringList">TopicScoringList</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.topicScoringList" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The name of this element differs from the corresponding field
+in <a class="reference internal" href="#qm-xtype.Result" title="Result"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result</span></tt></a> in the case of the first letter.</p>
+</div>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.ScoreBandID">
+<tt class="descname">ScoreBandID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.EventResult.ScoreBandID" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The name of this element differs from the corresponding field
+in <a class="reference internal" href="#qm-xtype.Result2" title="Result2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result2</span></tt></a>.</p>
+</div>
+<p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.scoreband_id" title="ScoreBand_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.ScoreBand_ID</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Course">
+<tt class="descname">Course</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Course" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The name of this element differs from the corresponding field
+in <a class="reference internal" href="#qm-xtype.Result2" title="Result2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result2</span></tt></a>.</p>
+</div>
+<p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.course" title="Course"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Course</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Participant_FirstName">
+<tt class="descname">Participant_FirstName</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Participant_FirstName" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The name of this element differs from the corresponding field
+in <a class="reference internal" href="#qm-xtype.Result2" title="Result2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result2</span></tt></a>.</p>
+</div>
+<p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.first_name" title="First_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.First_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Participant_LastName">
+<tt class="descname">Participant_LastName</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Participant_LastName" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The name of this element differs from the corresponding field
+in <a class="reference internal" href="#qm-xtype.Result2" title="Result2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result2</span></tt></a>.</p>
+</div>
+<p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.last_name" title="Last_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Last_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Result_Value">
+<tt class="descname">Result_Value</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Result_Value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Essentially, this value indicates if the participant achieved
+the best possible assessment outcome (not to be confused with
+the maximum possible score).  For example, if the assessment
+defines two outcomes bands for pass and fail then this value
+would be &#8220;1&#8221; if the participant passed and &#8220;0&#8221; if they failed.
+Similarly, if the assessment had 5 outcome bands representing
+grades &#8220;A&#8221; to &#8220;E&#8221; with &#8220;A&#8221; being the highest scoring then this
+field would be &#8220;1&#8221; if the participant achieved grade A.</p>
+<dl class="docutils">
+<dt>&#8220;0&#8221;</dt>
+<dd>The percentage score in the result was not in the highest
+scoring outcome band.</dd>
+<dt>&#8220;1&#8221;</dt>
+<dd>The percentage score in the result was in the highest scoring
+outcome band.</dd>
+</dl>
+<dl class="docutils">
+<dt>&#8220;&#8221;</dt>
+<dd>There was no information about outcome bands available.</dd>
+</dl>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Member_Sub_Group_1">
+<tt class="descname">Member_Sub_Group_1</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Member_Sub_Group_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.member_sub_group_1" title="Member_Sub_Group_1"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Member_Sub_Group_1</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Assessment_Name">
+<tt class="descname">Assessment_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Assessment_Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the Assessement referenced by
+<a class="reference internal" href="#qm-xfield.EventResult.Assessment_ID" title="Assessment_ID"><tt class="xref qm qm-xfield docutils literal"><span class="pre">EventResult.Assessment_ID</span></tt></a>.</p>
+<p>The name is obtained by looking up information in
+<tt class="xref qm qm-table docutils literal"><span class="pre">S_AML</span></tt>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.When_Started">
+<tt class="descname">When_Started</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.When_Started" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.when_started" title="When_Started"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.When_Started</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.Session_Last_Modified">
+<tt class="descname">Session_Last_Modified</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.Session_Last_Modified" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.session_last_modified" title="Session_Last_Modified"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Session_Last_Modified</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.EventResult.When_Finished">
+<tt class="descname">When_Finished</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResult.When_Finished" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.when_finished" title="When_Finished"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.When_Finished</span></tt></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.EventResultList">
+<em class="property">complexType </em><tt class="descname">EventResultList</tt><a class="headerlink" href="#qm-xtype.EventResultList" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type used to serialize a list of results by
+<a class="reference internal" href="#qm-meth.GetResultListBySubGroup" title="GetResultListBySubGroup"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultListBySubGroup</span></tt></a>.</p>
+<dl class="xfield">
+<dt id="qm-xfield.EventResultList.EventResult">
+<tt class="descname">EventResult</tt> <a class="reference internal" href="#qm-xtype.EventResult" title="EventResult">EventResult</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.EventResultList.EventResult" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Results</a><ul>
+<li><a class="reference internal" href="#result-methods">Result Methods</a></li>
+<li><a class="reference internal" href="#result-types">Result Types</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="questions.html"
+                        title="previous chapter">Questions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="schedules.html"
+                        title="next chapter">Schedules</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/qmwise/results.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="schedules.html" title="Schedules"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="questions.html" title="Questions"
+             >previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+          <li><a href="../qmwise.html" >QMWISe</a> &raquo;</li>
+          <li><a href="methods.html" >Web Service Methods</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
