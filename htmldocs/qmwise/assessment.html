@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Assessment &mdash; QuestionmarkAPIs 2016.05 documentation</title>
+    <title>Assessments &mdash; QuestionmarkAPIs 2016.07 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.05',
+        VERSION:     '2016.07',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.05 documentation" href="../index.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="../index.html" />
     <link rel="up" title="Web Service Methods" href="methods.html" />
     <link rel="next" title="Participants" href="participants.html" />
     <link rel="prev" title="Administrator" href="administrator.html" /> 
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="administrator.html" title="Administrator"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
           <li><a href="../qmwise.html" >QMWISe</a> &raquo;</li>
           <li><a href="methods.html" accesskey="U">Web Service Methods</a> &raquo;</li> 
       </ul>
@@ -52,9 +52,116 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="assessment">
-<h1>Assessment<a class="headerlink" href="#assessment" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="assessments">
+<h1>Assessments<a class="headerlink" href="#assessments" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="assessment-methods">
+<h2>Assessment Methods<a class="headerlink" href="#assessment-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentReportedTopics">
+<em class="property">operation </em><tt class="descname">GetAssessmentReportedTopics</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.TopicList" title="TopicList">TopicList</a> <a class="headerlink" href="#qm-meth.GetAssessmentReportedTopics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list with the full details of all the topics that are
+reported on in this assessment.</p>
+</dd></dl>
+
 <p>TBC</p>
+</div>
+<div class="section" id="assessment-types">
+<h2>Assessment Types<a class="headerlink" href="#assessment-types" title="Permalink to this headline">¶</a></h2>
+<dl class="xtype">
+<dt id="qm-xtype.Topic">
+<em class="property">complexType </em><tt class="descname">Topic</tt><a class="headerlink" href="#qm-xtype.Topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>The XML datatype representing a Topic.</p>
+<p>In most cases the fields returned are simply the values from
+associated record in the <tt class="xref qm qm-table docutils literal"><span class="pre">Q_Topic_Ex</span></tt> table in the
+underlying data model.</p>
+<dl class="xfield">
+<dt id="qm-xfield.Topic.Topic_ID">
+<tt class="descname">Topic_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Topic.Topic_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic_Ex.Topic_ID</span></tt>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Topic.Parent_ID">
+<tt class="descname">Parent_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Topic.Parent_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic_Ex.Parent_ID</span></tt>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Topic.Topic_Name">
+<tt class="descname">Topic_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Topic.Topic_Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic_Ex.Name</span></tt>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Topic.Topic_Description">
+<tt class="descname">Topic_Description</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Topic.Topic_Description" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic_Ex.Description</span></tt>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Topic.ScoreBandList">
+<tt class="descname">ScoreBandList</tt> <a class="reference internal" href="#qm-xtype.ScoreBandList" title="ScoreBandList">ScoreBandList</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Topic.ScoreBandList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information expanded from the related <tt class="xref qm qm-table docutils literal"><span class="pre">Q_ScoreBand_Ex</span></tt>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.TopicList">
+<em class="property">complexType </em><tt class="descname">TopicList</tt><a class="headerlink" href="#qm-xtype.TopicList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element that contains a list of Topics.</p>
+<dl class="xfield">
+<dt id="qm-xfield.TopicList.Topic">
+<tt class="descname">Topic</tt> <a class="reference internal" href="#qm-xtype.Topic" title="Topic">Topic</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.TopicList.Topic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.ScoreBandList">
+<em class="property">complexType </em><tt class="descname">ScoreBandList</tt><a class="headerlink" href="#qm-xtype.ScoreBandList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element containing a list of ScoreBand elements.</p>
+<dl class="xfield">
+<dt id="qm-xfield.ScoreBandList.ScoreBand">
+<tt class="descname">ScoreBand</tt> <a class="reference internal" href="#qm-xtype.ScoreBand" title="ScoreBand">ScoreBand</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.ScoreBandList.ScoreBand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.ScoreBand">
+<em class="property">complexType </em><tt class="descname">ScoreBand</tt><a class="headerlink" href="#qm-xtype.ScoreBand" title="Permalink to this definition">¶</a></dt>
+<dd><p>The XML datatype representing a ScoreBand.</p>
+<p>In most cases the fields returned are simply the values from the
+associated record in the <tt class="xref qm qm-table docutils literal"><span class="pre">Q_ScoreBand_Ex</span></tt> table in the
+underlying data model.</p>
+<dl class="xfield">
+<dt id="qm-xfield.ScoreBand.Name">
+<tt class="descname">Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.ScoreBand.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_ScoreBand_Ex.Name</span></tt>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.ScoreBand.Min_Score">
+<tt class="descname">Min_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.double" title="double">double</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.ScoreBand.Min_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_ScoreBand_Ex.Min_Score</span></tt>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.ScoreBand.Min_Score">
+<tt class="descname">Min_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.double" title="double">double</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.ScoreBand.Min_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_ScoreBand_Ex.Max_Score</span></tt>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.ScoreBand.Message">
+<tt class="descname">Message</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.ScoreBand.Message" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_ScoreBand_Ex.Message</span></tt>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -63,6 +170,15 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Assessments</a><ul>
+<li><a class="reference internal" href="#assessment-methods">Assessment Methods</a></li>
+<li><a class="reference internal" href="#assessment-types">Assessment Types</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="administrator.html"
                         title="previous chapter">Administrator</a></p>
@@ -103,7 +219,7 @@
         <li class="right" >
           <a href="administrator.html" title="Administrator"
              >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
           <li><a href="../qmwise.html" >QMWISe</a> &raquo;</li>
           <li><a href="methods.html" >Web Service Methods</a> &raquo;</li> 
       </ul>

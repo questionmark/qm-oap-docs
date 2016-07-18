@@ -460,11 +460,17 @@ class SOAPMethodDirective(ObjectDescription):
         signode += addnodes.desc_name(name, name)
         signode += nodes.Text(" (")
         if 'input' in self.options:
-            pname, input_type = self.options['input'].split()
-            signode += nodes.Text("%s " % pname)
-            signode += addnodes.pending_xref(
-                input_type, nodes.Text(input_type), refdomain="qm",
-                reftype="xtype", reftarget=input_type)
+            comma = False
+            for input in self.options['input'].split(','):
+                pname, input_type = input.split()
+                if comma:
+                    signode += nodes.Text(", %s " % pname)
+                else:
+                    signode += nodes.Text("%s " % pname)
+                    comma = True
+                signode += addnodes.pending_xref(
+                    input_type, nodes.Text(input_type), refdomain="qm",
+                    reftype="xtype", reftarget=input_type)                    
         signode += nodes.Text(")")
         if 'output' in self.options:
             pname, output_type = self.options['output'].split()

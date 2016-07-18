@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Results &mdash; QuestionmarkAPIs 2016.05 documentation</title>
+    <title>Results &mdash; QuestionmarkAPIs 2016.07 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.05',
+        VERSION:     '2016.07',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.05 documentation" href="../index.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="../index.html" />
     <link rel="up" title="Web Service Methods" href="methods.html" />
     <link rel="next" title="Schedules" href="schedules.html" />
     <link rel="prev" title="Questions" href="questions.html" /> 
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="questions.html" title="Questions"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
           <li><a href="../qmwise.html" >QMWISe</a> &raquo;</li>
           <li><a href="methods.html" accesskey="U">Web Service Methods</a> &raquo;</li> 
       </ul>
@@ -73,6 +73,8 @@ you to return more precise result sets.</p>
 </div>
 <div class="section" id="result-methods">
 <h2>Result Methods<a class="headerlink" href="#result-methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getting-result-information">
+<h3>Getting Result Information<a class="headerlink" href="#getting-result-information" title="Permalink to this headline">¶</a></h3>
 <dl class="meth">
 <dt id="qm-meth.GetResult">
 <em class="property">operation </em><tt class="descname">GetResult</tt> (Result_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.Result" title="Result">Result</a> <a class="headerlink" href="#qm-meth.GetResult" title="Permalink to this definition">¶</a></dt>
@@ -216,9 +218,387 @@ recorded in <tt class="xref qm qm-field docutils literal"><span class="pre">G_Gr
 the input parameter.</p>
 </dd></dl>
 
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentResult">
+<em class="property">operation </em><tt class="descname">GetAssessmentResult</tt> (Result_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResult" title="AssessmentResult">AssessmentResult</a> <a class="headerlink" href="#qm-meth.GetAssessmentResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#qm-meth.GetResult" title="GetResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResult</span></tt></a> but returns additional information
+including the Feedback and the the detailed item-level responses and
+scores.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentResult2">
+<em class="property">operation </em><tt class="descname">GetAssessmentResult2</tt> (Result_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResult2" title="AssessmentResult2">AssessmentResult2</a> <a class="headerlink" href="#qm-meth.GetAssessmentResult2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#qm-meth.GetAssessmentResult" title="GetAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessmentResult</span></tt></a> but returns some elements
+missing from the original method by using the
+<a class="reference internal" href="#qm-xtype.AssessmentResult2" title="AssessmentResult2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">AssessmentResult2</span></tt></a> type.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentResultListByAssessment">
+<em class="property">operation </em><tt class="descname">GetAssessmentResultListByAssessment</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultList" title="AssessmentResultList">AssessmentResultList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultListByAssessment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#qm-meth.GetResultListByAssessment" title="GetResultListByAssessment"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultListByAssessment</span></tt></a> but returns
+additional information including the Feedback and the the detailed
+item-level responses and scores.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentResultListByGroup">
+<em class="property">operation </em><tt class="descname">GetAssessmentResultListByGroup</tt> (Group_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultList" title="AssessmentResultList">AssessmentResultList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultListByGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#qm-meth.GetResultListByGroup" title="GetResultListByGroup"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultListByGroup</span></tt></a> but returns additional
+information including the Feedback and the the detailed item-level
+responses and scores.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentResultListByParticipant">
+<em class="property">operation </em><tt class="descname">GetAssessmentResultListByParticipant</tt> (Participant_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultList" title="AssessmentResultList">AssessmentResultList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultListByParticipant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#qm-meth.GetResultListByParticipant" title="GetResultListByParticipant"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultListByParticipant</span></tt></a> but returns
+additional information including the Feedback and the the detailed
+item-level responses and scores.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="creating-results">
+<h3>Creating Results<a class="headerlink" href="#creating-results" title="Permalink to this headline">¶</a></h3>
+<p>The following methods can be used to create results in the repository.
+The mechanism used by these methods relies on the <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt>
+and <tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt> tables in the data model.  This is an older
+data flow that has some issues with the handling of assessment and question
+revisions.  The methods are documented here for backwards compatibility,
+new projects should consider using the new snapshot-based &#8216;Attempt&#8217; flow
+facilitated by the <a class="reference internal" href="../deliveryodata.html#od-service.deliveryodata" title="Delivery OData Service"><tt class="xref od od-svc docutils literal"><span class="pre">Delivery</span> <span class="pre">OData</span></tt></a> service.</p>
+<dl class="meth">
+<dt id="qm-meth.CreateAssessmentResult">
+<em class="property">operation </em><tt class="descname">CreateAssessmentResult</tt> (AssessmentResult <a class="reference internal" href="#qm-xtype.AssessmentResult" title="AssessmentResult">AssessmentResult</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a single result in the database from the supplied
+information. This is the base method designed to work with the basic
+<a class="reference internal" href="#qm-xtype.Result" title="Result"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result</span></tt></a> and <a class="reference internal" href="#qm-xtype.Answer" title="Answer"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Answer</span></tt></a> elements.</p>
+<p>The method creates a record in <a class="reference internal" href="../model/a_result.html#qm-table.a_result" title="A_Result"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Result</span></tt></a> and optionally
+records in <a class="reference internal" href="../model/a_topicscore.html#qm-table.a_topicscore" title="A_TopicScore"><tt class="xref qm qm-table docutils literal"><span class="pre">A_TopicScore</span></tt></a>, <a class="reference internal" href="../model/a_answer.html#qm-table.a_answer" title="A_Answer"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Answer</span></tt></a>,
+<tt class="xref qm qm-table docutils literal"><span class="pre">A_ScoreBand</span></tt> and <tt class="xref qm qm-table docutils literal"><span class="pre">A_Comment</span></tt>. as appropriate.</p>
+<p>On input, the <a class="reference internal" href="#qm-xfield.Result.Result_ID" title="Result_ID"><tt class="xref qm qm-xfield docutils literal"><span class="pre">Result.Result_ID</span></tt></a> is ignored, it is
+recommended to set it to &#8220;0&#8221;.</p>
+<p>The supplied <a class="reference internal" href="#qm-xfield.Result.Assessment_ID" title="Assessment_ID"><tt class="xref qm qm-xfield docutils literal"><span class="pre">Result.Assessment_ID</span></tt></a> must correspond to
+the ID of an assessment in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt> in the
+repository database.  Similarly, any uploaded answers must have
+corresponding records in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt>.  Before using
+this method you should familiarise yourself with the purpose of
+these tables in the data model.  It is likely that you will have to
+call <a class="reference internal" href="#qm-meth.CreateAssessmentResultInfoList" title="CreateAssessmentResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResultInfoList</span></tt></a> and
+<a class="reference internal" href="#qm-meth.CreateQuestionResultInfoList" title="CreateQuestionResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateQuestionResultInfoList</span></tt></a> when creating results for
+the first time - you can use <a class="reference internal" href="#qm-meth.GetAssessmentResultInfo" title="GetAssessmentResultInfo"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessmentResultInfo</span></tt></a> and
+<a class="reference internal" href="#qm-meth.GetQuestionResultInfoList" title="GetQuestionResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetQuestionResultInfoList</span></tt></a> to test for the existence of
+the required records.</p>
+<p>If <a class="reference internal" href="#qm-xfield.AssessmentResult.Feedback" title="Feedback"><tt class="xref qm qm-xfield docutils literal"><span class="pre">AssessmentResult.Feedback</span></tt></a> is provided a new record
+is created in <tt class="xref qm qm-table docutils literal"><span class="pre">A_ScoreBand</span></tt> to hold the feebdack.  The
+feedback is not validated against the assessment.  It should record
+the feedback the participant actually saw at the time of delivery.
+If the result has been created following delivery <em>and scoring</em> via
+some external system it would be appropriate to set the feedback
+string to the message provided by that system on submission such as
+an indication of pass or fail.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Scored results created with QMWISe are not subject to the same
+level of validation as results created and scored using the
+OData <tt class="xref od od-feed docutils literal"><span class="pre">Attempts</span></tt> feed.  In particular, care is needed
+to ensure that answers adhere to the correct format for the
+question type, as described by <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.answer_full" title="Answer_Full"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Answer_Full</span></tt></a>.
+Furthermore, these values must validate against the associated
+question.  Using the correct revision number and ensuring that
+the indicated When_Started time is consistent with the revision
+history of the associated questions is important to ensure
+consistent reporting in Questionmark Analytics.</p>
+</div>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.CreateAssessmentResult2">
+<em class="property">operation </em><tt class="descname">CreateAssessmentResult2</tt> (AssessmentResult2 <a class="reference internal" href="#qm-xtype.AssessmentResult2" title="AssessmentResult2">AssessmentResult2</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResult2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extends the basic <a class="reference internal" href="#qm-meth.CreateAssessmentResult" title="CreateAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResult</span></tt></a> to use the
+updated <a class="reference internal" href="#qm-xtype.AssessmentResult2" title="AssessmentResult2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">AssessmentResult2</span></tt></a> type.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.CreateAssessmentResult3">
+<em class="property">operation </em><tt class="descname">CreateAssessmentResult3</tt> (AssessmentResult3 <a class="reference internal" href="#qm-xtype.AssessmentResult3" title="AssessmentResult3">AssessmentResult3</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResult3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extends the basic <a class="reference internal" href="#qm-meth.CreateAssessmentResult" title="CreateAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResult</span></tt></a> to use the
+language-aware <a class="reference internal" href="#qm-xtype.AssessmentResult3" title="AssessmentResult3"><tt class="xref qm qm-xtype docutils literal"><span class="pre">AssessmentResult3</span></tt></a> type.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.CreateAssessmentResultInfoList">
+<em class="property">operation </em><tt class="descname">CreateAssessmentResultInfoList</tt> (AssessmentResultInfoList <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList" title="AssessmentResultInfoList">AssessmentResultInfoList</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResultInfoList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an entry in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt> for each item in the
+input list if there is no existing entry available.  Returns the
+number of records that were actually created as a result.</p>
+<p>Before a result can be created for an assessment the assessment must
+have an entry in A_Session_Ex.  This method can be used to force the
+creation of a suitable record enabling subsequent calls to
+<a class="reference internal" href="#qm-meth.CreateAssessmentResult" title="CreateAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResult</span></tt></a> to succeed.  (Though see the
+similar <a class="reference internal" href="#qm-meth.CreateQuestionResultInfoList" title="CreateQuestionResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateQuestionResultInfoList</span></tt></a>).</p>
+<p>For assessments that have been created using Questionmark tools but
+have been delivered by an external system you should use
+<tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessment</span></tt> to discover the appropriate information
+to pass.</p>
+<p>For assessments that have been created <em>and</em> delivered externally
+you must create a unique Assessment ID (see <a class="reference internal" href="../data_model.html#midlid"><em>MID and LID</em></a> for
+important information about the valid set of IDs) that is not
+currently in use.  You may then fill the fields in appropriately to
+describe the external assessment.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.CreateAssessmentResultInfoList2">
+<em class="property">operation </em><tt class="descname">CreateAssessmentResultInfoList2</tt> (AssessmentResultInfoList2 <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList2" title="AssessmentResultInfoList2">AssessmentResultInfoList2</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResultInfoList2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#qm-meth.CreateAssessmentResultInfoList" title="CreateAssessmentResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResultInfoList</span></tt></a> but takes an
+extended set of elements allowing two extra fields to be set in the
+database.</p>
+<p>Note that the <a class="reference internal" href="#qm-xfield.AssessmentResultInfo2.CourseProperty" title="CourseProperty"><tt class="xref qm qm-xfield docutils literal"><span class="pre">AssessmentResultInfo2.CourseProperty</span></tt></a>
+field should contain the name of the folder containing the
+assessment.  This is not easy to discover using QMWISe as
+<tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessment</span></tt> returns the ID of the folder (rather than
+the name) and there is no method to get information about a folder
+itself from its ID.  Given this limitation the field should be
+treated as more general metadata. The value of this field is copied
+to the <a class="reference internal" href="../model/a_result.html#qm-field.a_result.course" title="Course"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Course</span></tt></a> field for each result created for
+this assessment.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.CreateAssessmentResultInfoList3">
+<em class="property">operation </em><tt class="descname">CreateAssessmentResultInfoList3</tt> (AssessmentResultInfoList3 <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList3" title="AssessmentResultInfoList3">AssessmentResultInfoList3</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResultInfoList3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#qm-meth.CreateAssessmentResultInfoList2" title="CreateAssessmentResultInfoList2"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResultInfoList2</span></tt></a> but takes an
+extended set of elements allowing language information to be set for
+the assessment.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.CreateQuestionResultInfoList">
+<em class="property">operation </em><tt class="descname">CreateQuestionResultInfoList</tt> (QuestionResultInfoList <a class="reference internal" href="#qm-xtype.QuestionResultInfoList" title="QuestionResultInfoList">QuestionResultInfoList</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateQuestionResultInfoList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an entry in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt> for each item in the
+input list if there is no existing entry available.  Returns the
+number of records that were actually created as a result.</p>
+<p>Before an answer record can be created for a question the quesitno
+must have an entry in A_Question_Ex.  This method can be used to
+force the creation of a suitable record enabling subsequent calls to
+<a class="reference internal" href="#qm-meth.CreateAssessmentResult" title="CreateAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResult</span></tt></a> to succeed.  (Though see the
+similar <a class="reference internal" href="#qm-meth.CreateAssessmentResultInfoList" title="CreateAssessmentResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResultInfoList</span></tt></a>).</p>
+<p>Creating answer records with QMWISe for assessments that have been
+created using Questionmark tools but have been delivered by an
+external system is not simple and is discouraged.  Generating the
+outcome information to pass to this method requires detailed
+knowledge of, and access to, the QML description of the question
+itself.</p>
+<p>Consider using snapshots in combination with the newer
+<tt class="xref od od-feed docutils literal"><span class="pre">Attempts</span></tt> feed for this type of project.  The only
+exception to this use case would be when the result info record is
+known to already exist, for example if you are creating a new result
+after re-scoring an existing one.  In that case you would not need
+to call this method.</p>
+<p>For assessments that have been created <em>and</em> delivered externally
+you must create a unique Question ID (see <a class="reference internal" href="../data_model.html#midlid"><em>MID and LID</em></a> for
+important information about the valid set of IDs) for each question
+that is not currently in use.  You may then fill the fields in
+appropriately to describe the externally created question.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.CreateQuestionResultInfoList2">
+<em class="property">operation </em><tt class="descname">CreateQuestionResultInfoList2</tt> (QuestionResultInfoList2 <a class="reference internal" href="#qm-xtype.QuestionResultInfoList2" title="QuestionResultInfoList2">QuestionResultInfoList2</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateQuestionResultInfoList2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#qm-meth.CreateQuestionResultInfoList" title="CreateQuestionResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateQuestionResultInfoList</span></tt></a> but takes an
+extended set of elements allowing language information to be set for
+the assessment.  For use with
+<a class="reference internal" href="#qm-meth.CreateAssessmentResultInfoList3" title="CreateAssessmentResultInfoList3"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResultInfoList3</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentResultInfo">
+<em class="property">operation </em><tt class="descname">GetAssessmentResultInfo</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfo" title="AssessmentResultInfo">AssessmentResultInfo</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns information from <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt>.  Can be used to
+check that the required information about an Assessment exists
+before creating results with <a class="reference internal" href="#qm-meth.CreateAssessmentResult" title="CreateAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResult</span></tt></a> and
+similar methods.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentResultInfo2">
+<em class="property">operation </em><tt class="descname">GetAssessmentResultInfo2</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfo2" title="AssessmentResultInfo2">AssessmentResultInfo2</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfo2" title="Permalink to this definition">¶</a></dt>
+<dd><p>As per <a class="reference internal" href="#qm-meth.GetAssessmentResultInfo" title="GetAssessmentResultInfo"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessmentResultInfo</span></tt></a> but with extended
+information.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentResultInfo3">
+<em class="property">operation </em><tt class="descname">GetAssessmentResultInfo3</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>, Base <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a>, Language <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfo3" title="AssessmentResultInfo3">AssessmentResultInfo3</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfo3" title="Permalink to this definition">¶</a></dt>
+<dd><p>As per <a class="reference internal" href="#qm-meth.GetAssessmentResultInfo" title="GetAssessmentResultInfo"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessmentResultInfo</span></tt></a> but can be used with
+translated assessments.  For translated assessments the assessment
+is specified with an additional language code and the flag
+indicating whether or not the language is the base language for the
+assessment.  In fact, the flag is actually ignored, if the correct
+value is not known it may be set to false.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentResultInfoList">
+<em class="property">operation </em><tt class="descname">GetAssessmentResultInfoList</tt> () returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList" title="AssessmentResultInfoList">AssessmentResultInfoList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfoList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all records from <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt>.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentResultInfoList2">
+<em class="property">operation </em><tt class="descname">GetAssessmentResultInfoList2</tt> () returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList2" title="AssessmentResultInfoList2">AssessmentResultInfoList2</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfoList2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all records from <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt> with additional
+elements as defined in <a class="reference internal" href="#qm-xtype.AssessmentResultInfo2" title="AssessmentResultInfo2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">AssessmentResultInfo2</span></tt></a>.  Note
+there is not &#8216;GetAssessmentResultInfoList3&#8217;.</p>
+</dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetQuestionResultInfoList">
+<em class="property">operation </em><tt class="descname">GetQuestionResultInfoList</tt> () returns <a class="reference internal" href="#qm-xtype.QuestionResultInfoList" title="QuestionResultInfoList">QuestionResultInfoList</a> <a class="headerlink" href="#qm-meth.GetQuestionResultInfoList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all records from <tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt>.  Can be used to
+check that the required information about a Question exists
+before creating results with <a class="reference internal" href="#qm-meth.CreateAssessmentResult" title="CreateAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResult</span></tt></a> and
+similar methods.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Some repository databases have thousands of
+delivered questions. This method is not intended for
+use on larger repositories.  The use cases for using
+QMWISe to obtain information from
+<tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt> are limited to legacy
+applications and are documented here only for
+completeness.  New applications should use the
+<tt class="xref od od-feed docutils literal"><span class="pre">Attempts</span></tt> feed in Delivery OData to create
+externally generated results.</p>
+</div>
+</dd></dl>
+
+</div>
 </div>
 <div class="section" id="result-types">
 <h2>Result Types<a class="headerlink" href="#result-types" title="Permalink to this headline">¶</a></h2>
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentResult">
+<em class="property">complexType </em><tt class="descname">AssessmentResult</tt><a class="headerlink" href="#qm-xtype.AssessmentResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>The XML datatype that provides complete information about a result.</p>
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResult.Result">
+<tt class="descname">Result</tt> <a class="reference internal" href="#qm-xtype.Result" title="Result">Result</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult.Result" title="Permalink to this definition">¶</a></dt>
+<dd><p>The summary information for the result. Although marked as
+optional in the schema this element is always present and must
+be provided when creating results.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResult.Feedback">
+<tt class="descname">Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult.Feedback" title="Permalink to this definition">¶</a></dt>
+<dd><p>If present, and non empty, corresponds to the HTML feedback for
+the result as stored in <tt class="xref qm qm-field docutils literal"><span class="pre">A_ScoreBand_Ex.Feedback</span></tt>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResult.AnswerList">
+<tt class="descname">AnswerList</tt> <a class="reference internal" href="#qm-xtype.AnswerList" title="AnswerList">AnswerList</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult.AnswerList" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of answers stored for this result.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentResult2">
+<em class="property">complexType </em><tt class="descname">AssessmentResult2</tt><a class="headerlink" href="#qm-xtype.AssessmentResult2" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alternative type used for complete information about a result.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Despite the name this type is <em>not</em> a simple extension
+of the similarly named <a class="reference internal" href="#qm-xtype.AssessmentResult" title="AssessmentResult"><tt class="xref qm qm-xtype docutils literal"><span class="pre">AssessmentResult</span></tt></a> type.</p>
+</div>
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResult2.Result">
+<tt class="descname">Result</tt> <a class="reference internal" href="#qm-xtype.Result2" title="Result2">Result2</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult2.Result" title="Permalink to this definition">¶</a></dt>
+<dd><p>The summary information for the result. Although marked as
+optional in the schema this element is always present and must
+be provided when creating results.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResult2.Feedback">
+<tt class="descname">Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult2.Feedback" title="Permalink to this definition">¶</a></dt>
+<dd><p>If present, and non empty, corresponds to the HTML feedback for
+the result as stored in <tt class="xref qm qm-field docutils literal"><span class="pre">A_ScoreBand_Ex.Feedback</span></tt>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResult2.AnswerList">
+<tt class="descname">AnswerList</tt> <a class="reference internal" href="#qm-xtype.AnswerList2" title="AnswerList2">AnswerList2</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult2.AnswerList" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of answers stored for this result.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResult2.LMSDetails">
+<tt class="descname">LMSDetails</tt> <a class="reference internal" href="#qm-xtype.UnencryptedLMSDetails" title="UnencryptedLMSDetails">UnencryptedLMSDetails</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult2.LMSDetails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated.  This field was originally intended to allow the
+AICC protocol to notify a learning management system of the new
+result.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentResult3">
+<em class="property">complexType </em><tt class="descname">AssessmentResult3</tt><a class="headerlink" href="#qm-xtype.AssessmentResult3" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alternative type used for complete information about a result
+that uses the language-aware <a class="reference internal" href="#qm-xtype.Result3" title="Result3"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result3</span></tt></a> type.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Despite the name this type is <em>not</em> a simple extension
+of the similarly named <a class="reference internal" href="#qm-xtype.AssessmentResult2" title="AssessmentResult2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">AssessmentResult2</span></tt></a>
+type.</p>
+</div>
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResult3.Result">
+<tt class="descname">Result</tt> <a class="reference internal" href="#qm-xtype.Result3" title="Result3">Result3</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult3.Result" title="Permalink to this definition">¶</a></dt>
+<dd><p>The summary information for the result. Although marked as
+optional in the schema this element is always present and must
+be provided when creating results.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResult3.Feedback">
+<tt class="descname">Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult3.Feedback" title="Permalink to this definition">¶</a></dt>
+<dd><p>If present, and non empty, corresponds to the HTML feedback for
+the result as stored in <tt class="xref qm qm-field docutils literal"><span class="pre">A_ScoreBand_Ex.Feedback</span></tt>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResult3.AnswerList">
+<tt class="descname">AnswerList</tt> <a class="reference internal" href="#qm-xtype.AnswerList2" title="AnswerList2">AnswerList2</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult3.AnswerList" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of answers stored for this result.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResult3.LMSDetails">
+<tt class="descname">LMSDetails</tt> <a class="reference internal" href="#qm-xtype.UnencryptedLMSDetails" title="UnencryptedLMSDetails">UnencryptedLMSDetails</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult3.LMSDetails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated.  This field was originally intended to allow the
+AICC protocol to notify a learning management system of the new
+result.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentResultList">
+<em class="property">complexType </em><tt class="descname">AssessmentResultList</tt><a class="headerlink" href="#qm-xtype.AssessmentResultList" title="Permalink to this definition">¶</a></dt>
+<dd><p>The element type used for a list of assessment results.</p>
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultList.AssessmentResult">
+<tt class="descname">AssessmentResult</tt> <a class="reference internal" href="#qm-xtype.AssessmentResult" title="AssessmentResult">AssessmentResult</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResultList.AssessmentResult" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="xtype">
 <dt id="qm-xtype.Result">
 <em class="property">complexType </em><tt class="descname">Result</tt><a class="headerlink" href="#qm-xtype.Result" title="Permalink to this definition">¶</a></dt>
@@ -553,7 +933,29 @@ result will depend on the delivery mode used to create it.  See
 <dl class="xtype">
 <dt id="qm-xtype.Result3">
 <em class="property">complexType </em><tt class="descname">Result3</tt> extends <a class="reference internal" href="#qm-xtype.Result2" title="Result2">Result2</a><a class="headerlink" href="#qm-xtype.Result3" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO</p>
+<dd><p>An extension of the result element type that includes information
+about the language of the assessment taken.  Currently used only for
+creating results.</p>
+<dl class="xfield">
+<dt id="qm-xfield.Result3.Language">
+<tt class="descname">Language</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result3.Language" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.lang" title="Lang"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Lang</span></tt></a>.  When creating results there must
+be an entry in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt> that matches both the
+Assessment_ID (defined by the base Result type) <em>and</em> the
+Language.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Result3.Base">
+<tt class="descname">Base</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Result3.Base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates if Language is the base language for the assessment or
+a translation. This field is actually used only for the creation
+of feedback and, along with Language, is used to set the
+language information for the ScoreBand (feedback) associated
+with the result.  See <tt class="xref qm qm-field docutils literal"><span class="pre">A_ScoreBand.Base</span></tt> for more
+information.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="xtype">
@@ -563,6 +965,433 @@ result will depend on the delivery mode used to create it.  See
 <dl class="xfield">
 <dt id="qm-xfield.ResultList.Result">
 <tt class="descname">Result</tt> <a class="reference internal" href="#qm-xtype.Result" title="Result">Result</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.ResultList.Result" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.Answer">
+<em class="property">complexType </em><tt class="descname">Answer</tt><a class="headerlink" href="#qm-xtype.Answer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fields largely correspond to the similarly named fields  in
+<a class="reference internal" href="../model/a_answer.html#qm-table.a_answer" title="A_Answer"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Answer</span></tt></a>.</p>
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Question_ID">
+<tt class="descname">Question_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Answer.Question_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the Question, calculated from the MID and LID, see
+<a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.question_mid" title="Question_MID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Question_MID</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Revision">
+<tt class="descname">Revision</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Revision" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.revision" title="Revision"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Revision</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Occurrence">
+<tt class="descname">Occurrence</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Occurrence" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.occurrence" title="Occurrence"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Occurrence</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Topic_Name">
+<tt class="descname">Topic_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Answer.Topic_Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.topic" title="Topic"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Topic</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Topic_Name">
+<tt class="descname">Topic_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Answer.Topic_Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.topic" title="Topic"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Topic</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Block_Number">
+<tt class="descname">Block_Number</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Block_Number" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.block_number" title="Block_Number"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Block_Number</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Question_Number">
+<tt class="descname">Question_Number</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Question_Number" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.question_number" title="Question_Number"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Question_Number</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Status">
+<tt class="descname">Status</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Status" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.status" title="Status"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Status</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Times_Answered">
+<tt class="descname">Times_Answered</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Times_Answered" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.times_answered" title="Times_Answered"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Times_Answered</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Max_Score">
+<tt class="descname">Max_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Max_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.max_score" title="Max_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Max_Score</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Actual_Score">
+<tt class="descname">Actual_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Actual_Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.actual_score" title="Actual_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Actual_Score</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Know_Time_Taken">
+<tt class="descname">Know_Time_Taken</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Know_Time_Taken" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.know_time_taken" title="Know_Time_Taken"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Know_Time_Taken</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Time_Taken">
+<tt class="descname">Time_Taken</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Time_Taken" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.time_taken" title="Time_Taken"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Time_Taken</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Number_Outcomes">
+<tt class="descname">Number_Outcomes</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Number_Outcomes" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.number_outcomes" title="Number_Outcomes"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Number_Outcomes</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Outcome_Number">
+<tt class="descname">Outcome_Number</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Outcome_Number" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.outcome_number" title="Outcome_Number"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Outcome_Number</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Outcome_Exponential">
+<tt class="descname">Outcome_Exponential</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Outcome_Exponential" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.outcome_exponential" title="Outcome_Exponential"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Outcome_Exponential</span></tt></a>.  Note that the
+underlying data model allows for 64 outcome bits through the
+provision of a second field
+<a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.outcome_exponential_2" title="Outcome_Exponential_2"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Outcome_Exponential_2</span></tt></a> but that this field is
+not included in the basic Answer element, this omission was
+corrected with the creation of <a class="reference internal" href="#qm-xtype.Answer2" title="Answer2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Answer2</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Answer_Truncated">
+<tt class="descname">Answer_Truncated</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Answer.Answer_Truncated" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.answer_truncated" title="Answer_Truncated"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Answer_Truncated</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Answer_Full">
+<tt class="descname">Answer_Full</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Answer.Answer_Full" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.answer_full" title="Answer_Full"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Answer_Full</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Answer.Comment">
+<tt class="descname">Comment</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Answer.Comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>The associated participant comment, obtained from the related
+entity in <tt class="xref qm qm-field docutils literal"><span class="pre">A_Comment.Comments</span></tt> (if present).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.Answer2">
+<em class="property">complexType </em><tt class="descname">Answer2</tt> extends <a class="reference internal" href="#qm-xtype.Answer" title="Answer">Answer</a><a class="headerlink" href="#qm-xtype.Answer2" title="Permalink to this definition">¶</a></dt>
+<dd><p>A small update to the base class to correct the limitation on the
+number of reported outcomes for a question.</p>
+<dl class="xfield">
+<dt id="qm-xfield.Answer2.Outcome_Exponential2Property">
+<tt class="descname">Outcome_Exponential2Property</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer2.Outcome_Exponential2Property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extends QMWISe to support the full 64-outcomes per question when
+performing operations on answer records.  See
+<a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.outcome_exponential_2" title="Outcome_Exponential_2"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Outcome_Exponential_2</span></tt></a> and the note above in
+<a class="reference internal" href="#qm-xfield.Answer.Outcome_Exponential" title="Outcome_Exponential"><tt class="xref qm qm-xfield docutils literal"><span class="pre">Answer.Outcome_Exponential</span></tt></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The name of this element does not conform to the pattern
+in either the data model or the base type being extended.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AnswerList">
+<em class="property">complexType </em><tt class="descname">AnswerList</tt><a class="headerlink" href="#qm-xtype.AnswerList" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type used to serialize a list of answers.</p>
+<dl class="xfield">
+<dt id="qm-xfield.AnswerList.Answer">
+<tt class="descname">Answer</tt> <a class="reference internal" href="#qm-xtype.Answer" title="Answer">Answer</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AnswerList.Answer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AnswerList2">
+<em class="property">complexType </em><tt class="descname">AnswerList2</tt><a class="headerlink" href="#qm-xtype.AnswerList2" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type used to serialize a list of answers using the updated
+<a href="#id1"><span class="problematic" id="id2">:qm:type:`Answer2`</span></a> content model.</p>
+<dl class="xfield">
+<dt id="qm-xfield.AnswerList2.Answer2">
+<tt class="descname">Answer2</tt> <a class="reference internal" href="#qm-xtype.Answer2" title="Answer2">Answer2</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AnswerList2.Answer2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentResultInfo">
+<em class="property">complexType </em><tt class="descname">AssessmentResultInfo</tt><a class="headerlink" href="#qm-xtype.AssessmentResultInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Records information about an assessment that has been used to
+generate results - used prior to creating results.  See
+<a class="reference internal" href="#qm-meth.CreateAssessmentResultInfoList" title="CreateAssessmentResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResultInfoList</span></tt></a>.</p>
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo.Assessment_ID">
+<tt class="descname">Assessment_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo.Assessment_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo.Revision">
+<tt class="descname">Revision</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo.Revision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo.Session_Name">
+<tt class="descname">Session_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo.Session_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo.Session_Author">
+<tt class="descname">Session_Author</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo.Session_Author" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo.Whether_Time_Limit">
+<tt class="descname">Whether_Time_Limit</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo.Whether_Time_Limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo.Time_Limit">
+<tt class="descname">Time_Limit</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo.Time_Limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo.Number_Sections">
+<tt class="descname">Number_Sections</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo.Number_Sections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo.Description">
+<tt class="descname">Description</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo.Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo.Last_Updated">
+<tt class="descname">Last_Updated</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo.Last_Updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo.When_Modified">
+<tt class="descname">When_Modified</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo.When_Modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentResultInfo2">
+<em class="property">complexType </em><tt class="descname">AssessmentResultInfo2</tt> extends <a class="reference internal" href="#qm-xtype.AssessmentResultInfo" title="AssessmentResultInfo">AssessmentResultInfo</a><a class="headerlink" href="#qm-xtype.AssessmentResultInfo2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extends the base class adding the following elements.  For usage see
+<a class="reference internal" href="#qm-meth.CreateAssessmentResultInfoList2" title="CreateAssessmentResultInfoList2"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResultInfoList2</span></tt></a>.</p>
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo2.Assessment_TypeProperty">
+<tt class="descname">Assessment_TypeProperty</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo2.Assessment_TypeProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the assessment type from one of the constants defined by
+<tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Assessment_Type</span></tt>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo2.CourseProperty">
+<tt class="descname">CourseProperty</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo2.CourseProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the assessment folder that contains the assessment.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentResultInfo3">
+<em class="property">complexType </em><tt class="descname">AssessmentResultInfo3</tt> extends <a class="reference internal" href="#qm-xtype.AssessmentResultInfo2" title="AssessmentResultInfo2">AssessmentResultInfo2</a><a class="headerlink" href="#qm-xtype.AssessmentResultInfo3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extends the base classes with elements for specifying if the
+assessment has been translated and whether or not this is the base
+language.</p>
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo3.Base">
+<tt class="descname">Base</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo3.Base" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the language given is the base language.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfo3.Language">
+<tt class="descname">Language</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo3.Language" title="Permalink to this definition">¶</a></dt>
+<dd><p>The language code of the language the assessment was presented
+in.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentResultInfoList">
+<em class="property">complexType </em><tt class="descname">AssessmentResultInfoList</tt><a class="headerlink" href="#qm-xtype.AssessmentResultInfoList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element that contains a list of AssessmentResultInfo.</p>
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfoList.AssessmentResultInfo">
+<tt class="descname">AssessmentResultInfo</tt> <a class="reference internal" href="#qm-xtype.AssessmentResultInfo" title="AssessmentResultInfo">AssessmentResultInfo</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfoList.AssessmentResultInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentResultInfoList2">
+<em class="property">complexType </em><tt class="descname">AssessmentResultInfoList2</tt><a class="headerlink" href="#qm-xtype.AssessmentResultInfoList2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element that contains a list of AssessmentResultInfo2.</p>
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfoList2.AssessmentResultInfo2">
+<tt class="descname">AssessmentResultInfo2</tt> <a class="reference internal" href="#qm-xtype.AssessmentResultInfo2" title="AssessmentResultInfo2">AssessmentResultInfo2</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfoList2.AssessmentResultInfo2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentResultInfoList3">
+<em class="property">complexType </em><tt class="descname">AssessmentResultInfoList3</tt><a class="headerlink" href="#qm-xtype.AssessmentResultInfoList3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element that contains a list of AssessmentResultInfo3.</p>
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentResultInfoList3.AssessmentResultInfo3">
+<tt class="descname">AssessmentResultInfo3</tt> <a class="reference internal" href="#qm-xtype.AssessmentResultInfo3" title="AssessmentResultInfo3">AssessmentResultInfo3</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfoList3.AssessmentResultInfo3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.QuestionResultInfo">
+<em class="property">complexType </em><tt class="descname">QuestionResultInfo</tt><a class="headerlink" href="#qm-xtype.QuestionResultInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Records information about a question that has been used to generate
+answers - used prior to creating results.  See
+<a class="reference internal" href="#qm-meth.CreateQuestionResultInfoList" title="CreateQuestionResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateQuestionResultInfoList</span></tt></a>.</p>
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfo.Question_ID">
+<tt class="descname">Question_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.QuestionResultInfo.Question_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfo.Revision">
+<tt class="descname">Revision</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.QuestionResultInfo.Revision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfo.Question_Description">
+<tt class="descname">Question_Description</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.QuestionResultInfo.Question_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfo.Question_Type">
+<tt class="descname">Question_Type</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.QuestionResultInfo.Question_Type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfo.Topic_Name">
+<tt class="descname">Topic_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.QuestionResultInfo.Topic_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfo.Number_Outcomes">
+<tt class="descname">Number_Outcomes</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.QuestionResultInfo.Number_Outcomes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfo.Question_Wording">
+<tt class="descname">Question_Wording</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.QuestionResultInfo.Question_Wording" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfo.OutcomeList">
+<tt class="descname">OutcomeList</tt> <a class="reference internal" href="#qm-xtype.OutcomeList" title="OutcomeList">OutcomeList</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.QuestionResultInfo.OutcomeList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfo.Last_Updated">
+<tt class="descname">Last_Updated</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.QuestionResultInfo.Last_Updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.Outcome">
+<em class="property">complexType </em><tt class="descname">Outcome</tt><a class="headerlink" href="#qm-xtype.Outcome" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.Outcome.Outcome_Number">
+<tt class="descname">Outcome_Number</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Outcome.Outcome_Number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Outcome.Outcome_Name">
+<tt class="descname">Outcome_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Outcome.Outcome_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Outcome.Feedback">
+<tt class="descname">Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Outcome.Feedback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.OutcomeList">
+<em class="property">complexType </em><tt class="descname">OutcomeList</tt><a class="headerlink" href="#qm-xtype.OutcomeList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element that contains a list of Outcomes.</p>
+<dl class="xfield">
+<dt id="qm-xfield.OutcomeList.Outcome">
+<tt class="descname">Outcome</tt> <a class="reference internal" href="#qm-xtype.Outcome" title="Outcome">Outcome</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.OutcomeList.Outcome" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.QuestionResultInfo2">
+<em class="property">complexType </em><tt class="descname">QuestionResultInfo2</tt> extends <a class="reference internal" href="#qm-xtype.QuestionResultInfo" title="QuestionResultInfo">QuestionResultInfo</a><a class="headerlink" href="#qm-xtype.QuestionResultInfo2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extends the base QuestionResultInfo to include support for
+translated questions.</p>
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfo2.Base">
+<tt class="descname">Base</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.QuestionResultInfo2.Base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfo2.Language">
+<tt class="descname">Language</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.QuestionResultInfo2.Language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.QuestionResultInfoList">
+<em class="property">complexType </em><tt class="descname">QuestionResultInfoList</tt><a class="headerlink" href="#qm-xtype.QuestionResultInfoList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element that contains a list of QuestionResultInfo.</p>
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfoList.QuestionResultInfo">
+<tt class="descname">QuestionResultInfo</tt> <a class="reference internal" href="#qm-xtype.QuestionResultInfo" title="QuestionResultInfo">QuestionResultInfo</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.QuestionResultInfoList.QuestionResultInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.QuestionResultInfoList2">
+<em class="property">complexType </em><tt class="descname">QuestionResultInfoList2</tt><a class="headerlink" href="#qm-xtype.QuestionResultInfoList2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element that contains a list of QuestionResultInfoList2.</p>
+<dl class="xfield">
+<dt id="qm-xfield.QuestionResultInfoList2.QuestionResultInfoList2">
+<tt class="descname">QuestionResultInfoList2</tt> <a class="reference internal" href="#qm-xtype.QuestionResultInfoList2" title="QuestionResultInfoList2">QuestionResultInfoList2</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.QuestionResultInfoList2.QuestionResultInfoList2" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -889,6 +1718,33 @@ outcome band.</dd>
 
 </dd></dl>
 
+<dl class="xtype">
+<dt id="qm-xtype.UnencryptedLMSDetails">
+<em class="property">complexType </em><tt class="descname">UnencryptedLMSDetails</tt> extends <a class="reference internal" href="#qm-xtype.LMSDetails" title="LMSDetails">LMSDetails</a><a class="headerlink" href="#qm-xtype.UnencryptedLMSDetails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated.</p>
+<dl class="xfield">
+<dt id="qm-xfield.UnencryptedLMSDetails.Password">
+<tt class="descname">Password</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.UnencryptedLMSDetails.Password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.LMSDetails">
+<em class="property">complexType </em><tt class="descname">LMSDetails</tt><a class="headerlink" href="#qm-xtype.LMSDetails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated.</p>
+<dl class="xfield">
+<dt id="qm-xfield.LMSDetails.SessionId">
+<tt class="descname">SessionId</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.LMSDetails.SessionId" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.LMSDetails.LmsUrl">
+<tt class="descname">LmsUrl</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.LMSDetails.LmsUrl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
@@ -901,7 +1757,11 @@ outcome band.</dd>
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Results</a><ul>
-<li><a class="reference internal" href="#result-methods">Result Methods</a></li>
+<li><a class="reference internal" href="#result-methods">Result Methods</a><ul>
+<li><a class="reference internal" href="#getting-result-information">Getting Result Information</a></li>
+<li><a class="reference internal" href="#creating-results">Creating Results</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#result-types">Result Types</a></li>
 </ul>
 </li>
@@ -947,7 +1807,7 @@ outcome band.</dd>
         <li class="right" >
           <a href="questions.html" title="Questions"
              >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.05 documentation</a> &raquo;</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
           <li><a href="../qmwise.html" >QMWISe</a> &raquo;</li>
           <li><a href="methods.html" >Web Service Methods</a> &raquo;</li> 
       </ul>

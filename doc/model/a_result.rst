@@ -156,6 +156,13 @@ A_Result
 
     ..  qm:field::  Feedback smallint
 
+        Whether or not feedback was given:
+        
+        0.  none given
+        
+        1.  some feedback given
+
+
     ..  qm:field::  Number_Sections smallint
 
     ..  qm:field::  When_Finished datetime
