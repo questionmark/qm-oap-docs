@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Result Entity &mdash; QuestionmarkAPIs 2016.07 documentation</title>
+    <title>Result &mdash; QuestionmarkAPIs 2016.07 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -25,8 +25,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="../index.html" />
     <link rel="up" title="Delivery OData Feeds" href="feeds.html" />
-    <link rel="next" title="Results OData API" href="../resultsodata.html" />
-    <link rel="prev" title="Delivery OData Feeds" href="feeds.html" /> 
+    <link rel="next" title="Rubric" href="rubric.html" />
+    <link rel="prev" title="Group" href="group.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,10 +36,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../resultsodata.html" title="Results OData API"
+          <a href="rubric.html" title="Rubric"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="feeds.html" title="Delivery OData Feeds"
+          <a href="group.html" title="Group"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
           <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
@@ -52,52 +52,52 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="result-entity">
-<h1>Result Entity<a class="headerlink" href="#result-entity" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="result">
+<h1>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h1>
 <dl class="type">
-<dt id="od-type.Result">
-<em class="property">EntityType: </em><tt class="descname">Result</tt><a class="headerlink" href="#od-type.Result" title="Permalink to this definition">¶</a></dt>
+<dt id="od-type.deliveryodata.Result">
+<em class="property">EntityType: </em><tt class="descname">Result</tt><a class="headerlink" href="#od-type.deliveryodata.Result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Result entities are drawn from <a class="reference internal" href="../model/a_result.html#qm-table.a_result" title="A_Result"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Result</span></tt></a> in the data
 model but contain only a subset of the properties.  Result entities
 are generally read-only with the exception of the
-<a class="reference internal" href="#od-prop.Result.Status" title="Status"><tt class="xref od od-prop docutils literal"><span class="pre">Result.Status</span></tt></a> and <a class="reference internal" href="#od-prop.Result.ExtraTime" title="ExtraTime"><tt class="xref od od-prop docutils literal"><span class="pre">Result.ExtraTime</span></tt></a> properties.</p>
+<tt class="xref od od-prop docutils literal"><span class="pre">Result.Status</span></tt> and <tt class="xref od od-prop docutils literal"><span class="pre">Result.ExtraTime</span></tt> properties.</p>
 <dl class="prop">
-<dt id="od-prop.Result.ID">
-<em class="property">Entity Key: </em><tt class="descname">ID</tt> Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.Result.ID" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.ID">
+<em class="property">Entity Key: </em><tt class="descname">ID</tt> Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Result.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.result_id" title="Result_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Result_ID</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.Result.AssessmentID">
-<tt class="descname">AssessmentID</tt> Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.Result.AssessmentID" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.AssessmentID">
+<tt class="descname">AssessmentID</tt> Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Result.AssessmentID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The OData feed exposes the Assessment using a combined ID rather
 than the MID+LID forms found in the data model.  See
 <a class="reference internal" href="../model/a_result.html#qm-field.a_result.session_mid" title="Session_MID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Session_MID</span></tt></a> for more information.</p>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.Result.ParticipantName">
-<tt class="descname">ParticipantName</tt> Edm.String<a class="headerlink" href="#od-prop.Result.ParticipantName" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.ParticipantName">
+<tt class="descname">ParticipantName</tt> Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.ParticipantName" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the participant, see
 <a class="reference internal" href="../model/a_result.html#qm-field.a_result.participant" title="Participant"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Participant</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.Result.GroupName">
-<tt class="descname">GroupName</tt> Edm.String<a class="headerlink" href="#od-prop.Result.GroupName" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.GroupName">
+<tt class="descname">GroupName</tt> Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.GroupName" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the participant&#8217;s group, see
 <a class="reference internal" href="../model/a_result.html#qm-field.a_result.member_group" title="Member_Group"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Member_Group</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.Result.ParticipantDetails">
-<tt class="descname">ParticipantDetails</tt> Edm.String<a class="headerlink" href="#od-prop.Result.ParticipantDetails" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.ParticipantDetails">
+<tt class="descname">ParticipantDetails</tt> Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.ParticipantDetails" title="Permalink to this definition">¶</a></dt>
 <dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.participant_details" title="Participant_Details"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Participant_Details</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.Result.Status">
-<tt class="descname">Status</tt> Edm.Int16<a class="headerlink" href="#od-prop.Result.Status" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.Status">
+<tt class="descname">Status</tt> Edm.Int16<a class="headerlink" href="#od-prop.deliveryodata.Result.Status" title="Permalink to this definition">¶</a></dt>
 <dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.status" title="Status"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Status</span></tt></a> for details of the permitted
 values.</p>
 <p>Unlike most fields in this entity the value of Status may be set
@@ -116,48 +116,48 @@ the client&#8217;s device.</p>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.Result.MaxScore">
-<tt class="descname">MaxScore</tt> Edm.Int32<a class="headerlink" href="#od-prop.Result.MaxScore" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.MaxScore">
+<tt class="descname">MaxScore</tt> Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Result.MaxScore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.max_score" title="Max_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Max_Score</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.Result.TotalScore">
-<tt class="descname">TotalScore</tt> Edm.Int32<a class="headerlink" href="#od-prop.Result.TotalScore" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.TotalScore">
+<tt class="descname">TotalScore</tt> Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Result.TotalScore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.total_score" title="Total_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Total_Score</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.Result.ScoreBandTitle">
-<tt class="descname">ScoreBandTitle</tt> Edm.String<a class="headerlink" href="#od-prop.Result.ScoreBandTitle" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.ScoreBandTitle">
+<tt class="descname">ScoreBandTitle</tt> Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.ScoreBandTitle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.score_band_title" title="Score_Band_Title"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Score_Band_Title</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.Result.PercentageScore">
-<tt class="descname">PercentageScore</tt> Edm.Int16<a class="headerlink" href="#od-prop.Result.PercentageScore" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.PercentageScore">
+<tt class="descname">PercentageScore</tt> Edm.Int16<a class="headerlink" href="#od-prop.deliveryodata.Result.PercentageScore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.percentage_score" title="Percentage_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Percentage_Score</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.Result.WhenFinished">
-<tt class="descname">WhenFinished</tt> Edm.DateTime<a class="headerlink" href="#od-prop.Result.WhenFinished" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.WhenFinished">
+<tt class="descname">WhenFinished</tt> Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Result.WhenFinished" title="Permalink to this definition">¶</a></dt>
 <dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.when_finished_utc" title="When_Finished_UTC"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.When_Finished_UTC</span></tt></a>.  Despite
 having no UTC suffix this time is always expressed in UTC.</p>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.Result.WhenStarted">
-<tt class="descname">WhenStarted</tt> Edm.DateTime<a class="headerlink" href="#od-prop.Result.WhenStarted" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.WhenStarted">
+<tt class="descname">WhenStarted</tt> Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Result.WhenStarted" title="Permalink to this definition">¶</a></dt>
 <dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.when_started_utc" title="When_Started_UTC"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.When_Started_UTC</span></tt></a>.  Despite
 having no UTC suffix this time is always expressed in UTC.</p>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.Result.ExtraTime">
-<tt class="descname">ExtraTime</tt> Edm.Int32<a class="headerlink" href="#od-prop.Result.ExtraTime" title="Permalink to this definition">¶</a></dt>
+<dt id="od-prop.deliveryodata.Result.ExtraTime">
+<tt class="descname">ExtraTime</tt> Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Result.ExtraTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>May be set directly using PATCH/MERGE or PUT messages on the
-entity.  See also the comments under <a class="reference internal" href="#od-prop.Result.Status" title="Status"><tt class="xref od od-prop docutils literal"><span class="pre">Result.Status</span></tt></a>
+entity.  See also the comments under <tt class="xref od od-prop docutils literal"><span class="pre">Result.Status</span></tt>
 for limitations on the use of this adjustment for a running
 assessment.</p>
 <p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.extra_time" title="EXTRA_TIME"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.EXTRA_TIME</span></tt></a> for information about the
@@ -175,11 +175,11 @@ interpretation of this field&#8217;s value.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="feeds.html"
-                        title="previous chapter">Delivery OData Feeds</a></p>
+  <p class="topless"><a href="group.html"
+                        title="previous chapter">Group</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../resultsodata.html"
-                        title="next chapter">Results OData API</a></p>
+  <p class="topless"><a href="rubric.html"
+                        title="next chapter">Rubric</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/deliveryodata/result.txt"
@@ -209,10 +209,10 @@ interpretation of this field&#8217;s value.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../resultsodata.html" title="Results OData API"
+          <a href="rubric.html" title="Rubric"
              >next</a> |</li>
         <li class="right" >
-          <a href="feeds.html" title="Delivery OData Feeds"
+          <a href="group.html" title="Group"
              >previous</a> |</li>
         <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
           <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>

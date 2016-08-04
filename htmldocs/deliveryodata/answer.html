@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Answer &mdash; QuestionmarkAPIs 2016.07 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.07',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="../index.html" />
+    <link rel="up" title="Delivery OData Feeds" href="feeds.html" />
+    <link rel="next" title="AnswerUpload" href="answerupload.html" />
+    <link rel="prev" title="Administrator" href="administrator.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="answerupload.html" title="AnswerUpload"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="administrator.html" title="Administrator"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
+          <li><a href="feeds.html" accesskey="U">Delivery OData Feeds</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="answer">
+<h1>Answer<a class="headerlink" href="#answer" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="od-type.deliveryodata.Answer">
+<em class="property">EntityType: </em><tt class="descname">Answer</tt><a class="headerlink" href="#od-type.deliveryodata.Answer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Answer entities are drawn from <a class="reference internal" href="../model/a_answer.html#qm-table.a_answer" title="A_Answer"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Answer</span></tt></a> in the data
+model but contain only a subset of the properties.  They are read
+only in OData.</p>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.QuestionID">
+<em class="property">Entity Key: </em><tt class="descname">QuestionID</tt> Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.QuestionID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fulle ID of the question being answered, see
+<a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.question_mid" title="Question_MID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Question_MID</span></tt></a>. for more information.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.ResultID">
+<em class="property">Entity Key: </em><tt class="descname">ResultID</tt> Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.ResultID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the associated Result, see
+<a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.result_id" title="Result_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Result_ID</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.BlockNumber">
+<em class="property">Entity Key: </em><tt class="descname">BlockNumber</tt> Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.BlockNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sequence number of the block within the which the question
+was presented.  See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.block_number" title="Block_Number"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Block_Number</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.Occurrence">
+<em class="property">Entity Key: </em><tt class="descname">Occurrence</tt> Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.Occurrence" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.occurrence" title="Occurrence"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Occurrence</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.QuestionNumber">
+<tt class="descname">QuestionNumber</tt> Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.QuestionNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sequence number of the question presented within the block.
+See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.question_number" title="Question_Number"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Question_Number</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.TimesAnswered">
+<tt class="descname">TimesAnswered</tt> Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.TimesAnswered" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.times_answered" title="Times_Answered"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Times_Answered</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.MaxScore">
+<tt class="descname">MaxScore</tt> Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.MaxScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.max_score" title="Max_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Max_Score</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.ActualScore">
+<tt class="descname">ActualScore</tt> Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.ActualScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.actual_score" title="Actual_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Actual_Score</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.Question">
+<tt class="descname">Question</tt> Question<a class="headerlink" href="#od-prop.deliveryodata.Answer.Question" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the a single Question associated with
+this answer.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.Result">
+<tt class="descname">Result</tt> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-prop.deliveryodata.Answer.Result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the single Result associated with this
+answer.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.ScoringTask">
+<tt class="descname">ScoringTask</tt> ScoringTask<a class="headerlink" href="#od-prop.deliveryodata.Answer.ScoringTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to an optional ScoringTask associated with
+this answer.  ScoringTasks are only associated with answers that
+require subjective marking.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="administrator.html"
+                        title="previous chapter">Administrator</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="answerupload.html"
+                        title="next chapter">AnswerUpload</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/deliveryodata/answer.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="answerupload.html" title="AnswerUpload"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="administrator.html" title="Administrator"
+             >previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
+          <li><a href="feeds.html" >Delivery OData Feeds</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

@@ -87,7 +87,7 @@ Assessment Types
 
         See :qm:field:`Q_ScoreBand_Ex.Min_Score`.
 
-    ..  qm:xfield:: Min_Score   double
+    ..  qm:xfield:: Max_Score   double
 
         See :qm:field:`Q_ScoreBand_Ex.Max_Score`.
 

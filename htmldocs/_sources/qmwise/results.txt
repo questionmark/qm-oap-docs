@@ -888,12 +888,7 @@ Result Types
         :optional:
 
         See :qm:field:`A_Answer.Topic`.
-        
-    ..  qm:xfield:: Topic_Name string
-        :optional:
-
-        See :qm:field:`A_Answer.Topic`.
-        
+                
     ..  qm:xfield:: Block_Number short
 
         See :qm:field:`A_Answer.Block_Number`.
@@ -989,7 +984,7 @@ Result Types
 ..  qm:xtype::  AnswerList2
     
     The type used to serialize a list of answers using the updated
-    :qm:type:`Answer2` content model.
+    :qm:xtype:`Answer2` content model.
     
     ..  qm:xfield:: Answer2 Answer2
         :optional:

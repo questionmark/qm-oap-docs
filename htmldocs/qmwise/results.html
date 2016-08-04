@@ -67,7 +67,7 @@ these methods were designed to work with smaller datasets and may
 not be suitable for use when the number of results returned is very
 large.  As a rule of thumb, if the returned result set exceeds
 1,000 results consider using an alternative API.  The
-<a class="reference internal" href="../deliveryodata/feeds.html#od-feed.Results" title="Results"><tt class="xref od od-feed docutils literal"><span class="pre">Results</span></tt></a> OData feed queries the same part of the data
+<tt class="xref od od-feed docutils literal"><span class="pre">Results</span></tt> OData feed queries the same part of the data
 model and will accept more filters (including date filters) allowing
 you to return more precise result sets.</p>
 </div>
@@ -77,7 +77,7 @@ you to return more precise result sets.</p>
 <h3>Getting Result Information<a class="headerlink" href="#getting-result-information" title="Permalink to this headline">¶</a></h3>
 <dl class="meth">
 <dt id="qm-meth.GetResult">
-<em class="property">operation </em><tt class="descname">GetResult</tt> (Result_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.Result" title="Result">Result</a> <a class="headerlink" href="#qm-meth.GetResult" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetResult</tt> (Result_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.Result" title="Result">Result</a> <a class="headerlink" href="#qm-meth.GetResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a single result from the database.  The string type of the
 input parameter is an anomaly, the parameter value is required (See
 <a class="reference internal" href="../qmwise.html#qmwise-string"><em>String Parameters</em></a>) and must be the integer value of a result ID
@@ -163,7 +163,7 @@ WSDL.  (See <a class="reference internal" href="../qmwise.html#extension-types">
 
 <dl class="meth">
 <dt id="qm-meth.GetResultList">
-<em class="property">operation </em><tt class="descname">GetResultList</tt> () returns <a class="reference internal" href="#qm-xtype.ResultList" title="ResultList">ResultList</a> <a class="headerlink" href="#qm-meth.GetResultList" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetResultList</tt> () returns <a class="reference internal" href="#qm-xtype.ResultList" title="ResultList">ResultList</a> <a class="headerlink" href="#qm-meth.GetResultList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns <em>all</em> results in the repository database.  Use of this
 method is no longer recommended due to the number of result records
 in a typical repository.</p>
@@ -171,7 +171,7 @@ in a typical repository.</p>
 
 <dl class="meth">
 <dt id="qm-meth.GetResultListByAssessment">
-<em class="property">operation </em><tt class="descname">GetResultListByAssessment</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.ResultList" title="ResultList">ResultList</a> <a class="headerlink" href="#qm-meth.GetResultListByAssessment" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetResultListByAssessment</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.ResultList" title="ResultList">ResultList</a> <a class="headerlink" href="#qm-meth.GetResultListByAssessment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns <em>all</em> results in the repository database associated with a
 given assessment.  Use of this method is no longer recommended if
 the number of results for the assessment exceeds 10,000 records.</p>
@@ -181,7 +181,7 @@ numeric ID of the assessment.</p>
 
 <dl class="meth">
 <dt id="qm-meth.GetResultListByGroup">
-<em class="property">operation </em><tt class="descname">GetResultListByGroup</tt> (Group_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.ResultList" title="ResultList">ResultList</a> <a class="headerlink" href="#qm-meth.GetResultListByGroup" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetResultListByGroup</tt> (Group_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.ResultList" title="ResultList">ResultList</a> <a class="headerlink" href="#qm-meth.GetResultListByGroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns <em>all</em> results in the repository database associated with a
 given Group.  Use of this method is no longer recommended if the
 number of results for the group exceeds 10,000 records.</p>
@@ -195,7 +195,7 @@ back-quote ` before being used to filter the result set.</p>
 
 <dl class="meth">
 <dt id="qm-meth.GetResultListByParticipant">
-<em class="property">operation </em><tt class="descname">GetResultListByParticipant</tt> (Participant_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.ResultList" title="ResultList">ResultList</a> <a class="headerlink" href="#qm-meth.GetResultListByParticipant" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetResultListByParticipant</tt> (Participant_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.ResultList" title="ResultList">ResultList</a> <a class="headerlink" href="#qm-meth.GetResultListByParticipant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns <em>all</em> results in the repository database associated with a
 given Participant.</p>
 <p>Notice that the participant is identified by <em>name</em> and not by a
@@ -208,7 +208,7 @@ back-quote ` before being used to filter the result set.</p>
 
 <dl class="meth">
 <dt id="qm-meth.GetResultListBySubGroup">
-<em class="property">operation </em><tt class="descname">GetResultListBySubGroup</tt> (Event <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.EventResultList" title="EventResultList">EventResultList</a> <a class="headerlink" href="#qm-meth.GetResultListBySubGroup" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetResultListBySubGroup</tt> (Event <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.EventResultList" title="EventResultList">EventResultList</a> <a class="headerlink" href="#qm-meth.GetResultListBySubGroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <a class="reference internal" href="#qm-meth.GetResultListByGroup" title="GetResultListByGroup"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultListByGroup</span></tt></a>, this returns all results
 in the repository where <a class="reference internal" href="../model/a_result.html#qm-field.a_result.member_sub_group_1" title="Member_Sub_Group_1"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Member_Sub_Group_1</span></tt></a>
 matches the input parameter.  This method imposes the additional
@@ -220,7 +220,7 @@ the input parameter.</p>
 
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResult">
-<em class="property">operation </em><tt class="descname">GetAssessmentResult</tt> (Result_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResult" title="AssessmentResult">AssessmentResult</a> <a class="headerlink" href="#qm-meth.GetAssessmentResult" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetAssessmentResult</tt> (Result_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResult" title="AssessmentResult">AssessmentResult</a> <a class="headerlink" href="#qm-meth.GetAssessmentResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <a class="reference internal" href="#qm-meth.GetResult" title="GetResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResult</span></tt></a> but returns additional information
 including the Feedback and the the detailed item-level responses and
 scores.</p>
@@ -228,7 +228,7 @@ scores.</p>
 
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResult2">
-<em class="property">operation </em><tt class="descname">GetAssessmentResult2</tt> (Result_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResult2" title="AssessmentResult2">AssessmentResult2</a> <a class="headerlink" href="#qm-meth.GetAssessmentResult2" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetAssessmentResult2</tt> (Result_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResult2" title="AssessmentResult2">AssessmentResult2</a> <a class="headerlink" href="#qm-meth.GetAssessmentResult2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <a class="reference internal" href="#qm-meth.GetAssessmentResult" title="GetAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessmentResult</span></tt></a> but returns some elements
 missing from the original method by using the
 <a class="reference internal" href="#qm-xtype.AssessmentResult2" title="AssessmentResult2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">AssessmentResult2</span></tt></a> type.</p>
@@ -236,7 +236,7 @@ missing from the original method by using the
 
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResultListByAssessment">
-<em class="property">operation </em><tt class="descname">GetAssessmentResultListByAssessment</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultList" title="AssessmentResultList">AssessmentResultList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultListByAssessment" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetAssessmentResultListByAssessment</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultList" title="AssessmentResultList">AssessmentResultList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultListByAssessment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <a class="reference internal" href="#qm-meth.GetResultListByAssessment" title="GetResultListByAssessment"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultListByAssessment</span></tt></a> but returns
 additional information including the Feedback and the the detailed
 item-level responses and scores.</p>
@@ -244,7 +244,7 @@ item-level responses and scores.</p>
 
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResultListByGroup">
-<em class="property">operation </em><tt class="descname">GetAssessmentResultListByGroup</tt> (Group_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultList" title="AssessmentResultList">AssessmentResultList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultListByGroup" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetAssessmentResultListByGroup</tt> (Group_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultList" title="AssessmentResultList">AssessmentResultList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultListByGroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <a class="reference internal" href="#qm-meth.GetResultListByGroup" title="GetResultListByGroup"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultListByGroup</span></tt></a> but returns additional
 information including the Feedback and the the detailed item-level
 responses and scores.</p>
@@ -252,7 +252,7 @@ responses and scores.</p>
 
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResultListByParticipant">
-<em class="property">operation </em><tt class="descname">GetAssessmentResultListByParticipant</tt> (Participant_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultList" title="AssessmentResultList">AssessmentResultList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultListByParticipant" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetAssessmentResultListByParticipant</tt> (Participant_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultList" title="AssessmentResultList">AssessmentResultList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultListByParticipant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <a class="reference internal" href="#qm-meth.GetResultListByParticipant" title="GetResultListByParticipant"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultListByParticipant</span></tt></a> but returns
 additional information including the Feedback and the the detailed
 item-level responses and scores.</p>
@@ -270,7 +270,7 @@ new projects should consider using the new snapshot-based &#8216;Attempt&#8217; 
 facilitated by the <a class="reference internal" href="../deliveryodata.html#od-service.deliveryodata" title="Delivery OData Service"><tt class="xref od od-svc docutils literal"><span class="pre">Delivery</span> <span class="pre">OData</span></tt></a> service.</p>
 <dl class="meth">
 <dt id="qm-meth.CreateAssessmentResult">
-<em class="property">operation </em><tt class="descname">CreateAssessmentResult</tt> (AssessmentResult <a class="reference internal" href="#qm-xtype.AssessmentResult" title="AssessmentResult">AssessmentResult</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResult" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">CreateAssessmentResult</tt> (AssessmentResult <a class="reference internal" href="#qm-xtype.AssessmentResult" title="AssessmentResult">AssessmentResult</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a single result in the database from the supplied
 information. This is the base method designed to work with the basic
 <a class="reference internal" href="#qm-xtype.Result" title="Result"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result</span></tt></a> and <a class="reference internal" href="#qm-xtype.Answer" title="Answer"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Answer</span></tt></a> elements.</p>
@@ -315,21 +315,21 @@ consistent reporting in Questionmark Analytics.</p>
 
 <dl class="meth">
 <dt id="qm-meth.CreateAssessmentResult2">
-<em class="property">operation </em><tt class="descname">CreateAssessmentResult2</tt> (AssessmentResult2 <a class="reference internal" href="#qm-xtype.AssessmentResult2" title="AssessmentResult2">AssessmentResult2</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResult2" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">CreateAssessmentResult2</tt> (AssessmentResult2 <a class="reference internal" href="#qm-xtype.AssessmentResult2" title="AssessmentResult2">AssessmentResult2</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResult2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extends the basic <a class="reference internal" href="#qm-meth.CreateAssessmentResult" title="CreateAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResult</span></tt></a> to use the
 updated <a class="reference internal" href="#qm-xtype.AssessmentResult2" title="AssessmentResult2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">AssessmentResult2</span></tt></a> type.</p>
 </dd></dl>
 
 <dl class="meth">
 <dt id="qm-meth.CreateAssessmentResult3">
-<em class="property">operation </em><tt class="descname">CreateAssessmentResult3</tt> (AssessmentResult3 <a class="reference internal" href="#qm-xtype.AssessmentResult3" title="AssessmentResult3">AssessmentResult3</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResult3" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">CreateAssessmentResult3</tt> (AssessmentResult3 <a class="reference internal" href="#qm-xtype.AssessmentResult3" title="AssessmentResult3">AssessmentResult3</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResult3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extends the basic <a class="reference internal" href="#qm-meth.CreateAssessmentResult" title="CreateAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResult</span></tt></a> to use the
 language-aware <a class="reference internal" href="#qm-xtype.AssessmentResult3" title="AssessmentResult3"><tt class="xref qm qm-xtype docutils literal"><span class="pre">AssessmentResult3</span></tt></a> type.</p>
 </dd></dl>
 
 <dl class="meth">
 <dt id="qm-meth.CreateAssessmentResultInfoList">
-<em class="property">operation </em><tt class="descname">CreateAssessmentResultInfoList</tt> (AssessmentResultInfoList <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList" title="AssessmentResultInfoList">AssessmentResultInfoList</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResultInfoList" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">CreateAssessmentResultInfoList</tt> (AssessmentResultInfoList <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList" title="AssessmentResultInfoList">AssessmentResultInfoList</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResultInfoList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an entry in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt> for each item in the
 input list if there is no existing entry available.  Returns the
 number of records that were actually created as a result.</p>
@@ -351,7 +351,7 @@ describe the external assessment.</p>
 
 <dl class="meth">
 <dt id="qm-meth.CreateAssessmentResultInfoList2">
-<em class="property">operation </em><tt class="descname">CreateAssessmentResultInfoList2</tt> (AssessmentResultInfoList2 <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList2" title="AssessmentResultInfoList2">AssessmentResultInfoList2</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResultInfoList2" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">CreateAssessmentResultInfoList2</tt> (AssessmentResultInfoList2 <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList2" title="AssessmentResultInfoList2">AssessmentResultInfoList2</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResultInfoList2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <a class="reference internal" href="#qm-meth.CreateAssessmentResultInfoList" title="CreateAssessmentResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResultInfoList</span></tt></a> but takes an
 extended set of elements allowing two extra fields to be set in the
 database.</p>
@@ -368,7 +368,7 @@ this assessment.</p>
 
 <dl class="meth">
 <dt id="qm-meth.CreateAssessmentResultInfoList3">
-<em class="property">operation </em><tt class="descname">CreateAssessmentResultInfoList3</tt> (AssessmentResultInfoList3 <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList3" title="AssessmentResultInfoList3">AssessmentResultInfoList3</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResultInfoList3" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">CreateAssessmentResultInfoList3</tt> (AssessmentResultInfoList3 <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList3" title="AssessmentResultInfoList3">AssessmentResultInfoList3</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResultInfoList3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <a class="reference internal" href="#qm-meth.CreateAssessmentResultInfoList2" title="CreateAssessmentResultInfoList2"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResultInfoList2</span></tt></a> but takes an
 extended set of elements allowing language information to be set for
 the assessment.</p>
@@ -376,7 +376,7 @@ the assessment.</p>
 
 <dl class="meth">
 <dt id="qm-meth.CreateQuestionResultInfoList">
-<em class="property">operation </em><tt class="descname">CreateQuestionResultInfoList</tt> (QuestionResultInfoList <a class="reference internal" href="#qm-xtype.QuestionResultInfoList" title="QuestionResultInfoList">QuestionResultInfoList</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateQuestionResultInfoList" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">CreateQuestionResultInfoList</tt> (QuestionResultInfoList <a class="reference internal" href="#qm-xtype.QuestionResultInfoList" title="QuestionResultInfoList">QuestionResultInfoList</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateQuestionResultInfoList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an entry in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt> for each item in the
 input list if there is no existing entry available.  Returns the
 number of records that were actually created as a result.</p>
@@ -406,7 +406,7 @@ appropriately to describe the externally created question.</p>
 
 <dl class="meth">
 <dt id="qm-meth.CreateQuestionResultInfoList2">
-<em class="property">operation </em><tt class="descname">CreateQuestionResultInfoList2</tt> (QuestionResultInfoList2 <a class="reference internal" href="#qm-xtype.QuestionResultInfoList2" title="QuestionResultInfoList2">QuestionResultInfoList2</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateQuestionResultInfoList2" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">CreateQuestionResultInfoList2</tt> (QuestionResultInfoList2 <a class="reference internal" href="#qm-xtype.QuestionResultInfoList2" title="QuestionResultInfoList2">QuestionResultInfoList2</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateQuestionResultInfoList2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <a class="reference internal" href="#qm-meth.CreateQuestionResultInfoList" title="CreateQuestionResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateQuestionResultInfoList</span></tt></a> but takes an
 extended set of elements allowing language information to be set for
 the assessment.  For use with
@@ -415,7 +415,7 @@ the assessment.  For use with
 
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResultInfo">
-<em class="property">operation </em><tt class="descname">GetAssessmentResultInfo</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfo" title="AssessmentResultInfo">AssessmentResultInfo</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfo" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetAssessmentResultInfo</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfo" title="AssessmentResultInfo">AssessmentResultInfo</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns information from <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt>.  Can be used to
 check that the required information about an Assessment exists
 before creating results with <a class="reference internal" href="#qm-meth.CreateAssessmentResult" title="CreateAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResult</span></tt></a> and
@@ -424,14 +424,14 @@ similar methods.</p>
 
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResultInfo2">
-<em class="property">operation </em><tt class="descname">GetAssessmentResultInfo2</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfo2" title="AssessmentResultInfo2">AssessmentResultInfo2</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfo2" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetAssessmentResultInfo2</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfo2" title="AssessmentResultInfo2">AssessmentResultInfo2</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfo2" title="Permalink to this definition">¶</a></dt>
 <dd><p>As per <a class="reference internal" href="#qm-meth.GetAssessmentResultInfo" title="GetAssessmentResultInfo"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessmentResultInfo</span></tt></a> but with extended
 information.</p>
 </dd></dl>
 
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResultInfo3">
-<em class="property">operation </em><tt class="descname">GetAssessmentResultInfo3</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>, Base <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a>, Language <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfo3" title="AssessmentResultInfo3">AssessmentResultInfo3</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfo3" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetAssessmentResultInfo3</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>, Base <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a>, Language <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfo3" title="AssessmentResultInfo3">AssessmentResultInfo3</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfo3" title="Permalink to this definition">¶</a></dt>
 <dd><p>As per <a class="reference internal" href="#qm-meth.GetAssessmentResultInfo" title="GetAssessmentResultInfo"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessmentResultInfo</span></tt></a> but can be used with
 translated assessments.  For translated assessments the assessment
 is specified with an additional language code and the flag
@@ -442,13 +442,13 @@ value is not known it may be set to false.</p>
 
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResultInfoList">
-<em class="property">operation </em><tt class="descname">GetAssessmentResultInfoList</tt> () returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList" title="AssessmentResultInfoList">AssessmentResultInfoList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfoList" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetAssessmentResultInfoList</tt> () returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList" title="AssessmentResultInfoList">AssessmentResultInfoList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfoList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns all records from <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt>.</p>
 </dd></dl>
 
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResultInfoList2">
-<em class="property">operation </em><tt class="descname">GetAssessmentResultInfoList2</tt> () returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList2" title="AssessmentResultInfoList2">AssessmentResultInfoList2</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfoList2" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetAssessmentResultInfoList2</tt> () returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList2" title="AssessmentResultInfoList2">AssessmentResultInfoList2</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfoList2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns all records from <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt> with additional
 elements as defined in <a class="reference internal" href="#qm-xtype.AssessmentResultInfo2" title="AssessmentResultInfo2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">AssessmentResultInfo2</span></tt></a>.  Note
 there is not &#8216;GetAssessmentResultInfoList3&#8217;.</p>
@@ -456,7 +456,7 @@ there is not &#8216;GetAssessmentResultInfoList3&#8217;.</p>
 
 <dl class="meth">
 <dt id="qm-meth.GetQuestionResultInfoList">
-<em class="property">operation </em><tt class="descname">GetQuestionResultInfoList</tt> () returns <a class="reference internal" href="#qm-xtype.QuestionResultInfoList" title="QuestionResultInfoList">QuestionResultInfoList</a> <a class="headerlink" href="#qm-meth.GetQuestionResultInfoList" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><tt class="descname">GetQuestionResultInfoList</tt> () returns <a class="reference internal" href="#qm-xtype.QuestionResultInfoList" title="QuestionResultInfoList">QuestionResultInfoList</a> <a class="headerlink" href="#qm-meth.GetQuestionResultInfoList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns all records from <tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt>.  Can be used to
 check that the required information about a Question exists
 before creating results with <a class="reference internal" href="#qm-meth.CreateAssessmentResult" title="CreateAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResult</span></tt></a> and
@@ -1000,12 +1000,6 @@ information.</p>
 </dd></dl>
 
 <dl class="xfield">
-<dt id="qm-xfield.Answer.Topic_Name">
-<tt class="descname">Topic_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Answer.Topic_Name" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.topic" title="Topic"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Topic</span></tt></a>.</p>
-</dd></dl>
-
-<dl class="xfield">
 <dt id="qm-xfield.Answer.Block_Number">
 <tt class="descname">Block_Number</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.short" title="short">short</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Answer.Block_Number" title="Permalink to this definition">¶</a></dt>
 <dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.block_number" title="Block_Number"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Block_Number</span></tt></a>.</p>
@@ -1133,7 +1127,7 @@ in either the data model or the base type being extended.</p>
 <dt id="qm-xtype.AnswerList2">
 <em class="property">complexType </em><tt class="descname">AnswerList2</tt><a class="headerlink" href="#qm-xtype.AnswerList2" title="Permalink to this definition">¶</a></dt>
 <dd><p>The type used to serialize a list of answers using the updated
-<a href="#id1"><span class="problematic" id="id2">:qm:type:`Answer2`</span></a> content model.</p>
+<a class="reference internal" href="#qm-xtype.Answer2" title="Answer2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Answer2</span></tt></a> content model.</p>
 <dl class="xfield">
 <dt id="qm-xfield.AnswerList2.Answer2">
 <tt class="descname">Answer2</tt> <a class="reference internal" href="#qm-xtype.Answer2" title="Answer2">Answer2</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AnswerList2.Answer2" title="Permalink to this definition">¶</a></dt>

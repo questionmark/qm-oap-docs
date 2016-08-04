@@ -1,5 +1,7 @@
-Result Entity
--------------
+Result
+------
+
+..  od:service::    deliveryodata
 
 ..  od:type::   Result
 

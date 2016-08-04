@@ -10,8 +10,8 @@ from sphinx import addnodes
 from sphinx.directives import ObjectDescription
 from sphinx.domains import Domain, ObjType
 from sphinx.roles import XRefRole
+from sphinx.util.docfields import GroupedField
 from sphinx.util.nodes import make_refnode
-
 
 class DefinedObject(object):
     
@@ -86,18 +86,32 @@ class ODataServiceDirective(ObjectDescription):
             inode = addnodes.index(
                 entries=[('single', indextext, obj.get_target_id(), '')])
             ret.append(inode)
-            return ret
         else:
             if obj is None:
                 # fill other attributes later as this isn't the definition
                 obj = ODataService(name=name)
                 env.domaindata['od']['services'][obj.get_target_id()] = obj
+            ret = []
         # this service becomes the parental context
-        env.temp_data['od:service'] = obj 
+        env.temp_data['od:service'] = obj
+        return ret
 
 
 class ODataFeedDirective(ObjectDescription):
 
+    option_spec = {
+        'mle': directives.flag,
+        }
+
+    doc_field_types = [
+        GroupedField('httpmethod', label='Methods Supported',
+                     names=('method', )),
+        GroupedField('filter', label='Filters supported',
+                     names=('filter', )),
+        GroupedField('expand', label='Expansions supported',
+                     names=('expand', )),
+        ]
+    
     def handle_signature(self, sig, signode):
         """Format: <name> <entity-type>"""
         svc = self.env.temp_data.get('od:service', None)
@@ -106,9 +120,15 @@ class ODataFeedDirective(ObjectDescription):
         ftype = sig[1]
         obj = ODataFeed(parent=svc, docname=self.env.docname,
                         name=fname, title=fname)
+        tobj = ODataType(parent=svc, docname=self.env.docname, name=ftype,
+                         title=ftype)
         signode += addnodes.desc_name(fname, fname)
         signode += nodes.Text(" ")
-        signode += addnodes.desc_type(ftype, ftype)
+        signode += addnodes.pending_xref(
+            ftype, nodes.Text(ftype), refdomain="od",
+            reftype="type", reftarget=tobj._get_untyped_id())
+        if 'mle' in self.options:
+            signode += nodes.Text(" (Media Link Entry)")
         return obj
     
     def add_target_and_index(self, name, sig, signode):
@@ -133,8 +153,10 @@ class ODataTypeDirective(ObjectDescription):
 
     def handle_signature(self, sig, signode):
         """Format: just the name of the entity type itself"""
+        svc = self.env.temp_data.get('od:service', None)
         name = sig.strip()
-        obj = ODataType(docname=self.env.docname, name=name, title=name)
+        obj = ODataType(parent=svc, docname=self.env.docname, name=name,
+                        title=name)
         signode += addnodes.desc_annotation("EntityType: ", "EntityType: ")
         signode += addnodes.desc_name(name, name)
         return obj
@@ -156,23 +178,31 @@ class ODataPropertyDirective(ObjectDescription):
     option_spec = {
         'key': directives.flag,
         'notnull': directives.flag,
+        'collection': directives.flag,
         }
 
     def handle_signature(self, sig, signode):
         """Format: <name> <type>"""
         etype = self.env.temp_data['od:type']
+        svc = self.env.temp_data.get('od:service', None)
         sig = sig.strip().split()
         pname = sig[0]
         ptype = sig[1]
         obj = ODataProperty(parent=etype, docname=self.env.docname,
                             name=pname, title=pname)
+        tobj = ODataType(parent=svc, docname=self.env.docname, name=ptype,
+                         title=ptype)
         if 'key' in self.options:
             signode += addnodes.desc_annotation("Entity Key: ", "Entity Key: ")
         signode += addnodes.desc_name(pname, pname)
         signode += nodes.Text(" ")
-        signode += addnodes.desc_type(ptype, ptype)
+        signode += addnodes.pending_xref(
+            ptype, nodes.Text(ptype), refdomain="od",
+            reftype="type", reftarget=tobj._get_untyped_id())
         if 'notnull' in self.options:
             signode += nodes.Text(" NOT NULL")
+        if 'collection' in self.options:
+            signode += nodes.Text(" Collection")
         return obj
     
     def add_target_and_index(self, name, sig, signode):
@@ -245,7 +275,8 @@ class ODataDomain(Domain):
             return make_refnode(builder, fromdocname, obj.docname,
                                 obj.get_target_id(), contnode,
                                 obj.title)
-        else:
+        else:            
+            print qtarget
             return None
 
 
@@ -456,7 +487,7 @@ class SOAPMethodDirective(ObjectDescription):
         """Format: just the name of the method itself"""
         name = sig.strip()
         obj = SOAPMethod(docname=self.env.docname, name=name, title=name)
-        signode += addnodes.desc_annotation("operation ", "operation ")
+        signode += addnodes.desc_annotation("method ", "method ")
         signode += addnodes.desc_name(name, name)
         signode += nodes.Text(" (")
         if 'input' in self.options:
@@ -490,7 +521,7 @@ class SOAPMethodDirective(ObjectDescription):
             self.warning("duplicate object description: %s" % targetname)
         objects[targetname] = name
         self.indexnode['entries'].append(
-            ('single', '%s (SOAP operation)' % name.title, targetname, ''))          
+            ('single', '%s (SOAP method)' % name.title, targetname, ''))          
 
 
 class QMDomain(Domain):
