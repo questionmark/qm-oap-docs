@@ -97,8 +97,8 @@ be used to obtain the full media resource for an entity.  Access to
 simple property values is not supported.</dd>
 </dl>
 </div>
-<div class="section" id="feeds">
-<h2>Feeds<a class="headerlink" href="#feeds" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="feed-reference">
+<h2>Feed Reference<a class="headerlink" href="#feed-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Administrators">
 <tt class="descname">Administrators</tt> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a><a class="headerlink" href="#od-feed.deliveryodata.Administrators" title="Permalink to this definition">¶</a></dt>
@@ -195,15 +195,40 @@ form for future audit.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Assessments">
-<tt class="descname">Assessments</tt> Assessment<a class="headerlink" href="#od-feed.deliveryodata.Assessments" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Assessments feed provides information about the assessment
+<tt class="descname">Assessments</tt> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a><a class="headerlink" href="#od-feed.deliveryodata.Assessments" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; feed is read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>Name</strong> &#8211; assessment name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Results</strong> &#8211; expands the associated Results</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Assessments feed provides information about the assessment
 catalog. That is, all the assessments that have been published for
 delivery.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.AssessmentSnapshots">
-<tt class="descname">AssessmentSnapshots</tt> AssessmentSnapshot<a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshots" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">AssessmentSnapshots</tt> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot">AssessmentSnapshot</a><a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshots" title="Permalink to this definition">¶</a></dt>
 <dd><p>The AssessmentSnapshots feed contains information about snapshots of
 assessments.  Snapshots are versions of an assessment that have
 fixed any randomisation, such as which questions are picked and the
@@ -216,14 +241,14 @@ including printing and scanning.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.AssessmentSnapshotsData">
-<tt class="descname">AssessmentSnapshotsData</tt> AssessmentSnapshotData<a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshotsData" title="Permalink to this definition">¶</a></dt>
-<dd><p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.AssessmentSnapshots" title="AssessmentSnapshots"><tt class="xref od od-feed docutils literal"><span class="pre">deliveryodata.AssessmentSnapshots</span></tt></a>
-which contains the raw XML data describing the snapshot.</p>
+<tt class="descname">AssessmentSnapshotsData</tt> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData">AssessmentSnapshotData</a><a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshotsData" title="Permalink to this definition">¶</a></dt>
+<dd><p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.AssessmentSnapshots" title="AssessmentSnapshots"><tt class="xref od od-feed docutils literal"><span class="pre">AssessmentSnapshots</span></tt></a> which contains
+the raw XML data describing the snapshot.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Attempts">
-<tt class="descname">Attempts</tt> Attempt<a class="headerlink" href="#od-feed.deliveryodata.Attempts" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">Attempts</tt> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-feed.deliveryodata.Attempts" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Attempts feed contains an entry for each attempt at an
 assessment. Attempts represent the authority to take a test and link
 to a specific participant, a specific assessment and (sometimes) a
@@ -239,7 +264,7 @@ business rules.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Dimensions">
-<tt class="descname">Dimensions</tt> Dimension<a class="headerlink" href="#od-feed.deliveryodata.Dimensions" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">Dimensions</tt> <a class="reference internal" href="rubric.html#od-type.deliveryodata.Dimension" title="Dimension">Dimension</a><a class="headerlink" href="#od-feed.deliveryodata.Dimensions" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Dimensions feed contains information about the scoring
 dimensions associated with a rubric and is used for subjective
 marking.</p>
@@ -247,7 +272,7 @@ marking.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.DimensionScores">
-<tt class="descname">DimensionScores</tt> DimensionScore<a class="headerlink" href="#od-feed.deliveryodata.DimensionScores" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">DimensionScores</tt> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.DimensionScore" title="DimensionScore">DimensionScore</a><a class="headerlink" href="#od-feed.deliveryodata.DimensionScores" title="Permalink to this definition">¶</a></dt>
 <dd><p>The DimensionScores feed contains information about the actual
 scores awarded to an answer by a subjective marking process on a
 per-dimension basis.</p>
@@ -257,19 +282,19 @@ per-dimension basis.</p>
 <dt id="od-feed.deliveryodata.Groups">
 <tt class="descname">Groups</tt> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-feed.deliveryodata.Groups" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Groups feed contains data about groups of participants.  Entries
-are defined by the <tt class="xref od od-type docutils literal"><span class="pre">Group</span></tt> type.</p>
+are defined by the <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><tt class="xref od od-type docutils literal"><span class="pre">deliveryodata.Group</span></tt></a> type.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Participants">
-<tt class="descname">Participants</tt> Participant<a class="headerlink" href="#od-feed.deliveryodata.Participants" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">Participants</tt> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant">Participant</a><a class="headerlink" href="#od-feed.deliveryodata.Participants" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Participants feed contains data about users that have the
 special Participant role.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.PrintBatches">
-<tt class="descname">PrintBatches</tt> PrintBatch<a class="headerlink" href="#od-feed.deliveryodata.PrintBatches" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">PrintBatches</tt> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a><a class="headerlink" href="#od-feed.deliveryodata.PrintBatches" title="Permalink to this definition">¶</a></dt>
 <dd><p>The PrintBatches feed contains information about a group of users
 who have been assigned a particular snapshot of an assessment to
 take externally, typically through printing and scanning.</p>
@@ -277,15 +302,15 @@ take externally, typically through printing and scanning.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Questions">
-<tt class="descname">Questions</tt> Question<a class="headerlink" href="#od-feed.deliveryodata.Questions" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">Questions</tt> <a class="reference internal" href="question.html#od-type.deliveryodata.Question" title="Question">Question</a><a class="headerlink" href="#od-feed.deliveryodata.Questions" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Questions feed contains records describing all the questions in
 the assessment catalog.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.QuestionTranslations">
-<tt class="descname">QuestionTranslations</tt> QuestionTranslation<a class="headerlink" href="#od-feed.deliveryodata.QuestionTranslations" title="Permalink to this definition">¶</a></dt>
-<dd><p>An auxiliary feed to <tt class="xref od od-feed docutils literal"><span class="pre">Questions</span></tt> containing translated
+<tt class="descname">QuestionTranslations</tt> <a class="reference internal" href="question.html#od-type.deliveryodata.QuestionTranslation" title="QuestionTranslation">QuestionTranslation</a><a class="headerlink" href="#od-feed.deliveryodata.QuestionTranslations" title="Permalink to this definition">¶</a></dt>
+<dd><p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.Questions" title="Questions"><tt class="xref od od-feed docutils literal"><span class="pre">Questions</span></tt></a> containing translated
 versions of the Questions.</p>
 </dd></dl>
 
@@ -293,7 +318,7 @@ versions of the Questions.</p>
 <dt id="od-feed.deliveryodata.Results">
 <tt class="descname">Results</tt> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-feed.deliveryodata.Results" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Results feed contains data about assessment results.  Entries
-are defined by the <tt class="xref od od-type docutils literal"><span class="pre">Result</span></tt> type.</p>
+are defined by the <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><tt class="xref od od-type docutils literal"><span class="pre">deliveryodata.Result</span></tt></a> type.</p>
 </dd></dl>
 
 <dl class="feed">
@@ -304,14 +329,14 @@ are defined by the <tt class="xref od od-type docutils literal"><span class="pre
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.ScoringResults">
-<tt class="descname">ScoringResults</tt> ScoringResult<a class="headerlink" href="#od-feed.deliveryodata.ScoringResults" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ScoringResults</tt> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringResult" title="ScoringResult">ScoringResult</a><a class="headerlink" href="#od-feed.deliveryodata.ScoringResults" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Scoring Results feed contains the scores awarded by subjective
 marking.  ScoringResults are associated with ScoringTasks.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.ScoringTasks">
-<tt class="descname">ScoringTasks</tt> ScoringTask<a class="headerlink" href="#od-feed.deliveryodata.ScoringTasks" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ScoringTasks</tt> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringTask" title="ScoringTask">ScoringTask</a><a class="headerlink" href="#od-feed.deliveryodata.ScoringTasks" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ScoringTasks feed contains one entity for each Answer that
 requires subjective scoring.  The scores actually awarded are in the
 associated ScoringResult.</p>
@@ -325,9 +350,16 @@ associated ScoringResult.</p>
 <li class="toctree-l1"><a class="reference internal" href="administrator.html">Administrator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="answer.html">Answer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="answerupload.html">AnswerUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assessmentsnapshot.html">AssessmentSnapshot(Data)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">Attempt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="group.html">Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="participant.html">Participant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="printbatch.html">PrintBatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="question.html">Question and QuestionTranslation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="result.html">Result</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rubric.html">Rubric</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rubric.html">Rubric and Dimension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoringtask.html">ScoringTask, ScoringResult and DimensionScore</a></li>
 </ul>
 </div>
 </div>
@@ -343,7 +375,7 @@ associated ScoringResult.</p>
   <ul>
 <li><a class="reference internal" href="#">Delivery OData Feeds</a><ul>
 <li><a class="reference internal" href="#features">Features</a></li>
-<li><a class="reference internal" href="#feeds">Feeds</a></li>
+<li><a class="reference internal" href="#feed-reference">Feed Reference</a></li>
 <li><a class="reference internal" href="#entity-type-reference">Entity Type Reference</a></li>
 </ul>
 </li>

@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>G_User &mdash; QuestionmarkAPIs 2016.07 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.07',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="../index.html" />
+    <link rel="up" title="Security Tables" href="security.html" />
+    <link rel="next" title="Assessment Tables" href="assessment.html" />
+    <link rel="prev" title="G_Owner" href="g_owner.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="assessment.html" title="Assessment Tables"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="g_owner.html" title="G_Owner"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
+          <li><a href="security.html" accesskey="U">Security Tables</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="g-user">
+<h1>G_User<a class="headerlink" href="#g-user" title="Permalink to this headline">¶</a></h1>
+<dl class="table">
+<dt id="qm-table.g_user">
+<em class="property">TABLE </em><tt class="descname">G_User</tt><a class="headerlink" href="#qm-table.g_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Records all administrators.  An administrator is any user that has a
+role other than the special &#8220;Participant&#8221; role within the portal.
+The table does not contain the authoritative information about the
+user but is maintained as a mirror of the key fields for backwards
+compatibility.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Perception 5.7 and Questionmark OnDemand Classic, this
+table is authoritative.</p>
+</div>
+<dl class="field">
+<dt id="qm-field.g_user.user_id">
+<em class="property">Primary Key: </em><tt class="descname">User_ID</tt> int NOT NULL<a class="headerlink" href="#qm-field.g_user.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The administrator ID.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.user_name">
+<tt class="descname">User_Name</tt> varchar(200) NOT NULL<a class="headerlink" href="#qm-field.g_user.user_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.password">
+<tt class="descname">Password</tt> nvarchar(255) NOT NULL<a class="headerlink" href="#qm-field.g_user.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.authenticate_ext">
+<tt class="descname">Authenticate_Ext</tt> int NOT NULL<a class="headerlink" href="#qm-field.g_user.authenticate_ext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.profile_record">
+<tt class="descname">Profile_Record</tt> smallint NOT NULL<a class="headerlink" href="#qm-field.g_user.profile_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.profile_id">
+<tt class="descname">Profile_ID</tt> int NOT NULL<a class="headerlink" href="#qm-field.g_user.profile_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.authoring1">
+<tt class="descname">Authoring1</tt> int NOT NULL<a class="headerlink" href="#qm-field.g_user.authoring1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.authoring2">
+<tt class="descname">Authoring2</tt> int<a class="headerlink" href="#qm-field.g_user.authoring2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.admin1">
+<tt class="descname">Admin1</tt> int NOT NULL<a class="headerlink" href="#qm-field.g_user.admin1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.admin2">
+<tt class="descname">Admin2</tt> int NOT NULL<a class="headerlink" href="#qm-field.g_user.admin2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.admin3">
+<tt class="descname">Admin3</tt> int<a class="headerlink" href="#qm-field.g_user.admin3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.admin4">
+<tt class="descname">Admin4</tt> int<a class="headerlink" href="#qm-field.g_user.admin4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.grading">
+<tt class="descname">Grading</tt> int NOT NULL<a class="headerlink" href="#qm-field.g_user.grading" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.reporting1">
+<tt class="descname">Reporting1</tt> int NOT NULL<a class="headerlink" href="#qm-field.g_user.reporting1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.reporting2">
+<tt class="descname">Reporting2</tt> int<a class="headerlink" href="#qm-field.g_user.reporting2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.misc1">
+<tt class="descname">Misc1</tt> int<a class="headerlink" href="#qm-field.g_user.misc1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.misc2">
+<tt class="descname">Misc2</tt> int<a class="headerlink" href="#qm-field.g_user.misc2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.misc3">
+<tt class="descname">Misc3</tt> int<a class="headerlink" href="#qm-field.g_user.misc3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.misc4">
+<tt class="descname">Misc4</tt> int<a class="headerlink" href="#qm-field.g_user.misc4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.restrict_host">
+<tt class="descname">Restrict_Host</tt> int<a class="headerlink" href="#qm-field.g_user.restrict_host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.email">
+<tt class="descname">Email</tt> varchar(255)<a class="headerlink" href="#qm-field.g_user.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.url">
+<tt class="descname">URL</tt> varchar(255)<a class="headerlink" href="#qm-field.g_user.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.first_name">
+<tt class="descname">First_Name</tt> varchar(200)<a class="headerlink" href="#qm-field.g_user.first_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.last_name">
+<tt class="descname">Last_Name</tt> varchar(200)<a class="headerlink" href="#qm-field.g_user.last_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.department">
+<tt class="descname">Department</tt> varchar(200)<a class="headerlink" href="#qm-field.g_user.department" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.alternate_name">
+<tt class="descname">Alternate_Name</tt> varchar(400)<a class="headerlink" href="#qm-field.g_user.alternate_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_user.profile_description">
+<tt class="descname">Profile_Description</tt> varchar(400)<a class="headerlink" href="#qm-field.g_user.profile_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="g_owner.html"
+                        title="previous chapter">G_Owner</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="assessment.html"
+                        title="next chapter">Assessment Tables</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/model/g_user.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="assessment.html" title="Assessment Tables"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="g_owner.html" title="G_Owner"
+             >previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
+          <li><a href="security.html" >Security Tables</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

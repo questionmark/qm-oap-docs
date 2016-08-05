@@ -18,7 +18,8 @@ A_TopicScore
         :key:
         :notnull:
 
-        Refers to the associated topic, see :qm:field:`Q_Topic.Topic_ID`.
+        Refers to the associated topic, see
+        :qm:field:`Q_Topic_Ex.Topic_ID`.
 
     ..  qm:field::  Percentage_Score float
     

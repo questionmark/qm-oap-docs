@@ -17,11 +17,12 @@ In many cases the same data fields are exposed through multiple APIs.
 The data model is documented to provide a convenient central point for
 the detailed explanation of these data elements.
 
-You might want to look in :qm:table:`a_Result`
-
 .. toctree::
     :maxdepth: 2
 
+    model/security
+    model/assessment
+    model/question
     model/answer
 
 

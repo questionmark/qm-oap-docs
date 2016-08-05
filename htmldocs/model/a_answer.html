@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="../index.html" />
     <link rel="up" title="Answer Tables" href="answer.html" />
-    <link rel="next" title="A_Result" href="a_result.html" />
+    <link rel="next" title="A_Comment" href="a_comment.html" />
     <link rel="prev" title="Answer Tables" href="answer.html" /> 
   </head>
   <body>
@@ -36,7 +36,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="a_result.html" title="A_Result"
+          <a href="a_comment.html" title="A_Comment"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="answer.html" title="Answer Tables"
@@ -79,7 +79,7 @@ submit, not during saves.</p>
 MID and LID, for legacy reasons. The ID itself can be obtained
 using the procedure outlined in <a class="reference internal" href="../data_model.html#midlid"><em>MID and LID</em></a>.</p>
 <p>The ID refers to the question with the same MID and LID in
-<tt class="xref qm qm-table docutils literal"><span class="pre">Q_Question</span></tt></p>
+<a class="reference internal" href="q_question_ex.html#qm-table.q_question_ex" title="Q_Question_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">Q_Question_Ex</span></tt></a></p>
 </dd></dl>
 
 <dl class="field">
@@ -129,7 +129,7 @@ numbering.</p>
 <tt class="descname">Status</tt> smallint<a class="headerlink" href="#qm-field.a_answer.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>The status of the question when it was delivered.  These values
 are taken from the status values of
-<tt class="xref qm qm-field docutils literal"><span class="pre">Q_Question.Status</span></tt>.</p>
+<a class="reference internal" href="q_question_ex.html#qm-field.q_question_ex.status" title="Status"><tt class="xref qm qm-field docutils literal"><span class="pre">Q_Question_Ex.Status</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="field">
@@ -208,7 +208,7 @@ flags for outcomes 33 to 64.</p>
 <dt id="qm-field.a_answer.comment_id">
 <tt class="descname">Comment_ID</tt> int<a class="headerlink" href="#qm-field.a_answer.comment_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of the comment associated with this answer (if given).
-This is a reference to a record in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Comment</span></tt>.</p>
+This is a reference to a record in <a class="reference internal" href="a_comment.html#qm-table.a_comment" title="A_Comment"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Comment</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="field">
@@ -241,7 +241,7 @@ name used to locate the file within the repository.</p>
 <dt id="qm-field.a_answer.topic">
 <tt class="descname">Topic</tt> varchar(1020)<a class="headerlink" href="#qm-field.a_answer.topic" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the topic, obtained from the deserialised QML of
-the question in <tt class="xref qm qm-field docutils literal"><span class="pre">Q_QML_Ex.QML_Data</span></tt>.</p>
+the question in <a class="reference internal" href="q_qml_ex.html#qm-field.q_qml_ex.qml_data" title="QML_Data"><tt class="xref qm qm-field docutils literal"><span class="pre">Q_QML_Ex.QML_Data</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="field">
@@ -287,8 +287,8 @@ option) and these are separated by the string &#8220;^~&#8221;.</dd>
   <p class="topless"><a href="answer.html"
                         title="previous chapter">Answer Tables</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="a_result.html"
-                        title="next chapter">A_Result</a></p>
+  <p class="topless"><a href="a_comment.html"
+                        title="next chapter">A_Comment</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/model/a_answer.txt"
@@ -318,7 +318,7 @@ option) and these are separated by the string &#8220;^~&#8221;.</dd>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="a_result.html" title="A_Result"
+          <a href="a_comment.html" title="A_Comment"
              >next</a> |</li>
         <li class="right" >
           <a href="answer.html" title="Answer Tables"

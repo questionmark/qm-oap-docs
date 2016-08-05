@@ -196,9 +196,12 @@ class ODataPropertyDirective(ObjectDescription):
             signode += addnodes.desc_annotation("Entity Key: ", "Entity Key: ")
         signode += addnodes.desc_name(pname, pname)
         signode += nodes.Text(" ")
-        signode += addnodes.pending_xref(
-            ptype, nodes.Text(ptype), refdomain="od",
-            reftype="type", reftarget=tobj._get_untyped_id())
+        if ptype.lower().startswith("edm."):
+            signode += nodes.Text(" " + ptype)
+        else:
+            signode += addnodes.pending_xref(
+                ptype, nodes.Text(ptype), refdomain="od",
+                reftype="type", reftarget=tobj._get_untyped_id())
         if 'notnull' in self.options:
             signode += nodes.Text(" NOT NULL")
         if 'collection' in self.options:
@@ -223,6 +226,37 @@ class ODataPropertyDirective(ObjectDescription):
                 ('single', '%s (property of ?)' % name.title, targetname, ''))          
     
 
+class ODataFeedRole(XRefRole):
+
+    def process_link(self, env, refnode, has_explicit_title, title, target):
+        svc = env.temp_data.get('od:service', None)
+        if svc is not None:
+            # does target need qualifying?
+            starget = target.split('.')
+            if len(starget) < 2:
+                target = svc.name + '.' + target
+        return title, target
+
+
+class ODataPropRole(XRefRole):
+
+    def process_link(self, env, refnode, has_explicit_title, title, target):
+        svc = env.temp_data.get('od:service', None)
+        typ = env.temp_data.get('od:type', None)
+        starget = target.split('.')
+        if len(starget) < 2:
+            # qualify with svc and type name
+            if typ is not None:
+                target = "%s.%s" % (typ.name, target)
+                if svc is not None:
+                    target = "%s.%s" % (svc.name, target)
+        elif len(starget) < 3:
+            # just the svc name
+            if svc is not None:
+                target = "%s.%s" % (svc.name, target)
+        return title, target
+
+
 class ODataDomain(Domain):
     """OData API domain"""
     name = 'od'
@@ -244,9 +278,9 @@ class ODataDomain(Domain):
     
     roles = {
         'svc': XRefRole(),
-        'feed': XRefRole(),
+        'feed': ODataFeedRole(),
         'type': XRefRole(),
-        'prop': XRefRole(),
+        'prop': ODataPropRole(),
         }
 
     initial_data = {
@@ -325,6 +359,7 @@ class SQLFieldDirective(ObjectDescription):
     option_spec = {
         'key': directives.flag,
         'notnull': directives.flag,
+        'computed': directives.flag,
         }
 
     def handle_signature(self, sig, signode):
@@ -341,6 +376,8 @@ class SQLFieldDirective(ObjectDescription):
         signode += addnodes.desc_name(cname, cname)
         signode += nodes.Text(" ")
         signode += addnodes.desc_type(ctype, ctype)
+        if 'computed' in self.options:
+            signode += addnodes.desc_annotation(" computed", " computed")
         if 'notnull' in self.options:
             signode += nodes.Text(" NOT NULL")
         return obj

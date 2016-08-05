@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Assessment &mdash; QuestionmarkAPIs 2016.07 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.07',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="../index.html" />
+    <link rel="up" title="Delivery OData Feeds" href="feeds.html" />
+    <link rel="next" title="AssessmentSnapshot(Data)" href="assessmentsnapshot.html" />
+    <link rel="prev" title="AnswerUpload" href="answerupload.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="assessmentsnapshot.html" title="AssessmentSnapshot(Data)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="answerupload.html" title="AnswerUpload"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
+          <li><a href="feeds.html" accesskey="U">Delivery OData Feeds</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="assessment">
+<h1>Assessment<a class="headerlink" href="#assessment" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="od-type.deliveryodata.Assessment">
+<em class="property">EntityType: </em><tt class="descname">Assessment</tt><a class="headerlink" href="#od-type.deliveryodata.Assessment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assessment entities are drawn from <a class="reference internal" href="../model/s_header_ex.html#qm-table.s_header_ex" title="S_Header_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">S_Header_Ex</span></tt></a> in the
+data model but contains only a subset of the properties.  They are
+read only in OData.</p>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Assessment.ID">
+<em class="property">Entity Key: </em><tt class="descname">ID</tt>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The full ID of the assessment, see
+<a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.session_mid" title="Session_MID"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Session_MID</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Assessment.Revision">
+<tt class="descname">Revision</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Revision" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.revision" title="Revision"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Revision</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Assessment.Name">
+<tt class="descname">Name</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.session_name" title="Session_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Session_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Assessment.Language">
+<tt class="descname">Language</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Language" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.lang" title="Lang"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Lang</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Assessment.Description">
+<tt class="descname">Description</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Description" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.description" title="Description"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Description</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Assessment.Author">
+<tt class="descname">Author</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Author" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.author" title="Author"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Author</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Assessment.CreatedDateTime">
+<tt class="descname">CreatedDateTime</tt>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.created_date" title="Created_Date"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Created_Date</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Assessment.Editor">
+<tt class="descname">Editor</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Editor" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.editor" title="Editor"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Editor</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Assessment.Modified_Date">
+<tt class="descname">Modified_Date</tt>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Modified_Date" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.modified_date" title="Modified_Date"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Modified_Date</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Assessment.Base">
+<tt class="descname">Base</tt>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Base" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.base" title="Base"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Base</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Assessment.Results">
+<tt class="descname">Results</tt> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the collection of result entities
+associated with this assessment.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="answerupload.html"
+                        title="previous chapter">AnswerUpload</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="assessmentsnapshot.html"
+                        title="next chapter">AssessmentSnapshot(Data)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/deliveryodata/assessment.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="assessmentsnapshot.html" title="AssessmentSnapshot(Data)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="answerupload.html" title="AnswerUpload"
+             >previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
+          <li><a href="feeds.html" >Delivery OData Feeds</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

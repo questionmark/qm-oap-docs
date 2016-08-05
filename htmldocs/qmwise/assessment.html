@@ -57,51 +57,485 @@
 <div class="section" id="assessment-methods">
 <h2>Assessment Methods<a class="headerlink" href="#assessment-methods" title="Permalink to this headline">¶</a></h2>
 <dl class="meth">
+<dt id="qm-meth.GetAssessment">
+<em class="property">method </em><tt class="descname">GetAssessment</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.Assessment" title="Assessment">Assessment</a> <a class="headerlink" href="#qm-meth.GetAssessment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentList">
+<em class="property">method </em><tt class="descname">GetAssessmentList</tt> () returns <a class="reference internal" href="#qm-xtype.AssessmentList" title="AssessmentList">AssessmentList</a> <a class="headerlink" href="#qm-meth.GetAssessmentList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentListByAdministrator">
+<em class="property">method </em><tt class="descname">GetAssessmentListByAdministrator</tt> (Administrator_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentList" title="AssessmentList">AssessmentList</a> <a class="headerlink" href="#qm-meth.GetAssessmentListByAdministrator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentListByGroup">
+<em class="property">method </em><tt class="descname">GetAssessmentListByGroup</tt> (Group_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentList" title="AssessmentList">AssessmentList</a> <a class="headerlink" href="#qm-meth.GetAssessmentListByGroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="meth">
 <dt id="qm-meth.GetAssessmentReportedTopics">
 <em class="property">method </em><tt class="descname">GetAssessmentReportedTopics</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.TopicList" title="TopicList">TopicList</a> <a class="headerlink" href="#qm-meth.GetAssessmentReportedTopics" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list with the full details of all the topics that are
 reported on in this assessment.</p>
 </dd></dl>
 
-<p>TBC</p>
+<dl class="meth">
+<dt id="qm-meth.DeleteAssessment">
+<em class="property">method </em><tt class="descname">DeleteAssessment</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>)<a class="headerlink" href="#qm-meth.DeleteAssessment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="assessment-folders">
+<h2>Assessment Folders<a class="headerlink" href="#assessment-folders" title="Permalink to this headline">¶</a></h2>
+<dl class="meth">
+<dt id="qm-meth.CreateAssessmentFolder">
+<em class="property">method </em><tt class="descname">CreateAssessmentFolder</tt> (AssessmentFolder <a class="reference internal" href="#qm-xtype.AssessmentFolder" title="AssessmentFolder">AssessmentFolder</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a> <a class="headerlink" href="#qm-meth.CreateAssessmentFolder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentTreeByAdministrator">
+<em class="property">method </em><tt class="descname">GetAssessmentTreeByAdministrator</tt> (Administrator_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>, Parent_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>, OnlyRunFromIntegration <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentTreeItemList" title="AssessmentTreeItemList">AssessmentTreeItemList</a> <a class="headerlink" href="#qm-meth.GetAssessmentTreeByAdministrator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="assessment-definitions">
+<h2>Assessment Definitions<a class="headerlink" href="#assessment-definitions" title="Permalink to this headline">¶</a></h2>
+<dl class="meth">
+<dt id="qm-meth.CreateAssessmentDefinition">
+<em class="property">method </em><tt class="descname">CreateAssessmentDefinition</tt> (AssessmentDefinition <a class="reference internal" href="#qm-xtype.AssessmentDefinition" title="AssessmentDefinition">AssessmentDefinition</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a> <a class="headerlink" href="#qm-meth.CreateAssessmentDefinition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.GetAssessmentDefinition">
+<em class="property">method </em><tt class="descname">GetAssessmentDefinition</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentDefinition" title="AssessmentDefinition">AssessmentDefinition</a> <a class="headerlink" href="#qm-meth.GetAssessmentDefinition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="meth">
+<dt id="qm-meth.SetAssessmentDefinition">
+<em class="property">method </em><tt class="descname">SetAssessmentDefinition</tt> (AssessmentDefinition <a class="reference internal" href="#qm-xtype.AssessmentDefinition" title="AssessmentDefinition">AssessmentDefinition</a>)<a class="headerlink" href="#qm-meth.SetAssessmentDefinition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="misc-methods">
+<h2>Misc Methods<a class="headerlink" href="#misc-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="meth">
+<dt id="qm-meth.ConfirmAssessmentDownload">
+<em class="property">method </em><tt class="descname">ConfirmAssessmentDownload</tt> (Schedule_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.ConfirmAssessmentDownload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="assessment-types">
 <h2>Assessment Types<a class="headerlink" href="#assessment-types" title="Permalink to this headline">¶</a></h2>
+<dl class="xtype">
+<dt id="qm-xtype.Assessment">
+<em class="property">complexType </em><tt class="descname">Assessment</tt><a class="headerlink" href="#qm-xtype.Assessment" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.Assessment.Assessment_ID">
+<tt class="descname">Assessment_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Assessment.Assessment_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Revision">
+<tt class="descname">Revision</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Assessment.Revision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Session_Name">
+<tt class="descname">Session_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Assessment.Session_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Author">
+<tt class="descname">Author</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Assessment.Author" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Save_Answers">
+<tt class="descname">Save_Answers</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Assessment.Save_Answers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Save_Answer_Data">
+<tt class="descname">Save_Answer_Data</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Assessment.Save_Answer_Data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Open_Session">
+<tt class="descname">Open_Session</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Assessment.Open_Session" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Session_Password">
+<tt class="descname">Session_Password</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Assessment.Session_Password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Session_Timed">
+<tt class="descname">Session_Timed</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Assessment.Session_Timed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Time_Limit">
+<tt class="descname">Time_Limit</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Assessment.Time_Limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Template_Name">
+<tt class="descname">Template_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Assessment.Template_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.When_Feedback">
+<tt class="descname">When_Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Assessment.When_Feedback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.End_Feedback">
+<tt class="descname">End_Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Assessment.End_Feedback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Exclude_Unscored">
+<tt class="descname">Exclude_Unscored</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Assessment.Exclude_Unscored" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Folder_ID">
+<tt class="descname">Folder_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Assessment.Folder_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Lang">
+<tt class="descname">Lang</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Assessment.Lang" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Description">
+<tt class="descname">Description</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Assessment.Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Monitored">
+<tt class="descname">Monitored</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Assessment.Monitored" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Editor">
+<tt class="descname">Editor</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Assessment.Editor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Version">
+<tt class="descname">Version</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Assessment.Version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Permit_External_Call">
+<tt class="descname">Permit_External_Call</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Assessment.Permit_External_Call" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Created_Date">
+<tt class="descname">Created_Date</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Assessment.Created_Date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Assessment.Modified_Date">
+<tt class="descname">Modified_Date</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Assessment.Modified_Date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentList">
+<em class="property">complexType </em><tt class="descname">AssessmentList</tt><a class="headerlink" href="#qm-xtype.AssessmentList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element containing a list of Assessment elements.</p>
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentList.Assessment">
+<tt class="descname">Assessment</tt> <a class="reference internal" href="#qm-xtype.Assessment" title="Assessment">Assessment</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentList.Assessment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentDefinition">
+<em class="property">complexType </em><tt class="descname">AssessmentDefinition</tt><a class="headerlink" href="#qm-xtype.AssessmentDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.AssessmentDefinition.Assessment">
+<tt class="descname">Assessment</tt> <a class="reference internal" href="#qm-xtype.Assessment" title="Assessment">Assessment</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentDefinition.Assessment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentDefinition.AssessmentBlockList">
+<tt class="descname">AssessmentBlockList</tt> <a class="reference internal" href="#qm-xtype.AssessmentBlockList" title="AssessmentBlockList">AssessmentBlockList</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentDefinition.AssessmentBlockList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentDefinition.AssessmentOutcomeList">
+<tt class="descname">AssessmentOutcomeList</tt> <a class="reference internal" href="#qm-xtype.AssessmentOutcomeList" title="AssessmentOutcomeList">AssessmentOutcomeList</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentDefinition.AssessmentOutcomeList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentBlock">
+<em class="property">complexType </em><tt class="descname">AssessmentBlock</tt><a class="headerlink" href="#qm-xtype.AssessmentBlock" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.AssessmentBlock.Block_Name">
+<tt class="descname">Block_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentBlock.Block_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentBlock.Feedback">
+<tt class="descname">Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentBlock.Feedback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentBlock.Shuffle_Questions">
+<tt class="descname">Shuffle_Questions</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentBlock.Shuffle_Questions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentBlock.Suspend_Time_Limit">
+<tt class="descname">Suspend_Time_Limit</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentBlock.Suspend_Time_Limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentBlock.Use_Template_File">
+<tt class="descname">Use_Template_File</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentBlock.Use_Template_File" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentBlock.Template_Name">
+<tt class="descname">Template_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentBlock.Template_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentBlock.Introduction_Text">
+<tt class="descname">Introduction_Text</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentBlock.Introduction_Text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentBlock.ItemList">
+<tt class="descname">ItemList</tt> <a class="reference internal" href="#qm-xtype.ItemList" title="ItemList">ItemList</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentBlock.ItemList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentBlockList">
+<em class="property">complexType </em><tt class="descname">AssessmentBlockList</tt><a class="headerlink" href="#qm-xtype.AssessmentBlockList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.AssessmentBlockList.AssessmentBlock">
+<tt class="descname">AssessmentBlock</tt> <a class="reference internal" href="#qm-xtype.AssessmentBlock" title="AssessmentBlock">AssessmentBlock</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentBlockList.AssessmentBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.Item">
+<em class="property">complexType </em><tt class="descname">Item</tt><a class="headerlink" href="#qm-xtype.Item" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.Item.Method">
+<tt class="descname">Method</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Item.Method" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Item.Include_Sub_Topics">
+<tt class="descname">Include_Sub_Topics</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Item.Include_Sub_Topics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Item.Topic_ID">
+<tt class="descname">Topic_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Item.Topic_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Item.Number_Of_Questions">
+<tt class="descname">Number_Of_Questions</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Item.Number_Of_Questions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Item.Question_ID">
+<tt class="descname">Question_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Item.Question_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.ItemList">
+<em class="property">complexType </em><tt class="descname">ItemList</tt><a class="headerlink" href="#qm-xtype.ItemList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.ItemList.Item">
+<tt class="descname">Item</tt> <a class="reference internal" href="#qm-xtype.Item" title="Item">Item</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.ItemList.Item" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentOutcome">
+<em class="property">complexType </em><tt class="descname">AssessmentOutcome</tt><a class="headerlink" href="#qm-xtype.AssessmentOutcome" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.AssessmentOutcome.Outcome_Name">
+<tt class="descname">Outcome_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentOutcome.Outcome_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentOutcome.Session_Score">
+<tt class="descname">Session_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentOutcome.Session_Score" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentOutcome.Topic_Scores">
+<tt class="descname">Topic_Scores</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentOutcome.Topic_Scores" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentOutcome.Topic_Feedback">
+<tt class="descname">Topic_Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.boolean" title="boolean">boolean</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentOutcome.Topic_Feedback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentOutcome.Branch">
+<tt class="descname">Branch</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentOutcome.Branch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentOutcome.Assessment_ID">
+<tt class="descname">Assessment_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentOutcome.Assessment_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentOutcome.Destination">
+<tt class="descname">Destination</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentOutcome.Destination" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentOutcome.Message">
+<tt class="descname">Message</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentOutcome.Message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentOutcome.Min_Percent">
+<tt class="descname">Min_Percent</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentOutcome.Min_Percent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentOutcome.Max_Percent">
+<tt class="descname">Max_Percent</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentOutcome.Max_Percent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentOutcomeList">
+<em class="property">complexType </em><tt class="descname">AssessmentOutcomeList</tt><a class="headerlink" href="#qm-xtype.AssessmentOutcomeList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.AssessmentOutcomeList.AssessmentOutcome">
+<tt class="descname">AssessmentOutcome</tt> <a class="reference internal" href="#qm-xtype.AssessmentOutcome" title="AssessmentOutcome">AssessmentOutcome</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentOutcomeList.AssessmentOutcome" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentFolder">
+<em class="property">complexType </em><tt class="descname">AssessmentFolder</tt><a class="headerlink" href="#qm-xtype.AssessmentFolder" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.AssessmentFolder.ID">
+<tt class="descname">ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentFolder.ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentFolder.Name">
+<tt class="descname">Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentFolder.Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentFolder.Description">
+<tt class="descname">Description</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentFolder.Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentFolder.Parent_ID">
+<tt class="descname">Parent_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentFolder.Parent_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentTreeItem">
+<em class="property">complexType </em><tt class="descname">AssessmentTreeItem</tt><a class="headerlink" href="#qm-xtype.AssessmentTreeItem" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.AssessmentTreeItem.ID">
+<tt class="descname">ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentTreeItem.ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentTreeItem.Type">
+<tt class="descname">Type</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentTreeItem.Type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentTreeItem.Name">
+<tt class="descname">Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentTreeItem.Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.AssessmentTreeItem.Parent_ID">
+<tt class="descname">Parent_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentTreeItem.Parent_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.AssessmentTreeItemList">
+<em class="property">complexType </em><tt class="descname">AssessmentTreeItemList</tt><a class="headerlink" href="#qm-xtype.AssessmentTreeItemList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.AssessmentTreeItemList.AssessmentTreeItem">
+<tt class="descname">AssessmentTreeItem</tt> <a class="reference internal" href="#qm-xtype.AssessmentTreeItem" title="AssessmentTreeItem">AssessmentTreeItem</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentTreeItemList.AssessmentTreeItem" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="xtype">
 <dt id="qm-xtype.Topic">
 <em class="property">complexType </em><tt class="descname">Topic</tt><a class="headerlink" href="#qm-xtype.Topic" title="Permalink to this definition">¶</a></dt>
 <dd><p>The XML datatype representing a Topic.</p>
 <p>In most cases the fields returned are simply the values from
-associated record in the <tt class="xref qm qm-table docutils literal"><span class="pre">Q_Topic_Ex</span></tt> table in the
+associated record in the <a class="reference internal" href="../model/q_topic_ex.html#qm-table.q_topic_ex" title="Q_Topic_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">Q_Topic_Ex</span></tt></a> table in the
 underlying data model.</p>
 <dl class="xfield">
 <dt id="qm-xfield.Topic.Topic_ID">
 <tt class="descname">Topic_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Topic.Topic_ID" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic_Ex.Topic_ID</span></tt>.</p>
+<dd><p>See <a class="reference internal" href="../model/q_topic_ex.html#qm-field.q_topic_ex.topic_id" title="Topic_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic_Ex.Topic_ID</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="xfield">
 <dt id="qm-xfield.Topic.Parent_ID">
 <tt class="descname">Parent_ID</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Topic.Parent_ID" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic_Ex.Parent_ID</span></tt>.</p>
+<dd><p>See <a class="reference internal" href="../model/q_topic_ex.html#qm-field.q_topic_ex.parent_id" title="Parent_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic_Ex.Parent_ID</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="xfield">
 <dt id="qm-xfield.Topic.Topic_Name">
 <tt class="descname">Topic_Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Topic.Topic_Name" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic_Ex.Name</span></tt>.</p>
+<dd><p>See <a class="reference internal" href="../model/q_topic_ex.html#qm-field.q_topic_ex.name" title="Name"><tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic_Ex.Name</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="xfield">
 <dt id="qm-xfield.Topic.Topic_Description">
 <tt class="descname">Topic_Description</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Topic.Topic_Description" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic_Ex.Description</span></tt>.</p>
+<dd><p>See <a class="reference internal" href="../model/q_topic_ex.html#qm-field.q_topic_ex.description" title="Description"><tt class="xref qm qm-field docutils literal"><span class="pre">Q_Topic_Ex.Description</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="xfield">
 <dt id="qm-xfield.Topic.ScoreBandList">
 <tt class="descname">ScoreBandList</tt> <a class="reference internal" href="#qm-xtype.ScoreBandList" title="ScoreBandList">ScoreBandList</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Topic.ScoreBandList" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information expanded from the related <tt class="xref qm qm-table docutils literal"><span class="pre">Q_ScoreBand_Ex</span></tt>.</p>
+<dd><p>Information expanded from the related <a class="reference internal" href="../model/q_scoreband_ex.html#qm-table.q_scoreband_ex" title="Q_Scoreband_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">Q_ScoreBand_Ex</span></tt></a>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -133,30 +567,30 @@ underlying data model.</p>
 <em class="property">complexType </em><tt class="descname">ScoreBand</tt><a class="headerlink" href="#qm-xtype.ScoreBand" title="Permalink to this definition">¶</a></dt>
 <dd><p>The XML datatype representing a ScoreBand.</p>
 <p>In most cases the fields returned are simply the values from the
-associated record in the <tt class="xref qm qm-table docutils literal"><span class="pre">Q_ScoreBand_Ex</span></tt> table in the
+associated record in the <a class="reference internal" href="../model/q_scoreband_ex.html#qm-table.q_scoreband_ex" title="Q_Scoreband_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">Q_ScoreBand_Ex</span></tt></a> table in the
 underlying data model.</p>
 <dl class="xfield">
 <dt id="qm-xfield.ScoreBand.Name">
 <tt class="descname">Name</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.ScoreBand.Name" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_ScoreBand_Ex.Name</span></tt>.</p>
+<dd><p>See <a class="reference internal" href="../model/q_scoreband_ex.html#qm-field.q_scoreband_ex.name" title="Name"><tt class="xref qm qm-field docutils literal"><span class="pre">Q_ScoreBand_Ex.Name</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="xfield">
 <dt id="qm-xfield.ScoreBand.Min_Score">
 <tt class="descname">Min_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.double" title="double">double</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.ScoreBand.Min_Score" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_ScoreBand_Ex.Min_Score</span></tt>.</p>
+<dd><p>See <a class="reference internal" href="../model/q_scoreband_ex.html#qm-field.q_scoreband_ex.min_score" title="Min_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">Q_ScoreBand_Ex.Min_Score</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="xfield">
 <dt id="qm-xfield.ScoreBand.Max_Score">
 <tt class="descname">Max_Score</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.double" title="double">double</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.ScoreBand.Max_Score" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_ScoreBand_Ex.Max_Score</span></tt>.</p>
+<dd><p>See <a class="reference internal" href="../model/q_scoreband_ex.html#qm-field.q_scoreband_ex.max_score" title="Max_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">Q_ScoreBand_Ex.Max_Score</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="xfield">
 <dt id="qm-xfield.ScoreBand.Message">
 <tt class="descname">Message</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.ScoreBand.Message" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <tt class="xref qm qm-field docutils literal"><span class="pre">Q_ScoreBand_Ex.Message</span></tt>.</p>
+<dd><p>See <a class="reference internal" href="../model/q_scoreband_ex.html#qm-field.q_scoreband_ex.message" title="Message"><tt class="xref qm qm-field docutils literal"><span class="pre">Q_ScoreBand_Ex.Message</span></tt></a>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -174,6 +608,9 @@ underlying data model.</p>
   <ul>
 <li><a class="reference internal" href="#">Assessments</a><ul>
 <li><a class="reference internal" href="#assessment-methods">Assessment Methods</a></li>
+<li><a class="reference internal" href="#assessment-folders">Assessment Folders</a></li>
+<li><a class="reference internal" href="#assessment-definitions">Assessment Definitions</a></li>
+<li><a class="reference internal" href="#misc-methods">Misc Methods</a></li>
 <li><a class="reference internal" href="#assessment-types">Assessment Types</a></li>
 </ul>
 </li>

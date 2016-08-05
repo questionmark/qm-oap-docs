@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>A_Session_Ex &mdash; QuestionmarkAPIs 2016.07 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.07',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="../index.html" />
+    <link rel="up" title="Answer Tables" href="answer.html" />
+    <link rel="next" title="A_Result" href="a_result.html" />
+    <link rel="prev" title="A_ScoreBand_Ex" href="a_scoreband_ex.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="a_result.html" title="A_Result"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="a_scoreband_ex.html" title="A_ScoreBand_Ex"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
+          <li><a href="answer.html" accesskey="U">Answer Tables</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="a-session-ex">
+<h1>A_Session_Ex<a class="headerlink" href="#a-session-ex" title="Permalink to this headline">¶</a></h1>
+<dl class="table">
+<dt id="qm-table.a_session_ex">
+<em class="property">TABLE </em><tt class="descname">A_Session_Ex</tt><a class="headerlink" href="#qm-table.a_session_ex" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field">
+<dt id="qm-field.a_session_ex.session_mid">
+<em class="property">Primary Key: </em><tt class="descname">Session_MID</tt> int NOT NULL<a class="headerlink" href="#qm-field.a_session_ex.session_mid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.session_lid">
+<em class="property">Primary Key: </em><tt class="descname">Session_LID</tt> int NOT NULL<a class="headerlink" href="#qm-field.a_session_ex.session_lid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.revision">
+<tt class="descname">Revision</tt> int NOT NULL<a class="headerlink" href="#qm-field.a_session_ex.revision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.session_name">
+<tt class="descname">Session_Name</tt> varchar(200)<a class="headerlink" href="#qm-field.a_session_ex.session_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.session_author">
+<tt class="descname">Session_Author</tt> varchar(200)<a class="headerlink" href="#qm-field.a_session_ex.session_author" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.when_modified">
+<tt class="descname">When_Modified</tt> datetime<a class="headerlink" href="#qm-field.a_session_ex.when_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.whether_time_limit">
+<tt class="descname">Whether_Time_Limit</tt> bit NOT NULL<a class="headerlink" href="#qm-field.a_session_ex.whether_time_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.time_limit">
+<tt class="descname">Time_Limit</tt> int<a class="headerlink" href="#qm-field.a_session_ex.time_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.number_sections">
+<tt class="descname">Number_Sections</tt> smallint<a class="headerlink" href="#qm-field.a_session_ex.number_sections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.last_updated">
+<tt class="descname">Last_Updated</tt> datetime<a class="headerlink" href="#qm-field.a_session_ex.last_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.assessment_type">
+<tt class="descname">Assessment_Type</tt> smallint<a class="headerlink" href="#qm-field.a_session_ex.assessment_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.course">
+<tt class="descname">Course</tt> varchar(1020)<a class="headerlink" href="#qm-field.a_session_ex.course" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.description">
+<tt class="descname">Description</tt> varchar(1020)<a class="headerlink" href="#qm-field.a_session_ex.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.base">
+<tt class="descname">Base</tt> bit NOT NULL<a class="headerlink" href="#qm-field.a_session_ex.base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.lang">
+<em class="property">Primary Key: </em><tt class="descname">Lang</tt> varchar(10) NOT NULL<a class="headerlink" href="#qm-field.a_session_ex.lang" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_session_ex.last_updated_utc">
+<tt class="descname">Last_Updated_UTC</tt> datetime<a class="headerlink" href="#qm-field.a_session_ex.last_updated_utc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="a_scoreband_ex.html"
+                        title="previous chapter">A_ScoreBand_Ex</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="a_result.html"
+                        title="next chapter">A_Result</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/model/a_session_ex.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="a_result.html" title="A_Result"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="a_scoreband_ex.html" title="A_ScoreBand_Ex"
+             >previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
+          <li><a href="answer.html" >Answer Tables</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

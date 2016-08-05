@@ -26,7 +26,7 @@ A_Answer
         using the procedure outlined in :ref:`midlid`.
         
         The ID refers to the question with the same MID and LID in
-        :qm:table:`Q_Question`
+        :qm:table:`Q_Question_Ex`
         
     ..  qm:field::  Question_LID int
         :key:
@@ -70,7 +70,7 @@ A_Answer
 
         The status of the question when it was delivered.  These values
         are taken from the status values of
-        :qm:field:`Q_Question.Status`.
+        :qm:field:`Q_Question_Ex.Status`.
         
     ..  qm:field::  Signature varchar(50)
 	

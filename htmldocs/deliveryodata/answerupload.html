@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="../index.html" />
     <link rel="up" title="Delivery OData Feeds" href="feeds.html" />
-    <link rel="next" title="Group" href="group.html" />
+    <link rel="next" title="Assessment" href="assessment.html" />
     <link rel="prev" title="Answer" href="answer.html" /> 
   </head>
   <body>
@@ -36,7 +36,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="group.html" title="Group"
+          <a href="assessment.html" title="Assessment"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="answer.html" title="Answer"
@@ -62,7 +62,7 @@ response files uploaded for scoring.  Only one format is supported
 and that is application/json with fields as documented below.</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AnswerUpload.AttemptID">
-<em class="property">Entity Key: </em><tt class="descname">AttemptID</tt> Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.AttemptID" title="Permalink to this definition">¶</a></dt>
+<em class="property">Entity Key: </em><tt class="descname">AttemptID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.AttemptID" title="Permalink to this definition">¶</a></dt>
 <dd><p>Each AnswerUpload must be associated with an Attempt.  Due to
 the nature of media link entries the AttemptID cannot be
 specified in the URL on upload as the response file is POSTed to
@@ -73,7 +73,7 @@ entity on creation.</p>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AnswerUpload.Attempt">
-<tt class="descname">Attempt</tt> Attempt<a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.Attempt" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">Attempt</tt> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.Attempt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the associated Attempt.</p>
 </dd></dl>
 
@@ -86,7 +86,7 @@ application/json) file with the following fields.</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>BatchID</dt>
-<dd>A reference to an associated <tt class="xref od od-type docutils literal"><span class="pre">deliveryodata.PrintBatch</span></tt>
+<dd>A reference to an associated <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch"><tt class="xref od od-type docutils literal"><span class="pre">deliveryodata.PrintBatch</span></tt></a>
 formatted as a string (optional).  If present, group information
 will be read from the batch and used to set the group
 information in the associated result.</dd>
@@ -173,8 +173,8 @@ file:</p>
   <p class="topless"><a href="answer.html"
                         title="previous chapter">Answer</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="group.html"
-                        title="next chapter">Group</a></p>
+  <p class="topless"><a href="assessment.html"
+                        title="next chapter">Assessment</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/deliveryodata/answerupload.txt"
@@ -204,7 +204,7 @@ file:</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="group.html" title="Group"
+          <a href="assessment.html" title="Assessment"
              >next</a> |</li>
         <li class="right" >
           <a href="answer.html" title="Answer"

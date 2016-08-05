@@ -14,9 +14,9 @@ and qm:meth:`GetResultListByParticipant`.
     not be suitable for use when the number of results returned is very
     large.  As a rule of thumb, if the returned result set exceeds
     1,000 results consider using an alternative API.  The
-    :od:feed:`Results` OData feed queries the same part of the data
-    model and will accept more filters (including date filters) allowing
-    you to return more precise result sets.
+    :od:feed:`deliveryodata.Results` OData feed queries the same part of
+    the data model and will accept more filters (including date filters)
+    allowing you to return more precise result sets.
 
 
 Result Methods
@@ -248,7 +248,7 @@ facilitated by the :od:svc:`Delivery OData<deliveryodata>` service.
 
     The method creates a record in :qm:table:`A_Result` and optionally
     records in :qm:table:`A_TopicScore`, :qm:table:`A_Answer`,
-    :qm:table:`A_ScoreBand` and :qm:table:`A_Comment`. as appropriate.
+    :qm:table:`A_ScoreBand_Ex` and :qm:table:`A_Comment`. as appropriate.
 
     On input, the :qm:xfield:`Result.Result_ID` is ignored, it is
     recommended to set it to "0".
@@ -266,7 +266,7 @@ facilitated by the :od:svc:`Delivery OData<deliveryodata>` service.
     the required records. 
     
     If :qm:xfield:`AssessmentResult.Feedback` is provided a new record
-    is created in :qm:table:`A_ScoreBand` to hold the feebdack.  The
+    is created in :qm:table:`A_ScoreBand_Ex` to hold the feebdack.  The
     feedback is not validated against the assessment.  It should record
     the feedback the participant actually saw at the time of delivery.
     If the result has been created following delivery *and scoring* via
@@ -277,14 +277,15 @@ facilitated by the :od:svc:`Delivery OData<deliveryodata>` service.
     ..  warning::
         Scored results created with QMWISe are not subject to the same
         level of validation as results created and scored using the
-        OData :od:feed:`Attempts` feed.  In particular, care is needed
-        to ensure that answers adhere to the correct format for the
-        question type, as described by :qm:field:`A_Answer.Answer_Full`.
-        Furthermore, these values must validate against the associated
-        question.  Using the correct revision number and ensuring that
-        the indicated When_Started time is consistent with the revision
-        history of the associated questions is important to ensure
-        consistent reporting in Questionmark Analytics.
+        OData :od:feed:`deliveryodata.Attempts` feed.  In particular,
+        care is needed to ensure that answers adhere to the correct
+        format for the question type, as described by
+        :qm:field:`A_Answer.Answer_Full`. Furthermore, these values must
+        validate against the associated question.  Using the correct
+        revision number and ensuring that the indicated When_Started
+        time is consistent with the revision history of the associated
+        questions is important to ensure consistent reporting in
+        Questionmark Analytics.
 
     
 ..  qm:meth::   CreateAssessmentResult2
@@ -379,12 +380,12 @@ facilitated by the :od:svc:`Delivery OData<deliveryodata>` service.
     itself.
     
     Consider using snapshots in combination with the newer
-    :od:feed:`Attempts` feed for this type of project.  The only
-    exception to this use case would be when the result info record is
-    known to already exist, for example if you are creating a new result
-    after re-scoring an existing one.  In that case you would not need
-    to call this method.
-    
+    :od:feed:`deliveryodata.Attempts` feed for this type of project. 
+    The only exception to this use case would be when the result info
+    record is known to already exist, for example if you are creating a
+    new result after re-scoring an existing one.  In that case you would
+    not need to call this method.
+
     For assessments that have been created *and* delivered externally
     you must create a unique Question ID (see :ref:`midlid` for
     important information about the valid set of IDs) for each question
@@ -460,8 +461,8 @@ facilitated by the :od:svc:`Delivery OData<deliveryodata>` service.
                     :qm:table:`A_Question_Ex` are limited to legacy
                     applications and are documented here only for
                     completeness.  New applications should use the
-                    :od:feed:`Attempts` feed in Delivery OData to create
-                    externally generated results.
+                    :od:feed:`deliveryodata.Attempts` feed in Delivery
+                    OData to create externally generated results.
 
 
 Result Types
@@ -852,7 +853,7 @@ Result Types
         a translation. This field is actually used only for the creation
         of feedback and, along with Language, is used to set the
         language information for the ScoreBand (feedback) associated
-        with the result.  See :qm:field:`A_ScoreBand.Base` for more
+        with the result.  See :qm:field:`A_ScoreBand_Ex.Base` for more
         information.
 
     
@@ -952,7 +953,7 @@ Result Types
         :optional:
 
         The associated participant comment, obtained from the related
-        entity in :qm:field:`A_Comment.Comments` (if present).
+        entity in :qm:field:`A_Comment.Comment` (if present).
 
 
 ..  qm:xtype::  Answer2 Answer

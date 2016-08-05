@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Q_Question_Ex &mdash; QuestionmarkAPIs 2016.07 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.07',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="../index.html" />
+    <link rel="up" title="Question Tables" href="question.html" />
+    <link rel="next" title="Q_Scoreband_Ex" href="q_scoreband_ex.html" />
+    <link rel="prev" title="Q_QML_Ex" href="q_qml_ex.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="q_scoreband_ex.html" title="Q_Scoreband_Ex"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="q_qml_ex.html" title="Q_QML_Ex"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
+          <li><a href="question.html" accesskey="U">Question Tables</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="q-question-ex">
+<h1>Q_Question_Ex<a class="headerlink" href="#q-question-ex" title="Permalink to this headline">¶</a></h1>
+<dl class="table">
+<dt id="qm-table.q_question_ex">
+<em class="property">TABLE </em><tt class="descname">Q_Question_Ex</tt><a class="headerlink" href="#qm-table.q_question_ex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Many of these fields are also accessible through an older view
+called simple Q_Header.  The difference is the way translations are
+handled.  Q_Header only provides access to untranslated questions
+whereas Q_Header_Ex introduced additional fields to indicate the
+language and translation status of the question in a similar way to
+<a class="reference internal" href="s_header_ex.html#qm-table.s_header_ex" title="S_Header_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">S_Header_Ex</span></tt></a>.  Notice also that
+<a class="reference internal" href="#qm-field.q_question_ex.lang" title="Lang"><tt class="xref qm qm-field docutils literal"><span class="pre">Q_Question_Ex.Lang</span></tt></a> is also part of the table&#8217;s primary
+key and that queries using the question ID (mid/lid) and revision
+alone will not necessarily return unique records.</p>
+<dl class="field">
+<dt id="qm-field.q_question_ex.question_mid">
+<em class="property">Primary Key: </em><tt class="descname">Question_MID</tt> int NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.question_mid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.question_lid">
+<em class="property">Primary Key: </em><tt class="descname">Question_LID</tt> int NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.question_lid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.revision">
+<em class="property">Primary Key: </em><tt class="descname">Revision</tt> int NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.revision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.topic_id">
+<tt class="descname">Topic_ID</tt> int NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.topic_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.author">
+<tt class="descname">Author</tt> varchar(200)<a class="headerlink" href="#qm-field.q_question_ex.author" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.created_date">
+<tt class="descname">Created_Date</tt> datetime NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.created_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.editor">
+<tt class="descname">Editor</tt> varchar(200) NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.editor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.modified_date">
+<tt class="descname">Modified_Date</tt> datetime NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.modified_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.encoded">
+<tt class="descname">Encoded</tt> smallint NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.encoded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.status">
+<tt class="descname">Status</tt> smallint NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.irt_a">
+<tt class="descname">IRT_A</tt> float<a class="headerlink" href="#qm-field.q_question_ex.irt_a" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.irt_b">
+<tt class="descname">IRT_B</tt> float<a class="headerlink" href="#qm-field.q_question_ex.irt_b" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.irt_c">
+<tt class="descname">IRT_C</tt> float<a class="headerlink" href="#qm-field.q_question_ex.irt_c" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.p_value">
+<tt class="descname">P_Value</tt> float<a class="headerlink" href="#qm-field.q_question_ex.p_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.discrimination">
+<tt class="descname">Discrimination</tt> float<a class="headerlink" href="#qm-field.q_question_ex.discrimination" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.angoffw">
+<tt class="descname">AngoffW</tt> smallint NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.angoffw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.lock_question">
+<tt class="descname">Lock_Question</tt> bit NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.lock_question" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.maximum_score">
+<tt class="descname">Maximum_Score</tt> smallint NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.maximum_score" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.question_type">
+<tt class="descname">Question_Type</tt> char(10) NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.question_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.order_num">
+<tt class="descname">Order_Num</tt> int NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.order_num" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.edited_by">
+<tt class="descname">Edited_By</tt> char(1) NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.edited_by" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.description">
+<tt class="descname">Description</tt> varchar(800) NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.base">
+<tt class="descname">Base</tt> bit NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.lang">
+<em class="property">Primary Key: </em><tt class="descname">Lang</tt> varchar(10) NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.lang" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.source_lang">
+<tt class="descname">Source_Lang</tt> varchar(10) NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.source_lang" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.translation_status">
+<tt class="descname">Translation_Status</tt> int NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.translation_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.base_revision">
+<tt class="descname">Base_Revision</tt> int<a class="headerlink" href="#qm-field.q_question_ex.base_revision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.q_question_ex.question_id">
+<tt class="descname">Question_ID</tt> bigint<em class="property"> computed</em> NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.question_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="q_qml_ex.html"
+                        title="previous chapter">Q_QML_Ex</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="q_scoreband_ex.html"
+                        title="next chapter">Q_Scoreband_Ex</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/model/q_question_ex.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="q_scoreband_ex.html" title="Q_Scoreband_Ex"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="q_qml_ex.html" title="Q_QML_Ex"
+             >previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
+          <li><a href="question.html" >Question Tables</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

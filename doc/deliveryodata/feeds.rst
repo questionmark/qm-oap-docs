@@ -53,8 +53,8 @@ $value
     simple property values is not supported. 
 
         
-Feeds
-~~~~~
+Feed Reference
+~~~~~~~~~~~~~~
 
 
 ..  od:feed::   Administrators Administrator
@@ -100,6 +100,11 @@ Feeds
 
 
 ..  od:feed::   Assessments Assessment
+    
+    :method GET: feed is read only
+    :filter ID: primary key
+    :filter Name: assessment name
+    :expand Results: expands the associated Results    
 
     The Assessments feed provides information about the assessment
     catalog. That is, all the assessments that have been published for
@@ -118,8 +123,8 @@ Feeds
     
 ..  od:feed::   AssessmentSnapshotsData AssessmentSnapshotData
 
-    An auxiliary feed to :od:feed:`deliveryodata.AssessmentSnapshots`
-    which contains the raw XML data describing the snapshot.
+    An auxiliary feed to :od:feed:`AssessmentSnapshots` which contains
+    the raw XML data describing the snapshot.
     
 ..  od:feed::   Attempts Attempt
 
@@ -151,7 +156,7 @@ Feeds
 ..  od:feed::   Groups Group
 
     The Groups feed contains data about groups of participants.  Entries
-    are defined by the :od:type:`Group` type.
+    are defined by the :od:type:`deliveryodata.Group` type.
 
 ..  od:feed::   Participants Participant
 
@@ -177,7 +182,7 @@ Feeds
 ..  od:feed::   Results Result
 
     The Results feed contains data about assessment results.  Entries
-    are defined by the :od:type:`Result` type.
+    are defined by the :od:type:`deliveryodata.Result` type.
 
 ..  od:feed::   Rubrics Rubric
 
@@ -206,18 +211,13 @@ Entity Type Reference
     answerupload
     assessment
     assessmentsnapshot
-    assessmentsnapshotdata
     attempt
-    dimension
-    dimensionscore
     group
     participant
     printbatch
     question
-    questiontranslation
     result
     rubric
-    scoringresult
     scoringtask
 
 

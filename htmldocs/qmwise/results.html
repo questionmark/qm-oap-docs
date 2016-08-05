@@ -67,9 +67,9 @@ these methods were designed to work with smaller datasets and may
 not be suitable for use when the number of results returned is very
 large.  As a rule of thumb, if the returned result set exceeds
 1,000 results consider using an alternative API.  The
-<tt class="xref od od-feed docutils literal"><span class="pre">Results</span></tt> OData feed queries the same part of the data
-model and will accept more filters (including date filters) allowing
-you to return more precise result sets.</p>
+<a class="reference internal" href="../deliveryodata/feeds.html#od-feed.deliveryodata.Results" title="Results"><tt class="xref od od-feed docutils literal"><span class="pre">deliveryodata.Results</span></tt></a> OData feed queries the same part of
+the data model and will accept more filters (including date filters)
+allowing you to return more precise result sets.</p>
 </div>
 <div class="section" id="result-methods">
 <h2>Result Methods<a class="headerlink" href="#result-methods" title="Permalink to this headline">¶</a></h2>
@@ -213,7 +213,7 @@ back-quote ` before being used to filter the result set.</p>
 in the repository where <a class="reference internal" href="../model/a_result.html#qm-field.a_result.member_sub_group_1" title="Member_Sub_Group_1"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Member_Sub_Group_1</span></tt></a>
 matches the input parameter.  This method imposes the additional
 constraint that the input parameter must be the name of a group as
-recorded in <tt class="xref qm qm-field docutils literal"><span class="pre">G_Group_Tree.Group_Name</span></tt>.</p>
+recorded in <a class="reference internal" href="../model/g_group_tree.html#qm-field.g_group_tree.group_name" title="Group_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">G_Group_Tree.Group_Name</span></tt></a>.</p>
 <p>Unlike similar methods, no character transformations are applied to
 the input parameter.</p>
 </dd></dl>
@@ -262,8 +262,8 @@ item-level responses and scores.</p>
 <div class="section" id="creating-results">
 <h3>Creating Results<a class="headerlink" href="#creating-results" title="Permalink to this headline">¶</a></h3>
 <p>The following methods can be used to create results in the repository.
-The mechanism used by these methods relies on the <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt>
-and <tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt> tables in the data model.  This is an older
+The mechanism used by these methods relies on the <a class="reference internal" href="../model/a_session_ex.html#qm-table.a_session_ex" title="A_Session_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt></a>
+and <a class="reference internal" href="../model/a_question_ex.html#qm-table.a_question_ex" title="A_Question_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt></a> tables in the data model.  This is an older
 data flow that has some issues with the handling of assessment and question
 revisions.  The methods are documented here for backwards compatibility,
 new projects should consider using the new snapshot-based &#8216;Attempt&#8217; flow
@@ -276,13 +276,13 @@ information. This is the base method designed to work with the basic
 <a class="reference internal" href="#qm-xtype.Result" title="Result"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result</span></tt></a> and <a class="reference internal" href="#qm-xtype.Answer" title="Answer"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Answer</span></tt></a> elements.</p>
 <p>The method creates a record in <a class="reference internal" href="../model/a_result.html#qm-table.a_result" title="A_Result"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Result</span></tt></a> and optionally
 records in <a class="reference internal" href="../model/a_topicscore.html#qm-table.a_topicscore" title="A_TopicScore"><tt class="xref qm qm-table docutils literal"><span class="pre">A_TopicScore</span></tt></a>, <a class="reference internal" href="../model/a_answer.html#qm-table.a_answer" title="A_Answer"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Answer</span></tt></a>,
-<tt class="xref qm qm-table docutils literal"><span class="pre">A_ScoreBand</span></tt> and <tt class="xref qm qm-table docutils literal"><span class="pre">A_Comment</span></tt>. as appropriate.</p>
+<a class="reference internal" href="../model/a_scoreband_ex.html#qm-table.a_scoreband_ex" title="A_ScoreBand_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_ScoreBand_Ex</span></tt></a> and <a class="reference internal" href="../model/a_comment.html#qm-table.a_comment" title="A_Comment"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Comment</span></tt></a>. as appropriate.</p>
 <p>On input, the <a class="reference internal" href="#qm-xfield.Result.Result_ID" title="Result_ID"><tt class="xref qm qm-xfield docutils literal"><span class="pre">Result.Result_ID</span></tt></a> is ignored, it is
 recommended to set it to &#8220;0&#8221;.</p>
 <p>The supplied <a class="reference internal" href="#qm-xfield.Result.Assessment_ID" title="Assessment_ID"><tt class="xref qm qm-xfield docutils literal"><span class="pre">Result.Assessment_ID</span></tt></a> must correspond to
-the ID of an assessment in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt> in the
+the ID of an assessment in <a class="reference internal" href="../model/a_session_ex.html#qm-table.a_session_ex" title="A_Session_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt></a> in the
 repository database.  Similarly, any uploaded answers must have
-corresponding records in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt>.  Before using
+corresponding records in <a class="reference internal" href="../model/a_question_ex.html#qm-table.a_question_ex" title="A_Question_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt></a>.  Before using
 this method you should familiarise yourself with the purpose of
 these tables in the data model.  It is likely that you will have to
 call <a class="reference internal" href="#qm-meth.CreateAssessmentResultInfoList" title="CreateAssessmentResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResultInfoList</span></tt></a> and
@@ -291,7 +291,7 @@ the first time - you can use <a class="reference internal" href="#qm-meth.GetAss
 <a class="reference internal" href="#qm-meth.GetQuestionResultInfoList" title="GetQuestionResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetQuestionResultInfoList</span></tt></a> to test for the existence of
 the required records.</p>
 <p>If <a class="reference internal" href="#qm-xfield.AssessmentResult.Feedback" title="Feedback"><tt class="xref qm qm-xfield docutils literal"><span class="pre">AssessmentResult.Feedback</span></tt></a> is provided a new record
-is created in <tt class="xref qm qm-table docutils literal"><span class="pre">A_ScoreBand</span></tt> to hold the feebdack.  The
+is created in <a class="reference internal" href="../model/a_scoreband_ex.html#qm-table.a_scoreband_ex" title="A_ScoreBand_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_ScoreBand_Ex</span></tt></a> to hold the feebdack.  The
 feedback is not validated against the assessment.  It should record
 the feedback the participant actually saw at the time of delivery.
 If the result has been created following delivery <em>and scoring</em> via
@@ -302,14 +302,15 @@ an indication of pass or fail.</p>
 <p class="first admonition-title">Warning</p>
 <p class="last">Scored results created with QMWISe are not subject to the same
 level of validation as results created and scored using the
-OData <tt class="xref od od-feed docutils literal"><span class="pre">Attempts</span></tt> feed.  In particular, care is needed
-to ensure that answers adhere to the correct format for the
-question type, as described by <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.answer_full" title="Answer_Full"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Answer_Full</span></tt></a>.
-Furthermore, these values must validate against the associated
-question.  Using the correct revision number and ensuring that
-the indicated When_Started time is consistent with the revision
-history of the associated questions is important to ensure
-consistent reporting in Questionmark Analytics.</p>
+OData <a class="reference internal" href="../deliveryodata/feeds.html#od-feed.deliveryodata.Attempts" title="Attempts"><tt class="xref od od-feed docutils literal"><span class="pre">deliveryodata.Attempts</span></tt></a> feed.  In particular,
+care is needed to ensure that answers adhere to the correct
+format for the question type, as described by
+<a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.answer_full" title="Answer_Full"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Answer_Full</span></tt></a>. Furthermore, these values must
+validate against the associated question.  Using the correct
+revision number and ensuring that the indicated When_Started
+time is consistent with the revision history of the associated
+questions is important to ensure consistent reporting in
+Questionmark Analytics.</p>
 </div>
 </dd></dl>
 
@@ -330,7 +331,7 @@ language-aware <a class="reference internal" href="#qm-xtype.AssessmentResult3" 
 <dl class="meth">
 <dt id="qm-meth.CreateAssessmentResultInfoList">
 <em class="property">method </em><tt class="descname">CreateAssessmentResultInfoList</tt> (AssessmentResultInfoList <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList" title="AssessmentResultInfoList">AssessmentResultInfoList</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateAssessmentResultInfoList" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates an entry in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt> for each item in the
+<dd><p>Creates an entry in <a class="reference internal" href="../model/a_session_ex.html#qm-table.a_session_ex" title="A_Session_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt></a> for each item in the
 input list if there is no existing entry available.  Returns the
 number of records that were actually created as a result.</p>
 <p>Before a result can be created for an assessment the assessment must
@@ -340,7 +341,7 @@ creation of a suitable record enabling subsequent calls to
 similar <a class="reference internal" href="#qm-meth.CreateQuestionResultInfoList" title="CreateQuestionResultInfoList"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateQuestionResultInfoList</span></tt></a>).</p>
 <p>For assessments that have been created using Questionmark tools but
 have been delivered by an external system you should use
-<tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessment</span></tt> to discover the appropriate information
+<a class="reference internal" href="assessment.html#qm-meth.GetAssessment" title="GetAssessment"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessment</span></tt></a> to discover the appropriate information
 to pass.</p>
 <p>For assessments that have been created <em>and</em> delivered externally
 you must create a unique Assessment ID (see <a class="reference internal" href="../data_model.html#midlid"><em>MID and LID</em></a> for
@@ -358,7 +359,7 @@ database.</p>
 <p>Note that the <a class="reference internal" href="#qm-xfield.AssessmentResultInfo2.CourseProperty" title="CourseProperty"><tt class="xref qm qm-xfield docutils literal"><span class="pre">AssessmentResultInfo2.CourseProperty</span></tt></a>
 field should contain the name of the folder containing the
 assessment.  This is not easy to discover using QMWISe as
-<tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessment</span></tt> returns the ID of the folder (rather than
+<a class="reference internal" href="assessment.html#qm-meth.GetAssessment" title="GetAssessment"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetAssessment</span></tt></a> returns the ID of the folder (rather than
 the name) and there is no method to get information about a folder
 itself from its ID.  Given this limitation the field should be
 treated as more general metadata. The value of this field is copied
@@ -377,7 +378,7 @@ the assessment.</p>
 <dl class="meth">
 <dt id="qm-meth.CreateQuestionResultInfoList">
 <em class="property">method </em><tt class="descname">CreateQuestionResultInfoList</tt> (QuestionResultInfoList <a class="reference internal" href="#qm-xtype.QuestionResultInfoList" title="QuestionResultInfoList">QuestionResultInfoList</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a> <a class="headerlink" href="#qm-meth.CreateQuestionResultInfoList" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates an entry in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt> for each item in the
+<dd><p>Creates an entry in <a class="reference internal" href="../model/a_question_ex.html#qm-table.a_question_ex" title="A_Question_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt></a> for each item in the
 input list if there is no existing entry available.  Returns the
 number of records that were actually created as a result.</p>
 <p>Before an answer record can be created for a question the quesitno
@@ -392,11 +393,11 @@ outcome information to pass to this method requires detailed
 knowledge of, and access to, the QML description of the question
 itself.</p>
 <p>Consider using snapshots in combination with the newer
-<tt class="xref od od-feed docutils literal"><span class="pre">Attempts</span></tt> feed for this type of project.  The only
-exception to this use case would be when the result info record is
-known to already exist, for example if you are creating a new result
-after re-scoring an existing one.  In that case you would not need
-to call this method.</p>
+<a class="reference internal" href="../deliveryodata/feeds.html#od-feed.deliveryodata.Attempts" title="Attempts"><tt class="xref od od-feed docutils literal"><span class="pre">deliveryodata.Attempts</span></tt></a> feed for this type of project.
+The only exception to this use case would be when the result info
+record is known to already exist, for example if you are creating a
+new result after re-scoring an existing one.  In that case you would
+not need to call this method.</p>
 <p>For assessments that have been created <em>and</em> delivered externally
 you must create a unique Question ID (see <a class="reference internal" href="../data_model.html#midlid"><em>MID and LID</em></a> for
 important information about the valid set of IDs) for each question
@@ -416,7 +417,7 @@ the assessment.  For use with
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResultInfo">
 <em class="property">method </em><tt class="descname">GetAssessmentResultInfo</tt> (Assessment_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfo" title="AssessmentResultInfo">AssessmentResultInfo</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns information from <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt>.  Can be used to
+<dd><p>Returns information from <a class="reference internal" href="../model/a_session_ex.html#qm-table.a_session_ex" title="A_Session_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt></a>.  Can be used to
 check that the required information about an Assessment exists
 before creating results with <a class="reference internal" href="#qm-meth.CreateAssessmentResult" title="CreateAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResult</span></tt></a> and
 similar methods.</p>
@@ -443,13 +444,13 @@ value is not known it may be set to false.</p>
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResultInfoList">
 <em class="property">method </em><tt class="descname">GetAssessmentResultInfoList</tt> () returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList" title="AssessmentResultInfoList">AssessmentResultInfoList</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfoList" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns all records from <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt>.</p>
+<dd><p>Returns all records from <a class="reference internal" href="../model/a_session_ex.html#qm-table.a_session_ex" title="A_Session_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="meth">
 <dt id="qm-meth.GetAssessmentResultInfoList2">
 <em class="property">method </em><tt class="descname">GetAssessmentResultInfoList2</tt> () returns <a class="reference internal" href="#qm-xtype.AssessmentResultInfoList2" title="AssessmentResultInfoList2">AssessmentResultInfoList2</a> <a class="headerlink" href="#qm-meth.GetAssessmentResultInfoList2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns all records from <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt> with additional
+<dd><p>Returns all records from <a class="reference internal" href="../model/a_session_ex.html#qm-table.a_session_ex" title="A_Session_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt></a> with additional
 elements as defined in <a class="reference internal" href="#qm-xtype.AssessmentResultInfo2" title="AssessmentResultInfo2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">AssessmentResultInfo2</span></tt></a>.  Note
 there is not &#8216;GetAssessmentResultInfoList3&#8217;.</p>
 </dd></dl>
@@ -457,7 +458,7 @@ there is not &#8216;GetAssessmentResultInfoList3&#8217;.</p>
 <dl class="meth">
 <dt id="qm-meth.GetQuestionResultInfoList">
 <em class="property">method </em><tt class="descname">GetQuestionResultInfoList</tt> () returns <a class="reference internal" href="#qm-xtype.QuestionResultInfoList" title="QuestionResultInfoList">QuestionResultInfoList</a> <a class="headerlink" href="#qm-meth.GetQuestionResultInfoList" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns all records from <tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt>.  Can be used to
+<dd><p>Returns all records from <a class="reference internal" href="../model/a_question_ex.html#qm-table.a_question_ex" title="A_Question_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt></a>.  Can be used to
 check that the required information about a Question exists
 before creating results with <a class="reference internal" href="#qm-meth.CreateAssessmentResult" title="CreateAssessmentResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">CreateAssessmentResult</span></tt></a> and
 similar methods.</p>
@@ -467,11 +468,11 @@ similar methods.</p>
 delivered questions. This method is not intended for
 use on larger repositories.  The use cases for using
 QMWISe to obtain information from
-<tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt> are limited to legacy
+<a class="reference internal" href="../model/a_question_ex.html#qm-table.a_question_ex" title="A_Question_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Question_Ex</span></tt></a> are limited to legacy
 applications and are documented here only for
 completeness.  New applications should use the
-<tt class="xref od od-feed docutils literal"><span class="pre">Attempts</span></tt> feed in Delivery OData to create
-externally generated results.</p>
+<a class="reference internal" href="../deliveryodata/feeds.html#od-feed.deliveryodata.Attempts" title="Attempts"><tt class="xref od od-feed docutils literal"><span class="pre">deliveryodata.Attempts</span></tt></a> feed in Delivery
+OData to create externally generated results.</p>
 </div>
 </dd></dl>
 
@@ -495,7 +496,7 @@ be provided when creating results.</p>
 <dt id="qm-xfield.AssessmentResult.Feedback">
 <tt class="descname">Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult.Feedback" title="Permalink to this definition">¶</a></dt>
 <dd><p>If present, and non empty, corresponds to the HTML feedback for
-the result as stored in <tt class="xref qm qm-field docutils literal"><span class="pre">A_ScoreBand_Ex.Feedback</span></tt>.</p>
+the result as stored in <a class="reference internal" href="../model/a_scoreband_ex.html#qm-field.a_scoreband_ex.feedback" title="Feedback"><tt class="xref qm qm-field docutils literal"><span class="pre">A_ScoreBand_Ex.Feedback</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="xfield">
@@ -527,7 +528,7 @@ be provided when creating results.</p>
 <dt id="qm-xfield.AssessmentResult2.Feedback">
 <tt class="descname">Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult2.Feedback" title="Permalink to this definition">¶</a></dt>
 <dd><p>If present, and non empty, corresponds to the HTML feedback for
-the result as stored in <tt class="xref qm qm-field docutils literal"><span class="pre">A_ScoreBand_Ex.Feedback</span></tt>.</p>
+the result as stored in <a class="reference internal" href="../model/a_scoreband_ex.html#qm-field.a_scoreband_ex.feedback" title="Feedback"><tt class="xref qm qm-field docutils literal"><span class="pre">A_ScoreBand_Ex.Feedback</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="xfield">
@@ -569,7 +570,7 @@ be provided when creating results.</p>
 <dt id="qm-xfield.AssessmentResult3.Feedback">
 <tt class="descname">Feedback</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.AssessmentResult3.Feedback" title="Permalink to this definition">¶</a></dt>
 <dd><p>If present, and non empty, corresponds to the HTML feedback for
-the result as stored in <tt class="xref qm qm-field docutils literal"><span class="pre">A_ScoreBand_Ex.Feedback</span></tt>.</p>
+the result as stored in <a class="reference internal" href="../model/a_scoreband_ex.html#qm-field.a_scoreband_ex.feedback" title="Feedback"><tt class="xref qm qm-field docutils literal"><span class="pre">A_ScoreBand_Ex.Feedback</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="xfield">
@@ -940,7 +941,7 @@ creating results.</p>
 <dt id="qm-xfield.Result3.Language">
 <tt class="descname">Language</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Result3.Language" title="Permalink to this definition">¶</a></dt>
 <dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.lang" title="Lang"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Lang</span></tt></a>.  When creating results there must
-be an entry in <tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt> that matches both the
+be an entry in <a class="reference internal" href="../model/a_session_ex.html#qm-table.a_session_ex" title="A_Session_Ex"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Session_Ex</span></tt></a> that matches both the
 Assessment_ID (defined by the base Result type) <em>and</em> the
 Language.</p>
 </dd></dl>
@@ -952,7 +953,7 @@ Language.</p>
 a translation. This field is actually used only for the creation
 of feedback and, along with Language, is used to set the
 language information for the ScoreBand (feedback) associated
-with the result.  See <tt class="xref qm qm-field docutils literal"><span class="pre">A_ScoreBand.Base</span></tt> for more
+with the result.  See <a class="reference internal" href="../model/a_scoreband_ex.html#qm-field.a_scoreband_ex.base" title="Base"><tt class="xref qm qm-field docutils literal"><span class="pre">A_ScoreBand_Ex.Base</span></tt></a> for more
 information.</p>
 </dd></dl>
 
@@ -1086,7 +1087,7 @@ corrected with the creation of <a class="reference internal" href="#qm-xtype.Ans
 <dt id="qm-xfield.Answer.Comment">
 <tt class="descname">Comment</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Answer.Comment" title="Permalink to this definition">¶</a></dt>
 <dd><p>The associated participant comment, obtained from the related
-entity in <tt class="xref qm qm-field docutils literal"><span class="pre">A_Comment.Comments</span></tt> (if present).</p>
+entity in <a class="reference internal" href="../model/a_comment.html#qm-field.a_comment.comment" title="Comment"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Comment.Comment</span></tt></a> (if present).</p>
 </dd></dl>
 
 </dd></dl>
@@ -1202,7 +1203,7 @@ generate results - used prior to creating results.  See
 <dt id="qm-xfield.AssessmentResultInfo2.Assessment_TypeProperty">
 <tt class="descname">Assessment_TypeProperty</tt> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.AssessmentResultInfo2.Assessment_TypeProperty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the assessment type from one of the constants defined by
-<tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Assessment_Type</span></tt>.</p>
+<a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.assessment_type" title="Assessment_Type"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Assessment_Type</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="xfield">
@@ -1677,7 +1678,7 @@ outcome band.</dd>
 <dd><p>The name of the Assessement referenced by
 <a class="reference internal" href="#qm-xfield.EventResult.Assessment_ID" title="Assessment_ID"><tt class="xref qm qm-xfield docutils literal"><span class="pre">EventResult.Assessment_ID</span></tt></a>.</p>
 <p>The name is obtained by looking up information in
-<tt class="xref qm qm-table docutils literal"><span class="pre">S_AML</span></tt>.</p>
+<a class="reference internal" href="../model/s_aml.html#qm-table.s_aml" title="S_AML"><tt class="xref qm qm-table docutils literal"><span class="pre">S_AML</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="xfield">
