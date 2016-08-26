@@ -46,8 +46,3 @@ data.
 At the time of writing, their are no publicly exposed APIs that access
 the authoring database.
 
-
-..  _odata:
-
-OData Primer
-~~~~~~~~~~~~

@@ -112,6 +112,12 @@ Feed Reference
     
 ..  od:feed::   AssessmentSnapshots AssessmentSnapshot
 
+    :method GET: reading snapshot entities
+    :method POST: creating snapshot entities
+    :method PATCH: some properties may be updated, see entity for details
+    :filter ID: primary key
+    :filter AssessmentID: the assessment used to create the snapshot
+    
     The AssessmentSnapshots feed contains information about snapshots of
     assessments.  Snapshots are versions of an assessment that have
     fixed any randomisation, such as which questions are picked and the

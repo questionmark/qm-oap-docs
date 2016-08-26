@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Index &mdash; QuestionmarkAPIs 2016.07 documentation</title>
+    <title>Index &mdash; QuestionmarkAPIs 2016.08 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2016.07',
+        VERSION:     '2016.08',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="index.html" /> 
+    <link rel="top" title="QuestionmarkAPIs 2016.08 documentation" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -33,7 +33,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="#" title="General Index"
              accesskey="I">index</a></li>
-        <li><a href="index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li> 
+        <li><a href="index.html">QuestionmarkAPIs 2016.08 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -284,6 +284,10 @@
   <dt><a href="model/a_result.html#qm-field.a_result.assessment_id">(field in A_Result)</a>
   </dt>
 
+        
+  <dt><a href="model/assessmentsnapshot.html#qm-field.assessmentsnapshot.assessment_id">(field in AssessmentSnapshot)</a>
+  </dt>
+
       </dl></dd>
       
   <dt><a href="model/s_header_ex.html#qm-field.s_header_ex.assessment_id">ASSESSMENT_ID (field in S_Header_Ex)</a>
@@ -303,12 +307,12 @@
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="qmwise/results.html#qm-xfield.AssessmentResultInfo2.Assessment_TypeProperty">Assessment_TypeProperty (element in AssessmentResultInfo2)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="qmwise/assessment.html#qm-xfield.AssessmentBlockList.AssessmentBlock">AssessmentBlock (element in AssessmentBlockList)</a>
   </dt>
@@ -338,9 +342,15 @@
   </dt>
 
       
-  <dt><a href="deliveryodata/result.html#od-prop.deliveryodata.Result.AssessmentID">AssessmentID (property of Result)</a>
+  <dt><a href="deliveryodata/assessmentsnapshot.html#od-prop.deliveryodata.AssessmentSnapshot.AssessmentID">AssessmentID (property of AssessmentSnapshot)</a>
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="deliveryodata/result.html#od-prop.deliveryodata.Result.AssessmentID">(property of Result)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="qmwise/assessment.html#qm-xtype.AssessmentList">AssessmentList (SOAP type)</a>
   </dt>
@@ -437,6 +447,22 @@
   <dt><a href="deliveryodata/assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot">AssessmentSnapshot (OData entity type)</a>
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="model/assessmentsnapshot.html#qm-table.assessmentsnapshot">(table in data model)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="model/assessmentsnapshot.html#qm-field.assessmentsnapshot.assessmentsnapshot_id">AssessmentSnapshot_ID (field in AssessmentSnapshot)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="model/assessmentsnapshot.html#qm-field.blocksinassessmentsnapshot.assessmentsnapshot_id">(field in BlocksInAssessmentSnapshot)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="deliveryodata/assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshotData">AssessmentSnapshotData (OData entity type)</a>
   </dt>
@@ -591,12 +617,30 @@
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="deliveryodata/answer.html#od-prop.deliveryodata.Answer.BlockNumber">BlockNumber (property of Answer)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="model/assessmentsnapshot.html#qm-table.blocksinassessmentsnapshot">BlocksInAssessmentSnapshot (table in data model)</a>
+  </dt>
+
+      
+  <dt><a href="model/assessmentsnapshot.html#qm-table.blocksnapshot">BlockSnapshot (table in data model)</a>
+  </dt>
+
+      
+  <dt><a href="model/assessmentsnapshot.html#qm-field.blocksinassessmentsnapshot.blocksnapshot_id">BlockSnapshot_ID (field in BlocksInAssessmentSnapshot)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="model/assessmentsnapshot.html#qm-field.blocksnapshot.blocksnapshot_id">(field in BlockSnapshot)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="qmwise.html#qm-xtype.boolean">boolean (SOAP type)</a>
   </dt>
@@ -721,6 +765,14 @@
 
       <dd><dl>
         
+  <dt><a href="model/assessmentsnapshot.html#qm-field.assessmentsnapshot.created_date">(field in AssessmentSnapshot)</a>
+  </dt>
+
+        
+  <dt><a href="model/assessmentsnapshot.html#qm-field.blocksnapshot.created_date">(field in BlockSnapshot)</a>
+  </dt>
+
+        
   <dt><a href="model/q_question_ex.html#qm-field.q_question_ex.created_date">(field in Q_Question_Ex)</a>
   </dt>
 
@@ -733,6 +785,12 @@
   <dt><a href="deliveryodata/assessment.html#od-prop.deliveryodata.Assessment.CreatedDateTime">CreatedDateTime (property of Assessment)</a>
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="deliveryodata/assessmentsnapshot.html#od-prop.deliveryodata.AssessmentSnapshot.CreatedDateTime">(property of AssessmentSnapshot)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="qmwise/results.html#qm-meth.CreateQuestionResultInfoList">CreateQuestionResultInfoList (SOAP method)</a>
   </dt>
@@ -751,6 +809,16 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="model/assessmentsnapshot.html#qm-field.assessmentsnapshot.data">Data (field in AssessmentSnapshot)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="model/assessmentsnapshot.html#qm-field.blocksnapshot.data">(field in BlockSnapshot)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="qmwise/assessment.html#qm-meth.DeleteAssessment">DeleteAssessment (SOAP method)</a>
   </dt>
@@ -909,8 +977,6 @@
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="qmwise/results.html#qm-xfield.EventResultList.EventResult">EventResult (element in EventResultList)</a>
   </dt>
@@ -921,6 +987,8 @@
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="qmwise/results.html#qm-xtype.EventResultList">EventResultList (SOAP type)</a>
   </dt>
@@ -935,6 +1003,14 @@
   </dt>
 
       </dl></dd>
+      
+  <dt><a href="model/assessmentsnapshot.html#qm-field.assessmentsnapshot.expires_date">Expires_Date (field in AssessmentSnapshot)</a>
+  </dt>
+
+      
+  <dt><a href="deliveryodata/assessmentsnapshot.html#od-prop.deliveryodata.AssessmentSnapshot.ExpiresDateTime">ExpiresDateTime (property of AssessmentSnapshot)</a>
+  </dt>
+
       
   <dt><a href="model/a_result.html#qm-field.a_result.extra_time">EXTRA_TIME (field in A_Result)</a>
   </dt>
@@ -1209,6 +1285,10 @@
   </dt>
 
         
+  <dt><a href="deliveryodata/assessmentsnapshot.html#od-prop.deliveryodata.AssessmentSnapshot.ID">(property of AssessmentSnapshot)</a>
+  </dt>
+
+        
   <dt><a href="deliveryodata/result.html#od-prop.deliveryodata.Result.ID">(property of Result)</a>
   </dt>
 
@@ -1327,6 +1407,10 @@
   </dt>
 
         
+  <dt><a href="model/assessmentsnapshot.html#qm-field.assessmentsnapshot.lang">(field in AssessmentSnapshot)</a>
+  </dt>
+
+        
   <dt><a href="model/q_qml_ex.html#qm-field.q_qml_ex.lang">(field in Q_QML_Ex)</a>
   </dt>
 
@@ -1362,6 +1446,10 @@
 
         
   <dt><a href="deliveryodata/assessment.html#od-prop.deliveryodata.Assessment.Language">(property of Assessment)</a>
+  </dt>
+
+        
+  <dt><a href="deliveryodata/assessmentsnapshot.html#od-prop.deliveryodata.AssessmentSnapshot.Language">(property of AssessmentSnapshot)</a>
   </dt>
 
       </dl></dd>
@@ -1551,12 +1639,12 @@
   <dt><a href="model/a_result.html#qm-field.a_result.member_sub_group_8">Member_Sub_Group_8 (field in A_Result)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="model/a_result.html#qm-field.a_result.member_sub_group_9">Member_Sub_Group_9 (field in A_Result)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="qmwise/assessment.html#qm-xfield.AssessmentOutcome.Message">Message (element in AssessmentOutcome)</a>
   </dt>
@@ -1615,6 +1703,10 @@
 
       <dd><dl>
         
+  <dt><a href="model/assessmentsnapshot.html#qm-field.assessmentsnapshot.modified_date">(field in AssessmentSnapshot)</a>
+  </dt>
+
+        
   <dt><a href="model/q_qml_ex.html#qm-field.q_qml_ex.modified_date">(field in Q_QML_Ex)</a>
   </dt>
 
@@ -1635,6 +1727,10 @@
   </dt>
 
       </dl></dd>
+      
+  <dt><a href="deliveryodata/assessmentsnapshot.html#od-prop.deliveryodata.AssessmentSnapshot.ModifiedDateTime">ModifiedDateTime (property of AssessmentSnapshot)</a>
+  </dt>
+
       
   <dt><a href="qmwise/results.html#qm-xfield.EventResult.Monitor_Name">Monitor_Name (element in EventResult)</a>
   </dt>
@@ -1691,6 +1787,10 @@
   </dt>
 
         
+  <dt><a href="model/assessmentsnapshot.html#qm-field.assessmentsnapshot.name">(field in AssessmentSnapshot)</a>
+  </dt>
+
+        
   <dt><a href="model/q_scoreband_ex.html#qm-field.q_scoreband_ex.name">(field in Q_Scoreband_Ex)</a>
   </dt>
 
@@ -1704,6 +1804,10 @@
 
         
   <dt><a href="deliveryodata/assessment.html#od-prop.deliveryodata.Assessment.Name">(property of Assessment)</a>
+  </dt>
+
+        
+  <dt><a href="deliveryodata/assessmentsnapshot.html#od-prop.deliveryodata.AssessmentSnapshot.Name">(property of AssessmentSnapshot)</a>
   </dt>
 
       </dl></dd>
@@ -1793,6 +1897,10 @@
   </dt>
 
       </dl></dd>
+      
+  <dt><a href="model/assessmentsnapshot.html#qm-field.blocksinassessmentsnapshot.order">Order (field in BlocksInAssessmentSnapshot)</a>
+  </dt>
+
       
   <dt><a href="model/q_question_ex.html#qm-field.q_question_ex.order_num">Order_Num (field in Q_Question_Ex)</a>
   </dt>
@@ -1955,8 +2063,6 @@
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="qmwise/results.html#qm-xfield.EventResult.Percentage_Score">Percentage_Score (element in EventResult)</a>
   </dt>
@@ -1979,6 +2085,8 @@
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="deliveryodata/result.html#od-prop.deliveryodata.Result.PercentageScore">PercentageScore (property of Result)</a>
   </dt>
@@ -1999,6 +2107,10 @@
 
       
   <dt><a href="qmwise/results.html#qm-xfield.Result2.PrimaryEmailAddress">PrimaryEmailAddress (element in Result2)</a>
+  </dt>
+
+      
+  <dt><a href="deliveryodata/assessmentsnapshot.html#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl">PrintableDocumentSourceUrl (property of AssessmentSnapshot)</a>
   </dt>
 
       
@@ -2366,6 +2478,10 @@
 
         
   <dt><a href="model/a_session_ex.html#qm-field.a_session_ex.revision">(field in A_Session_Ex)</a>
+  </dt>
+
+        
+  <dt><a href="model/assessmentsnapshot.html#qm-field.assessmentsnapshot.revision">(field in AssessmentSnapshot)</a>
   </dt>
 
         
@@ -3321,7 +3437,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="#" title="General Index"
              >index</a></li>
-        <li><a href="index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li> 
+        <li><a href="index.html">QuestionmarkAPIs 2016.08 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

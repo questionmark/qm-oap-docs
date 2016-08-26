@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Delivery OData Feeds &mdash; QuestionmarkAPIs 2016.07 documentation</title>
+    <title>Delivery OData Feeds &mdash; QuestionmarkAPIs 2016.08 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.07',
+        VERSION:     '2016.08',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,10 +23,10 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="../index.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.08 documentation" href="../index.html" />
     <link rel="up" title="Delivery OData API" href="../deliveryodata.html" />
     <link rel="next" title="Administrator" href="administrator.html" />
-    <link rel="prev" title="Subjective Scoring" href="scoring.html" /> 
+    <link rel="prev" title="External Delivery" href="xdelivery.html" /> 
   </head>
   <body>
     <div class="related">
@@ -39,9 +39,9 @@
           <a href="administrator.html" title="Administrator"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="scoring.html" title="Subjective Scoring"
+          <a href="xdelivery.html" title="External Delivery"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.08 documentation</a> &raquo;</li>
           <li><a href="../deliveryodata.html" accesskey="U">Delivery OData API</a> &raquo;</li> 
       </ul>
     </div>  
@@ -229,7 +229,28 @@ delivery.</p>
 <dl class="feed">
 <dt id="od-feed.deliveryodata.AssessmentSnapshots">
 <tt class="descname">AssessmentSnapshots</tt> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot">AssessmentSnapshot</a><a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshots" title="Permalink to this definition">¶</a></dt>
-<dd><p>The AssessmentSnapshots feed contains information about snapshots of
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; reading snapshot entities</li>
+<li><strong>POST</strong> &#8211; creating snapshot entities</li>
+<li><strong>PATCH</strong> &#8211; some properties may be updated, see entity for details</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>AssessmentID</strong> &#8211; the assessment used to create the snapshot</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The AssessmentSnapshots feed contains information about snapshots of
 assessments.  Snapshots are versions of an assessment that have
 fixed any randomisation, such as which questions are picked and the
 order they are presented, including the order of any shuffled
@@ -382,8 +403,8 @@ associated ScoringResult.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="scoring.html"
-                        title="previous chapter">Subjective Scoring</a></p>
+  <p class="topless"><a href="xdelivery.html"
+                        title="previous chapter">External Delivery</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="administrator.html"
                         title="next chapter">Administrator</a></p>
@@ -419,9 +440,9 @@ associated ScoringResult.</p>
           <a href="administrator.html" title="Administrator"
              >next</a> |</li>
         <li class="right" >
-          <a href="scoring.html" title="Subjective Scoring"
+          <a href="xdelivery.html" title="External Delivery"
              >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.08 documentation</a> &raquo;</li>
           <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li> 
       </ul>
     </div>

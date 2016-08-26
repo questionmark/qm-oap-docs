@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>AssessmentSnapshot(Data) &mdash; QuestionmarkAPIs 2016.07 documentation</title>
+    <title>AssessmentSnapshot(Data) &mdash; QuestionmarkAPIs 2016.08 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.07',
+        VERSION:     '2016.08',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.07 documentation" href="../index.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.08 documentation" href="../index.html" />
     <link rel="up" title="Delivery OData Feeds" href="feeds.html" />
     <link rel="next" title="Attempt" href="attempt.html" />
     <link rel="prev" title="Assessment" href="assessment.html" /> 
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="assessment.html" title="Assessment"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.08 documentation</a> &raquo;</li>
           <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
           <li><a href="feeds.html" accesskey="U">Delivery OData Feeds</a> &raquo;</li> 
       </ul>
@@ -57,13 +57,130 @@
 <dl class="type">
 <dt id="od-type.deliveryodata.AssessmentSnapshot">
 <em class="property">EntityType: </em><tt class="descname">AssessmentSnapshot</tt><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshot" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>AssessmentSnapshot entities are drawn from
+<a class="reference internal" href="../model/assessmentsnapshot.html#qm-table.assessmentsnapshot" title="AssessmentSnapshot"><tt class="xref qm qm-table docutils literal"><span class="pre">AssessmentSnapshot</span></tt></a>.</p>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshot.ID">
+<em class="property">Entity Key: </em><tt class="descname">ID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the snapshot
+(<a class="reference internal" href="../model/assessmentsnapshot.html#qm-field.assessmentsnapshot.assessmentsnapshot_id" title="AssessmentSnapshot_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">AssessmentSnapshot.AssessmentSnapshot_ID</span></tt></a>). The
+value cannot be modified.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshot.AssessmentID">
+<tt class="descname">AssessmentID</tt>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.AssessmentID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the assessment used to create the snapshot.  Along
+with the Language, this is used to find the assessment
+definition. When POSTing to the feed to create a snapshot you
+must specify the AssessmentID, the snapshot is created
+immediately so any subsequent changes to the Assessment will
+not affect the delivery of the snapshot.</p>
+<p>You cannot modify this field once the snapshot has been created.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshot.Language">
+<tt class="descname">Language</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Language" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Language of the assessment (if translated).  This field is
+optional.  If unspecified then for assessments that have not
+been translated it will take the value &#8216;-&#8216;, indicating an
+unknown language.  For assessments that have been translated the
+base language is selected.  When specified it must match one
+of the languages the assessment has been translated into.</p>
+<p>You cannot modify this field once the snapshot has been created.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshot.Name">
+<tt class="descname">Name</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A human friendly name for the snapshot.  This field can be
+modified using the PATCH method.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshot.ExpiresDateTime">
+<tt class="descname">ExpiresDateTime</tt>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ExpiresDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time after which new attempts that use this snapshot cannot
+be created.  This value can be modified using the PATH method.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl">
+<tt class="descname">PrintableDocumentSourceUrl</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>A link to a printable HTML5 version of the snapshot.  This link
+is time-stamped and signed and must be generated immediately
+prior to use.  It is only available when an individual entity is
+queried, whenever a collection of AssessmentSnapshot entities
+can be returned from a query (such as filtering the parent feed)
+this property is set to NULL in the entities returned (for
+security reasons).  For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/123456/AssessmentSnapshots
+
+{
+    odata.metadata: &quot;https://ondemand.questionmark.com/deliveryodata/123456/$metadata#AssessmentSnapshots&quot;,
+    value: [
+        {
+            PrintableDocumentSourceUrl: null,
+            ID: 1,
+            AssessmentID: &quot;2185231530264478&quot;,
+            Language: &quot;-&quot;,
+            Name: &quot;DemoSnap&quot;,
+            CreatedDateTime: &quot;2015-11-09T15:48:18.527Z&quot;,
+            ModifiedDateTime: &quot;2015-11-09T15:48:18.527Z&quot;,
+            ExpiresDateTime: null
+        },
+        {
+            PrintableDocumentSourceUrl: null,
+            ID: 2,
+            ...
+</pre></div>
+</div>
+<p>To get the printable link to the snapshot you must use a query
+like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AssessmentSnapshots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="p">{</span>
+    <span class="n">odata</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span> <span class="s">&quot;https://ondemand.questionmark.com/deliveryodata/123456/$metadata#AssessmentSnapshots/@Element&quot;</span><span class="p">,</span>
+    <span class="n">PrintableDocumentSourceUrl</span><span class="p">:</span> <span class="s">&quot;https://ondemand.questionmark.com/delivery/AssessmentSnapshot.php?customerid=123456&amp;snapshotid=1&amp;timestamp=2015-12-10T16:27:48.9784554Z&amp;signature=63a3ffc4ffdcfdb03280964e1583e8a08a7fe93857d48311c483ad917228d268&quot;</span><span class="p">,</span>
+    <span class="n">ID</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">AssessmentID</span><span class="p">:</span> <span class="s">&quot;2185231530264478&quot;</span><span class="p">,</span>
+    <span class="n">Language</span><span class="p">:</span> <span class="s">&quot;-&quot;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="p">:</span> <span class="s">&quot;DemoSnap&quot;</span><span class="p">,</span>
+    <span class="n">CreatedDateTime</span><span class="p">:</span> <span class="s">&quot;2015-11-09T15:48:18.527Z&quot;</span><span class="p">,</span>
+    <span class="n">ModifiedDateTime</span><span class="p">:</span> <span class="s">&quot;2015-11-09T15:48:18.527Z&quot;</span><span class="p">,</span>
+    <span class="n">ExpiresDateTime</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshot.CreatedDateTime">
+<tt class="descname">CreatedDateTime</tt>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>A time stamp of when the snapshot was created.  Set
+automatically, it cannot be modified.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshot.ModifiedDateTime">
+<tt class="descname">ModifiedDateTime</tt>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>A time stamp of when the snapshot was last modified.  Set
+automatically, it cannot be modified directly but a call to the
+PATCH method on the associated feed will cause it to be updated.</p>
+</dd></dl>
+
+</dd></dl>
 
 <dl class="type">
 <dt id="od-type.deliveryodata.AssessmentSnapshotData">
 <em class="property">EntityType: </em><tt class="descname">AssessmentSnapshotData</tt><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshotData" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="section" id="snapshot-file-format">
+<span id="snapshotxml"></span><h2>Snapshot File Format<a class="headerlink" href="#snapshot-file-format" title="Permalink to this headline">¶</a></h2>
+<p>TBC</p>
+</div>
 </div>
 
 
@@ -72,6 +189,14 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">AssessmentSnapshot(Data)</a><ul>
+<li><a class="reference internal" href="#snapshot-file-format">Snapshot File Format</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="assessment.html"
                         title="previous chapter">Assessment</a></p>
@@ -112,7 +237,7 @@
         <li class="right" >
           <a href="assessment.html" title="Assessment"
              >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.07 documentation</a> &raquo;</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.08 documentation</a> &raquo;</li>
           <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
           <li><a href="feeds.html" >Delivery OData Feeds</a> &raquo;</li> 
       </ul>

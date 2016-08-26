@@ -8,5 +8,6 @@ with this API.  There are many other possibilities.
     :maxdepth: 2
 
     scoring
+    xdelivery
 
 
