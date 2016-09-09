@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>G_User &mdash; QuestionmarkAPIs 2016.08 documentation</title>
+    <title>G_User &mdash; QuestionmarkAPIs 2016.09 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.08',
+        VERSION:     '2016.09',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.08 documentation" href="../index.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
     <link rel="up" title="Security Tables" href="security.html" />
     <link rel="next" title="Assessment Tables" href="assessment.html" />
     <link rel="prev" title="G_Owner" href="g_owner.html" /> 
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="g_owner.html" title="G_Owner"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.08 documentation</a> &raquo;</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
           <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
           <li><a href="security.html" accesskey="U">Security Tables</a> &raquo;</li> 
       </ul>
@@ -76,7 +76,17 @@ table is authoritative.</p>
 <dl class="field">
 <dt id="qm-field.g_user.user_name">
 <tt class="descname">User_Name</tt> varchar(200) NOT NULL<a class="headerlink" href="#qm-field.g_user.user_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>You should pay particular attention to the issues around the
+storage of information in <a class="reference internal" href="../data_model.html#varchar"><em>Fields defined with varchar</em></a> concerning the encoding
+of user names with characters outside US ASCII.</p>
+<p>In addition to this transformation there are a number of further
+restrictions on which graphic characters from US ASCII are
+allowed.  The APIs don&#8217;t always implement the restrictions
+consistently.  Sometimes <em>illegal</em> characters will result in an
+error and sometimes they will be swapped for similar characters
+that are allowed.  Check the documentation for the API for
+further details.</p>
+</dd></dl>
 
 <dl class="field">
 <dt id="qm-field.g_user.password">
@@ -253,7 +263,7 @@ table is authoritative.</p>
         <li class="right" >
           <a href="g_owner.html" title="G_Owner"
              >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.08 documentation</a> &raquo;</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
           <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
           <li><a href="security.html" >Security Tables</a> &raquo;</li> 
       </ul>

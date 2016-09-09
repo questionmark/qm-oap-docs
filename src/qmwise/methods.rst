@@ -6,6 +6,7 @@ Web Service Methods
 
     administrator
     assessment
+    groups
     participants
     questions
     results

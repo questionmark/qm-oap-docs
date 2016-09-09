@@ -56,4 +56,5 @@ docs/.doctrees/
 target/
 
 # Local files
+.DS_Store
 local/

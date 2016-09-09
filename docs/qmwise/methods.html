@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Web Service Methods &mdash; QuestionmarkAPIs 2016.08 documentation</title>
+    <title>Web Service Methods &mdash; QuestionmarkAPIs 2016.09 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.08',
+        VERSION:     '2016.09',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.08 documentation" href="../index.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
     <link rel="up" title="QMWISe" href="../qmwise.html" />
     <link rel="next" title="Administrator" href="administrator.html" />
     <link rel="prev" title="QMWISe" href="../qmwise.html" /> 
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="../qmwise.html" title="QMWISe"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.08 documentation</a> &raquo;</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
           <li><a href="../qmwise.html" accesskey="U">QMWISe</a> &raquo;</li> 
       </ul>
     </div>  
@@ -55,7 +55,10 @@
 <h1>Web Service Methods<a class="headerlink" href="#web-service-methods" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="administrator.html">Administrator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administrator.html">Administrator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="administrator.html#administrator-methods">Administrator Methods</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="assessment.html">Assessments</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="assessment.html#assessment-methods">Assessment Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="assessment.html#assessment-folders">Assessment Folders</a></li>
@@ -64,9 +67,17 @@
 <li class="toctree-l2"><a class="reference internal" href="assessment.html#assessment-types">Assessment Types</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="participants.html">Participants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="groups.html">Groups</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="groups.html#group-methods">Group Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="participants.html">Participants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="participants.html#participant-methods">Participant Methods</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="questions.html">Questions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="questions.html#topic-methods">Topic Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.html#question-methods">Question Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="results.html">Results</a><ul>
@@ -74,10 +85,23 @@
 <li class="toctree-l2"><a class="reference internal" href="results.html#result-types">Result Types</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="schedules.html">Schedules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="snapshots.html">Snapshots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="systemdata.html">System Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="urls.html">URLs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schedules.html">Schedules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="schedules.html#schedule-methods">Schedule Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schedules.html#schedule-types">Schedule Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="snapshots.html">Snapshots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html#snapshot-methods">Snapshot Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="systemdata.html">System Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="systemdata.html#system-methods">System Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="urls.html">URLs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="urls.html#access-methods">Access Methods</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -128,7 +152,7 @@
         <li class="right" >
           <a href="../qmwise.html" title="QMWISe"
              >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.08 documentation</a> &raquo;</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
           <li><a href="../qmwise.html" >QMWISe</a> &raquo;</li> 
       </ul>
     </div>

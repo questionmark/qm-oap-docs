@@ -21,6 +21,18 @@ G_User
     ..  qm:field::  User_Name varchar(200)
         :notnull:
 
+        You should pay particular attention to the issues around the
+        storage of information in :ref:`varchar` concerning the encoding
+        of user names with characters outside US ASCII.
+        
+        In addition to this transformation there are a number of further
+        restrictions on which graphic characters from US ASCII are
+        allowed.  The APIs don't always implement the restrictions
+        consistently.  Sometimes *illegal* characters will result in an
+        error and sometimes they will be swapped for similar characters
+        that are allowed.  Check the documentation for the API for
+        further details.        
+        
     ..  qm:field::  Password nvarchar(255)
         :notnull:
 

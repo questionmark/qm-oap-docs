@@ -10,6 +10,10 @@ of accessing Questionmark results data over the web.
 ..  note::  The Results OData API is available in Questionmark OnDemand
             and in Perception 5.7 and later.
 
+These documentation pages are in preparation, in the interim please
+refer to this guide:
+https://www.questionmark.com/content/questionmark-results-api-guide
+
 .. toctree::
     :maxdepth: 2
 

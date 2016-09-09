@@ -458,6 +458,7 @@ class SOAPFieldDirective(ObjectDescription):
     option_spec = {
         'optional': directives.flag,
         'max': lambda x:x,
+        'default': lambda x: x
         }
 
     def handle_signature(self, sig, signode):
@@ -485,6 +486,10 @@ class SOAPFieldDirective(ObjectDescription):
                     max_occurrs = ""
             if max_occurrs:
                 signode += addnodes.desc_annotation(max_occurrs, max_occurrs)
+        if 'default' in self.options:
+            default = self.options['default'].strip()
+            default = " default=%s" % default
+            signode += addnodes.desc_annotation(default, default)
         if 'optional' in self.options:
             signode += addnodes.desc_annotation(" optional", " optional")
         else:
