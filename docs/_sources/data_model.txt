@@ -25,6 +25,7 @@ the detailed explanation of these data elements.
     model/question
     model/answer
     model/ng
+    model/scoringtool
 
 
 Misc Topics

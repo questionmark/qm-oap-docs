@@ -128,11 +128,24 @@ Feed Reference
     including printing and scanning.
     
 ..  od:feed::   AssessmentSnapshotsData AssessmentSnapshotData
+    :mle:
+
+    :method GET: feed is read only
+    :filter ID: primary key
 
     An auxiliary feed to :od:feed:`AssessmentSnapshots` which contains
-    the raw XML data describing the snapshot.
+    the raw XML data describing the snapshot.  Values are normally
+    obtained by navigation from the associated
+    :od:type:`deliveryodata.AssessmentSnapshot` rather than directly.
     
 ..  od:feed::   Attempts Attempt
+
+    :method GET: reading attempt entities
+    :method POST: creating attempt entities
+    :filter ID: primary key
+    :expand AttemptMetadata: expands the optional metadata
+    :expand AnswerUpload: expands the optional associated AnswerUpload
+    :expand AttemptList: expands the optional associated AttemptList
 
     The Attempts feed contains an entry for each attempt at an
     assessment. Attempts represent the authority to take a test and link
@@ -147,13 +160,48 @@ Feed Reference
     general platform for use by external systems that maintain their own
     business rules.    
     
+..  od:feed::   AttemptMetadata AttemptMetadata
+
+    ..  warning::  *New*, expected to be released in Q4 of 2016
+
+    :method GET: reading attempt metadata key-value pairs
+    :method POST: creating attempt metadata key-value pairs
+    :filter ID: primary key
+    :expand Attempt: expands the associated Attempt    
+
+    The attempt metadata feed allows arbitrary metadata to be associated
+    with an attempt.
+         
+..  od:feed::   AttemptLists AttemptList
+
+    ..  note::  *New* in 2016.09
+
+    :method GET: reading attempt list entities
+    :method POST: creating attempt list entities
+    :filter ID: primary key
+    :expand Attempts: expands the associated Attempts    
+
+    The AttemptLists feed supports the arbitrary grouping of attempts
+    allowing a pre-defined group of attempts to be managed by a single
+    proctor or external business process.    
+
 ..  od:feed::   Dimensions Dimension
 
+    :method GET: this feed is read only
+    :filter ID: primary key
+    :expand Rubric: expands the associated Rubric    
+    :expand DimensionScores: expands the associated collection of scores    
+    
     The Dimensions feed contains information about the scoring
     dimensions associated with a rubric and is used for subjective
     marking.
     
 ..  od:feed::   DimensionScores DimensionScore
+
+    :method GET: for reading individual scores
+    :method PUT: for updating the scores
+    :expand Rubric: expands the associated Rubric    
+    :expand Dimension: expands the Dimension of the Rubric
 
     The DimensionScores feed contains information about the actual
     scores awarded to an answer by a subjective marking process on a
@@ -196,14 +244,34 @@ Feed Reference
     
 ..  od:feed::   ScoringResults ScoringResult
 
+    :method GET: for reading scoring results
+    :method PUT: for updating the score    
+    :filter QuestionID: the question being answered
+    :filter ResultID: the result that generated the scoring task
+    :expand ScoringTask: the task
+    :expand Rubric: the scoring rules
+    :expand DimensionScores: the individual dimension scores
+    
     The Scoring Results feed contains the scores awarded by subjective
     marking.  ScoringResults are associated with ScoringTasks. 
 
 ..  od:feed::   ScoringTasks ScoringTask
 
-    The ScoringTasks feed contains one entity for each Answer that
-    requires subjective scoring.  The scores actually awarded are in the
-    associated ScoringResult.
+    :method GET: for reading scoring tasks
+    :method PUT: for updating the status of a scoring task    
+    :filter QuestionID: the question being answered
+    :filter ResultID: the result that generated the scoring task
+    :filter Status: the status of the scoring task
+    :expand Assessment: expands the assessment that was being taken    
+    :expand Question: expands the question that was answered    
+    :expand Result: expands the result that generated the scoring task
+    :expand Answer: expands the answer that generated the scoring task
+    :expand Group: expands the optional Group related to this task    
+    :expand ScoringResult: use with caution, see :od:prop:`ScoringTask.ScoringResult` for details    
+
+    The ScoringTasks feed contains one entity for each :od:type:`Answer`
+    that requires subjective scoring.  The scores actually awarded are
+    in the associated :od:type:`ScoringResult`.
     
 
 Entity Type Reference

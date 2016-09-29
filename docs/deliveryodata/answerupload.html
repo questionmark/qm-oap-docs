@@ -91,7 +91,14 @@ formatted as a string (optional).  If present, group information
 will be read from the batch and used to set the group
 information in the associated result.</dd>
 <dt>AttemptID</dt>
-<dd>An integer reference to the associated attempt (required).</dd>
+<dd><p class="first">An integer reference to the associated attempt (required).</p>
+<p>The attempt must have an associated snapshot which defines the
+exact version of the assessment that was delivered externally.</p>
+<p class="last">An attempt can only ever be taken once, either online or
+externally.  Therefore, you cannot upload a set of results for
+an attempt that is already associated with a result record (see
+<a class="reference internal" href="attempt.html#od-prop.deliveryodata.Attempt.ResultID" title="ResultID"><tt class="xref od od-prop docutils literal"><span class="pre">Attempt.ResultID</span></tt></a>).</p>
+</dd>
 <dt>QuestionAndChoices</dt>
 <dd><p class="first">An array of objects describing the response to each question.</p>
 <dl class="last docutils">

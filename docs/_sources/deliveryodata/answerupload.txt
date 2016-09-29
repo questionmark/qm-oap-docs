@@ -41,7 +41,15 @@ application/json) file with the following fields.
     
     AttemptID
         An integer reference to the associated attempt (required).
-    
+        
+        The attempt must have an associated snapshot which defines the
+        exact version of the assessment that was delivered externally.
+        
+        An attempt can only ever be taken once, either online or
+        externally.  Therefore, you cannot upload a set of results for
+        an attempt that is already associated with a result record (see
+        :od:prop:`Attempt.ResultID`).  
+            
     QuestionAndChoices
         An array of objects describing the response to each question.
         

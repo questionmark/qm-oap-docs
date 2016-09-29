@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>G_Schedule &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.09',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
+    <link rel="up" title="Security Tables" href="security.html" />
+    <link rel="next" title="G_User" href="g_user.html" />
+    <link rel="prev" title="G_Participant" href="g_participant.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="g_user.html" title="G_User"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="g_participant.html" title="G_Participant"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
+          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
+          <li><a href="security.html" accesskey="U">Security Tables</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="g-schedule">
+<h1>G_Schedule<a class="headerlink" href="#g-schedule" title="Permalink to this headline">¶</a></h1>
+<dl class="table">
+<dt id="qm-table.g_schedule">
+<em class="property">TABLE </em><tt class="descname">G_Schedule</tt><a class="headerlink" href="#qm-table.g_schedule" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field">
+<dt id="qm-field.g_schedule.schedule_id">
+<em class="property">Primary Key: </em><tt class="descname">Schedule_ID</tt> int NOT NULL<a class="headerlink" href="#qm-field.g_schedule.schedule_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.session_mid">
+<tt class="descname">Session_MID</tt> int NOT NULL<a class="headerlink" href="#qm-field.g_schedule.session_mid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.session_lid">
+<tt class="descname">Session_LID</tt> int NOT NULL<a class="headerlink" href="#qm-field.g_schedule.session_lid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.session_name">
+<tt class="descname">Session_Name</tt> varchar(200) NOT NULL<a class="headerlink" href="#qm-field.g_schedule.session_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.participant_id">
+<tt class="descname">Participant_ID</tt> int<a class="headerlink" href="#qm-field.g_schedule.participant_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.group_id">
+<tt class="descname">Group_ID</tt> int<a class="headerlink" href="#qm-field.g_schedule.group_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.schedule_name">
+<tt class="descname">Schedule_Name</tt> varchar(200) NOT NULL<a class="headerlink" href="#qm-field.g_schedule.schedule_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.restrict_times">
+<tt class="descname">Restrict_Times</tt> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule.restrict_times" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.schedule_starts">
+<tt class="descname">Schedule_Starts</tt> datetime<a class="headerlink" href="#qm-field.g_schedule.schedule_starts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.schedule_stops">
+<tt class="descname">Schedule_Stops</tt> datetime<a class="headerlink" href="#qm-field.g_schedule.schedule_stops" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.restrict_attempts">
+<tt class="descname">Restrict_Attempts</tt> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule.restrict_attempts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.max_attempts">
+<tt class="descname">Max_Attempts</tt> int<a class="headerlink" href="#qm-field.g_schedule.max_attempts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.use_conditions">
+<tt class="descname">Use_Conditions</tt> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule.use_conditions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.monitored">
+<tt class="descname">Monitored</tt> smallint<a class="headerlink" href="#qm-field.g_schedule.monitored" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.restrict_r_access_part">
+<tt class="descname">Restrict_R_Access_Part</tt> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule.restrict_r_access_part" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.restrict_r_access_admin">
+<tt class="descname">Restrict_R_Access_Admin</tt> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule.restrict_r_access_admin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.r_access_part_from">
+<tt class="descname">R_Access_Part_From</tt> datetime<a class="headerlink" href="#qm-field.g_schedule.r_access_part_from" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.r_access_part_to">
+<tt class="descname">R_Access_Part_To</tt> datetime<a class="headerlink" href="#qm-field.g_schedule.r_access_part_to" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.r_access_admin_from">
+<tt class="descname">R_Access_Admin_From</tt> datetime<a class="headerlink" href="#qm-field.g_schedule.r_access_admin_from" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.r_access_admin_to">
+<tt class="descname">R_Access_Admin_To</tt> datetime<a class="headerlink" href="#qm-field.g_schedule.r_access_admin_to" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.test_center_id">
+<tt class="descname">Test_Center_ID</tt> int<a class="headerlink" href="#qm-field.g_schedule.test_center_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.group_tree_id">
+<tt class="descname">Group_Tree_ID</tt> int<a class="headerlink" href="#qm-field.g_schedule.group_tree_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.min_days_between_attempts">
+<tt class="descname">Min_Days_Between_Attempts</tt> int<a class="headerlink" href="#qm-field.g_schedule.min_days_between_attempts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.time_limit_override">
+<tt class="descname">Time_Limit_Override</tt> bit<a class="headerlink" href="#qm-field.g_schedule.time_limit_override" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.time_limit">
+<tt class="descname">Time_Limit</tt> int<a class="headerlink" href="#qm-field.g_schedule.time_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.lang">
+<tt class="descname">Lang</tt> varchar(10) NOT NULL<a class="headerlink" href="#qm-field.g_schedule.lang" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.g_schedule.participant_lang">
+<tt class="descname">Participant_Lang</tt> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule.participant_lang" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="g_participant.html"
+                        title="previous chapter">G_Participant</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="g_user.html"
+                        title="next chapter">G_User</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/model/g_schedule.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="g_user.html" title="G_User"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="g_participant.html" title="G_Participant"
+             >previous</a> |</li>
+        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
+          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
+          <li><a href="security.html" >Security Tables</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Steve Lay.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

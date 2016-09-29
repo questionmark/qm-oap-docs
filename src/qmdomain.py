@@ -238,6 +238,18 @@ class ODataFeedRole(XRefRole):
         return title, target
 
 
+class ODataTypeRole(XRefRole):
+
+    def process_link(self, env, refnode, has_explicit_title, title, target):
+        svc = env.temp_data.get('od:service', None)
+        starget = target.split('.')
+        if len(starget) < 2:
+            # qualify with svc name
+            if svc is not None:
+                target = "%s.%s" % (svc.name, target)
+        return title, target
+
+
 class ODataPropRole(XRefRole):
 
     def process_link(self, env, refnode, has_explicit_title, title, target):
@@ -279,7 +291,7 @@ class ODataDomain(Domain):
     roles = {
         'svc': XRefRole(),
         'feed': ODataFeedRole(),
-        'type': XRefRole(),
+        'type': ODataTypeRole(),
         'prop': ODataPropRole(),
         }
 

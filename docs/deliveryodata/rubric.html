@@ -62,7 +62,59 @@
 <dl class="type">
 <dt id="od-type.deliveryodata.Dimension">
 <em class="property">EntityType: </em><tt class="descname">Dimension</tt><a class="headerlink" href="#od-type.deliveryodata.Dimension" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="prop">
+<dt id="od-prop.deliveryodata.Dimension.ID">
+<em class="property">Entity Key: </em><tt class="descname">ID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Dimension.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unique ID of this dimension.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Dimension.RubricID">
+<tt class="descname">RubricID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Dimension.RubricID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the associated rubric.  You may also use the
+navigation property <a class="reference internal" href="#od-prop.deliveryodata.Dimension.Rubric" title="Rubric"><tt class="xref od od-prop docutils literal"><span class="pre">Rubric</span></tt></a> to obtain this entity
+directly.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Dimension.Order">
+<tt class="descname">Order</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Dimension.Order" title="Permalink to this definition">¶</a></dt>
+<dd><p>The order of this dimension (for presentation to human markers).</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Dimension.Name">
+<tt class="descname">Name</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Dimension.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The human-readable name of this dimension.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Dimension.Instructions">
+<tt class="descname">Instructions</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Dimension.Instructions" title="Permalink to this definition">¶</a></dt>
+<dd><p>The human-readable instructions for scoring this dimension.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Dimension.MaxScore">
+<tt class="descname">MaxScore</tt>  Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Dimension.MaxScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum permitted score for this dimension.  Scores may
+range from 0 up to and including MaxScore.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Dimension.Rubric">
+<tt class="descname">Rubric</tt> <a class="reference internal" href="#od-type.deliveryodata.Rubric" title="Rubric">Rubric</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Dimension.Rubric" title="Permalink to this definition">¶</a></dt>
+<dd><p>The navigation property to the associated <a class="reference internal" href="#od-type.deliveryodata.Rubric" title="Rubric"><tt class="xref od od-type docutils literal"><span class="pre">Rubric</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Dimension.DimensionScores">
+<tt class="descname">DimensionScores</tt> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.DimensionScore" title="DimensionScore">DimensionScore</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Dimension.DimensionScores" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to all scores (for all participants) that
+are associated with this dimension of this rubric.</p>
+</dd></dl>
+
+</dd></dl>
 
 </div>
 

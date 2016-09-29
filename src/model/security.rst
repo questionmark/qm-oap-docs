@@ -14,6 +14,8 @@ authoritative source of user information.
 
     g_group_tree
     g_owner
+    g_participant
+    g_schedule
     g_user
 
 

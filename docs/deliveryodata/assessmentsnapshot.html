@@ -58,7 +58,8 @@
 <dt id="od-type.deliveryodata.AssessmentSnapshot">
 <em class="property">EntityType: </em><tt class="descname">AssessmentSnapshot</tt><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshot" title="Permalink to this definition">¶</a></dt>
 <dd><p>AssessmentSnapshot entities are drawn from
-<a class="reference internal" href="../model/assessmentsnapshot.html#qm-table.assessmentsnapshot" title="AssessmentSnapshot"><tt class="xref qm qm-table docutils literal"><span class="pre">AssessmentSnapshot</span></tt></a>.</p>
+<a class="reference internal" href="../model/assessmentsnapshot.html#qm-table.assessmentsnapshot" title="AssessmentSnapshot"><tt class="xref qm qm-table docutils literal"><span class="pre">AssessmentSnapshot</span></tt></a>.  You can create entities using
+a POST request to the corresponding feed.</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshot.ID">
 <em class="property">Entity Key: </em><tt class="descname">ID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ID" title="Permalink to this definition">¶</a></dt>
@@ -170,12 +171,44 @@ automatically, it cannot be modified directly but a call to the
 PATCH method on the associated feed will cause it to be updated.</p>
 </dd></dl>
 
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshot.AssessmentSnapshotData">
+<tt class="descname">AssessmentSnapshotData</tt> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData">AssessmentSnapshotData</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.AssessmentSnapshotData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the associated XML data for this
+snapshot. As a single entity you can just append
+/AssessmentSnapshotData/$value to the URL of an
+AssessmentSnapshot entity to obtain the raw XML source of the
+snapshot.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshot.PrintBatches">
+<tt class="descname">PrintBatches</tt> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintBatches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to all PrintBatch entities that use this
+snapshot.  This collection may be empty as PrintBatches are an
+optional grouping structure used to help manage printing and
+scanning workflows..</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="type">
 <dt id="od-type.deliveryodata.AssessmentSnapshotData">
 <em class="property">EntityType: </em><tt class="descname">AssessmentSnapshotData</tt><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshotData" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><blockquote>
+<div><p>This is a media link entry that describes the XML file
+associated with a snapshot.  You obtain the XML stream by taking
+the value of the identified enity using OData&#8217;s $value suffix.</p>
+<p>The format of the XML data is described in <a class="reference internal" href="#snapshotxml"><em>Snapshot File Format</em></a>
+below.</p>
+</div></blockquote>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshotData.ID">
+<em class="property">Entity Key: </em><tt class="descname">ID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshotData.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the snapshot for which this is the data.</p>
+</dd></dl>
+
+</dd></dl>
 
 <div class="section" id="snapshot-file-format">
 <span id="snapshotxml"></span><h2>Snapshot File Format<a class="headerlink" href="#snapshot-file-format" title="Permalink to this headline">¶</a></h2>

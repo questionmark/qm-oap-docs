@@ -262,15 +262,62 @@ including printing and scanning.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.AssessmentSnapshotsData">
-<tt class="descname">AssessmentSnapshotsData</tt> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData">AssessmentSnapshotData</a><a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshotsData" title="Permalink to this definition">¶</a></dt>
-<dd><p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.AssessmentSnapshots" title="AssessmentSnapshots"><tt class="xref od od-feed docutils literal"><span class="pre">AssessmentSnapshots</span></tt></a> which contains
-the raw XML data describing the snapshot.</p>
+<tt class="descname">AssessmentSnapshotsData</tt> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData">AssessmentSnapshotData</a> (Media Link Entry)<a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshotsData" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; feed is read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.AssessmentSnapshots" title="AssessmentSnapshots"><tt class="xref od od-feed docutils literal"><span class="pre">AssessmentSnapshots</span></tt></a> which contains
+the raw XML data describing the snapshot.  Values are normally
+obtained by navigation from the associated
+<a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><tt class="xref od od-type docutils literal"><span class="pre">deliveryodata.AssessmentSnapshot</span></tt></a> rather than directly.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Attempts">
 <tt class="descname">Attempts</tt> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-feed.deliveryodata.Attempts" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Attempts feed contains an entry for each attempt at an
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; reading attempt entities</li>
+<li><strong>POST</strong> &#8211; creating attempt entities</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>AttemptMetadata</strong> &#8211; expands the optional metadata</li>
+<li><strong>AnswerUpload</strong> &#8211; expands the optional associated AnswerUpload</li>
+<li><strong>AttemptList</strong> &#8211; expands the optional associated AttemptList</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Attempts feed contains an entry for each attempt at an
 assessment. Attempts represent the authority to take a test and link
 to a specific participant, a specific assessment and (sometimes) a
 specific snapshot.  There are also properties that can be used to
@@ -284,9 +331,107 @@ business rules.</p>
 </dd></dl>
 
 <dl class="feed">
+<dt id="od-feed.deliveryodata.AttemptMetadata">
+<tt class="descname">AttemptMetadata</tt> <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata">AttemptMetadata</a><a class="headerlink" href="#od-feed.deliveryodata.AttemptMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><em>New</em>, expected to be released in Q4 of 2016</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; reading attempt metadata key-value pairs</li>
+<li><strong>POST</strong> &#8211; creating attempt metadata key-value pairs</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Attempt</strong> &#8211; expands the associated Attempt</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The attempt metadata feed allows arbitrary metadata to be associated
+with an attempt.</p>
+</dd></dl>
+
+<dl class="feed">
+<dt id="od-feed.deliveryodata.AttemptLists">
+<tt class="descname">AttemptLists</tt> <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptList" title="AttemptList">AttemptList</a><a class="headerlink" href="#od-feed.deliveryodata.AttemptLists" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><em>New</em> in 2016.09</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; reading attempt list entities</li>
+<li><strong>POST</strong> &#8211; creating attempt list entities</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Attempts</strong> &#8211; expands the associated Attempts</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The AttemptLists feed supports the arbitrary grouping of attempts
+allowing a pre-defined group of attempts to be managed by a single
+proctor or external business process.</p>
+</dd></dl>
+
+<dl class="feed">
 <dt id="od-feed.deliveryodata.Dimensions">
 <tt class="descname">Dimensions</tt> <a class="reference internal" href="rubric.html#od-type.deliveryodata.Dimension" title="Dimension">Dimension</a><a class="headerlink" href="#od-feed.deliveryodata.Dimensions" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Dimensions feed contains information about the scoring
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; this feed is read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Rubric</strong> &#8211; expands the associated Rubric</li>
+<li><strong>DimensionScores</strong> &#8211; expands the associated collection of scores</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Dimensions feed contains information about the scoring
 dimensions associated with a rubric and is used for subjective
 marking.</p>
 </dd></dl>
@@ -294,7 +439,27 @@ marking.</p>
 <dl class="feed">
 <dt id="od-feed.deliveryodata.DimensionScores">
 <tt class="descname">DimensionScores</tt> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.DimensionScore" title="DimensionScore">DimensionScore</a><a class="headerlink" href="#od-feed.deliveryodata.DimensionScores" title="Permalink to this definition">¶</a></dt>
-<dd><p>The DimensionScores feed contains information about the actual
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; for reading individual scores</li>
+<li><strong>PUT</strong> &#8211; for updating the scores</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Rubric</strong> &#8211; expands the associated Rubric</li>
+<li><strong>Dimension</strong> &#8211; expands the Dimension of the Rubric</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The DimensionScores feed contains information about the actual
 scores awarded to an answer by a subjective marking process on a
 per-dimension basis.</p>
 </dd></dl>
@@ -351,16 +516,76 @@ are defined by the <a class="reference internal" href="result.html#od-type.deliv
 <dl class="feed">
 <dt id="od-feed.deliveryodata.ScoringResults">
 <tt class="descname">ScoringResults</tt> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringResult" title="ScoringResult">ScoringResult</a><a class="headerlink" href="#od-feed.deliveryodata.ScoringResults" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Scoring Results feed contains the scores awarded by subjective
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; for reading scoring results</li>
+<li><strong>PUT</strong> &#8211; for updating the score</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>QuestionID</strong> &#8211; the question being answered</li>
+<li><strong>ResultID</strong> &#8211; the result that generated the scoring task</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ScoringTask</strong> &#8211; the task</li>
+<li><strong>Rubric</strong> &#8211; the scoring rules</li>
+<li><strong>DimensionScores</strong> &#8211; the individual dimension scores</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Scoring Results feed contains the scores awarded by subjective
 marking.  ScoringResults are associated with ScoringTasks.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.ScoringTasks">
 <tt class="descname">ScoringTasks</tt> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringTask" title="ScoringTask">ScoringTask</a><a class="headerlink" href="#od-feed.deliveryodata.ScoringTasks" title="Permalink to this definition">¶</a></dt>
-<dd><p>The ScoringTasks feed contains one entity for each Answer that
-requires subjective scoring.  The scores actually awarded are in the
-associated ScoringResult.</p>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; for reading scoring tasks</li>
+<li><strong>PUT</strong> &#8211; for updating the status of a scoring task</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>QuestionID</strong> &#8211; the question being answered</li>
+<li><strong>ResultID</strong> &#8211; the result that generated the scoring task</li>
+<li><strong>Status</strong> &#8211; the status of the scoring task</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Assessment</strong> &#8211; expands the assessment that was being taken</li>
+<li><strong>Question</strong> &#8211; expands the question that was answered</li>
+<li><strong>Result</strong> &#8211; expands the result that generated the scoring task</li>
+<li><strong>Answer</strong> &#8211; expands the answer that generated the scoring task</li>
+<li><strong>Group</strong> &#8211; expands the optional Group related to this task</li>
+<li><strong>ScoringResult</strong> &#8211; use with caution, see <a class="reference internal" href="scoringtask.html#od-prop.deliveryodata.ScoringTask.ScoringResult" title="ScoringResult"><tt class="xref od od-prop docutils literal"><span class="pre">ScoringTask.ScoringResult</span></tt></a> for details</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The ScoringTasks feed contains one entity for each <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer"><tt class="xref od od-type docutils literal"><span class="pre">Answer</span></tt></a>
+that requires subjective scoring.  The scores actually awarded are
+in the associated <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringResult" title="ScoringResult"><tt class="xref od od-type docutils literal"><span class="pre">ScoringResult</span></tt></a>.</p>
 </dd></dl>
 
 </div>

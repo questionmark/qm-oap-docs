@@ -50,7 +50,7 @@ Schedule Methods
 ..  qm:meth::   GetScheduleListByGroupV42
 
 ..  qm:meth::   GetScheduleListByParticipant
-    :input:     Participant_ID    s:string
+    :input:     Participant_ID    string
     :output:    ScheduleList      ScheduleList
 
     Returns a list of schedules for a specified participant.

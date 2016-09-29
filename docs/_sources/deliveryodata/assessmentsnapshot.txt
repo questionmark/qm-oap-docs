@@ -7,7 +7,8 @@ AssessmentSnapshot(Data)
 ..  od:type::   AssessmentSnapshot
 
     AssessmentSnapshot entities are drawn from
-    :qm:table:`AssessmentSnapshot`.
+    :qm:table:`AssessmentSnapshot`.  You can create entities using
+    a POST request to the corresponding feed.
     
     ..  od:prop::   ID  Edm.Int32
         :key:
@@ -109,13 +110,42 @@ AssessmentSnapshot(Data)
         A time stamp of when the snapshot was last modified.  Set
         automatically, it cannot be modified directly but a call to the
         PATCH method on the associated feed will cause it to be updated.
-    
-    
-            
+
+    ..  od:prop::   AssessmentSnapshotData  AssessmentSnapshotData
+        :notnull:
+
+        Navigation property to the associated XML data for this
+        snapshot. As a single entity you can just append
+        /AssessmentSnapshotData/$value to the URL of an
+        AssessmentSnapshot entity to obtain the raw XML source of the
+        snapshot.
+        
+    ..  od:prop::   PrintBatches PrintBatch
+        :collection:
+        
+        Navigation property to all PrintBatch entities that use this
+        snapshot.  This collection may be empty as PrintBatches are an
+        optional grouping structure used to help manage printing and
+        scanning workflows..
+
+
 ..  od:type::   AssessmentSnapshotData
 
+        This is a media link entry that describes the XML file
+        associated with a snapshot.  You obtain the XML stream by taking
+        the value of the identified enity using OData's $value suffix.
+        
+        The format of the XML data is described in :ref:`snapshotxml`
+        below.
+        
+    ..  od:prop::   ID  Edm.Int32
+        :key:
+        :notnull:
 
+        The ID of the snapshot for which this is the data.
+        
 ..  _snapshotxml:
+
 
 Snapshot File Format 
 ~~~~~~~~~~~~~~~~~~~~
