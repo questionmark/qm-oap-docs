@@ -7,7 +7,8 @@ with this API.  There are many other possibilities.
 .. toctree::
     :maxdepth: 2
 
-    scoring
     xdelivery
+    proctoring
+    scoring
 
 

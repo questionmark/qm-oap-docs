@@ -33,15 +33,15 @@ access specific databases and which API you use will depend on which
 data source is appropriate to your application.  For example, both
 :od:svc:`Delivery OData<deliveryodata>` and :od:svc:`Results
 OData<resultsodata>` provide access to information about assessment
-results but the former affects the delivery database whereas the latter
-accesses information from the results warehouse.  The APIs that affect
-the delivery database are optimised to minimise the impact on any
-running assessments so provide limited filtering and searching options
-but do provide real-time access to information.  In contrast, the
-Results API provides more filtering options at the expense of a small
-delay in availability due to the need to wait for the ETL (Extract,
-Transform, Load) process to populate the results warehouse from the live
-data.
+results but the former reads information from the delivery database
+whereas the latter reads information from the results warehouse.  The
+APIs that affect the delivery database are optimised to minimise the
+impact on any running assessments so provide limited filtering and
+searching options but do provide real-time access to information.  In
+contrast, the Results API provides more filtering options at the expense
+of a small delay in availability due to the need to wait for the ETL
+(Extract, Transform, Load) process to populate the results warehouse
+from the live data.
 
 At the time of writing, their are no publicly exposed APIs that access
 the authoring database.

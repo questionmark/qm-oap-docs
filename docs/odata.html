@@ -53,23 +53,49 @@
 <h1>OData<a class="headerlink" href="#odata" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="odata-primer">
 <span id="id1"></span><h2>OData Primer<a class="headerlink" href="#odata-primer" title="Permalink to this headline">¶</a></h2>
-<p>TBC</p>
+<p>OData is a standard for constructing APIs that follow a RESTful pattern.
+In this pattern data (resources) are identified by URLs.  When resources
+are retrieved they may contain links to other resources which are
+explicitly represented by the URLs of those resources.  New resources
+can be created by POSTing information and existing resources can be
+updated using the HTTP methods PUT and PATCH.</p>
+<p>This standard was chosen as the basis of these APIs as it provides a
+simple way to map database tables and the records they contain into a
+web-service.  In fact, OData is sometimes referred to as &#8216;SQL over the
+web&#8217;.  Database tables map on to the OData concept of a feed (inherited
+from the Atom standard), records map on to entities  and the values
+within the records map on to the property values of the entities.  Each
+record in the database that is exposed through OData therefore has a
+corresponding entity in the OData API with a corresponding URL that can
+be used to retrieve it.</p>
+<p>For more information about how to construct OData URLs see <a class="reference external" href="http://www.odata.org/documentation/odata-version-3-0/url-conventions/">OData: URI
+Conventions</a></p>
 </div>
 <div class="section" id="frequently-asked-questions">
 <h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
-<p>Why am I getting the error <em>Unrecognized &#8216;Edm.Int32&#8217; literal</em>?</p>
-<p>The following URL path returns an error like this:</p>
+<dl class="docutils">
+<dt>Why am I getting the error <em>Unrecognized &#8216;Edm.Int32&#8217; literal</em>?</dt>
+<dd><p class="first">The following URL path returns an error like this:</p>
 <div class="highlight-python"><div class="highlight"><pre>/deliveryodata/12345/Results?$filter=AssessmentID eq 1234567890123
 </pre></div>
 </div>
 <p>The reason is that the integer 1234567890123 is too large to be
 represented as a 32-bit integer.  The largest 32-bit integer is
-2147483647.  The real issue is that the AssessmentID property is of type
-Edm.Int64, a 64-bit integer, and values of this type require the &#8216;L&#8217;
-suffix as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre>/deliveryodata/12345/Results?$filter=AssessmentID eq 1234567890123L
+2147483647.  The real issue is that the AssessmentID property is of
+type Edm.Int64, a 64-bit integer, and values of this type require
+the &#8216;L&#8217; suffix as follows:</p>
+<div class="last highlight-python"><div class="highlight"><pre>/deliveryodata/12345/Results?$filter=AssessmentID eq 1234567890123L
 </pre></div>
 </div>
+</dd>
+<dt>Why is my WCF DataService not loading expanded properties?</dt>
+<dd><p class="first">Users of the WCF client will need to set the MergeOption to
+OverwriteChanges as per the reply to this question on StackOverflow.
+See <a class="reference external" href="http://stackoverflow.com/questions/14956172/why-is-my-wcf-dataservice-not-loading-expanded-properties">Why is my WCF DataService not loading expanded properties?</a></p>
+<p class="last">Failure to do this may cause unexpected failures when loading
+entities from the OData service.</p>
+</dd>
+</dl>
 </div>
 </div>
 

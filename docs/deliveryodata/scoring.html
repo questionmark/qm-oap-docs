@@ -25,8 +25,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
     <link rel="up" title="Applications" href="applications.html" />
-    <link rel="next" title="External Delivery" href="xdelivery.html" />
-    <link rel="prev" title="Applications" href="applications.html" /> 
+    <link rel="next" title="Delivery OData Feeds" href="feeds.html" />
+    <link rel="prev" title="Proctoring Exams" href="proctoring.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,10 +36,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="xdelivery.html" title="External Delivery"
+          <a href="feeds.html" title="Delivery OData Feeds"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="applications.html" title="Applications"
+          <a href="proctoring.html" title="Proctoring Exams"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
           <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
@@ -56,9 +56,9 @@
 <h1>Subjective Scoring<a class="headerlink" href="#subjective-scoring" title="Permalink to this headline">¶</a></h1>
 <p>One application of this API is the integration of external scoring tools
 and scoring workflows with Questionmark software.</p>
-<p>This scenario requires that the rubrics for an assessment to be created
-and associated with Questions using the existing <a class="reference external" href="https://www.questionmark.com/content/what-scoring-tool">Scoring Tool</a>
-available through Enterprise Manager.</p>
+<p>This scenario requires that the rubrics for an assessment be created and
+associated with Questions using the existing <a class="reference external" href="https://www.questionmark.com/content/what-scoring-tool">Scoring Tool</a> available
+through Enterprise Manager.</p>
 <p>A rubric is a set of instructions to a scorer, including a maximum score
 to award for a response (which must always match the maximum score of
 the question assigned to it). The rubric is broken down into various
@@ -68,10 +68,309 @@ participant&#8217;s response is obtained by adding up the scores for the
 individual dimensions.</p>
 <p>The existing Scoring Tool uses a locking feature to prevent two scorers
 from marking the same question at the same time. This mechanism is not
-modeled directly in the API, though the same workflow states are
-available to external tools allowing them to emulate this behaviour. It
-is assumed that an external tool will have its own workflow rules that
-are mapped on to the limited set of status values defined here.</p>
+modeled directly in the API which uses a simpler system of optimistic
+concurrency control to manage simultaneous access.  The same workflow
+states are however made available to external tools allowing them to
+emulate this behaviour if desired. It is assumed that an external tool
+will have its own workflow rules that are mapped on to the limited set
+of status values defined here.</p>
+<div class="section" id="scoringtasks-and-scoringresults">
+<h2>ScoringTasks and ScoringResults<a class="headerlink" href="#scoringtasks-and-scoringresults" title="Permalink to this headline">¶</a></h2>
+<p>The work done by scorers is managed through two main feeds.  The
+workflow starts when the participant submits their assessment and the
+delivery system finalises a result containing unscored (subjectively
+marked) responses.  At this point, the delivery system creates a
+<a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringTask" title="ScoringTask"><tt class="xref od od-type docutils literal"><span class="pre">deliveryodata.ScoringTask</span></tt></a> entity for each unscored answer.</p>
+<p>The purpose of the ScoringTask entity is to manage the workflow, the
+only writable property is the Status property which reflects the
+current position within the workflow:</p>
+<blockquote>
+<div><p>0   Unscored - the initial state</p>
+<dl class="docutils">
+<dt>1   Locked - an optional state that prevents scorers using the</dt>
+<dd>builtin Scoring Tool in Enterprise Manager to score this
+response.</dd>
+<dt>2   Saved - an optional state that indicates that a score has been</dt>
+<dd>set but that it is awaiting moderation or review</dd>
+<dt>3   Scored - the final state, the response has been scored and</dt>
+<dd>the participant&#8217;s result has been updated to reflect the
+new value.</dd>
+</dl>
+</div></blockquote>
+<p>The scores themselves are set in the corresponding ScoringResult.  Each
+ScoringTask has a corresponding ScoringResult (created automatically,
+see below).  You set the scores using the ScoringResult entity and then,
+when you have finished, you change the status of the ScoringTask to
+indicate the new position within the workflow.</p>
+<p>There are no limits placed on the workflow transitions but bear in mind
+that the participant&#8217;s result is <em>only</em> updated when the ScoringTask is
+set to the Scored status <em>from one of the other states</em>.  If you modify
+the ScoringResult when the task is in the Scored state it will not
+affect the participant&#8217;s result until you change the status to one of
+the other states and then back to Scored again to finalise the task.</p>
+</div>
+<div class="section" id="recommended-workflow">
+<h2>Recommended Workflow<a class="headerlink" href="#recommended-workflow" title="Permalink to this headline">¶</a></h2>
+<p>In the examples below, a fictional customer ID of 12345 is used, the
+HTTP scheme and host are omitted for brevity and %-escapes have been
+removed from URLs for legibility.  Where appropriate, examples are also
+given using Microsoft&#8217;s LINQ example code.</p>
+<div class="section" id="first-step">
+<h3>First step<a class="headerlink" href="#first-step" title="Permalink to this headline">¶</a></h3>
+<p>Monitor the <a class="reference internal" href="feeds.html#od-feed.deliveryodata.ScoringTasks" title="ScoringTasks"><tt class="xref od od-feed docutils literal"><span class="pre">deliveryodata.ScoringTasks</span></tt></a> feed for new tasks
+with an unscored status. This can be done by filtering the feed:</p>
+<div class="highlight-python"><div class="highlight"><pre>/deliveryodata/12345/ScoringTasks?$filter=Status eq 0&amp;$orderby=Result/WhenFinished desc
+</pre></div>
+</div>
+<p>LINQ:</p>
+<div class="highlight-python"><div class="highlight"><pre>var scoringTasks = context.ScoringTasks.Where(x =&gt; x.Status == 0).OrderByDescending(x =&gt; x.Result.WhenFinished);
+</pre></div>
+</div>
+<p>It is recommended that a combination of expansion and additional filters
+is used to reduce the feed to a manageable size so that most sorting can
+be carried out in the external application. For example, you can filter
+by group, participant, and/or assessment (see below for an example) as
+well as expand the result to obtain a reasonably-sized collection for
+local sorting.</p>
+</div>
+<div class="section" id="second-step">
+<h3>Second step<a class="headerlink" href="#second-step" title="Permalink to this headline">¶</a></h3>
+<p>When someone takes on a scoring task using an external scoring tool,
+update the status of the ScoringTask to indicate that it&#8217;s in progress.
+To locate the appropriate rubric and trigger the creation of the
+associated ScoringResult, follow links from the ScoringTask.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">do not expand ScoringResult when accessing ScoringTasks.
+ScoringResults are created automatically when they are
+retrieved from the associated ScoringTask&#8217;s navigation
+property directly from the ScoringTask&#8217;s URL. See
+<a class="reference internal" href="scoringtask.html#od-prop.deliveryodata.ScoringTask.ScoringResult" title="ScoringResult"><tt class="xref od od-prop docutils literal"><span class="pre">deliveryodata.ScoringTask.ScoringResult</span></tt></a> for
+more information.</p>
+</div>
+<p>Although a ScoringTask will never have more than one associated
+ScoringResult the multiplicity of the relationship is defined as being
+1-to-Many. This is a limitation of the technology used to expose the API
+rather than a limitation of OData itself. When obtaining the
+ScoringResult from a ScoringTask, you will receive a collection rather
+than a single entity. If this collection is empty it indicates that
+there is no rubric associated with the question and scoring cannot
+proceed.</p>
+</div>
+<div class="section" id="third-step">
+<h3>Third step<a class="headerlink" href="#third-step" title="Permalink to this headline">¶</a></h3>
+<p>As the scoring task progresses, update the DimensionScores linked from
+the ScoringResult, and update the result itself with information about
+the total score awarded and any comments or other feedback.</p>
+</div>
+<div class="section" id="fourth-step">
+<h3>Fourth step<a class="headerlink" href="#fourth-step" title="Permalink to this headline">¶</a></h3>
+<p>Once complete, set the status of the ScoringTask to indicate that
+marking is now complete using status value 3 (Scored). At this point,
+the delivery system will update the participant&#8217;s result information (as
+visible in reports) with the updated value taken from the ScoringResult.</p>
+<p>An external tool may provide for a more complex workflow (such as
+moderation or approval of grades) prior to the ScoringTask being updated
+to indicate that scoring is complete.</p>
+</div>
+<div class="section" id="resolving-conflicts">
+<h3>Resolving conflicts<a class="headerlink" href="#resolving-conflicts" title="Permalink to this headline">¶</a></h3>
+<p>It is possible that a ScoringResult will be retrieved from the OData
+feed, updated, and then processed through a time-consuming workflow by
+an external scoring tool before being sent back to the Questionmark
+repository. If, in this time, the ScoringResult has been updated by
+another user, then this could cause unexpected loss of data. To prevent
+this, optimistic concurrency control based on the last modified
+date and time of the ScoringResult is used.</p>
+<p>When the updated ScoringResult is PUT back to the repository, the last
+modified date should be set to (or simply left as) the value received
+when the score was last retrieved by the external tool. This is compared
+to the date of the current revision, and if there is a mismatch, then
+the entry is not updated and an error is returned (one of the HTTP 4xx
+codes). It is up to the client how it handles this, but it can of course
+retrieve the latest ScoringResult and allow the user to compare their
+changes or trigger a new conflict resolution workflow in the external
+tool.</p>
+</div>
+</div>
+<div class="section" id="sample-application">
+<h2>Sample Application<a class="headerlink" href="#sample-application" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/example-app001.png" src="../_images/example-app001.png" />
+<p>On this screen, a list of groups is shown to the end user. The
+underlying OData request was:</p>
+<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/Groups HTTP/1.1
+</pre></div>
+</div>
+<p>LINQ:</p>
+<div class="highlight-python"><div class="highlight"><pre>var groups = context.Groups
+</pre></div>
+</div>
+<p>The totals in the table were calculated using three additional requests
+(unscored being the sum of states 0 and 1):</p>
+<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTestGroup&#39; and Status eq 0 HTTP/1.1
+
+GET /deliveryodata/12345/ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTestGroup&#39; and Status eq 1 HTTP/1.1
+
+GET /deliveryodata/12345/ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTestGroup&#39; and Status eq 2 HTTP/1.1
+</pre></div>
+</div>
+<p>Unfortunately, LINQ does not support the Count() method when the data
+source is OData, so a more direct method of executing the queries is
+required.</p>
+<p>LINQ:</p>
+<div class="highlight-python"><div class="highlight"><pre>var saved = context.Execute&lt;long&gt;(new Uri(&quot;ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTestGroup&#39; and Status eq 2&quot;, UriKind.Relative)).FirstOrDefault();
+
+var unscored = context.Execute&lt;long&gt;(new Uri(&quot;ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTestGroup&#39; and (Status eq 0 or Status eq 1)&quot;, UriKind.Relative)).FirstOrDefault();
+</pre></div>
+</div>
+<p>Clicking on the group name takes you to a list of ScoringTasks filtered
+by the group in question.</p>
+<img alt="../_images/example-app002.png" src="../_images/example-app002.png" />
+<p>The underlying OData request was:</p>
+<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringTasks?$expand=Question,Result&amp;$filter=Group/Name eq &#39;ODataTestGroup&#39; HTTP/1.1
+</pre></div>
+</div>
+<p>LINQ:</p>
+<div class="highlight-python"><div class="highlight"><pre>var scoringTasks = context.ScoringTasks.Expand(x =&gt; x.Question).Expand(x =&gt; x.Result).Where(x =&gt; x.Group.Name == &#39;ODataTestGroup&#39;);
+</pre></div>
+</div>
+<p>The question description is read from the Question and the participant
+name from the Result objects that are included in the expanded response.</p>
+<p>Clicking on the View link takes you to the detailed view of the task
+itself, with forms for updating the scores. Notice that the question ID
+and result ID are passed as query parameters. These are used to access
+the specific ScoringTask.</p>
+<img alt="../_images/example-app003.png" src="../_images/example-app003.png" />
+<p>The above picture shows only the top half of this view in the sample
+application. It uses a number of OData requests to obtain the
+information displayed (the rest of the view is shown below).</p>
+<p>Firstly, the application uses the question and result identifiers to
+load the ScoringTask:</p>
+<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringTasks(QuestionID=55480852159602L,ResultID=1385113458)?$expand=Answer,Question HTTP/1.1
+</pre></div>
+</div>
+<p>LINQ:</p>
+<div class="highlight-python"><div class="highlight"><pre>var scoringTasks = context.ScoringTasks.Expand(x =&gt; x.Answer).Expand(x =&gt; x.Question).Where(x =&gt; x.QuestionID == 55480852159602 &amp;&amp; x.ResultID == 1385113458);
+</pre></div>
+</div>
+<p>The second request is used to load the ScoringResult (as it cannot be
+expanded):</p>
+<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringTasks(QuestionID=55480852159602L,ResultID=1385113458)/ScoringResult HTTP/1.1
+</pre></div>
+</div>
+<p>LINQ:</p>
+<div class="highlight-python"><div class="highlight"><pre>var scoringResult = context.ScoringTasks.Where(x =&gt; x.QuestionID == 55480852159602 &amp;&amp; x.ResultID == 1385113458).SelectMany(t =&gt; t.ScoringResult).SingleOrDefault();
+</pre></div>
+</div>
+<p>When using LINQ, you must obtain the ScoringResult from the ScoringTask
+as shown above, as this triggers the beginning of the scoring workflow.
+An unexpected Null result typically indicates that no Rubric has been
+assigned to the Question (assuming the Where expression correctly
+identifies an existing ScoringTask).</p>
+<p>Recall that this returns a collection of ScoringResults that will have
+at most one member.</p>
+<p>The next part of the screen displays the QML from the associated
+Question (expanded in the first call). The QML is implemented as a media
+resource and the Question entity acts as a media-link entry. The
+application probes first, to check the QML is present, and then requests
+it in full:</p>
+<div class="highlight-python"><div class="highlight"><pre>HEAD /deliveryodata/12345/Questions(55480852159602L)/$value HTTP/1.1
+
+GET /deliveryodata/12345/Questions(55480852159602L)/$value HTTP/1.1
+</pre></div>
+</div>
+<p>The second half of the screen is shown below:</p>
+<img alt="../_images/example-app004.png" src="../_images/example-app004.png" />
+<p>To show the answer the application uses the same technique, first
+probing the API to check the media type of the answer data and then
+obtaining the full text. In this case, the answer is just of type
+text/plain, but the API supports the scoring of other answer types. If
+the answer stream is of an image type an &lt;img&gt; tag is used to display it
+instead (a separate handler in the application proxies the resource to
+the browser—in this case, the second call is only made when the browser
+attempts to load the image):</p>
+<div class="highlight-python"><div class="highlight"><pre>HEAD /deliveryodata/12345/Answers(QuestionID=55480852159602L,ResultID=1385113458,Occurrence=1,BlockNumber=1)/$value HTTP/1.1
+
+GET /deliveryodata/12345/Answers(QuestionID=55480852159602L,ResultID=1385113458,Occurrence=1,BlockNumber=1)/$value HTTP/1.1
+</pre></div>
+</div>
+<p>The rubric is loaded by navigating from the Question entity:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">12345</span><span class="o">/</span><span class="n">Questions</span><span class="p">(</span><span class="il">55480852159602L</span><span class="p">)</span><span class="o">/</span><span class="n">Rubric</span><span class="p">(</span><span class="mi">1102098584</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>LINQ:</p>
+<div class="highlight-python"><div class="highlight"><pre>var rubric = context.Questions.Where(x =&gt; x.QuestionID == 55480852159602).SelectMany(x =&gt; x.Rubric).SingleOrDefault();
+</pre></div>
+</div>
+<p>Note that SelectMany is required in LINQ even though (at most) a single
+Rubric will be linked.</p>
+<p>Finally, the dimension scores, including the rubric for each dimension,
+are loaded from the ScoringResult:</p>
+<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringResults(QuestionID=55480852159602L,RubricID=1102098584,ResultID=1385113458)/DimensionScores?$expand=Dimension
+</pre></div>
+</div>
+<p>LINQ:</p>
+<div class="highlight-python"><div class="highlight"><pre>var dimensionScores = context.ScoringResults.Where(x =&gt; x.QuestionID == 55480852159602 &amp;&amp; x.RubricID == 1102098584 &amp;&amp; x.ResultID == 1385113458).SelectMany(x =&gt; x.DimensionScores).Expand(x =&gt; x.Dimension).ToList();
+</pre></div>
+</div>
+<p>This is a complex example showing how an application must make multiple
+queries in some cases to get all the information required.</p>
+<p>At this point, we can edit the individual dimension scores using the
+forms embedded in the table rows...</p>
+<img alt="../_images/example-app005.png" src="../_images/example-app005.png" />
+<p>The form passes the question and result IDs and the &#8220;Order&#8221; value that
+identifies this dimension as hidden form variables in addition to the
+editable values shown. The form that handles the POST makes the
+following queries (the second query has been wrapped for display):</p>
+<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringTasks(QuestionID=55480852159602L,ResultID=1385113458)?$expand=ScoringResult
+
+GET /deliveryodata/12345/ScoringResults(QuestionID=55480852159602L,RubricID=1102098584,ResultID=1385113458)/
+    DimensionScores(QuestionID=55480852159602L,RubricID=1102098584,ResultID=1385113458,Order=1)
+</pre></div>
+</div>
+<p>LINQ:</p>
+<div class="highlight-python"><div class="highlight"><pre>var scoringTask = context.ScoringTasks.Where(x =&gt; x.QuestionID == 55480852159602 &amp;&amp; x.ResultID == 1385113458).Expand(x =&gt; x.ScoringResult).Single()
+
+var dimensionScore = context.DimensionScores.Where(x =&gt; x.QuestionID == 55480852159602 &amp;&amp; x.RubricID == 1102098584 &amp;&amp; x.ResultID == 1385113458 &amp;&amp; x.Order == 1).Single();
+</pre></div>
+</div>
+<p>The application then modifies the DimensionScore and issues a PUT
+request to update the database:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">PUT</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">12345</span><span class="o">/</span><span class="n">DimensionScores</span><span class="p">(</span><span class="n">QuestionID</span><span class="o">=</span><span class="il">55480852159602L</span><span class="p">,</span><span class="n">RubricID</span><span class="o">=</span><span class="mi">1102098584</span><span class="p">,</span><span class="n">ResultID</span><span class="o">=</span><span class="mi">1385113458</span><span class="p">,</span><span class="n">Order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>LINQ:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dimensionScore</span><span class="o">.</span><span class="n">Score</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="n">dimensionScore</span><span class="o">.</span><span class="n">Comment</span> <span class="o">=</span> <span class="s">&#39;ur instead of your!&#39;</span><span class="p">;</span>
+
+<span class="n">context</span><span class="o">.</span><span class="n">UpdateObject</span><span class="p">(</span><span class="n">dimensionScore</span><span class="p">);</span>
+
+<span class="n">context</span><span class="o">.</span><span class="n">SaveChanges</span><span class="p">(</span><span class="n">SaveChangesOptions</span><span class="o">.</span><span class="n">ReplaceOnUpdate</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>For LINQ users, continuing from the previous example, note that we use
+ReplaceOnUpdate when saving changes. This forces the use of PUT instead
+of PATCH/MERGE semantics.  The methods supported by each feed differ and
+are documented in <a class="reference internal" href="feeds.html"><em>Delivery OData Feeds</em></a>.  The scoring feeds support PUT but do
+not support PATCH.</p>
+<p>When you are happy that the scores are correct you can update the
+ScoringResult itself with overall comments and an updated score. The
+following form also allows you to set the status value of the
+ScoringTask.</p>
+<img alt="../_images/example-app006.png" src="../_images/example-app006.png" />
+<p>When this form is submitted it makes the following OData query:</p>
+<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringTasks(QuestionID=55480852159602L,ResultID=1385113458)?$expand=ScoringResult
+</pre></div>
+</div>
+<p>...and to update the ScoringResult with the new values for the Score and
+Comments properties:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">PUT</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">12345</span><span class="o">/</span><span class="n">ScoringResults</span><span class="p">(</span><span class="n">QuestionID</span><span class="o">=</span><span class="il">55480852159602L</span><span class="p">,</span><span class="n">RubricID</span><span class="o">=</span><span class="mi">1102098584</span><span class="p">,</span><span class="n">ResultID</span><span class="o">=</span><span class="mi">1385113458</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the task status has been changed, then this would be updated with a
+similar PUT request to the ScoringTask.</p>
+</div>
 </div>
 
 
@@ -80,12 +379,29 @@ are mapped on to the limited set of status values defined here.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Subjective Scoring</a><ul>
+<li><a class="reference internal" href="#scoringtasks-and-scoringresults">ScoringTasks and ScoringResults</a></li>
+<li><a class="reference internal" href="#recommended-workflow">Recommended Workflow</a><ul>
+<li><a class="reference internal" href="#first-step">First step</a></li>
+<li><a class="reference internal" href="#second-step">Second step</a></li>
+<li><a class="reference internal" href="#third-step">Third step</a></li>
+<li><a class="reference internal" href="#fourth-step">Fourth step</a></li>
+<li><a class="reference internal" href="#resolving-conflicts">Resolving conflicts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sample-application">Sample Application</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="applications.html"
-                        title="previous chapter">Applications</a></p>
+  <p class="topless"><a href="proctoring.html"
+                        title="previous chapter">Proctoring Exams</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="xdelivery.html"
-                        title="next chapter">External Delivery</a></p>
+  <p class="topless"><a href="feeds.html"
+                        title="next chapter">Delivery OData Feeds</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/deliveryodata/scoring.txt"
@@ -115,10 +431,10 @@ are mapped on to the limited set of status values defined here.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="xdelivery.html" title="External Delivery"
+          <a href="feeds.html" title="Delivery OData Feeds"
              >next</a> |</li>
         <li class="right" >
-          <a href="applications.html" title="Applications"
+          <a href="proctoring.html" title="Proctoring Exams"
              >previous</a> |</li>
         <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
           <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>

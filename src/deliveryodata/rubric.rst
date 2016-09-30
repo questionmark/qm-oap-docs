@@ -5,6 +5,13 @@ Rubric and Dimension
 
 ..  od:type::   Rubric
 
+    ..warning:: the Scoring Tool in Enterprise Manager provides some
+                additional security by allowing users to specify
+                separate passwords that protect access to a rubric (for
+                viewing and editing) and the associated rubric scores.
+                These passwords are not supported by the Delivery OData
+                API.
+
 ..  od:type::   Dimension
 
     ..  od:prop::   ID    Edm.Int32

@@ -1,6 +1,12 @@
 Assessments
 -----------
 
+This part of the guide is under development.  Please refer to the
+`Assessments
+<https://www.questionmark.com/content/questionmark-perception-57-qmwise-api-guide-assessments>`_
+section of the old guide for more information.
+
+
 Assessment Methods
 ~~~~~~~~~~~~~~~~~~
 

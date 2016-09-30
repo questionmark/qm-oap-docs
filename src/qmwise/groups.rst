@@ -1,6 +1,10 @@
 Groups
 ------
 
+This part of the guide is under development.  Please refer to the
+`Groups <https://www.questionmark.com/content/groups>`_ section of the
+old guide.
+
 Group Methods
 ~~~~~~~~~~~~~
 

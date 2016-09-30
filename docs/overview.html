@@ -80,15 +80,15 @@ access specific databases and which API you use will depend on which
 data source is appropriate to your application.  For example, both
 <a class="reference internal" href="deliveryodata.html#od-service.deliveryodata" title="Delivery OData Service"><tt class="xref od od-svc docutils literal"><span class="pre">Delivery</span> <span class="pre">OData</span></tt></a> and <a class="reference internal" href="resultsodata.html#od-service.resultsodata" title="Results OData Service"><tt class="xref od od-svc docutils literal"><span class="pre">Results</span>
 <span class="pre">OData</span></tt></a> provide access to information about assessment
-results but the former affects the delivery database whereas the latter
-accesses information from the results warehouse.  The APIs that affect
-the delivery database are optimised to minimise the impact on any
-running assessments so provide limited filtering and searching options
-but do provide real-time access to information.  In contrast, the
-Results API provides more filtering options at the expense of a small
-delay in availability due to the need to wait for the ETL (Extract,
-Transform, Load) process to populate the results warehouse from the live
-data.</p>
+results but the former reads information from the delivery database
+whereas the latter reads information from the results warehouse.  The
+APIs that affect the delivery database are optimised to minimise the
+impact on any running assessments so provide limited filtering and
+searching options but do provide real-time access to information.  In
+contrast, the Results API provides more filtering options at the expense
+of a small delay in availability due to the need to wait for the ETL
+(Extract, Transform, Load) process to populate the results warehouse
+from the live data.</p>
 <p>At the time of writing, their are no publicly exposed APIs that access
 the authoring database.</p>
 </div>

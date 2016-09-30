@@ -1,6 +1,10 @@
 URLs
 ----
 
+This part of the guide is under development.  Please refer to the
+`URLs <https://www.questionmark.com/content/urls>`_ section of the old
+guide.
+
 Access Methods
 ~~~~~~~~~~~~~~
 

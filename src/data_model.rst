@@ -17,6 +17,14 @@ In many cases the same data fields are exposed through multiple APIs.
 The data model is documented to provide a convenient central point for
 the detailed explanation of these data elements.
 
+This part of the guide is in preparation and is not yet complete.  For
+information about tables not documented here please refer to the older
+`Database Schema Reference Guide
+<https://www.questionmark.com/content/questionmark-perception-database-schema-reference-guide>`_.
+Where tables *are* documented both here and in the older guide the
+documentation here should be used in preference as it is more
+up-to-date. The older guide is no longer being maintained.
+
 .. toctree::
     :maxdepth: 2
 
