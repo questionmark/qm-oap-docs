@@ -10,36 +10,173 @@ is generally compatible with both version 3 and version 2 clients.
 Features
 ~~~~~~~~
 
+$top and $skip
+    If a feed request would cause too many entities to be returned the
+    collection returned will be truncated.
+
+    For example::
+    
+        <service root>/Results
+    
+    There are likely to be lots of results in the repository. The
+    returned collection contains the first *page* of results and a
+    continuation link that can be used to retrieve the next *page*, and
+    so on.
+
+    This technique was not possible with previous APIs (compare
+    :qm:meth:`GetResultList`), but it does require some special handling
+    on the client side. Questionmark's OData feeds make extensive use of
+    paging and also impose an upper limit on the number of records that
+    will be returned for each request to improve performance of both the
+    service and the client itself.  The limit is currently set to 100.
+
+    You can individually control how many results you retrieve (if you
+    want fewer than 100) using the $top and $skip options::
+    
+            <service root>/Results?$top=10&$orderby=WhenFinished desc
+        
+    This query retrieves the 10 most recent results.  To get the next
+    10 just add $skip::
+    
+            <service root>/Results?$top=10&$skip=10&$orderby=WhenFinished desc
+    
+    The format of the continuation links may vary depending on the type
+    of index used to satisfy the query internally.  When paging through
+    a large feed it is better to use the continuation links provided in
+    the previous response than to manually set $top and $skip.
+    
 $filter
     Supported.  Filtering is only allowed on certain property values,
     see the feed descriptions below for details. The restrictions have
     been put in place to ensure that API requests do not have a negative
     effect on the delivery of assessments.
+    
+    Example filter::
+    
+        <service root>/Results?$filter=ParticipantName eq 'user123'
+    
+    Although spaces are shown in the above URL parameter values should
+    be appropriately escaped for use in HTTP.
+    
+    The representation of values (such as 'user123' above) is defined by
+    the OData specification.  Take care to match the type of any values
+    provided in filters with the type of the corresponding property.
+    In particular, note that 64-bit integers use an 'L' suffix::
+    
+        <service root>/Results?$filter=AssessmentID eq 9962000009962L
 
+    More complex examples::
+    
+        <service root>/ScoringTasks?$filter=Group/Name eq 'CS101' and Status lt 3
+
+    ...returns all ScoringTask entities relating to the Group with name
+    CS101 that have a status less then 3 (Scored).
+    
+    ::
+
+        <service root>/ScoringTasks/$count?$filter=Group/Name eq 'CS101' and Status eq 2
+
+    ...returns the count of all ScoringTask entities relating to the
+    Group with name CS101 that have a status of 2 (Saved).
+    
+    ::
+
+        <service root>/ScoringTasks?$filter=Group/Name eq 'CS101' and Assessment/ID eq 1234567890L
+
+    ...returns all ScoringTask entities relating to the Group with name
+    CS101 and the assessment with ID 1234567890.
+    
+    ::
+
+        <service root>/Results?$filter=GroupName eq 'CS101' and Assessment/ID eq 1234567890L&$orderby=WhenFinished desc
+
+    ...returns all result entities relating to the group with name CS101
+    and the assessment with ID 1234567890 ordered by the most recently
+    submitted first.
+    
+    ::
+
+        <service root>/Results?$filter=Assessment/ID eq 1234567890L and ParticipantName eq 'JaneSmith'&$orderby=WhenFinished
+
+    ...returns all result entities relating to JaneSmith's attempts at
+    the specific assessment with ID 1234567890 ordered from the first to
+    the last attempt.
+        
 $orderby
-    Supported.  Ordering can be used on any field marked as being
-    suported in $filter.
+    Supported.  Ordering can usually be used on any field marked as
+    being suported in $filter.  Exceptions are noted in the feed
+    descriptions.
 
+    Example::
+    
+        <service root>/Results?$orderby=WhenFinished desc
+        
 $expand
     The expansion of navigation properties is supported though some
     special rules apply.  See each feed for details.  There is a limit
     on the depth of expansion that is allowed to ensure result sets are
-    manageable, in particular, if an expansion results in too many
-    entities (set at 100) then it may be truncated.
+    manageable.  Example expansion::
     
-    If this is a problem then you can usually transform the query into
-    a filtered request on the target feed instead.  For example, if
-    there are too many answers associated with a result then an
-    query such as::
+        <service root>/Results?$expand=Answers
+    
+    A deeper expansion::
+    
+        <service root>/Results(12345678)?$expand=Answers/Question
+    
+    The above not only lists all answers for the result but, within each
+    answer entity, the Question itself is also expanded.  Bear in mind
+    that use of expansion can dramatically increase the complexity of
+    the query used to retrieve the data and the number of entities
+    returned.  A maximum depth of 2 expansions is supported (as above).
+    
+    If an expansion results in too many child entities being returned
+    for a single entity then the expansion itself will be truncated. 
+    The limit is set to 100, the same as for base feeds.
+    
+    If this is a problem then you can usually transform the query into a
+    filtered request on the target feed instead.  If an OData response
+    exceeds 100 entities a continuation link is provided that can be
+    used to retrieve the next 100 results, and so on.
+    
+    For example, if there are too many answers associated with a result
+    then a query such as::
     
         Results(12345678)?$expand=Answers
     
-    can instead by written as::
+    can instead be retrieved as separate queries::
     
-        Answers?$filter=ResultID eq 12345678&$expand=Result        
-        
+        <service root>/Results(12345678)
+        <service root>/Answers?$filter=ResultID eq 12345678
+        <service root>/Answers?$filter=ResultID eq 12345678&$skip=100
+        <service root>/Answers?$filter=ResultID eq 12345678&$skip=200
+        ...
+            
+    If a feed's entity type is related to another type via a navigation
+    property with a *target* multiplicity of 0..1 and $expand is
+    supported for that property then it is possible to use the expansion
+    directly in filters and orderings.
+    
+    For example, to view Answers to a specific question ordered by
+    the date when the corresponding result was submitted (most recent
+    first) you could use a query like this::
+    
+        <service root>/Answers?$filter=QuestionID eq 100000000373L&$orderby=Result/WhenFinished desc
+
+    This query shows an orderby query with an implicit expansion of
+    depth 1.  In the feed descriptions, allowed filters are described in
+    terms of their immediate parent entity (depth 0), however, if a
+    filter is supported at depth 0 you may assume that it will also be
+    supported at depth 1 when filtering or ordering related entities.
+            
 $count
-    Supported.
+    Supported on base feeds only.  Cannot be used in combination with
+    navigation properties.  This is OK::
+
+        <service root>/Results/$count
+        
+    This is not::
+    
+        <service root>/Results(12345678)/Answers/$count
         
 $format
     Not supported.  The service returns responses using JSON format by
@@ -52,6 +189,10 @@ $value
     be used to obtain the full media resource for an entity.  Access to
     simple property values is not supported. 
 
+$select
+    This query option is not currently supported by the Delivery OData
+    API.
+    
         
 Feed Reference
 ~~~~~~~~~~~~~~
@@ -71,6 +212,7 @@ Feed Reference
 
 
 ..  od:feed::   Answers Answer
+    :mle:
 
     :method GET: feed is read only
     :filter QuestionID: ID of the associated Question
@@ -200,6 +342,8 @@ Feed Reference
 
     :method GET: for reading individual scores
     :method PUT: for updating the scores
+    :filter QuestionID: note that ordering is *not* supported
+    :filter Order: supports $orderby only, cannot be used as a filter
     :expand Rubric: expands the associated Rubric    
     :expand Dimension: expands the Dimension of the Rubric
 
@@ -209,10 +353,24 @@ Feed Reference
 
 ..  od:feed::   Groups Group
 
+    :method GET: read only
+    :filter ID: primary key
+    :filter Name: filtering by group name
+    :expand Administrators: the administrators responsible for the group
+    :expand Participants: the participant members of the group
+    :expand SubGroups: the optional list of sub-groups
+    :expand ParentGroup: the optional parent group (:od:prop:`see warning <Group.ParentGroup>`)
+    :expand PrintBatches: the optional list of associated PrintBatches
+
     The Groups feed contains data about groups of participants.  Entries
-    are defined by the :od:type:`deliveryodata.Group` type.
+    are defined by the :od:type:`Group` type.
 
 ..  od:feed::   Participants Participant
+
+    :method GET: read only
+    :filter ID: primary key
+    :filter Name: filtering by participant name
+    :expand Groups: the collection of groups this participant is a member of
 
     The Participants feed contains data about users that have the
     special Participant role.
@@ -225,6 +383,10 @@ Feed Reference
     
 ..  od:feed::   Questions Question
 
+    :method GET: read only
+    :filter ID: primary key
+    :filter QuestionType: see note in entity type on space padding
+
     The Questions feed contains records describing all the questions in
     the assessment catalog.
     
@@ -235,10 +397,20 @@ Feed Reference
     
 ..  od:feed::   Results Result
 
+    :method GET: read only
+    :filter ID: primary key
+    :filter AssessmentID: the related assessment
+    :filter ParticipantName: for filtering by Participant
+    :filter GroupName: for filtering by Group
+    :filter WhenFinished: for filtering by data of submission
+    :expand Answers: the answers associated with this result
+
     The Results feed contains data about assessment results.  Entries
     are defined by the :od:type:`deliveryodata.Result` type.
 
 ..  od:feed::   Rubrics Rubric
+
+    :method GET: read only
 
     The Rubrics feed contains the scoring rules for subjective questions.
     

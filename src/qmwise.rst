@@ -96,6 +96,20 @@ element was designed to achieve.  That said, this type of change is kept
 to a minimum in QMWISe and the current pattern of development is to add
 new methods rather than extending the types returned by existing ones.
 
+Default Values
+~~~~~~~~~~~~~~
+
+In some cases the WSDL for QMWISe defines the structures with default
+values, for example, see :qm:xfield:`Schedule.Monitored`::
+
+    <s:element minOccurs="0" maxOccurs="1" default="0" name="Monitored" type="s:int" />
+
+A definition like this means that a missing Monitored element in a
+request *or response* should be inferred to mean "0", the default value.
+Due to the nature of the technology used to implement QMWISe when
+serialising responses to XML elements with default values are typically
+omitted.  This may be confusing at first, especially to tools that do
+not read and interpret the WSDL correctly.
 
 Basic Types
 ~~~~~~~~~~~

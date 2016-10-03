@@ -57,7 +57,66 @@
 <dl class="type">
 <dt id="od-type.deliveryodata.Group">
 <em class="property">EntityType: </em><tt class="descname">Group</tt><a class="headerlink" href="#od-type.deliveryodata.Group" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="prop">
+<dt id="od-prop.deliveryodata.Group.ID">
+<em class="property">Entity Key: </em><tt class="descname">ID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Group.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numeric ID of the Group.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Group.Name">
+<tt class="descname">Name</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Group.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the Group.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Group.Description">
+<tt class="descname">Description</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Group.Description" title="Permalink to this definition">¶</a></dt>
+<dd><p>The optional description of the Group.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Group.Participants">
+<tt class="descname">Participants</tt> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant">Participant</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.Participants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the participants that are in the group.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Group.Administrators">
+<tt class="descname">Administrators</tt> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.Administrators" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the administrators associated with the
+group.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Group.SubGroups">
+<tt class="descname">SubGroups</tt> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.SubGroups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the sub-groups of each group.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Group.ParentGroup">
+<tt class="descname">ParentGroup</tt> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-prop.deliveryodata.Group.ParentGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>For sub-groups, the optional parent group.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>due to a known issue in the implementation of
+this property it must only be expanded when the
+Group being queried is known to be a sub-group.
+Do not use it in general collections:</p>
+<div class="last highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Groups?$expand=ParentGroup
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Group.PrintBatches">
+<tt class="descname">PrintBatches</tt> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.PrintBatches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to any PrintBatches associated with this Group.</p>
+</dd></dl>
+
+</dd></dl>
 
 </div>
 

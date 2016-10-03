@@ -9,6 +9,11 @@ Answer
     model but contain only a subset of the properties.  They are read
     only in OData.
     
+    The Answer entity is a media link entity.  The value of an Answer
+    entity (obtained by appending /$value to the entity's URL) is the
+    full answer given by the participant (for constructed response
+    questions).  See below for an example of how to obtain this.
+    
     ..  od:prop::   QuestionID  Edm.Int64
         :key:
         :notnull:
@@ -73,10 +78,120 @@ Answer
         this answer.  ScoringTasks are only associated with answers that
         require subjective marking.
     
-    
 
+Reading the Participant's Answer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    
-                
-    
-   
+The Answer entity is a media link entity with a corresponding media
+stream that contains the participant's full answer.  The stream is
+only available when the Question required a constructed response such as
+an Essay or File Upload question.
+
+Here is an example::
+
+    <service root>/Results(634445534)/Answers?$expand=Question
+
+    {
+        odata.metadata: "<service root>/$metadata#Answers",
+        value: [
+            {
+                odata.mediaReadLink: "<service root>/Answers(QuestionID=5845494007544735L,ResultID=634445534,BlockNumber=1,Occurrence=1)/$value",
+                odata.mediaContentType: "application/octet-stream",
+                Question: {
+                    odata.mediaReadLink: "<service root>/Questions(5845494007544735L)/$value",
+                    odata.mediaContentType: "application/xml",
+                    ID: "5845494007544735",
+                    Revision: 2,
+                    Language: "-",
+                    Status: 0,
+                    Description: "Essay Question",
+                    Author: "Jane",
+                    Editor: "John",
+                    CreatedDateTime: "2016-05-20T09:29:05Z",
+                    ModifiedDateTime: "2016-05-20T10:53:44Z",
+                    QuestionType: "ESSAY "
+                },
+                QuestionID: "5845494007544735",
+                ResultID: 634445534,
+                BlockNumber: 1,
+                Occurrence: 1,
+                QuestionNumber: 1,
+                TimesAnswered: 1,
+                MaxScore: 10,
+                ActualScore: 0
+            },
+            {
+                odata.mediaReadLink: "<service root>/Answers(QuestionID=1712759025350437L,ResultID=634445534,BlockNumber=1,Occurrence=1)/$value",
+                odata.mediaContentType: "application/octet-stream",
+                Question: {
+                    odata.mediaReadLink: "<service root>/Questions(1712759025350437L)/$value",
+                    odata.mediaContentType: "application/xml",
+                    ID: "1712759025350437",
+                    Revision: 2,
+                    Language: "-",
+                    Status: 0,
+                    Description: "File Upload Question",
+                    Author: "Jane",
+                    Editor: "John",
+                    CreatedDateTime: "2016-05-20T09:59:28Z",
+                    ModifiedDateTime: "2016-05-20T10:53:45Z",
+                    QuestionType: "UPLOAD "
+                },
+                QuestionID: "1712759025350437",
+                ResultID: 634445534,
+                BlockNumber: 1,
+                Occurrence: 1,
+                QuestionNumber: 2,
+                TimesAnswered: 1,
+                MaxScore: 1,
+                ActualScore: 0
+            }
+        ]
+    }
+
+Notice the media links in each Answer entity, the Questions have been
+expanded to make it clearer.  Question number 1 was an essay question
+and the media link provides the plain text typed by the candidate. 
+Question number 2 is a file upload question and actually returns an
+image.
+
+..  warning::   when returning Answer entities the content type encoded
+                in the entity's serialised representation is defaulted
+                to application/octet-stream for performance reasons (as
+                the data model does not contain this information).
+
+                To obtain the true content type you must issue a HEAD
+                (or GET) request on the odata.mediaReadLink directly.
+
+Here's a sample HTTP session when retrieving the file uploaded by the
+participant::
+
+    <service root>/Answers(QuestionID=1712759025350437L,ResultID=634445534,BlockNumber=1,Occurrence=1)/$value
+
+    GET <service root>/Answers(QuestionID=1712759025350437L,ResultID=634445534,BlockNumber=1,Occurrence=1)/$value HTTP/1.1
+    Host: ondemand.questionmark.eu
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    Accept-Language: en-US,en;q=0.5
+    Accept-Encoding: gzip, deflate, br
+    DNT: 1
+    Referer: <service root>/Results(634445534)/Answers
+    Cookie: language=en
+    Connection: keep-alive
+    Authorization: Basic <security details removed!>
+
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Pragma: no-cache
+    Transfer-Encoding: chunked
+    Content-Type: image/gif; name="070a2a779af97859f8a0c7342a4068b183db506108b90a660259ce58f964fcaf.gif"
+    Expires: -1
+    Accept-Ranges: bytes
+    Server: Microsoft-IIS/8.5
+    Content-Disposition: inline; filename="070a2a779af97859f8a0c7342a4068b183db506108b90a660259ce58f964fcaf.gif"
+    X-AspNet-Version: 4.0.30319
+    X-Powered-By: ASP.NET
+    Date: Tue, 05 Jul 2016 10:56:52 GMT
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+    <GIF image data>

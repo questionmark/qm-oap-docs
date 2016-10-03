@@ -57,7 +57,64 @@
 <dl class="type">
 <dt id="od-type.deliveryodata.Participant">
 <em class="property">EntityType: </em><tt class="descname">Participant</tt><a class="headerlink" href="#od-type.deliveryodata.Participant" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="prop">
+<dt id="od-prop.deliveryodata.Participant.ID">
+<em class="property">Entity Key: </em><tt class="descname">ID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Participant.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numeric ID of the Participant.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Participant.Name">
+<tt class="descname">Name</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Participant.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the Participant. See
+<a class="reference internal" href="../model/g_participant.html#qm-field.g_participant.participant_name" title="Participant_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">G_Participant.Participant_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Participant.FirstName">
+<tt class="descname">FirstName</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Participant.FirstName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The first name of the Participant.  See
+<a class="reference internal" href="../model/g_participant.html#qm-field.g_participant.first_name" title="First_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">G_Participant.First_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Participant.LastName">
+<tt class="descname">LastName</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Participant.LastName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The last name of the Participant.  See
+<a class="reference internal" href="../model/g_participant.html#qm-field.g_participant.last_name" title="Last_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">G_Participant.Last_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Participant.MiddleName">
+<tt class="descname">MiddleName</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Participant.MiddleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The middle name of the Participant.  See
+<a class="reference internal" href="../model/g_participant.html#qm-field.g_participant.middle_name" title="Middle_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">G_Participant.Middle_Name</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Participant.Details">
+<tt class="descname">Details</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Participant.Details" title="Permalink to this definition">¶</a></dt>
+<dd><p>The details field.  See <a class="reference internal" href="../model/g_participant.html#qm-field.g_participant.details" title="Details"><tt class="xref qm qm-field docutils literal"><span class="pre">G_Participant.Details</span></tt></a>.
+Often used to contain a human-friendly representation of the
+participant&#8217;s full name.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Participant.RegistrationDateTime">
+<tt class="descname">RegistrationDateTime</tt>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Participant.RegistrationDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date and time when the participant was first registered.
+Sourced from <a class="reference internal" href="../model/g_participant.html#qm-field.g_participant.date_registration" title="Date_Registration"><tt class="xref qm qm-field docutils literal"><span class="pre">G_Participant.Date_Registration</span></tt></a> but
+converted to UTC.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Participant.Groups">
+<tt class="descname">Groups</tt> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Participant.Groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the Groups this participant is a member
+of.</p>
+</dd></dl>
+
+</dd></dl>
 
 </div>
 

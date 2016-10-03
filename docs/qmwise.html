@@ -141,6 +141,20 @@ element was designed to achieve.  That said, this type of change is kept
 to a minimum in QMWISe and the current pattern of development is to add
 new methods rather than extending the types returned by existing ones.</p>
 </div>
+<div class="section" id="default-values">
+<h2>Default Values<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h2>
+<p>In some cases the WSDL for QMWISe defines the structures with default
+values, for example, see <a class="reference internal" href="qmwise/schedules.html#qm-xfield.Schedule.Monitored" title="Monitored"><tt class="xref qm qm-xfield docutils literal"><span class="pre">Schedule.Monitored</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;s:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot; default=&quot;0&quot; name=&quot;Monitored&quot; type=&quot;s:int&quot; /&gt;
+</pre></div>
+</div>
+<p>A definition like this means that a missing Monitored element in a
+request <em>or response</em> should be inferred to mean &#8220;0&#8221;, the default value.
+Due to the nature of the technology used to implement QMWISe when
+serialising responses to XML elements with default values are typically
+omitted.  This may be confusing at first, especially to tools that do
+not read and interpret the WSDL correctly.</p>
+</div>
 <div class="section" id="basic-types">
 <h2>Basic Types<a class="headerlink" href="#basic-types" title="Permalink to this headline">¶</a></h2>
 <p>QMWISe makes extensive use of the following basic types from <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/">XMLSchema</a>.</p>
@@ -182,6 +196,7 @@ new methods rather than extending the types returned by existing ones.</p>
 <li><a class="reference internal" href="#">QMWISe</a><ul>
 <li><a class="reference internal" href="#string-parameters">String Parameters</a></li>
 <li><a class="reference internal" href="#extension-types">Extension Types</a></li>
+<li><a class="reference internal" href="#default-values">Default Values</a></li>
 <li><a class="reference internal" href="#basic-types">Basic Types</a></li>
 </ul>
 </li>

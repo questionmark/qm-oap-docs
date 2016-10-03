@@ -60,6 +60,10 @@
 <dd><p>Answer entities are drawn from <a class="reference internal" href="../model/a_answer.html#qm-table.a_answer" title="A_Answer"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Answer</span></tt></a> in the data
 model but contain only a subset of the properties.  They are read
 only in OData.</p>
+<p>The Answer entity is a media link entity.  The value of an Answer
+entity (obtained by appending /$value to the entity&#8217;s URL) is the
+full answer given by the participant (for constructed response
+questions).  See below for an example of how to obtain this.</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Answer.QuestionID">
 <em class="property">Entity Key: </em><tt class="descname">QuestionID</tt>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.QuestionID" title="Permalink to this definition">¶</a></dt>
@@ -136,6 +140,122 @@ require subjective marking.</p>
 
 </dd></dl>
 
+<div class="section" id="reading-the-participant-s-answer">
+<h2>Reading the Participant&#8217;s Answer<a class="headerlink" href="#reading-the-participant-s-answer" title="Permalink to this headline">¶</a></h2>
+<p>The Answer entity is a media link entity with a corresponding media
+stream that contains the participant&#8217;s full answer.  The stream is
+only available when the Question required a constructed response such as
+an Essay or File Upload question.</p>
+<p>Here is an example:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results(634445534)/Answers?$expand=Question
+
+{
+    odata.metadata: &quot;&lt;service root&gt;/$metadata#Answers&quot;,
+    value: [
+        {
+            odata.mediaReadLink: &quot;&lt;service root&gt;/Answers(QuestionID=5845494007544735L,ResultID=634445534,BlockNumber=1,Occurrence=1)/$value&quot;,
+            odata.mediaContentType: &quot;application/octet-stream&quot;,
+            Question: {
+                odata.mediaReadLink: &quot;&lt;service root&gt;/Questions(5845494007544735L)/$value&quot;,
+                odata.mediaContentType: &quot;application/xml&quot;,
+                ID: &quot;5845494007544735&quot;,
+                Revision: 2,
+                Language: &quot;-&quot;,
+                Status: 0,
+                Description: &quot;Essay Question&quot;,
+                Author: &quot;Jane&quot;,
+                Editor: &quot;John&quot;,
+                CreatedDateTime: &quot;2016-05-20T09:29:05Z&quot;,
+                ModifiedDateTime: &quot;2016-05-20T10:53:44Z&quot;,
+                QuestionType: &quot;ESSAY &quot;
+            },
+            QuestionID: &quot;5845494007544735&quot;,
+            ResultID: 634445534,
+            BlockNumber: 1,
+            Occurrence: 1,
+            QuestionNumber: 1,
+            TimesAnswered: 1,
+            MaxScore: 10,
+            ActualScore: 0
+        },
+        {
+            odata.mediaReadLink: &quot;&lt;service root&gt;/Answers(QuestionID=1712759025350437L,ResultID=634445534,BlockNumber=1,Occurrence=1)/$value&quot;,
+            odata.mediaContentType: &quot;application/octet-stream&quot;,
+            Question: {
+                odata.mediaReadLink: &quot;&lt;service root&gt;/Questions(1712759025350437L)/$value&quot;,
+                odata.mediaContentType: &quot;application/xml&quot;,
+                ID: &quot;1712759025350437&quot;,
+                Revision: 2,
+                Language: &quot;-&quot;,
+                Status: 0,
+                Description: &quot;File Upload Question&quot;,
+                Author: &quot;Jane&quot;,
+                Editor: &quot;John&quot;,
+                CreatedDateTime: &quot;2016-05-20T09:59:28Z&quot;,
+                ModifiedDateTime: &quot;2016-05-20T10:53:45Z&quot;,
+                QuestionType: &quot;UPLOAD &quot;
+            },
+            QuestionID: &quot;1712759025350437&quot;,
+            ResultID: 634445534,
+            BlockNumber: 1,
+            Occurrence: 1,
+            QuestionNumber: 2,
+            TimesAnswered: 1,
+            MaxScore: 1,
+            ActualScore: 0
+        }
+    ]
+}
+</pre></div>
+</div>
+<p>Notice the media links in each Answer entity, the Questions have been
+expanded to make it clearer.  Question number 1 was an essay question
+and the media link provides the plain text typed by the candidate.
+Question number 2 is a file upload question and actually returns an
+image.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>when returning Answer entities the content type encoded
+in the entity&#8217;s serialised representation is defaulted
+to application/octet-stream for performance reasons (as
+the data model does not contain this information).</p>
+<p class="last">To obtain the true content type you must issue a HEAD
+(or GET) request on the odata.mediaReadLink directly.</p>
+</div>
+<p>Here&#8217;s a sample HTTP session when retrieving the file uploaded by the
+participant:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Answers(QuestionID=1712759025350437L,ResultID=634445534,BlockNumber=1,Occurrence=1)/$value
+
+GET &lt;service root&gt;/Answers(QuestionID=1712759025350437L,ResultID=634445534,BlockNumber=1,Occurrence=1)/$value HTTP/1.1
+Host: ondemand.questionmark.eu
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+DNT: 1
+Referer: &lt;service root&gt;/Results(634445534)/Answers
+Cookie: language=en
+Connection: keep-alive
+Authorization: Basic &lt;security details removed!&gt;
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Transfer-Encoding: chunked
+Content-Type: image/gif; name=&quot;070a2a779af97859f8a0c7342a4068b183db506108b90a660259ce58f964fcaf.gif&quot;
+Expires: -1
+Accept-Ranges: bytes
+Server: Microsoft-IIS/8.5
+Content-Disposition: inline; filename=&quot;070a2a779af97859f8a0c7342a4068b183db506108b90a660259ce58f964fcaf.gif&quot;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 05 Jul 2016 10:56:52 GMT
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+&lt;GIF image data&gt;
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -144,6 +264,14 @@ require subjective marking.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Answer</a><ul>
+<li><a class="reference internal" href="#reading-the-participant-s-answer">Reading the Participant&#8217;s Answer</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="administrator.html"
                         title="previous chapter">Administrator</a></p>

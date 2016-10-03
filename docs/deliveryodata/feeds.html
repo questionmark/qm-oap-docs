@@ -58,34 +58,158 @@ is generally compatible with both version 3 and version 2 clients.</p>
 <div class="section" id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
+<dt>$top and $skip</dt>
+<dd><p class="first">If a feed request would cause too many entities to be returned the
+collection returned will be truncated.</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results
+</pre></div>
+</div>
+<p>There are likely to be lots of results in the repository. The
+returned collection contains the first <em>page</em> of results and a
+continuation link that can be used to retrieve the next <em>page</em>, and
+so on.</p>
+<p>This technique was not possible with previous APIs (compare
+<a class="reference internal" href="../qmwise/results.html#qm-meth.GetResultList" title="GetResultList"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultList</span></tt></a>), but it does require some special handling
+on the client side. Questionmark&#8217;s OData feeds make extensive use of
+paging and also impose an upper limit on the number of records that
+will be returned for each request to improve performance of both the
+service and the client itself.  The limit is currently set to 100.</p>
+<p>You can individually control how many results you retrieve (if you
+want fewer than 100) using the $top and $skip options:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$top=10&amp;$orderby=WhenFinished desc
+</pre></div>
+</div>
+<p>This query retrieves the 10 most recent results.  To get the next
+10 just add $skip:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$top=10&amp;$skip=10&amp;$orderby=WhenFinished desc
+</pre></div>
+</div>
+<p class="last">The format of the continuation links may vary depending on the type
+of index used to satisfy the query internally.  When paging through
+a large feed it is better to use the continuation links provided in
+the previous response than to manually set $top and $skip.</p>
+</dd>
 <dt>$filter</dt>
-<dd>Supported.  Filtering is only allowed on certain property values,
+<dd><p class="first">Supported.  Filtering is only allowed on certain property values,
 see the feed descriptions below for details. The restrictions have
 been put in place to ensure that API requests do not have a negative
-effect on the delivery of assessments.</dd>
+effect on the delivery of assessments.</p>
+<p>Example filter:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$filter=ParticipantName eq &#39;user123&#39;
+</pre></div>
+</div>
+<p>Although spaces are shown in the above URL parameter values should
+be appropriately escaped for use in HTTP.</p>
+<p>The representation of values (such as &#8216;user123&#8217; above) is defined by
+the OData specification.  Take care to match the type of any values
+provided in filters with the type of the corresponding property.
+In particular, note that 64-bit integers use an &#8216;L&#8217; suffix:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$filter=AssessmentID eq 9962000009962L
+</pre></div>
+</div>
+<p>More complex examples:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/ScoringTasks?$filter=Group/Name eq &#39;CS101&#39; and Status lt 3
+</pre></div>
+</div>
+<p>...returns all ScoringTask entities relating to the Group with name
+CS101 that have a status less then 3 (Scored).</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/ScoringTasks/$count?$filter=Group/Name eq &#39;CS101&#39; and Status eq 2
+</pre></div>
+</div>
+<p>...returns the count of all ScoringTask entities relating to the
+Group with name CS101 that have a status of 2 (Saved).</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/ScoringTasks?$filter=Group/Name eq &#39;CS101&#39; and Assessment/ID eq 1234567890L
+</pre></div>
+</div>
+<p>...returns all ScoringTask entities relating to the Group with name
+CS101 and the assessment with ID 1234567890.</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$filter=GroupName eq &#39;CS101&#39; and Assessment/ID eq 1234567890L&amp;$orderby=WhenFinished desc
+</pre></div>
+</div>
+<p>...returns all result entities relating to the group with name CS101
+and the assessment with ID 1234567890 ordered by the most recently
+submitted first.</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$filter=Assessment/ID eq 1234567890L and ParticipantName eq &#39;JaneSmith&#39;&amp;$orderby=WhenFinished
+</pre></div>
+</div>
+<p class="last">...returns all result entities relating to JaneSmith&#8217;s attempts at
+the specific assessment with ID 1234567890 ordered from the first to
+the last attempt.</p>
+</dd>
 <dt>$orderby</dt>
-<dd>Supported.  Ordering can be used on any field marked as being
-suported in $filter.</dd>
+<dd><p class="first">Supported.  Ordering can usually be used on any field marked as
+being suported in $filter.  Exceptions are noted in the feed
+descriptions.</p>
+<p>Example:</p>
+<div class="last highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$orderby=WhenFinished desc
+</pre></div>
+</div>
+</dd>
 <dt>$expand</dt>
 <dd><p class="first">The expansion of navigation properties is supported though some
 special rules apply.  See each feed for details.  There is a limit
 on the depth of expansion that is allowed to ensure result sets are
-manageable, in particular, if an expansion results in too many
-entities (set at 100) then it may be truncated.</p>
-<p>If this is a problem then you can usually transform the query into
-a filtered request on the target feed instead.  For example, if
-there are too many answers associated with a result then an
-query such as:</p>
+manageable.  Example expansion:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$expand=Answers
+</pre></div>
+</div>
+<p>A deeper expansion:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results(12345678)?$expand=Answers/Question
+</pre></div>
+</div>
+<p>The above not only lists all answers for the result but, within each
+answer entity, the Question itself is also expanded.  Bear in mind
+that use of expansion can dramatically increase the complexity of
+the query used to retrieve the data and the number of entities
+returned.  A maximum depth of 2 expansions is supported (as above).</p>
+<p>If an expansion results in too many child entities being returned
+for a single entity then the expansion itself will be truncated.
+The limit is set to 100, the same as for base feeds.</p>
+<p>If this is a problem then you can usually transform the query into a
+filtered request on the target feed instead.  If an OData response
+exceeds 100 entities a continuation link is provided that can be
+used to retrieve the next 100 results, and so on.</p>
+<p>For example, if there are too many answers associated with a result
+then a query such as:</p>
 <div class="highlight-python"><div class="highlight"><pre>Results(12345678)?$expand=Answers
 </pre></div>
 </div>
-<p>can instead by written as:</p>
-<div class="last highlight-python"><div class="highlight"><pre>Answers?$filter=ResultID eq 12345678&amp;$expand=Result
+<p>can instead be retrieved as separate queries:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results(12345678)
+&lt;service root&gt;/Answers?$filter=ResultID eq 12345678
+&lt;service root&gt;/Answers?$filter=ResultID eq 12345678&amp;$skip=100
+&lt;service root&gt;/Answers?$filter=ResultID eq 12345678&amp;$skip=200
+...
+</pre></div>
+</div>
+<p>If a feed&#8217;s entity type is related to another type via a navigation
+property with a <em>target</em> multiplicity of 0..1 and $expand is
+supported for that property then it is possible to use the expansion
+directly in filters and orderings.</p>
+<p>For example, to view Answers to a specific question ordered by
+the date when the corresponding result was submitted (most recent
+first) you could use a query like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Answers?$filter=QuestionID eq 100000000373L&amp;$orderby=Result/WhenFinished desc
+</pre></div>
+</div>
+<p class="last">This query shows an orderby query with an implicit expansion of
+depth 1.  In the feed descriptions, allowed filters are described in
+terms of their immediate parent entity (depth 0), however, if a
+filter is supported at depth 0 you may assume that it will also be
+supported at depth 1 when filtering or ordering related entities.</p>
+</dd>
+<dt>$count</dt>
+<dd><p class="first">Supported on base feeds only.  Cannot be used in combination with
+navigation properties.  This is OK:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results/$count
+</pre></div>
+</div>
+<p>This is not:</p>
+<div class="last highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results(12345678)/Answers/$count
 </pre></div>
 </div>
 </dd>
-<dt>$count</dt>
-<dd>Supported.</dd>
 <dt>$format</dt>
 <dd>Not supported.  The service returns responses using JSON format by
 default.  To obtain XML responses you need to pass a suitably
@@ -95,6 +219,9 @@ supported.</dd>
 <dd>For feeds labelled <em>Media Link Entry</em> the $value path component can
 be used to obtain the full media resource for an entity.  Access to
 simple property values is not supported.</dd>
+<dt>$select</dt>
+<dd>This query option is not currently supported by the Delivery OData
+API.</dd>
 </dl>
 </div>
 <div class="section" id="feed-reference">
@@ -135,7 +262,7 @@ Participant role.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Answers">
-<tt class="descname">Answers</tt> <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer">Answer</a><a class="headerlink" href="#od-feed.deliveryodata.Answers" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">Answers</tt> <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer">Answer</a> (Media Link Entry)<a class="headerlink" href="#od-feed.deliveryodata.Answers" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -450,8 +577,15 @@ marking.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>QuestionID</strong> &#8211; note that ordering is <em>not</em> supported</li>
+<li><strong>Order</strong> &#8211; supports $orderby only, cannot be used as a filter</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
 <li><strong>Rubric</strong> &#8211; expands the associated Rubric</li>
 <li><strong>Dimension</strong> &#8211; expands the Dimension of the Rubric</li>
 </ul>
@@ -467,14 +601,68 @@ per-dimension basis.</p>
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Groups">
 <tt class="descname">Groups</tt> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-feed.deliveryodata.Groups" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Groups feed contains data about groups of participants.  Entries
-are defined by the <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><tt class="xref od od-type docutils literal"><span class="pre">deliveryodata.Group</span></tt></a> type.</p>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>Name</strong> &#8211; filtering by group name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Administrators</strong> &#8211; the administrators responsible for the group</li>
+<li><strong>Participants</strong> &#8211; the participant members of the group</li>
+<li><strong>SubGroups</strong> &#8211; the optional list of sub-groups</li>
+<li><strong>ParentGroup</strong> &#8211; the optional parent group (<a class="reference internal" href="group.html#od-prop.deliveryodata.Group.ParentGroup" title="ParentGroup"><tt class="xref od od-prop docutils literal"><span class="pre">see</span> <span class="pre">warning</span></tt></a>)</li>
+<li><strong>PrintBatches</strong> &#8211; the optional list of associated PrintBatches</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Groups feed contains data about groups of participants.  Entries
+are defined by the <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><tt class="xref od od-type docutils literal"><span class="pre">Group</span></tt></a> type.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Participants">
 <tt class="descname">Participants</tt> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant">Participant</a><a class="headerlink" href="#od-feed.deliveryodata.Participants" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Participants feed contains data about users that have the
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>Name</strong> &#8211; filtering by participant name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Groups</strong> &#8211; the collection of groups this participant is a member of</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Participants feed contains data about users that have the
 special Participant role.</p>
 </dd></dl>
 
@@ -489,7 +677,26 @@ take externally, typically through printing and scanning.</p>
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Questions">
 <tt class="descname">Questions</tt> <a class="reference internal" href="question.html#od-type.deliveryodata.Question" title="Question">Question</a><a class="headerlink" href="#od-feed.deliveryodata.Questions" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Questions feed contains records describing all the questions in
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>QuestionType</strong> &#8211; see note in entity type on space padding</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Questions feed contains records describing all the questions in
 the assessment catalog.</p>
 </dd></dl>
 
@@ -503,14 +710,54 @@ versions of the Questions.</p>
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Results">
 <tt class="descname">Results</tt> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-feed.deliveryodata.Results" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Results feed contains data about assessment results.  Entries
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>AssessmentID</strong> &#8211; the related assessment</li>
+<li><strong>ParticipantName</strong> &#8211; for filtering by Participant</li>
+<li><strong>GroupName</strong> &#8211; for filtering by Group</li>
+<li><strong>WhenFinished</strong> &#8211; for filtering by data of submission</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Answers</strong> &#8211; the answers associated with this result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Results feed contains data about assessment results.  Entries
 are defined by the <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><tt class="xref od od-type docutils literal"><span class="pre">deliveryodata.Result</span></tt></a> type.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Rubrics">
 <tt class="descname">Rubrics</tt> <a class="reference internal" href="rubric.html#od-type.deliveryodata.Rubric" title="Rubric">Rubric</a><a class="headerlink" href="#od-feed.deliveryodata.Rubrics" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Rubrics feed contains the scoring rules for subjective questions.</p>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Rubrics feed contains the scoring rules for subjective questions.</p>
 </dd></dl>
 
 <dl class="feed">
