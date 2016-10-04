@@ -47,17 +47,24 @@ At the time of writing, their are no publicly exposed APIs that access
 the authoring database.
 
 
-SSL Endpoints
-~~~~~~~~~~~~~
+HTTPS API Endpoints
+~~~~~~~~~~~~~~~~~~~
 
 All API endpoints in Questionmark OnDemand use https.  Furthermore, due
 to the constantly changing recommendations on protocols and ciphers that
 are considered secure these services do change their capabilities from
 time to time.
 
+..  note::  We strongly suggest you upgrade your API clients to support
+            TLS1.2 and the associated ECDHE ciphersuites. Support for
+            TLS1.0 is expected to end within the next year.  For
+            example, see this `blog post from the PCI Security Standards
+            Council
+            <https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls>`_.
+
 Whereas the web browsers and operating systems in common use are all
-updated frequently to inclue the latest https security protocols this is
-not true for API clients which may have cryptographic libraries (like
+updated frequently to include the latest https security protocols this
+is not true for API clients which may have cryptographic libraries (like
 openssl) statically linked or rely on an underlying interpreter or
 language runtime (e.g., PHP, Java, etc) that is updated separately from
 the host operating system.
@@ -82,6 +89,10 @@ certificate store it is imperative that the host OS is kept updated with
 the latest global trusted root certificates as these are also subject to
 change.
  
-Questionmark site certificates do change from time to time and may
-change at short notice.  The global certificate authority used to sign
-the certificates is also subject to change.
+..  warning::   Questionmark site certificates do change from time to
+                time and may change at short notice. The changes may
+                include requiring new root certificates even if using
+                the  same root certificate authority. An example was the
+                change from SHA1 to SHA2 signing. The root certificate
+                authority used to sign the certificates is also subject
+                to change.
