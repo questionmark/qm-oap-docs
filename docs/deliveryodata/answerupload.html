@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>AnswerUpload &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>AnswerUpload &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,46 +23,38 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
-    <link rel="up" title="Delivery OData Feeds" href="feeds.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="../index.html" />
+    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Assessment" href="assessment.html" />
-    <link rel="prev" title="Answer" href="answer.html" /> 
+    <link rel="prev" title="Answer" href="answer.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="assessment.html" title="Assessment"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="answer.html" title="Answer"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="feeds.html" accesskey="U">Delivery OData Feeds</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="answerupload">
 <h1>AnswerUpload<a class="headerlink" href="#answerupload" title="Permalink to this headline">¶</a></h1>
 <dl class="type">
 <dt id="od-type.deliveryodata.AnswerUpload">
-<em class="property">EntityType: </em><tt class="descname">AnswerUpload</tt><a class="headerlink" href="#od-type.deliveryodata.AnswerUpload" title="Permalink to this definition">¶</a></dt>
+<em class="property">EntityType: </em><code class="descname">AnswerUpload</code><a class="headerlink" href="#od-type.deliveryodata.AnswerUpload" title="Permalink to this definition">¶</a></dt>
 <dd><p>AnswerUpload entities are media link entries that contain the
 response files uploaded for scoring.  Only one format is supported
 and that is application/json with fields as documented below.</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AnswerUpload.AttemptID">
-<em class="property">Entity Key: </em><tt class="descname">AttemptID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.AttemptID" title="Permalink to this definition">¶</a></dt>
+<em class="property">Entity Key: </em><code class="descname">AttemptID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.AttemptID" title="Permalink to this definition">¶</a></dt>
 <dd><p>Each AnswerUpload must be associated with an Attempt.  Due to
 the nature of media link entries the AttemptID cannot be
 specified in the URL on upload as the response file is POSTed to
@@ -73,7 +65,7 @@ entity on creation.</p>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AnswerUpload.Attempt">
-<tt class="descname">Attempt</tt> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.Attempt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Attempt</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.Attempt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the associated Attempt.</p>
 </dd></dl>
 
@@ -86,7 +78,7 @@ application/json) file with the following fields.</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>BatchID</dt>
-<dd>A reference to an associated <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch"><tt class="xref od od-type docutils literal"><span class="pre">deliveryodata.PrintBatch</span></tt></a>
+<dd>A reference to an associated <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.PrintBatch</span></code></a>
 formatted as a string (optional).  If present, group information
 will be read from the batch and used to set the group
 information in the associated result.</dd>
@@ -97,7 +89,7 @@ exact version of the assessment that was delivered externally.</p>
 <p class="last">An attempt can only ever be taken once, either online or
 externally.  Therefore, you cannot upload a set of results for
 an attempt that is already associated with a result record (see
-<a class="reference internal" href="attempt.html#od-prop.deliveryodata.Attempt.ResultID" title="ResultID"><tt class="xref od od-prop docutils literal"><span class="pre">Attempt.ResultID</span></tt></a>).</p>
+<a class="reference internal" href="attempt.html#od-prop.deliveryodata.Attempt.ResultID" title="ResultID"><code class="xref od od-prop docutils literal"><span class="pre">Attempt.ResultID</span></code></a>).</p>
 </dd>
 <dt>QuestionAndChoices</dt>
 <dd><p class="first">An array of objects describing the response to each question.</p>
@@ -125,14 +117,14 @@ choice was actually selected.</dd>
 <p>In future this documentation and file format will be expanded to support
 a wider range of choice types.  Here is an example of a simple upload
 file:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="n">AttemptID</span><span class="p">:</span> <span class="mi">170</span><span class="p">,</span>
     <span class="n">QuestionAndChoices</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="n">QuestionOrderNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
             <span class="n">UploadedChoices</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
-                    <span class="n">ChoiceOrderNumber</span><span class="p">:</span> <span class="s">&quot;5&quot;</span><span class="p">,</span>
+                    <span class="n">ChoiceOrderNumber</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
                     <span class="n">Selected</span><span class="p">:</span> <span class="n">true</span>
                 <span class="p">}</span>
             <span class="p">]</span>
@@ -141,7 +133,7 @@ file:</p>
             <span class="n">QuestionOrderNumber</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="n">UploadedChoices</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
-                    <span class="n">ChoiceOrderNumber</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+                    <span class="n">ChoiceOrderNumber</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
                     <span class="n">Selected</span><span class="p">:</span> <span class="n">true</span>
                 <span class="p">}</span>
             <span class="p">]</span>
@@ -150,7 +142,7 @@ file:</p>
             <span class="n">QuestionOrderNumber</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
             <span class="n">UploadedChoices</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
-                    <span class="n">ChoiceOrderNumber</span><span class="p">:</span> <span class="s">&quot;5&quot;</span><span class="p">,</span>
+                    <span class="n">ChoiceOrderNumber</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
                     <span class="n">Selected</span><span class="p">:</span> <span class="n">true</span>
                 <span class="p">}</span>
             <span class="p">]</span>
@@ -166,64 +158,65 @@ file:</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">AnswerUpload</a><ul>
-<li><a class="reference internal" href="#answer-upload-file-format">Answer Upload File Format</a></li>
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
 </ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="answer.html"
-                        title="previous chapter">Answer</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="assessment.html"
-                        title="next chapter">Assessment</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/deliveryodata/answerupload.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+  <li><a href="types.html">Entity Type Reference</a><ul>
+      <li>Previous: <a href="answer.html" title="previous chapter">Answer</a></li>
+      <li>Next: <a href="assessment.html" title="next chapter">Assessment</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="assessment.html" title="Assessment"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="answer.html" title="Answer"
-             >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="feeds.html" >Delivery OData Feeds</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/deliveryodata/answerupload.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>

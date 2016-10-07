@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Data Model &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>Data Model &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,31 +23,25 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="index.html" />
     <link rel="next" title="Security Tables" href="model/security.html" />
-    <link rel="prev" title="URLs" href="qmwise/urls.html" /> 
+    <link rel="prev" title="URLs" href="qmwise/urls.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="model/security.html" title="Security Tables"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="qmwise/urls.html" title="URLs"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="data-model">
 <h1>Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline">¶</a></h1>
@@ -253,17 +247,17 @@ depending on the region in which the repository is hosted.</dd>
 the data model.  The two values are typically indicated with a _MID and
 _LID suffix.</p>
 <p>Calculation of the 64-bit ID from a MID and LID uses a <em>decimal</em> algorithm:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ID</span> <span class="o">=</span> <span class="n">MID</span> <span class="o">*</span> <span class="mi">100000000</span> <span class="o">+</span> <span class="n">LID</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ID</span> <span class="o">=</span> <span class="n">MID</span> <span class="o">*</span> <span class="mi">100000000</span> <span class="o">+</span> <span class="n">LID</span>
 </pre></div>
 </div>
 <p>Likewise, you need to use <em>decimal</em> arithmetic to split an ID into the
 two separate parts:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">MID</span> <span class="o">=</span> <span class="n">ID</span> <span class="o">/</span> <span class="mi">100000000</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MID</span> <span class="o">=</span> <span class="n">ID</span> <span class="o">/</span> <span class="mi">100000000</span>
 <span class="n">LID</span> <span class="o">=</span> <span class="n">ID</span> <span class="o">%</span> <span class="mi">100000000</span>
 </pre></div>
 </div>
 <p>For example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">MID</span> <span class="o">=</span> <span class="mi">80317034</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MID</span> <span class="o">=</span> <span class="mi">80317034</span>
 <span class="n">LID</span> <span class="o">=</span> <span class="mi">6550612</span>
 <span class="n">ID</span> <span class="o">=</span> <span class="mi">8031703406550612</span>
 </pre></div>
@@ -271,7 +265,7 @@ two separate parts:</p>
 <p>Values of MID and LID are limited to the range [1, 99999999].  If you
 are creating 64-bit ID values yourself you must ensure that they satisfy
 the following constraints:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ID</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">!=</span> <span class="mi">0</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ID</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">!=</span> <span class="mi">0</span>
 <span class="n">ID</span> <span class="o">&gt;</span> <span class="mi">100000000</span>
 <span class="n">ID</span> <span class="o">&lt;=</span> <span class="mi">9999999999999999</span>
 </pre></div>
@@ -285,67 +279,64 @@ the following constraints:</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Data Model</a><ul>
-<li><a class="reference internal" href="#misc-topics">Misc Topics</a><ul>
-<li><a class="reference internal" href="#fields-defined-with-varchar">Fields defined with varchar</a></li>
-<li><a class="reference internal" href="#timezones">Timezones</a></li>
-<li><a class="reference internal" href="#mid-and-lid">MID and LID</a></li>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odata.html">OData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deliveryodata.html">Delivery OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qmwise.html">QMWISe</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model/security.html">Security Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model/assessment.html">Assessment Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model/question.html">Question Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model/answer.html">Answer Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model/ng.html">Next Generation Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model/scoringtool.html">Scoring Tool Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#misc-topics">Misc Topics</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="pip.html">PIP</a></li>
 </ul>
-</li>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="qmwise/urls.html" title="previous chapter">URLs</a></li>
+      <li>Next: <a href="model/security.html" title="next chapter">Security Tables</a></li>
+  </ul></li>
 </ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="qmwise/urls.html"
-                        title="previous chapter">URLs</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="model/security.html"
-                        title="next chapter">Security Tables</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/data_model.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="model/security.html" title="Security Tables"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="qmwise/urls.html" title="URLs"
-             >previous</a> |</li>
-        <li><a href="index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/data_model.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>

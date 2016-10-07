@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Proctoring Exams &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>Proctoring Exams &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,39 +23,31 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
-    <link rel="up" title="Applications" href="applications.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="../index.html" />
+    <link rel="up" title="Example Applications" href="applications.html" />
     <link rel="next" title="Subjective Scoring" href="scoring.html" />
-    <link rel="prev" title="External Delivery" href="xdelivery.html" /> 
+    <link rel="prev" title="External Delivery" href="xdelivery.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="scoring.html" title="Subjective Scoring"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="xdelivery.html" title="External Delivery"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="applications.html" accesskey="U">Applications</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="proctoring-exams">
 <h1>Proctoring Exams<a class="headerlink" href="#proctoring-exams" title="Permalink to this headline">¶</a></h1>
 <p>This section describes how proctored exams can be launched in
-Questionmark&#8217;s delivery system using <a class="reference internal" href="../deliveryodata.html#od-service.deliveryodata" title="Delivery OData Service"><tt class="xref od od-svc docutils literal"><span class="pre">deliveryodata</span></tt></a>. In this
+Questionmark&#8217;s delivery system using <a class="reference internal" href="../deliveryodata.html#od-service.deliveryodata" title="Delivery OData Service"><code class="xref od od-svc docutils literal"><span class="pre">deliveryodata</span></code></a>. In this
 application we use the term candidate to mean participant and the word
 exam to refer to the assessment being taken so as to emphasise the
 higher stakes involved when proctoring.</p>
@@ -77,7 +69,7 @@ diagram).</p>
 <div class="section" id="creating-a-proctored-exam-attempt">
 <h2>Creating a Proctored Exam Attempt<a class="headerlink" href="#creating-a-proctored-exam-attempt" title="Permalink to this headline">¶</a></h2>
 <p>First, a proctored exam attempt must be created. Exams are launched
-using the <a class="reference internal" href="feeds.html#od-feed.deliveryodata.Attempts" title="Attempts"><tt class="xref od od-feed docutils literal"><span class="pre">deliveryodata.Attempts</span></tt></a> feed. An exam attempt can be
+using the <a class="reference internal" href="feeds.html#od-feed.deliveryodata.Attempts" title="Attempts"><code class="xref od od-feed docutils literal"><span class="pre">deliveryodata.Attempts</span></code></a> feed. An exam attempt can be
 created with a POST HTTP method request to the Attempts feed URL. Most
 of the fields are set automatically, but you must specify the following
 parameters:</p>
@@ -113,32 +105,32 @@ not be provided by your proctoring service, and Questionmark&#8217;s delivery
 system.</p>
 <p>Request method: <em>POST</em></p>
 <p>Request resource:</p>
-<div class="highlight-python"><div class="highlight"><pre>https://ondemand.questionmark.com/deliveryodata/&lt;Customer ID&gt;/Attempts
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">Customer</span> <span class="n">ID</span><span class="o">&gt;/</span><span class="n">Attempts</span>
 </pre></div>
 </div>
 <p>Example POST request:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;ExternalAttemptID&quot;</span><span class="p">:</span> <span class="s">&quot;1000&quot;</span><span class="p">,</span>
-  <span class="s">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s">&quot;1234567890876543&quot;</span><span class="p">,</span>
-  <span class="s">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="s">&quot;987654321&quot;</span><span class="p">,</span>
-  <span class="s">&quot;LockStatus&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-  <span class="s">&quot;LockRequired&quot;</span><span class="p">:</span> <span class="n">true</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;ExternalAttemptID&quot;</span><span class="p">:</span> <span class="s2">&quot;1000&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;1234567890876543&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="s2">&quot;987654321&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;LockStatus&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+  <span class="s2">&quot;LockRequired&quot;</span><span class="p">:</span> <span class="n">true</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Example POST response:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-<span class="s">&quot;ID&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span>
-<span class="s">&quot;ParticipantFacingQMLobbyUrl&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">,</span>
-<span class="s">&quot;ProctorFacingQMControlsWidgetUrl&quot;</span><span class="p">:</span><span class="s">&quot;https://ondemand.questionmark.com/lobby/400449/proctorwidget/Index/9?nonce=ec4947dc-972f-4701-9ec9-c9e7b137be26&amp;timestamp=2015-10-01T15:22:22.0193300Z&amp;role=proctor&amp;signature=db108ad97e546a815370586d60e28ff7b12016a370ed62bae8141574f0fc0b48&quot;</span><span class="p">,</span>
-<span class="s">&quot;ExternalAttemptID&quot;</span><span class="p">:</span><span class="s">&quot;1001&quot;</span><span class="p">,</span>
-<span class="s">&quot;ParticipantID&quot;</span><span class="p">:</span><span class="mi">70605997</span><span class="p">,</span>
-<span class="s">&quot;AssessmentID&quot;</span><span class="p">:</span><span class="s">&quot;3736000003736&quot;</span><span class="p">,</span>
-<span class="s">&quot;ResultID&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">,</span>
-<span class="s">&quot;LockStatus&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
-<span class="s">&quot;LockRequired&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
-<span class="s">&quot;ParticipantFacingProctorSystemWidgetUrl&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">,</span>
-<span class="s">&quot;LastModifiedDateTime&quot;</span><span class="p">:</span><span class="s">&quot;2015-10-01T15:22:22.0037078Z&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;ID&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span>
+<span class="s2">&quot;ParticipantFacingQMLobbyUrl&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;ProctorFacingQMControlsWidgetUrl&quot;</span><span class="p">:</span><span class="s2">&quot;https://ondemand.questionmark.com/lobby/400449/proctorwidget/Index/9?nonce=ec4947dc-972f-4701-9ec9-c9e7b137be26&amp;timestamp=2015-10-01T15:22:22.0193300Z&amp;role=proctor&amp;signature=db108ad97e546a815370586d60e28ff7b12016a370ed62bae8141574f0fc0b48&quot;</span><span class="p">,</span>
+<span class="s2">&quot;ExternalAttemptID&quot;</span><span class="p">:</span><span class="s2">&quot;1001&quot;</span><span class="p">,</span>
+<span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span><span class="mi">70605997</span><span class="p">,</span>
+<span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span><span class="s2">&quot;3736000003736&quot;</span><span class="p">,</span>
+<span class="s2">&quot;ResultID&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;LockStatus&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;LockRequired&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;ParticipantFacingProctorSystemWidgetUrl&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;LastModifiedDateTime&quot;</span><span class="p">:</span><span class="s2">&quot;2015-10-01T15:22:22.0037078Z&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -159,7 +151,7 @@ exam. This value is null on the initial POST response.</dd>
 <dd><p class="first">This is the URL that a proctor uses to obtain access to the in-exam
 proctoring controls for this exam attempt.</p>
 <p>Example:</p>
-<div class="last highlight-python"><div class="highlight"><pre>https://ondemand.questionmark.com/lobby/400449/proctorwidget/Index/9?nonce=ec4947dc-972f-4701-9ec9-c9e7b137be26&amp;timestamp=2015-10-01T15:22:22.0193300Z&amp;role=proctor&amp;signature=db108ad97e546a815370586d60e28ff7b12016a370ed62bae8141574f0fc0b48
+<div class="last highlight-default"><div class="highlight"><pre><span></span>https://ondemand.questionmark.com/lobby/400449/proctorwidget/Index/9?nonce=ec4947dc-972f-4701-9ec9-c9e7b137be26&amp;timestamp=2015-10-01T15:22:22.0193300Z&amp;role=proctor&amp;signature=db108ad97e546a815370586d60e28ff7b12016a370ed62bae8141574f0fc0b48
 </pre></div>
 </div>
 </dd>
@@ -205,12 +197,12 @@ given attempt in Questionmark&#8217;s delivery system. The Attempt ID is
 generated in the first transaction.</p>
 <p>Request method: <em>PATCH</em></p>
 <p>Request resource:</p>
-<div class="highlight-python"><div class="highlight"><pre>https://ondemand.questionmark.com/deliveryodata/&lt;Customer ID&gt;/Attempts(&lt;Attempt ID&gt;)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">Customer</span> <span class="n">ID</span><span class="o">&gt;/</span><span class="n">Attempts</span><span class="p">(</span><span class="o">&lt;</span><span class="n">Attempt</span> <span class="n">ID</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example PATCH request:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;ParticipantFacingProctorSystemWidgetUrl&quot;</span><span class="p">:</span> <span class="s">&quot;https://www.proctor-service.com/candidate-controls&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;ParticipantFacingProctorSystemWidgetUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.proctor-service.com/candidate-controls&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -225,22 +217,22 @@ ID. All of the parameter values will be available in the response so
 that the candidate can securely connect with a proctor.</p>
 <p>Request method: <em>GET</em></p>
 <p>Request resource:</p>
-<div class="highlight-python"><div class="highlight"><pre>https://ondemand.questionmark.com/deliveryodata/&lt;Customer ID&gt;/Attempts(&lt;Attempt ID&gt;)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">Customer</span> <span class="n">ID</span><span class="o">&gt;/</span><span class="n">Attempts</span><span class="p">(</span><span class="o">&lt;</span><span class="n">Attempt</span> <span class="n">ID</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example GET response:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-<span class="s">&quot;ID&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span>
-<span class="s">&quot;ParticipantFacingQMLobbyUrl&quot;</span><span class="p">:</span><span class="s">&quot;qmsb:url=aHR0cHM6Ly9vbmRlbWFuZC5xdWVzdGlvbm1hcmsuY29tL2xvYmJ5LzQwMDQ0OS9sb2JieS9TeXN0ZW1DaGVjay8xMj9ub25jZT0wYTM2MDViZS05MjQ3LTRmNjUtOWZhNS0yMDQ1YTdhZDgzNGQmdGltZXN0YW1wPTIwMTUtMTAtMDFUMjE6NDE6NDYuNzA2OTYwMFomcm9sZT1wYXJ0aWNpcGFudCZzaWduYXR1cmU9OWViYmY4ODkwOTY4NTFkZTAwYmVhYzkzOWVjYmJmYmZjMzRhOGVmNGNhOTRkYjY2MTEwNjA3NzI4NjI4MmU0Nw&amp;sig=330991facd937c0e15331941b4ab76015ffcb6de21e4404e69511b653107eb59&quot;</span><span class="p">,</span>
-<span class="s">&quot;ProctorFacingQMControlsWidgetUrl&quot;</span><span class="p">:</span><span class="s">&quot;https://ondemand.questionmark.com/lobby/400449/proctorwidget/Index/12?nonce=9c9f25cf-074d-48da-9e75-3f63fa1915a3&amp;timestamp=2015-10-01T21:41:46.7069600Z&amp;role=proctor&amp;signature=110df2f131b1edcb02bd76452fb2cf71f048545525966b57b4ebb2f5f838530f&quot;</span><span class="p">,</span>
-<span class="s">&quot;ExternalAttemptID&quot;</span><span class="p">:</span><span class="s">&quot;1005&quot;</span><span class="p">,</span>
-<span class="s">&quot;ParticipantID&quot;</span><span class="p">:</span><span class="mi">70605997</span><span class="p">,</span>
-<span class="s">&quot;AssessmentID&quot;</span><span class="p">:</span><span class="s">&quot;3736000003736&quot;</span><span class="p">,</span>
-<span class="s">&quot;ResultID&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">,</span>
-<span class="s">&quot;LockStatus&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
-<span class="s">&quot;LockRequired&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
-<span class="s">&quot;ParticipantFacingProctorSystemWidgetUrl&quot;</span><span class="p">:</span><span class="s">&quot;https://www.proctor-service.com/candidate-controls&quot;</span><span class="p">,</span>
-<span class="s">&quot;LastModifiedDateTime&quot;</span><span class="p">:</span><span class="s">&quot;2015-10-02T01:41:12.53Z&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;ID&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span>
+<span class="s2">&quot;ParticipantFacingQMLobbyUrl&quot;</span><span class="p">:</span><span class="s2">&quot;qmsb:url=aHR0cHM6Ly9vbmRlbWFuZC5xdWVzdGlvbm1hcmsuY29tL2xvYmJ5LzQwMDQ0OS9sb2JieS9TeXN0ZW1DaGVjay8xMj9ub25jZT0wYTM2MDViZS05MjQ3LTRmNjUtOWZhNS0yMDQ1YTdhZDgzNGQmdGltZXN0YW1wPTIwMTUtMTAtMDFUMjE6NDE6NDYuNzA2OTYwMFomcm9sZT1wYXJ0aWNpcGFudCZzaWduYXR1cmU9OWViYmY4ODkwOTY4NTFkZTAwYmVhYzkzOWVjYmJmYmZjMzRhOGVmNGNhOTRkYjY2MTEwNjA3NzI4NjI4MmU0Nw&amp;sig=330991facd937c0e15331941b4ab76015ffcb6de21e4404e69511b653107eb59&quot;</span><span class="p">,</span>
+<span class="s2">&quot;ProctorFacingQMControlsWidgetUrl&quot;</span><span class="p">:</span><span class="s2">&quot;https://ondemand.questionmark.com/lobby/400449/proctorwidget/Index/12?nonce=9c9f25cf-074d-48da-9e75-3f63fa1915a3&amp;timestamp=2015-10-01T21:41:46.7069600Z&amp;role=proctor&amp;signature=110df2f131b1edcb02bd76452fb2cf71f048545525966b57b4ebb2f5f838530f&quot;</span><span class="p">,</span>
+<span class="s2">&quot;ExternalAttemptID&quot;</span><span class="p">:</span><span class="s2">&quot;1005&quot;</span><span class="p">,</span>
+<span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span><span class="mi">70605997</span><span class="p">,</span>
+<span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span><span class="s2">&quot;3736000003736&quot;</span><span class="p">,</span>
+<span class="s2">&quot;ResultID&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;LockStatus&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;LockRequired&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;ParticipantFacingProctorSystemWidgetUrl&quot;</span><span class="p">:</span><span class="s2">&quot;https://www.proctor-service.com/candidate-controls&quot;</span><span class="p">,</span>
+<span class="s2">&quot;LastModifiedDateTime&quot;</span><span class="p">:</span><span class="s2">&quot;2015-10-02T01:41:12.53Z&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -263,7 +255,7 @@ take you to the Questionmark Secure download page if it&#8217;s not
 installed. The example value shown below is an example URL for a
 proctored attempt requiring Questionmark Secure.</p>
 <p>Example:</p>
-<div class="last highlight-python"><div class="highlight"><pre>qmsb:url=aHR0cHM6Ly9vbmRlbWFuZC5xdWVzdGlvbm1hcmsuY29tL2xvYmJ5LzQwMDQ0OS9sb2JieS9TeXN0ZW1DaGVjay8xMj9ub25jZT0wYTM2MDViZS05MjQ3LTRmNjUtOWZhNS0yMDQ1YTdhZDgzNGQmdGltZXN0YW1wPTIwMTUtMTAtMDFUMjE6NDE6NDYuNzA2OTYwMFomcm9sZT1wYXJ0aWNpcGFudCZzaWduYXR1cmU9OWViYmY4ODkwOTY4NTFkZTAwYmVhYzkzOWVjYmJmYmZjMzRhOGVmNGNhOTRkYjY2MTEwNjA3NzI4NjI4MmU0Nw&amp;sig=330991facd937c0e15331941b4ab76015ffcb6de21e4404e69511b653107eb69
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">qmsb</span><span class="p">:</span><span class="n">url</span><span class="o">=</span><span class="n">aHR0cHM6Ly9vbmRlbWFuZC5xdWVzdGlvbm1hcmsuY29tL2xvYmJ5LzQwMDQ0OS9sb2JieS9TeXN0ZW1DaGVjay8xMj9ub25jZT0wYTM2MDViZS05MjQ3LTRmNjUtOWZhNS0yMDQ1YTdhZDgzNGQmdGltZXN0YW1wPTIwMTUtMTAtMDFUMjE6NDE6NDYuNzA2OTYwMFomcm9sZT1wYXJ0aWNpcGFudCZzaWduYXR1cmU9OWViYmY4ODkwOTY4NTFkZTAwYmVhYzkzOWVjYmJmYmZjMzRhOGVmNGNhOTRkYjY2MTEwNjA3NzI4NjI4MmU0Nw</span><span class="o">&amp;</span><span class="n">sig</span><span class="o">=</span><span class="mi">330991</span><span class="n">facd937c0e15331941b4ab76015ffcb6de21e4404e69511b653107eb69</span>
 </pre></div>
 </div>
 </dd>
@@ -325,7 +317,7 @@ attempt. The value will be null until the exam is unlocked by the
 proctor.</p>
 <p>Once the exam has started, you can retrieve the attempt and examine
 the ResultID field to find the identifier of the result associated
-with this attempt. You can use the <a class="reference internal" href="feeds.html#od-feed.deliveryodata.Results" title="Results"><tt class="xref od od-feed docutils literal"><span class="pre">deliveryodata.Results</span></tt></a>
+with this attempt. You can use the <a class="reference internal" href="feeds.html#od-feed.deliveryodata.Results" title="Results"><code class="xref od od-feed docutils literal"><span class="pre">deliveryodata.Results</span></code></a>
 feed to read the details of this result or pass it to QMWISe. The
 following new status values were introduced for online
 proctoring:</p>
@@ -334,7 +326,7 @@ proctoring:</p>
 <li>The proctor has terminated the exam</li>
 </ol>
 <p class="last">For a complete list of status codes and their meanings refer to
-<a class="reference internal" href="../model/a_result.html#qm-field.a_result.status" title="Status"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Status</span></tt></a>.</p>
+<a class="reference internal" href="../model/a_result.html#qm-field.a_result.status" title="Status"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Status</span></code></a>.</p>
 </dd>
 <dt>LockStatus</dt>
 <dd>This is set to the same value as LockRequired (&#8220;True&#8221; for proctored
@@ -354,7 +346,7 @@ the test using the <em>ParticipantFacingQMLobbyURL</em>, their browser will
 open the <em>ParticipantFacingProctorSystemWidgetUrl</em> to initiate
 communication with the proctor.</p>
 <p>Example:</p>
-<div class="last highlight-python"><div class="highlight"><pre>https://www.proctor-service.com/candidate-controls
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">proctor</span><span class="o">-</span><span class="n">service</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">candidate</span><span class="o">-</span><span class="n">controls</span>
 </pre></div>
 </div>
 </dd>
@@ -370,70 +362,65 @@ communication with the proctor.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Proctoring Exams</a><ul>
-<li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#creating-a-proctored-exam-attempt">Creating a Proctored Exam Attempt</a><ul>
-<li><a class="reference internal" href="#creating-or-getting-the-candidate-controls-delivering-the-proctor-controls">Creating or Getting the Candidate Controls/Delivering the Proctor Controls</a></li>
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#updating-the-exam-attempt-for-proctor-communication">Updating the Exam Attempt for Proctor Communication</a></li>
-<li><a class="reference internal" href="#getting-the-exam-attempt-for-launching-the-exam">Getting the Exam Attempt for Launching the Exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
 </ul>
-</li>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+  <li><a href="applications.html">Example Applications</a><ul>
+      <li>Previous: <a href="xdelivery.html" title="previous chapter">External Delivery</a></li>
+      <li>Next: <a href="scoring.html" title="next chapter">Subjective Scoring</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
 </ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="xdelivery.html"
-                        title="previous chapter">External Delivery</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="scoring.html"
-                        title="next chapter">Subjective Scoring</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/deliveryodata/proctoring.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="scoring.html" title="Subjective Scoring"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="xdelivery.html" title="External Delivery"
-             >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="applications.html" >Applications</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/deliveryodata/proctoring.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>

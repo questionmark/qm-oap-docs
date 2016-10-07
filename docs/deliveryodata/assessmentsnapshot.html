@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>AssessmentSnapshot(Data) &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>AssessmentSnapshot(Data) &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,54 +23,46 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
-    <link rel="up" title="Delivery OData Feeds" href="feeds.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="../index.html" />
+    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Attempt" href="attempt.html" />
-    <link rel="prev" title="Assessment" href="assessment.html" /> 
+    <link rel="prev" title="Assessment" href="assessment.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="attempt.html" title="Attempt"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="assessment.html" title="Assessment"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="feeds.html" accesskey="U">Delivery OData Feeds</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="assessmentsnapshot-data">
 <h1>AssessmentSnapshot(Data)<a class="headerlink" href="#assessmentsnapshot-data" title="Permalink to this headline">¶</a></h1>
 <dl class="type">
 <dt id="od-type.deliveryodata.AssessmentSnapshot">
-<em class="property">EntityType: </em><tt class="descname">AssessmentSnapshot</tt><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshot" title="Permalink to this definition">¶</a></dt>
+<em class="property">EntityType: </em><code class="descname">AssessmentSnapshot</code><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshot" title="Permalink to this definition">¶</a></dt>
 <dd><p>AssessmentSnapshot entities are drawn from
-<a class="reference internal" href="../model/assessmentsnapshot.html#qm-table.assessmentsnapshot" title="AssessmentSnapshot"><tt class="xref qm qm-table docutils literal"><span class="pre">AssessmentSnapshot</span></tt></a>.  You can create entities using
+<a class="reference internal" href="../model/assessmentsnapshot.html#qm-table.assessmentsnapshot" title="AssessmentSnapshot"><code class="xref qm qm-table docutils literal"><span class="pre">AssessmentSnapshot</span></code></a>.  You can create entities using
 a POST request to the corresponding feed.</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshot.ID">
-<em class="property">Entity Key: </em><tt class="descname">ID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ID" title="Permalink to this definition">¶</a></dt>
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of the snapshot
-(<a class="reference internal" href="../model/assessmentsnapshot.html#qm-field.assessmentsnapshot.assessmentsnapshot_id" title="AssessmentSnapshot_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">AssessmentSnapshot.AssessmentSnapshot_ID</span></tt></a>). The
+(<a class="reference internal" href="../model/assessmentsnapshot.html#qm-field.assessmentsnapshot.assessmentsnapshot_id" title="AssessmentSnapshot_ID"><code class="xref qm qm-field docutils literal"><span class="pre">AssessmentSnapshot.AssessmentSnapshot_ID</span></code></a>). The
 value cannot be modified.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshot.AssessmentID">
-<tt class="descname">AssessmentID</tt>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.AssessmentID" title="Permalink to this definition">¶</a></dt>
+<code class="descname">AssessmentID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.AssessmentID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of the assessment used to create the snapshot.  Along
 with the Language, this is used to find the assessment
 definition. When POSTing to the feed to create a snapshot you
@@ -82,7 +74,7 @@ not affect the delivery of the snapshot.</p>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshot.Language">
-<tt class="descname">Language</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Language" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Language" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Language of the assessment (if translated).  This field is
 optional.  If unspecified then for assessments that have not
 been translated it will take the value &#8216;-&#8216;, indicating an
@@ -94,21 +86,21 @@ of the languages the assessment has been translated into.</p>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshot.Name">
-<tt class="descname">Name</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Name" title="Permalink to this definition">¶</a></dt>
 <dd><p>A human friendly name for the snapshot.  This field can be
 modified using the PATCH method.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshot.ExpiresDateTime">
-<tt class="descname">ExpiresDateTime</tt>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ExpiresDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ExpiresDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ExpiresDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The time after which new attempts that use this snapshot cannot
 be created.  This value can be modified using the PATH method.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl">
-<tt class="descname">PrintableDocumentSourceUrl</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl" title="Permalink to this definition">¶</a></dt>
+<code class="descname">PrintableDocumentSourceUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl" title="Permalink to this definition">¶</a></dt>
 <dd><p>A link to a printable HTML5 version of the snapshot.  This link
 is time-stamped and signed and must be generated immediately
 prior to use.  It is only available when an individual entity is
@@ -116,40 +108,40 @@ queried, whenever a collection of AssessmentSnapshot entities
 can be returned from a query (such as filtering the parent feed)
 this property is set to NULL in the entities returned (for
 security reasons).  For example:</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/123456/AssessmentSnapshots
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AssessmentSnapshots</span>
 
-{
-    odata.metadata: &quot;https://ondemand.questionmark.com/deliveryodata/123456/$metadata#AssessmentSnapshots&quot;,
-    value: [
-        {
-            PrintableDocumentSourceUrl: null,
-            ID: 1,
-            AssessmentID: &quot;2185231530264478&quot;,
-            Language: &quot;-&quot;,
-            Name: &quot;DemoSnap&quot;,
-            CreatedDateTime: &quot;2015-11-09T15:48:18.527Z&quot;,
-            ModifiedDateTime: &quot;2015-11-09T15:48:18.527Z&quot;,
-            ExpiresDateTime: null
-        },
-        {
-            PrintableDocumentSourceUrl: null,
-            ID: 2,
-            ...
+<span class="p">{</span>
+    <span class="n">odata</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/123456/$metadata#AssessmentSnapshots&quot;</span><span class="p">,</span>
+    <span class="n">value</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="n">PrintableDocumentSourceUrl</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="n">ID</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">AssessmentID</span><span class="p">:</span> <span class="s2">&quot;2185231530264478&quot;</span><span class="p">,</span>
+            <span class="n">Language</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span>
+            <span class="n">Name</span><span class="p">:</span> <span class="s2">&quot;DemoSnap&quot;</span><span class="p">,</span>
+            <span class="n">CreatedDateTime</span><span class="p">:</span> <span class="s2">&quot;2015-11-09T15:48:18.527Z&quot;</span><span class="p">,</span>
+            <span class="n">ModifiedDateTime</span><span class="p">:</span> <span class="s2">&quot;2015-11-09T15:48:18.527Z&quot;</span><span class="p">,</span>
+            <span class="n">ExpiresDateTime</span><span class="p">:</span> <span class="n">null</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="n">PrintableDocumentSourceUrl</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="n">ID</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="o">...</span>
 </pre></div>
 </div>
 <p>To get the printable link to the snapshot you must use a query
 like this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AssessmentSnapshots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AssessmentSnapshots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="p">{</span>
-    <span class="n">odata</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span> <span class="s">&quot;https://ondemand.questionmark.com/deliveryodata/123456/$metadata#AssessmentSnapshots/@Element&quot;</span><span class="p">,</span>
-    <span class="n">PrintableDocumentSourceUrl</span><span class="p">:</span> <span class="s">&quot;https://ondemand.questionmark.com/delivery/AssessmentSnapshot.php?customerid=123456&amp;snapshotid=1&amp;timestamp=2015-12-10T16:27:48.9784554Z&amp;signature=63a3ffc4ffdcfdb03280964e1583e8a08a7fe93857d48311c483ad917228d268&quot;</span><span class="p">,</span>
+    <span class="n">odata</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/123456/$metadata#AssessmentSnapshots/@Element&quot;</span><span class="p">,</span>
+    <span class="n">PrintableDocumentSourceUrl</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/delivery/AssessmentSnapshot.php?customerid=123456&amp;snapshotid=1&amp;timestamp=2015-12-10T16:27:48.9784554Z&amp;signature=63a3ffc4ffdcfdb03280964e1583e8a08a7fe93857d48311c483ad917228d268&quot;</span><span class="p">,</span>
     <span class="n">ID</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="n">AssessmentID</span><span class="p">:</span> <span class="s">&quot;2185231530264478&quot;</span><span class="p">,</span>
-    <span class="n">Language</span><span class="p">:</span> <span class="s">&quot;-&quot;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="p">:</span> <span class="s">&quot;DemoSnap&quot;</span><span class="p">,</span>
-    <span class="n">CreatedDateTime</span><span class="p">:</span> <span class="s">&quot;2015-11-09T15:48:18.527Z&quot;</span><span class="p">,</span>
-    <span class="n">ModifiedDateTime</span><span class="p">:</span> <span class="s">&quot;2015-11-09T15:48:18.527Z&quot;</span><span class="p">,</span>
+    <span class="n">AssessmentID</span><span class="p">:</span> <span class="s2">&quot;2185231530264478&quot;</span><span class="p">,</span>
+    <span class="n">Language</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="p">:</span> <span class="s2">&quot;DemoSnap&quot;</span><span class="p">,</span>
+    <span class="n">CreatedDateTime</span><span class="p">:</span> <span class="s2">&quot;2015-11-09T15:48:18.527Z&quot;</span><span class="p">,</span>
+    <span class="n">ModifiedDateTime</span><span class="p">:</span> <span class="s2">&quot;2015-11-09T15:48:18.527Z&quot;</span><span class="p">,</span>
     <span class="n">ExpiresDateTime</span><span class="p">:</span> <span class="n">null</span>
 <span class="p">}</span>
 </pre></div>
@@ -158,14 +150,14 @@ like this:</p>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshot.CreatedDateTime">
-<tt class="descname">CreatedDateTime</tt>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CreatedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A time stamp of when the snapshot was created.  Set
 automatically, it cannot be modified.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshot.ModifiedDateTime">
-<tt class="descname">ModifiedDateTime</tt>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ModifiedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A time stamp of when the snapshot was last modified.  Set
 automatically, it cannot be modified directly but a call to the
 PATCH method on the associated feed will cause it to be updated.</p>
@@ -173,7 +165,7 @@ PATCH method on the associated feed will cause it to be updated.</p>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshot.AssessmentSnapshotData">
-<tt class="descname">AssessmentSnapshotData</tt> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData">AssessmentSnapshotData</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.AssessmentSnapshotData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">AssessmentSnapshotData</code> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData">AssessmentSnapshotData</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.AssessmentSnapshotData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the associated XML data for this
 snapshot. As a single entity you can just append
 /AssessmentSnapshotData/$value to the URL of an
@@ -183,7 +175,7 @@ snapshot.</p>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshot.PrintBatches">
-<tt class="descname">PrintBatches</tt> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintBatches" title="Permalink to this definition">¶</a></dt>
+<code class="descname">PrintBatches</code> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintBatches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to all PrintBatch entities that use this
 snapshot.  This collection may be empty as PrintBatches are an
 optional grouping structure used to help manage printing and
@@ -194,17 +186,17 @@ scanning workflows..</p>
 
 <dl class="type">
 <dt id="od-type.deliveryodata.AssessmentSnapshotData">
-<em class="property">EntityType: </em><tt class="descname">AssessmentSnapshotData</tt><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshotData" title="Permalink to this definition">¶</a></dt>
+<em class="property">EntityType: </em><code class="descname">AssessmentSnapshotData</code><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshotData" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>This is a media link entry that describes the XML file
 associated with a snapshot.  You obtain the XML stream by taking
 the value of the identified enity using OData&#8217;s $value suffix.</p>
-<p>The format of the XML data is described in <a class="reference internal" href="#snapshotxml"><em>Snapshot File Format</em></a>
+<p>The format of the XML data is described in <a class="reference internal" href="#snapshotxml"><span class="std std-ref">Snapshot File Format</span></a>
 below.</p>
 </div></blockquote>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshotData.ID">
-<em class="property">Entity Key: </em><tt class="descname">ID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshotData.ID" title="Permalink to this definition">¶</a></dt>
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshotData.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of the snapshot for which this is the data.</p>
 </dd></dl>
 
@@ -220,64 +212,65 @@ below.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">AssessmentSnapshot(Data)</a><ul>
-<li><a class="reference internal" href="#snapshot-file-format">Snapshot File Format</a></li>
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
 </ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="assessment.html"
-                        title="previous chapter">Assessment</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="attempt.html"
-                        title="next chapter">Attempt</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/deliveryodata/assessmentsnapshot.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+  <li><a href="types.html">Entity Type Reference</a><ul>
+      <li>Previous: <a href="assessment.html" title="previous chapter">Assessment</a></li>
+      <li>Next: <a href="attempt.html" title="next chapter">Attempt</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="attempt.html" title="Attempt"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="assessment.html" title="Assessment"
-             >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="feeds.html" >Delivery OData Feeds</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/deliveryodata/assessmentsnapshot.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>

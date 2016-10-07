@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Subjective Scoring &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>Subjective Scoring &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,34 +23,26 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
-    <link rel="up" title="Applications" href="applications.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="../index.html" />
+    <link rel="up" title="Example Applications" href="applications.html" />
     <link rel="next" title="Delivery OData Feeds" href="feeds.html" />
-    <link rel="prev" title="Proctoring Exams" href="proctoring.html" /> 
+    <link rel="prev" title="Proctoring Exams" href="proctoring.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="feeds.html" title="Delivery OData Feeds"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="proctoring.html" title="Proctoring Exams"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="applications.html" accesskey="U">Applications</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="subjective-scoring">
 <h1>Subjective Scoring<a class="headerlink" href="#subjective-scoring" title="Permalink to this headline">¶</a></h1>
@@ -80,7 +72,7 @@ of status values defined here.</p>
 workflow starts when the participant submits their assessment and the
 delivery system finalises a result containing unscored (subjectively
 marked) responses.  At this point, the delivery system creates a
-<a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringTask" title="ScoringTask"><tt class="xref od od-type docutils literal"><span class="pre">deliveryodata.ScoringTask</span></tt></a> entity for each unscored answer.</p>
+<a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringTask" title="ScoringTask"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.ScoringTask</span></code></a> entity for each unscored answer.</p>
 <p>The purpose of the ScoringTask entity is to manage the workflow, the
 only writable property is the Status property which reflects the
 current position within the workflow:</p>
@@ -117,13 +109,13 @@ removed from URLs for legibility.  Where appropriate, examples are also
 given using Microsoft&#8217;s LINQ example code.</p>
 <div class="section" id="first-step">
 <h3>First step<a class="headerlink" href="#first-step" title="Permalink to this headline">¶</a></h3>
-<p>Monitor the <a class="reference internal" href="feeds.html#od-feed.deliveryodata.ScoringTasks" title="ScoringTasks"><tt class="xref od od-feed docutils literal"><span class="pre">deliveryodata.ScoringTasks</span></tt></a> feed for new tasks
+<p>Monitor the <a class="reference internal" href="feeds.html#od-feed.deliveryodata.ScoringTasks" title="ScoringTasks"><code class="xref od od-feed docutils literal"><span class="pre">deliveryodata.ScoringTasks</span></code></a> feed for new tasks
 with an unscored status. This can be done by filtering the feed:</p>
-<div class="highlight-python"><div class="highlight"><pre>/deliveryodata/12345/ScoringTasks?$filter=Status eq 0&amp;$orderby=Result/WhenFinished desc
+<div class="highlight-default"><div class="highlight"><pre><span></span>/deliveryodata/12345/ScoringTasks?$filter=Status eq 0&amp;$orderby=Result/WhenFinished desc
 </pre></div>
 </div>
 <p>LINQ:</p>
-<div class="highlight-python"><div class="highlight"><pre>var scoringTasks = context.ScoringTasks.Where(x =&gt; x.Status == 0).OrderByDescending(x =&gt; x.Result.WhenFinished);
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">scoringTasks</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">ScoringTasks</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">Status</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">OrderByDescending</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">Result</span><span class="o">.</span><span class="n">WhenFinished</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>It is recommended that a combination of expansion and additional filters
@@ -145,7 +137,7 @@ associated ScoringResult, follow links from the ScoringTask.</p>
 ScoringResults are created automatically when they are
 retrieved from the associated ScoringTask&#8217;s navigation
 property directly from the ScoringTask&#8217;s URL. See
-<a class="reference internal" href="scoringtask.html#od-prop.deliveryodata.ScoringTask.ScoringResult" title="ScoringResult"><tt class="xref od od-prop docutils literal"><span class="pre">deliveryodata.ScoringTask.ScoringResult</span></tt></a> for
+<a class="reference internal" href="scoringtask.html#od-prop.deliveryodata.ScoringTask.ScoringResult" title="ScoringResult"><code class="xref od od-prop docutils literal"><span class="pre">deliveryodata.ScoringTask.ScoringResult</span></code></a> for
 more information.</p>
 </div>
 <p>Although a ScoringTask will never have more than one associated
@@ -198,16 +190,16 @@ tool.</p>
 <img alt="../_images/example-app001.png" src="../_images/example-app001.png" />
 <p>On this screen, a list of groups is shown to the end user. The
 underlying OData request was:</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/Groups HTTP/1.1
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">12345</span><span class="o">/</span><span class="n">Groups</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 </pre></div>
 </div>
 <p>LINQ:</p>
-<div class="highlight-python"><div class="highlight"><pre>var groups = context.Groups
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">groups</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">Groups</span>
 </pre></div>
 </div>
 <p>The totals in the table were calculated using three additional requests
 (unscored being the sum of states 0 and 1):</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTestGroup&#39; and Status eq 0 HTTP/1.1
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/12345/ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTestGroup&#39; and Status eq 0 HTTP/1.1
 
 GET /deliveryodata/12345/ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTestGroup&#39; and Status eq 1 HTTP/1.1
 
@@ -218,20 +210,20 @@ GET /deliveryodata/12345/ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTes
 source is OData, so a more direct method of executing the queries is
 required.</p>
 <p>LINQ:</p>
-<div class="highlight-python"><div class="highlight"><pre>var saved = context.Execute&lt;long&gt;(new Uri(&quot;ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTestGroup&#39; and Status eq 2&quot;, UriKind.Relative)).FirstOrDefault();
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">saved</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">Execute</span><span class="o">&lt;</span><span class="n">long</span><span class="o">&gt;</span><span class="p">(</span><span class="n">new</span> <span class="n">Uri</span><span class="p">(</span><span class="s2">&quot;ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTestGroup&#39; and Status eq 2&quot;</span><span class="p">,</span> <span class="n">UriKind</span><span class="o">.</span><span class="n">Relative</span><span class="p">))</span><span class="o">.</span><span class="n">FirstOrDefault</span><span class="p">();</span>
 
-var unscored = context.Execute&lt;long&gt;(new Uri(&quot;ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTestGroup&#39; and (Status eq 0 or Status eq 1)&quot;, UriKind.Relative)).FirstOrDefault();
+<span class="n">var</span> <span class="n">unscored</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">Execute</span><span class="o">&lt;</span><span class="n">long</span><span class="o">&gt;</span><span class="p">(</span><span class="n">new</span> <span class="n">Uri</span><span class="p">(</span><span class="s2">&quot;ScoringTasks/$count?$filter=Group/Name eq &#39;ODataTestGroup&#39; and (Status eq 0 or Status eq 1)&quot;</span><span class="p">,</span> <span class="n">UriKind</span><span class="o">.</span><span class="n">Relative</span><span class="p">))</span><span class="o">.</span><span class="n">FirstOrDefault</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>Clicking on the group name takes you to a list of ScoringTasks filtered
 by the group in question.</p>
 <img alt="../_images/example-app002.png" src="../_images/example-app002.png" />
 <p>The underlying OData request was:</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringTasks?$expand=Question,Result&amp;$filter=Group/Name eq &#39;ODataTestGroup&#39; HTTP/1.1
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/12345/ScoringTasks?$expand=Question,Result&amp;$filter=Group/Name eq &#39;ODataTestGroup&#39; HTTP/1.1
 </pre></div>
 </div>
 <p>LINQ:</p>
-<div class="highlight-python"><div class="highlight"><pre>var scoringTasks = context.ScoringTasks.Expand(x =&gt; x.Question).Expand(x =&gt; x.Result).Where(x =&gt; x.Group.Name == &#39;ODataTestGroup&#39;);
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">scoringTasks</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">ScoringTasks</span><span class="o">.</span><span class="n">Expand</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">Question</span><span class="p">)</span><span class="o">.</span><span class="n">Expand</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">Result</span><span class="p">)</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">Name</span> <span class="o">==</span> <span class="s1">&#39;ODataTestGroup&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>The question description is read from the Question and the participant
@@ -246,20 +238,20 @@ application. It uses a number of OData requests to obtain the
 information displayed (the rest of the view is shown below).</p>
 <p>Firstly, the application uses the question and result identifiers to
 load the ScoringTask:</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringTasks(QuestionID=55480852159602L,ResultID=1385113458)?$expand=Answer,Question HTTP/1.1
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/12345/ScoringTasks(QuestionID=55480852159602L,ResultID=1385113458)?$expand=Answer,Question HTTP/1.1
 </pre></div>
 </div>
 <p>LINQ:</p>
-<div class="highlight-python"><div class="highlight"><pre>var scoringTasks = context.ScoringTasks.Expand(x =&gt; x.Answer).Expand(x =&gt; x.Question).Where(x =&gt; x.QuestionID == 55480852159602 &amp;&amp; x.ResultID == 1385113458);
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">scoringTasks</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">ScoringTasks</span><span class="o">.</span><span class="n">Expand</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">Answer</span><span class="p">)</span><span class="o">.</span><span class="n">Expand</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">Question</span><span class="p">)</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">QuestionID</span> <span class="o">==</span> <span class="mi">55480852159602</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="o">.</span><span class="n">ResultID</span> <span class="o">==</span> <span class="mi">1385113458</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>The second request is used to load the ScoringResult (as it cannot be
 expanded):</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringTasks(QuestionID=55480852159602L,ResultID=1385113458)/ScoringResult HTTP/1.1
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">12345</span><span class="o">/</span><span class="n">ScoringTasks</span><span class="p">(</span><span class="n">QuestionID</span><span class="o">=</span><span class="mi">55480852159602</span><span class="n">L</span><span class="p">,</span><span class="n">ResultID</span><span class="o">=</span><span class="mi">1385113458</span><span class="p">)</span><span class="o">/</span><span class="n">ScoringResult</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 </pre></div>
 </div>
 <p>LINQ:</p>
-<div class="highlight-python"><div class="highlight"><pre>var scoringResult = context.ScoringTasks.Where(x =&gt; x.QuestionID == 55480852159602 &amp;&amp; x.ResultID == 1385113458).SelectMany(t =&gt; t.ScoringResult).SingleOrDefault();
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">scoringResult</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">ScoringTasks</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">QuestionID</span> <span class="o">==</span> <span class="mi">55480852159602</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="o">.</span><span class="n">ResultID</span> <span class="o">==</span> <span class="mi">1385113458</span><span class="p">)</span><span class="o">.</span><span class="n">SelectMany</span><span class="p">(</span><span class="n">t</span> <span class="o">=&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">ScoringResult</span><span class="p">)</span><span class="o">.</span><span class="n">SingleOrDefault</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>When using LINQ, you must obtain the ScoringResult from the ScoringTask
@@ -274,7 +266,7 @@ Question (expanded in the first call). The QML is implemented as a media
 resource and the Question entity acts as a media-link entry. The
 application probes first, to check the QML is present, and then requests
 it in full:</p>
-<div class="highlight-python"><div class="highlight"><pre>HEAD /deliveryodata/12345/Questions(55480852159602L)/$value HTTP/1.1
+<div class="highlight-default"><div class="highlight"><pre><span></span>HEAD /deliveryodata/12345/Questions(55480852159602L)/$value HTTP/1.1
 
 GET /deliveryodata/12345/Questions(55480852159602L)/$value HTTP/1.1
 </pre></div>
@@ -289,28 +281,28 @@ the answer stream is of an image type an &lt;img&gt; tag is used to display it
 instead (a separate handler in the application proxies the resource to
 the browser—in this case, the second call is only made when the browser
 attempts to load the image):</p>
-<div class="highlight-python"><div class="highlight"><pre>HEAD /deliveryodata/12345/Answers(QuestionID=55480852159602L,ResultID=1385113458,Occurrence=1,BlockNumber=1)/$value HTTP/1.1
+<div class="highlight-default"><div class="highlight"><pre><span></span>HEAD /deliveryodata/12345/Answers(QuestionID=55480852159602L,ResultID=1385113458,Occurrence=1,BlockNumber=1)/$value HTTP/1.1
 
 GET /deliveryodata/12345/Answers(QuestionID=55480852159602L,ResultID=1385113458,Occurrence=1,BlockNumber=1)/$value HTTP/1.1
 </pre></div>
 </div>
 <p>The rubric is loaded by navigating from the Question entity:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">12345</span><span class="o">/</span><span class="n">Questions</span><span class="p">(</span><span class="il">55480852159602L</span><span class="p">)</span><span class="o">/</span><span class="n">Rubric</span><span class="p">(</span><span class="mi">1102098584</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">12345</span><span class="o">/</span><span class="n">Questions</span><span class="p">(</span><span class="mi">55480852159602</span><span class="n">L</span><span class="p">)</span><span class="o">/</span><span class="n">Rubric</span><span class="p">(</span><span class="mi">1102098584</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>LINQ:</p>
-<div class="highlight-python"><div class="highlight"><pre>var rubric = context.Questions.Where(x =&gt; x.QuestionID == 55480852159602).SelectMany(x =&gt; x.Rubric).SingleOrDefault();
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">rubric</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">Questions</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">QuestionID</span> <span class="o">==</span> <span class="mi">55480852159602</span><span class="p">)</span><span class="o">.</span><span class="n">SelectMany</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">Rubric</span><span class="p">)</span><span class="o">.</span><span class="n">SingleOrDefault</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>Note that SelectMany is required in LINQ even though (at most) a single
 Rubric will be linked.</p>
 <p>Finally, the dimension scores, including the rubric for each dimension,
 are loaded from the ScoringResult:</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringResults(QuestionID=55480852159602L,RubricID=1102098584,ResultID=1385113458)/DimensionScores?$expand=Dimension
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/12345/ScoringResults(QuestionID=55480852159602L,RubricID=1102098584,ResultID=1385113458)/DimensionScores?$expand=Dimension
 </pre></div>
 </div>
 <p>LINQ:</p>
-<div class="highlight-python"><div class="highlight"><pre>var dimensionScores = context.ScoringResults.Where(x =&gt; x.QuestionID == 55480852159602 &amp;&amp; x.RubricID == 1102098584 &amp;&amp; x.ResultID == 1385113458).SelectMany(x =&gt; x.DimensionScores).Expand(x =&gt; x.Dimension).ToList();
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">dimensionScores</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">ScoringResults</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">QuestionID</span> <span class="o">==</span> <span class="mi">55480852159602</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="o">.</span><span class="n">RubricID</span> <span class="o">==</span> <span class="mi">1102098584</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="o">.</span><span class="n">ResultID</span> <span class="o">==</span> <span class="mi">1385113458</span><span class="p">)</span><span class="o">.</span><span class="n">SelectMany</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">DimensionScores</span><span class="p">)</span><span class="o">.</span><span class="n">Expand</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">Dimension</span><span class="p">)</span><span class="o">.</span><span class="n">ToList</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>This is a complex example showing how an application must make multiple
@@ -322,27 +314,27 @@ forms embedded in the table rows...</p>
 identifies this dimension as hidden form variables in addition to the
 editable values shown. The form that handles the POST makes the
 following queries (the second query has been wrapped for display):</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringTasks(QuestionID=55480852159602L,ResultID=1385113458)?$expand=ScoringResult
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/12345/ScoringTasks(QuestionID=55480852159602L,ResultID=1385113458)?$expand=ScoringResult
 
 GET /deliveryodata/12345/ScoringResults(QuestionID=55480852159602L,RubricID=1102098584,ResultID=1385113458)/
     DimensionScores(QuestionID=55480852159602L,RubricID=1102098584,ResultID=1385113458,Order=1)
 </pre></div>
 </div>
 <p>LINQ:</p>
-<div class="highlight-python"><div class="highlight"><pre>var scoringTask = context.ScoringTasks.Where(x =&gt; x.QuestionID == 55480852159602 &amp;&amp; x.ResultID == 1385113458).Expand(x =&gt; x.ScoringResult).Single()
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">scoringTask</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">ScoringTasks</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">QuestionID</span> <span class="o">==</span> <span class="mi">55480852159602</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="o">.</span><span class="n">ResultID</span> <span class="o">==</span> <span class="mi">1385113458</span><span class="p">)</span><span class="o">.</span><span class="n">Expand</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">ScoringResult</span><span class="p">)</span><span class="o">.</span><span class="n">Single</span><span class="p">()</span>
 
-var dimensionScore = context.DimensionScores.Where(x =&gt; x.QuestionID == 55480852159602 &amp;&amp; x.RubricID == 1102098584 &amp;&amp; x.ResultID == 1385113458 &amp;&amp; x.Order == 1).Single();
+<span class="n">var</span> <span class="n">dimensionScore</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">DimensionScores</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">QuestionID</span> <span class="o">==</span> <span class="mi">55480852159602</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="o">.</span><span class="n">RubricID</span> <span class="o">==</span> <span class="mi">1102098584</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="o">.</span><span class="n">ResultID</span> <span class="o">==</span> <span class="mi">1385113458</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="o">.</span><span class="n">Order</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">Single</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>The application then modifies the DimensionScore and issues a PUT
 request to update the database:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">PUT</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">12345</span><span class="o">/</span><span class="n">DimensionScores</span><span class="p">(</span><span class="n">QuestionID</span><span class="o">=</span><span class="il">55480852159602L</span><span class="p">,</span><span class="n">RubricID</span><span class="o">=</span><span class="mi">1102098584</span><span class="p">,</span><span class="n">ResultID</span><span class="o">=</span><span class="mi">1385113458</span><span class="p">,</span><span class="n">Order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PUT</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">12345</span><span class="o">/</span><span class="n">DimensionScores</span><span class="p">(</span><span class="n">QuestionID</span><span class="o">=</span><span class="mi">55480852159602</span><span class="n">L</span><span class="p">,</span><span class="n">RubricID</span><span class="o">=</span><span class="mi">1102098584</span><span class="p">,</span><span class="n">ResultID</span><span class="o">=</span><span class="mi">1385113458</span><span class="p">,</span><span class="n">Order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>LINQ:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">dimensionScore</span><span class="o">.</span><span class="n">Score</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dimensionScore</span><span class="o">.</span><span class="n">Score</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
-<span class="n">dimensionScore</span><span class="o">.</span><span class="n">Comment</span> <span class="o">=</span> <span class="s">&#39;ur instead of your!&#39;</span><span class="p">;</span>
+<span class="n">dimensionScore</span><span class="o">.</span><span class="n">Comment</span> <span class="o">=</span> <span class="s1">&#39;ur instead of your!&#39;</span><span class="p">;</span>
 
 <span class="n">context</span><span class="o">.</span><span class="n">UpdateObject</span><span class="p">(</span><span class="n">dimensionScore</span><span class="p">);</span>
 
@@ -352,7 +344,7 @@ request to update the database:</p>
 <p>For LINQ users, continuing from the previous example, note that we use
 ReplaceOnUpdate when saving changes. This forces the use of PUT instead
 of PATCH/MERGE semantics.  The methods supported by each feed differ and
-are documented in <a class="reference internal" href="feeds.html"><em>Delivery OData Feeds</em></a>.  The scoring feeds support PUT but do
+are documented in <a class="reference internal" href="feeds.html"><span class="doc">Delivery OData Feeds</span></a>.  The scoring feeds support PUT but do
 not support PATCH.</p>
 <p>When you are happy that the scores are correct you can update the
 ScoringResult itself with overall comments and an updated score. The
@@ -360,12 +352,12 @@ following form also allows you to set the status value of the
 ScoringTask.</p>
 <img alt="../_images/example-app006.png" src="../_images/example-app006.png" />
 <p>When this form is submitted it makes the following OData query:</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/12345/ScoringTasks(QuestionID=55480852159602L,ResultID=1385113458)?$expand=ScoringResult
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/12345/ScoringTasks(QuestionID=55480852159602L,ResultID=1385113458)?$expand=ScoringResult
 </pre></div>
 </div>
 <p>...and to update the ScoringResult with the new values for the Score and
 Comments properties:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">PUT</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">12345</span><span class="o">/</span><span class="n">ScoringResults</span><span class="p">(</span><span class="n">QuestionID</span><span class="o">=</span><span class="il">55480852159602L</span><span class="p">,</span><span class="n">RubricID</span><span class="o">=</span><span class="mi">1102098584</span><span class="p">,</span><span class="n">ResultID</span><span class="o">=</span><span class="mi">1385113458</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PUT</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">12345</span><span class="o">/</span><span class="n">ScoringResults</span><span class="p">(</span><span class="n">QuestionID</span><span class="o">=</span><span class="mi">55480852159602</span><span class="n">L</span><span class="p">,</span><span class="n">RubricID</span><span class="o">=</span><span class="mi">1102098584</span><span class="p">,</span><span class="n">ResultID</span><span class="o">=</span><span class="mi">1385113458</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If the task status has been changed, then this would be updated with a
@@ -377,73 +369,65 @@ similar PUT request to the ScoringTask.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Subjective Scoring</a><ul>
-<li><a class="reference internal" href="#scoringtasks-and-scoringresults">ScoringTasks and ScoringResults</a></li>
-<li><a class="reference internal" href="#recommended-workflow">Recommended Workflow</a><ul>
-<li><a class="reference internal" href="#first-step">First step</a></li>
-<li><a class="reference internal" href="#second-step">Second step</a></li>
-<li><a class="reference internal" href="#third-step">Third step</a></li>
-<li><a class="reference internal" href="#fourth-step">Fourth step</a></li>
-<li><a class="reference internal" href="#resolving-conflicts">Resolving conflicts</a></li>
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#sample-application">Sample Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
 </ul>
-</li>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+  <li><a href="applications.html">Example Applications</a><ul>
+      <li>Previous: <a href="proctoring.html" title="previous chapter">Proctoring Exams</a></li>
+      <li>Next: <a href="feeds.html" title="next chapter">Delivery OData Feeds</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
 </ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="proctoring.html"
-                        title="previous chapter">Proctoring Exams</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="feeds.html"
-                        title="next chapter">Delivery OData Feeds</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/deliveryodata/scoring.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="feeds.html" title="Delivery OData Feeds"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="proctoring.html" title="Proctoring Exams"
-             >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="applications.html" >Applications</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/deliveryodata/scoring.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>

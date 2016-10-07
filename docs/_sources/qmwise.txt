@@ -99,7 +99,7 @@ new methods rather than extending the types returned by existing ones.
 Default Values
 ~~~~~~~~~~~~~~
 
-In some cases the WSDL for QMWISe defines the structures with default
+In some cases the WSDL for QMWISe defines structures with default
 values, for example, see :qm:xfield:`Schedule.Monitored`::
 
     <s:element minOccurs="0" maxOccurs="1" default="0" name="Monitored" type="s:int" />

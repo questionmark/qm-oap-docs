@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QMWISe &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>QMWISe &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,31 +23,25 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="index.html" />
     <link rel="next" title="Web Service Methods" href="qmwise/methods.html" />
-    <link rel="prev" title="Results OData API" href="resultsodata.html" /> 
+    <link rel="prev" title="Results OData API" href="resultsodata.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="qmwise/methods.html" title="Web Service Methods"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="resultsodata.html" title="Results OData API"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="qmwise">
 <h1>QMWISe<a class="headerlink" href="#qmwise" title="Permalink to this headline">¶</a></h1>
@@ -81,7 +75,7 @@ referred to as <em>methods</em>) covering the underlying data model.</p>
 <span id="qmwise-string"></span><h2>String Parameters<a class="headerlink" href="#string-parameters" title="Permalink to this headline">¶</a></h2>
 <dl class="xtype">
 <dt id="qm-xtype.string">
-<em class="property">simpleType </em><tt class="descname">string</tt><a class="headerlink" href="#qm-xtype.string" title="Permalink to this definition">¶</a></dt>
+<em class="property">simpleType </em><code class="descname">string</code><a class="headerlink" href="#qm-xtype.string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Due to a limitation of the technology used in the original design of
 QMWISe all parameters of type string are marked as being <em>nillable</em>
 in the WSDL.  This means that messages in which these values have
@@ -101,36 +95,36 @@ using for further restrictions.</p>
 <div class="section" id="extension-types">
 <span id="id1"></span><h2>Extension Types<a class="headerlink" href="#extension-types" title="Permalink to this headline">¶</a></h2>
 <p>QMWISe uses the XML schema technique of deriving types by extension.
-For example, the <a class="reference internal" href="qmwise/results.html#qm-xtype.Result" title="Result"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result</span></tt></a> type is extended by the
-<a class="reference internal" href="qmwise/results.html#qm-xtype.Result2" title="Result2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result2</span></tt></a> type.  These extensions sometimes represent the
+For example, the <a class="reference internal" href="qmwise/results.html#qm-xtype.Result" title="Result"><code class="xref qm qm-xtype docutils literal"><span class="pre">Result</span></code></a> type is extended by the
+<a class="reference internal" href="qmwise/results.html#qm-xtype.Result2" title="Result2"><code class="xref qm qm-xtype docutils literal"><span class="pre">Result2</span></code></a> type.  These extensions sometimes represent the
 development of the API from an earlier, smaller, set of return fields to
 a later revision returning more information (possibly reflecting changes
 to the underlying data model itself).  For example:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;s:complexType name=&quot;Result2&quot;&gt;
-    &lt;s:complexContent mixed=&quot;false&quot;&gt;
-        &lt;s:extension base=&quot;tns:Result&quot;&gt;
-            &lt;s:sequence&gt;
-                &lt;s:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;
-                    name=&quot;FirstName&quot; type=&quot;s:string&quot; /&gt;
-                &lt;s:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;
-                    name=&quot;LastName&quot; type=&quot;s:string&quot; /&gt;
-                &lt;s:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;
-                    name=&quot;PrimaryEmailAddress&quot; type=&quot;s:string&quot; /&gt;
-                &lt;s:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;
-                    name=&quot;SubgroupPath&quot; type=&quot;s:string&quot; /&gt;
-                &lt;s:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;
-                    name=&quot;CourseProperty&quot; type=&quot;s:string&quot; /&gt;
-                &lt;s:element minOccurs=&quot;1&quot; maxOccurs=&quot;1&quot;
-                    name=&quot;ScoreBandIDProperty&quot; type=&quot;s:int&quot; /&gt;
-            &lt;/s:sequence&gt;
-        &lt;/s:extension&gt;
-    &lt;/s:complexContent&gt;
-&lt;/s:complexType&gt;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">complexType</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Result2&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">complexContent</span> <span class="n">mixed</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">extension</span> <span class="n">base</span><span class="o">=</span><span class="s2">&quot;tns:Result&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">sequence</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">element</span> <span class="n">minOccurs</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">maxOccurs</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
+                    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;FirstName&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;s:string&quot;</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">element</span> <span class="n">minOccurs</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">maxOccurs</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
+                    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;LastName&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;s:string&quot;</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">element</span> <span class="n">minOccurs</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">maxOccurs</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
+                    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;PrimaryEmailAddress&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;s:string&quot;</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">element</span> <span class="n">minOccurs</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">maxOccurs</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
+                    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;SubgroupPath&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;s:string&quot;</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">element</span> <span class="n">minOccurs</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">maxOccurs</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
+                    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;CourseProperty&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;s:string&quot;</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">element</span> <span class="n">minOccurs</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">maxOccurs</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
+                    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ScoreBandIDProperty&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;s:int&quot;</span> <span class="o">/&gt;</span>
+            <span class="o">&lt;/</span><span class="n">s</span><span class="p">:</span><span class="n">sequence</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">s</span><span class="p">:</span><span class="n">extension</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">s</span><span class="p">:</span><span class="n">complexContent</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">s</span><span class="p">:</span><span class="n">complexType</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Although marked as returning type <a class="reference internal" href="qmwise/results.html#qm-xtype.Result" title="Result"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result</span></tt></a> the method
-<a class="reference internal" href="qmwise/results.html#qm-meth.GetResult" title="GetResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResult</span></tt></a> actually returns an element of type
-<a class="reference internal" href="qmwise/results.html#qm-xtype.Result2" title="Result2"><tt class="xref qm qm-xtype docutils literal"><span class="pre">Result2</span></tt></a> containing these additional fields.</p>
+<p>Although marked as returning type <a class="reference internal" href="qmwise/results.html#qm-xtype.Result" title="Result"><code class="xref qm qm-xtype docutils literal"><span class="pre">Result</span></code></a> the method
+<a class="reference internal" href="qmwise/results.html#qm-meth.GetResult" title="GetResult"><code class="xref qm qm-meth docutils literal"><span class="pre">GetResult</span></code></a> actually returns an element of type
+<a class="reference internal" href="qmwise/results.html#qm-xtype.Result2" title="Result2"><code class="xref qm qm-xtype docutils literal"><span class="pre">Result2</span></code></a> containing these additional fields.</p>
 <p>Backwards compatibility remains an important goal of QMWISe but
 implementers using frameworks that take a snapshot of the WSDL (for
 example, to auto-generate code stubs in languages such as Java and C#)
@@ -143,9 +137,9 @@ new methods rather than extending the types returned by existing ones.</p>
 </div>
 <div class="section" id="default-values">
 <h2>Default Values<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h2>
-<p>In some cases the WSDL for QMWISe defines the structures with default
-values, for example, see <a class="reference internal" href="qmwise/schedules.html#qm-xfield.Schedule.Monitored" title="Monitored"><tt class="xref qm qm-xfield docutils literal"><span class="pre">Schedule.Monitored</span></tt></a>:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;s:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot; default=&quot;0&quot; name=&quot;Monitored&quot; type=&quot;s:int&quot; /&gt;
+<p>In some cases the WSDL for QMWISe defines structures with default
+values, for example, see <a class="reference internal" href="qmwise/schedules.html#qm-xfield.Schedule.Monitored" title="Monitored"><code class="xref qm qm-xfield docutils literal"><span class="pre">Schedule.Monitored</span></code></a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">element</span> <span class="n">minOccurs</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">maxOccurs</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Monitored&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;s:int&quot;</span> <span class="o">/&gt;</span>
 </pre></div>
 </div>
 <p>A definition like this means that a missing Monitored element in a
@@ -160,25 +154,25 @@ not read and interpret the WSDL correctly.</p>
 <p>QMWISe makes extensive use of the following basic types from <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/">XMLSchema</a>.</p>
 <dl class="xtype">
 <dt id="qm-xtype.boolean">
-<em class="property">simpleType </em><tt class="descname">boolean</tt><a class="headerlink" href="#qm-xtype.boolean" title="Permalink to this definition">¶</a></dt>
+<em class="property">simpleType </em><code class="descname">boolean</code><a class="headerlink" href="#qm-xtype.boolean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Values &#8220;true&#8221;, &#8220;false&#8221;, &#8220;1&#8221; or &#8220;0&#8221;.  See <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#boolean">boolean</a>.</p>
 </dd></dl>
 
 <dl class="xtype">
 <dt id="qm-xtype.double">
-<em class="property">simpleType </em><tt class="descname">double</tt><a class="headerlink" href="#qm-xtype.double" title="Permalink to this definition">¶</a></dt>
+<em class="property">simpleType </em><code class="descname">double</code><a class="headerlink" href="#qm-xtype.double" title="Permalink to this definition">¶</a></dt>
 <dd><p>See <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#double">double</a>.</p>
 </dd></dl>
 
 <dl class="xtype">
 <dt id="qm-xtype.short">
-<em class="property">simpleType </em><tt class="descname">short</tt><a class="headerlink" href="#qm-xtype.short" title="Permalink to this definition">¶</a></dt>
+<em class="property">simpleType </em><code class="descname">short</code><a class="headerlink" href="#qm-xtype.short" title="Permalink to this definition">¶</a></dt>
 <dd><p>See <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#short">short</a>.</p>
 </dd></dl>
 
 <dl class="xtype">
 <dt id="qm-xtype.int">
-<em class="property">simpleType </em><tt class="descname">int</tt><a class="headerlink" href="#qm-xtype.int" title="Permalink to this definition">¶</a></dt>
+<em class="property">simpleType </em><code class="descname">int</code><a class="headerlink" href="#qm-xtype.int" title="Permalink to this definition">¶</a></dt>
 <dd><p>See <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#int">int</a>.</p>
 </dd></dl>
 
@@ -189,65 +183,62 @@ not read and interpret the WSDL correctly.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">QMWISe</a><ul>
-<li><a class="reference internal" href="#string-parameters">String Parameters</a></li>
-<li><a class="reference internal" href="#extension-types">Extension Types</a></li>
-<li><a class="reference internal" href="#default-values">Default Values</a></li>
-<li><a class="reference internal" href="#basic-types">Basic Types</a></li>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odata.html">OData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deliveryodata.html">Delivery OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QMWISe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qmwise/methods.html">Web Service Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string-parameters">String Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extension-types">Extension Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#default-values">Default Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-types">Basic Types</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pip.html">PIP</a></li>
 </ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="resultsodata.html"
-                        title="previous chapter">Results OData API</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="qmwise/methods.html"
-                        title="next chapter">Web Service Methods</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/qmwise.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="resultsodata.html" title="previous chapter">Results OData API</a></li>
+      <li>Next: <a href="qmwise/methods.html" title="next chapter">Web Service Methods</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="qmwise/methods.html" title="Web Service Methods"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="resultsodata.html" title="Results OData API"
-             >previous</a> |</li>
-        <li><a href="index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/qmwise.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>

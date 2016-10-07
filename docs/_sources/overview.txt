@@ -63,8 +63,8 @@ time to time.
             <https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls>`_.
 
 Whereas the web browsers and operating systems in common use are all
-updated frequently to inclue the latest https security protocols this is
-not true for API clients which may have cryptographic libraries (like
+updated frequently to include the latest https security protocols this
+is not true for API clients which may have cryptographic libraries (like
 openssl) statically linked or rely on an underlying interpreter or
 language runtime (e.g., PHP, Java, etc) that is updated separately from
 the host operating system.

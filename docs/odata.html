@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>OData &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>OData &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,31 +23,25 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="index.html" />
     <link rel="next" title="Delivery OData API" href="deliveryodata.html" />
-    <link rel="prev" title="Overview" href="overview.html" /> 
+    <link rel="prev" title="Overview" href="overview.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="deliveryodata.html" title="Delivery OData API"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="overview.html" title="Overview"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="odata">
 <h1>OData<a class="headerlink" href="#odata" title="Permalink to this headline">¶</a></h1>
@@ -76,7 +70,7 @@ Conventions</a></p>
 <dl class="docutils">
 <dt>Why am I getting the error <em>Unrecognized &#8216;Edm.Int32&#8217; literal</em>?</dt>
 <dd><p class="first">The following URL path returns an error like this:</p>
-<div class="highlight-python"><div class="highlight"><pre>/deliveryodata/12345/Results?$filter=AssessmentID eq 1234567890123
+<div class="highlight-default"><div class="highlight"><pre><span></span>/deliveryodata/12345/Results?$filter=AssessmentID eq 1234567890123
 </pre></div>
 </div>
 <p>The reason is that the integer 1234567890123 is too large to be
@@ -84,7 +78,7 @@ represented as a 32-bit integer.  The largest 32-bit integer is
 2147483647.  The real issue is that the AssessmentID property is of
 type Edm.Int64, a 64-bit integer, and values of this type require
 the &#8216;L&#8217; suffix as follows:</p>
-<div class="last highlight-python"><div class="highlight"><pre>/deliveryodata/12345/Results?$filter=AssessmentID eq 1234567890123L
+<div class="last highlight-default"><div class="highlight"><pre><span></span>/deliveryodata/12345/Results?$filter=AssessmentID eq 1234567890123L
 </pre></div>
 </div>
 </dd>
@@ -103,63 +97,59 @@ entities from the OData service.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">OData</a><ul>
-<li><a class="reference internal" href="#odata-primer">OData Primer</a></li>
-<li><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OData</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#odata-primer">OData Primer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="deliveryodata.html">Delivery OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pip.html">PIP</a></li>
 </ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="overview.html"
-                        title="previous chapter">Overview</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="deliveryodata.html"
-                        title="next chapter">Delivery OData API</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/odata.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="overview.html" title="previous chapter">Overview</a></li>
+      <li>Next: <a href="deliveryodata.html" title="next chapter">Delivery OData API</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="deliveryodata.html" title="Delivery OData API"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="overview.html" title="Overview"
-             >previous</a> |</li>
-        <li><a href="index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/odata.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>

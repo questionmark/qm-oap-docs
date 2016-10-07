@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Delivery OData API &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>Delivery OData API &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,35 +23,29 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="index.html" />
     <link rel="next" title="Introduction" href="deliveryodata/intro.html" />
-    <link rel="prev" title="OData" href="odata.html" /> 
+    <link rel="prev" title="OData" href="odata.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="deliveryodata/intro.html" title="Introduction"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="odata.html" title="OData"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="delivery-odata-api">
 <h1>Delivery OData API<a class="headerlink" href="#delivery-odata-api" title="Permalink to this headline">¶</a></h1>
-<tt class="descname" id="od-service.deliveryodata">Delivery OData Service</tt><p>The Delivery OData API is an OData <em>service</em> that provides a RESTful way
+<code class="descname" id="od-service.deliveryodata">Delivery OData Service</code><p>The Delivery OData API is an OData <em>service</em> that provides a RESTful way
 of accessing Questionmark data over the web.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -64,18 +58,30 @@ a future release.</p>
 <li class="toctree-l1"><a class="reference internal" href="deliveryodata/intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="deliveryodata/intro.html#security">Security</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deliveryodata/intro.html#service-root">Service Root</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/intro.html#odata-features">OData Features</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="deliveryodata/applications.html">Applications</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="deliveryodata/applications.html">Example Applications</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="deliveryodata/xdelivery.html">External Delivery</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deliveryodata/proctoring.html">Proctoring Exams</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deliveryodata/scoring.html">Subjective Scoring</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="deliveryodata/feeds.html">Delivery OData Feeds</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="deliveryodata/feeds.html#features">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deliveryodata/feeds.html#feed-reference">Feed Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deliveryodata/feeds.html#entity-type-reference">Entity Type Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deliveryodata/feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deliveryodata/types.html">Entity Type Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/administrator.html">Administrator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/answer.html">Answer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/answerupload.html">AnswerUpload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/assessment.html">Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/assessmentsnapshot.html">AssessmentSnapshot(Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/attempt.html">Attempt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/participant.html">Participant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/printbatch.html">PrintBatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/question.html">Question and QuestionTranslation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/result.html">Result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/rubric.html">Rubric and Dimension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/scoringtask.html">ScoringTask, ScoringResult and DimensionScore</a></li>
 </ul>
 </li>
 </ul>
@@ -86,54 +92,61 @@ a future release.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="odata.html"
-                        title="previous chapter">OData</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="deliveryodata/intro.html"
-                        title="next chapter">Introduction</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/deliveryodata.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Delivery OData API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deliveryodata/types.html">Entity Type Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pip.html">PIP</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="odata.html" title="previous chapter">OData</a></li>
+      <li>Next: <a href="deliveryodata/intro.html" title="next chapter">Introduction</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="deliveryodata/intro.html" title="Introduction"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="odata.html" title="OData"
-             >previous</a> |</li>
-        <li><a href="index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/deliveryodata.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>

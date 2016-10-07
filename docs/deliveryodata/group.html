@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Group &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>Group &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,80 +23,72 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
-    <link rel="up" title="Delivery OData Feeds" href="feeds.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="../index.html" />
+    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Participant" href="participant.html" />
-    <link rel="prev" title="Attempt" href="attempt.html" /> 
+    <link rel="prev" title="Attempt" href="attempt.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="participant.html" title="Participant"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="attempt.html" title="Attempt"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="feeds.html" accesskey="U">Delivery OData Feeds</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="group">
 <h1>Group<a class="headerlink" href="#group" title="Permalink to this headline">¶</a></h1>
 <dl class="type">
 <dt id="od-type.deliveryodata.Group">
-<em class="property">EntityType: </em><tt class="descname">Group</tt><a class="headerlink" href="#od-type.deliveryodata.Group" title="Permalink to this definition">¶</a></dt>
+<em class="property">EntityType: </em><code class="descname">Group</code><a class="headerlink" href="#od-type.deliveryodata.Group" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="prop">
 <dt id="od-prop.deliveryodata.Group.ID">
-<em class="property">Entity Key: </em><tt class="descname">ID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Group.ID" title="Permalink to this definition">¶</a></dt>
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Group.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The numeric ID of the Group.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Group.Name">
-<tt class="descname">Name</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Group.Name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Group.Name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the Group.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Group.Description">
-<tt class="descname">Description</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Group.Description" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Description</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Group.Description" title="Permalink to this definition">¶</a></dt>
 <dd><p>The optional description of the Group.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Group.Participants">
-<tt class="descname">Participants</tt> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant">Participant</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.Participants" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Participants</code> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant">Participant</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.Participants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the participants that are in the group.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Group.Administrators">
-<tt class="descname">Administrators</tt> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.Administrators" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Administrators</code> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.Administrators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the administrators associated with the
 group.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Group.SubGroups">
-<tt class="descname">SubGroups</tt> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.SubGroups" title="Permalink to this definition">¶</a></dt>
+<code class="descname">SubGroups</code> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.SubGroups" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the sub-groups of each group.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Group.ParentGroup">
-<tt class="descname">ParentGroup</tt> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-prop.deliveryodata.Group.ParentGroup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ParentGroup</code> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-prop.deliveryodata.Group.ParentGroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>For sub-groups, the optional parent group.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -104,7 +96,7 @@ group.</p>
 this property it must only be expanded when the
 Group being queried is known to be a sub-group.
 Do not use it in general collections:</p>
-<div class="last highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Groups?$expand=ParentGroup
+<div class="last highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Groups?$expand=ParentGroup
 </pre></div>
 </div>
 </div>
@@ -112,7 +104,7 @@ Do not use it in general collections:</p>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Group.PrintBatches">
-<tt class="descname">PrintBatches</tt> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.PrintBatches" title="Permalink to this definition">¶</a></dt>
+<code class="descname">PrintBatches</code> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.PrintBatches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to any PrintBatches associated with this Group.</p>
 </dd></dl>
 
@@ -124,56 +116,65 @@ Do not use it in general collections:</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="attempt.html"
-                        title="previous chapter">Attempt</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="participant.html"
-                        title="next chapter">Participant</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/deliveryodata/group.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+  <li><a href="types.html">Entity Type Reference</a><ul>
+      <li>Previous: <a href="attempt.html" title="previous chapter">Attempt</a></li>
+      <li>Next: <a href="participant.html" title="next chapter">Participant</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="participant.html" title="Participant"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="attempt.html" title="Attempt"
-             >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="feeds.html" >Delivery OData Feeds</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/deliveryodata/group.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>

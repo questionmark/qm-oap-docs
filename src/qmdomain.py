@@ -84,7 +84,7 @@ class ODataServiceDirective(ObjectDescription):
             ret.append(addnodes.desc_name(title, title))
             indextext = '%s (OData service)' % title
             inode = addnodes.index(
-                entries=[('single', indextext, obj.get_target_id(), '')])
+                entries=[('single', indextext, obj.get_target_id(), '', None)])
             ret.append(inode)
         else:
             if obj is None:
@@ -140,7 +140,7 @@ class ODataFeedDirective(ObjectDescription):
             self.warning("duplicate object description: %s" % targetname)
         objects[targetname] = name
         self.indexnode['entries'].append(
-            ('single', '%s (OData feed)' % name.title, targetname, ''))          
+            ('single', '%s (OData feed)' % name.title, targetname, '', None))          
 
 
 class ODataTypeDirective(ObjectDescription):
@@ -170,7 +170,8 @@ class ODataTypeDirective(ObjectDescription):
             self.warning("duplicate object description: %s" % targetname)
         objects[targetname] = name
         self.indexnode['entries'].append(
-            ('single', '%s (OData entity type)' % name.title, targetname, ''))          
+            ('single', '%s (OData entity type)' % name.title, targetname, '',
+             None))          
 
 
 class ODataPropertyDirective(ObjectDescription):
@@ -220,10 +221,11 @@ class ODataPropertyDirective(ObjectDescription):
         if etype:
             self.indexnode['entries'].append(
                 ('single', '%s (property of %s)' % (name.title, etype.title),
-                targetname, ''))          
+                targetname, '', None))          
         else:
             self.indexnode['entries'].append(
-                ('single', '%s (property of ?)' % name.title, targetname, ''))          
+                ('single', '%s (property of ?)' % name.title, targetname, '',
+                 None))          
     
 
 class ODataFeedRole(XRefRole):
@@ -363,7 +365,8 @@ class SQLTableDirective(ObjectDescription):
             self.warning("duplicate object description: %s" % targetname)
         objects[targetname] = name
         self.indexnode['entries'].append(
-            ('single', '%s (table in data model)' % name.title, targetname, ''))          
+            ('single', '%s (table in data model)' % name.title, targetname,
+             '', None))          
 
 
 class SQLFieldDirective(ObjectDescription):
@@ -406,10 +409,11 @@ class SQLFieldDirective(ObjectDescription):
         if table:
             self.indexnode['entries'].append(
                 ('single', '%s (field in %s)' % (name.title, table.title),
-                targetname, ''))          
+                targetname, '', None))          
         else:
             self.indexnode['entries'].append(
-                ('single', '%s (database field)' % name.title, targetname, ''))          
+                ('single', '%s (database field)' % name.title, targetname, '',
+                 None))          
     
 
 class SOAPType(DefinedObject):
@@ -458,7 +462,7 @@ class SOAPTypeDirective(ObjectDescription):
             self.warning("duplicate object description: %s" % targetname)
         objects[targetname] = name
         self.indexnode['entries'].append(
-            ('single', '%s (SOAP type)' % name.title, targetname, ''))          
+            ('single', '%s (SOAP type)' % name.title, targetname, '', None))          
 
 
 class SOAPField(DefinedObject):
@@ -520,10 +524,10 @@ class SOAPFieldDirective(ObjectDescription):
         if xtype:
             self.indexnode['entries'].append(
                 ('single', '%s (element in %s)' % (name.title, xtype.title),
-                targetname, ''))          
+                targetname, '', None))          
         else:
             self.indexnode['entries'].append(
-                ('single', '%s (element)' % name.title, targetname, ''))          
+                ('single', '%s (element)' % name.title, targetname, '', None))          
 
 
 class SOAPMethod(DefinedObject):
@@ -575,7 +579,7 @@ class SOAPMethodDirective(ObjectDescription):
             self.warning("duplicate object description: %s" % targetname)
         objects[targetname] = name
         self.indexnode['entries'].append(
-            ('single', '%s (SOAP method)' % name.title, targetname, ''))          
+            ('single', '%s (SOAP method)' % name.title, targetname, '', None))          
 
 
 class QMDomain(Domain):

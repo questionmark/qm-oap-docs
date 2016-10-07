@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Delivery OData Feeds &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>Delivery OData Feeds &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,212 +23,32 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="../index.html" />
     <link rel="up" title="Delivery OData API" href="../deliveryodata.html" />
-    <link rel="next" title="Administrator" href="administrator.html" />
-    <link rel="prev" title="Subjective Scoring" href="scoring.html" /> 
+    <link rel="next" title="Entity Type Reference" href="types.html" />
+    <link rel="prev" title="Subjective Scoring" href="scoring.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="administrator.html" title="Administrator"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="scoring.html" title="Subjective Scoring"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" accesskey="U">Delivery OData API</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="delivery-odata-feeds">
 <h1>Delivery OData Feeds<a class="headerlink" href="#delivery-odata-feeds" title="Permalink to this headline">¶</a></h1>
-<p>The Delivery OData API implements version 3 of the OData standard which
-is generally compatible with both version 3 and version 2 clients.</p>
-<div class="section" id="features">
-<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>$top and $skip</dt>
-<dd><p class="first">If a feed request would cause too many entities to be returned the
-collection returned will be truncated.</p>
-<p>For example:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results
-</pre></div>
-</div>
-<p>There are likely to be lots of results in the repository. The
-returned collection contains the first <em>page</em> of results and a
-continuation link that can be used to retrieve the next <em>page</em>, and
-so on.</p>
-<p>This technique was not possible with previous APIs (compare
-<a class="reference internal" href="../qmwise/results.html#qm-meth.GetResultList" title="GetResultList"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResultList</span></tt></a>), but it does require some special handling
-on the client side. Questionmark&#8217;s OData feeds make extensive use of
-paging and also impose an upper limit on the number of records that
-will be returned for each request to improve performance of both the
-service and the client itself.  The limit is currently set to 100.</p>
-<p>You can individually control how many results you retrieve (if you
-want fewer than 100) using the $top and $skip options:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$top=10&amp;$orderby=WhenFinished desc
-</pre></div>
-</div>
-<p>This query retrieves the 10 most recent results.  To get the next
-10 just add $skip:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$top=10&amp;$skip=10&amp;$orderby=WhenFinished desc
-</pre></div>
-</div>
-<p class="last">The format of the continuation links may vary depending on the type
-of index used to satisfy the query internally.  When paging through
-a large feed it is better to use the continuation links provided in
-the previous response than to manually set $top and $skip.</p>
-</dd>
-<dt>$filter</dt>
-<dd><p class="first">Supported.  Filtering is only allowed on certain property values,
-see the feed descriptions below for details. The restrictions have
-been put in place to ensure that API requests do not have a negative
-effect on the delivery of assessments.</p>
-<p>Example filter:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$filter=ParticipantName eq &#39;user123&#39;
-</pre></div>
-</div>
-<p>Although spaces are shown in the above URL parameter values should
-be appropriately escaped for use in HTTP.</p>
-<p>The representation of values (such as &#8216;user123&#8217; above) is defined by
-the OData specification.  Take care to match the type of any values
-provided in filters with the type of the corresponding property.
-In particular, note that 64-bit integers use an &#8216;L&#8217; suffix:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$filter=AssessmentID eq 9962000009962L
-</pre></div>
-</div>
-<p>More complex examples:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/ScoringTasks?$filter=Group/Name eq &#39;CS101&#39; and Status lt 3
-</pre></div>
-</div>
-<p>...returns all ScoringTask entities relating to the Group with name
-CS101 that have a status less then 3 (Scored).</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/ScoringTasks/$count?$filter=Group/Name eq &#39;CS101&#39; and Status eq 2
-</pre></div>
-</div>
-<p>...returns the count of all ScoringTask entities relating to the
-Group with name CS101 that have a status of 2 (Saved).</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/ScoringTasks?$filter=Group/Name eq &#39;CS101&#39; and Assessment/ID eq 1234567890L
-</pre></div>
-</div>
-<p>...returns all ScoringTask entities relating to the Group with name
-CS101 and the assessment with ID 1234567890.</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$filter=GroupName eq &#39;CS101&#39; and Assessment/ID eq 1234567890L&amp;$orderby=WhenFinished desc
-</pre></div>
-</div>
-<p>...returns all result entities relating to the group with name CS101
-and the assessment with ID 1234567890 ordered by the most recently
-submitted first.</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$filter=Assessment/ID eq 1234567890L and ParticipantName eq &#39;JaneSmith&#39;&amp;$orderby=WhenFinished
-</pre></div>
-</div>
-<p class="last">...returns all result entities relating to JaneSmith&#8217;s attempts at
-the specific assessment with ID 1234567890 ordered from the first to
-the last attempt.</p>
-</dd>
-<dt>$orderby</dt>
-<dd><p class="first">Supported.  Ordering can usually be used on any field marked as
-being suported in $filter.  Exceptions are noted in the feed
-descriptions.</p>
-<p>Example:</p>
-<div class="last highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$orderby=WhenFinished desc
-</pre></div>
-</div>
-</dd>
-<dt>$expand</dt>
-<dd><p class="first">The expansion of navigation properties is supported though some
-special rules apply.  See each feed for details.  There is a limit
-on the depth of expansion that is allowed to ensure result sets are
-manageable.  Example expansion:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results?$expand=Answers
-</pre></div>
-</div>
-<p>A deeper expansion:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results(12345678)?$expand=Answers/Question
-</pre></div>
-</div>
-<p>The above not only lists all answers for the result but, within each
-answer entity, the Question itself is also expanded.  Bear in mind
-that use of expansion can dramatically increase the complexity of
-the query used to retrieve the data and the number of entities
-returned.  A maximum depth of 2 expansions is supported (as above).</p>
-<p>If an expansion results in too many child entities being returned
-for a single entity then the expansion itself will be truncated.
-The limit is set to 100, the same as for base feeds.</p>
-<p>If this is a problem then you can usually transform the query into a
-filtered request on the target feed instead.  If an OData response
-exceeds 100 entities a continuation link is provided that can be
-used to retrieve the next 100 results, and so on.</p>
-<p>For example, if there are too many answers associated with a result
-then a query such as:</p>
-<div class="highlight-python"><div class="highlight"><pre>Results(12345678)?$expand=Answers
-</pre></div>
-</div>
-<p>can instead be retrieved as separate queries:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results(12345678)
-&lt;service root&gt;/Answers?$filter=ResultID eq 12345678
-&lt;service root&gt;/Answers?$filter=ResultID eq 12345678&amp;$skip=100
-&lt;service root&gt;/Answers?$filter=ResultID eq 12345678&amp;$skip=200
-...
-</pre></div>
-</div>
-<p>If a feed&#8217;s entity type is related to another type via a navigation
-property with a <em>target</em> multiplicity of 0..1 and $expand is
-supported for that property then it is possible to use the expansion
-directly in filters and orderings.</p>
-<p>For example, to view Answers to a specific question ordered by
-the date when the corresponding result was submitted (most recent
-first) you could use a query like this:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Answers?$filter=QuestionID eq 100000000373L&amp;$orderby=Result/WhenFinished desc
-</pre></div>
-</div>
-<p class="last">This query shows an orderby query with an implicit expansion of
-depth 1.  In the feed descriptions, allowed filters are described in
-terms of their immediate parent entity (depth 0), however, if a
-filter is supported at depth 0 you may assume that it will also be
-supported at depth 1 when filtering or ordering related entities.</p>
-</dd>
-<dt>$count</dt>
-<dd><p class="first">Supported on base feeds only.  Cannot be used in combination with
-navigation properties.  This is OK:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results/$count
-</pre></div>
-</div>
-<p>This is not:</p>
-<div class="last highlight-python"><div class="highlight"><pre>&lt;service root&gt;/Results(12345678)/Answers/$count
-</pre></div>
-</div>
-</dd>
-<dt>$format</dt>
-<dd>Not supported.  The service returns responses using JSON format by
-default.  To obtain XML responses you need to pass a suitably
-restrictive Accept: header as the $format query option is not
-supported.</dd>
-<dt>$value</dt>
-<dd>For feeds labelled <em>Media Link Entry</em> the $value path component can
-be used to obtain the full media resource for an entity.  Access to
-simple property values is not supported.</dd>
-<dt>$select</dt>
-<dd>This query option is not currently supported by the Delivery OData
-API.</dd>
-</dl>
-</div>
-<div class="section" id="feed-reference">
-<h2>Feed Reference<a class="headerlink" href="#feed-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Administrators">
-<tt class="descname">Administrators</tt> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a><a class="headerlink" href="#od-feed.deliveryodata.Administrators" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Administrators</code> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a><a class="headerlink" href="#od-feed.deliveryodata.Administrators" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -262,7 +82,7 @@ Participant role.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Answers">
-<tt class="descname">Answers</tt> <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer">Answer</a> (Media Link Entry)<a class="headerlink" href="#od-feed.deliveryodata.Answers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Answers</code> <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer">Answer</a> (Media Link Entry)<a class="headerlink" href="#od-feed.deliveryodata.Answers" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -299,7 +119,7 @@ generates a unique record in this feed.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.AnswerUploads">
-<tt class="descname">AnswerUploads</tt> <a class="reference internal" href="answerupload.html#od-type.deliveryodata.AnswerUpload" title="AnswerUpload">AnswerUpload</a> (Media Link Entry)<a class="headerlink" href="#od-feed.deliveryodata.AnswerUploads" title="Permalink to this definition">¶</a></dt>
+<code class="descname">AnswerUploads</code> <a class="reference internal" href="answerupload.html#od-type.deliveryodata.AnswerUpload" title="AnswerUpload">AnswerUpload</a> (Media Link Entry)<a class="headerlink" href="#od-feed.deliveryodata.AnswerUploads" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -322,7 +142,7 @@ form for future audit.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Assessments">
-<tt class="descname">Assessments</tt> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a><a class="headerlink" href="#od-feed.deliveryodata.Assessments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Assessments</code> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a><a class="headerlink" href="#od-feed.deliveryodata.Assessments" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -355,7 +175,7 @@ delivery.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.AssessmentSnapshots">
-<tt class="descname">AssessmentSnapshots</tt> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot">AssessmentSnapshot</a><a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshots" title="Permalink to this definition">¶</a></dt>
+<code class="descname">AssessmentSnapshots</code> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot">AssessmentSnapshot</a><a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshots" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -389,7 +209,7 @@ including printing and scanning.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.AssessmentSnapshotsData">
-<tt class="descname">AssessmentSnapshotsData</tt> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData">AssessmentSnapshotData</a> (Media Link Entry)<a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshotsData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">AssessmentSnapshotsData</code> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData">AssessmentSnapshotData</a> (Media Link Entry)<a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshotsData" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -408,15 +228,15 @@ including printing and scanning.</p>
 </tr>
 </tbody>
 </table>
-<p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.AssessmentSnapshots" title="AssessmentSnapshots"><tt class="xref od od-feed docutils literal"><span class="pre">AssessmentSnapshots</span></tt></a> which contains
+<p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.AssessmentSnapshots" title="AssessmentSnapshots"><code class="xref od od-feed docutils literal"><span class="pre">AssessmentSnapshots</span></code></a> which contains
 the raw XML data describing the snapshot.  Values are normally
 obtained by navigation from the associated
-<a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><tt class="xref od od-type docutils literal"><span class="pre">deliveryodata.AssessmentSnapshot</span></tt></a> rather than directly.</p>
+<a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.AssessmentSnapshot</span></code></a> rather than directly.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Attempts">
-<tt class="descname">Attempts</tt> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-feed.deliveryodata.Attempts" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Attempts</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-feed.deliveryodata.Attempts" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -459,7 +279,7 @@ business rules.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.AttemptMetadata">
-<tt class="descname">AttemptMetadata</tt> <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata">AttemptMetadata</a><a class="headerlink" href="#od-feed.deliveryodata.AttemptMetadata" title="Permalink to this definition">¶</a></dt>
+<code class="descname">AttemptMetadata</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata">AttemptMetadata</a><a class="headerlink" href="#od-feed.deliveryodata.AttemptMetadata" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last"><em>New</em>, expected to be released in Q4 of 2016</p>
@@ -490,12 +310,98 @@ business rules.</p>
 </tbody>
 </table>
 <p>The attempt metadata feed allows arbitrary metadata to be associated
-with an attempt.</p>
+with an attempt.  Although entities can be created and accessed
+directly from this feed they are always associated with an Attempt
+and can be created in a single OData call at the same time as the
+Attempt itself.  For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+    <span class="n">ExternalAttemptID</span><span class="p">:</span> <span class="s2">&quot;Demo/2016-10-07.3&quot;</span><span class="p">,</span>
+    <span class="n">ParticipantID</span><span class="p">:</span> <span class="mi">1459320309</span><span class="p">,</span>
+    <span class="n">AssessmentID</span><span class="p">:</span> <span class="s2">&quot;9788463565326947&quot;</span><span class="p">,</span>
+    <span class="n">AttemptMetadata</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="n">Key</span><span class="p">:</span> <span class="s2">&quot;S1&quot;</span><span class="p">,</span>
+            <span class="n">Value</span><span class="p">:</span> <span class="s2">&quot;Help&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="n">Key</span><span class="p">:</span> <span class="s2">&quot;S2&quot;</span><span class="p">,</span>
+            <span class="n">Value</span><span class="p">:</span> <span class="s2">&quot;Me!&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The response is a new Attempt record:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">201</span> <span class="n">Created</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;service root&gt;/601871/$metadata#Attempts/@Element&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span>
+    <span class="s2">&quot;ParticipantFacingQMLobbyUrl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ProctorFacingQMControlsWidgetUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ExternalAttemptID&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo/2016-10-07.3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">1459320309</span><span class="p">,</span>
+    <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;9788463565326947&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AssessmentSnapshotID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ResultID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;LockStatus&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;LockRequired&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;ParticipantFacingProctorSystemWidgetUrl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;LastModifiedDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-10-07T16:20:00.341227Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Language&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;AttemptListID&quot;</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can see the newly created metadata records by expanding the
+AttemptMetadata:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET &lt;service root&gt;/Attempts(180)?$expand=AttemptMetadata
+
+200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    odata.metadata: &quot;&lt;service root&gt;/$metadata#Attempts/@Element&quot;,
+    AttemptMetadata: [
+        {
+            Id: 2,
+            AttemptId: 180,
+            Key: &quot;S1&quot;,
+            Value: &quot;Help&quot;
+        },
+        {
+            Id: 3,
+            AttemptId: 180,
+            Key: &quot;S2&quot;,
+            Value: &quot;Me!&quot;
+        }
+    ],
+    ID: 180,
+    ParticipantFacingQMLobbyUrl: &quot;qmsb:...&quot;,
+    ProctorFacingQMControlsWidgetUrl: &quot;https://...&quot;,
+    ExternalAttemptID: &quot;Demo/2016-10-07.3&quot;,
+    ParticipantID: 1459320309,
+    AssessmentID: &quot;9788463565326947&quot;,
+    AssessmentSnapshotID: null,
+    ResultID: null,
+    LockStatus: false,
+    LockRequired: false,
+    ParticipantFacingProctorSystemWidgetUrl: null,
+    LastModifiedDateTime: &quot;2016-10-07T16:20:00.34Z&quot;,
+    Language: null,
+    AttemptListID: null
+}
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.AttemptLists">
-<tt class="descname">AttemptLists</tt> <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptList" title="AttemptList">AttemptList</a><a class="headerlink" href="#od-feed.deliveryodata.AttemptLists" title="Permalink to this definition">¶</a></dt>
+<code class="descname">AttemptLists</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptList" title="AttemptList">AttemptList</a><a class="headerlink" href="#od-feed.deliveryodata.AttemptLists" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last"><em>New</em> in 2016.09</p>
@@ -532,7 +438,7 @@ proctor or external business process.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Dimensions">
-<tt class="descname">Dimensions</tt> <a class="reference internal" href="rubric.html#od-type.deliveryodata.Dimension" title="Dimension">Dimension</a><a class="headerlink" href="#od-feed.deliveryodata.Dimensions" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Dimensions</code> <a class="reference internal" href="rubric.html#od-type.deliveryodata.Dimension" title="Dimension">Dimension</a><a class="headerlink" href="#od-feed.deliveryodata.Dimensions" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -565,7 +471,7 @@ marking.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.DimensionScores">
-<tt class="descname">DimensionScores</tt> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.DimensionScore" title="DimensionScore">DimensionScore</a><a class="headerlink" href="#od-feed.deliveryodata.DimensionScores" title="Permalink to this definition">¶</a></dt>
+<code class="descname">DimensionScores</code> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.DimensionScore" title="DimensionScore">DimensionScore</a><a class="headerlink" href="#od-feed.deliveryodata.DimensionScores" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -600,7 +506,7 @@ per-dimension basis.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Groups">
-<tt class="descname">Groups</tt> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-feed.deliveryodata.Groups" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Groups</code> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-feed.deliveryodata.Groups" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -623,7 +529,7 @@ per-dimension basis.</p>
 <li><strong>Administrators</strong> &#8211; the administrators responsible for the group</li>
 <li><strong>Participants</strong> &#8211; the participant members of the group</li>
 <li><strong>SubGroups</strong> &#8211; the optional list of sub-groups</li>
-<li><strong>ParentGroup</strong> &#8211; the optional parent group (<a class="reference internal" href="group.html#od-prop.deliveryodata.Group.ParentGroup" title="ParentGroup"><tt class="xref od od-prop docutils literal"><span class="pre">see</span> <span class="pre">warning</span></tt></a>)</li>
+<li><strong>ParentGroup</strong> &#8211; the optional parent group (<a class="reference internal" href="group.html#od-prop.deliveryodata.Group.ParentGroup" title="ParentGroup"><code class="xref od od-prop docutils literal"><span class="pre">see</span> <span class="pre">warning</span></code></a>)</li>
 <li><strong>PrintBatches</strong> &#8211; the optional list of associated PrintBatches</li>
 </ul>
 </td>
@@ -631,12 +537,12 @@ per-dimension basis.</p>
 </tbody>
 </table>
 <p>The Groups feed contains data about groups of participants.  Entries
-are defined by the <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><tt class="xref od od-type docutils literal"><span class="pre">Group</span></tt></a> type.</p>
+are defined by the <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><code class="xref od od-type docutils literal"><span class="pre">Group</span></code></a> type.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Participants">
-<tt class="descname">Participants</tt> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant">Participant</a><a class="headerlink" href="#od-feed.deliveryodata.Participants" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Participants</code> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant">Participant</a><a class="headerlink" href="#od-feed.deliveryodata.Participants" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -668,7 +574,7 @@ special Participant role.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.PrintBatches">
-<tt class="descname">PrintBatches</tt> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a><a class="headerlink" href="#od-feed.deliveryodata.PrintBatches" title="Permalink to this definition">¶</a></dt>
+<code class="descname">PrintBatches</code> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a><a class="headerlink" href="#od-feed.deliveryodata.PrintBatches" title="Permalink to this definition">¶</a></dt>
 <dd><p>The PrintBatches feed contains information about a group of users
 who have been assigned a particular snapshot of an assessment to
 take externally, typically through printing and scanning.</p>
@@ -676,7 +582,7 @@ take externally, typically through printing and scanning.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Questions">
-<tt class="descname">Questions</tt> <a class="reference internal" href="question.html#od-type.deliveryodata.Question" title="Question">Question</a><a class="headerlink" href="#od-feed.deliveryodata.Questions" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Questions</code> <a class="reference internal" href="question.html#od-type.deliveryodata.Question" title="Question">Question</a><a class="headerlink" href="#od-feed.deliveryodata.Questions" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -702,14 +608,14 @@ the assessment catalog.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.QuestionTranslations">
-<tt class="descname">QuestionTranslations</tt> <a class="reference internal" href="question.html#od-type.deliveryodata.QuestionTranslation" title="QuestionTranslation">QuestionTranslation</a><a class="headerlink" href="#od-feed.deliveryodata.QuestionTranslations" title="Permalink to this definition">¶</a></dt>
-<dd><p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.Questions" title="Questions"><tt class="xref od od-feed docutils literal"><span class="pre">Questions</span></tt></a> containing translated
+<code class="descname">QuestionTranslations</code> <a class="reference internal" href="question.html#od-type.deliveryodata.QuestionTranslation" title="QuestionTranslation">QuestionTranslation</a><a class="headerlink" href="#od-feed.deliveryodata.QuestionTranslations" title="Permalink to this definition">¶</a></dt>
+<dd><p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.Questions" title="Questions"><code class="xref od od-feed docutils literal"><span class="pre">Questions</span></code></a> containing translated
 versions of the Questions.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Results">
-<tt class="descname">Results</tt> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-feed.deliveryodata.Results" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Results</code> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-feed.deliveryodata.Results" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -739,12 +645,12 @@ versions of the Questions.</p>
 </tbody>
 </table>
 <p>The Results feed contains data about assessment results.  Entries
-are defined by the <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><tt class="xref od od-type docutils literal"><span class="pre">deliveryodata.Result</span></tt></a> type.</p>
+are defined by the <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.Result</span></code></a> type.</p>
 </dd></dl>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.Rubrics">
-<tt class="descname">Rubrics</tt> <a class="reference internal" href="rubric.html#od-type.deliveryodata.Rubric" title="Rubric">Rubric</a><a class="headerlink" href="#od-feed.deliveryodata.Rubrics" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Rubrics</code> <a class="reference internal" href="rubric.html#od-type.deliveryodata.Rubric" title="Rubric">Rubric</a><a class="headerlink" href="#od-feed.deliveryodata.Rubrics" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -762,7 +668,7 @@ are defined by the <a class="reference internal" href="result.html#od-type.deliv
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.ScoringResults">
-<tt class="descname">ScoringResults</tt> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringResult" title="ScoringResult">ScoringResult</a><a class="headerlink" href="#od-feed.deliveryodata.ScoringResults" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ScoringResults</code> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringResult" title="ScoringResult">ScoringResult</a><a class="headerlink" href="#od-feed.deliveryodata.ScoringResults" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -797,7 +703,7 @@ marking.  ScoringResults are associated with ScoringTasks.</p>
 
 <dl class="feed">
 <dt id="od-feed.deliveryodata.ScoringTasks">
-<tt class="descname">ScoringTasks</tt> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringTask" title="ScoringTask">ScoringTask</a><a class="headerlink" href="#od-feed.deliveryodata.ScoringTasks" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ScoringTasks</code> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringTask" title="ScoringTask">ScoringTask</a><a class="headerlink" href="#od-feed.deliveryodata.ScoringTasks" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -824,103 +730,80 @@ marking.  ScoringResults are associated with ScoringTasks.</p>
 <li><strong>Result</strong> &#8211; expands the result that generated the scoring task</li>
 <li><strong>Answer</strong> &#8211; expands the answer that generated the scoring task</li>
 <li><strong>Group</strong> &#8211; expands the optional Group related to this task</li>
-<li><strong>ScoringResult</strong> &#8211; use with caution, see <a class="reference internal" href="scoringtask.html#od-prop.deliveryodata.ScoringTask.ScoringResult" title="ScoringResult"><tt class="xref od od-prop docutils literal"><span class="pre">ScoringTask.ScoringResult</span></tt></a> for details</li>
+<li><strong>ScoringResult</strong> &#8211; use with caution, see <a class="reference internal" href="scoringtask.html#od-prop.deliveryodata.ScoringTask.ScoringResult" title="ScoringResult"><code class="xref od od-prop docutils literal"><span class="pre">ScoringTask.ScoringResult</span></code></a> for details</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>The ScoringTasks feed contains one entity for each <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer"><tt class="xref od od-type docutils literal"><span class="pre">Answer</span></tt></a>
+<p>The ScoringTasks feed contains one entity for each <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer"><code class="xref od od-type docutils literal"><span class="pre">Answer</span></code></a>
 that requires subjective scoring.  The scores actually awarded are
-in the associated <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringResult" title="ScoringResult"><tt class="xref od od-type docutils literal"><span class="pre">ScoringResult</span></tt></a>.</p>
+in the associated <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringResult" title="ScoringResult"><code class="xref od od-type docutils literal"><span class="pre">ScoringResult</span></code></a>.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="entity-type-reference">
-<h2>Entity Type Reference<a class="headerlink" href="#entity-type-reference" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="administrator.html">Administrator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="answer.html">Answer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="answerupload.html">AnswerUpload</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assessment.html">Assessment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assessmentsnapshot.html">AssessmentSnapshot(Data)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="attempt.html">Attempt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="group.html">Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="participant.html">Participant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="printbatch.html">PrintBatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="question.html">Question and QuestionTranslation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="result.html">Result</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rubric.html">Rubric and Dimension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scoringtask.html">ScoringTask, ScoringResult and DimensionScore</a></li>
-</ul>
-</div>
-</div>
 </div>
 
 
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Delivery OData Feeds</a><ul>
-<li><a class="reference internal" href="#features">Features</a></li>
-<li><a class="reference internal" href="#feed-reference">Feed Reference</a></li>
-<li><a class="reference internal" href="#entity-type-reference">Entity Type Reference</a></li>
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Delivery OData Feeds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
 </ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="scoring.html"
-                        title="previous chapter">Subjective Scoring</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="administrator.html"
-                        title="next chapter">Administrator</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/deliveryodata/feeds.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+      <li>Previous: <a href="scoring.html" title="previous chapter">Subjective Scoring</a></li>
+      <li>Next: <a href="types.html" title="next chapter">Entity Type Reference</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="administrator.html" title="Administrator"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="scoring.html" title="Subjective Scoring"
-             >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/deliveryodata/feeds.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>

@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>External Delivery &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>External Delivery &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,34 +23,26 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
-    <link rel="up" title="Applications" href="applications.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="../index.html" />
+    <link rel="up" title="Example Applications" href="applications.html" />
     <link rel="next" title="Proctoring Exams" href="proctoring.html" />
-    <link rel="prev" title="Applications" href="applications.html" /> 
+    <link rel="prev" title="Example Applications" href="applications.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="proctoring.html" title="Proctoring Exams"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="applications.html" title="Applications"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="applications.html" accesskey="U">Applications</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="external-delivery">
 <h1>External Delivery<a class="headerlink" href="#external-delivery" title="Permalink to this headline">¶</a></h1>
@@ -102,17 +94,17 @@ questions are to be presented/scored, the order of the questions and the
 order of any shuffled choices within those questions.</p>
 <p>An application might start by presenting a list of assessments which can
 be obtained with a query such as:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Assessments</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Assessments</span>
 </pre></div>
 </div>
 <p>A list of snapshots for a specific assessment might be obtained using
-a filter on the <a class="reference internal" href="feeds.html#od-feed.deliveryodata.AssessmentSnapshots" title="AssessmentSnapshots"><tt class="xref od od-feed docutils literal"><span class="pre">deliveryodata.AssessmentSnapshots</span></tt></a> feed:</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/123456/AssessmentSnapshots?$filter=AssessmentID eq 5649284224767710L
+a filter on the <a class="reference internal" href="feeds.html#od-feed.deliveryodata.AssessmentSnapshots" title="AssessmentSnapshots"><code class="xref od od-feed docutils literal"><span class="pre">deliveryodata.AssessmentSnapshots</span></code></a> feed:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/123456/AssessmentSnapshots?$filter=AssessmentID eq 5649284224767710L
 </pre></div>
 </div>
 <p>If none of the snapshots listed meet your needs then you can create a new
 snapshot by POSTing to the feed:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AssessmentSnapshots</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AssessmentSnapshots</span>
 </pre></div>
 </div>
 <p>When posting, the ID, CreatedDateTime and ModifiedDateTime values will
@@ -121,19 +113,19 @@ for the ID). Use the AssessmentID of the required assessment and choose
 a human-readable Name.</p>
 <p>On creation, the actual entity is returned (along with the actual ID
 allocated to it) and a link to the HTML view of the snapshot in the
-<a class="reference internal" href="assessmentsnapshot.html#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl" title="PrintableDocumentSourceUrl"><tt class="xref od od-prop docutils literal"><span class="pre">deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl</span></tt></a>.
+<a class="reference internal" href="assessmentsnapshot.html#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl" title="PrintableDocumentSourceUrl"><code class="xref od od-prop docutils literal"><span class="pre">deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl</span></code></a>.
 This link is time stamped for security so cannot be stored for later
 use, instead, you should store the ID of the snapshot entity and
 retrieve it immediately prior to use.  For example, if the ID is 34:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AssessmentSnapshots</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AssessmentSnapshots</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>When you create a snapshot, the associated AssessmentSnapshotData entity
 is created automatically and linked via a navigation property.  It is a
 media-link entity that contains the XML-raw source of the snapshot. The
-format is described in <a class="reference internal" href="assessmentsnapshot.html#snapshotxml"><em>Snapshot File Format</em></a>.  To retrieve the XML document
+format is described in <a class="reference internal" href="assessmentsnapshot.html#snapshotxml"><span class="std std-ref">Snapshot File Format</span></a>.  To retrieve the XML document
 use a query such as:</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/123456/AssessmentSnapshots(34)/AssessmentSnapshotData/$value
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/123456/AssessmentSnapshots(34)/AssessmentSnapshotData/$value
 </pre></div>
 </div>
 <p>Note the use of $value to return the document rather than the document&#8217;s
@@ -154,17 +146,17 @@ not required to use print batches, it is possible to upload responses
 for a participant without an associated PrintBatch if you prefer.</p>
 <p>An application might start by presenting a list of groups which can be
 obtained with a query such as:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Groups</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Groups</span>
 </pre></div>
 </div>
 <p>A list of PrintBatches for a specific group might be obtained using a
-filter on the <a class="reference internal" href="feeds.html#od-feed.deliveryodata.PrintBatches" title="PrintBatches"><tt class="xref od od-feed docutils literal"><span class="pre">deliveryodata.PrintBatches</span></tt></a> feed:</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/123456/PrintBatches?$filter=GroupID eq 335363530
+filter on the <a class="reference internal" href="feeds.html#od-feed.deliveryodata.PrintBatches" title="PrintBatches"><code class="xref od od-feed docutils literal"><span class="pre">deliveryodata.PrintBatches</span></code></a> feed:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/123456/PrintBatches?$filter=GroupID eq 335363530
 </pre></div>
 </div>
 <p>If none of the PrintBatches listed meet your needs then you can create a
 new batch by POSTing to the feed:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">PrintBatches</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">PrintBatches</span>
 </pre></div>
 </div>
 <p>The ID, CreatedDateTime and ModifiedDateTime properties are assigned
@@ -197,7 +189,7 @@ has been used to generate a result it cannot be used again.</p>
 other words, create an attempt only when you are ready to upload the
 corresponding answers.  Creating an attempt is done by POSTing to the
 Attempts feed:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Attempts</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Attempts</span>
 </pre></div>
 </div>
 <p>The ID and LastModifiedDateTime properties are automatically assigned on
@@ -233,10 +225,10 @@ set to False.</div></blockquote>
 <p>The ID of the attempt can be read from the entity returned and should be
 used in the next step.</p>
 <p>The AnswerUpload file is a JSON file formatted as per
-<a class="reference internal" href="answerupload.html#id1"><em>Answer Upload File Format</em></a>. Note that the ID of the Attempt is included in the
+<a class="reference internal" href="answerupload.html#id1"><span class="std std-ref">Answer Upload File Format</span></a>. Note that the ID of the Attempt is included in the
 file format as is the (optional) ID of the associated PrintBatch.</p>
 <p>To upload the file you POST it to the AnswerUploads feed:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AnswerUploads</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AnswerUploads</span>
 </pre></div>
 </div>
 <p>If there are any validation errors or formatting problems with the file
@@ -245,27 +237,27 @@ the POST will fail with an error code.</p>
 metadata for the AnswerUpload entity uses the AttemptID as the key.  You
 can review the actual file uploaded at any time using this ID to query
 the feed, for example, for attempt ID 75:</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/123456/AnswerUploads(75)/$value
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/123456/AnswerUploads(75)/$value
 </pre></div>
 </div>
 <p>The API processes the uploaded file and creates the corresponding result
 associating it with the attempt entity automatically.  On success, you
 can therefore use the attempts entity to discover the outcome of the
 uploaded assessment:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Attempts</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Attempts</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The ResultID will have been populated and can be used to get summary
 information directly from the Delivery system:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">601871</span><span class="o">/</span><span class="n">Results</span><span class="p">(</span><span class="mi">304562138</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">601871</span><span class="o">/</span><span class="n">Results</span><span class="p">(</span><span class="mi">304562138</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You can obtain item level scores by expanding the answers in your query:</p>
-<div class="highlight-python"><div class="highlight"><pre>GET /deliveryodata/601871/Results(304562138)?$expand=Answers
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/601871/Results(304562138)?$expand=Answers
 </pre></div>
 </div>
 <p>You can obtain more detailed result information using the QMWISe method
-<a class="reference internal" href="../qmwise/results.html#qm-meth.GetResult" title="GetResult"><tt class="xref qm qm-meth docutils literal"><span class="pre">GetResult</span></tt></a> or by querying the OData feeds from the Results
+<a class="reference internal" href="../qmwise/results.html#qm-meth.GetResult" title="GetResult"><code class="xref qm qm-meth docutils literal"><span class="pre">GetResult</span></code></a> or by querying the OData feeds from the Results
 Warehouse (though in the latter case you will have to wait until the
 next scheduled ETL run has completed).</p>
 </div>
@@ -275,66 +267,65 @@ next scheduled ETL run has completed).</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">External Delivery</a><ul>
-<li><a class="reference internal" href="#snapshots">Snapshots</a></li>
-<li><a class="reference internal" href="#printbatches">PrintBatches</a></li>
-<li><a class="reference internal" href="#uploading-answers">Uploading Answers</a></li>
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
 </ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="applications.html"
-                        title="previous chapter">Applications</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="proctoring.html"
-                        title="next chapter">Proctoring Exams</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/deliveryodata/xdelivery.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+  <li><a href="applications.html">Example Applications</a><ul>
+      <li>Previous: <a href="applications.html" title="previous chapter">Example Applications</a></li>
+      <li>Next: <a href="proctoring.html" title="next chapter">Proctoring Exams</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="proctoring.html" title="Proctoring Exams"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="applications.html" title="Applications"
-             >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="applications.html" >Applications</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/deliveryodata/xdelivery.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>

@@ -17,6 +17,7 @@ of accessing Questionmark data over the web.
     deliveryodata/intro
     deliveryodata/applications
     deliveryodata/feeds
+    deliveryodata/types
 
 
 

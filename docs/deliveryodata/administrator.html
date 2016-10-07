@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Administrator &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>Administrator &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,84 +23,76 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
-    <link rel="up" title="Delivery OData Feeds" href="feeds.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="../index.html" />
+    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Answer" href="answer.html" />
-    <link rel="prev" title="Delivery OData Feeds" href="feeds.html" /> 
+    <link rel="prev" title="Entity Type Reference" href="types.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="answer.html" title="Answer"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="feeds.html" title="Delivery OData Feeds"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="feeds.html" accesskey="U">Delivery OData Feeds</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="administrator">
 <h1>Administrator<a class="headerlink" href="#administrator" title="Permalink to this headline">¶</a></h1>
 <dl class="type">
 <dt id="od-type.deliveryodata.Administrator">
-<em class="property">EntityType: </em><tt class="descname">Administrator</tt><a class="headerlink" href="#od-type.deliveryodata.Administrator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Administrator entities are drawn from <a class="reference internal" href="../model/g_user.html#qm-table.g_user" title="G_User"><tt class="xref qm qm-table docutils literal"><span class="pre">G_User</span></tt></a> in the data
+<em class="property">EntityType: </em><code class="descname">Administrator</code><a class="headerlink" href="#od-type.deliveryodata.Administrator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Administrator entities are drawn from <a class="reference internal" href="../model/g_user.html#qm-table.g_user" title="G_User"><code class="xref qm qm-table docutils literal"><span class="pre">G_User</span></code></a> in the data
 model but contain only a subset of the properties.  They are read
 only in OData.</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Administrator.ID">
-<em class="property">Entity Key: </em><tt class="descname">ID</tt>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Administrator.ID" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.user_id" title="User_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">G_User.User_ID</span></tt></a>.</p>
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Administrator.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.user_id" title="User_ID"><code class="xref qm qm-field docutils literal"><span class="pre">G_User.User_ID</span></code></a>.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Administrator.Name">
-<tt class="descname">Name</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Name" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.user_name" title="User_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">G_User.User_Name</span></tt></a>.</p>
+<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.user_name" title="User_Name"><code class="xref qm qm-field docutils literal"><span class="pre">G_User.User_Name</span></code></a>.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Administrator.FirstName">
-<tt class="descname">FirstName</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.FirstName" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.first_name" title="First_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">G_User.First_Name</span></tt></a>.</p>
+<code class="descname">FirstName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.FirstName" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.first_name" title="First_Name"><code class="xref qm qm-field docutils literal"><span class="pre">G_User.First_Name</span></code></a>.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Administrator.LastName">
-<tt class="descname">LastName</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.LastName" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.last_name" title="Last_Name"><tt class="xref qm qm-field docutils literal"><span class="pre">G_User.Last_Name</span></tt></a>.</p>
+<code class="descname">LastName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.LastName" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.last_name" title="Last_Name"><code class="xref qm qm-field docutils literal"><span class="pre">G_User.Last_Name</span></code></a>.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Administrator.Department">
-<tt class="descname">Department</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Department" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.department" title="Department"><tt class="xref qm qm-field docutils literal"><span class="pre">G_User.Department</span></tt></a>.</p>
+<code class="descname">Department</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Department" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.department" title="Department"><code class="xref qm qm-field docutils literal"><span class="pre">G_User.Department</span></code></a>.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Administrator.Email">
-<tt class="descname">Email</tt>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Email" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.email" title="Email"><tt class="xref qm qm-field docutils literal"><span class="pre">G_User.Email</span></tt></a>.</p>
+<code class="descname">Email</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Email" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.email" title="Email"><code class="xref qm qm-field docutils literal"><span class="pre">G_User.Email</span></code></a>.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Administrator.Groups">
-<tt class="descname">Groups</tt> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Groups" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Groups</code> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Groups" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the Groups associated with this
-administrator as per <a class="reference internal" href="../model/g_owner.html#qm-table.g_owner" title="G_Owner"><tt class="xref qm qm-table docutils literal"><span class="pre">G_Owner</span></tt></a>.  An Administrator may
+administrator as per <a class="reference internal" href="../model/g_owner.html#qm-table.g_owner" title="G_Owner"><code class="xref qm qm-table docutils literal"><span class="pre">G_Owner</span></code></a>.  An Administrator may
 be associated with multiple Group entities.</p>
 </dd></dl>
 
@@ -112,56 +104,65 @@ be associated with multiple Group entities.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="feeds.html"
-                        title="previous chapter">Delivery OData Feeds</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="answer.html"
-                        title="next chapter">Answer</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/deliveryodata/administrator.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+  <li><a href="types.html">Entity Type Reference</a><ul>
+      <li>Previous: <a href="types.html" title="previous chapter">Entity Type Reference</a></li>
+      <li>Next: <a href="answer.html" title="next chapter">Answer</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="answer.html" title="Answer"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="feeds.html" title="Delivery OData Feeds"
-             >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../deliveryodata.html" >Delivery OData API</a> &raquo;</li>
-          <li><a href="feeds.html" >Delivery OData Feeds</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/deliveryodata/administrator.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>

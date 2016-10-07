@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>A_Result &mdash; QuestionmarkAPIs 2016.09 documentation</title>
+    <title>A_Result &#8212; QuestionmarkAPIs 2016.10a documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.09',
+        VERSION:     '2016.10a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,46 +23,38 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="QuestionmarkAPIs 2016.09 documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="../index.html" />
     <link rel="up" title="Answer Tables" href="answer.html" />
     <link rel="next" title="A_TopicScore" href="a_topicscore.html" />
-    <link rel="prev" title="A_Session_Ex" href="a_session_ex.html" /> 
+    <link rel="prev" title="A_Session_Ex" href="a_session_ex.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="a_topicscore.html" title="A_TopicScore"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="a_session_ex.html" title="A_Session_Ex"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
-          <li><a href="answer.html" accesskey="U">Answer Tables</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="a-result">
 <h1>A_Result<a class="headerlink" href="#a-result" title="Permalink to this headline">¶</a></h1>
 <dl class="table">
 <dt id="qm-table.a_result">
-<em class="property">TABLE </em><tt class="descname">A_Result</tt><a class="headerlink" href="#qm-table.a_result" title="Permalink to this definition">¶</a></dt>
+<em class="property">TABLE </em><code class="descname">A_Result</code><a class="headerlink" href="#qm-table.a_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Records in A_Result are created automatically when a participant
 starts taking an assessment and they are updated each time a block
 is submitted.</p>
 <dl class="field">
 <dt id="qm-field.a_result.result_id">
-<em class="property">Primary Key: </em><tt class="descname">Result_ID</tt> int NOT NULL<a class="headerlink" href="#qm-field.a_result.result_id" title="Permalink to this definition">¶</a></dt>
+<em class="property">Primary Key: </em><code class="descname">Result_ID</code> int NOT NULL<a class="headerlink" href="#qm-field.a_result.result_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unique identifier for this result.  Result IDs are generated
 using an algorithm that is designed to create unique, random
 32-bit values.  The value 0 is not allowed.</p>
@@ -70,95 +62,95 @@ using an algorithm that is designed to create unique, random
 
 <dl class="field">
 <dt id="qm-field.a_result.when_started">
-<tt class="descname">When_Started</tt> datetime<a class="headerlink" href="#qm-field.a_result.when_started" title="Permalink to this definition">¶</a></dt>
+<code class="descname">When_Started</code> datetime<a class="headerlink" href="#qm-field.a_result.when_started" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date and time the test was started.  The value of this field
 is stored in the repository timezone.  See
-<a class="reference internal" href="../data_model.html#timezones"><em>Timezones</em></a>.</p>
-<p>See also: <a class="reference internal" href="#qm-field.a_result.when_started_utc" title="When_Started_UTC"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.When_Started_UTC</span></tt></a>.</p>
+<a class="reference internal" href="../data_model.html#timezones"><span class="std std-ref">Timezones</span></a>.</p>
+<p>See also: <a class="reference internal" href="#qm-field.a_result.when_started_utc" title="When_Started_UTC"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.When_Started_UTC</span></code></a>.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.session_mid">
-<tt class="descname">Session_MID</tt> int NOT NULL<a class="headerlink" href="#qm-field.a_result.session_mid" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Session_MID</code> int NOT NULL<a class="headerlink" href="#qm-field.a_result.session_mid" title="Permalink to this definition">¶</a></dt>
 <dd><p>The word &#8216;Session&#8217; here is a misnomer.  This refers to the ID of
 the content itself, in other words, the ID of the quiz, test or
 exam that was actually taken.</p>
 <p>The ID is split across two fields, MID and LID, for legacy
 reasons. The ID itself can be obtained using the procedure
-outlined in <a class="reference internal" href="../data_model.html#midlid"><em>MID and LID</em></a>.  It can also be read directly on
-databases that support <a class="reference internal" href="../deliveryodata.html#od-service.deliveryodata" title="Delivery OData Service"><tt class="xref od od-svc docutils literal"><span class="pre">Delivery</span> <span class="pre">OData</span></tt></a>
-as <a class="reference internal" href="#qm-field.a_result.assessment_id" title="Assessment_ID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_result.Assessment_ID</span></tt></a>.</p>
+outlined in <a class="reference internal" href="../data_model.html#midlid"><span class="std std-ref">MID and LID</span></a>.  It can also be read directly on
+databases that support <a class="reference internal" href="../deliveryodata.html#od-service.deliveryodata" title="Delivery OData Service"><code class="xref od od-svc docutils literal"><span class="pre">Delivery</span> <span class="pre">OData</span></code></a>
+as <a class="reference internal" href="#qm-field.a_result.assessment_id" title="Assessment_ID"><code class="xref qm qm-field docutils literal"><span class="pre">A_result.Assessment_ID</span></code></a>.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.session_lid">
-<tt class="descname">Session_LID</tt> int NOT NULL<a class="headerlink" href="#qm-field.a_result.session_lid" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="#qm-field.a_result.session_mid" title="Session_MID"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Session_MID</span></tt></a>.</p>
+<code class="descname">Session_LID</code> int NOT NULL<a class="headerlink" href="#qm-field.a_result.session_lid" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="#qm-field.a_result.session_mid" title="Session_MID"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Session_MID</span></code></a>.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.session_last_modified">
-<tt class="descname">Session_Last_Modified</tt> datetime NOT NULL<a class="headerlink" href="#qm-field.a_result.session_last_modified" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Session_Last_Modified</code> datetime NOT NULL<a class="headerlink" href="#qm-field.a_result.session_last_modified" title="Permalink to this definition">¶</a></dt>
 <dd><p>The time when the assessment content was last modified.  This
 field can be used to help identify which version of the
 assessment was used during the test.  See
-<a class="reference internal" href="s_header_ex.html#qm-field.s_header_ex.modified_date" title="Modified_Date"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Modified_Date</span></tt></a>.</p>
+<a class="reference internal" href="s_header_ex.html#qm-field.s_header_ex.modified_date" title="Modified_Date"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Modified_Date</span></code></a>.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.write_answer_data">
-<tt class="descname">Write_Answer_Data</tt> bit<a class="headerlink" href="#qm-field.a_result.write_answer_data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Write_Answer_Data</code> bit<a class="headerlink" href="#qm-field.a_result.write_answer_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether or not detailed answer information is saved in
-<a class="reference internal" href="a_answer.html#qm-table.a_answer" title="A_Answer"><tt class="xref qm qm-table docutils literal"><span class="pre">A_Answer</span></tt></a>.  This behaviour is controlled in the
-assessment, see <a class="reference internal" href="s_header_ex.html#qm-field.s_header_ex.save_answer_data" title="Save_Answer_Data"><tt class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Save_Answer_Data</span></tt></a>.</p>
+<a class="reference internal" href="a_answer.html#qm-table.a_answer" title="A_Answer"><code class="xref qm qm-table docutils literal"><span class="pre">A_Answer</span></code></a>.  This behaviour is controlled in the
+assessment, see <a class="reference internal" href="s_header_ex.html#qm-field.s_header_ex.save_answer_data" title="Save_Answer_Data"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Save_Answer_Data</span></code></a>.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.participant">
-<tt class="descname">Participant</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.participant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stored using the <a class="reference internal" href="../data_model.html#varchar"><em>varchar</em></a> encoding in the database.</p>
+<code class="descname">Participant</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.participant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stored using the <a class="reference internal" href="../data_model.html#varchar"><span class="std std-ref">varchar</span></a> encoding in the database.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.member_group">
-<tt class="descname">Member_Group</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_group" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Member_Group</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_group" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of this field depends on the method used to launch the
 assessment.  For <em>open</em> assessments it is self-declared by the
 participant.  For <em>scheduled</em> assessments it is taken from the
 top-level group associated with the schedule.  For assessments
 launched from external integrations using PIP the value is taken
 from the data field mapped to GROUP by the PIP file.</p>
-<p>Stored using the <a class="reference internal" href="../data_model.html#varchar"><em>varchar</em></a> encoding in the database.</p>
+<p>Stored using the <a class="reference internal" href="../data_model.html#varchar"><span class="std std-ref">varchar</span></a> encoding in the database.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.participant_details">
-<tt class="descname">Participant_Details</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.participant_details" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Participant_Details</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.participant_details" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.hostname">
-<tt class="descname">Hostname</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.hostname" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Hostname</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.hostname" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.ip_address">
-<tt class="descname">IP_Address</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.ip_address" title="Permalink to this definition">¶</a></dt>
+<code class="descname">IP_Address</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.ip_address" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.signature">
-<tt class="descname">Signature</tt> varchar(50)<a class="headerlink" href="#qm-field.a_result.signature" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Signature</code> varchar(50)<a class="headerlink" href="#qm-field.a_result.signature" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.still_going">
-<tt class="descname">Still_Going</tt> bit<a class="headerlink" href="#qm-field.a_result.still_going" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Still_Going</code> bit<a class="headerlink" href="#qm-field.a_result.still_going" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.status">
-<tt class="descname">Status</tt> smallint<a class="headerlink" href="#qm-field.a_result.status" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Status</code> smallint<a class="headerlink" href="#qm-field.a_result.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>The status of the result, stored as in integer value with the
 following interpretations:</p>
 <ol class="arabic" start="0">
@@ -226,7 +218,7 @@ typically a paper-based Printing and Scanning process.</p>
 
 <dl class="field">
 <dt id="qm-field.a_result.feedback">
-<tt class="descname">Feedback</tt> smallint<a class="headerlink" href="#qm-field.a_result.feedback" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Feedback</code> smallint<a class="headerlink" href="#qm-field.a_result.feedback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether or not feedback was given:</p>
 <ol class="arabic simple" start="0">
 <li>none given</li>
@@ -236,17 +228,17 @@ typically a paper-based Printing and Scanning process.</p>
 
 <dl class="field">
 <dt id="qm-field.a_result.number_sections">
-<tt class="descname">Number_Sections</tt> smallint<a class="headerlink" href="#qm-field.a_result.number_sections" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Number_Sections</code> smallint<a class="headerlink" href="#qm-field.a_result.number_sections" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.when_finished">
-<tt class="descname">When_Finished</tt> datetime<a class="headerlink" href="#qm-field.a_result.when_finished" title="Permalink to this definition">¶</a></dt>
+<code class="descname">When_Finished</code> datetime<a class="headerlink" href="#qm-field.a_result.when_finished" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.max_score">
-<tt class="descname">Max_Score</tt> int<a class="headerlink" href="#qm-field.a_result.max_score" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Max_Score</code> int<a class="headerlink" href="#qm-field.a_result.max_score" title="Permalink to this definition">¶</a></dt>
 <dd><p>The maximum score possible on the assessment.  In simple cases
 this is just the sum of the maximum scores of the associated
 A_Answer records but the calculation here ignores questions with
@@ -258,7 +250,7 @@ abandoning the test as <em>in progress</em>).</p>
 
 <dl class="field">
 <dt id="qm-field.a_result.total_score">
-<tt class="descname">Total_Score</tt> int<a class="headerlink" href="#qm-field.a_result.total_score" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Total_Score</code> int<a class="headerlink" href="#qm-field.a_result.total_score" title="Permalink to this definition">¶</a></dt>
 <dd><p>The total score achieved by the participant.  Calculated in a
 similar way to the Max_Score.  In Perception 5.7 partial scores
 are not available for assessments marked as <em>in progress</em>.</p>
@@ -266,62 +258,62 @@ are not available for assessments marked as <em>in progress</em>.</p>
 
 <dl class="field">
 <dt id="qm-field.a_result.special_1">
-<tt class="descname">Special_1</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_1" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Special_1</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_1" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.special_2">
-<tt class="descname">Special_2</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_2" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Special_2</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_2" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.special_3">
-<tt class="descname">Special_3</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_3" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Special_3</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_3" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.special_4">
-<tt class="descname">Special_4</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_4" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Special_4</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_4" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.special_5">
-<tt class="descname">Special_5</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_5" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Special_5</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_5" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.special_6">
-<tt class="descname">Special_6</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_6" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Special_6</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_6" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.special_7">
-<tt class="descname">Special_7</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_7" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Special_7</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_7" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.special_8">
-<tt class="descname">Special_8</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_8" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Special_8</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_8" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.special_9">
-<tt class="descname">Special_9</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_9" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Special_9</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_9" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.special_10">
-<tt class="descname">Special_10</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_10" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Special_10</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.special_10" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.time_taken">
-<tt class="descname">Time_Taken</tt> int<a class="headerlink" href="#qm-field.a_result.time_taken" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Time_Taken</code> int<a class="headerlink" href="#qm-field.a_result.time_taken" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.score_band_title">
-<tt class="descname">Score_Band_Title</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.score_band_title" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Score_Band_Title</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.score_band_title" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assessment outcomes can be classified according to score bands.
 This field contains the ID of the score band for the percentage
 score achieved by the candidate.  It is only available when the
@@ -330,161 +322,161 @@ result is finalised (i.e., is not paused or in progress).</p>
 
 <dl class="field">
 <dt id="qm-field.a_result.score_band_number">
-<tt class="descname">Score_Band_Number</tt> int<a class="headerlink" href="#qm-field.a_result.score_band_number" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Score_Band_Number</code> int<a class="headerlink" href="#qm-field.a_result.score_band_number" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.percentage_score">
-<tt class="descname">Percentage_Score</tt> smallint<a class="headerlink" href="#qm-field.a_result.percentage_score" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Percentage_Score</code> smallint<a class="headerlink" href="#qm-field.a_result.percentage_score" title="Permalink to this definition">¶</a></dt>
 <dd><p>The percentage score achieved by the candidate, obtained from
-<a class="reference internal" href="#qm-field.a_result.total_score" title="Total_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Total_Score</span></tt></a> and
-<a class="reference internal" href="#qm-field.a_result.max_score" title="Max_Score"><tt class="xref qm qm-field docutils literal"><span class="pre">A_Result.Max_Score</span></tt></a>. The percentage is always rounded
+<a class="reference internal" href="#qm-field.a_result.total_score" title="Total_Score"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Total_Score</span></code></a> and
+<a class="reference internal" href="#qm-field.a_result.max_score" title="Max_Score"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Max_Score</span></code></a>. The percentage is always rounded
 to an integer with #.5 rounding away from zero.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.schedule_name">
-<tt class="descname">Schedule_Name</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.schedule_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Schedule_Name</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.schedule_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.monitored">
-<tt class="descname">Monitored</tt> bit<a class="headerlink" href="#qm-field.a_result.monitored" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Monitored</code> bit<a class="headerlink" href="#qm-field.a_result.monitored" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.monitor_name">
-<tt class="descname">Monitor_Name</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.monitor_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Monitor_Name</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.monitor_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.time_limit_disabled">
-<tt class="descname">Time_Limit_Disabled</tt> bit<a class="headerlink" href="#qm-field.a_result.time_limit_disabled" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Time_Limit_Disabled</code> bit<a class="headerlink" href="#qm-field.a_result.time_limit_disabled" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.disabled_by">
-<tt class="descname">Disabled_By</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.disabled_by" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Disabled_By</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.disabled_by" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.image_ref">
-<tt class="descname">Image_Ref</tt> varchar(255)<a class="headerlink" href="#qm-field.a_result.image_ref" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Image_Ref</code> varchar(255)<a class="headerlink" href="#qm-field.a_result.image_ref" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.scoreband_id">
-<tt class="descname">ScoreBand_ID</tt> int NOT NULL<a class="headerlink" href="#qm-field.a_result.scoreband_id" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ScoreBand_ID</code> int NOT NULL<a class="headerlink" href="#qm-field.a_result.scoreband_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.first_name">
-<tt class="descname">First_Name</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.first_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">First_Name</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.first_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.last_name">
-<tt class="descname">Last_Name</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.last_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Last_Name</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.last_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.primary_email">
-<tt class="descname">Primary_Email</tt> varchar(255)<a class="headerlink" href="#qm-field.a_result.primary_email" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Primary_Email</code> varchar(255)<a class="headerlink" href="#qm-field.a_result.primary_email" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.restrict_r_access_part">
-<tt class="descname">Restrict_R_Access_Part</tt> bit<a class="headerlink" href="#qm-field.a_result.restrict_r_access_part" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Restrict_R_Access_Part</code> bit<a class="headerlink" href="#qm-field.a_result.restrict_r_access_part" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.restrict_r_access_admin">
-<tt class="descname">Restrict_R_Access_Admin</tt> bit<a class="headerlink" href="#qm-field.a_result.restrict_r_access_admin" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Restrict_R_Access_Admin</code> bit<a class="headerlink" href="#qm-field.a_result.restrict_r_access_admin" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.r_access_part_from">
-<tt class="descname">R_Access_Part_From</tt> datetime<a class="headerlink" href="#qm-field.a_result.r_access_part_from" title="Permalink to this definition">¶</a></dt>
+<code class="descname">R_Access_Part_From</code> datetime<a class="headerlink" href="#qm-field.a_result.r_access_part_from" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.r_access_part_to">
-<tt class="descname">R_Access_Part_To</tt> datetime<a class="headerlink" href="#qm-field.a_result.r_access_part_to" title="Permalink to this definition">¶</a></dt>
+<code class="descname">R_Access_Part_To</code> datetime<a class="headerlink" href="#qm-field.a_result.r_access_part_to" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.r_access_admin_from">
-<tt class="descname">R_Access_Admin_From</tt> datetime<a class="headerlink" href="#qm-field.a_result.r_access_admin_from" title="Permalink to this definition">¶</a></dt>
+<code class="descname">R_Access_Admin_From</code> datetime<a class="headerlink" href="#qm-field.a_result.r_access_admin_from" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.r_access_admin_to">
-<tt class="descname">R_Access_Admin_To</tt> datetime<a class="headerlink" href="#qm-field.a_result.r_access_admin_to" title="Permalink to this definition">¶</a></dt>
+<code class="descname">R_Access_Admin_To</code> datetime<a class="headerlink" href="#qm-field.a_result.r_access_admin_to" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.course">
-<tt class="descname">Course</tt> varchar(1020)<a class="headerlink" href="#qm-field.a_result.course" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Course</code> varchar(1020)<a class="headerlink" href="#qm-field.a_result.course" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.member_sub_group_1">
-<tt class="descname">Member_Sub_Group_1</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_1" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Member_Sub_Group_1</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_1" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.member_sub_group_2">
-<tt class="descname">Member_Sub_Group_2</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_2" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Member_Sub_Group_2</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_2" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.member_sub_group_3">
-<tt class="descname">Member_Sub_Group_3</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_3" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Member_Sub_Group_3</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_3" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.member_sub_group_4">
-<tt class="descname">Member_Sub_Group_4</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_4" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Member_Sub_Group_4</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_4" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.member_sub_group_5">
-<tt class="descname">Member_Sub_Group_5</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_5" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Member_Sub_Group_5</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_5" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.member_sub_group_6">
-<tt class="descname">Member_Sub_Group_6</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_6" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Member_Sub_Group_6</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_6" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.member_sub_group_7">
-<tt class="descname">Member_Sub_Group_7</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_7" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Member_Sub_Group_7</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_7" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.member_sub_group_8">
-<tt class="descname">Member_Sub_Group_8</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_8" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Member_Sub_Group_8</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_8" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.member_sub_group_9">
-<tt class="descname">Member_Sub_Group_9</tt> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_9" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Member_Sub_Group_9</code> varchar(200)<a class="headerlink" href="#qm-field.a_result.member_sub_group_9" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.test_center">
-<tt class="descname">Test_Center</tt> varchar](200)<a class="headerlink" href="#qm-field.a_result.test_center" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Test_Center</code> varchar](200)<a class="headerlink" href="#qm-field.a_result.test_center" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.lang">
-<tt class="descname">Lang</tt> varchar(10) NOT NULL<a class="headerlink" href="#qm-field.a_result.lang" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Lang</code> varchar(10) NOT NULL<a class="headerlink" href="#qm-field.a_result.lang" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.when_started_utc">
-<tt class="descname">When_Started_UTC</tt> datetime<a class="headerlink" href="#qm-field.a_result.when_started_utc" title="Permalink to this definition">¶</a></dt>
+<code class="descname">When_Started_UTC</code> datetime<a class="headerlink" href="#qm-field.a_result.when_started_utc" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date and time the test was started in UTC.  This field was
 not available on early Questionmark systems and so may be
 missing for older records.</p>
@@ -492,7 +484,7 @@ missing for older records.</p>
 
 <dl class="field">
 <dt id="qm-field.a_result.when_finished_utc">
-<tt class="descname">When_Finished_UTC</tt> datetime<a class="headerlink" href="#qm-field.a_result.when_finished_utc" title="Permalink to this definition">¶</a></dt>
+<code class="descname">When_Finished_UTC</code> datetime<a class="headerlink" href="#qm-field.a_result.when_finished_utc" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date and time the test was <em>finished</em> in UTC.  This field
 was not available on early Questionmark systems and so may be
 missing for older records.</p>
@@ -500,19 +492,19 @@ missing for older records.</p>
 
 <dl class="field">
 <dt id="qm-field.a_result.timestamp_utc">
-<tt class="descname">TimeStamp_UTC</tt> datetime<a class="headerlink" href="#qm-field.a_result.timestamp_utc" title="Permalink to this definition">¶</a></dt>
+<code class="descname">TimeStamp_UTC</code> datetime<a class="headerlink" href="#qm-field.a_result.timestamp_utc" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date and time the result record was created.  Reserved for
 future use.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.assessment_id">
-<tt class="descname">Assessment_ID</tt> bigint<a class="headerlink" href="#qm-field.a_result.assessment_id" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Assessment_ID</code> bigint<a class="headerlink" href="#qm-field.a_result.assessment_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_result.extra_time">
-<tt class="descname">EXTRA_TIME</tt> int<a class="headerlink" href="#qm-field.a_result.extra_time" title="Permalink to this definition">¶</a></dt>
+<code class="descname">EXTRA_TIME</code> int<a class="headerlink" href="#qm-field.a_result.extra_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value indicates the number of extra <em>minutes</em> that the
 participant is allowed compared with the time limit originally
 set for the assessment.  The extra time does <em>not</em> include any
@@ -530,56 +522,68 @@ schedule and any extra time allocated in this field.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="a_session_ex.html"
-                        title="previous chapter">A_Session_Ex</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="a_topicscore.html"
-                        title="next chapter">A_TopicScore</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/model/a_result.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../data_model.html">Data Model</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assessment.html">Assessment Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="question.html">Question Tables</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="answer.html">Answer Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ng.html">Next Generation Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scoringtool.html">Scoring Tool Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model.html#misc-topics">Misc Topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../data_model.html">Data Model</a><ul>
+  <li><a href="answer.html">Answer Tables</a><ul>
+      <li>Previous: <a href="a_session_ex.html" title="previous chapter">A_Session_Ex</a></li>
+      <li>Next: <a href="a_topicscore.html" title="next chapter">A_TopicScore</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="a_topicscore.html" title="A_TopicScore"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="a_session_ex.html" title="A_Session_Ex"
-             >previous</a> |</li>
-        <li><a href="../index.html">QuestionmarkAPIs 2016.09 documentation</a> &raquo;</li>
-          <li><a href="../data_model.html" >Data Model</a> &raquo;</li>
-          <li><a href="answer.html" >Answer Tables</a> &raquo;</li> 
-      </ul>
-    </div>
     <div class="footer">
-        &copy; Copyright 2016, Steve Lay.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/model/a_result.txt"
+          rel="nofollow">Page source</a>
     </div>
+
+    
+
+    
   </body>
 </html>
