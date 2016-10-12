@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Delivery OData Feeds &#8212; QuestionmarkAPIs 2016.10a documentation</title>
+    <title>Delivery OData Feeds &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2016.10a',
+        VERSION:     '2016.10.12a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10a documentation" href="../index.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
     <link rel="up" title="Delivery OData API" href="../deliveryodata.html" />
     <link rel="next" title="Entity Type Reference" href="types.html" />
     <link rel="prev" title="Subjective Scoring" href="scoring.html" />
@@ -314,7 +314,7 @@ with an attempt.  Although entities can be created and accessed
 directly from this feed they are always associated with an Attempt
 and can be created in a single OData call at the same time as the
 Attempt itself.  For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span><span class="n">Attempts</span>
 <span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
 
 <span class="p">{</span>
@@ -339,7 +339,7 @@ Attempt itself.  For example:</p>
 <span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
 
 <span class="p">{</span>
-    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;service root&gt;/601871/$metadata#Attempts/@Element&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;service root&gt;/$metadata#Attempts/@Element&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span>
     <span class="s2">&quot;ParticipantFacingQMLobbyUrl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
     <span class="s2">&quot;ProctorFacingQMControlsWidgetUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://...&quot;</span><span class="p">,</span>

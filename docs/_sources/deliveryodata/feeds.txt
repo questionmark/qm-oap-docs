@@ -122,7 +122,7 @@ Delivery OData Feeds
     and can be created in a single OData call at the same time as the
     Attempt itself.  For example::
     
-        POST <service root>/
+        POST <service root>/Attempts
         Content-Type: application/json
         
         {
@@ -147,7 +147,7 @@ Delivery OData Feeds
         Content-Type: application/json; charset=utf-8
 
         {
-            "odata.metadata": "<service root>/601871/$metadata#Attempts/@Element",
+            "odata.metadata": "<service root>/$metadata#Attempts/@Element",
             "ID": 180,
             "ParticipantFacingQMLobbyUrl": null,
             "ProctorFacingQMControlsWidgetUrl": "https://...",
