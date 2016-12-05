@@ -6,6 +6,10 @@
 Questionmark's Open Assessment Platform (Alpha)
 ===============================================
 
+Please direct all feedback to developer@questionmark.com or by raising
+issues on the `GitHub project
+<https://github.com/questionmark/qm-oap-docs>`_  where these pages are
+maintained.
 
 Contents:
 

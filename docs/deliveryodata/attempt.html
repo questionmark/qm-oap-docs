@@ -70,9 +70,8 @@ on creation.  You cannot control this value.</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Attempt.AttemptListID">
 <code class="descname">AttemptListID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Attempt.AttemptListID" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>New</em> in OnDemand 2016.09.</p>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version OnDemand: </span>2016.09</p>
 </div>
 <p>This optional field allows attempts to be grouped together.  An
 attempt may only be associated with a single
@@ -187,6 +186,27 @@ the lobby they are notified immediately, typically by enabling
 the value of <a class="reference internal" href="#od-prop.deliveryodata.Attempt.LockRequired" title="LockRequired"><code class="xref od od-prop docutils literal"><span class="pre">LockRequired</span></code></a>, however, when the
 participant enters or re-enters the lobby the lock status will
 automatically be set to True if LockRequired is True.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Attempt.ParticipantSystemCheckUrl">
+<code class="descname">ParticipantSystemCheckUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ParticipantSystemCheckUrl" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version OnDemand: </span>2016.12</p>
+</div>
+<p>An optional URL that will be displayed to the participant on
+entering the exam lobby to assist with checking compatibility
+of the participant&#8217;s device against the technology requirements
+of the proctoring process.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if you omit this value or pass NULL a default system
+check page is currently shown but you should not
+rely on this page as in future NULL will indicate
+that no system check page is to be shown.  In the
+interim, to explicitly indicate that no system check
+is required pass the special URL &#8220;<a class="reference external" href="about:blank">about:blank</a>&#8221;.</p>
+</div>
 </dd></dl>
 
 <dl class="prop">
@@ -323,9 +343,8 @@ associated with an attempt.</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Attempt.AttemptList">
 <code class="descname">AttemptList</code> <a class="reference internal" href="#od-type.deliveryodata.AttemptList" title="AttemptList">AttemptList</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.AttemptList" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>New</em> in OnDemand 2016.09.</p>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version OnDemand: </span>2016.09</p>
 </div>
 <p>This optional field allows you to navigate to an associated
 AttemptList entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.AttemptListID" title="AttemptListID"><code class="xref od od-prop docutils literal"><span class="pre">AttemptListID</span></code></a>.</p>
@@ -336,9 +355,8 @@ AttemptList entity.  See also <a class="reference internal" href="#od-prop.deliv
 <dl class="type">
 <dt id="od-type.deliveryodata.AttemptMetadata">
 <em class="property">EntityType: </em><code class="descname">AttemptMetadata</code><a class="headerlink" href="#od-type.deliveryodata.AttemptMetadata" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last"><em>New</em>, expected to be released in Q4 of 2016</p>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version OnDemand: </span>2016.12</p>
 </div>
 <p>AttemptMetadata entities store key-value pairs associated with each
 attempt.  They can store any arbitrary additional data but the
@@ -394,9 +412,8 @@ externally defined metadata schema.</p>
 <dl class="type">
 <dt id="od-type.deliveryodata.AttemptList">
 <em class="property">EntityType: </em><code class="descname">AttemptList</code><a class="headerlink" href="#od-type.deliveryodata.AttemptList" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>New</em> in OnDemand 2016.09.</p>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version OnDemand: </span>2016.09</p>
 </div>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.AttemptList.ID">
@@ -422,7 +439,7 @@ characters.</p>
 <code class="descname">ProctorFacingQMControlsUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AttemptList.ProctorFacingQMControlsUrl" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last"><em>New</em>, expected to be released in Q4 of 2016</p>
+<p class="last"><em>New</em>, expected to be released in Q1 of 2017</p>
 </div>
 <p>This property contains a URL that can be used by a proctor to
 load a page suitable for controlling <em>all</em> attempts in the

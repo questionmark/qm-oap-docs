@@ -109,8 +109,6 @@ Delivery OData Feeds
     
 ..  od:feed::   AttemptMetadata AttemptMetadata
 
-    ..  warning::  *New*, expected to be released in Q4 of 2016
-
     :method GET: reading attempt metadata key-value pairs
     :method POST: creating attempt metadata key-value pairs
     :filter ID: primary key
@@ -207,7 +205,7 @@ Delivery OData Feeds
 
 ..  od:feed::   AttemptLists AttemptList
 
-    ..  note::  *New* in 2016.09
+    .. versionadded:: OnDemand 2016.09
 
     :method GET: reading attempt list entities
     :method POST: creating attempt list entities

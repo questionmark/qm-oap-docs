@@ -27,7 +27,7 @@ Attempt
 
     ..  od:prop::   AttemptListID  Edm.Int32
 
-        ..  note:: *New* in OnDemand 2016.09.
+        .. versionadded:: OnDemand 2016.09
 
         This optional field allows attempts to be grouped together.  An
         attempt may only be associated with a single
@@ -141,6 +141,22 @@ Attempt
         participant enters or re-enters the lobby the lock status will
         automatically be set to True if LockRequired is True.
         
+    ..  od:prop::   ParticipantSystemCheckUrl   Edm.String
+
+        .. versionadded:: OnDemand 2016.12
+        
+        An optional URL that will be displayed to the participant on
+        entering the exam lobby to assist with checking compatibility
+        of the participant's device against the technology requirements
+        of the proctoring process.
+        
+        ..  note::  if you omit this value or pass NULL a default system
+                    check page is currently shown but you should not
+                    rely on this page as in future NULL will indicate
+                    that no system check page is to be shown.  In the
+                    interim, to explicitly indicate that no system check
+                    is required pass the special URL "about:blank".
+
     ..  od:prop::   ResultID  Edm.Int32
         
         As soon as the candidate starts taking the assessment online, or
@@ -267,7 +283,7 @@ Attempt
         
     ..  od:prop::   AttemptList  AttemptList
 
-        ..  note:: *New* in OnDemand 2016.09.
+        .. versionadded:: OnDemand 2016.09
         
         This optional field allows you to navigate to an associated
         AttemptList entity.  See also :od:prop:`AttemptListID`.
@@ -275,8 +291,8 @@ Attempt
 
 ..  od:type::   AttemptMetadata
 
-    ..  warning::  *New*, expected to be released in Q4 of 2016
-
+    .. versionadded:: OnDemand 2016.12
+    
     AttemptMetadata entities store key-value pairs associated with each
     attempt.  They can store any arbitrary additional data but the
     intention is to support tagging of the data for reporting purposes.
@@ -327,7 +343,7 @@ Attempt
 
 ..  od:type::   AttemptList
 
-    ..  note:: *New* in OnDemand 2016.09.
+    .. versionadded:: OnDemand 2016.09
 
     ..  od:prop::   ID  Edm.Int32
         :key:
@@ -350,7 +366,7 @@ Attempt
         
     ..  od:prop::   ProctorFacingQMControlsUrl  Edm.String
 
-        ..  warning::  *New*, expected to be released in Q4 of 2016
+        ..  warning::  *New*, expected to be released in Q1 of 2017
 
         This property contains a URL that can be used by a proctor to
         load a page suitable for controlling *all* attempts in the

@@ -152,7 +152,7 @@ Parameter Lists
         :max: unbounded    
 
 
-..  qm:xtype::  ParameterList
+..  qm:xtype::  Parameter
 
     ..  qm:xfield:: Name string
         :optional:
