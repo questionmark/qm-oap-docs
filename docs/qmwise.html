@@ -92,6 +92,54 @@ using for further restrictions.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="assessment-ids">
+<span id="assessmentid"></span><h2>Assessment IDs<a class="headerlink" href="#assessment-ids" title="Permalink to this headline">¶</a></h2>
+<p>In QMWISe, Assessment IDs are represented using <a class="reference internal" href="#qm-xtype.string" title="string"><code class="xref qm qm-xtype docutils literal"><span class="pre">string</span></code></a>.
+These strings should always be padded with leading 0s to create a string
+of exactly 16 characters.  In the underlying data model assessment IDs
+are represented using two 32-bit integers (see <a class="reference internal" href="data_model.html#midlid"><span class="std std-ref">MID and LID</span></a>).</p>
+<p>For example, suppose an assessment has the following ID in the database:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MID</span> <span class="o">=</span> <span class="mi">38074658</span>
+<span class="n">LID</span> <span class="o">=</span> <span class="mi">94065740</span>
+</pre></div>
+</div>
+<p>According to the rules for combining MID and LID this results in a
+64-bit assessment ID of:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ID</span> <span class="o">=</span> <span class="n">MID</span> <span class="o">*</span> <span class="mi">100000000</span> <span class="o">+</span> <span class="n">LID</span> <span class="o">=</span> <span class="mi">3807465894065740</span>
+</pre></div>
+</div>
+<p>In QMWISe you&#8217;ll pass this 64-bit integer as a 16-character string:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;3807465894065740&quot;</span>
+</pre></div>
+</div>
+<p>Things are more complicated when the MID and LID have leading zeros,
+especially as some IDs follow the pattern MID = LID * 10 such as those
+in the following example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MID</span> <span class="o">=</span> <span class="mi">320750</span>
+<span class="n">LID</span> <span class="o">=</span> <span class="mi">32075</span>
+<span class="n">ID</span> <span class="o">=</span> <span class="n">MID</span> <span class="o">*</span> <span class="mi">100000000</span> <span class="o">+</span> <span class="n">LID</span> <span class="o">=</span> <span class="mi">32075000032075</span>
+</pre></div>
+</div>
+<p>In QMWISe you must pass this 64-bit integer as a 16-character string
+with 0-padding on the left:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;0032075000032075&quot;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>if you are also using the newer OData APIs note that
+they use a true 64-bit representation in the metadata
+but that, when serialised to JSON format, these values
+are represented as strings <em>without</em> the 0-padding on
+the left.  The only safe ways to compare two assessment
+IDs are:</p>
+<ol class="last arabic simple">
+<li>convert both values to strings, left padding to 16
+characters</li>
+<li>convert both values to 64-bit integers</li>
+</ol>
+</div>
+</div>
 <div class="section" id="extension-types">
 <span id="id1"></span><h2>Extension Types<a class="headerlink" href="#extension-types" title="Permalink to this headline">¶</a></h2>
 <p>QMWISe uses the XML schema technique of deriving types by extension.
@@ -194,6 +242,7 @@ not read and interpret the WSDL correctly.</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">QMWISe</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="qmwise/methods.html">Web Service Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#string-parameters">String Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assessment-ids">Assessment IDs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#extension-types">Extension Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#default-values">Default Values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#basic-types">Basic Types</a></li>

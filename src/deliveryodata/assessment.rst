@@ -14,8 +14,20 @@ Assessment
         :notnull:
 
         The full ID of the assessment, see
-        :qm:field:`S_Header_Ex.Session_MID`.
+        :qm:field:`S_Header_Ex.Session_MID` for details of the
+        underlying representation in the data model.
         
+        ..  warning::   when serialised to JSON format, 64-bit integers
+                        are converted to strings, even though they are
+                        still correctly identified as 64-bit integers in
+                        the metadata model.  OData aware tools should
+                        correctly convert to a native integer type but
+                        if you are parsing the JSON directly then you
+                        should be aware that these strings differ from
+                        the string representation used for the same ID
+                        when used in QMWISe methods.  For details see
+                        :ref:`assessmentid`.
+
     ..  od:prop::   Revision  Edm.Int32
         :notnull:
 

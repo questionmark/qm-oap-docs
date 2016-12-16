@@ -56,7 +56,21 @@ read only in OData.</p>
 <dt id="od-prop.deliveryodata.Assessment.ID">
 <em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The full ID of the assessment, see
-<a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.session_mid" title="Session_MID"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Session_MID</span></code></a>.</p>
+<a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.session_mid" title="Session_MID"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Session_MID</span></code></a> for details of the
+underlying representation in the data model.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">when serialised to JSON format, 64-bit integers
+are converted to strings, even though they are
+still correctly identified as 64-bit integers in
+the metadata model.  OData aware tools should
+correctly convert to a native integer type but
+if you are parsing the JSON directly then you
+should be aware that these strings differ from
+the string representation used for the same ID
+when used in QMWISe methods.  For details see
+<a class="reference internal" href="../qmwise.html#assessmentid"><span class="std std-ref">Assessment IDs</span></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="prop">

@@ -130,7 +130,8 @@ Getting Result Information
     the number of results for the assessment exceeds 10,000 records.
     
     The input parameter is given as type string but it must be the
-    numeric ID of the assessment. 
+    numeric ID of the assessment left-padded with 0s to a fixed length
+    of 16 characters.  See :ref:`assessmentid` for details.
 
     
 ..  qm:meth::   GetResultListByGroup
@@ -412,6 +413,10 @@ facilitated by the :od:svc:`Delivery OData<deliveryodata>` service.
     before creating results with :qm:meth:`CreateAssessmentResult` and
     similar methods.
 
+    The input parameter is given as type string but it must be the
+    numeric ID of the assessment left-padded with 0s to a fixed length
+    of 16 characters.  See :ref:`assessmentid` for details.
+
 
 ..  qm:meth::   GetAssessmentResultInfo2
     :input:     Assessment_ID           string
@@ -588,7 +593,8 @@ Result Types
     
         See :qm:field:`A_Result.Session_MID` for more information, the
         field value here is the combined ID, as per
-        :qm:field:`A_Result.Assessment_ID`
+        :qm:field:`A_Result.Assessment_ID` but *may* be left-padded with
+        0s.  See :ref:`assessmentid` for details.
 
     ..  qm:xfield:: Write_Answer_Data   boolean
 
@@ -1185,7 +1191,9 @@ Result Types
     
         See :qm:field:`A_Result.Session_MID` for more information, the
         field value here is the combined ID, as per
-        :qm:field:`A_Result.Assessment_ID`
+        :qm:field:`A_Result.Assessment_ID` but *may* be left-padded with
+        0s.  See :ref:`assessmentid` for details.
+
 
     ..  qm:xfield:: Write_Answer_Data   boolean
 

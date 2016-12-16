@@ -49,6 +49,55 @@ String Parameters
     using for further restrictions.
 
 
+..  _assessmentid:
+
+Assessment IDs
+~~~~~~~~~~~~~~
+
+In QMWISe, Assessment IDs are represented using :qm:xtype:`string`.
+These strings should always be padded with leading 0s to create a string
+of exactly 16 characters.  In the underlying data model assessment IDs
+are represented using two 32-bit integers (see :ref:`midlid`).
+
+For example, suppose an assessment has the following ID in the database::
+
+    MID = 38074658
+    LID = 94065740
+
+According to the rules for combining MID and LID this results in a
+64-bit assessment ID of::
+
+    ID = MID * 100000000 + LID = 3807465894065740
+
+In QMWISe you'll pass this 64-bit integer as a 16-character string::
+
+    "3807465894065740"
+
+Things are more complicated when the MID and LID have leading zeros,
+especially as some IDs follow the pattern MID = LID * 10 such as those
+in the following example::
+
+    MID = 320750
+    LID = 32075
+    ID = MID * 100000000 + LID = 32075000032075
+
+In QMWISe you must pass this 64-bit integer as a 16-character string
+with 0-padding on the left::
+
+    "0032075000032075"
+
+..  warning::   if you are also using the newer OData APIs note that
+                they use a true 64-bit representation in the metadata
+                but that, when serialised to JSON format, these values
+                are represented as strings *without* the 0-padding on
+                the left.  The only safe ways to compare two assessment
+                IDs are:
+
+                1.  convert both values to strings, left padding to 16
+                    characters
+                2.  convert both values to 64-bit integers
+
+
 ..  _extension_types:
 
 Extension Types
