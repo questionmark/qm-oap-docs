@@ -92,6 +92,31 @@ using for further restrictions.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="optional-parameters">
+<span id="qmwise-optional"></span><h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<p>For XML validation purposes it is important to realise that, if an
+element is present in a SOAP request then the content of the element
+must be a valid value for that element.  In the vast majority of cases,
+optional elements are defined to be of type <a class="reference internal" href="#qm-xtype.string" title="string"><code class="xref qm qm-xtype docutils literal"><span class="pre">string</span></code></a> so an
+empty element is interpreted as an empty string and in many cases is
+treated indistinguishably from an omitted element (which is interpreted
+as null).</p>
+<p>In cases where the element type is something other than string you must
+either omit the element (interpreted as null or as the default value
+given in the WSDL, see <a class="reference internal" href="#qmwise-defaults"><span class="std std-ref">Default Values</span></a>) or provide a valid value.
+For example, the <a class="reference internal" href="qmwise/participants.html#qm-xfield.Participant.Use_Correspondence" title="Use_Correspondence"><code class="xref qm qm-xfield docutils literal"><span class="pre">Participant.Use_Correspondence</span></code></a> field is
+declared as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">element</span> <span class="n">minOccurs</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">maxOccurs</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;0&quot;</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Use_Correspondence&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;int&quot;</span><span class="o">/&gt;</span>
+</pre></div>
+</div>
+<p>therefore, if you include this element in a request to create a
+participant it must contain a valid integer.  In this case the integer
+is used as a flag and only the values 0 and 1 are permitted.  You <em>may</em>
+omit the element completely which is equivalent to passing the value 0.
+A empty element will cause an error as the XML of the SOAP request will
+not be valid.</p>
+</div>
 <div class="section" id="assessment-ids">
 <span id="assessmentid"></span><h2>Assessment IDs<a class="headerlink" href="#assessment-ids" title="Permalink to this headline">¶</a></h2>
 <p>In QMWISe, Assessment IDs are represented using <a class="reference internal" href="#qm-xtype.string" title="string"><code class="xref qm qm-xtype docutils literal"><span class="pre">string</span></code></a>.
@@ -184,7 +209,7 @@ to a minimum in QMWISe and the current pattern of development is to add
 new methods rather than extending the types returned by existing ones.</p>
 </div>
 <div class="section" id="default-values">
-<h2>Default Values<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h2>
+<span id="qmwise-defaults"></span><h2>Default Values<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h2>
 <p>In some cases the WSDL for QMWISe defines structures with default
 values, for example, see <a class="reference internal" href="qmwise/schedules.html#qm-xfield.Schedule.Monitored" title="Monitored"><code class="xref qm qm-xfield docutils literal"><span class="pre">Schedule.Monitored</span></code></a>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">element</span> <span class="n">minOccurs</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">maxOccurs</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Monitored&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;s:int&quot;</span> <span class="o">/&gt;</span>
@@ -242,6 +267,7 @@ not read and interpret the WSDL correctly.</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">QMWISe</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="qmwise/methods.html">Web Service Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#string-parameters">String Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-parameters">Optional Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#assessment-ids">Assessment IDs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#extension-types">Extension Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#default-values">Default Values</a></li>

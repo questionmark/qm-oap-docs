@@ -49,6 +49,35 @@ String Parameters
     using for further restrictions.
 
 
+..  _qmwise_optional:
+
+Optional Parameters
+~~~~~~~~~~~~~~~~~~~
+
+For XML validation purposes it is important to realise that, if an
+element is present in a SOAP request then the content of the element
+must be a valid value for that element.  In the vast majority of cases,
+optional elements are defined to be of type :qm:xtype:`string` so an
+empty element is interpreted as an empty string and in many cases is
+treated indistinguishably from an omitted element (which is interpreted
+as null). 
+
+In cases where the element type is something other than string you must
+either omit the element (interpreted as null or as the default value
+given in the WSDL, see :ref:`qmwise_defaults`) or provide a valid value.
+For example, the :qm:xfield:`Participant.Use_Correspondence` field is
+declared as follows::
+
+    <element minOccurs="0" maxOccurs="1" default="0"
+        name="Use_Correspondence" type="int"/>
+
+therefore, if you include this element in a request to create a
+participant it must contain a valid integer.  In this case the integer
+is used as a flag and only the values 0 and 1 are permitted.  You *may*
+omit the element completely which is equivalent to passing the value 0.
+A empty element will cause an error as the XML of the SOAP request will
+not be valid.
+
 ..  _assessmentid:
 
 Assessment IDs
@@ -144,6 +173,8 @@ cause failures as this is precisely what the XML schema extension
 element was designed to achieve.  That said, this type of change is kept
 to a minimum in QMWISe and the current pattern of development is to add
 new methods rather than extending the types returned by existing ones.
+
+..  _qmwise_defaults:
 
 Default Values
 ~~~~~~~~~~~~~~

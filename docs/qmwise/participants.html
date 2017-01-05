@@ -48,53 +48,877 @@
 <h1>Participants<a class="headerlink" href="#participants" title="Permalink to this headline">¶</a></h1>
 <p>This part of the guide is under development.  Please refer to the
 <a class="reference external" href="https://www.questionmark.com/content/participants">Participants</a>
-section of the old guide.</p>
+section of the old guide for additional documentation.</p>
 <div class="section" id="participant-methods">
 <h2>Participant Methods<a class="headerlink" href="#participant-methods" title="Permalink to this headline">¶</a></h2>
 <dl class="meth">
 <dt id="qm-meth.CheckParticipant">
-<em class="property">method </em><code class="descname">CheckParticipant</code> ()<a class="headerlink" href="#qm-meth.CheckParticipant" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">method </em><code class="descname">CheckParticipant</code> (Participant_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>, Password <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.CheckParticipantResponse" title="CheckParticipantResponse">CheckParticipantResponse</a> <a class="headerlink" href="#qm-meth.CheckParticipant" title="Permalink to this definition">¶</a></dt>
+<dd><p>This return value is multi-valued and is documented below using an
+explicit type.</p>
+<p>Given a participant name and a plain text password this method
+checks the participant&#8217;s credentials against the corresponding user
+in the Questionmark database.</p>
+</dd></dl>
 
+<dl class="xtype">
+<dt id="qm-xtype.CheckParticipantResponse">
+<em class="property">complexType </em><code class="descname">CheckParticipantResponse</code><a class="headerlink" href="#qm-xtype.CheckParticipantResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>The element used for the return result of CheckParticipant.</p>
+<dl class="xfield">
+<dt id="qm-xfield.CheckParticipantResponse.Status">
+<code class="descname">Status</code> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.CheckParticipantResponse.Status" title="Permalink to this definition">¶</a></dt>
+<dd><ol class="arabic simple" start="0">
+<li>The participant exists and the password was correct.</li>
+<li>The participant exists but the password was incorrect.</li>
+<li>The participant does not exist</li>
+</ol>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.CheckParticipantResponse.Participant_ID">
+<code class="descname">Participant_ID</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.CheckParticipantResponse.Participant_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the participant exists <em>and</em> the password matches, the ID of
+the participant record.</p>
+</dd></dl>
+
+</dd></dl>
+
+<p>In the following example there is a participant with name j.doe but
+their password does not match &#8220;mysecretpassword&#8221;:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+    &lt;SOAP-ENV:Header/&gt;
+    &lt;SOAP-ENV:Body&gt;
+        &lt;CheckParticipant xmlns=&quot;http://questionmark.com/QMWISe/&quot;&gt;
+            &lt;Participant_Name&gt;j.doe&lt;/Participant_Name&gt;
+            &lt;Password&gt;mysecretpassword&lt;/Password&gt;
+        &lt;/CheckParticipant&gt;
+    &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;soap:Body&gt;
+        &lt;CheckParticipantResponse xmlns=&quot;http://questionmark.com/QMWISe/&quot;&gt;
+            &lt;Status&gt;1&lt;/Status&gt;
+            &lt;Participant_ID/&gt;
+        &lt;/CheckParticipantResponse&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</pre></div>
+</div>
+<p>When the password that is provided is correct, the response might look
+like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;soap:Body&gt;
+        &lt;CheckParticipantResponse xmlns=&quot;http://questionmark.com/QMWISe/&quot;&gt;
+            &lt;Status&gt;0&lt;/Status&gt;
+            &lt;Participant_ID&gt;530016516&lt;/Participant_ID&gt;
+        &lt;/CheckParticipantResponse&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</pre></div>
+</div>
 <dl class="meth">
 <dt id="qm-meth.CreateParticipant">
-<em class="property">method </em><code class="descname">CreateParticipant</code> ()<a class="headerlink" href="#qm-meth.CreateParticipant" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">method </em><code class="descname">CreateParticipant</code> (Participant <a class="reference internal" href="#qm-xtype.Participant" title="Participant">Participant</a>) returns <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a> <a class="headerlink" href="#qm-meth.CreateParticipant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to create a new participant in the repository.  The new user is
+created with the &#8220;Participant&#8221; role.  The following fields are
+mandatory when creating participants (despite having optional
+elements in the WSDL).</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><a class="reference internal" href="#qm-xfield.Participant.Participant_Name" title="Participant_Name"><code class="xref qm qm-xfield docutils literal"><span class="pre">Participant.Participant_Name</span></code></a></li>
+<li><a class="reference internal" href="#qm-xfield.Participant.Password" title="Password"><code class="xref qm qm-xfield docutils literal"><span class="pre">Participant.Password</span></code></a></li>
+<li><a class="reference internal" href="#qm-xfield.Participant.Primary_Email" title="Primary_Email"><code class="xref qm qm-xfield docutils literal"><span class="pre">Participant.Primary_Email</span></code></a></li>
+</ol>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Perception and Classic OnDemand do not require the
+Primary_Email field to be set.  Also, if you omit the
+Password element, or leave it blank, a user with no
+password is created.  They will not be able to log in
+until a password is assigned.</p>
+</div>
+<p>The password provided <em>must</em> satisfy the password policy in place
+for users with the Participant role.</p>
+<p>In the following example a weak password is provided and a
+corresponding fault is returned:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+    &lt;SOAP-ENV:Header/&gt;
+    &lt;SOAP-ENV:Body&gt;
+        &lt;CreateParticipant xmlns=&quot;http://questionmark.com/QMWISe/&quot;&gt;
+            &lt;Participant&gt;
+                &lt;Participant_Name&gt;test1&lt;/Participant_Name&gt;
+                &lt;Password&gt;password&lt;/Password&gt;
+                &lt;Primary_Email&gt;user@example.com&lt;/Primary_Email&gt;
+            &lt;/Participant&gt;
+        &lt;/CreateParticipant&gt;
+    &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;soap:Header/&gt;
+    &lt;soap:Body&gt;
+        &lt;soap:Fault&gt;
+            &lt;faultcode&gt;soap:Server&lt;/faultcode&gt;
+            &lt;faultstring&gt;Server was unable to process request. ---&amp;gt; The remote server
+                returned an error: (406) Not Acceptable.&lt;/faultstring&gt;
+            &lt;detail/&gt;
+        &lt;/soap:Fault&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</pre></div>
+</div>
+<p>A stronger password results in success:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+    &lt;SOAP-ENV:Header/&gt;
+    &lt;SOAP-ENV:Body&gt;
+        &lt;CreateParticipant xmlns=&quot;http://questionmark.com/QMWISe/&quot;&gt;
+            &lt;Participant&gt;
+                &lt;Participant_Name&gt;test1&lt;/Participant_Name&gt;
+                &lt;Password&gt;Stronger23Pa$$word&lt;/Password&gt;
+                &lt;Primary_Email&gt;user@example.com&lt;/Primary_Email&gt;
+            &lt;/Participant&gt;
+        &lt;/CreateParticipant&gt;
+    &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;soap:Header/&gt;
+    &lt;soap:Body&gt;
+        &lt;CreateParticipantResponse xmlns=&quot;http://questionmark.com/QMWISe/&quot;&gt;
+            &lt;Participant_ID&gt;46557971&lt;/Participant_ID&gt;
+        &lt;/CreateParticipantResponse&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="meth">
 <dt id="qm-meth.DeleteParticipant">
-<em class="property">method </em><code class="descname">DeleteParticipant</code> ()<a class="headerlink" href="#qm-meth.DeleteParticipant" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><code class="descname">DeleteParticipant</code> (Participant_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>)<a class="headerlink" href="#qm-meth.DeleteParticipant" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="meth">
 <dt id="qm-meth.GetParticipant">
-<em class="property">method </em><code class="descname">GetParticipant</code> ()<a class="headerlink" href="#qm-meth.GetParticipant" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><code class="descname">GetParticipant</code> (Participant_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.Participant" title="Participant">Participant</a> <a class="headerlink" href="#qm-meth.GetParticipant" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="meth">
 <dt id="qm-meth.GetParticipantByName">
-<em class="property">method </em><code class="descname">GetParticipantByName</code> ()<a class="headerlink" href="#qm-meth.GetParticipantByName" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><code class="descname">GetParticipantByName</code> (Participant_Name <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.Participant" title="Participant">Participant</a> <a class="headerlink" href="#qm-meth.GetParticipantByName" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="meth">
 <dt id="qm-meth.GetParticipantGroupList">
-<em class="property">method </em><code class="descname">GetParticipantGroupList</code> ()<a class="headerlink" href="#qm-meth.GetParticipantGroupList" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><code class="descname">GetParticipantGroupList</code> (Participant_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.GroupList" title="GroupList">GroupList</a> <a class="headerlink" href="#qm-meth.GetParticipantGroupList" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="meth">
 <dt id="qm-meth.GetParticipantList">
-<em class="property">method </em><code class="descname">GetParticipantList</code> ()<a class="headerlink" href="#qm-meth.GetParticipantList" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><code class="descname">GetParticipantList</code> () returns <a class="reference internal" href="#qm-xtype.ParticipantList" title="ParticipantList">ParticipantList</a> <a class="headerlink" href="#qm-meth.GetParticipantList" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="meth">
 <dt id="qm-meth.GetParticipantListByGroup">
-<em class="property">method </em><code class="descname">GetParticipantListByGroup</code> ()<a class="headerlink" href="#qm-meth.GetParticipantListByGroup" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><code class="descname">GetParticipantListByGroup</code> (Group_ID <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a>) returns <a class="reference internal" href="#qm-xtype.ParticipantList" title="ParticipantList">ParticipantList</a> <a class="headerlink" href="#qm-meth.GetParticipantListByGroup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="meth">
 <dt id="qm-meth.SetParticipant">
-<em class="property">method </em><code class="descname">SetParticipant</code> ()<a class="headerlink" href="#qm-meth.SetParticipant" title="Permalink to this definition">¶</a></dt>
+<em class="property">method </em><code class="descname">SetParticipant</code> (Participant <a class="reference internal" href="#qm-xtype.Participant" title="Participant">Participant</a>)<a class="headerlink" href="#qm-meth.SetParticipant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to update information about a participant.  To use this method
+you should perform a <a class="reference internal" href="#qm-meth.GetParticipant" title="GetParticipant"><code class="xref qm qm-meth docutils literal"><span class="pre">GetParticipant</span></code></a> call to obtain the
+full information about the participant, modify only those fields
+that you want to change and pass the resulting
+<a class="reference internal" href="#qm-xtype.Participant" title="Participant"><code class="xref qm qm-xtype docutils literal"><span class="pre">Participant</span></code></a> record to this method.</p>
+<p>See special notes under <a class="reference internal" href="#qm-xfield.Participant.Participant_ID" title="Participant_ID"><code class="xref qm qm-xfield docutils literal"><span class="pre">Participant.Participant_ID</span></code></a>,
+<a class="reference internal" href="#qm-xfield.Participant.Participant_Name" title="Participant_Name"><code class="xref qm qm-xfield docutils literal"><span class="pre">Participant.Participant_Name</span></code></a> and
+<a class="reference internal" href="#qm-xfield.Participant.Password" title="Password"><code class="xref qm qm-xfield docutils literal"><span class="pre">Participant.Password</span></code></a> for important information about
+the special treatment of these values.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You cannot delete demographic values with this
+method. If you pass a value as an empty string or
+omit the corresponding element you may get
+inconsistent results in Questionmark OnDemand.  In
+Perception and Classic OnDemand the value will be
+removed from the participant&#8217;s record.</p>
+</div>
+<p>Although <a class="reference internal" href="#qm-meth.GetParticipant" title="GetParticipant"><code class="xref qm qm-meth docutils literal"><span class="pre">GetParticipant</span></code></a> returns information about the
+groups that a participant is a member of you cannot use
+SetParticipant to alter this list.  Use
+<a class="reference internal" href="groups.html#qm-meth.AddGroupParticipantList" title="AddGroupParticipantList"><code class="xref qm qm-meth docutils literal"><span class="pre">AddGroupParticipantList</span></code></a> and
+<a class="reference internal" href="groups.html#qm-meth.DeleteGroupParticipantList" title="DeleteGroupParticipantList"><code class="xref qm qm-meth docutils literal"><span class="pre">DeleteGroupParticipantList</span></code></a> to make this type of change.</p>
+<p>The following sequence of XML requests/responses shows how you might
+update a participant&#8217;s personal name, address and email while
+leaving other information unchanged (notice that Participant_Name
+<em>cannot</em> be modified):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+    &lt;SOAP-ENV:Header/&gt;
+    &lt;SOAP-ENV:Body&gt;
+        &lt;GetParticipant xmlns=&quot;http://questionmark.com/QMWISe/&quot;&gt;
+            &lt;Participant_ID&gt;46557971&lt;/Participant_ID&gt;
+        &lt;/GetParticipant&gt;
+    &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;soap:Header/&gt;
+    &lt;soap:Body&gt;
+        &lt;GetParticipantResponse xmlns=&quot;http://questionmark.com/QMWISe/&quot;&gt;
+            &lt;Participant&gt;
+                &lt;Participant_ID&gt;46557971&lt;/Participant_ID&gt;
+                &lt;Participant_Name&gt;j.doe&lt;/Participant_Name&gt;
+                &lt;Password/&gt;
+                &lt;First_Name&gt;Jane&lt;/First_Name&gt;
+                &lt;Last_Name&gt;Doe&lt;/Last_Name&gt;
+                &lt;Middle_Name/&gt;
+                &lt;Primary_Address_1&gt;100 Main Street&lt;/Primary_Address_1&gt;
+                &lt;Primary_Address_2&gt;Apartment 5&lt;/Primary_Address_2&gt;
+                &lt;Primary_City&gt;Townsville&lt;/Primary_City&gt;
+                &lt;Primary_State&gt;Western Territory&lt;/Primary_State&gt;
+                &lt;Primary_ZIP_Code/&gt;
+                &lt;Primary_Country&gt;Elbonia&lt;/Primary_Country&gt;
+                &lt;Primary_Phone/&gt;
+                &lt;Primary_Fax/&gt;
+                &lt;Primary_Email&gt;j.doe@example.com&lt;/Primary_Email&gt;
+                &lt;Secondary_Address_1/&gt;
+                &lt;Secondary_Address_2/&gt;
+                &lt;Secondary_City/&gt;
+                &lt;Secondary_State/&gt;
+                &lt;Secondary_ZIP_Code/&gt;
+                &lt;Secondary_Country/&gt;
+                &lt;Secondary_Phone/&gt;
+                &lt;Secondary_Fax/&gt;
+                &lt;Secondary_Email/&gt;
+                &lt;Salutation/&gt;
+                &lt;Organization_Name/&gt;
+                &lt;Department/&gt;
+                &lt;Title/&gt;
+                &lt;Assistant_Name/&gt;
+                &lt;Manager_Name/&gt;
+                &lt;Gender/&gt;
+                &lt;URL/&gt;
+                &lt;Details&gt;Jane Doe&lt;/Details&gt;
+                &lt;Details_1&gt;&lt;/Details_1&gt;
+                &lt;Details_2&gt;&lt;/Details_2&gt;
+                &lt;Details_3&gt;&lt;/Details_3&gt;
+                &lt;Details_4/&gt;
+                &lt;Details_5&gt;&lt;/Details_5&gt;
+                &lt;Details_6/&gt;
+                &lt;Details_7/&gt;
+                &lt;Details_8/&gt;
+                &lt;Details_9/&gt;
+                &lt;Details_10/&gt;
+                &lt;Details_11/&gt;
+                &lt;Details_12/&gt;
+                &lt;Details_13/&gt;
+                &lt;Details_14/&gt;
+                &lt;Details_15/&gt;
+                &lt;Details_16/&gt;
+                &lt;Details_17/&gt;
+                &lt;Details_18/&gt;
+                &lt;Details_19/&gt;
+                &lt;Details_20/&gt;
+                &lt;GroupIDList/&gt;
+                &lt;Date_Registration&gt;2017-01-05&lt;/Date_Registration&gt;
+            &lt;/Participant&gt;
+        &lt;/GetParticipantResponse&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+
+&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+    &lt;SOAP-ENV:Header/&gt;
+    &lt;SOAP-ENV:Body&gt;
+        &lt;SetParticipant xmlns=&quot;http://questionmark.com/QMWISe/&quot;&gt;
+            &lt;Participant&gt;
+                &lt;Participant_ID&gt;46557971&lt;/Participant_ID&gt;
+                &lt;Participant_Name&gt;j.doe&lt;/Participant_Name&gt;
+                &lt;Password/&gt;
+                &lt;First_Name&gt;Jane&lt;/First_Name&gt;
+                &lt;Last_Name&gt;Smith&lt;/Last_Name&gt;
+                &lt;Middle_Name/&gt;
+                &lt;Primary_Address_1&gt;57 Western Avenue&lt;/Primary_Address_1&gt;
+                &lt;Primary_Address_2&gt;&lt;/Primary_Address_2&gt;
+                &lt;Primary_City&gt;Cityborough&lt;/Primary_City&gt;
+                &lt;Primary_State&gt;Western Territory&lt;/Primary_State&gt;
+                &lt;Primary_ZIP_Code/&gt;
+                &lt;Primary_Country&gt;Elbonia&lt;/Primary_Country&gt;
+                &lt;Primary_Phone/&gt;
+                &lt;Primary_Fax/&gt;
+                &lt;Primary_Email&gt;j.smith@example.com&lt;/Primary_Email&gt;
+                &lt;Secondary_Address_1/&gt;
+                &lt;Secondary_Address_2/&gt;
+                &lt;Secondary_City/&gt;
+                &lt;Secondary_State/&gt;
+                &lt;Secondary_ZIP_Code/&gt;
+                &lt;Secondary_Country/&gt;
+                &lt;Secondary_Phone/&gt;
+                &lt;Secondary_Fax/&gt;
+                &lt;Secondary_Email/&gt;
+                &lt;Salutation/&gt;
+                &lt;Organization_Name/&gt;
+                &lt;Department/&gt;
+                &lt;Title/&gt;
+                &lt;Assistant_Name/&gt;
+                &lt;Manager_Name/&gt;
+                &lt;Gender/&gt;
+                &lt;URL/&gt;
+                &lt;Details&gt;Jane Smith&lt;/Details&gt;
+                &lt;Details_1&gt;&lt;/Details_1&gt;
+                &lt;Details_2&gt;&lt;/Details_2&gt;
+                &lt;Details_3&gt;&lt;/Details_3&gt;
+                &lt;Details_4/&gt;
+                &lt;Details_5&gt;&lt;/Details_5&gt;
+                &lt;Details_6/&gt;
+                &lt;Details_7/&gt;
+                &lt;Details_8/&gt;
+                &lt;Details_9/&gt;
+                &lt;Details_10/&gt;
+                &lt;Details_11/&gt;
+                &lt;Details_12/&gt;
+                &lt;Details_13/&gt;
+                &lt;Details_14/&gt;
+                &lt;Details_15/&gt;
+                &lt;Details_16/&gt;
+                &lt;Details_17/&gt;
+                &lt;Details_18/&gt;
+                &lt;Details_19/&gt;
+                &lt;Details_20/&gt;
+                &lt;GroupIDList/&gt;
+                &lt;Date_Registration&gt;2017-01-05&lt;/Date_Registration&gt;
+            &lt;/Participant&gt;
+        &lt;/SetParticipant&gt;
+    &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;soap:Header/&gt;
+    &lt;soap:Body&gt;
+        &lt;SetParticipantResponse xmlns=&quot;http://questionmark.com/QMWISe/&quot;/&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.Participant">
+<em class="property">complexType </em><code class="descname">Participant</code><a class="headerlink" href="#qm-xtype.Participant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Most of the data in the Participant element is optional and
+corresponds directly to the similarly named demographic fields
+available through the administrative user interface.</p>
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Participant_ID">
+<code class="descname">Participant_ID</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Participant_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numeric ID of the participant.  On creation, this field
+should be left blank or omitted and a random ID will be be
+generated automatically.  When updating the information for a
+participant with <a class="reference internal" href="#qm-meth.SetParticipant" title="SetParticipant"><code class="xref qm qm-meth docutils literal"><span class="pre">SetParticipant</span></code></a> you must specify this
+field as it is used to identify the participant being updated.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Participant_Name">
+<code class="descname">Participant_Name</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Participant_Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user name of the participant.  On creation this field is
+<em>required</em>.  When updating the information for a participant
+with <a class="reference internal" href="#qm-meth.SetParticipant" title="SetParticipant"><code class="xref qm qm-meth docutils literal"><span class="pre">SetParticipant</span></code></a> you should always pass the
+existing participant name (for backwards compatibility).</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">In Questionmark OnDemand, any attempt to change
+the name of a participant using
+<a class="reference internal" href="#qm-meth.SetParticipant" title="SetParticipant"><code class="xref qm qm-meth docutils literal"><span class="pre">SetParticipant</span></code></a> will be ignored
+whereas in Perception and Classic OnDemand the
+participant&#8217;s user name will be changed.  For
+compatibility you should not rely on being able
+to change participant names.</p>
+</div>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Password">
+<code class="descname">Password</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Password" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user&#8217;s password.  On creation this field must contain a
+password that satisfies the password policy in operation.  When
+reading participant information this field is always blank, on
+update you should leave it blank unless you want to force a
+password change in which case pass the new password in this
+field and ensure it satisfies the password policy.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.First_Name">
+<code class="descname">First_Name</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.First_Name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Last_Name">
+<code class="descname">Last_Name</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Last_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Middle_Name">
+<code class="descname">Middle_Name</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Middle_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Use_Correspondence">
+<code class="descname">Use_Correspondence</code> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Use_Correspondence" title="Permalink to this definition">¶</a></dt>
+<dd><p>This field is no longer used and should be set to 0.  See also
+<a class="reference internal" href="../qmwise.html#qmwise-optional"><span class="std std-ref">Optional Parameters</span></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Primary_Address_1">
+<code class="descname">Primary_Address_1</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Primary_Address_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Primary_Address_2">
+<code class="descname">Primary_Address_2</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Primary_Address_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Primary_City">
+<code class="descname">Primary_City</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Primary_City" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Primary_State">
+<code class="descname">Primary_State</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Primary_State" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Primary_ZIP_Code">
+<code class="descname">Primary_ZIP_Code</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Primary_ZIP_Code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Primary_Country">
+<code class="descname">Primary_Country</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Primary_Country" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Primary_Phone">
+<code class="descname">Primary_Phone</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Primary_Phone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Primary_Fax">
+<code class="descname">Primary_Fax</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Primary_Fax" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Primary_Email">
+<code class="descname">Primary_Email</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Primary_Email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Secondary_Address_1">
+<code class="descname">Secondary_Address_1</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Secondary_Address_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Secondary_Address_2">
+<code class="descname">Secondary_Address_2</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Secondary_Address_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Secondary_City">
+<code class="descname">Secondary_City</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Secondary_City" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Secondary_State">
+<code class="descname">Secondary_State</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Secondary_State" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Secondary_ZIP_Code">
+<code class="descname">Secondary_ZIP_Code</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Secondary_ZIP_Code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Secondary_Country">
+<code class="descname">Secondary_Country</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Secondary_Country" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Secondary_Phone">
+<code class="descname">Secondary_Phone</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Secondary_Phone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Secondary_Fax">
+<code class="descname">Secondary_Fax</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Secondary_Fax" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Secondary_Email">
+<code class="descname">Secondary_Email</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Secondary_Email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Salutation">
+<code class="descname">Salutation</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Salutation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Organization_Name">
+<code class="descname">Organization_Name</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Organization_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Department">
+<code class="descname">Department</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Department" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Title">
+<code class="descname">Title</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Assistant_Name">
+<code class="descname">Assistant_Name</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Assistant_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Manager_Name">
+<code class="descname">Manager_Name</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Manager_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Gender">
+<code class="descname">Gender</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Gender" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.URL">
+<code class="descname">URL</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details">
+<code class="descname">Details</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_1">
+<code class="descname">Details_1</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_2">
+<code class="descname">Details_2</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_3">
+<code class="descname">Details_3</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_4">
+<code class="descname">Details_4</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_5">
+<code class="descname">Details_5</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_6">
+<code class="descname">Details_6</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_7">
+<code class="descname">Details_7</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_7" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_8">
+<code class="descname">Details_8</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_9">
+<code class="descname">Details_9</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_9" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_10">
+<code class="descname">Details_10</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_10" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_11">
+<code class="descname">Details_11</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_11" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_12">
+<code class="descname">Details_12</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_12" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_13">
+<code class="descname">Details_13</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_13" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_14">
+<code class="descname">Details_14</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_14" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_15">
+<code class="descname">Details_15</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_15" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_16">
+<code class="descname">Details_16</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_17">
+<code class="descname">Details_17</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_17" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_18">
+<code class="descname">Details_18</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_18" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_19">
+<code class="descname">Details_19</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_19" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Details_20">
+<code class="descname">Details_20</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Details_20" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Authenticate_Ext">
+<code class="descname">Authenticate_Ext</code> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Authenticate_Ext" title="Permalink to this definition">¶</a></dt>
+<dd><p>This field is no longer used and should be set to 0.  See also
+<a class="reference internal" href="../qmwise.html#qmwise-optional"><span class="std std-ref">Optional Parameters</span></a>.</p>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.GroupIDList">
+<code class="descname">GroupIDList</code> <a class="reference internal" href="#qm-xtype.GroupIDList" title="GroupIDList">GroupIDList</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.GroupIDList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to return a list of IDs identifying the groups that the
+participant is a member of.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">On create and update this field is ignored.  You
+cannot use this field to modify group memberships
+using <a class="reference internal" href="#qm-meth.SetParticipant" title="SetParticipant"><code class="xref qm qm-meth docutils literal"><span class="pre">SetParticipant</span></code></a> or to enrole
+participants automatically on creation.</p>
+</div>
+</dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Participant.Date_Registration">
+<code class="descname">Date_Registration</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Participant.Date_Registration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.GroupIDList">
+<em class="property">complexType </em><code class="descname">GroupIDList</code><a class="headerlink" href="#qm-xtype.GroupIDList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.GroupIDList.Group_ID">
+<code class="descname">Group_ID</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.GroupIDList.Group_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of a group that the participant is a member of.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.ParticipantList">
+<em class="property">complexType </em><code class="descname">ParticipantList</code><a class="headerlink" href="#qm-xtype.ParticipantList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.ParticipantList.Participant">
+<code class="descname">Participant</code> <a class="reference internal" href="#qm-xtype.Participant" title="Participant">Participant</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.ParticipantList.Participant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.Group">
+<em class="property">complexType </em><code class="descname">Group</code><a class="headerlink" href="#qm-xtype.Group" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.Group.Group_ID">
+<code class="descname">Group_ID</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Group_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Parent_ID">
+<code class="descname">Parent_ID</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Parent_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Group_Name">
+<code class="descname">Group_Name</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Group_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Description">
+<code class="descname">Description</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Account_Internal_Ref">
+<code class="descname">Account_Internal_Ref</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Account_Internal_Ref" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Account_Admin_Email">
+<code class="descname">Account_Admin_Email</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Account_Admin_Email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Directory_Name">
+<code class="descname">Directory_Name</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Directory_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Account_Status">
+<code class="descname">Account_Status</code> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Group.Account_Status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Special_1">
+<code class="descname">Special_1</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Special_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Special_2">
+<code class="descname">Special_2</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Special_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Special_3">
+<code class="descname">Special_3</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Special_3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Special_4">
+<code class="descname">Special_4</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Special_4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Special_5">
+<code class="descname">Special_5</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Special_5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Special_6">
+<code class="descname">Special_6</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Special_6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Special_7">
+<code class="descname">Special_7</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Special_7" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Special_8">
+<code class="descname">Special_8</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Special_8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Special_9">
+<code class="descname">Special_9</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Special_9" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Special_10">
+<code class="descname">Special_10</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Special_10" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Max_Participants">
+<code class="descname">Max_Participants</code> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Group.Max_Participants" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Max_Sessions_Attempt">
+<code class="descname">Max_Sessions_Attempt</code> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Group.Max_Sessions_Attempt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Session_Taken">
+<code class="descname">Session_Taken</code> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Group.Session_Taken" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Account_Password">
+<code class="descname">Account_Password</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Account_Password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Account_Type">
+<code class="descname">Account_Type</code> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Group.Account_Type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Use_Emailing">
+<code class="descname">Use_Emailing</code> <a class="reference internal" href="../qmwise.html#qm-xtype.int" title="int">int</a><em class="property"> required</em><a class="headerlink" href="#qm-xfield.Group.Use_Emailing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Email_Domains">
+<code class="descname">Email_Domains</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Email_Domains" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="xfield">
+<dt id="qm-xfield.Group.Account_Finish">
+<code class="descname">Account_Finish</code> <a class="reference internal" href="../qmwise.html#qm-xtype.string" title="string">string</a><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.Group.Account_Finish" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="xtype">
+<dt id="qm-xtype.GroupList">
+<em class="property">complexType </em><code class="descname">GroupList</code><a class="headerlink" href="#qm-xtype.GroupList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="xfield">
+<dt id="qm-xfield.GroupList.Group">
+<code class="descname">Group</code> <a class="reference internal" href="#qm-xtype.Group" title="Group">Group</a><em class="property"> unbounded</em><em class="property"> optional</em><a class="headerlink" href="#qm-xfield.GroupList.Group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
 
 </div>
 </div>
@@ -114,6 +938,7 @@ section of the old guide.</p>
 <li class="toctree-l1 current"><a class="reference internal" href="../qmwise.html">QMWISe</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="methods.html">Web Service Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../qmwise.html#string-parameters">String Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qmwise.html#optional-parameters">Optional Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../qmwise.html#assessment-ids">Assessment IDs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../qmwise.html#extension-types">Extension Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../qmwise.html#default-values">Default Values</a></li>

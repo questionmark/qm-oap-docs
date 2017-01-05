@@ -49,20 +49,39 @@
 <dl class="table">
 <dt id="qm-table.g_participant">
 <em class="property">TABLE </em><code class="descname">G_Participant</code><a class="headerlink" href="#qm-table.g_participant" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field">
+<dd><p>Records all partipants.  A participant is any user that has the
+&#8220;Participant&#8221; role within the portal.  The table does not contain
+the authoritative information about the user but is maintained as a
+mirror of the key fields for backwards compatibility.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For Perception 5.7 and Questionmark OnDemand Classic and
+OnDemand with Classic Participants, this table is
+authoritative.</p>
+</div>
+<dl class="field">
 <dt id="qm-field.g_participant.participant_id">
 <em class="property">Primary Key: </em><code class="descname">Participant_ID</code> int NOT NULL<a class="headerlink" href="#qm-field.g_participant.participant_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The integer key used to uniquely identify the participant.  This
+number is assigned randomly when the participant is created.</p>
+</dd></dl>
 
 <dl class="field">
 <dt id="qm-field.g_participant.participant_name">
 <code class="descname">Participant_Name</code> varchar(200) NOT NULL<a class="headerlink" href="#qm-field.g_participant.participant_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The participant&#8217;s user name.  On creation this value is checked
+for uniqueness.  The following characters are considered illegal
+in participant names:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot; &#39; &amp; </span><span class="se">\\</span><span class="s2"> / , | £ &lt; &gt; : #</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="field">
 <dt id="qm-field.g_participant.password">
 <code class="descname">Password</code> varchar(80)<a class="headerlink" href="#qm-field.g_participant.password" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Legacy field for internal use only.</p>
+</dd></dl>
 
 <dl class="field">
 <dt id="qm-field.g_participant.authenticate_ext">

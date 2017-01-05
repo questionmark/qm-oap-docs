@@ -1,17 +1,38 @@
 G_Participant
 -------------
 
+
 ..  qm:table::  G_Participant
 
+    Records all partipants.  A participant is any user that has the
+    "Participant" role within the portal.  The table does not contain
+    the authoritative information about the user but is maintained as a
+    mirror of the key fields for backwards compatibility.
+
+    ..  note::  For Perception 5.7 and Questionmark OnDemand Classic and
+                OnDemand with Classic Participants, this table is
+                authoritative.
+        
     ..  qm:field:: Participant_ID int
         :key:
         :notnull:
 
+        The integer key used to uniquely identify the participant.  This
+        number is assigned randomly when the participant is created.
+        
     ..  qm:field:: Participant_Name varchar(200)
         :notnull:
 
+        The participant's user name.  On creation this value is checked
+        for uniqueness.  The following characters are considered illegal
+        in participant names::
+        
+            " ' & \\ / , | £ < > : #
+        
     ..  qm:field:: Password varchar(80)
 
+        Legacy field for internal use only.
+        
     ..  qm:field:: Authenticate_Ext int
         :notnull:
 
