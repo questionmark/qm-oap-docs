@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MonitoringType &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.10.12a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
+    <link rel="up" title="Entity Type Reference" href="types.html" />
+    <link rel="next" title="Participant" href="participant.html" />
+    <link rel="prev" title="Group" href="group.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="monitoringtype">
+<h1>MonitoringType<a class="headerlink" href="#monitoringtype" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="od-type.deliveryodata.MonitoringType">
+<em class="property">EntityType: </em><code class="descname">MonitoringType</code><a class="headerlink" href="#od-type.deliveryodata.MonitoringType" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.07.</span></p>
+</div>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numeric ID of this monitoring type.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.Name">
+<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A language-independent name to be used as an alternative key for
+this monitoring type.  This version of the key is used to
+look-up language dependent human-readable text and is set to a
+(readable) symbolic textual identifier for this type of
+monitoring. Example values are: &#8220;UNMONITORED&#8221;,
+&#8220;QSB_WITH_EVENTS&#8221;, etc.</p>
+<p>You should not assume any specific behaviour based purely on the
+name. Monitoring types contain additional attributes that
+determine how (monitored) attempts are launched by the
+participant, some of which are exposed here to help API
+consumers to select an appropriate type for a specific Schedule
+or Attempt.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.RequireQSB">
+<code class="descname">RequireQSB</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireQSB" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+</div>
+<p>A flag indicating whether or not Attempts launched with this
+Monitoring type <em>MUST</em> use Questionmark&#8217;s Secure Browser
+technology.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.RequireDeviceEvents">
+<code class="descname">RequireDeviceEvents</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireDeviceEvents" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+</div>
+<p>A flag indicating whether or not Attempts launched with this
+Monitoring type <em>MUST</em> use Questionmark&#8217;s next-generation device
+monitoring technology (currently requires Questionmark Secure
+Browser).</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.SystemCheckUrl">
+<code class="descname">SystemCheckUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.SystemCheckUrl" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+</div>
+<p>An optional URL that will be displayed to the participant on
+entering the exam lobby to assist with checking compatibility
+of the participant&#8217;s device against the technology requirements
+of this monitoring technology.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+  <li><a href="types.html">Entity Type Reference</a><ul>
+      <li>Previous: <a href="group.html" title="previous chapter">Group</a></li>
+      <li>Next: <a href="participant.html" title="next chapter">Participant</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/deliveryodata/monitoring_type.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

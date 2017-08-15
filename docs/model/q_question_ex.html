@@ -106,7 +106,22 @@ alone will not necessarily return unique records.</p>
 <dl class="field">
 <dt id="qm-field.q_question_ex.status">
 <code class="descname">Status</code> smallint NOT NULL<a class="headerlink" href="#qm-field.q_question_ex.status" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><ol class="arabic simple" start="0">
+<li>Normal</li>
+<li>Retired.  These questions are not selected for delivery when
+randomly picking questions (or selecting all) from a topic
+in a block but are delivered if included individually.</li>
+<li>Incomplete.  These questions are not selected for delivery
+when randomly picking questions  (or selecting all)  from a
+topic in a block but are delivered if included individually.</li>
+<li>Experimental.  These questions <em>are</em> selected for delivery
+but do not contribute to the test or topic score.</li>
+<li>Beta.  These questions are treated as &#8216;normal&#8217; during
+delivery.  The alternative status value is for information
+and reporting only</li>
+<li>Tryout.  Used internally.</li>
+</ol>
+</dd></dl>
 
 <dl class="field">
 <dt id="qm-field.q_question_ex.irt_a">

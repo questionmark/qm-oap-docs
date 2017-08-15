@@ -256,9 +256,11 @@ obtained by navigation from the associated
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>AttemptMetadata</strong> &#8211; expands the optional metadata</li>
 <li><strong>AnswerUpload</strong> &#8211; expands the optional associated AnswerUpload</li>
 <li><strong>AttemptList</strong> &#8211; expands the optional associated AttemptList</li>
+<li><strong>AttemptMetadata</strong> &#8211; expands the optional metadata</li>
+<li><strong>MonitoringType</strong> &#8211; expands the optional MonitoringType</li>
+<li><strong>Result</strong> &#8211; expands the optional Result</li>
 </ul>
 </td>
 </tr>
@@ -533,6 +535,33 @@ per-dimension basis.</p>
 </table>
 <p>The Groups feed contains data about groups of participants.  Entries
 are defined by the <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><code class="xref od od-type docutils literal"><span class="pre">Group</span></code></a> type.</p>
+</dd></dl>
+
+<dl class="feed">
+<dt id="od-feed.deliveryodata.MonitoringTypes">
+<code class="descname">MonitoringTypes</code> <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType">MonitoringType</a><a class="headerlink" href="#od-feed.deliveryodata.MonitoringTypes" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>Name</strong> &#8211; primary key</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The MonitoringTypes feed contains data about methods of monitoring
+assessments. Entries are defined by the <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal"><span class="pre">MonitoringType</span></code></a>
+type.</p>
 </dd></dl>
 
 <dl class="feed">

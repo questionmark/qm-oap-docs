@@ -16,6 +16,8 @@ authoritative source of user information.
     g_owner
     g_participant
     g_schedule
+    g_session
+    g_test_center
     g_user
 
 

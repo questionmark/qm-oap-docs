@@ -134,6 +134,28 @@ when used in QMWISe methods.  For details see
 associated with this assessment.</p>
 </dd></dl>
 
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Assessment.Groups">
+<code class="descname">Groups</code> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Groups" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+</div>
+<p>Navigation property to the collection of Group entities
+associated with this assessment.  Assessments are a associated
+with groups through the concept of &#8220;Scheduling Permissions&#8221; that
+are set on <em>Published</em> Assessments.  By assigning a group to an
+assessment you enable (administrator) members of that group to
+create schedules for that assessment.</p>
+<p>These associations are used by the QMWISe method
+<a class="reference internal" href="../qmwise/assessment.html#qm-meth.GetAssessmentListByAdministrator" title="GetAssessmentListByAdministrator"><code class="xref qm qm-meth docutils literal"><span class="pre">GetAssessmentListByAdministrator</span></code></a> to determine which
+assessments are returned.  This constrasts with the
+author-centric associations returned by
+<a class="reference internal" href="../qmwise/assessment.html#qm-meth.GetAssessmentTreeByAdministrator" title="GetAssessmentTreeByAdministrator"><code class="xref qm qm-meth docutils literal"><span class="pre">GetAssessmentTreeByAdministrator</span></code></a> that are <em>not</em>
+available through OData.</p>
+<p>This relationship is represented in the model by
+<a class="reference internal" href="../model/g_session.html#qm-table.g_session" title="G_Session"><code class="xref qm qm-table docutils literal"><span class="pre">G_Session</span></code></a>.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>

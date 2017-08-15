@@ -11,9 +11,12 @@ Entity Type Reference
     assessmentsnapshot
     attempt
     group
+    monitoring_type
     participant
     printbatch
     question
     result
     rubric
+    schedule
     scoringtask
+    testcenter

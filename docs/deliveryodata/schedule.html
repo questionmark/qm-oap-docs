@@ -1,0 +1,490 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Schedule and ScheduleMetadata &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.10.12a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
+    <link rel="up" title="Entity Type Reference" href="types.html" />
+    <link rel="next" title="ScoringTask, ScoringResult and DimensionScore" href="scoringtask.html" />
+    <link rel="prev" title="Rubric and Dimension" href="rubric.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="schedule-and-schedulemetadata">
+<h1>Schedule and ScheduleMetadata<a class="headerlink" href="#schedule-and-schedulemetadata" title="Permalink to this headline">¶</a></h1>
+<p>These entities represent the next-generation scheduling API that has
+been redesigned to focus on the different monitoring types available in
+Questionmark OnDemand and OnPremise.</p>
+<p>The Schedules discussed here are <em>not</em> related to the G_Schedule table
+and they are <em>not</em> related to the classic schedule entities created
+using QMWISe.</p>
+<p>The following call illustrates the simplest way to create a schedule
+called &#8220;Demo Schedule&#8221; for a the Group with ID 8320236:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">&gt;/</span><span class="n">Schedules</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo Schedule&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;65433000065433&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GroupID&quot;</span><span class="p">:</span> <span class="mi">8320236</span><span class="p">,</span>
+    <span class="s2">&quot;MonitoringTypeID&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example response:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">201</span> <span class="n">Created</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/&lt;customer&gt;/$metadata#Schedules/@Element&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="mi">11609</span><span class="p">,</span>
+    <span class="s2">&quot;ParentScheduleID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ExternalID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo Schedule&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;65433000065433&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Language&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;GroupID&quot;</span><span class="p">:</span> <span class="mi">8320236</span><span class="p">,</span>
+    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;StartFrom&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;StartTo&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ResumeTo&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ReportFrom&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ReportTo&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ExtraTime&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;MaxAttempts&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;MonitoringTypeID&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;ObserverID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;Created&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-08-15T12:04:28.0154826Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-08-15T12:04:28.0154826Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hidden&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;Disabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;ResumeAllowed&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;TestCenterID&quot;</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The ID is a unique key for the Schedule and is set automatically on
+creation, the input value is ignored.</p>
+<p>The AssessmentID and one of the GroupID or ParticipantID MUST be
+specified.</p>
+<div class="section" id="schedules-reference">
+<h2>Schedules Reference<a class="headerlink" href="#schedules-reference" title="Permalink to this headline">¶</a></h2>
+<dl class="type">
+<dt id="od-type.deliveryodata.Schedule">
+<em class="property">EntityType: </em><code class="descname">Schedule</code><a class="headerlink" href="#od-type.deliveryodata.Schedule" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.07.</span></p>
+</div>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unique integer key for this schedule.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ParentScheduleID">
+<code class="descname">ParentScheduleID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ParentScheduleID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID to the optional parent schedule.  A schedule may have a
+parent if it is for a specific participant
+(<a class="reference internal" href="#od-prop.deliveryodata.Schedule.ParticipantID" title="ParticipantID"><code class="xref od od-prop docutils literal"><span class="pre">ParticipantID</span></code></a> is not null) <em>and</em> the parent is a
+group schedule <em>without</em> a ParticipantID).  Essentially, a child
+schedule is an exception for a specific candidate to a general
+schedule set out in the parent. You can think of these as being
+similar to the way calendar tools deal with recurring meetings
+and exceptions only, in this case, the &#8216;recurrence&#8217; refers to
+one scheduling applying to multiple participants and the
+exception with the schedule for a specific participant.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ExternalID">
+<code class="descname">ExternalID</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ExternalID" title="Permalink to this definition">¶</a></dt>
+<dd><p>An external identifier for the schedule.  This value is intended
+to be used by external scheduling modules that contain their own
+business rules.  Such a module may set this property on creation
+and then use it later to locate information in its own database
+that relates to this schedule.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.Name">
+<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A human-readable name for this schedule.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.AssessmentID">
+<code class="descname">AssessmentID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.AssessmentID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The assessment that is being scheduled.  This is required and
+cannot be changed using PATCH.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.Language">
+<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Language" title="Permalink to this definition">¶</a></dt>
+<dd><p>The language of the assessment that is being scheduled.  In
+cases where the assessment may be available in multiple
+languages this allows a schedule to be for a specific language
+version.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.GroupID">
+<code class="descname">GroupID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.GroupID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The (optional) group associated with this schedule.  The group
+information is copied to the result when the participants takes
+an attempt based on the schedule and so is then available for
+filtering results.  Groups are also used to control permissions
+and are used to determine which schedules are returned by the
+related actions.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ParticipantID">
+<code class="descname">ParticipantID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ParticipantID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the participant that this schedule is for.  This is
+optional though one of GroupID and/or ParticipantID <em>MUST</em> be
+present.  (In future, this constraint may be relaxed to enable
+assessments to be scheduled to all users.)</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.Disabled">
+<code class="descname">Disabled</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Disabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set to True to disable this schedule.  The participant will not
+be able to start or resume the assessment even if the time is
+within the Start/Resume windows.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.StartFrom">
+<code class="descname">StartFrom</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Schedule.StartFrom" title="Permalink to this definition">¶</a></dt>
+<dd><p>The UTC time that constrains when this schedule may be started
+by the participant.  If null there is not restriction and the
+participant may start the assessment now (subject to StartTo).</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.StartTo">
+<code class="descname">StartTo</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Schedule.StartTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>The UTC time that constrains the latest time this schedule may
+be started by participant.  If null there is no restriction and
+the participant may start the assessment at any time in the
+future subject to StartFrom.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ResumeAllowed">
+<code class="descname">ResumeAllowed</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ResumeAllowed" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+</div>
+<p>Set to True to enable failed attempts to be resumed using this
+schedule.  If False then the ResumeTo time is ignored.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ResumeTo">
+<code class="descname">ResumeTo</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ResumeTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>The UTC time that constrains when this schedule may be resumed
+by the participant.  If null there is not restriction and the
+participant may resume a partially completed assessment at any
+time.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ReportFrom">
+<code class="descname">ReportFrom</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ReportFrom" title="Permalink to this definition">¶</a></dt>
+<dd><p>The UTC time that constrains when a coaching report may
+be viewed by the participant.  (Reserved for future use.)</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ReportTo">
+<code class="descname">ReportTo</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ReportTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>The UTC time that constrains when a coaching report may
+be viewed by the participant.  (Reserved for future use.)</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ExtraTime">
+<code class="descname">ExtraTime</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ExtraTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of minutes of extra time that should be allocated to
+participants launching an assessment from this schedule. This
+time may be negative to reduce the assessment time limit.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.MaxAttempts">
+<code class="descname">MaxAttempts</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.MaxAttempts" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of attempts the participant is allowed at the
+assessment.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.MonitoringTypeID">
+<code class="descname">MonitoringTypeID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.MonitoringTypeID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of monitoring that will be used during the assessment.
+If this value is null then no monitoring will be performed.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ObserverID">
+<code class="descname">ObserverID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ObserverID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of an Administrator (observer) who will take the test on
+behalf of the participant.  (Reserved for future use.)</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.Created">
+<code class="descname">Created</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Created" title="Permalink to this definition">¶</a></dt>
+<dd><p>The UTC time the Schedule was created.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.Modified">
+<code class="descname">Modified</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Modified" title="Permalink to this definition">¶</a></dt>
+<dd><p>The UTC time the Schedule was last modified.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.Hidden">
+<code class="descname">Hidden</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Hidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not this Schedule should be hidden from the
+participant. A hidden schedule may still be initiated through
+the API but it won&#8217;t show up in the participants <em>My
+Assessments</em> page.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.TestCenterID">
+<code class="descname">TestCenterID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.TestCenterID" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+</div>
+<p>The ID of a TestCenter where participants must be located in
+order to take this test.  It is assumed that this test will be
+proctored and that access to launch the test will be controlled
+by the proctor.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.Assessment">
+<code class="descname">Assessment</code> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Assessment" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the Assessment.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.Participant">
+<code class="descname">Participant</code> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant">Participant</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Participant" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the optional Participant.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.Group">
+<code class="descname">Group</code> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Group" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the optional Group.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ParentSchedule">
+<code class="descname">ParentSchedule</code> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule">Schedule</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ParentSchedule" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the (optional) parent schedule.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.MonitoringType">
+<code class="descname">MonitoringType</code> <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType">MonitoringType</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.MonitoringType" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the (optional) monitoring type.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.TestCenter">
+<code class="descname">TestCenter</code> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter">TestCenter</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.TestCenter" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+</div>
+<p>A navigation property to the optional TestCenter.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.Observer">
+<code class="descname">Observer</code> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Observer" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the optional Observer.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ScheduleMetadata">
+<code class="descname">ScheduleMetadata</code> <a class="reference internal" href="#od-type.deliveryodata.ScheduleMetadata" title="ScheduleMetadata">ScheduleMetadata</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ScheduleMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the schedule metadata.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.Attempts">
+<code class="descname">Attempts</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Attempts" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to all the attempts that have been
+initiated for this Schedule.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.deliveryodata.ScheduleMetadata">
+<em class="property">EntityType: </em><code class="descname">ScheduleMetadata</code><a class="headerlink" href="#od-type.deliveryodata.ScheduleMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.07.</span></p>
+</div>
+<p>ScheduleMetadata entities store key-value pairs associated with a
+schedule.  They can store any arbitrary additional data but the
+intention is to support tagging of the data for reporting purposes.</p>
+<p>ScheduleMetadata is copied to the AttemptMetadata when the API is
+used to <em>automatically</em> create an associated Attempt using one of
+the launch actions.  A number of dynamic values are supported to
+enable a restricted set of fields to be copied from the Participant,
+TestCenter or Administrator (as an observer) entities into the
+AttemptMetadata to enable reporting based on arbitrary demographics.</p>
+<p>For example, a ScheduleMetadata field with <em>Key</em> &#8220;Country&#8221; and
+<em>Value</em> &#8220;%Participant.Primary_Country%&#8221; will cause the Participant&#8217;s
+primary country to be looked up in the Participant record and copied
+to the AttemptMetadata with key &#8220;Country&#8221; on assessment launch.  If
+the participant&#8217;s Primary_Country field was set to &#8220;US&#8221; then the
+AttemptMetadata would contain Key=&#8221;Country&#8221;, Value=&#8221;US&#8221;.</p>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ScheduleMetadata.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique ID of this metadata record.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ScheduleMetadata.ScheduleID">
+<code class="descname">ScheduleID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.ScheduleID" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the associated Schedule, see <a class="reference internal" href="#od-prop.deliveryodata.ScheduleMetadata.Schedule" title="Schedule"><code class="xref od od-prop docutils literal"><span class="pre">Schedule</span></code></a> for a more
+convenient navigation property.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ScheduleMetadata.Key">
+<code class="descname">Key</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.Key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the metadata field.  Any unicode string is allowed
+up to a maximum length of 200 unicode characters.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ScheduleMetadata.Value">
+<code class="descname">Value</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.Value" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of the metadata field.  The value may be any unicode
+string and is limited to 4000 unicode characters to accommodate
+values such as URNs or other URIs used to identify terms in an
+externally defined metadata schema.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ScheduleMetadata.Schedule">
+<code class="descname">Schedule</code> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule">Schedule</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.Schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the associated Schedule.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+  <li><a href="types.html">Entity Type Reference</a><ul>
+      <li>Previous: <a href="rubric.html" title="previous chapter">Rubric and Dimension</a></li>
+      <li>Next: <a href="scoringtask.html" title="next chapter">ScoringTask, ScoringResult and DimensionScore</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/deliveryodata/schedule.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

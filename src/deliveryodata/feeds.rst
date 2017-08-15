@@ -90,9 +90,11 @@ Delivery OData Feeds
     :method GET: reading attempt entities
     :method POST: creating attempt entities
     :filter ID: primary key
-    :expand AttemptMetadata: expands the optional metadata
     :expand AnswerUpload: expands the optional associated AnswerUpload
     :expand AttemptList: expands the optional associated AttemptList
+    :expand AttemptMetadata: expands the optional metadata
+    :expand MonitoringType: expands the optional MonitoringType
+    :expand Result: expands the optional Result
 
     The Attempts feed contains an entry for each attempt at an
     assessment. Attempts represent the authority to take a test and link
@@ -253,6 +255,16 @@ Delivery OData Feeds
 
     The Groups feed contains data about groups of participants.  Entries
     are defined by the :od:type:`Group` type.
+
+..  od:feed::   MonitoringTypes MonitoringType
+
+    :method GET: read only
+    :filter ID: primary key
+    :filter Name: primary key
+
+    The MonitoringTypes feed contains data about methods of monitoring
+    assessments. Entries are defined by the :od:type:`MonitoringType`
+    type.
 
 ..  od:feed::   Participants Participant
 

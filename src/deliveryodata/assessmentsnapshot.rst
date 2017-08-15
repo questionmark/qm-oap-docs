@@ -144,6 +144,12 @@ AssessmentSnapshot(Data)
 
         The ID of the snapshot for which this is the data.
         
+    ..  od:prop::   AssessmentSnapshot  AssessmentSnapshot
+        :notnull:
+
+        Navigation property back to the owning AssessmentSnapshot.
+
+
 ..  _snapshotxml:
 
 

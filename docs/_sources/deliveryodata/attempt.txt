@@ -1,5 +1,5 @@
-Attempt
--------
+Attempt, AttemptLists and AttemptMetadata
+-----------------------------------------
 
 ..  od:service::    deliveryodata
 
@@ -27,10 +27,11 @@ Attempt
 
     ..  od:prop::   AttemptListID  Edm.Int32
 
-        .. versionadded:: OnDemand 2016.09
+        .. versionadded:: 2016.09
 
-        This optional field allows attempts to be grouped together.  An
-        attempt may only be associated with a single
+        This optional field allows attempts to be grouped together (for
+        the purposes of simultaneously proctoring multiple running
+        assessments).  An attempt may only be associated with a single
         :od:type:`AttemptList`.
 
     ..  od:prop::   ExternalAttemptID  Edm.String
@@ -53,11 +54,35 @@ Attempt
         This required property provides an important defence against the
         accidental creation of multiple attempts where only one is
         allowed, for example, through a race condition in the calling
-        application.  By guaranteeing the uniqueness of this properties
+        application.  By guaranteeing the uniqueness of this property's
         value the API will return an error if the caller attempts to
         create a an attempt with an external ID that matches an attempt
         that has already been created.
 
+    ..  od:prop::   ScheduleID  Edm.Int32
+
+        .. versionadded:: 2017.07
+
+        An optional ID for the associated :od:type:`Schedule` entity. 
+        Unlike the ExternalAttemptID this value is used by the API's own
+        *internal* scheduling features.  It is used in conjunction with
+        the :od:prop:`AttemptNumber` to manage attempt limits with a
+        high degree of defence against race conditions ensuring that
+        callers cannot created two attempts that reference the same
+        Schedule with the same AttemptNumber. 
+
+        When creating attempts yourself you should leave this property
+        as NULL.
+        
+    ..  od:prop::   AttemptNumber  Edm.Int32
+
+        .. versionadded:: 2017.07
+        
+        An optional attempt number used in conjunction with the
+        :od:prop:`ScheduleID` to control the way attempts are created
+        for a scheduled assessment.  When creating attempts yourself you
+        should leave this property as NULL.
+        
     ..  od:prop::   ParticipantID  Edm.Int32
         :notnull:
 
@@ -105,6 +130,21 @@ Attempt
         the assessment, the value of this property is ignored if
         :od:prop:`AssessmentSnapshotID` is specified.
         
+    ..  od:prop::   MonitoringTypeID  Edm.Int32
+
+        .. versionadded::   2017.10 (TBC) 
+
+        An optional reference to a :od:type:`MonitoringType` entity.
+        
+        Online assessments may be proctored or *monitored* using a range
+        of technical approaches depending on the situation.  In some
+        cases, *all* attempts at an assessment are managed in the same
+        way but this is not required.  The monitoring type can be
+        controlled on an attempt-by-attempt basis switching between
+        different configurations of the monitoring toolset. 
+
+        For more information see :od:type:`MonitoringType`.        
+                        
     ..  od:prop::   LockRequired  Edm.Boolean
         :notnull:
 
@@ -143,7 +183,7 @@ Attempt
         
     ..  od:prop::   ParticipantSystemCheckUrl   Edm.String
 
-        .. versionadded:: OnDemand 2016.12
+        .. versionadded:: 2016.12
         
         An optional URL that will be displayed to the participant on
         entering the exam lobby to assist with checking compatibility
@@ -157,6 +197,39 @@ Attempt
                     interim, to explicitly indicate that no system check
                     is required pass the special URL "about:blank".
 
+    ..  od:prop::   UnlockCode   Edm.String
+
+        .. versionadded:: 2017.03
+        
+        An optional alpha-numeric string that may be used by the
+        participant to start their test *without* unlocking the lobby. 
+        The purpose of this code is to allow participants to be issued
+        with a code (typically a 6-digit pin number) that they can use
+        instead of waiting for a proctor to unlock their exam manually
+        using the proctor controls.  This technique can be used in cases
+        where the proctor does not have access to the controls (for
+        whatever reason) or for convenience when proctoring groups of
+        people (see :od:type:`deliveryodata.AttemptList`). It is
+        critical that the participant is only given the unlock code by
+        the proctor once they are satisfied that the participant's
+        environment has been secured and that any extended
+        identification checks have completed successfully.
+        
+    ..  od:prop::   UnlockCodeExpiresDateTime   Edm.DateTime
+    
+        .. versionadded:: 2017.07
+
+        The expiry time of the :od:prop:`UnlockCode` in UTC.  After this
+        time the unlock code will be considered void and will not permit
+        the participant to start the test.
+
+        If you create an Attempt with an UnlockCode, or PATCH the
+        UnlockCode in an Attempt then the expiry time will be set
+        automatically to 15 minutes from the current time if it is not
+        provided (or is NULL).  If you want a longer expiry time you
+        must calculate the required value yourself and ensure it is set
+        in the same request (POST or PATCH) as the UnlockCode.
+        
     ..  od:prop::   ResultID  Edm.Int32
         
         As soon as the candidate starts taking the assessment online, or
@@ -273,6 +346,27 @@ Attempt
         automatically, it cannot be modified directly but a call to the
         PATCH method on the associated feed will cause it to be updated.
 
+    ..  od:prop::   Result  Result
+
+        .. versionadded:: 2017.10 (TBC)
+        
+        This optional field allows you to navigate to the associated
+        Result entity.  See also :od:prop:`ResultID`.
+
+    ..  od:prop::   Schedule  Schedule
+
+        .. versionadded:: 2017.07
+        
+        This optional field allows you to navigate to the associated
+        Schedule entity.  See also :od:prop:`ScheduleID`.
+
+    ..  od:prop::   MonitoringType  MonitoringType
+
+        .. versionadded:: 2017.10 (TBC)
+        
+        This optional field allows you to navigate to the associated
+        MonitoringType entity.  See also :od:prop:`MonitoringTypeID`.
+
     ..  od:prop::   AnswerUpload  AnswerUpload
 
         A navigation property to a set of answers uploaded from an
@@ -283,15 +377,24 @@ Attempt
         
     ..  od:prop::   AttemptList  AttemptList
 
-        .. versionadded:: OnDemand 2016.09
+        .. versionadded:: 2016.09
         
         This optional field allows you to navigate to an associated
         AttemptList entity.  See also :od:prop:`AttemptListID`.
 
+    ..  od:prop::   AttemptMetadata  AttemptMetadata
+        :collection:
+        
+        .. versionadded:: 2016.12
+        
+        This optional field allows you to navigate to the associated
+        AttemptMetdata entities.  See :od:type:`AttemptMetadata` for
+        more information.
+
 
 ..  od:type::   AttemptMetadata
 
-    .. versionadded:: OnDemand 2016.12
+    .. versionadded:: 2016.12
     
     AttemptMetadata entities store key-value pairs associated with each
     attempt.  They can store any arbitrary additional data but the
@@ -343,8 +446,11 @@ Attempt
 
 ..  od:type::   AttemptList
 
-    .. versionadded:: OnDemand 2016.09
+    .. versionadded:: 2016.09
 
+    AttemptLists are used to enable a single proctor to control multiple
+    running assessments simultaneously.
+    
     ..  od:prop::   ID  Edm.Int32
         :key:
         :notnull:
@@ -366,7 +472,7 @@ Attempt
         
     ..  od:prop::   ProctorFacingQMControlsUrl  Edm.String
 
-        ..  warning::  *New*, expected to be released in Q1 of 2017
+        .. versionadded:: 2017.03
 
         This property contains a URL that can be used by a proctor to
         load a page suitable for controlling *all* attempts in the

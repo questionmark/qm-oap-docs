@@ -41,3 +41,17 @@ Administrator
         Navigation property to the Groups associated with this
         administrator as per :qm:table:`G_Owner`.  An Administrator may
         be associated with multiple Group entities.
+
+    ..  od:prop::   TestCenters  TestCenter
+        :collection:
+        
+        .. versionadded::   2017.10 (TBC) 
+
+        Navigation property to the TestCenters associated with this
+        administrator as per :qm:table:`G_Test_Center_Owner`.  An
+        Administrator may be associated with multiple TestCenter
+        entities.
+        
+        The client application can use this information to control
+        access to TestCenter-specific functions such as opening
+        TestCenters and proctoring exams being taken on site.

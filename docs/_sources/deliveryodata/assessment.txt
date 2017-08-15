@@ -73,3 +73,25 @@ Assessment
         
         Navigation property to the collection of result entities
         associated with this assessment.
+
+    ..  od:prop::   Groups  Group
+        :collection:
+
+        .. versionadded::   2017.10 (TBC) 
+        
+        Navigation property to the collection of Group entities
+        associated with this assessment.  Assessments are a associated
+        with groups through the concept of "Scheduling Permissions" that
+        are set on *Published* Assessments.  By assigning a group to an
+        assessment you enable (administrator) members of that group to
+        create schedules for that assessment.
+        
+        These associations are used by the QMWISe method
+        :qm:meth:`GetAssessmentListByAdministrator` to determine which
+        assessments are returned.  This constrasts with the
+        author-centric associations returned by
+        :qm:meth:`GetAssessmentTreeByAdministrator` that are *not*
+        available through OData.
+        
+        This relationship is represented in the model by
+        :qm:table:`G_Session`.

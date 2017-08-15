@@ -31,6 +31,17 @@ Conventions
 Frequently Asked Questions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Can I access OData feeds directly in Excel?
+    Yes!
+    
+    The Results OData API can be used directly from the PowerPivot
+    Excel plugin but the Delivery OData API uses a newer version of
+    the protocol and cannot be used with PowerPivot.  Newer versions
+    of Excel do however contain support for importing data directly into
+    your worksheet.  For more information see `Connect external data to
+    your workbook
+    <https://support.office.com/en-gb/article/Connect-external-data-to-your-workbook-945f2cbb-d50b-4ee2-bae8-c4c9381000c6>`_
+
 Why am I getting the error *Unrecognized 'Edm.Int32' literal*?
     The following URL path returns an error like this::
 

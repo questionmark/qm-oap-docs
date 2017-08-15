@@ -120,9 +120,8 @@ S_Header_Ex
     ..  qm:field::  Translation_Status int
         :notnull:
 
-    ..  qm:field::  Base_Revision int
-    
-
+    ..  qm:field::  Base_Revision int        
+        
     ..  qm:field::  ASSESSMENT_ID bigint
         :notnull:
         :computed:

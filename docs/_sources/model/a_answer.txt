@@ -108,18 +108,24 @@ A_Answer
         
     ..  qm:field::  Outcome_Number smallint
     
-        The order number of the first outcome to evaluate to true.
+        The Outcome_Number of the first outcome to evaluate to true as
+        listed in the :qm:table:`A_Outcome_Ex` table.  The exact
+        interpretation of this field changed with the introduction of
+        Perception 5.  For data generated with current versions of the
+        system this value will be the same as the index of the choice in
+        the corresponding QML. 
         
     ..  qm:field::  Outcome_Exponential int
     
-        A bitfield representing flags indicating whether or not outcomes
+        A bitfield containing flags indicating whether or not outcomes
         evaluated to true.  The least significant bit represents the
         result of evaluating the first outcome.  This field contains
-        flags for the first 32 outcomes.
+        flags for the first 32 outcomes as listed in
+        :qm:table:`A_Outcome_Ex`
     
     ..  qm:field::  Outcome_Exponential_2 int
 
-        A bitfield representing flags indicating whether or not outcomes
+        A bitfield containing flags indicating whether or not outcomes
         evaluated to true.  The least significant bit represents the
         result of evaluating the 33rd outcome.  This field contains
         flags for outcomes 33 to 64.

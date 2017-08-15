@@ -15,7 +15,12 @@ that IDs of up to 32 ASCII characters are supported.
 
 The data in a repository is divided into three main databases covering
 the three main functions of Questionmark's assessment management system:
-content creation, delivery, and result reporting.
+content creation, delivery, and result reporting.  There is an
+additional schema referred to as the "Portal Database" that contains
+information about users and tables used to support the portal user
+interface.
+
+..  image:: overview.png
 
 Historically (Perception 5.2 and earlier) all data was stored in a
 single database which is now referred to as the delivery database.  The
@@ -24,9 +29,20 @@ database as their primary source of information.  Reports in Analytics
 use the newer Results Warehouse (the reporting database) that was
 introduced in Perception 5.4.
 
+The diagram shows the three web-service APIs documented here and the
+data sources they use.  Whereas Delivery OData and Results OData have
+straightforward links to the Delivery Database and Results Warehouse
+respectively, QMWISe uses a special compatibility layer to direct calls
+to the appropriate data source.  Methods that affect users will result
+in changes to both the Portal Database and the Delivery Database,
+similarly methods that affect the assessment content may return or
+update information in the authoring datbase (Item Bank Content).
+
 ..  note::
     Perception versions 5.4 and 5.7 continue to use the delivery
     database for storage of both authoring and delivery information.
+    They do not contain the Portal Database or QMWISe compatibility
+    layer.
 
 These distinctions are important as the new OData APIs are designed to
 access specific databases and which API you use will depend on which
@@ -43,8 +59,8 @@ of a small delay in availability due to the need to wait for the ETL
 (Extract, Transform, Load) process to populate the results warehouse
 from the live data.
 
-At the time of writing, their are no publicly exposed APIs that access
-the authoring database.
+At the time of writing, there are no publicly exposed APIs that access
+the authoring database directly.
 
 
 HTTPS API Endpoints

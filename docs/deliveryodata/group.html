@@ -27,8 +27,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
     <link rel="up" title="Entity Type Reference" href="types.html" />
-    <link rel="next" title="Participant" href="participant.html" />
-    <link rel="prev" title="Attempt" href="attempt.html" />
+    <link rel="next" title="MonitoringType" href="monitoring_type.html" />
+    <link rel="prev" title="Attempt, AttemptLists and AttemptMetadata" href="attempt.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -68,6 +68,21 @@
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Group.RootGroupID">
+<code class="descname">RootGroupID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Group.RootGroupID" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+</div>
+<p>The numeric ID of the Group&#8217;s top-level parent.  The group
+hierarchy does not have a single root node but instead supports
+multiple <em>root</em> groups that may have sub-groups (see
+<a class="reference internal" href="#od-prop.deliveryodata.Group.SubGroups" title="SubGroups"><code class="xref od od-prop docutils literal"><span class="pre">SubGroups</span></code></a>). For any group you can obtain the ID of
+the top-level group that contains this one using the
+RootGroupID.  For root groups themselves this value will be the
+same as <a class="reference internal" href="#od-prop.deliveryodata.Group.ID" title="ID"><code class="xref od od-prop docutils literal"><span class="pre">ID</span></code></a>.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Group.Participants">
 <code class="descname">Participants</code> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant">Participant</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.Participants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the participants that are in the group.</p>
@@ -100,6 +115,17 @@ Do not use it in general collections:</p>
 </pre></div>
 </div>
 </div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Group.SchedulableAssessments">
+<code class="descname">SchedulableAssessments</code> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.SchedulableAssessments" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+</div>
+<p>All the assessments that have had scheduling permissions
+associated with this Group.  See <a class="reference internal" href="assessment.html#od-prop.deliveryodata.Assessment.Groups" title="Groups"><code class="xref od od-prop docutils literal"><span class="pre">Assessment.Groups</span></code></a>
+for more information.</p>
 </dd></dl>
 
 <dl class="prop">
@@ -140,8 +166,8 @@ Do not use it in general collections:</p>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
   <li><a href="types.html">Entity Type Reference</a><ul>
-      <li>Previous: <a href="attempt.html" title="previous chapter">Attempt</a></li>
-      <li>Next: <a href="participant.html" title="next chapter">Participant</a></li>
+      <li>Previous: <a href="attempt.html" title="previous chapter">Attempt, AttemptLists and AttemptMetadata</a></li>
+      <li>Next: <a href="monitoring_type.html" title="next chapter">MonitoringType</a></li>
   </ul></li>
   </ul></li>
   </ul></li>

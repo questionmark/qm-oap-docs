@@ -175,22 +175,28 @@ the scoring of this question.</p>
 <dl class="field">
 <dt id="qm-field.a_answer.outcome_number">
 <code class="descname">Outcome_Number</code> smallint<a class="headerlink" href="#qm-field.a_answer.outcome_number" title="Permalink to this definition">¶</a></dt>
-<dd><p>The order number of the first outcome to evaluate to true.</p>
+<dd><p>The Outcome_Number of the first outcome to evaluate to true as
+listed in the <code class="xref qm qm-table docutils literal"><span class="pre">A_Outcome_Ex</span></code> table.  The exact
+interpretation of this field changed with the introduction of
+Perception 5.  For data generated with current versions of the
+system this value will be the same as the index of the choice in
+the corresponding QML.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_answer.outcome_exponential">
 <code class="descname">Outcome_Exponential</code> int<a class="headerlink" href="#qm-field.a_answer.outcome_exponential" title="Permalink to this definition">¶</a></dt>
-<dd><p>A bitfield representing flags indicating whether or not outcomes
+<dd><p>A bitfield containing flags indicating whether or not outcomes
 evaluated to true.  The least significant bit represents the
 result of evaluating the first outcome.  This field contains
-flags for the first 32 outcomes.</p>
+flags for the first 32 outcomes as listed in
+<code class="xref qm qm-table docutils literal"><span class="pre">A_Outcome_Ex</span></code></p>
 </dd></dl>
 
 <dl class="field">
 <dt id="qm-field.a_answer.outcome_exponential_2">
 <code class="descname">Outcome_Exponential_2</code> int<a class="headerlink" href="#qm-field.a_answer.outcome_exponential_2" title="Permalink to this definition">¶</a></dt>
-<dd><p>A bitfield representing flags indicating whether or not outcomes
+<dd><p>A bitfield containing flags indicating whether or not outcomes
 evaluated to true.  The least significant bit represents the
 result of evaluating the 33rd outcome.  This field contains
 flags for outcomes 33 to 64.</p>

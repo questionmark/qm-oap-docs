@@ -19,6 +19,19 @@ Group
 
         The optional description of the Group.
 
+    ..  od:prop::   RootGroupID  Edm.Int32
+        :notnull:
+
+        .. versionadded::   2017.10 (TBC) 
+
+        The numeric ID of the Group's top-level parent.  The group
+        hierarchy does not have a single root node but instead supports
+        multiple *root* groups that may have sub-groups (see
+        :od:prop:`SubGroups`). For any group you can obtain the ID of
+        the top-level group that contains this one using the
+        RootGroupID.  For root groups themselves this value will be the
+        same as :od:prop:`ID`.
+
     ..  od:prop::   Participants  Participant
         :collection:
         
@@ -46,6 +59,15 @@ Group
                         
                             <service root>/Groups?$expand=ParentGroup
                 
+    ..  od:prop::   SchedulableAssessments  Assessment
+        :collection:
+
+        .. versionadded::   2017.10 (TBC) 
+
+        All the assessments that have had scheduling permissions
+        associated with this Group.  See :od:prop:`Assessment.Groups`
+        for more information.
+
     ..  od:prop::   PrintBatches  PrintBatch
         :collection:
 

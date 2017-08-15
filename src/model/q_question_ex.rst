@@ -45,6 +45,25 @@ Q_Question_Ex
     ..  qm:field::  Status smallint
         :notnull:
 
+        0.  Normal
+        
+        1.  Retired.  These questions are not selected for delivery when
+            randomly picking questions (or selecting all) from a topic
+            in a block but are delivered if included individually.
+        
+        2.  Incomplete.  These questions are not selected for delivery
+            when randomly picking questions  (or selecting all)  from a
+            topic in a block but are delivered if included individually.
+
+        3.  Experimental.  These questions *are* selected for delivery
+            but do not contribute to the test or topic score.
+        
+        4.  Beta.  These questions are treated as 'normal' during
+            delivery.  The alternative status value is for information
+            and reporting only
+                
+        5.  Tryout.  Used internally.
+
     ..  qm:field::  IRT_A float
     
     ..  qm:field::  IRT_B float
