@@ -111,6 +111,24 @@ access to TestCenter-specific functions such as opening
 TestCenters and proctoring exams being taken on site.</p>
 </dd></dl>
 
+<dl class="action">
+<dt id="od-action.deliveryodata.Administrator.ActionableSchedulesForObservation">
+<em class="property">action </em><code class="descname">ActionableSchedulesForObservation</code> () <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule">ActionableSchedule</a> Collection<a class="headerlink" href="#od-action.deliveryodata.Administrator.ActionableSchedulesForObservation" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+</div>
+<p>Returns a collection of actionable schedules related to this
+administrator <em>as an assessment observer</em>.  It takes no
+parameters and is bound to a specific Administrator so is called
+like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrator</span><span class="p">(</span><span class="mi">456789</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedulesForObservation</span>
+
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </dd></dl>
 
 </div>

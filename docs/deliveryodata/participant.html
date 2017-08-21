@@ -482,6 +482,37 @@ converted to UTC.</p>
 of.</p>
 </dd></dl>
 
+<dl class="action">
+<dt id="od-action.deliveryodata.Participant.ActionableSchedules">
+<em class="property">action </em><code class="descname">ActionableSchedules</code> () <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule">ActionableSchedule</a> Collection<a class="headerlink" href="#od-action.deliveryodata.Participant.ActionableSchedules" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+</div>
+<p>Returns a collection of actionable schedules related to this
+participant.  It takes no parameters and is bound to a specific
+Participant so is called like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Participant</span><span class="p">(</span><span class="mi">123456</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedules</span>
+
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2017.08: </span>In release 2017.08 an experimental version of this method is
+temporarily mapped to the Schedules feed and can be accessed
+by passing the participantID as a POST parameter to the
+following URL instead (this action will be removed in future
+so do not rely on it in your own integrations):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span><span class="o">/</span><span class="n">ActionableSchedulesForParticipant</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">123456</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
 </dd></dl>
 
 </div>

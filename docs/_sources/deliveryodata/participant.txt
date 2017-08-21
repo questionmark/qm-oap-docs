@@ -236,4 +236,32 @@ Participant
         :collection:
         
         Navigation property to the Groups this participant is a member
-        of.    
+        of.
+    
+    ..  od:action:: ActionableSchedules ActionableSchedule
+        :collection:
+
+        .. versionadded:: 2017.10 (TBC)
+
+        Returns a collection of actionable schedules related to this
+        participant.  It takes no parameters and is bound to a specific
+        Participant so is called like this::
+        
+            POST /deliveryodata/<customer-id>/Participant(123456)/ActionableSchedules
+            
+            {
+            }
+            
+        .. versionadded:: 2017.08
+
+            In release 2017.08 an experimental version of this method is
+            temporarily mapped to the Schedules feed and can be accessed
+            by passing the participantID as a POST parameter to the
+            following URL instead (this action will be removed in future
+            so do not rely on it in your own integrations)::
+        
+                POST /deliveryodata/<customer-id>/Schedules/ActionableSchedulesForParticipant
+            
+                {
+                    "ParticipantID": 123456
+                }

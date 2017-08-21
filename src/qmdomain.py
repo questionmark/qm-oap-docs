@@ -54,6 +54,10 @@ class ODataProperty(DefinedObject):
     domain_str = "od-prop"
 
 
+class ODataAction(DefinedObject):
+    domain_str = "od-action"
+
+
 class ODataServiceDirective(ObjectDescription):
     
     has_content = False
@@ -228,6 +232,80 @@ class ODataPropertyDirective(ObjectDescription):
                  None))          
     
 
+class ODataActionDirective(ObjectDescription):
+
+    option_spec = {
+        'input': lambda x: x,
+        'collection': directives.flag
+        }
+
+    def handle_signature(self, sig, signode):
+        """Format: <name> <type>"""
+        etype = self.env.temp_data['od:type']
+        svc = self.env.temp_data.get('od:service', None)
+        sig = sig.strip().split()
+        aname = sig[0]
+        atype = sig[1]
+        obj = ODataAction(parent=etype, docname=self.env.docname,
+                            name=aname, title=aname)
+        tobj = ODataType(parent=svc, docname=self.env.docname, name=atype,
+                         title=atype)
+        signode += addnodes.desc_annotation("action ", "action ")
+        signode += addnodes.desc_name(aname, aname)
+        signode += nodes.Text(" (")
+        if 'input' in self.options:
+            comma = False
+            for input in self.options['input'].split(','):
+                pname, ptype = input.split()
+                if comma:
+                    signode += nodes.Text(", ")
+                else:
+                    comma = True
+                if ptype.startswith("Collection("):
+                    ptype = ptype[11:-1]
+                    signode += nodes.Text("%s Collection(")
+                    cflag = True
+                else:
+                    signode += nodes.Text("%s " % pname)
+                    cflag = False
+                if ptype.lower().startswith("edm."):
+                    signode += nodes.Text(" " + ptype)
+                else:
+                    signode += addnodes.pending_xref(
+                        ptype, nodes.Text(ptype), refdomain="od",
+                        reftype="type", reftarget=ptype)
+                if cflag:
+                    signode += nodes.Text(")")
+        signode += nodes.Text(") ")
+        if atype.lower().startswith("edm."):
+            signode += nodes.Text(" " + atype)
+        else:
+            signode += addnodes.pending_xref(
+                atype, nodes.Text(atype), refdomain="od",
+                reftype="type", reftarget=tobj._get_untyped_id())
+        if 'collection' in self.options:
+            signode += nodes.Text(" Collection")
+        return obj
+    
+    def add_target_and_index(self, name, sig, signode):
+        targetname = name.get_target_id()
+        signode['ids'].append(targetname)
+        self.state.document.note_explicit_target(signode)
+        objects = self.env.domaindata['od']['objects']
+        if targetname in objects:
+            self.warning("duplicate object description: %s" % targetname)
+        objects[targetname] = name
+        etype = name.parent
+        if etype:
+            self.indexnode['entries'].append(
+                ('single', '%s (action of %s)' % (name.title, etype.title),
+                targetname, '', None))          
+        else:
+            self.indexnode['entries'].append(
+                ('single', '%s (action of ?)' % name.title, targetname, '',
+                 None))          
+    
+
 class ODataFeedRole(XRefRole):
 
     def process_link(self, env, refnode, has_explicit_title, title, target):
@@ -271,6 +349,25 @@ class ODataPropRole(XRefRole):
         return title, target
 
 
+class ODataActionRole(XRefRole):
+
+    def process_link(self, env, refnode, has_explicit_title, title, target):
+        svc = env.temp_data.get('od:service', None)
+        typ = env.temp_data.get('od:type', None)
+        starget = target.split('.')
+        if len(starget) < 2:
+            # qualify with svc and type name
+            if typ is not None:
+                target = "%s.%s" % (typ.name, target)
+                if svc is not None:
+                    target = "%s.%s" % (svc.name, target)
+        elif len(starget) < 3:
+            # just the svc name
+            if svc is not None:
+                target = "%s.%s" % (svc.name, target)
+        return title, target
+
+
 class ODataDomain(Domain):
     """OData API domain"""
     name = 'od'
@@ -281,6 +378,7 @@ class ODataDomain(Domain):
         'feed':         ObjType('feed', 'feed'),
         'type':         ObjType('type', 'type'),
         'prop':         ObjType('prop', 'prop'),
+        'action':       ObjType('action', 'action'),
         }
 
     directives = {
@@ -288,6 +386,7 @@ class ODataDomain(Domain):
         'feed': ODataFeedDirective,
         'type': ODataTypeDirective,
         'prop': ODataPropertyDirective,
+        'action': ODataActionDirective,
         }
     
     roles = {
@@ -295,6 +394,7 @@ class ODataDomain(Domain):
         'feed': ODataFeedRole(),
         'type': ODataTypeRole(),
         'prop': ODataPropRole(),
+        'action': ODataActionRole(),
         }
 
     initial_data = {

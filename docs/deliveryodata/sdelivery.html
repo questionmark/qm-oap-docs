@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Scheduled Delivery &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.10.12a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
+    <link rel="up" title="Example Applications" href="applications.html" />
+    <link rel="next" title="External Delivery" href="xdelivery.html" />
+    <link rel="prev" title="Example Applications" href="applications.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="scheduled-delivery">
+<h1>Scheduled Delivery<a class="headerlink" href="#scheduled-delivery" title="Permalink to this headline">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2017.07.</span></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This page documents parts of the API that should be
+considered to be of &#8216;alpha&#8217; quality.  The details <em>are</em>
+subject to change in future versions.</p>
+</div>
+<p>The Delivery OData API contains a brand new schedule entity to enable
+the scheduling of assessments from third-party applications, including
+the scheduling of assessments that require special procotring.</p>
+<div class="section" id="classic-vs-next-generation-schedules">
+<h2>Classic vs Next Generation Schedules<a class="headerlink" href="#classic-vs-next-generation-schedules" title="Permalink to this headline">¶</a></h2>
+<p>Classic schedules are described by the database tables
+<a class="reference internal" href="../model/g_schedule.html#qm-table.g_schedule" title="G_Schedule"><code class="xref qm qm-table docutils literal"><span class="pre">G_Schedule</span></code></a> and <code class="xref qm qm-table docutils literal"><span class="pre">G_Schedule_Details</span></code> and by the
+QMWISe schema type <a class="reference internal" href="../qmwise/schedules.html#qm-xtype.Schedule" title="Schedule"><code class="xref qm qm-xtype docutils literal"><span class="pre">Schedule</span></code></a>.</p>
+<p>Classic schedules are the <em>only</em> way to schedule assessments in
+Perception 5.</p>
+<p>Next-generations schedules are being introduced with OnDemand 2017.07
+and will gradually become the preferred way to schedule assessments in
+Questionmark OnDemand and OnPremise.</p>
+</div>
+<div class="section" id="scheduling-permissions">
+<h2>Scheduling Permissions<a class="headerlink" href="#scheduling-permissions" title="Permalink to this headline">¶</a></h2>
+<p>Permission to schedule an assessment is controlled by Group.  An
+association exists between <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.Assessment</span></code></a> and
+<a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.Group</span></code></a> entities.  This association indicates
+that <em>only</em> administrators that are owners of (one of) the associated
+groups may schedule that assessment.  In the Questionmark portal the
+types of action that a particular administrator may perform are further
+limited by role and the permissions associated with that role.  Role
+information is not exposed by the APIs.</p>
+<p>To obtain a list of assessments that a given Administrator is associated
+with you need to look at the Groups associated with that administrator
+<em>and</em> the SchedulableAssessments associated with those groups:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/&lt;customer_id&gt;/Administrators(12345)/Groups?$expand=SchedulableAssessments
+
+{
+    &quot;odata.metadata&quot;: &quot;https://ondemand.questionmark.com/deliveryodata/&lt;customer-id&gt;/$metadata#Groups&quot;,
+    &quot;value&quot;: [
+        {
+            &quot;SchedulableAssessments&quot;: [
+                {
+                    &quot;ID&quot;: &quot;3000000003&quot;,
+                    &quot;Revision&quot;: 1,
+                    &quot;Name&quot;: &quot;Sample Test&quot;,
+                    &quot;Language&quot;: &quot;-&quot;,
+                    &quot;Description&quot;: null,
+                    &quot;Author&quot;: &quot;Manager&quot;,
+                    &quot;CreatedDateTime&quot;: &quot;2017-03-14T18:04:39Z&quot;,
+                    &quot;Editor&quot;: &quot;Manager&quot;,
+                    &quot;ModifiedDateTime&quot;: &quot;2017-04-06T09:16:22Z&quot;,
+                    &quot;Base&quot;: true
+                }
+            ],
+            &quot;ID&quot;: 517208256,
+            &quot;Name&quot;: &quot;Test_Group&quot;,
+            &quot;Description&quot;: &quot;&quot;,
+            &quot;RootGroupID&quot;: 517208256
+        }
+    ]
+}
+</pre></div>
+</div>
+<p>In the above response the administrator is associated with a single
+Group (called &#8220;Test_Group&#8221; and that group is associated with a single
+&#8220;Sample Test&#8221; assessment.</p>
+<p>Bear in mind that it is possible for the same assessment to show up
+multiple times (associated with different groups) so if you are
+processing a response to this message to create a flat list you will
+have to remove duplicates.</p>
+<p>For very long lists the Groups themselves may prove a useful way to
+hierarchically present the assessment list to the end user for selection.</p>
+</div>
+<div class="section" id="creating-a-schedule">
+<h2>Creating a Schedule<a class="headerlink" href="#creating-a-schedule" title="Permalink to this headline">¶</a></h2>
+<p>To create a schedule you POST to the Schedules feed endpoint.  There are
+only a few required pieces of information.  A human-readable Name for
+the schedule, the AssessmentID of the assessment to be scheduled, one of
+GroupID or ParticipantID to identify who the schedule is for and the ID
+of a monitoring type that describes how the assessment will be monitored
+(e.g., proctored versus unproctored).</p>
+<p>You can obtain a list of MonitoringTypes directly from the API:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">MonitoringTypes</span>
+</pre></div>
+</div>
+<p>Monitoring types do not have human-friendly names, they have symbolic
+names that are designed to be used as keys to translated text for a
+multi-lingual user interface.  Once you have selected a monotring type
+use its ID when creating a schedule:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo Schedule&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;3000000003&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GroupID&quot;</span><span class="p">:</span> <span class="mi">517208256</span><span class="p">,</span>
+    <span class="s2">&quot;MonitoringTypeID&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This creates a schedule for the Sample Test returned in the previous
+example for all members of the group with ID 517208256 (the &#8220;Test_Group&#8221;
+also returned in the previous example).  There are no time limits on
+when the participants can start the test and no limit on the number of
+attempts.</p>
+<p>In future, creating a schedule will be all that is required for a third
+party integration as the schedule will then show up in the Questionmark
+portal when the participant logs in and they&#8217;ll be able to launch the
+test from there.  That functionality is not available yet (as of
+2017.08) and so this API assumes that the external system will go on to
+create its own user interface for the participant.</p>
+</div>
+<div class="section" id="active-schedules">
+<h2>Active Schedules<a class="headerlink" href="#active-schedules" title="Permalink to this headline">¶</a></h2>
+<p>A third-party user interface for a participant needs to know which
+schedules are active for that participant.  A schedule is active if
+there is some action that the participant may take (such as starting or
+resuming the test).</p>
+<p>To discover the list of active schedules you can call an OData action.
+In the current release this action is bound to the Schedules feed but
+this will change (expected 2017.10) so the following flow should be
+considered experimental for now, notice that OData actions are invoked
+using the POST method:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span><span class="o">/</span><span class="n">ActionableSchedulesForParticipant</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">80200535</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The response will look like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/&lt;customer-id&gt;/$metadata#Collection(QM.DeliveryODataService.DTO.ActionableSchedule)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">11887</span><span class="p">,</span>
+            <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo Schedule&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Hidden&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;AttemptsRemaining&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;Actions&quot;</span><span class="p">:</span>
+            <span class="p">[</span>
+                <span class="s2">&quot;start&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The result is a list of ActionableSchedule objects.  You can see the ID
+of the schedule, the name (for display to the user when there are
+multiple assessments available) and information about the number of
+attempts remaining.</p>
+<p>The Actions list is just a list of strings containing the names of
+actions that are allowed.  In this case just one: &#8220;start&#8221;.</p>
+</div>
+<div class="section" id="launching-a-scheduled-test">
+<h2>Launching a Scheduled Test<a class="headerlink" href="#launching-a-scheduled-test" title="Permalink to this headline">¶</a></h2>
+<p>If a schedule is active for a participant then there will be a non-empty
+list of actions in the associated AcitonableSchedule returned by the
+previous request.</p>
+<p>To enable the participant to launch the test you need to convert the
+action into a URL that can be passed to the user&#8217;s browser to invoke the
+action.  You do this using the InvokeAction action:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span><span class="p">(</span><span class="mi">11887</span><span class="p">)</span><span class="o">/</span><span class="n">InvokeAction</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;Action&quot;</span><span class="p">:</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">80200535</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The response will look something like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/&lt;customer-id&gt;/$metadata#Edm.String&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/lobby/&lt;customer-id&gt;/lobby/SystemCheck/17896?nonce=2c2b0ec9-1b96-44c7-853d-9557e271eb24&amp;timestamp=2017-08-21T13:40:28.3237534Z&amp;role=participant&amp;signature=23228c229ce90ffd3fdaa2b73f94c95718457686474655f50229c4d91f211f9d&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The URL obtained in the value of the result can be passed to the
+participant&#8217;s browser to enable them to launch the test.  The link is
+time-limited, you should ensure that your application redirects the
+participant to this link while handling a request for a suitable action
+(such as the response to a button press).  If the participant is too
+slow to load the URL it will expire and you&#8217;ll have to generate another
+one by invoking the action again.</p>
+</div>
+<div class="section" id="modiyfing-a-schedule">
+<h2>Modiyfing a Schedule<a class="headerlink" href="#modiyfing-a-schedule" title="Permalink to this headline">¶</a></h2>
+<p>Schedules may be patched, though some properties may not be changed.
+(E.g., the AssessmentID is fixed on creation).  The following call will
+update the Schedule created in the previous example so that it can be
+resumed:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PATCH</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span><span class="p">(</span><span class="mi">11887</span><span class="p">)</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;ResumeAllowed&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If the participant has started an assessment but has not completed it
+and the schedule is resumable then the test may be resumed.  This is
+indicated using the &#8220;resume&#8221; action:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span><span class="o">/</span><span class="n">ActionableSchedulesForParticipant</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">80200535</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Responds with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/&lt;customer-id&gt;/$metadata#Collection(QM.DeliveryODataService.DTO.ActionableSchedule)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">11887</span><span class="p">,</span>
+            <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo Schedule&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Hidden&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;AttemptsRemaining&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;Actions&quot;</span><span class="p">:</span>
+            <span class="p">[</span>
+                <span class="s2">&quot;resume&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A schedule is never marked with both &#8220;start&#8221; and &#8220;resume&#8221; actions.
+(This is a significant departure from classic schedules where multiple
+attempts can be started simultaneously.  In next-generation schedules
+the participant must complete the current attempt before progressing to
+the next one if the schedule is resumable.)</p>
+</div>
+<div class="section" id="managing-attempts-schedule-reporting">
+<h2>Managing Attempts: Schedule Reporting<a class="headerlink" href="#managing-attempts-schedule-reporting" title="Permalink to this headline">¶</a></h2>
+<p>Next generation schedules use the same Attempt concept as non-scheduled
+delivery but the actions described above take care of managing the
+Attempts. You may still use the Attempts to discover detailed
+information about who has attempted the assessment and what results have
+been completed or are in progress:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/&lt;customer-id&gt;/Attempts?$filter=ScheduleID%20eq%2011887&amp;$expand=Result
+</pre></div>
+</div>
+<p>This query returns all Attempts for a schedule using a filter.  By
+expanding the Results associated with the attempts we can see the status
+and outcome of the associated attempts.</p>
+<p>This data could be used to construct a dashboard report for the schedule:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/&lt;customer-id&gt;/$metadata#Attempts&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;Result&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="mi">390765738</span><span class="p">,</span>
+                <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;3000000003&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ParticipantName&quot;</span><span class="p">:</span> <span class="s2">&quot;Stuart Dent&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;GroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+                <span class="s2">&quot;ParticipantDetails&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+                <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;MaxScore&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;TotalScore&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;ScoreBandTitle&quot;</span><span class="p">:</span> <span class="s2">&quot;Pass&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;PercentageScore&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+                <span class="s2">&quot;WhenFinished&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-08-21T13:59:41.347&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;WhenStarted&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-08-21T13:48:20.123&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ExtraTime&quot;</span><span class="p">:</span> <span class="n">null</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="mi">17897</span><span class="p">,</span>
+            <span class="s2">&quot;ExternalAttemptID&quot;</span><span class="p">:</span> <span class="s2">&quot;72f2b164084748ac835802f329bdadf2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ParticipantFacingQMLobbyUrl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;ProctorFacingQMControlsWidgetUrl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;UnlockCodeExpiresDateTime&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">80200535</span><span class="p">,</span>
+            <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;3000000003&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;AssessmentSnapshotID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">11887</span><span class="p">,</span>
+            <span class="s2">&quot;AttemptNumber&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;ResultID&quot;</span><span class="p">:</span> <span class="mi">390765738</span><span class="p">,</span>
+            <span class="s2">&quot;LockStatus&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;LockRequired&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;ParticipantFacingProctorSystemWidgetUrl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;LastModifiedDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-08-21T12:48:20.157Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Language&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;ParticipantSystemCheckUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;null&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;UnlockCode&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;AttemptListID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;MonitoringTypeID&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+  <li><a href="applications.html">Example Applications</a><ul>
+      <li>Previous: <a href="applications.html" title="previous chapter">Example Applications</a></li>
+      <li>Next: <a href="xdelivery.html" title="next chapter">External Delivery</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/deliveryodata/sdelivery.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

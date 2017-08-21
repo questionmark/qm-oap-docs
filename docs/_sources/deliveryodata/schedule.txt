@@ -1,6 +1,8 @@
 Schedule and ScheduleMetadata
 -----------------------------
 
+..  od:service::    deliveryodata
+
 These entities represent the next-generation scheduling API that has
 been redesigned to focus on the different monitoring types available in
 Questionmark OnDemand and OnPremise.
@@ -8,6 +10,15 @@ Questionmark OnDemand and OnPremise.
 The Schedules discussed here are *not* related to the G_Schedule table
 and they are *not* related to the classic schedule entities created
 using QMWISe.
+
+The Schedule entity presents an alternative to creating
+:od:type:`Attempt` entities directly.  It supports scheduling to
+participants and/or groups including creating exceptions to enable
+additional time or to reschedule individual group members.  It also
+provides a way for your to safely limit the number of attempts the
+participant is allowed at an assessment without having to manage the
+information yourself in an external entity.
+
 
 The following call illustrates the simplest way to create a schedule
 called "Demo Schedule" for a the Group with ID 8320236::
@@ -60,11 +71,10 @@ The AssessmentID and one of the GroupID or ParticipantID MUST be
 specified.
 
 
+
 Schedules Reference
 ~~~~~~~~~~~~~~~~~~~
 
-
-..  od:service::    deliveryodata
 
 ..  od:type::   Schedule
 
@@ -265,6 +275,81 @@ Schedules Reference
         A navigation property to all the attempts that have been
         initiated for this Schedule.
 
+    ..  od:action:: ActionableSchedule ActionableSchedule
+        :input: ParticipantID Edm.Int32
+
+        Returns an actionable schedule for a specific participant,
+        passed as an inputer parameter using http POST::
+        
+            POST /deliveryodata/<customer-id>/Schedule(654321)/ActionableSchedule
+            
+            {
+                "PartipcantID": 123456
+            }
+            
+    ..  od:action:: InvokeAction Edm.String
+        :input: Action Edm.String, ParticipantID Edm.Int32, ObserverID Edm.Int32
+        
+        Invokes the specified action for a given participant.  The
+        Action string is a text string for an action as previously
+        returned by a *recent* call to ActionableSchedule or similar.
+
+        The ParticipantID is the ID of the participant that is scheduled
+        for the assessment and the (optional) ObserverID is the observer
+        that will be observing the assessment (observational schedules
+        only).
+        
+        For example::
+        
+            POST /deliveryodata/<customer-id>/Schedule(654321)/InvokeAction
+            
+            {
+                "Action": "start",
+                "ParticipantID": 123456
+            }
+
+        The return result is a URL (string) that is suitable for sending
+        to the participant's browser (or the observer's browser) to
+        initiate the specified action.
+
+
+..  od:type::   ActionableSchedule
+
+    .. versionadded::   2017.08
+    
+    An actionable schedule is a list of actions that are currently
+    relevant to a specific schedule *for a specific participant*.  Given
+    that schedules specify time windows during which certain actions,
+    such as starting or resuming the test, can take place the list of
+    actions will vary from time to time and should not be cached for any
+    length of time.  For example, a list of actions might be obtained
+    while creating a web page showing a list of current schedules to a
+    participant.
+
+    ..  od:prop::    ScheduleID  Edm.Int32
+        :notnull:
+        
+        The ID of the schedule these possible actions relate to
+    
+    ..  od:prop::    Name        Edm.String
+        
+        The human-readable name of this schedule.  This is repeated here
+        to reduce the need to retrieve each schedule in full.
+
+    ..  od:prop::    Hidden   Edm.Boolean
+        :notnull:
+        
+        Whether or not the schedule is hidden from the participant in
+        the Questionmark portal.
+
+    ..  od:prop::    Actions     Edm.String
+        :collection:
+        
+        A collection of symbolic strings representing allowable actions.
+        For example "start" and "resume".  These strings are not
+        intended to be used directly in the user interface but as keys
+        for future calls to :od:action:`Schedule.InvokeAction`.
+
 
 ..  od:type::   ScheduleMetadata
 
@@ -318,4 +403,3 @@ Schedules Reference
         :notnull:
         
         A navigation property to the associated Schedule.
-

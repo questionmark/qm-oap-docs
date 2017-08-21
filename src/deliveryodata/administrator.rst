@@ -55,3 +55,18 @@ Administrator
         The client application can use this information to control
         access to TestCenter-specific functions such as opening
         TestCenters and proctoring exams being taken on site.
+
+    ..  od:action:: ActionableSchedulesForObservation ActionableSchedule
+        :collection:
+
+        .. versionadded:: 2017.10 (TBC)
+
+        Returns a collection of actionable schedules related to this
+        administrator *as an assessment observer*.  It takes no
+        parameters and is bound to a specific Administrator so is called
+        like this::
+        
+            POST /deliveryodata/<customer-id>/Administrator(456789)/ActionableSchedulesForObservation
+            
+            {
+            }
