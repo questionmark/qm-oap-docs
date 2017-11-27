@@ -314,7 +314,12 @@ Delivery OData Feeds
     :method GET: read only
 
     The Rubrics feed contains the scoring rules for subjective questions.
-    
+
+..  od:feed::   Schedules Schedule
+
+    :method GET: for reading schedules
+    :method PATCH: for updating writable properties of a schedule
+        
 ..  od:feed::   ScoringResults ScoringResult
 
     :method GET: for reading scoring results

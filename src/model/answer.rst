@@ -6,6 +6,7 @@ Answer Tables
 
     a_answer
     a_comment
+    a_outcome
     a_question_ex
     a_scoreband_ex
     a_session_ex

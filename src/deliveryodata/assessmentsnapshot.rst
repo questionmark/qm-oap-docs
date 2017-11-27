@@ -49,7 +49,7 @@ AssessmentSnapshot(Data)
     ..  od:prop::   ExpiresDateTime  Edm.DateTime
 
         The time after which new attempts that use this snapshot cannot
-        be created.  This value can be modified using the PATH method.
+        be created.  This value can be modified using the PATCH method.
     
     ..  od:prop::   PrintableDocumentSourceUrl  Edm.String
     

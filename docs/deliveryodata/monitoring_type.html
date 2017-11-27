@@ -79,10 +79,10 @@ or Attempt.</p>
 <dt id="od-prop.deliveryodata.MonitoringType.RequireQSB">
 <code class="descname">RequireQSB</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireQSB" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+<p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
 <p>A flag indicating whether or not Attempts launched with this
-Monitoring type <em>MUST</em> use Questionmark&#8217;s Secure Browser
+MonitoringType <em>MUST</em> use Questionmark&#8217;s Secure Browser
 technology.</p>
 </dd></dl>
 
@@ -90,24 +90,27 @@ technology.</p>
 <dt id="od-prop.deliveryodata.MonitoringType.RequireDeviceEvents">
 <code class="descname">RequireDeviceEvents</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireDeviceEvents" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+<p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
 <p>A flag indicating whether or not Attempts launched with this
 Monitoring type <em>MUST</em> use Questionmark&#8217;s next-generation device
-monitoring technology (currently requires Questionmark Secure
-Browser).</p>
+monitoring technology.  Requires a next-generation Questionmark
+Secure Browser client (expected early 2018).</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.deliveryodata.MonitoringType.SystemCheckUrl">
 <code class="descname">SystemCheckUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.SystemCheckUrl" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+<p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
 <p>An optional URL that will be displayed to the participant on
 entering the exam lobby to assist with checking compatibility
 of the participant&#8217;s device against the technology requirements
 of this monitoring technology.</p>
+<p>The special URL &#8220;<a class="reference external" href="about:blank">about:blank</a>&#8221; should be used to indicate that no
+system check page is required.  A null value means that the
+default system check will be used.</p>
 </dd></dl>
 
 </dd></dl>

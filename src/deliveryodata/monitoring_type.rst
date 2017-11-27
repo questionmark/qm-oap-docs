@@ -32,27 +32,31 @@ MonitoringType
     ..  od:prop::   RequireQSB  Edm.Boolean
         :notnull:
 
-        .. versionadded::   2017.10 (TBC)
+        .. versionadded::   2017.11
         
         A flag indicating whether or not Attempts launched with this
-        Monitoring type *MUST* use Questionmark's Secure Browser
+        MonitoringType *MUST* use Questionmark's Secure Browser
         technology.
 
     ..  od:prop::   RequireDeviceEvents  Edm.Boolean
         :notnull:
 
-        .. versionadded::   2017.10 (TBC)
+        .. versionadded::   2017.11
         
         A flag indicating whether or not Attempts launched with this
         Monitoring type *MUST* use Questionmark's next-generation device
-        monitoring technology (currently requires Questionmark Secure
-        Browser).
+        monitoring technology.  Requires a next-generation Questionmark
+        Secure Browser client (expected early 2018).
 
     ..  od:prop::   SystemCheckUrl   Edm.String
 
-        .. versionadded::   2017.10 (TBC)
+        .. versionadded::   2017.11
         
         An optional URL that will be displayed to the participant on
         entering the exam lobby to assist with checking compatibility
         of the participant's device against the technology requirements
         of this monitoring technology.
+
+        The special URL "about:blank" should be used to indicate that no
+        system check page is required.  A null value means that the
+        default system check will be used.

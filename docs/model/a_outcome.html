@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>A_Comment &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
+    <title>A_Outcome_Ex and A_Outcome &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
     <link rel="up" title="Answer Tables" href="answer.html" />
-    <link rel="next" title="A_Outcome_Ex and A_Outcome" href="a_outcome.html" />
-    <link rel="prev" title="A_Answer" href="a_answer.html" />
+    <link rel="next" title="A_Question_Ex" href="a_question_ex.html" />
+    <link rel="prev" title="A_Comment" href="a_comment.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -44,19 +44,49 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="a-comment">
-<h1>A_Comment<a class="headerlink" href="#a-comment" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="a-outcome-ex-and-a-outcome">
+<h1>A_Outcome_Ex and A_Outcome<a class="headerlink" href="#a-outcome-ex-and-a-outcome" title="Permalink to this headline">¶</a></h1>
 <dl class="table">
-<dt id="qm-table.a_comment">
-<em class="property">TABLE </em><code class="descname">A_Comment</code><a class="headerlink" href="#qm-table.a_comment" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field">
-<dt id="qm-field.a_comment.comment_id">
-<em class="property">Primary Key: </em><code class="descname">Comment_ID</code> int NOT NULL<a class="headerlink" href="#qm-field.a_comment.comment_id" title="Permalink to this definition">¶</a></dt>
+<dt id="qm-table.a_outcome_ex">
+<em class="property">TABLE </em><code class="descname">A_Outcome_Ex</code><a class="headerlink" href="#qm-table.a_outcome_ex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Many of these fields are also accessible through an older view
+called simple A_Outcome.  The difference is the way translations
+are handled.  A_Outcome only provides access to untranslated
+assessments whereas A_Outcome_Ex introduced the additional fields
+to indicate the language of the translated outcome.</p>
+<dl class="field">
+<dt id="qm-field.a_outcome_ex.question_mid">
+<em class="property">Primary Key: </em><code class="descname">Question_MID</code> int NOT NULL<a class="headerlink" href="#qm-field.a_outcome_ex.question_mid" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
-<dt id="qm-field.a_comment.comment">
-<code class="descname">Comment</code> text NOT NULL<a class="headerlink" href="#qm-field.a_comment.comment" title="Permalink to this definition">¶</a></dt>
+<dt id="qm-field.a_outcome_ex.question_lid">
+<em class="property">Primary Key: </em><code class="descname">Question_LID</code> int NOT NULL<a class="headerlink" href="#qm-field.a_outcome_ex.question_lid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_outcome_ex.outcome_number">
+<em class="property">Primary Key: </em><code class="descname">Outcome_Number</code> smallint NOT NULL<a class="headerlink" href="#qm-field.a_outcome_ex.outcome_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_outcome_ex.outcome_name">
+<code class="descname">Outcome_Name</code> varchar(200)<a class="headerlink" href="#qm-field.a_outcome_ex.outcome_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_outcome_ex.feedback">
+<code class="descname">Feedback</code> text<a class="headerlink" href="#qm-field.a_outcome_ex.feedback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_outcome_ex.base">
+<code class="descname">Base</code> bit NOT NULL<a class="headerlink" href="#qm-field.a_outcome_ex.base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="field">
+<dt id="qm-field.a_outcome_ex.lang">
+<em class="property">Primary Key: </em><code class="descname">Lang</code> varchar(10) NOT NULL<a class="headerlink" href="#qm-field.a_outcome_ex.lang" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -94,8 +124,8 @@
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../data_model.html">Data Model</a><ul>
   <li><a href="answer.html">Answer Tables</a><ul>
-      <li>Previous: <a href="a_answer.html" title="previous chapter">A_Answer</a></li>
-      <li>Next: <a href="a_outcome.html" title="next chapter">A_Outcome_Ex and A_Outcome</a></li>
+      <li>Previous: <a href="a_comment.html" title="previous chapter">A_Comment</a></li>
+      <li>Next: <a href="a_question_ex.html" title="next chapter">A_Question_Ex</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -123,7 +153,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="../_sources/model/a_comment.txt"
+      <a href="../_sources/model/a_outcome.txt"
           rel="nofollow">Page source</a>
     </div>
 

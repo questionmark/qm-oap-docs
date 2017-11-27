@@ -49,8 +49,8 @@ Result
         In progress results (value 1) may be paused (6) or terminated
         (7).  Similarly paused results may be returned to *in progress*
         (1) or terminated (7).  All other transitions will generate
-        errors if attempted.        
-        
+        errors if attempted.
+
         Setting the status using OData does not dynamically affect the
         state of the running assessment but it may change the behaviour
         when an assessment is resumed (e.g., after a device or network
@@ -94,3 +94,20 @@ Result
         See :qm:field:`A_Result.EXTRA_TIME` for information about the
         interpretation of this field's value.
 
+    ..  od:prop::   Assessment  Assessment
+        :notnull:
+        
+        A navigation property to the associated Assessment (see also
+        :od:prop:`AssessmentID`).
+
+    ..  od:prop::   Answers Answer
+        :collection:
+        
+        A navigation property to the Participant's Answers
+
+    ..  od:prop::   ScoringTasks ScoringTask
+        :collection:
+        
+        A navigation property to the ScoringTasks associated with this
+        result, if any.  One ScoringTasks is associated with the result
+        for each unscored Answer.

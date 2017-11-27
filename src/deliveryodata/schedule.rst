@@ -21,7 +21,7 @@ information yourself in an external entity.
 
 
 The following call illustrates the simplest way to create a schedule
-called "Demo Schedule" for a the Group with ID 8320236::
+called "Demo Schedule" for the Group with ID 8320236::
 
     POST https://ondemand.questionmark.com/deliveryodata/<customer>/Schedules
 
@@ -163,7 +163,7 @@ Schedules Reference
     ..  od:prop::   ResumeAllowed    Edm.Boolean
         :notnull:
 
-        .. versionadded::   2017.10 (TBC)
+        .. versionadded::   2017.11
 
         Set to True to enable failed attempts to be resumed using this
         schedule.  If False then the ResumeTo time is ignored.
@@ -225,9 +225,17 @@ Schedules Reference
         the API but it won't show up in the participants *My
         Assessments* page.
 
+    ..  od:prop::   ObserverInitiated    Edm.Boolean
+        :notnull:
+
+        Whether or not this Schedule is for an observational assessment.
+        An observational assessment is hidden from the Participant as it
+        must be initiated by an observer (an Administrator).  Defaults
+        to false.
+        
     ..  od:prop::   TestCenterID    Edm.Int32
 
-        .. versionadded::   2017.10 (TBC)
+        .. versionadded::   2017.11
 
         The ID of a TestCenter where participants must be located in
         order to take this test.  It is assumed that this test will be
@@ -256,7 +264,7 @@ Schedules Reference
         
     ..  od:prop::   TestCenter  TestCenter
     
-        .. versionadded::   2017.10 (TBC)
+        .. versionadded::   2017.11
 
         A navigation property to the optional TestCenter.
 
@@ -336,11 +344,25 @@ Schedules Reference
         The human-readable name of this schedule.  This is repeated here
         to reduce the need to retrieve each schedule in full.
 
+    ..  od:prop::    ParticipantID  Edm.Int32
+        :notnull:
+        
+        All actionable schedules relate to a specific Participant.
+
+    ..  od:prop::    ParticipantName    Edm.String
+        
+        The Participant's name.
+
     ..  od:prop::    Hidden   Edm.Boolean
         :notnull:
         
         Whether or not the schedule is hidden from the participant in
         the Questionmark portal.
+
+    ..  od:prop::    AttemptsRemaining  Edm.Int32
+        :notnull:
+        
+        The number of attempts remaining on the schedule.
 
     ..  od:prop::    Actions     Edm.String
         :collection:

@@ -69,3 +69,31 @@ G_Schedule
 
     ..  qm:field:: Participant_Lang bit
         :notnull:
+
+
+..  qm:table::  G_Schedule_Details
+
+    The basic Schedule table is not relegated to a view but is extended
+    by creating an extension table keyed on the same identifier.
+
+    ..  qm:field:: Schedule_ID int
+        :notnull:
+        :key:
+
+    ..  qm:field:: Web_Delivery bit
+        :notnull:
+
+    ..  qm:field:: Offline_Delivery bit
+        :notnull:
+
+    ..  qm:field:: APack_File varchar(100)
+
+    ..  qm:field:: Resume_Allowed smallint
+
+    ..  qm:field:: RRA_ResultID int
+
+    ..  qm:field:: RRA_Enabled bit
+
+    ..  qm:field:: ResultFilterID int
+
+

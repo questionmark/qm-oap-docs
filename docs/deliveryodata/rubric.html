@@ -57,6 +57,72 @@ viewing and editing) and the associated rubric scores.
 These passwords are not supported by the Delivery OData
 API.</dd>
 </dl>
+<p>The term &#8216;Rubric&#8217; can be open to confusion.  In this context it
+refers to the instructions to graders (scorers) for grading answers.
+Rubrics may be shared by multiple questions.</p>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Rubric.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Rubric.ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Rubric.Name">
+<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Rubric.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of this Rubric.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Rubric.CreatedDateTime">
+<code class="descname">CreatedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Rubric.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Rubric.ModifiedDateTime">
+<code class="descname">ModifiedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Rubric.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Rubric.Instructions">
+<code class="descname">Instructions</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Rubric.Instructions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Rubric.MaxScore">
+<code class="descname">MaxScore</code>  Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Rubric.MaxScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum score associated with the Rubric.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Rubric.ShowParticipant">
+<code class="descname">ShowParticipant</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Rubric.ShowParticipant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Rubric.Dimensions">
+<code class="descname">Dimensions</code> <a class="reference internal" href="#od-type.deliveryodata.Dimension" title="Dimension">Dimension</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Rubric.Dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>The scoring for the Question is divided into separate Dimensions
+that represent different aspects of the scoring.  For example,
+an essay might be scored separately on relevance, organization
+and style of language.  Each dimension of the rubric is
+represented by separate Dimension entity in this collection.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Rubric.Questions">
+<code class="descname">Questions</code> <a class="reference internal" href="question.html#od-type.deliveryodata.Question" title="Question">Question</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Rubric.Questions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each Rubric may be associated with multiple Questions.  This
+allows standardized rubrics to be created and associated with
+all similar tasks.  Rubrics and Questions are associated using
+Enterprise Manager.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Rubric.ScoringResults">
+<code class="descname">ScoringResults</code> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringResult" title="ScoringResult">ScoringResult</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Rubric.ScoringResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>The combined results of all scoring tasks associated with this
+rubric.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="type">

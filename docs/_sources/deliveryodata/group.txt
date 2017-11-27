@@ -22,7 +22,7 @@ Group
     ..  od:prop::   RootGroupID  Edm.Int32
         :notnull:
 
-        .. versionadded::   2017.10 (TBC) 
+        .. versionadded::   2017.11
 
         The numeric ID of the Group's top-level parent.  The group
         hierarchy does not have a single root node but instead supports
@@ -41,7 +41,8 @@ Group
         :collection:
         
         Navigation property to the administrators associated with the
-        group.
+        group (sometime referred as group owners though role-based
+        permissions are out of scope for this API)
     
     ..  od:prop::   SubGroups  Group
         :collection:
@@ -62,7 +63,7 @@ Group
     ..  od:prop::   SchedulableAssessments  Assessment
         :collection:
 
-        .. versionadded::   2017.10 (TBC) 
+        .. versionadded::   2017.11
 
         All the assessments that have had scheduling permissions
         associated with this Group.  See :od:prop:`Assessment.Groups`

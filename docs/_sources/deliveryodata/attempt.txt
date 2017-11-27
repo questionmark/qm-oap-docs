@@ -13,10 +13,10 @@ Attempt, AttemptLists and AttemptMetadata
     lobby with corresponding controls for proctoring.  It was extended
     in 2016 to cover external delivery through printing and scanning.
 
-    In future it is envisaged that this feed will be further extended to
-    support third-party proctoring solutions and unproctored scenarios
-    providing suport for a wide range of scheduling modules, not just
-    those that use the native :qm:table:`G_Schedule` data model.
+    It is currently be extended further to support both proctored and
+    unproctored scenarios providing support for a wide range of
+    scheduling modules including a new Scheduling API based on the
+    :od:feed:`Schedules` feed.
 
     ..  od:prop::   ID  Edm.Int32
         :key:
@@ -63,12 +63,12 @@ Attempt, AttemptLists and AttemptMetadata
 
         .. versionadded:: 2017.07
 
-        An optional ID for the associated :od:type:`Schedule` entity. 
+        An optional ID for the associated :od:type:`Schedule` entity.
         Unlike the ExternalAttemptID this value is used by the API's own
         *internal* scheduling features.  It is used in conjunction with
         the :od:prop:`AttemptNumber` to manage attempt limits with a
         high degree of defence against race conditions ensuring that
-        callers cannot created two attempts that reference the same
+        callers cannot create two attempts that reference the same
         Schedule with the same AttemptNumber. 
 
         When creating attempts yourself you should leave this property
@@ -132,12 +132,12 @@ Attempt, AttemptLists and AttemptMetadata
         
     ..  od:prop::   MonitoringTypeID  Edm.Int32
 
-        .. versionadded::   2017.10 (TBC) 
+        .. versionadded::   2017.11
 
         An optional reference to a :od:type:`MonitoringType` entity.
         
         Online assessments may be proctored or *monitored* using a range
-        of technical approaches depending on the situation.  In some
+        of technical approaches depending on the requirements.  In some
         cases, *all* attempts at an assessment are managed in the same
         way but this is not required.  The monitoring type can be
         controlled on an attempt-by-attempt basis switching between
@@ -191,11 +191,9 @@ Attempt, AttemptLists and AttemptMetadata
         of the proctoring process.
         
         ..  note::  if you omit this value or pass NULL a default system
-                    check page is currently shown but you should not
-                    rely on this page as in future NULL will indicate
-                    that no system check page is to be shown.  In the
-                    interim, to explicitly indicate that no system check
-                    is required pass the special URL "about:blank".
+                    check page is shown.  To explicitly indicate that no
+                    system check is required pass the special URL
+                    "about:blank".
 
     ..  od:prop::   UnlockCode   Edm.String
 
@@ -238,6 +236,12 @@ Attempt, AttemptLists and AttemptMetadata
         always be NULL on creation.  See
         :od:type:`deliveryodata.Result` for more information.
 
+    ..  od:prop::   NextBranchedAttemptID  Edm.Int32
+    
+        .. versionadded:: 2017.11
+        
+        Reserved for future use.
+
     ..  od:prop::   ParticipantFacingQMLobbyUrl  Edm.String
     
         In order to start the assessmet described by the attempt the
@@ -247,7 +251,7 @@ Attempt, AttemptLists and AttemptMetadata
         (and hence to start the assessment itself).
         
         If the assessment is marked as requiring Questionmark Secure
-        this link will be a specially encrypted qmsb: URL suitable for
+        this link may be a specially encrypted qmsb: URL suitable for
         launching Questionmark Secure automatically if it is already
         installed. Determining whether or not Questionmark Secure is
         installed is out of scope for the lobby as currently implemented.
@@ -348,7 +352,7 @@ Attempt, AttemptLists and AttemptMetadata
 
     ..  od:prop::   Result  Result
 
-        .. versionadded:: 2017.10 (TBC)
+        .. versionadded:: 2017.11
         
         This optional field allows you to navigate to the associated
         Result entity.  See also :od:prop:`ResultID`.
@@ -362,7 +366,7 @@ Attempt, AttemptLists and AttemptMetadata
 
     ..  od:prop::   MonitoringType  MonitoringType
 
-        .. versionadded:: 2017.10 (TBC)
+        .. versionadded:: 2017.11
         
         This optional field allows you to navigate to the associated
         MonitoringType entity.  See also :od:prop:`MonitoringTypeID`.

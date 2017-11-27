@@ -71,7 +71,7 @@
 <dt id="od-prop.deliveryodata.Group.RootGroupID">
 <code class="descname">RootGroupID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Group.RootGroupID" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+<p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
 <p>The numeric ID of the Group&#8217;s top-level parent.  The group
 hierarchy does not have a single root node but instead supports
@@ -92,7 +92,8 @@ same as <a class="reference internal" href="#od-prop.deliveryodata.Group.ID" tit
 <dt id="od-prop.deliveryodata.Group.Administrators">
 <code class="descname">Administrators</code> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.Administrators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the administrators associated with the
-group.</p>
+group (sometime referred as group owners though role-based
+permissions are out of scope for this API)</p>
 </dd></dl>
 
 <dl class="prop">
@@ -121,7 +122,7 @@ Do not use it in general collections:</p>
 <dt id="od-prop.deliveryodata.Group.SchedulableAssessments">
 <code class="descname">SchedulableAssessments</code> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.SchedulableAssessments" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+<p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
 <p>All the assessments that have had scheduling permissions
 associated with this Group.  See <a class="reference internal" href="assessment.html#od-prop.deliveryodata.Assessment.Groups" title="Groups"><code class="xref od od-prop docutils literal"><span class="pre">Assessment.Groups</span></code></a>

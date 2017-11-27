@@ -56,10 +56,10 @@ Questionmark OnDemand during 2015 covering initial use cases centred
 on proctoring, allowing assessments to be launched into a lockable
 lobby with corresponding controls for proctoring.  It was extended
 in 2016 to cover external delivery through printing and scanning.</p>
-<p>In future it is envisaged that this feed will be further extended to
-support third-party proctoring solutions and unproctored scenarios
-providing suport for a wide range of scheduling modules, not just
-those that use the native <a class="reference internal" href="../model/g_schedule.html#qm-table.g_schedule" title="G_Schedule"><code class="xref qm qm-table docutils literal"><span class="pre">G_Schedule</span></code></a> data model.</p>
+<p>It is currently be extended further to support both proctored and
+unproctored scenarios providing support for a wide range of
+scheduling modules including a new Scheduling API based on the
+<a class="reference internal" href="feeds.html#od-feed.deliveryodata.Schedules" title="Schedules"><code class="xref od od-feed docutils literal"><span class="pre">Schedules</span></code></a> feed.</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Attempt.ID">
 <em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ID" title="Permalink to this definition">¶</a></dt>
@@ -115,7 +115,7 @@ Unlike the ExternalAttemptID this value is used by the API&#8217;s own
 <em>internal</em> scheduling features.  It is used in conjunction with
 the <a class="reference internal" href="#od-prop.deliveryodata.Attempt.AttemptNumber" title="AttemptNumber"><code class="xref od od-prop docutils literal"><span class="pre">AttemptNumber</span></code></a> to manage attempt limits with a
 high degree of defence against race conditions ensuring that
-callers cannot created two attempts that reference the same
+callers cannot create two attempts that reference the same
 Schedule with the same AttemptNumber.</p>
 <p>When creating attempts yourself you should leave this property
 as NULL.</p>
@@ -187,11 +187,11 @@ the assessment, the value of this property is ignored if
 <dt id="od-prop.deliveryodata.Attempt.MonitoringTypeID">
 <code class="descname">MonitoringTypeID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Attempt.MonitoringTypeID" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+<p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
 <p>An optional reference to a <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal"><span class="pre">MonitoringType</span></code></a> entity.</p>
 <p>Online assessments may be proctored or <em>monitored</em> using a range
-of technical approaches depending on the situation.  In some
+of technical approaches depending on the requirements.  In some
 cases, <em>all</em> attempts at an assessment are managed in the same
 way but this is not required.  The monitoring type can be
 controlled on an attempt-by-attempt basis switching between
@@ -247,11 +247,9 @@ of the proctoring process.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">if you omit this value or pass NULL a default system
-check page is currently shown but you should not
-rely on this page as in future NULL will indicate
-that no system check page is to be shown.  In the
-interim, to explicitly indicate that no system check
-is required pass the special URL &#8220;<a class="reference external" href="about:blank">about:blank</a>&#8221;.</p>
+check page is shown.  To explicitly indicate that no
+system check is required pass the special URL
+&#8220;<a class="reference external" href="about:blank">about:blank</a>&#8221;.</p>
 </div>
 </dd></dl>
 
@@ -304,6 +302,15 @@ always be NULL on creation.  See
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Attempt.NextBranchedAttemptID">
+<code class="descname">NextBranchedAttemptID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Attempt.NextBranchedAttemptID" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.11.</span></p>
+</div>
+<p>Reserved for future use.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Attempt.ParticipantFacingQMLobbyUrl">
 <code class="descname">ParticipantFacingQMLobbyUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ParticipantFacingQMLobbyUrl" title="Permalink to this definition">¶</a></dt>
 <dd><p>In order to start the assessmet described by the attempt the
@@ -312,7 +319,7 @@ a time-limited cryptographically signed URL that must be sent
 to the participant&#8217;s browser to allow them to enter the lobby
 (and hence to start the assessment itself).</p>
 <p>If the assessment is marked as requiring Questionmark Secure
-this link will be a specially encrypted qmsb: URL suitable for
+this link may be a specially encrypted qmsb: URL suitable for
 launching Questionmark Secure automatically if it is already
 installed. Determining whether or not Questionmark Secure is
 installed is out of scope for the lobby as currently implemented.</p>
@@ -418,7 +425,7 @@ PATCH method on the associated feed will cause it to be updated.</p>
 <dt id="od-prop.deliveryodata.Attempt.Result">
 <code class="descname">Result</code> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.Result" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+<p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
 <p>This optional field allows you to navigate to the associated
 Result entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.ResultID" title="ResultID"><code class="xref od od-prop docutils literal"><span class="pre">ResultID</span></code></a>.</p>
@@ -438,7 +445,7 @@ Schedule entity.  See also <a class="reference internal" href="#od-prop.delivery
 <dt id="od-prop.deliveryodata.Attempt.MonitoringType">
 <code class="descname">MonitoringType</code> <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType">MonitoringType</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.MonitoringType" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+<p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
 <p>This optional field allows you to navigate to the associated
 MonitoringType entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.MonitoringTypeID" title="MonitoringTypeID"><code class="xref od od-prop docutils literal"><span class="pre">MonitoringTypeID</span></code></a>.</p>
