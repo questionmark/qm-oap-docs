@@ -52,8 +52,8 @@
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">This page documents parts of the API that should be
-considered to be of &#8216;alpha&#8217; quality.  The details <em>are</em>
-subject to change in future versions.</p>
+considered to be of &#8216;beta&#8217; quality.  The details <em>are</em>
+subject to minor changes in future versions.</p>
 </div>
 <p>The Delivery OData API contains a brand new schedule entity to enable
 the scheduling of assessments from third-party applications, including
@@ -90,7 +90,7 @@ with you need to look at the Groups associated with that administrator
         {
             &quot;SchedulableAssessments&quot;: [
                 {
-                    &quot;ID&quot;: &quot;3000000003&quot;,
+                    &quot;ID&quot;: &quot;92761000092761&quot;,
                     &quot;Revision&quot;: 1,
                     &quot;Name&quot;: &quot;Sample Test&quot;,
                     &quot;Language&quot;: &quot;-&quot;,
@@ -102,10 +102,10 @@ with you need to look at the Groups associated with that administrator
                     &quot;Base&quot;: true
                 }
             ],
-            &quot;ID&quot;: 517208256,
+            &quot;ID&quot;: 587413784,
             &quot;Name&quot;: &quot;Test_Group&quot;,
             &quot;Description&quot;: &quot;&quot;,
-            &quot;RootGroupID&quot;: 517208256
+            &quot;RootGroupID&quot;: 587413784
         }
     ]
 }
@@ -136,19 +136,50 @@ of a monitoring type that describes how the assessment will be monitored
 <p>Monitoring types do not have human-friendly names, they have symbolic
 names that are designed to be used as keys to translated text for a
 multi-lingual user interface.  Once you have selected a monotring type
-use its ID when creating a schedule:</p>
+use its ID when creating a schedule. We&#8217;ll create a simple
+unmonitored test that does not require Questionmark Secure:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo Schedule&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;3000000003&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GroupID&quot;</span><span class="p">:</span> <span class="mi">517208256</span><span class="p">,</span>
+    <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;92761000092761&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GroupID&quot;</span><span class="p">:</span> <span class="mi">587413784</span><span class="p">,</span>
     <span class="s2">&quot;MonitoringTypeID&quot;</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>The response is &#8220;201 Created&#8221; and the Schedule is reflected back:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.eu/deliveryodata/&lt;customer-id&gt;/$metadata#Schedules/@Element&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;ParentScheduleID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ExternalID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo Schedule&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;92761000092761&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Language&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;GroupID&quot;</span><span class="p">:</span> <span class="mi">587413784</span><span class="p">,</span>
+    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;StartFrom&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;StartTo&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ResumeTo&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ReportFrom&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ReportTo&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ExtraTime&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;MaxAttempts&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;MonitoringTypeID&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;ObserverID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;Created&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-11-23T17:12:22.5894683Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-11-23T17:12:22.5894683Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hidden&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;Disabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;ResumeAllowed&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;ObserverInitiated&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;TestCenterID&quot;</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>This creates a schedule for the Sample Test returned in the previous
-example for all members of the group with ID 517208256 (the &#8220;Test_Group&#8221;
+example for all members of the group with ID 587413784 (the &#8220;Test_Group&#8221;
 also returned in the previous example).  There are no time limits on
 when the participants can start the test and no limit on the number of
 attempts.</p>
@@ -156,8 +187,12 @@ attempts.</p>
 party integration as the schedule will then show up in the Questionmark
 portal when the participant logs in and they&#8217;ll be able to launch the
 test from there.  That functionality is not available yet (as of
-2017.08) and so this API assumes that the external system will go on to
+2017.11) and so this API assumes that the external system will go on to
 create its own user interface for the participant.</p>
+<p>If you do not want the Schedule to show up in the Questionmark portal,
+in other words, if you want to control the schedule entirely from your
+own external system you can hide the schedule.  By default schedules are
+<em>not</em> hidden.</p>
 </div>
 <div class="section" id="active-schedules">
 <h2>Active Schedules<a class="headerlink" href="#active-schedules" title="Permalink to this headline">¶</a></h2>
@@ -165,30 +200,29 @@ create its own user interface for the participant.</p>
 schedules are active for that participant.  A schedule is active if
 there is some action that the participant may take (such as starting or
 resuming the test).</p>
-<p>To discover the list of active schedules you can call an OData action.
-In the current release this action is bound to the Schedules feed but
-this will change (expected 2017.10) so the following flow should be
-considered experimental for now, notice that OData actions are invoked
-using the POST method:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span><span class="o">/</span><span class="n">ActionableSchedulesForParticipant</span>
+<p>To discover the list of active schedules for a participant you invoke
+an action on that Participant&#8217;s entity.  For the Participant with ID
+1459320309 you can call the ActionableSchedules action as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Participant</span><span class="p">(</span><span class="mi">1459320309</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedules</span>
 
 <span class="p">{</span>
-    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">80200535</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>In this case we POST an empty JSON object in the body (Content-Type:
+application/json) as there are no parameters.</p>
 <p>The response will look like this:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/&lt;customer-id&gt;/$metadata#Collection(QM.DeliveryODataService.DTO.ActionableSchedule)&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;value&quot;</span><span class="p">:</span>
-    <span class="p">[</span>
+    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.eu/deliveryodata/&lt;customer-id&gt;/$metadata#Collection(QM.DeliveryODataService.DTO.ActionableSchedule)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">11887</span><span class="p">,</span>
+            <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
             <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo Schedule&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">1459320309</span><span class="p">,</span>
+            <span class="s2">&quot;ParticipantName&quot;</span><span class="p">:</span> <span class="s2">&quot;Adrian Hurst&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Hidden&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
             <span class="s2">&quot;AttemptsRemaining&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-            <span class="s2">&quot;Actions&quot;</span><span class="p">:</span>
-            <span class="p">[</span>
+            <span class="s2">&quot;Actions&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="s2">&quot;start&quot;</span>
             <span class="p">]</span>
         <span class="p">}</span>
@@ -199,7 +233,7 @@ using the POST method:</p>
 <p>The result is a list of ActionableSchedule objects.  You can see the ID
 of the schedule, the name (for display to the user when there are
 multiple assessments available) and information about the number of
-attempts remaining.</p>
+attempts remaining which is null here as there is no limit.</p>
 <p>The Actions list is just a list of strings containing the names of
 actions that are allowed.  In this case just one: &#8220;start&#8221;.</p>
 </div>
@@ -211,28 +245,28 @@ previous request.</p>
 <p>To enable the participant to launch the test you need to convert the
 action into a URL that can be passed to the user&#8217;s browser to invoke the
 action.  You do this using the InvokeAction action:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span><span class="p">(</span><span class="mi">11887</span><span class="p">)</span><span class="o">/</span><span class="n">InvokeAction</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">InvokeAction</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;Action&quot;</span><span class="p">:</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">80200535</span>
+    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">1459320309</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>The response will look something like this:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/&lt;customer-id&gt;/$metadata#Edm.String&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/lobby/&lt;customer-id&gt;/lobby/SystemCheck/17896?nonce=2c2b0ec9-1b96-44c7-853d-9557e271eb24&amp;timestamp=2017-08-21T13:40:28.3237534Z&amp;role=participant&amp;signature=23228c229ce90ffd3fdaa2b73f94c95718457686474655f50229c4d91f211f9d&quot;</span>
+    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.eu/deliveryodata/&lt;customer-id&gt;/$metadata#Edm.String&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.eu/lobby/&lt;customer-id&gt;/lobby/SystemCheck/201?nonce=d22bdd49-4d35-4265-b9e7-3bbb8b7a9fab&amp;timestamp=2017-11-23T17:28:02.0181676Z&amp;role=participant&amp;signature=58db3754e595701731b8468775a4e0ce1d7686e3fca9d29f7920f1261f3a45ac&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>The URL obtained in the value of the result can be passed to the
 participant&#8217;s browser to enable them to launch the test.  The link is
 time-limited, you should ensure that your application redirects the
-participant to this link while handling a request for a suitable action
-(such as the response to a button press).  If the participant is too
-slow to load the URL it will expire and you&#8217;ll have to generate another
-one by invoking the action again.</p>
+participant to this link while processing a request from a suitable
+action such as a button press.  If the participant is too slow to load
+the URL it will expire and you&#8217;ll have to generate another one by
+invoking the action again.</p>
 </div>
 <div class="section" id="modiyfing-a-schedule">
 <h2>Modiyfing a Schedule<a class="headerlink" href="#modiyfing-a-schedule" title="Permalink to this headline">¶</a></h2>
@@ -240,7 +274,7 @@ one by invoking the action again.</p>
 (E.g., the AssessmentID is fixed on creation).  The following call will
 update the Schedule created in the previous example so that it can be
 resumed:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PATCH</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span><span class="p">(</span><span class="mi">11887</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PATCH</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;ResumeAllowed&quot;</span><span class="p">:</span> <span class="n">true</span>
@@ -253,7 +287,7 @@ indicated using the &#8220;resume&#8221; action:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span><span class="o">/</span><span class="n">ActionableSchedulesForParticipant</span>
 
 <span class="p">{</span>
-    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">80200535</span>
+    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">1459320309</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -263,15 +297,16 @@ indicated using the &#8220;resume&#8221; action:</p>
     <span class="s2">&quot;value&quot;</span><span class="p">:</span>
     <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">11887</span><span class="p">,</span>
-            <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo Schedule&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;Hidden&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-            <span class="s2">&quot;AttemptsRemaining&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-            <span class="s2">&quot;Actions&quot;</span><span class="p">:</span>
-            <span class="p">[</span>
-                <span class="s2">&quot;resume&quot;</span>
-            <span class="p">]</span>
-        <span class="p">}</span>
+        <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo Schedule&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">1459320309</span><span class="p">,</span>
+        <span class="s2">&quot;ParticipantName&quot;</span><span class="p">:</span> <span class="s2">&quot;Adrian Hurst&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Hidden&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;AttemptsRemaining&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;Actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;resume&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
@@ -284,17 +319,18 @@ the next one if the schedule is resumable.)</p>
 </div>
 <div class="section" id="managing-attempts-schedule-reporting">
 <h2>Managing Attempts: Schedule Reporting<a class="headerlink" href="#managing-attempts-schedule-reporting" title="Permalink to this headline">¶</a></h2>
-<p>Next generation schedules use the same Attempt concept as non-scheduled
-delivery but the actions described above take care of managing the
-Attempts. You may still use the Attempts to discover detailed
-information about who has attempted the assessment and what results have
-been completed or are in progress:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/&lt;customer-id&gt;/Attempts?$filter=ScheduleID%20eq%2011887&amp;$expand=Result
+<p>Next generation schedules use the Attempt entity which can also be used
+standalone for non-scheduled delivery.   The difference that is for
+scheduled delivery, the actions described above take care of creating
+the associated Attempts at the correct time. You may still use the
+Attempts to discover detailed information about who has attempted the
+assessment and what results have been completed or are in progress:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/&lt;customer-id&gt;/Schedules(1)?$epxand=Attempts/Result
 </pre></div>
 </div>
-<p>This query returns all Attempts for a schedule using a filter.  By
-expanding the Results associated with the attempts we can see the status
-and outcome of the associated attempts.</p>
+<p>This query returns all Attempts for a schedule using expansion of the
+Attempt navigation property.  By expanding the Result associated with
+each Attempt we can see the status and outcome too.</p>
 <p>This data could be used to construct a dashboard report for the schedule:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/&lt;customer-id&gt;/$metadata#Attempts&quot;</span><span class="p">,</span>
@@ -302,13 +338,13 @@ and outcome of the associated attempts.</p>
         <span class="p">{</span>
             <span class="s2">&quot;Result&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="mi">390765738</span><span class="p">,</span>
-                <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;3000000003&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;ParticipantName&quot;</span><span class="p">:</span> <span class="s2">&quot;Stuart Dent&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;92761000092761&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ParticipantName&quot;</span><span class="p">:</span> <span class="s2">&quot;a.hurst&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;GroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
                 <span class="s2">&quot;ParticipantDetails&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
                 <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-                <span class="s2">&quot;MaxScore&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="s2">&quot;TotalScore&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;MaxScore&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="s2">&quot;TotalScore&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
                 <span class="s2">&quot;ScoreBandTitle&quot;</span><span class="p">:</span> <span class="s2">&quot;Pass&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;PercentageScore&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
                 <span class="s2">&quot;WhenFinished&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-08-21T13:59:41.347&quot;</span><span class="p">,</span>
@@ -320,8 +356,8 @@ and outcome of the associated attempts.</p>
             <span class="s2">&quot;ParticipantFacingQMLobbyUrl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
             <span class="s2">&quot;ProctorFacingQMControlsWidgetUrl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
             <span class="s2">&quot;UnlockCodeExpiresDateTime&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-            <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">80200535</span><span class="p">,</span>
-            <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;3000000003&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">1459320309</span><span class="p">,</span>
+            <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;92761000092761&quot;</span><span class="p">,</span>
             <span class="s2">&quot;AssessmentSnapshotID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
             <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">11887</span><span class="p">,</span>
             <span class="s2">&quot;AttemptNumber&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>

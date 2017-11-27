@@ -270,3 +270,23 @@ Participant
                 "odata.metadata": "https://ondemand.questionmark.eu/deliveryodata/<customer-id>/$metadata#Collection(QM.DeliveryODataService.DTO.ActionableSchedule)",
                 "value": []
             }        
+
+    ..  od:action:: ActionableSchedule ActionableSchedule
+        :input: ScheduleID Edm.Int32
+
+        .. versionadded:: 2017.11
+
+        Returns a single :od:type:`ActionableSchedule` related to
+        this participant and the Schedule referred to in the input
+        parameter.
+        
+        It is called like this::
+        
+            POST /deliveryodata/<customer-id>/Participant(123456)/ActionableSchedule
+            
+            {
+                "ScheduleID": 12345
+            }
+        
+        See :od:action:`ActionableSchedules` for more information.
+       

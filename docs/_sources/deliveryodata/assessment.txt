@@ -77,10 +77,10 @@ Assessment
     ..  od:prop::   Groups  Group
         :collection:
 
-        .. versionadded::   2017.10 (TBC) 
+        .. versionadded::   2017.11
         
         Navigation property to the collection of Group entities
-        associated with this assessment.  Assessments are a associated
+        associated with this assessment.  Assessments are associated
         with groups through the concept of "Scheduling Permissions" that
         are set on *Published* Assessments.  By assigning a group to an
         assessment you enable (administrator) members of that group to

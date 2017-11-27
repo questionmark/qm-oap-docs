@@ -520,6 +520,26 @@ follows:</p>
 </div>
 </dd></dl>
 
+<dl class="action">
+<dt id="od-action.deliveryodata.Participant.ActionableSchedule">
+<em class="property">action </em><code class="descname">ActionableSchedule</code> (ScheduleID  Edm.Int32) <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule">ActionableSchedule</a><a class="headerlink" href="#od-action.deliveryodata.Participant.ActionableSchedule" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2017.11.</span></p>
+</div>
+<p>Returns a single <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><code class="xref od od-type docutils literal"><span class="pre">ActionableSchedule</span></code></a> related to
+this participant and the Schedule referred to in the input
+parameter.</p>
+<p>It is called like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Participant</span><span class="p">(</span><span class="mi">123456</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedule</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">12345</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See <code class="xref od od-action docutils literal"><span class="pre">ActionableSchedules</span></code> for more information.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>

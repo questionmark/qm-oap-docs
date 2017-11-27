@@ -60,7 +60,7 @@ provides a way for your to safely limit the number of attempts the
 participant is allowed at an assessment without having to manage the
 information yourself in an external entity.</p>
 <p>The following call illustrates the simplest way to create a schedule
-called &#8220;Demo Schedule&#8221; for a the Group with ID 8320236:</p>
+called &#8220;Demo Schedule&#8221; for the Group with ID 8320236:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">&gt;/</span><span class="n">Schedules</span>
 
 <span class="p">{</span>
@@ -217,7 +217,7 @@ future subject to StartFrom.</p>
 <dt id="od-prop.deliveryodata.Schedule.ResumeAllowed">
 <code class="descname">ResumeAllowed</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ResumeAllowed" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+<p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
 <p>Set to True to enable failed attempts to be resumed using this
 schedule.  If False then the ResumeTo time is ignored.</p>
@@ -297,10 +297,19 @@ Assessments</em> page.</p>
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ObserverInitiated">
+<code class="descname">ObserverInitiated</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ObserverInitiated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not this Schedule is for an observational assessment.
+An observational assessment is hidden from the Participant as it
+must be initiated by an observer (an Administrator).  Defaults
+to false.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Schedule.TestCenterID">
 <code class="descname">TestCenterID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.TestCenterID" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+<p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
 <p>The ID of a TestCenter where participants must be located in
 order to take this test.  It is assumed that this test will be
@@ -342,7 +351,7 @@ by the proctor.</p>
 <dt id="od-prop.deliveryodata.Schedule.TestCenter">
 <code class="descname">TestCenter</code> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter">TestCenter</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.TestCenter" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.10: </span>(TBC)</p>
+<p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
 <p>A navigation property to the optional TestCenter.</p>
 </dd></dl>
@@ -434,10 +443,28 @@ to reduce the need to retrieve each schedule in full.</p>
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.ActionableSchedule.ParticipantID">
+<code class="descname">ParticipantID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.ParticipantID" title="Permalink to this definition">¶</a></dt>
+<dd><p>All actionable schedules relate to a specific Participant.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ActionableSchedule.ParticipantName">
+<code class="descname">ParticipantName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.ParticipantName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Participant&#8217;s name.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.ActionableSchedule.Hidden">
 <code class="descname">Hidden</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.Hidden" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether or not the schedule is hidden from the participant in
 the Questionmark portal.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ActionableSchedule.AttemptsRemaining">
+<code class="descname">AttemptsRemaining</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.AttemptsRemaining" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of attempts remaining on the schedule.</p>
 </dd></dl>
 
 <dl class="prop">

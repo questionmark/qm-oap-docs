@@ -5,7 +5,7 @@ TestCenter
 
 ..  od:type::   TestCenter
 
-    .. versionadded::   2017.10 (TBC)
+    .. versionadded::   2017.11
 
     The information in this entity is read directly from the
     :qm:table:`G_Test_Center` table.
