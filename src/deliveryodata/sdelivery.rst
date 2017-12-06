@@ -305,7 +305,7 @@ the associated Attempts at the correct time. You may still use the
 Attempts to discover detailed information about who has attempted the
 assessment and what results have been completed or are in progress::
 
-    GET /deliveryodata/<customer-id>/Schedules(1)?$epxand=Attempts/Result
+    GET /deliveryodata/<customer-id>/Schedules(1)?$expand=Attempts/Result
 
 This query returns all Attempts for a schedule using expansion of the
 Attempt navigation property.  By expanding the Result associated with

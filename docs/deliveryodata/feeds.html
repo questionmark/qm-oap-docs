@@ -112,6 +112,7 @@ entities that are associated with a ScoringTask.</li>
 </tr>
 </tbody>
 </table>
+<p>$orderby is <em>not</em> supported.</p>
 <p>The Answers feed contains detailed information about the answers
 given by participants.  Each question that a participant answers
 generates a unique record in this feed.</p>
@@ -125,14 +126,21 @@ generates a unique record in this feed.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
 <li><strong>GET</strong> &#8211; returns AnswerUpload metadata entities</li>
 <li><strong>POST</strong> &#8211; submits new AnswerUpload file for scoring</li>
 </ul>
 </td>
 </tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; the primary key</li>
+</ul>
+</td>
+</tr>
 </tbody>
 </table>
+<p>$orderby is <em>not</em> supported.</p>
 <p>The AnswerUpload feed is used for external delivery use cases where
 response data is obtained externally (e.g., through printing and
 scanning) and must be submitted for scoring through the API.  It
@@ -191,7 +199,8 @@ delivery.</p>
 <tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
 <li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>AssessmentID</strong> &#8211; the assessment used to create the snapshot</li>
+<li><strong>AssessmentID</strong> &#8211; the assessment used to create the snapshot ($orderby not supported)</li>
+<li><strong>CreatedDateTime</strong> &#8211; the time the snapshot was created, $orderby only, $filter not supported</li>
 </ul>
 </td>
 </tr>
@@ -228,6 +237,7 @@ including printing and scanning.</p>
 </tr>
 </tbody>
 </table>
+<p>$orderby is <em>not</em> supported.</p>
 <p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.AssessmentSnapshots" title="AssessmentSnapshots"><code class="xref od od-feed docutils literal"><span class="pre">AssessmentSnapshots</span></code></a> which contains
 the raw XML data describing the snapshot.  Values are normally
 obtained by navigation from the associated
@@ -235,48 +245,41 @@ obtained by navigation from the associated
 </dd></dl>
 
 <dl class="feed">
-<dt id="od-feed.deliveryodata.Attempts">
-<code class="descname">Attempts</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-feed.deliveryodata.Attempts" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dt id="od-feed.deliveryodata.AttemptLists">
+<code class="descname">AttemptLists</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptList" title="AttemptList">AttemptList</a><a class="headerlink" href="#od-feed.deliveryodata.AttemptLists" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version OnDemand: </span>2016.09</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; reading attempt entities</li>
-<li><strong>POST</strong> &#8211; creating attempt entities</li>
+<li><strong>GET</strong> &#8211; reading attempt list entities</li>
+<li><strong>POST</strong> &#8211; creating attempt list entities</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
 <li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>ExternalAttemptListID</strong> &#8211; external reference</li>
 </ul>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>AnswerUpload</strong> &#8211; expands the optional associated AnswerUpload</li>
-<li><strong>AttemptList</strong> &#8211; expands the optional associated AttemptList</li>
-<li><strong>AttemptMetadata</strong> &#8211; expands the optional metadata</li>
-<li><strong>MonitoringType</strong> &#8211; expands the optional MonitoringType</li>
-<li><strong>Result</strong> &#8211; expands the optional Result</li>
+<li><strong>Attempts</strong> &#8211; expands the associated Attempts</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>The Attempts feed contains an entry for each attempt at an
-assessment. Attempts represent the authority to take a test and link
-to a specific participant, a specific assessment and (sometimes) a
-specific snapshot.  There are also properties that can be used to
-control the security of the test.</p>
-<p>The attempt flow is a relatively new way of providing access to
-launch tests through the APIs.  Currently only used for specialist
-use cases such as online proctoring and printing and scanning the
-scope of the Attempts feed is gradually widening to provide a
-general platform for use by external systems that maintain their own
-business rules.</p>
+<p>$orderby is <em>not</em> supported.</p>
+<p>The AttemptLists feed supports the arbitrary grouping of attempts
+allowing a pre-defined group of attempts to be managed by a single
+proctor or external business process.</p>
 </dd></dl>
 
 <dl class="feed">
@@ -296,6 +299,7 @@ business rules.</p>
 <tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
 <li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>AttemptID</strong> &#8211; associated attempt</li>
 </ul>
 </td>
 </tr>
@@ -307,6 +311,7 @@ business rules.</p>
 </tr>
 </tbody>
 </table>
+<p>$orderby is <em>not</em> supported.</p>
 <p>The attempt metadata feed allows arbitrary metadata to be associated
 with an attempt.  Although entities can be created and accessed
 directly from this feed they are always associated with an Attempt
@@ -398,39 +403,52 @@ Content-Type: application/json; charset=utf-8
 </dd></dl>
 
 <dl class="feed">
-<dt id="od-feed.deliveryodata.AttemptLists">
-<code class="descname">AttemptLists</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptList" title="AttemptList">AttemptList</a><a class="headerlink" href="#od-feed.deliveryodata.AttemptLists" title="Permalink to this definition">¶</a></dt>
-<dd><div class="versionadded">
-<p><span class="versionmodified">New in version OnDemand: </span>2016.09</p>
-</div>
-<table class="docutils field-list" frame="void" rules="none">
+<dt id="od-feed.deliveryodata.Attempts">
+<code class="descname">Attempts</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-feed.deliveryodata.Attempts" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; reading attempt list entities</li>
-<li><strong>POST</strong> &#8211; creating attempt list entities</li>
+<li><strong>GET</strong> &#8211; reading attempt entities</li>
+<li><strong>POST</strong> &#8211; creating attempt entities</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
 <li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>ExternalAttemptID</strong> &#8211; reference in external system</li>
+<li><strong>ScheduleID</strong> &#8211; the associated schedule</li>
+<li><strong>AttemptListID</strong> &#8211; the associated attempt list</li>
 </ul>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>Attempts</strong> &#8211; expands the associated Attempts</li>
+<li><strong>AnswerUpload</strong> &#8211; expands the optional associated AnswerUpload</li>
+<li><strong>AttemptList</strong> &#8211; expands the optional associated AttemptList</li>
+<li><strong>AttemptMetadata</strong> &#8211; expands the optional metadata</li>
+<li><strong>MonitoringType</strong> &#8211; expands the optional MonitoringType</li>
+<li><strong>Result</strong> &#8211; expands the optional Result</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>The AttemptLists feed supports the arbitrary grouping of attempts
-allowing a pre-defined group of attempts to be managed by a single
-proctor or external business process.</p>
+<p>$orderby is <em>not</em> supported.</p>
+<p>The Attempts feed contains an entry for each attempt at an
+assessment. Attempts represent the authority to take a test and link
+to a specific participant, a specific assessment and (sometimes) a
+specific snapshot.  There are also properties that can be used to
+control the security of the test.</p>
+<p>The attempt flow is a relatively new way of providing access to
+launch tests through the APIs.  Currently only used for specialist
+use cases such as online proctoring and printing and scanning the
+scope of the Attempts feed is gradually widening to provide a
+general platform for use by external systems that maintain their own
+business rules.</p>
 </dd></dl>
 
 <dl class="feed">
@@ -553,12 +571,13 @@ are defined by the <a class="reference internal" href="group.html#od-type.delive
 <tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
 <li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>Name</strong> &#8211; primary key</li>
+<li><strong>Name</strong> &#8211; the symbolic name of this monitoring type</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>$orderby is <em>not</em> supported.</p>
 <p>The MonitoringTypes feed contains data about methods of monitoring
 assessments. Entries are defined by the <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal"><span class="pre">MonitoringType</span></code></a>
 type.</p>
@@ -599,7 +618,27 @@ special Participant role.</p>
 <dl class="feed">
 <dt id="od-feed.deliveryodata.PrintBatches">
 <code class="descname">PrintBatches</code> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a><a class="headerlink" href="#od-feed.deliveryodata.PrintBatches" title="Permalink to this definition">¶</a></dt>
-<dd><p>The PrintBatches feed contains information about a group of users
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>GroupID</strong> &#8211; the ID of the group associated with this batch</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>$orderby is <em>not</em> supported.</p>
+<p>The PrintBatches feed contains information about a group of users
 who have been assigned a particular snapshot of an assessment to
 take externally, typically through printing and scanning.</p>
 </dd></dl>
@@ -698,14 +737,26 @@ are defined by the <a class="reference internal" href="result.html#od-type.deliv
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
 <li><strong>GET</strong> &#8211; for reading schedules</li>
 <li><strong>PATCH</strong> &#8211; for updating writable properties of a schedule</li>
 </ul>
 </td>
 </tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>ParticipantID</strong> &#8211; the associated participant</li>
+<li><strong>GroupID</strong> &#8211; the associated group</li>
+<li><strong>StartFrom</strong> &#8211; the schedule start time</li>
+<li><strong>MonitoringTypeID</strong> &#8211; the associated monitoring type</li>
+<li><strong>TestCenterID</strong> &#8211; the associated test center</li>
+</ul>
+</td>
+</tr>
 </tbody>
 </table>
+<p>$orderby is <em>not</em> supported.</p>
 </dd></dl>
 
 <dl class="feed">
@@ -783,6 +834,31 @@ that requires subjective scoring.  The scores actually awarded are
 in the associated <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringResult" title="ScoringResult"><code class="xref od od-type docutils literal"><span class="pre">ScoringResult</span></code></a>.</p>
 </dd></dl>
 
+<dl class="feed">
+<dt id="od-feed.deliveryodata.TestCenters">
+<code class="descname">TestCenters</code> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter">TestCenter</a><a class="headerlink" href="#od-feed.deliveryodata.TestCenters" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; for reading test centres</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; the primary key</li>
+<li><strong>Name</strong> &#8211; the test center name</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>$orderby is <em>not</em> supported.</p>
+</dd></dl>
+
 </div>
 
 
@@ -833,7 +909,7 @@ in the associated <a class="reference internal" href="scoringtask.html#od-type.d
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016, Questionmark Computing Ltd.
+      &copy;2016-2017, Questionmark Computing Ltd.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>

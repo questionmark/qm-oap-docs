@@ -325,7 +325,7 @@ scheduled delivery, the actions described above take care of creating
 the associated Attempts at the correct time. You may still use the
 Attempts to discover detailed information about who has attempted the
 assessment and what results have been completed or are in progress:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/&lt;customer-id&gt;/Schedules(1)?$epxand=Attempts/Result
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/&lt;customer-id&gt;/Schedules(1)?$expand=Attempts/Result
 </pre></div>
 </div>
 <p>This query returns all Attempts for a schedule using expansion of the
@@ -429,7 +429,7 @@ each Attempt we can see the status and outcome too.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016, Questionmark Computing Ltd.
+      &copy;2016-2017, Questionmark Computing Ltd.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>

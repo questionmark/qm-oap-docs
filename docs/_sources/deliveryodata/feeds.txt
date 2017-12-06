@@ -28,16 +28,21 @@ Delivery OData Feeds
                          a known issue this expansion will *only* return
                          entities that are associated with a ScoringTask.
 
+    $orderby is *not* supported.
+
     The Answers feed contains detailed information about the answers
     given by participants.  Each question that a participant answers
     generates a unique record in this feed.
-    
+
 
 ..  od:feed::   AnswerUploads AnswerUpload
     :mle:
     
     :method GET: returns AnswerUpload metadata entities
     :method POST: submits new AnswerUpload file for scoring
+    :filter ID: the primary key
+
+    $orderby is *not* supported.
 
     The AnswerUpload feed is used for external delivery use cases where
     response data is obtained externally (e.g., through printing and
@@ -63,8 +68,9 @@ Delivery OData Feeds
     :method POST: creating snapshot entities
     :method PATCH: some properties may be updated, see entity for details
     :filter ID: primary key
-    :filter AssessmentID: the assessment used to create the snapshot
-    
+    :filter AssessmentID: the assessment used to create the snapshot ($orderby not supported)
+    :filter CreatedDateTime: the time the snapshot was created, $orderby only, $filter not supported
+        
     The AssessmentSnapshots feed contains information about snapshots of
     assessments.  Snapshots are versions of an assessment that have
     fixed any randomisation, such as which questions are picked and the
@@ -80,41 +86,38 @@ Delivery OData Feeds
     :method GET: feed is read only
     :filter ID: primary key
 
+    $orderby is *not* supported.
+
     An auxiliary feed to :od:feed:`AssessmentSnapshots` which contains
     the raw XML data describing the snapshot.  Values are normally
     obtained by navigation from the associated
     :od:type:`deliveryodata.AssessmentSnapshot` rather than directly.
     
-..  od:feed::   Attempts Attempt
+..  od:feed::   AttemptLists AttemptList
 
-    :method GET: reading attempt entities
-    :method POST: creating attempt entities
+    .. versionadded:: OnDemand 2016.09
+
+    :method GET: reading attempt list entities
+    :method POST: creating attempt list entities
     :filter ID: primary key
-    :expand AnswerUpload: expands the optional associated AnswerUpload
-    :expand AttemptList: expands the optional associated AttemptList
-    :expand AttemptMetadata: expands the optional metadata
-    :expand MonitoringType: expands the optional MonitoringType
-    :expand Result: expands the optional Result
+    :filter ExternalAttemptListID: external reference
+    :expand Attempts: expands the associated Attempts    
 
-    The Attempts feed contains an entry for each attempt at an
-    assessment. Attempts represent the authority to take a test and link
-    to a specific participant, a specific assessment and (sometimes) a
-    specific snapshot.  There are also properties that can be used to
-    control the security of the test.
-    
-    The attempt flow is a relatively new way of providing access to
-    launch tests through the APIs.  Currently only used for specialist
-    use cases such as online proctoring and printing and scanning the
-    scope of the Attempts feed is gradually widening to provide a
-    general platform for use by external systems that maintain their own
-    business rules.    
-    
+    $orderby is *not* supported.
+
+    The AttemptLists feed supports the arbitrary grouping of attempts
+    allowing a pre-defined group of attempts to be managed by a single
+    proctor or external business process.    
+
 ..  od:feed::   AttemptMetadata AttemptMetadata
 
     :method GET: reading attempt metadata key-value pairs
     :method POST: creating attempt metadata key-value pairs
     :filter ID: primary key
+    :filter AttemptID: associated attempt
     :expand Attempt: expands the associated Attempt    
+
+    $orderby is *not* supported.
 
     The attempt metadata feed allows arbitrary metadata to be associated
     with an attempt.  Although entities can be created and accessed
@@ -205,19 +208,35 @@ Delivery OData Feeds
         }
                 
 
-..  od:feed::   AttemptLists AttemptList
+..  od:feed::   Attempts Attempt
 
-    .. versionadded:: OnDemand 2016.09
-
-    :method GET: reading attempt list entities
-    :method POST: creating attempt list entities
+    :method GET: reading attempt entities
+    :method POST: creating attempt entities
     :filter ID: primary key
-    :expand Attempts: expands the associated Attempts    
+    :filter ExternalAttemptID: reference in external system
+    :filter ScheduleID: the associated schedule
+    :filter AttemptListID: the associated attempt list
+    :expand AnswerUpload: expands the optional associated AnswerUpload
+    :expand AttemptList: expands the optional associated AttemptList
+    :expand AttemptMetadata: expands the optional metadata
+    :expand MonitoringType: expands the optional MonitoringType
+    :expand Result: expands the optional Result
 
-    The AttemptLists feed supports the arbitrary grouping of attempts
-    allowing a pre-defined group of attempts to be managed by a single
-    proctor or external business process.    
+    $orderby is *not* supported.
 
+    The Attempts feed contains an entry for each attempt at an
+    assessment. Attempts represent the authority to take a test and link
+    to a specific participant, a specific assessment and (sometimes) a
+    specific snapshot.  There are also properties that can be used to
+    control the security of the test.
+    
+    The attempt flow is a relatively new way of providing access to
+    launch tests through the APIs.  Currently only used for specialist
+    use cases such as online proctoring and printing and scanning the
+    scope of the Attempts feed is gradually widening to provide a
+    general platform for use by external systems that maintain their own
+    business rules.    
+    
 ..  od:feed::   Dimensions Dimension
 
     :method GET: this feed is read only
@@ -260,7 +279,9 @@ Delivery OData Feeds
 
     :method GET: read only
     :filter ID: primary key
-    :filter Name: primary key
+    :filter Name: the symbolic name of this monitoring type
+
+    $orderby is *not* supported.
 
     The MonitoringTypes feed contains data about methods of monitoring
     assessments. Entries are defined by the :od:type:`MonitoringType`
@@ -277,6 +298,12 @@ Delivery OData Feeds
     special Participant role.
     
 ..  od:feed::   PrintBatches PrintBatch
+
+    :method GET: read only
+    :filter ID: primary key
+    :filter GroupID: the ID of the group associated with this batch
+
+    $orderby is *not* supported.
 
     The PrintBatches feed contains information about a group of users
     who have been assigned a particular snapshot of an assessment to
@@ -319,7 +346,16 @@ Delivery OData Feeds
 
     :method GET: for reading schedules
     :method PATCH: for updating writable properties of a schedule
-        
+    :filter ID: primary key
+    :filter ParticipantID: the associated participant
+    :filter GroupID: the associated group
+    :filter StartFrom: the schedule start time
+    :filter MonitoringTypeID: the associated monitoring type
+    :filter TestCenterID: the associated test center    
+
+    $orderby is *not* supported.
+
+
 ..  od:feed::   ScoringResults ScoringResult
 
     :method GET: for reading scoring results
@@ -351,5 +387,12 @@ Delivery OData Feeds
     that requires subjective scoring.  The scores actually awarded are
     in the associated :od:type:`ScoringResult`.
 
+..  od:feed::   TestCenters TestCenter
 
+    :method GET: for reading test centres
+    :filter ID: the primary key
+    :filter Name: the test center name
+
+    $orderby is *not* supported.
+    
     

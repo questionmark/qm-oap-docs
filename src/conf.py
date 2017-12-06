@@ -54,7 +54,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'QuestionmarkAPIs'
-copyright = u'2016, Questionmark Computing Ltd'
+copyright = u'2016-2017, Questionmark Computing Ltd'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
