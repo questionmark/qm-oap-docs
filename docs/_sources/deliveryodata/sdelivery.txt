@@ -173,7 +173,7 @@ To discover the list of active schedules for a participant you invoke
 an action on that Participant's entity.  For the Participant with ID
 1459320309 you can call the ActionableSchedules action as follows::
 
-    POST /deliveryodata/<customer-id>/Participant(1459320309)/ActionableSchedules
+    POST /deliveryodata/<customer-id>/Participants(1459320309)/ActionableSchedules
     
     {
     }

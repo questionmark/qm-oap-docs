@@ -266,6 +266,7 @@ Delivery OData Feeds
     :method GET: read only
     :filter ID: primary key
     :filter Name: filtering by group name
+    :filter RootGroupID: filtering by the top-level group (expected in 2018.02)
     :expand Administrators: the administrators responsible for the group
     :expand Participants: the participant members of the group
     :expand SubGroups: the optional list of sub-groups
