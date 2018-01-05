@@ -360,7 +360,6 @@ Schedules Reference
         the Questionmark portal.
 
     ..  od:prop::    AttemptsRemaining  Edm.Int32
-        :notnull:
         
         The number of attempts remaining on the schedule.
 

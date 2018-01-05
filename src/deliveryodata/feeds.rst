@@ -40,7 +40,7 @@ Delivery OData Feeds
     
     :method GET: returns AnswerUpload metadata entities
     :method POST: submits new AnswerUpload file for scoring
-    :filter ID: the primary key
+    :filter AttemptID: the primary key
 
     $orderby is *not* supported.
 
@@ -69,7 +69,7 @@ Delivery OData Feeds
     :method PATCH: some properties may be updated, see entity for details
     :filter ID: primary key
     :filter AssessmentID: the assessment used to create the snapshot ($orderby not supported)
-    :filter CreatedDateTime: the time the snapshot was created, $orderby only, $filter not supported
+    :filter CreatedDateTime: the time the snapshot was created ($orderby only, $filter not supported)
         
     The AssessmentSnapshots feed contains information about snapshots of
     assessments.  Snapshots are versions of an assessment that have
