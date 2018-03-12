@@ -73,10 +73,32 @@ time to time.
 
 ..  note::  We strongly suggest you upgrade your API clients to support
             TLS1.2 and the associated ECDHE ciphersuites. Support for
-            TLS1.0 is expected to end within the next year.  For
+            TLS1.0 is expected to end 2018-06-30.  For
             example, see this `blog post from the PCI Security Standards
             Council
             <https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls>`_.
+            The following are known minimum versions required to support TLS 1.2
+            * OpenSSL 1.0.1
+            * Java 8u32
+            * `TLS 1.2 and .Net support <https://blogs.perficient.com/microsoft/2016/04/tsl-1-2-and-net-support/>`_.
+                **.NET 4.6 and above** You don’t need to do any additional 
+                work to support TLS 1.2, it’s supported by default.
+                **.NET 4.5** TLS 1.2 is supported, but it’s not a default 
+                protocol. You need to opt-in to use it. The following 
+                code will make TLS 1.2 default, make sure to execute it 
+                before making a connection to secured resource:
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+                **.NET 4.0** TLS 1.2 is not supported, but if you have 
+                .NET 4.5 (or above) installed on the system then you still 
+                can opt in for TLS 1.2 even if your application framework 
+                doesn’t support it. The only problem is that 
+                SecurityProtocolType in .NET 4.0 doesn’t have an entry for 
+                TLS1.2, so we’d have to use a numerical representation of 
+                this enum value:
+                            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+                **.NET 3.5 or below** TLS 1.2 is not supported (*) and 
+                there is no workaround. Upgrade your application to 
+                more recent version of the framework.
 
 Whereas the web browsers and operating systems in common use are all
 updated frequently to include the latest https security protocols this
