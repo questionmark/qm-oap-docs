@@ -108,11 +108,51 @@ are considered secure these services do change their capabilities from
 time to time.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">We strongly suggest you upgrade your API clients to support
+<p>We strongly suggest you upgrade your API clients to support
 TLS1.2 and the associated ECDHE ciphersuites. Support for
-TLS1.0 is expected to end within the next year.  For
-example, see this <a class="reference external" href="https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls">blog post from the PCI Security Standards
-Council</a>.</p>
+TLS1.0 is expected to end 2018-06-30.  For example, see this
+<a class="reference external" href="https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls">blog post from the PCI Security Standards Council</a>.</p>
+<p>The following are known minimum versions required to support
+TLS 1.2:</p>
+<ul class="last">
+<li><p class="first">OpenSSL 1.0.1</p>
+</li>
+<li><p class="first">Java</p>
+<blockquote>
+<div><p><strong>8</strong> You don&#8217;t need to do any additional work to support TLS 1.2, it&#8217;s supported by default</p>
+<p><strong>7</strong> TLS 1.2 is supported by <a class="reference external" href="https://docs.oracle.com/javase/7/docs/technotes/guides/security/SunProviders.html#SunJSSEProvider">making configuration changes</a></p>
+<p><strong>6u121+</strong> TLS 1.2 is supported by <a class="reference external" href="http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121">making configuration changes</a></p>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference external" href="https://blogs.perficient.com/microsoft/2016/04/tsl-1-2-and-net-support/">TLS 1.2 and .Net support</a>.</p>
+<blockquote>
+<div><p><strong>.NET 4.6 and above</strong> You don’t need to do any
+additional work to support TLS 1.2, it’s supported by
+default.</p>
+<p><strong>.NET 4.5</strong> TLS 1.2 is supported, but it’s not a
+default protocol. You need to opt-in to use it. The
+following code will make TLS 1.2 default, make sure to
+execute it before making a connection to secured
+resource:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ServicePointManager</span><span class="o">.</span><span class="n">SecurityProtocol</span> <span class="o">=</span> <span class="n">SecurityProtocolType</span><span class="o">.</span><span class="n">Tls12</span>
+</pre></div>
+</div>
+<p><strong>.NET 4.0</strong> TLS 1.2 is not supported, but if you have
+.NET 4.5 (or above) installed on the system then you
+still can opt in for TLS 1.2 even if your application
+framework doesn’t support it. The only problem is that
+SecurityProtocolType in .NET 4.0 doesn’t have an entry
+for TLS1.2, so we’d have to use a numerical
+representation of this enum value:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ServicePointManager</span><span class="o">.</span><span class="n">SecurityProtocol</span> <span class="o">=</span> <span class="p">(</span><span class="n">SecurityProtocolType</span><span class="p">)</span><span class="mi">3072</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>.NET 3.5 or below</strong> TLS 1.2 is not supported (*) and
+there is no workaround. Upgrade your application to more
+recent version of the framework.</p>
+</div></blockquote>
+</li>
+</ul>
 </div>
 <p>Whereas the web browsers and operating systems in common use are all
 updated frequently to include the latest https security protocols this

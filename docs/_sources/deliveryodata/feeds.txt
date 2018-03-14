@@ -9,6 +9,7 @@ Delivery OData Feeds
     :filter ID: primary key
     :filter Name: administrator name
     :expand Groups: associated groups
+    :expand TestCenters: associated test centers
 
     The Administrators feed contains data about users with administrator
     roles in the user data base.  A user with an administrator role is

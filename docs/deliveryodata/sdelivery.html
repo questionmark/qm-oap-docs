@@ -78,7 +78,7 @@ that <em>only</em> administrators that are owners of (one of) the associated
 groups may schedule that assessment.  In the Questionmark portal the
 types of action that a particular administrator may perform are further
 limited by role and the permissions associated with that role.  Role
-information is not exposed by the APIs.</p>
+information is _not_ exposed by the APIs.</p>
 <p>To obtain a list of assessments that a given Administrator is associated
 with you need to look at the Groups associated with that administrator
 <em>and</em> the SchedulableAssessments associated with those groups:</p>
@@ -120,6 +120,11 @@ processing a response to this message to create a flat list you will
 have to remove duplicates.</p>
 <p>For very long lists the Groups themselves may prove a useful way to
 hierarchically present the assessment list to the end user for selection.</p>
+<p>You can use a similar technique to discover which participants an administrator
+is associated with via groups:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /deliveryodata/&lt;customer_id&gt;/Administrators(12345)/Groups?$expand=Participants
+</pre></div>
+</div>
 </div>
 <div class="section" id="creating-a-schedule">
 <h2>Creating a Schedule<a class="headerlink" href="#creating-a-schedule" title="Permalink to this headline">¶</a></h2>
