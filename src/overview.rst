@@ -85,9 +85,9 @@ time to time.
 
                 **8** You don't need to do any additional work to support TLS 1.2, it's supported by default 
                 
-                **7** TLS 1.2 is supported by `making configuration changes  <https://docs.oracle.com/javase/7/docs/technotes/guides/security/SunProviders.html#SunJSSEProvider>`_
+                **7** TLS 1.2 is supported by `making configuration changes  <https://docs.oracle.com/javase/7/docs/technotes/guides/security/SunProviders.html#SunJSSEProvider>`__
                 
-                **6u121+** TLS 1.2 is supported by `making configuration changes <http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121>`_
+                **6u121+** TLS 1.2 is supported by `making configuration changes <http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121>`__
                 
             * `TLS 1.2 and .Net support <https://blogs.perficient.com/microsoft/2016/04/tsl-1-2-and-net-support/>`_.
 
