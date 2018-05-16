@@ -119,6 +119,33 @@ Do not use it in general collections:</p>
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Group.AncestorGroups">
+<code class="descname">AncestorGroups</code> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.AncestorGroups" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.05.</span></p>
+</div>
+<p>Navigation property to all ancestors of this group <em>including
+the group itself</em>.  A group is in the collection of ancestors if
+it is the group itself or if it is a parent of a member of the
+collection.  This recursive definition ensures that all groups
+up to the root group are in the collection.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Group.DescendantGroups">
+<code class="descname">DescendantGroups</code> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.DescendantGroups" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.05.</span></p>
+</div>
+<p>Navigation property to all descendants of this group <em>including
+the group itself</em>.  A group is in the collection of descendents
+if it is the group itself or if it is a subgroup of a member of
+the collection.  This recursive definition ensures that all
+subgroups possible by repeated expansion are included in a
+single filterable collection.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Group.SchedulableAssessments">
 <code class="descname">SchedulableAssessments</code> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.SchedulableAssessments" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">

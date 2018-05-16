@@ -3,6 +3,82 @@ Result
 
 ..  od:service::    deliveryodata
 
+
+..  od:feed::   Results Result
+
+    :method GET: read only
+    :filter ID: primary key
+    :filter AssessmentID: the related assessment
+    :filter ParticipantName: for filtering by Participant
+    :filter GroupName: for filtering by Group
+    :filter WhenFinished: for filtering by data of submission
+    :expand Answers: the answers associated with this result
+
+    The Results feed contains data about assessment results.  Entries
+    are defined by the :od:type:`deliveryodata.Result` type.
+
+    ..  od:action:: PurgeResultsByParticipantName
+        :input: ParticipantName Edm.String
+
+        .. versionadded::   2018.05
+        
+        Purges all results for a *named* participant, all answers and other
+        data associated with the results are removed.  The results are
+        also removed from the Results Warehouse.
+        
+        To invoke this action use http POST with a JSON body like this::
+        
+            POST /deliveryodata/<customer-id>/Result(123457)/PurgeResultsByParticipantName
+            
+            {
+                "ParticipantName": "bob"
+            }
+
+        The PurgeResultsByParticipantName action returns a 202 accepted
+        response on success, result deletion happens asynchronously to
+        ensure that it doesn't conflict with the delivery of
+        assessments.
+        
+        The participant is passed by *name* and not by ParticipantID.  This
+        ensures that it is possible to delete results for participants that
+        have already been deleted from the repository and for participants
+        that were never created as real users.
+        
+        ..  warning::   Matching results of open assessments are also
+                        removed by this action.  Users of open
+                        assessments are typically prompted to enter
+                        their name at the start of the assessment
+                        without authentication.  Users are free to
+                        choose any name and this is recorded in the
+                        database as the participant name.  
+                        
+    ..  od:action:: PurgeParticipantAndResultsByParticipantName
+        :input: ParticipantName Edm.String
+        
+        .. versionadded::   2018.05
+
+        Similar to PurgeResultsByParticipantName but also removes the
+        Participant's user account if one exists in the repository.
+
+    ..  od:action:: PurgeResultsByAssessmentId
+        :input: AssessmentID Edm.String
+
+        .. versionadded::   2018.05
+
+        Similar to PurgeResultsByParticipantName except that all results
+        for a given assessment are removed instead.
+
+        To invoke this action use http POST with a JSON body like this::
+        
+            POST /deliveryodata/<customer-id>/Result(123457)/PurgeResultsByAssessmentId
+            
+            {
+                "AssessmentID": "2185231530264478"
+            }
+
+        ..  warning::   The AssessmentID is a *string* and not an Int64.
+
+
 ..  od:type::   Result
 
     Result entities are drawn from :qm:table:`A_Result` in the data
@@ -111,3 +187,110 @@ Result
         A navigation property to the ScoringTasks associated with this
         result, if any.  One ScoringTasks is associated with the result
         for each unscored Answer.
+
+    ..  od:action:: Purge
+
+        .. versionadded::   2018.05
+
+        Purges this result from the repository, all answers and other
+        data associated with the result are removed.  The result is
+        also removed from the Results Warehouse.
+        
+        To invoke this action use http POST with an empty JSON body::
+        
+            POST /deliveryodata/<customer-id>/Result(123457)/Purge
+            
+            {
+                
+            }
+
+        The Purge action returns a 202 accepted response on success, result
+        deletion happens asynchronously to ensure that it doesn't conflict
+        with the delivery of assessments.        
+
+
+..  od:feed::   ResultsAuditLog ResultAuditLog
+
+    :method GET: read only
+    :filter ID: primary key
+    :filter MessageID: the unique ID used in the message queue
+    :filter RequestUserID: the type of action requested
+    :filter RequestDateTime: when the action was requested
+
+    .. versionadded::   2018.05
+
+    $orderby *is* supported so you can reverse sort the log using::
+    
+        $orderby=RequestDateTime desc
+
+
+..  od:type::   ResultAuditLog
+
+    .. versionadded::   2018.05
+
+    An entity documenting auditable actions against the entity set of
+    results.  Due to the importance of the result set some actions
+    generate a ResultAuditLog entity automatically when they are called.
+    This entity also allows the status of long running tasks (such as
+    the bulk removal of data) to be tracked.
+    
+    ..  od:prop::   ID  Edm.Int32
+        :key:
+        :notnull:
+
+        The primary key of this entity.
+
+    ..  od:prop::   MessageID Edm.String
+    
+        The unique message ID associated with this action.  This value
+        is a longer key used internally to track the action from the
+        initial point of the request through to completion.
+
+    ..  od:prop::   RequestUserID Edm.Int32
+        :notnull:
+
+        The user (Administrator) that initiated the request.  This is
+        typically the ID of the service account responsible for calling
+        the API method that triggered the auditable action.
+        
+    ..  od:prop::   RequestType Edm.String
+
+        The name of the auditable action such as
+        PurgeResultsByResultIdCommand.
+    
+    ..  od:prop::   RequestData Edm.String
+
+        The data associated with the request.
+        
+    ..  od:prop::   Source Edm.String
+    
+        The source of the request, for API calls this is the IP address
+        of the machine that issued the request.
+        
+    ..  od:prop::   RequestDateTime Edm.DateTime
+        :notnull:
+
+        The time the request was made.
+        
+    ..  od:prop::   IsInQueue Edm.Boolean"
+        :notnull:
+    
+        A boolean which is "true" if the request is waiting to be
+        processed. Auditable actions are placed in a queue and actioned
+        when system resources become available.  Once the action has
+        been carried out this is updated to "false" and the remaining
+        fields can be used to read back the outcome.
+        
+    ..  od:prop::   ProcessedDateTime Edm.DateTime
+    
+        The time the request was processed.
+        
+    ..  od:prop::   WasSuccessful Edm.Boolean
+    
+        A boolean flag indicating whether or not the request was
+        successfully processed (true) or if it failed (false).
+        
+    ..  od:prop::   TotalResultsAffected Edm.Int32
+        :notnull:
+    
+        The number of results affected by the request.

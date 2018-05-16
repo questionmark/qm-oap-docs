@@ -116,6 +116,12 @@ class ODataFeedDirective(ObjectDescription):
                      names=('expand', )),
         ]
     
+    def before_content(self):
+        self.env.temp_data['od:feed'] = self.names[0]
+    
+    def after_content(self):
+        self.env.temp_data['od:feed'] = None
+
     def handle_signature(self, sig, signode):
         """Format: <name> <entity-type>"""
         svc = self.env.temp_data.get('od:service', None)
@@ -241,15 +247,22 @@ class ODataActionDirective(ObjectDescription):
 
     def handle_signature(self, sig, signode):
         """Format: <name> <type>"""
-        etype = self.env.temp_data['od:type']
+        if 'od:type' in self.env.temp_data:
+            etype = self.env.temp_data['od:type']
+        else:
+            etype = self.env.temp_data['od:feed']
         svc = self.env.temp_data.get('od:service', None)
         sig = sig.strip().split()
         aname = sig[0]
-        atype = sig[1]
         obj = ODataAction(parent=etype, docname=self.env.docname,
                             name=aname, title=aname)
-        tobj = ODataType(parent=svc, docname=self.env.docname, name=atype,
-                         title=atype)
+        if len(sig) > 1:
+            atype = sig[1]
+            tobj = ODataType(parent=svc, docname=self.env.docname, name=atype,
+                             title=atype)
+        else:
+            atype = "Edm.Null"
+            tobj = None
         signode += addnodes.desc_annotation("action ", "action ")
         signode += addnodes.desc_name(aname, aname)
         signode += nodes.Text(" (")

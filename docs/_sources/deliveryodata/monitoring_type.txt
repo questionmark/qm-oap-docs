@@ -60,3 +60,87 @@ MonitoringType
         The special URL "about:blank" should be used to indicate that no
         system check page is required.  A null value means that the
         default system check will be used.
+
+    ..  od:prop::   ProctoringProviderId   Edm.Int32
+
+        .. versionadded::   2018.04
+
+        The ID of the optional ProctoringProvider entity.  See also
+        :od:prop:`ProctoringProvider`.
+
+    ..  od:prop::   ProctoringProviderOptions   Edm.String
+
+        .. versionadded::   2018.04
+
+        A text string containing options to be used in conjunction with
+        the associated ProctoringProvider.  This property means that it
+        is possible to use the same provider (including API credentials)
+        in multiple different configurations, each with its own
+        associated MonitoringType.
+
+    ..  od:prop::   ProctoringProvider  ProctoringProvider
+        
+        .. versionadded::   2018.04
+        
+        An optional navigation property to the ProctoringProvider
+        associated with this monitoring type.
+
+    ..  od:prop::   Schedules  Schedule
+        :collection:
+        
+        .. versionadded::   2018.05
+
+        A navigation property to all the schedules associated with this
+        monitoring type.
+        
+
+..  od:type::   ProctoringProvider
+
+    .. versionadded::   2018.04
+
+    An entity used to hold the API credentials and connection
+    information associated with an external provider of proctoring
+    services.
+    
+    ..  od:prop::   ID  Edm.Int32
+        :key:
+        :notnull:
+
+        The numeric ID of this proctoring provider entity, allocated
+        automatically by the API.
+    
+    ..  od:prop::   Name  Edm.String
+    
+        The human readable string identifier to use for the proctoring
+        provider.
+
+    ..  od:prop::   Protocol  Edm.String
+    
+        The protocol to use when communicating with the proctoring
+        provider.  This property's value is taken from a limited
+        vocabulary of supported protocols.  Information about the
+        allowable values will be published in future versions of the
+        documentation.
+
+    ..  od:prop::   Url  Edm.String
+
+        The URL of the provider's API endpoint.
+
+    ..  od:prop::   Key  Edm.String
+
+        The API key to use with the provider's API endpoint.
+
+    ..  od:prop::   Secret  Edm.String
+
+        The API secret to use with the provider's API endpoint.  Although
+        this value may be POSTed when creating an entity and updated
+        using PATCH it cannot be read back and is replaced by an encrypted
+        version in the response to GET requests.
+
+    ..  od:prop::   MonitoringTypes  MonitoringType
+        :collection:
+        
+        A navigation property to the MonitoringTypes that are associated
+        with this ProctoringProvider entity.
+    
+    

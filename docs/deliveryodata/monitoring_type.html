@@ -113,6 +113,112 @@ system check page is required.  A null value means that the
 default system check will be used.</p>
 </dd></dl>
 
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.ProctoringProviderId">
+<code class="descname">ProctoringProviderId</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ProctoringProviderId" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.04.</span></p>
+</div>
+<p>The ID of the optional ProctoringProvider entity.  See also
+<a class="reference internal" href="#od-prop.deliveryodata.MonitoringType.ProctoringProvider" title="ProctoringProvider"><code class="xref od od-prop docutils literal"><span class="pre">ProctoringProvider</span></code></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.ProctoringProviderOptions">
+<code class="descname">ProctoringProviderOptions</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ProctoringProviderOptions" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.04.</span></p>
+</div>
+<p>A text string containing options to be used in conjunction with
+the associated ProctoringProvider.  This property means that it
+is possible to use the same provider (including API credentials)
+in multiple different configurations, each with its own
+associated MonitoringType.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.ProctoringProvider">
+<code class="descname">ProctoringProvider</code> <a class="reference internal" href="#od-type.deliveryodata.ProctoringProvider" title="ProctoringProvider">ProctoringProvider</a><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ProctoringProvider" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.04.</span></p>
+</div>
+<p>An optional navigation property to the ProctoringProvider
+associated with this monitoring type.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.Schedules">
+<code class="descname">Schedules</code> <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule">Schedule</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.Schedules" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.05.</span></p>
+</div>
+<p>A navigation property to all the schedules associated with this
+monitoring type.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.deliveryodata.ProctoringProvider">
+<em class="property">EntityType: </em><code class="descname">ProctoringProvider</code><a class="headerlink" href="#od-type.deliveryodata.ProctoringProvider" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.04.</span></p>
+</div>
+<p>An entity used to hold the API credentials and connection
+information associated with an external provider of proctoring
+services.</p>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ProctoringProvider.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numeric ID of this proctoring provider entity, allocated
+automatically by the API.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ProctoringProvider.Name">
+<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The human readable string identifier to use for the proctoring
+provider.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ProctoringProvider.Protocol">
+<code class="descname">Protocol</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>The protocol to use when communicating with the proctoring
+provider.  This property&#8217;s value is taken from a limited
+vocabulary of supported protocols.  Information about the
+allowable values will be published in future versions of the
+documentation.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ProctoringProvider.Url">
+<code class="descname">Url</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Url" title="Permalink to this definition">¶</a></dt>
+<dd><p>The URL of the provider&#8217;s API endpoint.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ProctoringProvider.Key">
+<code class="descname">Key</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The API key to use with the provider&#8217;s API endpoint.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ProctoringProvider.Secret">
+<code class="descname">Secret</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Secret" title="Permalink to this definition">¶</a></dt>
+<dd><p>The API secret to use with the provider&#8217;s API endpoint.  Although
+this value may be POSTed when creating an entity and updated
+using PATCH it cannot be read back and is replaced by an encrypted
+version in the response to GET requests.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ProctoringProvider.MonitoringTypes">
+<code class="descname">MonitoringTypes</code> <a class="reference internal" href="#od-type.deliveryodata.MonitoringType" title="MonitoringType">MonitoringType</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.MonitoringTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the MonitoringTypes that are associated
+with this ProctoringProvider entity.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>

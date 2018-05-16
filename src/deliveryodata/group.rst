@@ -59,7 +59,30 @@ Group
                         Do not use it in general collections::
                         
                             <service root>/Groups?$expand=ParentGroup
-                
+
+    ..  od:prop::   AncestorGroups  Group
+        :collection:
+        
+        .. versionadded::   2018.05
+
+        Navigation property to all ancestors of this group *including
+        the group itself*.  A group is in the collection of ancestors if
+        it is the group itself or if it is a parent of a member of the
+        collection.  This recursive definition ensures that all groups
+        up to the root group are in the collection.
+
+    ..  od:prop::   DescendantGroups  Group
+        :collection:
+        
+        .. versionadded::   2018.05
+
+        Navigation property to all descendants of this group *including
+        the group itself*.  A group is in the collection of descendents
+        if it is the group itself or if it is a subgroup of a member of
+        the collection.  This recursive definition ensures that all
+        subgroups possible by repeated expansion are included in a
+        single filterable collection.
+                            
     ..  od:prop::   SchedulableAssessments  Assessment
         :collection:
 

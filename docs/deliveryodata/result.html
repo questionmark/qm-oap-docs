@@ -46,6 +46,110 @@
             
   <div class="section" id="result">
 <h1>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h1>
+<dl class="feed">
+<dt id="od-feed.deliveryodata.Results">
+<code class="descname">Results</code> <a class="reference internal" href="#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-feed.deliveryodata.Results" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>AssessmentID</strong> &#8211; the related assessment</li>
+<li><strong>ParticipantName</strong> &#8211; for filtering by Participant</li>
+<li><strong>GroupName</strong> &#8211; for filtering by Group</li>
+<li><strong>WhenFinished</strong> &#8211; for filtering by data of submission</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Answers</strong> &#8211; the answers associated with this result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Results feed contains data about assessment results.  Entries
+are defined by the <a class="reference internal" href="#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.Result</span></code></a> type.</p>
+<dl class="action">
+<dt id="od-action.deliveryodata.Results.PurgeResultsByParticipantName">
+<em class="property">action </em><code class="descname">PurgeResultsByParticipantName</code> (ParticipantName  Edm.String)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.PurgeResultsByParticipantName" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.05.</span></p>
+</div>
+<p>Purges all results for a <em>named</em> participant, all answers and other
+data associated with the results are removed.  The results are
+also removed from the Results Warehouse.</p>
+<p>To invoke this action use http POST with a JSON body like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Result</span><span class="p">(</span><span class="mi">123457</span><span class="p">)</span><span class="o">/</span><span class="n">PurgeResultsByParticipantName</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;ParticipantName&quot;</span><span class="p">:</span> <span class="s2">&quot;bob&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The PurgeResultsByParticipantName action returns a 202 accepted
+response on success, result deletion happens asynchronously to
+ensure that it doesn&#8217;t conflict with the delivery of
+assessments.</p>
+<p>The participant is passed by <em>name</em> and not by ParticipantID.  This
+ensures that it is possible to delete results for participants that
+have already been deleted from the repository and for participants
+that were never created as real users.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Matching results of open assessments are also
+removed by this action.  Users of open
+assessments are typically prompted to enter
+their name at the start of the assessment
+without authentication.  Users are free to
+choose any name and this is recorded in the
+database as the participant name.</p>
+</div>
+</dd></dl>
+
+<dl class="action">
+<dt id="od-action.deliveryodata.Results.PurgeParticipantAndResultsByParticipantName">
+<em class="property">action </em><code class="descname">PurgeParticipantAndResultsByParticipantName</code> (ParticipantName  Edm.String)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.PurgeParticipantAndResultsByParticipantName" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.05.</span></p>
+</div>
+<p>Similar to PurgeResultsByParticipantName but also removes the
+Participant&#8217;s user account if one exists in the repository.</p>
+</dd></dl>
+
+<dl class="action">
+<dt id="od-action.deliveryodata.Results.PurgeResultsByAssessmentId">
+<em class="property">action </em><code class="descname">PurgeResultsByAssessmentId</code> (AssessmentID  Edm.String)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.PurgeResultsByAssessmentId" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.05.</span></p>
+</div>
+<p>Similar to PurgeResultsByParticipantName except that all results
+for a given assessment are removed instead.</p>
+<p>To invoke this action use http POST with a JSON body like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Result</span><span class="p">(</span><span class="mi">123457</span><span class="p">)</span><span class="o">/</span><span class="n">PurgeResultsByAssessmentId</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;2185231530264478&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The AssessmentID is a <em>string</em> and not an Int64.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="type">
 <dt id="od-type.deliveryodata.Result">
 <em class="property">EntityType: </em><code class="descname">Result</code><a class="headerlink" href="#od-type.deliveryodata.Result" title="Permalink to this definition">¶</a></dt>
@@ -175,6 +279,151 @@ interpretation of this field&#8217;s value.</p>
 <dd><p>A navigation property to the ScoringTasks associated with this
 result, if any.  One ScoringTasks is associated with the result
 for each unscored Answer.</p>
+</dd></dl>
+
+<dl class="action">
+<dt id="od-action.deliveryodata.Result.Purge">
+<em class="property">action </em><code class="descname">Purge</code> ()  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Result.Purge" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.05.</span></p>
+</div>
+<p>Purges this result from the repository, all answers and other
+data associated with the result are removed.  The result is
+also removed from the Results Warehouse.</p>
+<p>To invoke this action use http POST with an empty JSON body:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Result</span><span class="p">(</span><span class="mi">123457</span><span class="p">)</span><span class="o">/</span><span class="n">Purge</span>
+
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The Purge action returns a 202 accepted response on success, result
+deletion happens asynchronously to ensure that it doesn&#8217;t conflict
+with the delivery of assessments.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="feed">
+<dt id="od-feed.deliveryodata.ResultsAuditLog">
+<code class="descname">ResultsAuditLog</code> <a class="reference internal" href="#od-type.deliveryodata.ResultAuditLog" title="ResultAuditLog">ResultAuditLog</a><a class="headerlink" href="#od-feed.deliveryodata.ResultsAuditLog" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>MessageID</strong> &#8211; the unique ID used in the message queue</li>
+<li><strong>RequestUserID</strong> &#8211; the type of action requested</li>
+<li><strong>RequestDateTime</strong> &#8211; when the action was requested</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2018.05.</span></p>
+</div>
+<p>$orderby <em>is</em> supported so you can reverse sort the log using:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$orderby=RequestDateTime desc
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.deliveryodata.ResultAuditLog">
+<em class="property">EntityType: </em><code class="descname">ResultAuditLog</code><a class="headerlink" href="#od-type.deliveryodata.ResultAuditLog" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.05.</span></p>
+</div>
+<p>An entity documenting auditable actions against the entity set of
+results.  Due to the importance of the result set some actions
+generate a ResultAuditLog entity automatically when they are called.
+This entity also allows the status of long running tasks (such as
+the bulk removal of data) to be tracked.</p>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ResultAuditLog.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The primary key of this entity.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ResultAuditLog.MessageID">
+<code class="descname">MessageID</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.MessageID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unique message ID associated with this action.  This value
+is a longer key used internally to track the action from the
+initial point of the request through to completion.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ResultAuditLog.RequestUserID">
+<code class="descname">RequestUserID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.RequestUserID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user (Administrator) that initiated the request.  This is
+typically the ID of the service account responsible for calling
+the API method that triggered the auditable action.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ResultAuditLog.RequestType">
+<code class="descname">RequestType</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.RequestType" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the auditable action such as
+PurgeResultsByResultIdCommand.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ResultAuditLog.RequestData">
+<code class="descname">RequestData</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.RequestData" title="Permalink to this definition">¶</a></dt>
+<dd><p>The data associated with the request.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ResultAuditLog.Source">
+<code class="descname">Source</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.Source" title="Permalink to this definition">¶</a></dt>
+<dd><p>The source of the request, for API calls this is the IP address
+of the machine that issued the request.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ResultAuditLog.RequestDateTime">
+<code class="descname">RequestDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.RequestDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time the request was made.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ResultAuditLog.IsInQueue">
+<code class="descname">IsInQueue</code>  Edm.Boolean&quot; NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.IsInQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean which is &#8220;true&#8221; if the request is waiting to be
+processed. Auditable actions are placed in a queue and actioned
+when system resources become available.  Once the action has
+been carried out this is updated to &#8220;false&#8221; and the remaining
+fields can be used to read back the outcome.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ResultAuditLog.ProcessedDateTime">
+<code class="descname">ProcessedDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.ProcessedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time the request was processed.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ResultAuditLog.WasSuccessful">
+<code class="descname">WasSuccessful</code>  Edm.Boolean<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.WasSuccessful" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean flag indicating whether or not the request was
+successfully processed (true) or if it failed (false).</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.ResultAuditLog.TotalResultsAffected">
+<code class="descname">TotalResultsAffected</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.TotalResultsAffected" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of results affected by the request.</p>
 </dd></dl>
 
 </dd></dl>
