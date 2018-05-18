@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Questionmark's Open Assessment Platform (Beta)
-==============================================
+Questionmark's Open Assessment Platform
+=======================================
 
 Please direct all feedback to developer@questionmark.com or by raising
 issues on the `GitHub project

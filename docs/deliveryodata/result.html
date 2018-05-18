@@ -89,7 +89,7 @@ are defined by the <a class="reference internal" href="#od-type.deliveryodata.Re
 data associated with the results are removed.  The results are
 also removed from the Results Warehouse.</p>
 <p>To invoke this action use http POST with a JSON body like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Result</span><span class="p">(</span><span class="mi">123457</span><span class="p">)</span><span class="o">/</span><span class="n">PurgeResultsByParticipantName</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Results</span><span class="o">/</span><span class="n">PurgeResultsByParticipantName</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;ParticipantName&quot;</span><span class="p">:</span> <span class="s2">&quot;bob&quot;</span>
@@ -135,7 +135,7 @@ Participant&#8217;s user account if one exists in the repository.</p>
 <p>Similar to PurgeResultsByParticipantName except that all results
 for a given assessment are removed instead.</p>
 <p>To invoke this action use http POST with a JSON body like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Result</span><span class="p">(</span><span class="mi">123457</span><span class="p">)</span><span class="o">/</span><span class="n">PurgeResultsByAssessmentId</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Results</span><span class="o">/</span><span class="n">PurgeResultsByAssessmentId</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;2185231530264478&quot;</span>

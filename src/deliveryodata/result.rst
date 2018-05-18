@@ -28,7 +28,7 @@ Result
         
         To invoke this action use http POST with a JSON body like this::
         
-            POST /deliveryodata/<customer-id>/Result(123457)/PurgeResultsByParticipantName
+            POST /deliveryodata/<customer-id>/Results/PurgeResultsByParticipantName
             
             {
                 "ParticipantName": "bob"
@@ -70,7 +70,7 @@ Result
 
         To invoke this action use http POST with a JSON body like this::
         
-            POST /deliveryodata/<customer-id>/Result(123457)/PurgeResultsByAssessmentId
+            POST /deliveryodata/<customer-id>/Results/PurgeResultsByAssessmentId
             
             {
                 "AssessmentID": "2185231530264478"
