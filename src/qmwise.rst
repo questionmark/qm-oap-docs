@@ -227,5 +227,24 @@ QMWISe makes extensive use of the following basic types from XMLSchema_.
     
     ..  _int: https://www.w3.org/TR/xmlschema-2/#int
 
+..  _soap_tls:
 
+
+TLS and SoapUI
+~~~~~~~~~~~~~~
+
+In accordance with the end of support for TLS 1.0 on Questionmark
+OnDemand you will need to follow the following instructions to use
+the popular SoapUI tool with QMWISe.
+
+1.  Open SOAP UI vmoptions, you can find this file under SoapUI
+    installation folder::
+
+        C:\Program Files\SmartBear\SoapUI-5.3.0\bin\SoapUI-5.3.0.vmoptions
+
+2.  Add this line in vmoptions::
+
+        -Dsoapui.https.protocols=TLSv1.2
+
+3.  Close SOAP UI and try again accessing the QMWISe methods
  

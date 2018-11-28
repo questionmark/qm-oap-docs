@@ -139,10 +139,10 @@ A_Result
             
         7.  Terminated by Proctor            
             
-            Indicates that a proctored tests was terminated by the
-            proctor, presumably due to a violation of the rules of
-            conduct or a technical issue requiring the assessment
-            attempt to be invalidated.
+            Also known as "Terminated" in some reports.  Indicates that
+            a proctored test was terminated by the proctor, presumably
+            due to a violation of the rules of conduct or a technical
+            issue requiring the assessment attempt to be invalidated.
 
         8.  Reserved for future use
         

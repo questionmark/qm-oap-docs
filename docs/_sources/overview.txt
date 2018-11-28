@@ -73,8 +73,8 @@ time to time.
 
 ..  note::  We strongly suggest you upgrade your API clients to support
             TLS1.2 and the associated ECDHE ciphersuites. Support for
-            TLS1.0 is expected to end 2018-06-30.  For example, see this
-            `blog post from the PCI Security Standards Council
+            TLS1.0 ended 2018-06-30.  For example, see this `blog post
+            from the PCI Security Standards Council
             <https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls>`_.
 
             The following are known minimum versions required to support

@@ -250,6 +250,27 @@ not read and interpret the WSDL correctly.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="tls-and-soapui">
+<span id="soap-tls"></span><h2>TLS and SoapUI<a class="headerlink" href="#tls-and-soapui" title="Permalink to this headline">¶</a></h2>
+<p>In accordance with the end of support for TLS 1.0 on Questionmark
+OnDemand you will need to follow the following instructions to use
+the popular SoapUI tool with QMWISe.</p>
+<ol class="arabic">
+<li><p class="first">Open SOAP UI vmoptions, you can find this file under SoapUI
+installation folder:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">SmartBear</span>\<span class="n">SoapUI</span><span class="o">-</span><span class="mf">5.3</span><span class="o">.</span><span class="mi">0</span>\<span class="nb">bin</span>\<span class="n">SoapUI</span><span class="o">-</span><span class="mf">5.3</span><span class="o">.</span><span class="mf">0.</span><span class="n">vmoptions</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add this line in vmoptions:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">Dsoapui</span><span class="o">.</span><span class="n">https</span><span class="o">.</span><span class="n">protocols</span><span class="o">=</span><span class="n">TLSv1</span><span class="o">.</span><span class="mi">2</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Close SOAP UI and try again accessing the QMWISe methods</p>
+</li>
+</ol>
+</div>
 </div>
 
 
@@ -272,6 +293,7 @@ not read and interpret the WSDL correctly.</p>
 <li class="toctree-l2"><a class="reference internal" href="#extension-types">Extension Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#default-values">Default Values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#basic-types">Basic Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tls-and-soapui">TLS and SoapUI</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data_model.html">Data Model</a></li>
