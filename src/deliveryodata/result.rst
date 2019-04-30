@@ -109,6 +109,15 @@ Result
         The name of the participant's group, see
         :qm:field:`A_Result.Member_Group`.
     
+    ..  od:prop::   TestCenterName Edm.String
+
+        The name of the Test Center where the participant took the
+        assessment that generated this result.  This value is populated
+        automatically if the assessment was created using an associated
+        :od:type:`Schedule`.
+
+        .. versionadded::   2019.02
+            
     ..  od:prop::   ParticipantDetails Edm.String
     
         See :qm:field:`A_Result.Participant_Details`. 
@@ -169,6 +178,34 @@ Result
         
         See :qm:field:`A_Result.EXTRA_TIME` for information about the
         interpretation of this field's value.
+
+    ..  od:prop::   Special1 Edm.String
+    
+        See :qm:field:`A_Result.Special_1`.
+        
+        The special field values (Special1..Special10) are populated
+        from :od:type:`AttemptMetadata`, from input parameters in PIP
+        calls or from default values configured in System Settings.
+
+        .. versionadded::   2019.02
+
+    ..  od:prop::   Special2 Edm.String
+
+    ..  od:prop::   Special3 Edm.String
+
+    ..  od:prop::   Special4 Edm.String
+
+    ..  od:prop::   Special5 Edm.String
+
+    ..  od:prop::   Special6 Edm.String
+
+    ..  od:prop::   Special7 Edm.String
+
+    ..  od:prop::   Special8 Edm.String
+
+    ..  od:prop::   Special9 Edm.String
+
+    ..  od:prop::   Special10 Edm.String
 
     ..  od:prop::   Assessment  Assessment
         :notnull:

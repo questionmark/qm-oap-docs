@@ -109,6 +109,54 @@ creation, the input value is ignored.</p>
 specified.</p>
 <div class="section" id="schedules-reference">
 <h2>Schedules Reference<a class="headerlink" href="#schedules-reference" title="Permalink to this headline">¶</a></h2>
+<dl class="feed">
+<dt id="od-feed.deliveryodata.Schedules">
+<code class="descname">Schedules</code> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule">Schedule</a><a class="headerlink" href="#od-feed.deliveryodata.Schedules" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; for reading schedules</li>
+<li><strong>PATCH</strong> &#8211; for updating writable properties of a schedule</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>ParticipantID</strong> &#8211; the associated participant</li>
+<li><strong>GroupID</strong> &#8211; the associated group</li>
+<li><strong>StartFrom</strong> &#8211; the schedule start time</li>
+<li><strong>MonitoringTypeID</strong> &#8211; the associated monitoring type</li>
+<li><strong>TestCenterID</strong> &#8211; the associated test center</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>$orderby is <em>not</em> supported.</p>
+</dd></dl>
+
+<dl class="feed">
+<dt id="od-feed.deliveryodata.ScheduleMetadata">
+<code class="descname">ScheduleMetadata</code> <a class="reference internal" href="#od-type.deliveryodata.ScheduleMetadata" title="ScheduleMetadata">ScheduleMetadata</a><a class="headerlink" href="#od-feed.deliveryodata.ScheduleMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>GET</strong> &#8211; reading schedule metadata key-value pairs</li>
+<li><strong>POST</strong> &#8211; creating schedule metadata key-value pairs</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="type">
 <dt id="od-type.deliveryodata.Schedule">
 <em class="property">EntityType: </em><code class="descname">Schedule</code><a class="headerlink" href="#od-type.deliveryodata.Schedule" title="Permalink to this definition">¶</a></dt>
@@ -342,6 +390,14 @@ by the proctor.</p>
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ExceptionSchedules">
+<code class="descname">ExceptionSchedules</code> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule">Schedule</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ExceptionSchedules" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property from a parent schedule to all the
+exceptions to this schedule.</p>
+<p>A navigation property to the (optional) parent schedule.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Schedule.MonitoringType">
 <code class="descname">MonitoringType</code> <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType">MonitoringType</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.MonitoringType" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the (optional) monitoring type.</p>
@@ -376,17 +432,9 @@ initiated for this Schedule.</p>
 </dd></dl>
 
 <dl class="action">
-<dt id="od-action.deliveryodata.Schedule.ActionableSchedule">
-<em class="property">action </em><code class="descname">ActionableSchedule</code> (ParticipantID  Edm.Int32) <a class="reference internal" href="#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule">ActionableSchedule</a><a class="headerlink" href="#od-action.deliveryodata.Schedule.ActionableSchedule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an actionable schedule for a specific participant,
-passed as an inputer parameter using http POST:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedule</span><span class="p">(</span><span class="mi">654321</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedule</span>
-
-<span class="p">{</span>
-    <span class="s2">&quot;PartipcantID&quot;</span><span class="p">:</span> <span class="mi">123456</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<dt id="od-action.deliveryodata.Schedule.ActionableSchedules">
+<em class="property">action </em><code class="descname">ActionableSchedules</code> () <a class="reference internal" href="#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule">ActionableSchedule</a> Collection<a class="headerlink" href="#od-action.deliveryodata.Schedule.ActionableSchedules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reserved for future use.</p>
 </dd></dl>
 
 <dl class="action">
@@ -473,7 +521,7 @@ the Questionmark portal.</p>
 <dd><p>A collection of symbolic strings representing allowable actions.
 For example &#8220;start&#8221; and &#8220;resume&#8221;.  These strings are not
 intended to be used directly in the user interface but as keys
-for future calls to <code class="xref od od-action docutils literal"><span class="pre">Schedule.InvokeAction</span></code>.</p>
+for future calls to <a class="reference internal" href="#od-action.deliveryodata.Schedule.InvokeAction" title="InvokeAction"><code class="xref od od-action docutils literal"><span class="pre">Schedule.InvokeAction</span></code></a>.</p>
 </dd></dl>
 
 </dd></dl>

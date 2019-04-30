@@ -46,6 +46,31 @@
             
   <div class="section" id="testcenter">
 <h1>TestCenter<a class="headerlink" href="#testcenter" title="Permalink to this headline">¶</a></h1>
+<dl class="feed">
+<dt id="od-feed.deliveryodata.TestCenters">
+<code class="descname">TestCenters</code> <a class="reference internal" href="#od-type.deliveryodata.TestCenter" title="TestCenter">TestCenter</a><a class="headerlink" href="#od-feed.deliveryodata.TestCenters" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; for reading test centres</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; the primary key</li>
+<li><strong>Name</strong> &#8211; the test center name</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>$orderby is <em>not</em> supported.</p>
+</dd></dl>
+
 <dl class="type">
 <dt id="od-type.deliveryodata.TestCenter">
 <em class="property">EntityType: </em><code class="descname">TestCenter</code><a class="headerlink" href="#od-type.deliveryodata.TestCenter" title="Permalink to this definition">¶</a></dt>
@@ -155,6 +180,34 @@
 <code class="descname">Properties</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Properties" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="action">
+<dt id="od-action.deliveryodata.TestCenter.Open">
+<em class="property">action </em><code class="descname">Open</code> (ExternalAttemptListID  Edm.String)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.TestCenter.Open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens a TestCenter.  Opening a test center creates a new
+AttemptList entity, marks it as open and associates
+it with the TestCenter.  The AttemptList is created with
+the given ExternalAttemptListID which must be unique.</p>
+<p>For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">TestCenter</span><span class="p">(</span><span class="mi">3824</span><span class="p">)</span><span class="o">/</span><span class="n">Open</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;ExternalAttemptListID&quot;</span><span class="p">:</span> <span class="s2">&quot;94a253aa-6a2e-48f2-9031-ebd343a5dfd1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To avoid errors from race conditions if you call the Open action
+on a TestCenter that is already open and you pass the
+ExternalAttemptListID of the current open AttemptList then a
+success code is returned and no further action is taken.</p>
+</dd></dl>
+
+<dl class="action">
+<dt id="od-action.deliveryodata.TestCenter.Close">
+<em class="property">action </em><code class="descname">Close</code> ()  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.TestCenter.Close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes a TestCenter.  The associated AttemptList is closed but
+it remains associated with the TestCenter.</p>
+</dd></dl>
+
 <dl class="prop">
 <dt id="od-prop.deliveryodata.TestCenter.Administrators">
 <code class="descname">Administrators</code> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Administrators" title="Permalink to this definition">¶</a></dt>
@@ -166,6 +219,15 @@ TestCenter.</p>
 <dt id="od-prop.deliveryodata.TestCenter.Schedules">
 <code class="descname">Schedules</code> <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule">Schedule</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Schedules" title="Permalink to this definition">¶</a></dt>
 <dd><p>The associated schedules</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.TestCenter.AttemptLists">
+<code class="descname">AttemptLists</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptList" title="AttemptList">AttemptList</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.AttemptLists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each time a TestCenter is opened it is associated with an
+AttemptList that is then used to group together the Attempts
+that are proctored together.  Each AttemptList represents a
+single session or sitting.</p>
 </dd></dl>
 
 </dd></dl>

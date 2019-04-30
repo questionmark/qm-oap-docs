@@ -3,6 +3,19 @@ Assessment
 
 ..  od:service::    deliveryodata
 
+
+..  od:feed::   Assessments Assessment
+    
+    :method GET: feed is read only
+    :filter ID: primary key
+    :filter Name: assessment name
+    :expand Results: expands the associated Results    
+
+    The Assessments feed provides information about the assessment
+    catalog. That is, all the assessments that have been published for
+    delivery.
+
+
 ..  od:type::   Assessment
 
     Assessment entities are drawn from :qm:table:`S_Header_Ex` in the
@@ -58,7 +71,7 @@ Assessment
 
         See :qm:field:`S_Header_Ex.Editor`.
         
-    ..  od:prop::   Modified_Date  Edm.DateTime
+    ..  od:prop::   ModifiedDateTime  Edm.DateTime
         :notnull:
 
         See :qm:field:`S_Header_Ex.Modified_Date`.
@@ -67,6 +80,12 @@ Assessment
         :notnull:
 
         See :qm:field:`S_Header_Ex.Base`.
+        
+    ..  od:prop::   TimeLimit  Edm.Int32
+
+        See :qm:field:`S_Header_Ex.Time_Limit`.
+
+        .. versionadded::   2019.02
         
     ..  od:prop::   Results  Result
         :collection:

@@ -3,6 +3,18 @@ Participant
 
 ..  od:service::    deliveryodata
 
+
+..  od:feed::   Participants Participant
+
+    :method GET: read only
+    :filter ID: primary key
+    :filter Name: filtering by participant name
+    :expand Groups: the collection of groups this participant is a member of
+
+    The Participants feed contains data about users that have the
+    special Participant role.
+
+
 ..  od:type::   Participant
 
     ..  od:prop::   ID  Edm.Int32

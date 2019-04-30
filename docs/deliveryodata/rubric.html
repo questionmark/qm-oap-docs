@@ -46,6 +46,57 @@
             
   <div class="section" id="rubric-and-dimension">
 <h1>Rubric and Dimension<a class="headerlink" href="#rubric-and-dimension" title="Permalink to this headline">¶</a></h1>
+<dl class="feed">
+<dt id="od-feed.deliveryodata.Rubrics">
+<code class="descname">Rubrics</code> <a class="reference internal" href="#od-type.deliveryodata.Rubric" title="Rubric">Rubric</a><a class="headerlink" href="#od-feed.deliveryodata.Rubrics" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Rubrics feed contains the scoring rules for subjective questions.</p>
+</dd></dl>
+
+<dl class="feed">
+<dt id="od-feed.deliveryodata.Dimensions">
+<code class="descname">Dimensions</code> <a class="reference internal" href="#od-type.deliveryodata.Dimension" title="Dimension">Dimension</a><a class="headerlink" href="#od-feed.deliveryodata.Dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; this feed is read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Rubric</strong> &#8211; expands the associated Rubric</li>
+<li><strong>DimensionScores</strong> &#8211; expands the associated collection of scores</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Dimensions feed contains information about the scoring
+dimensions associated with a rubric and is used for subjective
+marking.</p>
+</dd></dl>
+
 <dl class="type">
 <dt id="od-type.deliveryodata.Rubric">
 <em class="property">EntityType: </em><code class="descname">Rubric</code><a class="headerlink" href="#od-type.deliveryodata.Rubric" title="Permalink to this definition">¶</a></dt>

@@ -3,6 +3,158 @@ Attempt, AttemptLists and AttemptMetadata
 
 ..  od:service::    deliveryodata
 
+
+..  od:feed::   Attempts Attempt
+
+    :method GET: reading attempt entities
+    :method POST: creating attempt entities
+    :filter ID: primary key
+    :filter ExternalAttemptID: reference in external system
+    :filter ScheduleID: the associated schedule
+    :filter AttemptListID: the associated attempt list
+    :expand AnswerUpload: expands the optional associated AnswerUpload
+    :expand AttemptList: expands the optional associated AttemptList
+    :expand AttemptMetadata: expands the optional metadata
+    :expand MonitoringType: expands the optional MonitoringType
+    :expand Result: expands the optional Result
+
+    $orderby is *not* supported.
+
+    The Attempts feed contains an entry for each attempt at an
+    assessment. Attempts represent the authority to take a test and link
+    to a specific participant, a specific assessment and (sometimes) a
+    specific snapshot.  There are also properties that can be used to
+    control the security of the test.
+    
+    The attempt flow is a relatively new way of providing access to
+    launch tests through the APIs.  Currently only used for specialist
+    use cases such as online proctoring and printing and scanning the
+    scope of the Attempts feed is gradually widening to provide a
+    general platform for use by external systems that maintain their own
+    business rules.    
+
+
+..  od:feed::   AttemptLists AttemptList
+
+    .. versionadded:: OnDemand 2016.09
+
+    :method GET: reading attempt list entities
+    :method POST: creating attempt list entities
+    :filter ID: primary key
+    :filter ExternalAttemptListID: external reference
+    :expand Attempts: expands the associated Attempts    
+
+    $orderby is *not* supported.
+
+    The AttemptLists feed supports the arbitrary grouping of attempts
+    allowing a pre-defined group of attempts to be managed by a single
+    proctor or external business process.    
+
+
+..  od:feed::   AttemptMetadata AttemptMetadata
+
+    :method GET: reading attempt metadata key-value pairs
+    :method POST: creating attempt metadata key-value pairs
+    :filter ID: primary key
+    :filter AttemptID: associated attempt
+    :expand Attempt: expands the associated Attempt    
+
+    $orderby is *not* supported.
+
+    The attempt metadata feed allows arbitrary metadata to be associated
+    with an attempt.  Although entities can be created and accessed
+    directly from this feed they are always associated with an Attempt
+    and can be created in a single OData call at the same time as the
+    Attempt itself.  For example::
+    
+        POST <service root>/Attempts
+        Content-Type: application/json
+        
+        {
+            ExternalAttemptID: "Demo/2016-10-07.3",
+            ParticipantID: 1459320309,
+            AssessmentID: "9788463565326947",
+            AttemptMetadata: [
+                {
+                    Key: "S1",
+                    Value: "Help"
+                },
+                {
+                    Key: "S2",
+                    Value: "Me!"
+                }
+            ]
+        }
+
+    The response is a new Attempt record::
+    
+        201 Created
+        Content-Type: application/json; charset=utf-8
+
+        {
+            "odata.metadata": "<service root>/$metadata#Attempts/@Element",
+            "ID": 180,
+            "ParticipantFacingQMLobbyUrl": null,
+            "ProctorFacingQMControlsWidgetUrl": "https://...",
+            "ExternalAttemptID": "Demo/2016-10-07.3",
+            "ParticipantID": 1459320309,
+            "AssessmentID": "9788463565326947",
+            "AssessmentSnapshotID": null,
+            "ResultID": null,
+            "LockStatus": false,
+            "LockRequired": false,
+            "ParticipantFacingProctorSystemWidgetUrl": null,
+            "LastModifiedDateTime": "2016-10-07T16:20:00.341227Z",
+            "Language": null,
+            "AttemptListID": null
+        }    
+
+    You can see the newly created metadata records by expanding the
+    AttemptMetadata::
+    
+        GET <service root>/Attempts(180)?$expand=AttemptMetadata
+        
+        200 OK
+        Content-Type: application/json; charset=utf-8
+        
+        {
+            odata.metadata: "<service root>/$metadata#Attempts/@Element",
+            AttemptMetadata: [
+                {
+                    Id: 2,
+                    AttemptId: 180,
+                    Key: "S1",
+                    Value: "Help"
+                },
+                {
+                    Id: 3,
+                    AttemptId: 180,
+                    Key: "S2",
+                    Value: "Me!"
+                }
+            ],
+            ID: 180,
+            ParticipantFacingQMLobbyUrl: "qmsb:...",
+            ProctorFacingQMControlsWidgetUrl: "https://...",
+            ExternalAttemptID: "Demo/2016-10-07.3",
+            ParticipantID: 1459320309,
+            AssessmentID: "9788463565326947",
+            AssessmentSnapshotID: null,
+            ResultID: null,
+            LockStatus: false,
+            LockRequired: false,
+            ParticipantFacingProctorSystemWidgetUrl: null,
+            LastModifiedDateTime: "2016-10-07T16:20:00.34Z",
+            Language: null,
+            AttemptListID: null
+        }
+
+
+..  od:feed::   SessionAuditLog SessionAuditLog
+
+    :method GET: read only
+
+
 ..  od:type::   Attempt
 
     The attempt entity and the corresponding feed are being developed as
@@ -318,6 +470,10 @@ Attempt, AttemptLists and AttemptMetadata
         the participant's attempt is split over multiple proctoring
         sessions a new link will need to be generated each time.
 
+    ..  od:prop::   ReviewUrl   Edm.String
+
+        Reserved for future use.
+
     ..  od:prop::   ParticipantFacingProctorSystemWidgetUrl  Edm.String
 
         For use with Questionmark's built-in proctoring functions.  This
@@ -394,6 +550,15 @@ Attempt, AttemptLists and AttemptMetadata
         This optional field allows you to navigate to the associated
         AttemptMetdata entities.  See :od:type:`AttemptMetadata` for
         more information.
+
+    ..  od:prop::   SessionAuditLog  SessionAuditLog
+
+        .. versionadded:: 2019.02
+        
+        This optional field allows you to navigate to the session audit
+        log for this attempt.  The audit log is a detailed trail of
+        evidence collected during the assessment that can help validate
+        the fairness of the overall process.
 
 
 ..  od:type::   AttemptMetadata
@@ -503,9 +668,53 @@ Attempt, AttemptLists and AttemptMetadata
     
         A time stamp of when the attempt list was created.  Set
         automatically, it cannot be modified.
-    
+
+    ..  od:prop::   TestCenterID  Edm.Int32
+
+        .. versionadded:: 2019.02
+        
+        The ID of a :od:type:`TestCenter` entity associated with this
+        list of Attempts.  This value is optional, AttemptLists can be
+        created to manage groups of Attempts that should be proctored
+        together without requiring an associated TestCenter.
+
+    ..  od:prop::   Open  Edm.Boolean
+        :notnull:
+
+        .. versionadded:: 2019.02
+
+        Used in conjunction with :od:prop:`TestCenterID` to track the
+        AttemptList associated with an *open* TestCenter.  A TestCenter
+        can have at most one open AttemptList at any time.
+        
     ..  od:prop::   Attempts  Attempt
         :collection:
         
         A navigation property to the attempts in the list.
 
+    ..  od:prop::   TestCenter  TestCenter
+        
+        A navigation property to the optional associated TestCenter.
+
+
+..  od:type::   SessionAuditLog
+
+    .. versionadded:: 2019.02
+
+    This is a media link entry whose value is a csv file containing
+    detailed information captured during an Attempt. You can
+    download the file using OData's $value suffix.
+    
+    This data is currently experimental and is not available in all
+    OnDemand environments or OnPremise.
+    
+    ..  od:prop::   ID  Edm.Int32
+        :key:
+        :notnull:
+
+        The ID of the Attempt for which this is the data.
+        
+    ..  od:prop::   Attempt  Attempt
+        :notnull:
+
+        Navigation property back to the owning Attempt.

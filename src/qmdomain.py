@@ -422,6 +422,7 @@ class ODataDomain(Domain):
             'feed': 'od-feed',
             'type': 'od-type',
             'prop': 'od-prop',
+            'action': 'od-action',
             }.get(typ, None)
         if not prefix:
             return None

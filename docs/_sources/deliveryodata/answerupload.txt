@@ -3,6 +3,23 @@ AnswerUpload
 
 ..  od:service::    deliveryodata
 
+
+..  od:feed::   AnswerUploads AnswerUpload
+    :mle:
+    
+    :method GET: returns AnswerUpload metadata entities
+    :method POST: submits new AnswerUpload file for scoring
+    :filter AttemptID: the primary key
+
+    $orderby is *not* supported.
+
+    The AnswerUpload feed is used for external delivery use cases where
+    response data is obtained externally (e.g., through printing and
+    scanning) and must be submitted for scoring through the API.  It
+    also maintains a record of the raw response data in its uploaded
+    form for future audit.
+
+
 ..  od:type::   AnswerUpload
 
     AnswerUpload entities are media link entries that contain the

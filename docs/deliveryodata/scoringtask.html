@@ -48,6 +48,116 @@
 <h1>ScoringTask, ScoringResult and DimensionScore<a class="headerlink" href="#scoringtask-scoringresult-and-dimensionscore" title="Permalink to this headline">¶</a></h1>
 <p>For a worked example of using these entities to set scores for
 unscored responses please refer to <a class="reference internal" href="scoring.html"><span class="doc">Subjective Scoring</span></a>.</p>
+<dl class="feed">
+<dt id="od-feed.deliveryodata.ScoringTasks">
+<code class="descname">ScoringTasks</code> <a class="reference internal" href="#od-type.deliveryodata.ScoringTask" title="ScoringTask">ScoringTask</a><a class="headerlink" href="#od-feed.deliveryodata.ScoringTasks" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; for reading scoring tasks</li>
+<li><strong>PUT</strong> &#8211; for updating the status of a scoring task</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>QuestionID</strong> &#8211; the question being answered</li>
+<li><strong>ResultID</strong> &#8211; the result that generated the scoring task</li>
+<li><strong>Status</strong> &#8211; the status of the scoring task</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Assessment</strong> &#8211; expands the assessment that was being taken</li>
+<li><strong>Question</strong> &#8211; expands the question that was answered</li>
+<li><strong>Result</strong> &#8211; expands the result that generated the scoring task</li>
+<li><strong>Answer</strong> &#8211; expands the answer that generated the scoring task</li>
+<li><strong>Group</strong> &#8211; expands the optional Group related to this task</li>
+<li><strong>ScoringResult</strong> &#8211; use with caution, see <a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.ScoringResult" title="ScoringResult"><code class="xref od od-prop docutils literal"><span class="pre">ScoringTask.ScoringResult</span></code></a> for details</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The ScoringTasks feed contains one entity for each <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer"><code class="xref od od-type docutils literal"><span class="pre">Answer</span></code></a>
+that requires subjective scoring.  The scores actually awarded are
+in the associated <a class="reference internal" href="#od-type.deliveryodata.ScoringResult" title="ScoringResult"><code class="xref od od-type docutils literal"><span class="pre">ScoringResult</span></code></a>.</p>
+</dd></dl>
+
+<dl class="feed">
+<dt id="od-feed.deliveryodata.ScoringResults">
+<code class="descname">ScoringResults</code> <a class="reference internal" href="#od-type.deliveryodata.ScoringResult" title="ScoringResult">ScoringResult</a><a class="headerlink" href="#od-feed.deliveryodata.ScoringResults" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; for reading scoring results</li>
+<li><strong>PUT</strong> &#8211; for updating the score</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>QuestionID</strong> &#8211; the question being answered</li>
+<li><strong>ResultID</strong> &#8211; the result that generated the scoring task</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ScoringTask</strong> &#8211; the task</li>
+<li><strong>Rubric</strong> &#8211; the scoring rules</li>
+<li><strong>DimensionScores</strong> &#8211; the individual dimension scores</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Scoring Results feed contains the scores awarded by subjective
+marking.  ScoringResults are associated with ScoringTasks.</p>
+</dd></dl>
+
+<dl class="feed">
+<dt id="od-feed.deliveryodata.DimensionScores">
+<code class="descname">DimensionScores</code> <a class="reference internal" href="#od-type.deliveryodata.DimensionScore" title="DimensionScore">DimensionScore</a><a class="headerlink" href="#od-feed.deliveryodata.DimensionScores" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; for reading individual scores</li>
+<li><strong>PUT</strong> &#8211; for updating the scores</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>QuestionID</strong> &#8211; note that ordering is <em>not</em> supported</li>
+<li><strong>Order</strong> &#8211; supports $orderby only, cannot be used as a filter</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Rubric</strong> &#8211; expands the associated Rubric</li>
+<li><strong>Dimension</strong> &#8211; expands the Dimension of the Rubric</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The DimensionScores feed contains information about the actual
+scores awarded to an answer by a subjective marking process on a
+per-dimension basis.</p>
+</dd></dl>
+
 <dl class="type">
 <dt id="od-type.deliveryodata.ScoringTask">
 <em class="property">EntityType: </em><code class="descname">ScoringTask</code><a class="headerlink" href="#od-type.deliveryodata.ScoringTask" title="Permalink to this definition">¶</a></dt>

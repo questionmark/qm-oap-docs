@@ -46,6 +46,69 @@
             
   <div class="section" id="assessmentsnapshot-data">
 <h1>AssessmentSnapshot(Data)<a class="headerlink" href="#assessmentsnapshot-data" title="Permalink to this headline">¶</a></h1>
+<dl class="feed">
+<dt id="od-feed.deliveryodata.AssessmentSnapshots">
+<code class="descname">AssessmentSnapshots</code> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot">AssessmentSnapshot</a><a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshots" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; reading snapshot entities</li>
+<li><strong>POST</strong> &#8211; creating snapshot entities</li>
+<li><strong>PATCH</strong> &#8211; some properties may be updated, see entity for details</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>AssessmentID</strong> &#8211; the assessment used to create the snapshot ($orderby not supported)</li>
+<li><strong>CreatedDateTime</strong> &#8211; the time the snapshot was created ($orderby only, $filter not supported)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The AssessmentSnapshots feed contains information about snapshots of
+assessments.  Snapshots are versions of an assessment that have
+fixed any randomisation, such as which questions are picked and the
+order they are presented, including the order of any shuffled
+choices.  Snapshots are used for making an exact record of the
+assessment that was delivered to the participant.  At the time of
+writing they are used only for external delivery workflows,
+including printing and scanning.</p>
+</dd></dl>
+
+<dl class="feed">
+<dt id="od-feed.deliveryodata.AssessmentSnapshotsData">
+<code class="descname">AssessmentSnapshotsData</code> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData">AssessmentSnapshotData</a> (Media Link Entry)<a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshotsData" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; feed is read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>$orderby is <em>not</em> supported.</p>
+<p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.AssessmentSnapshots" title="AssessmentSnapshots"><code class="xref od od-feed docutils literal"><span class="pre">AssessmentSnapshots</span></code></a> which contains
+the raw XML data describing the snapshot.  Values are normally
+obtained by navigation from the associated
+<a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.AssessmentSnapshot</span></code></a> rather than directly.</p>
+</dd></dl>
+
 <dl class="type">
 <dt id="od-type.deliveryodata.AssessmentSnapshot">
 <em class="property">EntityType: </em><code class="descname">AssessmentSnapshot</code><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshot" title="Permalink to this definition">¶</a></dt>

@@ -75,6 +75,25 @@ specified.
 Schedules Reference
 ~~~~~~~~~~~~~~~~~~~
 
+..  od:feed::   Schedules Schedule
+
+    :method GET: for reading schedules
+    :method PATCH: for updating writable properties of a schedule
+    :filter ID: primary key
+    :filter ParticipantID: the associated participant
+    :filter GroupID: the associated group
+    :filter StartFrom: the schedule start time
+    :filter MonitoringTypeID: the associated monitoring type
+    :filter TestCenterID: the associated test center    
+
+    $orderby is *not* supported.
+
+
+..  od:feed::   ScheduleMetadata ScheduleMetadata
+
+    :method GET: reading schedule metadata key-value pairs
+    :method POST: creating schedule metadata key-value pairs
+
 
 ..  od:type::   Schedule
 
@@ -258,6 +277,14 @@ Schedules Reference
     
         A navigation property to the (optional) parent schedule.
         
+    ..  od:prop::   ExceptionSchedules  Schedule
+        :collection:
+
+        A navigation property from a parent schedule to all the
+        exceptions to this schedule.
+            
+        A navigation property to the (optional) parent schedule.
+        
     ..  od:prop::   MonitoringType  MonitoringType
     
         A navigation property to the (optional) monitoring type.
@@ -282,18 +309,11 @@ Schedules Reference
     
         A navigation property to all the attempts that have been
         initiated for this Schedule.
-
-    ..  od:action:: ActionableSchedule ActionableSchedule
-        :input: ParticipantID Edm.Int32
-
-        Returns an actionable schedule for a specific participant,
-        passed as an inputer parameter using http POST::
-        
-            POST /deliveryodata/<customer-id>/Schedule(654321)/ActionableSchedule
             
-            {
-                "PartipcantID": 123456
-            }
+    ..  od:action:: ActionableSchedules ActionableSchedule
+        :collection:
+        
+        Reserved for future use.
             
     ..  od:action:: InvokeAction Edm.String
         :input: Action Edm.String, ParticipantID Edm.Int32, ObserverID Edm.Int32

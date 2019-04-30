@@ -6,6 +6,54 @@ ScoringTask, ScoringResult and DimensionScore
 For a worked example of using these entities to set scores for
 unscored responses please refer to :doc:`scoring`.
 
+
+..  od:feed::   ScoringTasks ScoringTask
+
+    :method GET: for reading scoring tasks
+    :method PUT: for updating the status of a scoring task    
+    :filter QuestionID: the question being answered
+    :filter ResultID: the result that generated the scoring task
+    :filter Status: the status of the scoring task
+    :expand Assessment: expands the assessment that was being taken    
+    :expand Question: expands the question that was answered    
+    :expand Result: expands the result that generated the scoring task
+    :expand Answer: expands the answer that generated the scoring task
+    :expand Group: expands the optional Group related to this task    
+    :expand ScoringResult: use with caution, see :od:prop:`ScoringTask.ScoringResult` for details    
+
+    The ScoringTasks feed contains one entity for each :od:type:`Answer`
+    that requires subjective scoring.  The scores actually awarded are
+    in the associated :od:type:`ScoringResult`.
+
+
+..  od:feed::   ScoringResults ScoringResult
+
+    :method GET: for reading scoring results
+    :method PUT: for updating the score    
+    :filter QuestionID: the question being answered
+    :filter ResultID: the result that generated the scoring task
+    :expand ScoringTask: the task
+    :expand Rubric: the scoring rules
+    :expand DimensionScores: the individual dimension scores
+    
+    The Scoring Results feed contains the scores awarded by subjective
+    marking.  ScoringResults are associated with ScoringTasks. 
+
+
+..  od:feed::   DimensionScores DimensionScore
+
+    :method GET: for reading individual scores
+    :method PUT: for updating the scores
+    :filter QuestionID: note that ordering is *not* supported
+    :filter Order: supports $orderby only, cannot be used as a filter
+    :expand Rubric: expands the associated Rubric    
+    :expand Dimension: expands the Dimension of the Rubric
+
+    The DimensionScores feed contains information about the actual
+    scores awarded to an answer by a subjective marking process on a
+    per-dimension basis.
+
+
 ..  od:type::   ScoringTask
 
     A ScoringTask is created each time a participant submits an answer to

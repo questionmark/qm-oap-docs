@@ -3,6 +3,16 @@ TestCenter
 
 ..  od:service::    deliveryodata
 
+
+..  od:feed::   TestCenters TestCenter
+
+    :method GET: for reading test centres
+    :filter ID: the primary key
+    :filter Name: the test center name
+
+    $orderby is *not* supported.
+
+
 ..  od:type::   TestCenter
 
     .. versionadded::   2017.11
@@ -53,6 +63,32 @@ TestCenter
 
     ..  od:prop::   Properties      Edm.String
 
+    ..  od:action:: Open
+        :input: ExternalAttemptListID Edm.String
+        
+        Opens a TestCenter.  Opening a test center creates a new
+        AttemptList entity, marks it as open and associates
+        it with the TestCenter.  The AttemptList is created with
+        the given ExternalAttemptListID which must be unique.
+        
+        For example::
+        
+            POST /deliveryodata/<customer-id>/TestCenter(3824)/Open
+            
+            {
+                "ExternalAttemptListID": "94a253aa-6a2e-48f2-9031-ebd343a5dfd1"
+            }
+
+        To avoid errors from race conditions if you call the Open action
+        on a TestCenter that is already open and you pass the
+        ExternalAttemptListID of the current open AttemptList then a
+        success code is returned and no further action is taken.
+
+    ..  od:action:: Close
+
+        Closes a TestCenter.  The associated AttemptList is closed but
+        it remains associated with the TestCenter.
+        
     ..  od:prop::   Administrators  Administrator
         :collection:
 
@@ -63,3 +99,11 @@ TestCenter
         :collection:
 
         The associated schedules
+
+    ..  od:prop::   AttemptLists  AttemptList
+        :collection:
+
+        Each time a TestCenter is opened it is associated with an
+        AttemptList that is then used to group together the Attempts
+        that are proctored together.  Each AttemptList represents a
+        single session or sitting.

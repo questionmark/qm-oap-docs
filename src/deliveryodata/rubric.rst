@@ -3,6 +3,25 @@ Rubric and Dimension
 
 ..  od:service::    deliveryodata
 
+..  od:feed::   Rubrics Rubric
+
+    :method GET: read only
+
+    The Rubrics feed contains the scoring rules for subjective questions.
+
+
+..  od:feed::   Dimensions Dimension
+
+    :method GET: this feed is read only
+    :filter ID: primary key
+    :expand Rubric: expands the associated Rubric    
+    :expand DimensionScores: expands the associated collection of scores    
+    
+    The Dimensions feed contains information about the scoring
+    dimensions associated with a rubric and is used for subjective
+    marking.
+
+
 ..  od:type::   Rubric
 
     ..warning:: the Scoring Tool in Enterprise Manager provides some

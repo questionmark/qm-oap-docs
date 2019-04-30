@@ -3,6 +3,25 @@ Answer
 
 ..  od:service::    deliveryodata
 
+..  od:feed::   Answers Answer
+    :mle:
+
+    :method GET: feed is read only
+    :filter QuestionID: ID of the associated Question
+    :filter ResultID: ID of the associated Result
+    :expand Question: expands the associated Question
+    :expand Result: expands the associated Result
+    :expand ScoringTask: expands the associated ScoringTask, due to
+                         a known issue this expansion will *only* return
+                         entities that are associated with a ScoringTask.
+
+    $orderby is *not* supported.
+
+    The Answers feed contains detailed information about the answers
+    given by participants.  Each question that a participant answers
+    generates a unique record in this feed.
+
+
 ..  od:type::   Answer
 
     Answer entities are drawn from :qm:table:`A_Answer` in the data

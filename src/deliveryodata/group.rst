@@ -3,6 +3,23 @@ Group
 
 ..  od:service::    deliveryodata
 
+
+..  od:feed::   Groups Group
+
+    :method GET: read only
+    :filter ID: primary key
+    :filter Name: filtering by group name
+    :filter RootGroupID: filtering by the top-level group (expected in 2018.02)
+    :expand Administrators: the administrators responsible for the group
+    :expand Participants: the participant members of the group
+    :expand SubGroups: the optional list of sub-groups
+    :expand ParentGroup: the optional parent group (:od:prop:`see warning <Group.ParentGroup>`)
+    :expand PrintBatches: the optional list of associated PrintBatches
+
+    The Groups feed contains data about groups of participants.  Entries
+    are defined by the :od:type:`Group` type.
+
+
 ..  od:type::   Group
 
     ..  od:prop::   ID  Edm.Int32

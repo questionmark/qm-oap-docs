@@ -28,7 +28,7 @@
     <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
     <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="PrintBatch" href="printbatch.html" />
-    <link rel="prev" title="MonitoringType" href="monitoring_type.html" />
+    <link rel="prev" title="MonitoringTypes and ProctoringProviders" href="monitoring_type.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -46,6 +46,38 @@
             
   <div class="section" id="participant">
 <h1>Participant<a class="headerlink" href="#participant" title="Permalink to this headline">¶</a></h1>
+<dl class="feed">
+<dt id="od-feed.deliveryodata.Participants">
+<code class="descname">Participants</code> <a class="reference internal" href="#od-type.deliveryodata.Participant" title="Participant">Participant</a><a class="headerlink" href="#od-feed.deliveryodata.Participants" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>Name</strong> &#8211; filtering by participant name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Groups</strong> &#8211; the collection of groups this participant is a member of</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Participants feed contains data about users that have the
+special Participant role.</p>
+</dd></dl>
+
 <dl class="type">
 <dt id="od-type.deliveryodata.Participant">
 <em class="property">EntityType: </em><code class="descname">Participant</code><a class="headerlink" href="#od-type.deliveryodata.Participant" title="Permalink to this definition">¶</a></dt>
@@ -537,7 +569,7 @@ parameter.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>See <code class="xref od od-action docutils literal"><span class="pre">ActionableSchedules</span></code> for more information.</p>
+<p>See <a class="reference internal" href="#od-action.deliveryodata.Participant.ActionableSchedules" title="ActionableSchedules"><code class="xref od od-action docutils literal"><span class="pre">ActionableSchedules</span></code></a> for more information.</p>
 </dd></dl>
 
 </dd></dl>
@@ -572,7 +604,7 @@ parameter.</p>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
   <li><a href="types.html">Entity Type Reference</a><ul>
-      <li>Previous: <a href="monitoring_type.html" title="previous chapter">MonitoringType</a></li>
+      <li>Previous: <a href="monitoring_type.html" title="previous chapter">MonitoringTypes and ProctoringProviders</a></li>
       <li>Next: <a href="printbatch.html" title="next chapter">PrintBatch</a></li>
   </ul></li>
   </ul></li>

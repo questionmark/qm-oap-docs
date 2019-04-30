@@ -3,6 +3,21 @@ Administrator
 
 ..  od:service::    deliveryodata
 
+
+..  od:feed::   Administrators Administrator
+
+    :method GET: feed is read only
+    :filter ID: primary key
+    :filter Name: administrator name
+    :expand Groups: associated groups
+    :expand TestCenters: associated test centers
+
+    The Administrators feed contains data about users with administrator
+    roles in the user data base.  A user with an administrator role is
+    defined as being a user with *any* role other than special
+    Participant role.
+
+
 ..  od:type::   Administrator
 
     Administrator entities are drawn from :qm:table:`G_User` in the data

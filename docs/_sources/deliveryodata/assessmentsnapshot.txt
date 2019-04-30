@@ -4,6 +4,39 @@ AssessmentSnapshot(Data)
 ..  od:service::    deliveryodata
 
 
+..  od:feed::   AssessmentSnapshots AssessmentSnapshot
+
+    :method GET: reading snapshot entities
+    :method POST: creating snapshot entities
+    :method PATCH: some properties may be updated, see entity for details
+    :filter ID: primary key
+    :filter AssessmentID: the assessment used to create the snapshot ($orderby not supported)
+    :filter CreatedDateTime: the time the snapshot was created ($orderby only, $filter not supported)
+        
+    The AssessmentSnapshots feed contains information about snapshots of
+    assessments.  Snapshots are versions of an assessment that have
+    fixed any randomisation, such as which questions are picked and the
+    order they are presented, including the order of any shuffled
+    choices.  Snapshots are used for making an exact record of the
+    assessment that was delivered to the participant.  At the time of
+    writing they are used only for external delivery workflows,
+    including printing and scanning.
+
+
+..  od:feed::   AssessmentSnapshotsData AssessmentSnapshotData
+    :mle:
+
+    :method GET: feed is read only
+    :filter ID: primary key
+
+    $orderby is *not* supported.
+
+    An auxiliary feed to :od:feed:`AssessmentSnapshots` which contains
+    the raw XML data describing the snapshot.  Values are normally
+    obtained by navigation from the associated
+    :od:type:`deliveryodata.AssessmentSnapshot` rather than directly.
+
+
 ..  od:type::   AssessmentSnapshot
 
     AssessmentSnapshot entities are drawn from

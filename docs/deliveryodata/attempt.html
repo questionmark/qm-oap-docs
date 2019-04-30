@@ -46,6 +46,230 @@
             
   <div class="section" id="attempt-attemptlists-and-attemptmetadata">
 <h1>Attempt, AttemptLists and AttemptMetadata<a class="headerlink" href="#attempt-attemptlists-and-attemptmetadata" title="Permalink to this headline">¶</a></h1>
+<dl class="feed">
+<dt id="od-feed.deliveryodata.Attempts">
+<code class="descname">Attempts</code> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-feed.deliveryodata.Attempts" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; reading attempt entities</li>
+<li><strong>POST</strong> &#8211; creating attempt entities</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>ExternalAttemptID</strong> &#8211; reference in external system</li>
+<li><strong>ScheduleID</strong> &#8211; the associated schedule</li>
+<li><strong>AttemptListID</strong> &#8211; the associated attempt list</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>AnswerUpload</strong> &#8211; expands the optional associated AnswerUpload</li>
+<li><strong>AttemptList</strong> &#8211; expands the optional associated AttemptList</li>
+<li><strong>AttemptMetadata</strong> &#8211; expands the optional metadata</li>
+<li><strong>MonitoringType</strong> &#8211; expands the optional MonitoringType</li>
+<li><strong>Result</strong> &#8211; expands the optional Result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>$orderby is <em>not</em> supported.</p>
+<p>The Attempts feed contains an entry for each attempt at an
+assessment. Attempts represent the authority to take a test and link
+to a specific participant, a specific assessment and (sometimes) a
+specific snapshot.  There are also properties that can be used to
+control the security of the test.</p>
+<p>The attempt flow is a relatively new way of providing access to
+launch tests through the APIs.  Currently only used for specialist
+use cases such as online proctoring and printing and scanning the
+scope of the Attempts feed is gradually widening to provide a
+general platform for use by external systems that maintain their own
+business rules.</p>
+</dd></dl>
+
+<dl class="feed">
+<dt id="od-feed.deliveryodata.AttemptLists">
+<code class="descname">AttemptLists</code> <a class="reference internal" href="#od-type.deliveryodata.AttemptList" title="AttemptList">AttemptList</a><a class="headerlink" href="#od-feed.deliveryodata.AttemptLists" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version OnDemand: </span>2016.09</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; reading attempt list entities</li>
+<li><strong>POST</strong> &#8211; creating attempt list entities</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>ExternalAttemptListID</strong> &#8211; external reference</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Attempts</strong> &#8211; expands the associated Attempts</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>$orderby is <em>not</em> supported.</p>
+<p>The AttemptLists feed supports the arbitrary grouping of attempts
+allowing a pre-defined group of attempts to be managed by a single
+proctor or external business process.</p>
+</dd></dl>
+
+<dl class="feed">
+<dt id="od-feed.deliveryodata.AttemptMetadata">
+<code class="descname">AttemptMetadata</code> <a class="reference internal" href="#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata">AttemptMetadata</a><a class="headerlink" href="#od-feed.deliveryodata.AttemptMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; reading attempt metadata key-value pairs</li>
+<li><strong>POST</strong> &#8211; creating attempt metadata key-value pairs</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+<li><strong>AttemptID</strong> &#8211; associated attempt</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Attempt</strong> &#8211; expands the associated Attempt</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>$orderby is <em>not</em> supported.</p>
+<p>The attempt metadata feed allows arbitrary metadata to be associated
+with an attempt.  Although entities can be created and accessed
+directly from this feed they are always associated with an Attempt
+and can be created in a single OData call at the same time as the
+Attempt itself.  For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span><span class="n">Attempts</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+    <span class="n">ExternalAttemptID</span><span class="p">:</span> <span class="s2">&quot;Demo/2016-10-07.3&quot;</span><span class="p">,</span>
+    <span class="n">ParticipantID</span><span class="p">:</span> <span class="mi">1459320309</span><span class="p">,</span>
+    <span class="n">AssessmentID</span><span class="p">:</span> <span class="s2">&quot;9788463565326947&quot;</span><span class="p">,</span>
+    <span class="n">AttemptMetadata</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="n">Key</span><span class="p">:</span> <span class="s2">&quot;S1&quot;</span><span class="p">,</span>
+            <span class="n">Value</span><span class="p">:</span> <span class="s2">&quot;Help&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="n">Key</span><span class="p">:</span> <span class="s2">&quot;S2&quot;</span><span class="p">,</span>
+            <span class="n">Value</span><span class="p">:</span> <span class="s2">&quot;Me!&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The response is a new Attempt record:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">201</span> <span class="n">Created</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;service root&gt;/$metadata#Attempts/@Element&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span>
+    <span class="s2">&quot;ParticipantFacingQMLobbyUrl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ProctorFacingQMControlsWidgetUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ExternalAttemptID&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo/2016-10-07.3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="mi">1459320309</span><span class="p">,</span>
+    <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;9788463565326947&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AssessmentSnapshotID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;ResultID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;LockStatus&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;LockRequired&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;ParticipantFacingProctorSystemWidgetUrl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;LastModifiedDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-10-07T16:20:00.341227Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Language&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;AttemptListID&quot;</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can see the newly created metadata records by expanding the
+AttemptMetadata:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET &lt;service root&gt;/Attempts(180)?$expand=AttemptMetadata
+
+200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    odata.metadata: &quot;&lt;service root&gt;/$metadata#Attempts/@Element&quot;,
+    AttemptMetadata: [
+        {
+            Id: 2,
+            AttemptId: 180,
+            Key: &quot;S1&quot;,
+            Value: &quot;Help&quot;
+        },
+        {
+            Id: 3,
+            AttemptId: 180,
+            Key: &quot;S2&quot;,
+            Value: &quot;Me!&quot;
+        }
+    ],
+    ID: 180,
+    ParticipantFacingQMLobbyUrl: &quot;qmsb:...&quot;,
+    ProctorFacingQMControlsWidgetUrl: &quot;https://...&quot;,
+    ExternalAttemptID: &quot;Demo/2016-10-07.3&quot;,
+    ParticipantID: 1459320309,
+    AssessmentID: &quot;9788463565326947&quot;,
+    AssessmentSnapshotID: null,
+    ResultID: null,
+    LockStatus: false,
+    LockRequired: false,
+    ParticipantFacingProctorSystemWidgetUrl: null,
+    LastModifiedDateTime: &quot;2016-10-07T16:20:00.34Z&quot;,
+    Language: null,
+    AttemptListID: null
+}
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="feed">
+<dt id="od-feed.deliveryodata.SessionAuditLog">
+<code class="descname">SessionAuditLog</code> <a class="reference internal" href="#od-type.deliveryodata.SessionAuditLog" title="SessionAuditLog">SessionAuditLog</a><a class="headerlink" href="#od-feed.deliveryodata.SessionAuditLog" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="type">
 <dt id="od-type.deliveryodata.Attempt">
 <em class="property">EntityType: </em><code class="descname">Attempt</code><a class="headerlink" href="#od-type.deliveryodata.Attempt" title="Permalink to this definition">¶</a></dt>
@@ -59,7 +283,7 @@ in 2016 to cover external delivery through printing and scanning.</p>
 <p>It is currently be extended further to support both proctored and
 unproctored scenarios providing support for a wide range of
 scheduling modules including a new Scheduling API based on the
-<a class="reference internal" href="feeds.html#od-feed.deliveryodata.Schedules" title="Schedules"><code class="xref od od-feed docutils literal"><span class="pre">Schedules</span></code></a> feed.</p>
+<a class="reference internal" href="schedule.html#od-feed.deliveryodata.Schedules" title="Schedules"><code class="xref od od-feed docutils literal"><span class="pre">Schedules</span></code></a> feed.</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Attempt.ID">
 <em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ID" title="Permalink to this definition">¶</a></dt>
@@ -163,7 +387,7 @@ has been created.  If specified, this value must be the ID of an
 methods.  In other words, an attempt for a specified snapshot
 <em>must</em> be delivered externally (e.g., using printing and
 scanning) and scored by uploading a result file to the
-<a class="reference internal" href="feeds.html#od-feed.deliveryodata.AnswerUploads" title="AnswerUploads"><code class="xref od od-feed docutils literal"><span class="pre">deliveryodata.AnswerUploads</span></code></a> feed.</p>
+<a class="reference internal" href="answerupload.html#od-feed.deliveryodata.AnswerUploads" title="AnswerUploads"><code class="xref od od-feed docutils literal"><span class="pre">deliveryodata.AnswerUploads</span></code></a> feed.</p>
 </dd></dl>
 
 <dl class="prop">
@@ -389,6 +613,12 @@ sessions a new link will need to be generated each time.</p>
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Attempt.ReviewUrl">
+<code class="descname">ReviewUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ReviewUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reserved for future use.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Attempt.ParticipantFacingProctorSystemWidgetUrl">
 <code class="descname">ParticipantFacingProctorSystemWidgetUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ParticipantFacingProctorSystemWidgetUrl" title="Permalink to this definition">¶</a></dt>
 <dd><p>For use with Questionmark&#8217;s built-in proctoring functions.  This
@@ -480,6 +710,18 @@ AttemptList entity.  See also <a class="reference internal" href="#od-prop.deliv
 <p>This optional field allows you to navigate to the associated
 AttemptMetdata entities.  See <a class="reference internal" href="#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata"><code class="xref od od-type docutils literal"><span class="pre">AttemptMetadata</span></code></a> for
 more information.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Attempt.SessionAuditLog">
+<code class="descname">SessionAuditLog</code> <a class="reference internal" href="#od-type.deliveryodata.SessionAuditLog" title="SessionAuditLog">SessionAuditLog</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.SessionAuditLog" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2019.02.</span></p>
+</div>
+<p>This optional field allows you to navigate to the session audit
+log for this attempt.  The audit log is a detailed trail of
+evidence collected during the assessment that can help validate
+the fairness of the overall process.</p>
 </dd></dl>
 
 </dd></dl>
@@ -601,9 +843,63 @@ automatically, it cannot be modified.</p>
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.AttemptList.TestCenterID">
+<code class="descname">TestCenterID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.AttemptList.TestCenterID" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2019.02.</span></p>
+</div>
+<p>The ID of a <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter"><code class="xref od od-type docutils literal"><span class="pre">TestCenter</span></code></a> entity associated with this
+list of Attempts.  This value is optional, AttemptLists can be
+created to manage groups of Attempts that should be proctored
+together without requiring an associated TestCenter.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AttemptList.Open">
+<code class="descname">Open</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptList.Open" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2019.02.</span></p>
+</div>
+<p>Used in conjunction with <a class="reference internal" href="#od-prop.deliveryodata.AttemptList.TestCenterID" title="TestCenterID"><code class="xref od od-prop docutils literal"><span class="pre">TestCenterID</span></code></a> to track the
+AttemptList associated with an <em>open</em> TestCenter.  A TestCenter
+can have at most one open AttemptList at any time.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.AttemptList.Attempts">
 <code class="descname">Attempts</code> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.AttemptList.Attempts" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the attempts in the list.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AttemptList.TestCenter">
+<code class="descname">TestCenter</code> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter">TestCenter</a><a class="headerlink" href="#od-prop.deliveryodata.AttemptList.TestCenter" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the optional associated TestCenter.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.deliveryodata.SessionAuditLog">
+<em class="property">EntityType: </em><code class="descname">SessionAuditLog</code><a class="headerlink" href="#od-type.deliveryodata.SessionAuditLog" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2019.02.</span></p>
+</div>
+<p>This is a media link entry whose value is a csv file containing
+detailed information captured during an Attempt. You can
+download the file using OData&#8217;s $value suffix.</p>
+<p>This data is currently experimental and is not available in all
+OnDemand environments or OnPremise.</p>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.SessionAuditLog.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.SessionAuditLog.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the Attempt for which this is the data.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.SessionAuditLog.Attempt">
+<code class="descname">Attempt</code> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.SessionAuditLog.Attempt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property back to the owning Attempt.</p>
 </dd></dl>
 
 </dd></dl>

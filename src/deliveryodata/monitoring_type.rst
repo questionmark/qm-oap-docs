@@ -1,7 +1,36 @@
-MonitoringType
---------------
+MonitoringTypes and ProctoringProviders
+---------------------------------------
 
 ..  od:service::    deliveryodata
+
+
+..  od:feed::   MonitoringTypes MonitoringType
+
+    :method GET: read only
+    :filter ID: primary key
+    :filter Name: the symbolic name of this monitoring type
+
+    $orderby is *not* supported.
+
+    The MonitoringTypes feed contains data about methods of monitoring
+    assessments. Entries are defined by the :od:type:`MonitoringType`
+    type.
+
+
+..  od:feed::   ProctoringProviders ProctoringProvider
+
+    :method GET: read only
+    :filter ID: primary key
+    :filter Name: the symbolic name of this monitoring type
+
+    $orderby is *not* supported.
+
+    .. versionadded::   2018.04
+
+    The ProctoringProviders feed contains data about the configuration
+    of external proctoring providers integrated through a proctoring
+    API. Entries are defined by the :od:type:`ProctoringProvider` type.
+
 
 ..  od:type::   MonitoringType
 
@@ -46,7 +75,7 @@ MonitoringType
         A flag indicating whether or not Attempts launched with this
         Monitoring type *MUST* use Questionmark's next-generation device
         monitoring technology.  Requires a next-generation Questionmark
-        Secure Browser client (expected early 2018).
+        Secure Browser client.
 
     ..  od:prop::   SystemCheckUrl   Edm.String
 
@@ -84,14 +113,6 @@ MonitoringType
         
         An optional navigation property to the ProctoringProvider
         associated with this monitoring type.
-
-    ..  od:prop::   Schedules  Schedule
-        :collection:
-        
-        .. versionadded::   2018.05
-
-        A navigation property to all the schedules associated with this
-        monitoring type.
         
 
 ..  od:type::   ProctoringProvider
