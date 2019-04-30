@@ -83,6 +83,7 @@ Schedules Reference
     :filter ParticipantID: the associated participant
     :filter GroupID: the associated group
     :filter StartFrom: the schedule start time
+    :filter StartTo: the schedule end time
     :filter MonitoringTypeID: the associated monitoring type
     :filter TestCenterID: the associated test center    
 
