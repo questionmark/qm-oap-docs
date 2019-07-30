@@ -8,6 +8,7 @@ Attempt, AttemptLists and AttemptMetadata
 
     :method GET: reading attempt entities
     :method POST: creating attempt entities
+    :method PATCH: limited support for some properties, see property descriptions for details
     :filter ID: primary key
     :filter ExternalAttemptID: reference in external system
     :filter ScheduleID: the associated schedule
@@ -342,6 +343,8 @@ Attempt, AttemptLists and AttemptMetadata
         of the participant's device against the technology requirements
         of the proctoring process.
         
+        This property may be PATCHed.
+        
         ..  note::  if you omit this value or pass NULL a default system
                     check page is shown.  To explicitly indicate that no
                     system check is required pass the special URL
@@ -364,6 +367,8 @@ Attempt, AttemptLists and AttemptMetadata
         the proctor once they are satisfied that the participant's
         environment has been secured and that any extended
         identification checks have completed successfully.
+        
+        This property may be PATCHed.
         
     ..  od:prop::   UnlockCodeExpiresDateTime   Edm.DateTime
     
@@ -486,18 +491,7 @@ Attempt, AttemptLists and AttemptMetadata
         within the assessment delivery experience.
 
         For sessions that are proctored on-site or via a third-party
-        proctoring system this property may be set to NULL.
-
-        Although not fully supported in the current version of
-        Questionmark OnDemand due to the narrow time window provided for
-        assessment launch, it is envisaged that third-party proctoring
-        systems may be used by creating an unlocked attempt (specify
-        LockRequired=False on creation).  The application would then
-        retrieve the ParticipantFacingQMLobbyUrl (and optionally the
-        ProctorFacingQMControlsWidgetUrl) and pass them to the
-        third-party proctoring system which would then forward the
-        launch link to the participant's browser once the proctor
-        indicates that they are ready to start.
+        proctoring system this property should be set to NULL.
         
     ..  od:prop::   LastModifiedDateTime  Edm.DateTime
         :notnull:

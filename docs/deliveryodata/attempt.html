@@ -57,6 +57,7 @@
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
 <li><strong>GET</strong> &#8211; reading attempt entities</li>
 <li><strong>POST</strong> &#8211; creating attempt entities</li>
+<li><strong>PATCH</strong> &#8211; limited support for some properties, see property descriptions for details</li>
 </ul>
 </td>
 </tr>
@@ -468,6 +469,7 @@ automatically be set to True if LockRequired is True.</p>
 entering the exam lobby to assist with checking compatibility
 of the participant&#8217;s device against the technology requirements
 of the proctoring process.</p>
+<p>This property may be PATCHed.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">if you omit this value or pass NULL a default system
@@ -496,6 +498,7 @@ critical that the participant is only given the unlock code by
 the proctor once they are satisfied that the participant&#8217;s
 environment has been secured and that any extended
 identification checks have completed successfully.</p>
+<p>This property may be PATCHed.</p>
 </dd></dl>
 
 <dl class="prop">
@@ -630,17 +633,7 @@ pop-up window or panel in order to initiate their proctoring
 session.  This allows the proctoring system to be embedded
 within the assessment delivery experience.</p>
 <p>For sessions that are proctored on-site or via a third-party
-proctoring system this property may be set to NULL.</p>
-<p>Although not fully supported in the current version of
-Questionmark OnDemand due to the narrow time window provided for
-assessment launch, it is envisaged that third-party proctoring
-systems may be used by creating an unlocked attempt (specify
-LockRequired=False on creation).  The application would then
-retrieve the ParticipantFacingQMLobbyUrl (and optionally the
-ProctorFacingQMControlsWidgetUrl) and pass them to the
-third-party proctoring system which would then forward the
-launch link to the participant&#8217;s browser once the proctor
-indicates that they are ready to start.</p>
+proctoring system this property should be set to NULL.</p>
 </dd></dl>
 
 <dl class="prop">
