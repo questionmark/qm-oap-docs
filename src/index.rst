@@ -18,6 +18,7 @@ Contents:
 
     overview
     odata
+    authoringodata
     deliveryodata
     resultsodata
     qmwise

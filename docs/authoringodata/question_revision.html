@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>QuestionRevision &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.10.12a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
+    <link rel="up" title="Entity Type Reference" href="types.html" />
+    <link rel="next" title="Delivery OData API" href="../deliveryodata.html" />
+    <link rel="prev" title="Entity Type Reference" href="types.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="questionrevision">
+<h1>QuestionRevision<a class="headerlink" href="#questionrevision" title="Permalink to this headline">¶</a></h1>
+<dl class="feed">
+<dt id="od-feed.authoringodata.QuestionRevisions">
+<code class="descname">QuestionRevisions</code> <a class="reference internal" href="#od-type.authoringodata.QuestionRevision" title="QuestionRevision">QuestionRevision</a><a class="headerlink" href="#od-feed.authoringodata.QuestionRevisions" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; feed is read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>Id</strong> &#8211; primary key</li>
+<li><strong>QuestionId</strong> &#8211; the system-wide ID for the Question</li>
+<li><strong>Language</strong> &#8211; language of the Question</li>
+<li><strong>CreatedDateTime</strong> &#8211; when the question was created</li>
+<li><strong>Author</strong> &#8211; the user name of the user creating the Question</li>
+<li><strong>ModifiedDateTime</strong> &#8211; when the <em>base language</em> version of the question was last modified</li>
+<li><strong>Editor</strong> &#8211; the user name of the last user to edit the <em>base language</em> version of the Question</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>QuestionQMLs</strong> &#8211; QML entities for each available language</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The QuestionRevisions feed contains entities that describe all revisions
+of all Questions within the item bank.  There is one entity for each
+revision of each question.</p>
+<p>Example request:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>https://ondemand.questionmark.com/authoringapi/123456/odata/QuestionRevisions?$filter=QuestionId eq 100000001323&amp;$orderby=ModifiedDateTime desc&amp;$top=1
+</pre></div>
+</div>
+<p>This request uses $orderby and $top to get the most recent revision
+of the Question with QuestionId 100000001323.  For clarity spaces
+are show unescaped in the URL.  Example response:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;@odata.context&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/authoringapi/123456/odata/$metadata#QuestionRevisions&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="mi">10320</span><span class="p">,</span>
+            <span class="s2">&quot;QuestionId&quot;</span><span class="p">:</span> <span class="mi">100000001323</span><span class="p">,</span>
+            <span class="s2">&quot;Language&quot;</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CreatedDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-12-23T10:41:29.06Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Author&quot;</span><span class="p">:</span> <span class="s2">&quot;steve&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ModifiedDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-12-23T10:41:29.107Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Editor&quot;</span><span class="p">:</span> <span class="s2">&quot;steve&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;Normal&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ReviewStatus&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;TopicPath&quot;</span><span class="p">:</span> <span class="s2">&quot;SubjectiveQuestions&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;IsDeleted&quot;</span><span class="p">:</span> <span class="n">false</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.authoringodata.QuestionRevision">
+<em class="property">EntityType: </em><code class="descname">QuestionRevision</code><a class="headerlink" href="#od-type.authoringodata.QuestionRevision" title="Permalink to this definition">¶</a></dt>
+<dd><p>QuestionRevision entities contain only a subset of the attributes of
+a Question.  The full information about a Question is obtained from
+the associated <a class="reference internal" href="question_qml.html#od-type.authoringodata.QuestionQML" title="QuestionQML"><code class="xref od od-type docutils literal"><span class="pre">QuestionQML</span></code></a> entities.</p>
+<dl class="prop">
+<dt id="od-prop.authoringodata.QuestionRevision.Id">
+<em class="property">Entity Key: </em><code class="descname">Id</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.Id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The key used within the item bank.  This value will change when
+moving Questions between banks (using QPacks) and should only be
+used in the context of a specific item bank.  A general purpose
+identifier that persists across repositories can be found in
+<a class="reference internal" href="#od-prop.authoringodata.QuestionRevision.QuestionId" title="QuestionId"><code class="xref od od-prop docutils literal"><span class="pre">QuestionId</span></code></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.QuestionRevision.QuestionId">
+<code class="descname">QuestionId</code>  Edm.Int64<a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.QuestionId" title="Permalink to this definition">¶</a></dt>
+<dd><p>A 64-bit integer ID, sometimes represented as a string or split
+in to two integers (MID/LID) in other contexts.  When published,
+the same QuestionId is available in the delivery catalog as
+<a class="reference internal" href="../deliveryodata/question.html#od-prop.deliveryodata.Question.ID" title="ID"><code class="xref od od-prop docutils literal"><span class="pre">deliveryodata.Question.ID</span></code></a></p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.QuestionRevision.Language">
+<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.Language" title="Permalink to this definition">¶</a></dt>
+<dd><p>The base language of the question.  If the language has not been
+set the string &#8220;-&#8221; is used.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.QuestionRevision.CreatedDateTime">
+<code class="descname">CreatedDateTime</code>  Edm.DateTimeOffset<a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date and time (in UTC) when the Question was created.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.QuestionRevision.Author">
+<code class="descname">Author</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.Author" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user name of the user that created the question</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.QuestionRevision.ModifiedDateTime">
+<code class="descname">ModifiedDateTime</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date and time (in UTC) when the Question was last modified.
+This revision time refers only to the base language.
+Modifications to any translations are represented in the related
+<a class="reference internal" href="#od-prop.authoringodata.QuestionRevision.QuestionQMLs" title="QuestionQMLs"><code class="xref od od-prop docutils literal"><span class="pre">QuestionQMLs</span></code></a> entities.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.QuestionRevision.Editor">
+<code class="descname">Editor</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.Editor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user name of the user that last modified the question.
+Again, this refers to the base language and not any
+translations.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.QuestionRevision.Status">
+<code class="descname">Status</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.Status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of this question revision.  One of the values Normal,
+Retired or Experimental.  A change in status, e.g., from Normal
+to Retired results in a new revision.  Therefore, to find the
+<em>current</em> status of a question you must read the value from its
+most recent revision.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.QuestionRevision.ReviewStatus">
+<code class="descname">ReviewStatus</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.ReviewStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>A free-text field for tracking customer-specific status
+labels.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.QuestionRevision.TopicPath">
+<code class="descname">TopicPath</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.TopicPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>The full path of the Question within the Topic hierarchy, for
+example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;RootTopic/SubTopicB/SubSubTopic1&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.QuestionRevision.IsDeleted">
+<code class="descname">IsDeleted</code>  Edm.Boolean<a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.IsDeleted" title="Permalink to this definition">¶</a></dt>
+<dd><p>A flag indicating whether or not the Question has been deleted
+from the item bank.  Deleting Questions <em>does not</em> remove them
+from the item bank, it marks them as deleted and removes from
+the user interface only.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.QuestionRevision.QuestionQMLs">
+<code class="descname">QuestionQMLs</code> <a class="reference internal" href="question_qml.html#od-type.authoringodata.QuestionQML" title="QuestionQML">QuestionQML</a> Collection<a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.QuestionQMLs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the related QuestionQML entities that
+contain detailed information about the question in each
+available language.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../authoringodata.html">Authoring OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../authoringodata.html">Authoring OData API</a><ul>
+  <li><a href="types.html">Entity Type Reference</a><ul>
+      <li>Previous: <a href="types.html" title="previous chapter">Entity Type Reference</a></li>
+      <li>Next: <a href="../deliveryodata.html" title="next chapter">Delivery OData API</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016-2017, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/authoringodata/question_revision.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
