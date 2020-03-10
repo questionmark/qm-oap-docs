@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Topic &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.10.12a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
+    <link rel="up" title="Entity Type Reference" href="types.html" />
+    <link rel="next" title="QuestionRevision" href="question_revision.html" />
+    <link rel="prev" title="Entity Type Reference" href="types.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="topic">
+<h1>Topic<a class="headerlink" href="#topic" title="Permalink to this headline">¶</a></h1>
+<dl class="feed">
+<dt id="od-feed.authoringodata.Topics">
+<code class="descname">Topics</code> <a class="reference internal" href="#od-type.authoringodata.Topic" title="Topic">Topic</a><a class="headerlink" href="#od-feed.authoringodata.Topics" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; feed is read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>Id</strong> &#8211; primary key</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>QuestionRevisions</strong> &#8211; the questions in the topic</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Topics feed contains entities that describe all Topcics within
+the item bank.  There is one entity for each topic.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.authoringodata.Topic">
+<em class="property">EntityType: </em><code class="descname">Topic</code><a class="headerlink" href="#od-type.authoringodata.Topic" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="prop">
+<dt id="od-prop.authoringodata.Topic.Id">
+<em class="property">Entity Key: </em><code class="descname">Id</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.authoringodata.Topic.Id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.Topic.Name">
+<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.Topic.Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.Topic.Path">
+<code class="descname">Path</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.Topic.Path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.Topic.PublishedId">
+<code class="descname">PublishedId</code>  Edm.Int32<a class="headerlink" href="#od-prop.authoringodata.Topic.PublishedId" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.Topic.Language">
+<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.Topic.Language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.Topic.CreatedDateTime">
+<code class="descname">CreatedDateTime</code>  Edm.DateTimeOffset<a class="headerlink" href="#od-prop.authoringodata.Topic.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date and time (in UTC) when the Question was created.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.Topic.Author">
+<code class="descname">Author</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.Topic.Author" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user name of the user that created the question</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.Topic.ModifiedDateTime">
+<code class="descname">ModifiedDateTime</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.Topic.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date and time (in UTC) when the Question was last modified.
+This revision time refers only to the base language.
+Modifications to any translations are represented in the related
+<code class="xref od od-prop docutils literal"><span class="pre">QuestionQMLs</span></code> entities.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.Topic.Editor">
+<code class="descname">Editor</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.Topic.Editor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user name of the user that last modified the question.
+Again, this refers to the base language and not any
+translations.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.Topic.QuestionRevisions">
+<code class="descname">QuestionRevisions</code> <a class="reference internal" href="question_revision.html#od-type.authoringodata.QuestionRevision" title="QuestionRevision">QuestionRevision</a> Collection<a class="headerlink" href="#od-prop.authoringodata.Topic.QuestionRevisions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../authoringodata.html">Authoring OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../authoringodata.html">Authoring OData API</a><ul>
+  <li><a href="types.html">Entity Type Reference</a><ul>
+      <li>Previous: <a href="types.html" title="previous chapter">Entity Type Reference</a></li>
+      <li>Next: <a href="question_revision.html" title="next chapter">QuestionRevision</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016-2017, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/authoringodata/topic.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

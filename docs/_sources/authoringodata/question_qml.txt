@@ -11,6 +11,5 @@ QuestionQML
 
 ..  od:type::   QuestionQML
 
-    QuestionQML entities contain only a subset of the attributes of
-    a Question.  The full information about a Question is obtained from
-    the associated :od:type:`QuestionQML` entities.
+    QuestionQML entities are media-link entities containing the full
+    XML description of the Question.
