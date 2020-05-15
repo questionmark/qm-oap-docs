@@ -109,7 +109,7 @@ number 123456 would have the following service root::
 Individual feeds can be accessed by appending the name of the feed
 to the service root::
 
-    https://ondemand.questionmark.com/deliveryodata/123456/QuestionRevisions
+    https://ondemand.questionmark.eu/authoringapi/123456/odata/QuestionRevisions
 
 would return information about Questions (including revisions) in the
 specified repository.
