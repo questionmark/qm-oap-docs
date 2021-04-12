@@ -44,8 +44,11 @@ S_Header_Ex
     ..  qm:field::  Save_Answers bit
         :notnull:
 
+        Set to 1 if results will be recorded for this assessment.
+
     ..  qm:field::  Save_Answer_Data bit
         
+        Set to 1 if answers will be recorded for this assessment.
 
     ..  qm:field::  Open_Session bit
         :notnull:

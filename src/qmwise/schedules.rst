@@ -2,7 +2,7 @@ Schedules
 ---------
 
 This part of the guide is under development.  Please refer to the
-`Schedule <https://www.questionmark.com/content/schedule>`_
+`Schedule <https://support.questionmark.com/content/schedule>`_
 section of the old guide.
 
 Schedule Methods

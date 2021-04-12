@@ -3,7 +3,7 @@ URLs
 
 This part of the guide is under development.  Some additional
 information is available in the `URLs
-<https://www.questionmark.com/content/urls>`_ section of the old guide.
+<https://support.questionmark.com/content/urls>`_ section of the old guide.
 
 Access Methods
 ~~~~~~~~~~~~~~

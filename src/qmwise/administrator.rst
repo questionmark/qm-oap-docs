@@ -5,7 +5,7 @@ Administrator Methods
 ~~~~~~~~~~~~~~~~~~~~~
 
 This part of the guide is under development.  Please refer to the
-`Administrator <https://www.questionmark.com/content/administrator>`_
+`Administrator <https://support.questionmark.com/content/administrator>`_
 section of the old guide.
 
 ..  qm:meth::   AssignAdministratorToAssessmentFolder

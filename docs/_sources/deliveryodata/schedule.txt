@@ -222,6 +222,14 @@ Schedules Reference
         The type of monitoring that will be used during the assessment.
         If this value is null then no monitoring will be performed.
         
+    ..  od:prop::   ObserverInitiated    Edm.Boolean
+        :notnull:
+
+        Whether or not this Schedule is for an observational assessment.
+        An observational assessment is hidden from the Participant as it
+        must be initiated by an observer (an Administrator).  Defaults
+        to false.
+        
     ..  od:prop::   ObserverID    Edm.Int32
 
         The ID of an Administrator (observer) who will take the test on
@@ -231,12 +239,20 @@ Schedules Reference
         :notnull:
 
         The UTC time the Schedule was created.
-        
+
+    ..  od:prop::   CreatedBy   Edm.String
+
+        The Name of the Administrator that created the schedule.
+
     ..  od:prop::   Modified    Edm.DateTime
         :notnull:
 
         The UTC time the Schedule was last modified.
         
+    ..  od:prop::   ModifiedBy   Edm.String
+
+        The Name of the Administrator that last modified the schedule.
+
     ..  od:prop::   Hidden    Edm.Boolean
         :notnull:
 
@@ -245,14 +261,6 @@ Schedules Reference
         the API but it won't show up in the participants *My
         Assessments* page.
 
-    ..  od:prop::   ObserverInitiated    Edm.Boolean
-        :notnull:
-
-        Whether or not this Schedule is for an observational assessment.
-        An observational assessment is hidden from the Participant as it
-        must be initiated by an observer (an Administrator).  Defaults
-        to false.
-        
     ..  od:prop::   TestCenterID    Edm.Int32
 
         .. versionadded::   2017.11
@@ -311,11 +319,6 @@ Schedules Reference
         A navigation property to all the attempts that have been
         initiated for this Schedule.
             
-    ..  od:action:: ActionableSchedules ActionableSchedule
-        :collection:
-        
-        Reserved for future use.
-            
     ..  od:action:: InvokeAction Edm.String
         :input: Action Edm.String, ParticipantID Edm.Int32, ObserverID Edm.Int32
         
@@ -341,6 +344,29 @@ Schedules Reference
         to the participant's browser (or the observer's browser) to
         initiate the specified action.
 
+    ..  od:action:: CanReview Edm.Boolean
+        
+        When called for a Schedule returns True if a ReviewUrl is
+        available.  The purpose of this action is to enable the caller
+        to quickly determine if the schedule can be reviewed without
+        actually obtaining the review URL (see
+        :od:action:`GetReviewUrl`) which is a slower operation.
+
+    ..  od:action:: GetReviewUrl Edm.String
+
+        If a schedule uses a monitoring type that generates some type of
+        report concerning the conduct of the assessment then this action
+        will return a URL that can be provided to the user's browser to
+        redirect them to view that report.  For example, if the
+        monitoring type uses Proctoring Record and Review then the
+        review URL will launch a tool that allows the user to review the
+        recordings of the participants' attempts.
+        
+    ..  od:action:: ActionableSchedules ActionableSchedule
+        :collection:
+        
+        Reserved for future use.
+            
 
 ..  od:type::   ActionableSchedule
 

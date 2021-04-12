@@ -330,6 +330,67 @@ calls or from default values configured in System Settings.</p>
 <dd></dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Result.StillGoing">
+<code class="descname">StillGoing</code>  Edm.Boolean<a class="headerlink" href="#od-prop.deliveryodata.Result.StillGoing" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean indicating if the participant&#8217;s attempt is in progress
+(True) or complete (False).</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2019.02.</span></p>
+</div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Result.TimeTaken">
+<code class="descname">TimeTaken</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Result.TimeTaken" title="Permalink to this definition">¶</a></dt>
+<dd><p>The length of tie taken on the assessment (in seconds).</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2019.02.</span></p>
+</div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Result.ScheduleName">
+<code class="descname">ScheduleName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.ScheduleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the schedule that was used to launch the
+corresponding Attempt.  This value is the name at the time the
+participant launched their attempt at the Assessment, if the
+Schedule is subsequently renamed or deleted the original value
+can still be retrieved here.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2019.02.</span></p>
+</div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Result.FirstName">
+<code class="descname">FirstName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.FirstName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The first name of the Participant <em>at the time they launched the
+corresponding Attempt</em>.  See <a class="reference internal" href="participant.html#od-prop.deliveryodata.Participant.FirstName" title="FirstName"><code class="xref od od-prop docutils literal"><span class="pre">Participant.FirstName</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2019.02.</span></p>
+</div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Result.LastName">
+<code class="descname">LastName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.LastName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The first name of the Participant <em>at the time they launched the
+corresponding Attempt</em>.  See <a class="reference internal" href="participant.html#od-prop.deliveryodata.Participant.LastName" title="LastName"><code class="xref od od-prop docutils literal"><span class="pre">Participant.LastName</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2019.02.</span></p>
+</div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Result.AttemptId">
+<code class="descname">AttemptId</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Result.AttemptId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="attempt.html#od-prop.deliveryodata.Attempt.ID" title="ID"><code class="xref od od-prop docutils literal"><span class="pre">Attempt.ID</span></code></a> of the corresponding Attempt.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2020.02.</span></p>
+</div>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Result.Assessment">
 <code class="descname">Assessment</code> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Result.Assessment" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the associated Assessment (see also
@@ -348,6 +409,16 @@ calls or from default values configured in System Settings.</p>
 <dd><p>A navigation property to the ScoringTasks associated with this
 result, if any.  One ScoringTasks is associated with the result
 for each unscored Answer.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Result.Attempt">
+<code class="descname">Attempt</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-prop.deliveryodata.Result.Attempt" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the Attempt associated with this
+result, if any.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2020.02.</span></p>
+</div>
 </dd></dl>
 
 <dl class="action">

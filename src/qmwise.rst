@@ -10,7 +10,7 @@ QMWISe is available in all current versions of Questionmark software.
 This part of the guide is in preparation and is not yet complete.  For
 more general information on configuring QMWISe please refer to the older
 `Perception 5.7 QMWISe API Guide
-<https://www.questionmark.com/content/questionmark-perception-57-qmwise-api-guide>`_ 
+<https://support.questionmark.com/content/questionmark-perception-57-qmwise-api-guide>`_ 
 
 QMWISe is based on `SOAP`_ and defines a wide range of operations (also
 referred to as *methods*) covering the underlying data model.

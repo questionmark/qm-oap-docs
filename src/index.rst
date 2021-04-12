@@ -41,19 +41,19 @@ the information in the following online guides, some of which may be
 available only to Questionmark customers:
 
     *   `Delivery OData API Guide
-        <https://www.questionmark.com/content/delivery-odata-api-guide>`_
+        <https://support.questionmark.com/content/delivery-odata-api-guide>`_
 
     *   `Perception 5.7 QMWISe API Guide
-        <https://www.questionmark.com/content/questionmark-perception-57-qmwise-api-guide>`_
+        <https://support.questionmark.com/content/questionmark-perception-57-qmwise-api-guide>`_
         
     *   `Database Schema Reference Guide
-        <https://www.questionmark.com/content/questionmark-perception-database-schema-reference-guide>`_
+        <https://support.questionmark.com/content/questionmark-perception-database-schema-reference-guide>`_
 
 
 Useful links:
 
     *   `Configuring OnDemand for use with the Blackboard Connector
-        <https://www.questionmark.com/content/ondemand-blackboard-connector-configuring-ondemand>`_     
+        <https://support.questionmark.com/content/ondemand-blackboard-connector-configuring-ondemand>`_     
         good exemplar on configuring a suitable role for use with
         service accounts to use with the APIs. 
         

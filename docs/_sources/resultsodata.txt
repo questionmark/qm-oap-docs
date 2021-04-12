@@ -12,7 +12,7 @@ of accessing Questionmark results data over the web.
 
 These documentation pages are in preparation, in the interim please
 refer to this guide:
-https://www.questionmark.com/content/questionmark-results-api-guide
+https://support.questionmark.com/content/questionmark-results-api-guide
 
 .. toctree::
     :maxdepth: 2

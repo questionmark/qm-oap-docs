@@ -5,9 +5,9 @@ Delivery OData API
                     Delivery OData Service
 
 
-..  _OnDemand: https://www.questionmark.com/content/questionmark-ondemand
+..  _OnDemand: https://support.questionmark.com/content/support
 
-..  _OnPremise: https://www.questionmark.com/content/questionmark-onpremise
+..  _OnPremise: https://support.questionmark.com/content/support-onpremise
 
 
 The Delivery OData API is an OData *service* that provides a RESTful way

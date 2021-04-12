@@ -318,6 +318,15 @@ If this value is null then no monitoring will be performed.</p>
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ObserverInitiated">
+<code class="descname">ObserverInitiated</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ObserverInitiated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not this Schedule is for an observational assessment.
+An observational assessment is hidden from the Participant as it
+must be initiated by an observer (an Administrator).  Defaults
+to false.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Schedule.ObserverID">
 <code class="descname">ObserverID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ObserverID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of an Administrator (observer) who will take the test on
@@ -331,9 +340,21 @@ behalf of the participant.  (Reserved for future use.)</p>
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.CreatedBy">
+<code class="descname">CreatedBy</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Schedule.CreatedBy" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Name of the Administrator that created the schedule.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Schedule.Modified">
 <code class="descname">Modified</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Modified" title="Permalink to this definition">¶</a></dt>
 <dd><p>The UTC time the Schedule was last modified.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Schedule.ModifiedBy">
+<code class="descname">ModifiedBy</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ModifiedBy" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Name of the Administrator that last modified the schedule.</p>
 </dd></dl>
 
 <dl class="prop">
@@ -343,15 +364,6 @@ behalf of the participant.  (Reserved for future use.)</p>
 participant. A hidden schedule may still be initiated through
 the API but it won&#8217;t show up in the participants <em>My
 Assessments</em> page.</p>
-</dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ObserverInitiated">
-<code class="descname">ObserverInitiated</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ObserverInitiated" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether or not this Schedule is for an observational assessment.
-An observational assessment is hidden from the Participant as it
-must be initiated by an observer (an Administrator).  Defaults
-to false.</p>
 </dd></dl>
 
 <dl class="prop">
@@ -433,12 +445,6 @@ initiated for this Schedule.</p>
 </dd></dl>
 
 <dl class="action">
-<dt id="od-action.deliveryodata.Schedule.ActionableSchedules">
-<em class="property">action </em><code class="descname">ActionableSchedules</code> () <a class="reference internal" href="#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule">ActionableSchedule</a> Collection<a class="headerlink" href="#od-action.deliveryodata.Schedule.ActionableSchedules" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reserved for future use.</p>
-</dd></dl>
-
-<dl class="action">
 <dt id="od-action.deliveryodata.Schedule.InvokeAction">
 <em class="property">action </em><code class="descname">InvokeAction</code> (Action  Edm.String, ParticipantID  Edm.Int32, ObserverID  Edm.Int32)  Edm.String<a class="headerlink" href="#od-action.deliveryodata.Schedule.InvokeAction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invokes the specified action for a given participant.  The
@@ -460,6 +466,34 @@ only).</p>
 <p>The return result is a URL (string) that is suitable for sending
 to the participant&#8217;s browser (or the observer&#8217;s browser) to
 initiate the specified action.</p>
+</dd></dl>
+
+<dl class="action">
+<dt id="od-action.deliveryodata.Schedule.CanReview">
+<em class="property">action </em><code class="descname">CanReview</code> ()  Edm.Boolean<a class="headerlink" href="#od-action.deliveryodata.Schedule.CanReview" title="Permalink to this definition">¶</a></dt>
+<dd><p>When called for a Schedule returns True if a ReviewUrl is
+available.  The purpose of this action is to enable the caller
+to quickly determine if the schedule can be reviewed without
+actually obtaining the review URL (see
+<a class="reference internal" href="#od-action.deliveryodata.Schedule.GetReviewUrl" title="GetReviewUrl"><code class="xref od od-action docutils literal"><span class="pre">GetReviewUrl</span></code></a>) which is a slower operation.</p>
+</dd></dl>
+
+<dl class="action">
+<dt id="od-action.deliveryodata.Schedule.GetReviewUrl">
+<em class="property">action </em><code class="descname">GetReviewUrl</code> ()  Edm.String<a class="headerlink" href="#od-action.deliveryodata.Schedule.GetReviewUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>If a schedule uses a monitoring type that generates some type of
+report concerning the conduct of the assessment then this action
+will return a URL that can be provided to the user&#8217;s browser to
+redirect them to view that report.  For example, if the
+monitoring type uses Proctoring Record and Review then the
+review URL will launch a tool that allows the user to review the
+recordings of the participants&#8217; attempts.</p>
+</dd></dl>
+
+<dl class="action">
+<dt id="od-action.deliveryodata.Schedule.ActionableSchedules">
+<em class="property">action </em><code class="descname">ActionableSchedules</code> () <a class="reference internal" href="#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule">ActionableSchedule</a> Collection<a class="headerlink" href="#od-action.deliveryodata.Schedule.ActionableSchedules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reserved for future use.</p>
 </dd></dl>
 
 </dd></dl>

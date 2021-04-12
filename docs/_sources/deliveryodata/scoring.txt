@@ -8,7 +8,7 @@ This scenario requires that the rubrics for an assessment be created and
 associated with Questions using the existing `Scoring Tool`_ available
 through Enterprise Manager.
 
-..  _Scoring Tool:  https://www.questionmark.com/content/what-scoring-tool
+..  _Scoring Tool:  https://support.questionmark.com/content/what-scoring-tool
 
 A rubric is a set of instructions to a scorer, including a maximum score
 to award for a response (which must always match the maximum score of

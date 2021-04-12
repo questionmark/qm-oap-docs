@@ -17,7 +17,7 @@ or more 'pip' files uploaded to the repository.
 
 This part of the guide has not yet been written. Please refer to the
 older `PIP Reference Guide
-<https://www.questionmark.com/content/questionmark-pip-reference-guide>`_
+<https://support.questionmark.com/content/questionmark-pip-reference-guide>`_
 for further information.
 
 .. toctree::

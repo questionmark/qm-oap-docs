@@ -59,7 +59,7 @@ appropriate length for an API key.
 
 ..  note::      For more information about roles and permissions, please
                 refer to `Roles and permissions
-                <https://www.questionmark.com/content/how-can-i-manage-administrator-permissions>`_
+                <https://support.questionmark.com/content/how-can-i-manage-administrator-permissions>`_
                 section of the OnDemand User Guide.
 
 When accessed without credentials, requests will generate a 401

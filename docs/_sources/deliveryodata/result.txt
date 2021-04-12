@@ -207,6 +207,49 @@ Result
 
     ..  od:prop::   Special10 Edm.String
 
+    ..  od:prop::   StillGoing Edm.Boolean
+    
+        A boolean indicating if the participant's attempt is in progress
+        (True) or complete (False).
+        
+        .. versionadded::   2019.02
+
+    ..  od:prop::   TimeTaken Edm.Int32
+    
+        The length of tie taken on the assessment (in seconds).
+
+        .. versionadded::   2019.02
+
+    ..  od:prop::   ScheduleName Edm.String
+    
+        The name of the schedule that was used to launch the
+        corresponding Attempt.  This value is the name at the time the
+        participant launched their attempt at the Assessment, if the
+        Schedule is subsequently renamed or deleted the original value
+        can still be retrieved here.
+
+        .. versionadded::   2019.02
+
+    ..  od:prop::   FirstName Edm.String
+    
+        The first name of the Participant *at the time they launched the
+        corresponding Attempt*.  See :od:prop:`Participant.FirstName`.
+
+        .. versionadded::   2019.02
+
+    ..  od:prop::   LastName Edm.String
+    
+        The first name of the Participant *at the time they launched the
+        corresponding Attempt*.  See :od:prop:`Participant.LastName`.
+
+        .. versionadded::   2019.02
+
+    ..  od:prop::   AttemptId Edm.Int32
+    
+        The :od:prop:`Attempt.ID` of the corresponding Attempt.
+
+        .. versionadded::   2020.02
+
     ..  od:prop::   Assessment  Assessment
         :notnull:
         
@@ -224,6 +267,13 @@ Result
         A navigation property to the ScoringTasks associated with this
         result, if any.  One ScoringTasks is associated with the result
         for each unscored Answer.
+
+    ..  od:prop::   Attempt Attempt
+        
+        A navigation property to the Attempt associated with this
+        result, if any.
+
+        .. versionadded::   2020.02
 
     ..  od:action:: Purge
 

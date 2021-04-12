@@ -2,7 +2,7 @@ Snapshots
 ---------
 
 This part of the guide is under development.  Please refer to the
-`Snapshots <https://www.questionmark.com/content/snapshots>`_
+`Snapshots <https://support.questionmark.com/content/snapshots>`_
 section of the old guide.
 
 Snapshot Methods
