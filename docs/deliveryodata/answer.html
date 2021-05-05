@@ -147,6 +147,24 @@ See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.AnswerTruncated">
+<code class="descname">AnswerTruncated</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Answer.AnswerTruncated" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.answer_truncated" title="Answer_Truncated"><code class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Answer_Truncated</span></code></a>.  A truncated
+representation of the answer given by the Participant.  The
+format of this field varies depending on the type of the
+associated question.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2021.05.</span></p>
+</div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.Revision">
+<code class="descname">Revision</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Answer.Revision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reserved for future use.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Answer.Question">
 <code class="descname">Question</code> <a class="reference internal" href="question.html#od-type.deliveryodata.Question" title="Question">Question</a><a class="headerlink" href="#od-prop.deliveryodata.Answer.Question" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the a single Question associated with
@@ -166,6 +184,125 @@ answer.</p>
 <dd><p>Navigation property to an optional ScoringTask associated with
 this answer.  ScoringTasks are only associated with answers that
 require subjective marking.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Answer.AnswerAuditLogs">
+<code class="descname">AnswerAuditLogs</code> <a class="reference internal" href="#od-type.deliveryodata.AnswerAuditLog" title="AnswerAuditLog">AnswerAuditLog</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Answer.AnswerAuditLogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to an audit log of changes to this answer
+record (e.g., with Scoring Editor).</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2021.05.</span></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.deliveryodata.AnswerAuditLog">
+<em class="property">EntityType: </em><code class="descname">AnswerAuditLog</code><a class="headerlink" href="#od-type.deliveryodata.AnswerAuditLog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes to Answer records (other than those made by the participant
+during the assessment itself) are recorded in AnswerAuditLog
+entities.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2021.05.</span></p>
+</div>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>An internal ID for this log entity.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.ResultID">
+<code class="descname">ResultID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.ResultID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ResultID of the associated <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal"><span class="pre">Result</span></code></a>.  Changes to
+the score given for an answer will result in corresponding
+changes to the result.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.QuestionID">
+<code class="descname">QuestionID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.QuestionID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The QuestionID (used in the association with the corresponding
+Answer entity).</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.BlockNumber">
+<code class="descname">BlockNumber</code>  Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.BlockNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>The block number in which this answer was given (used in the
+association with the corresponding Answer entity).</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.Occurrence">
+<code class="descname">Occurrence</code>  Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.Occurrence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated property used in the association with the corresponding
+Answer entity).</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.RevisionNumber">
+<code class="descname">RevisionNumber</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.RevisionNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>A revision number for ordering changes to the associated
+<a class="reference internal" href="#od-type.deliveryodata.Answer" title="Answer"><code class="xref od od-type docutils literal"><span class="pre">Answer</span></code></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.AdministratorName">
+<code class="descname">AdministratorName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.AdministratorName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The login name of the Administrator that made the change.  This
+property is set to the name of the logged in user when changes
+are made through the user interface.  Changes made through the
+API can provide any value for this field (e.g., the name of a
+user in a remote system integrated using this API).</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.ActualScoreOld">
+<code class="descname">ActualScoreOld</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.ActualScoreOld" title="Permalink to this definition">¶</a></dt>
+<dd><p>The original score awarded for the associated answer.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.ActualScoreNew">
+<code class="descname">ActualScoreNew</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.ActualScoreNew" title="Permalink to this definition">¶</a></dt>
+<dd><p>The new score awarded for the associated answer.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.AnswerFullOld">
+<code class="descname">AnswerFullOld</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.AnswerFullOld" title="Permalink to this definition">¶</a></dt>
+<dd><p>The original Answer provided by the participant.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.AnswerFullNew">
+<code class="descname">AnswerFullNew</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.AnswerFullNew" title="Permalink to this definition">¶</a></dt>
+<dd><p>The updated Answer <em>as if</em> provided by the participant.  These
+fields are provided for compatibility with the classic Score
+Editor tool only.  The modification of participant-provided
+answers is deprecated.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.Comment">
+<code class="descname">Comment</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.Comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>A comment describing the reason for the change.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.TimeStampUtc">
+<code class="descname">TimeStampUtc</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.TimeStampUtc" title="Permalink to this definition">¶</a></dt>
+<dd><p>The UTC time and date of the change.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AnswerAuditLog.Answer">
+<code class="descname">Answer</code> <a class="reference internal" href="#od-type.deliveryodata.Answer" title="Answer">Answer</a><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.Answer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the Answer entity affected by this
+change.</p>
 </dd></dl>
 
 </dd></dl>

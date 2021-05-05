@@ -392,6 +392,11 @@ Attempt, AttemptLists and AttemptMetadata
         record is created.  This value is set automatically and will
         always be NULL on creation.  See
         :od:type:`deliveryodata.Result` for more information.
+        
+        In branching scenarios this ID is updated to point to a new
+        Result each time the assessment branches.  Therefore, this ID is
+        the ID of the current (or latest) assessment in any chain of
+        branched assessments.
 
     ..  od:prop::   NextBranchedAttemptID  Edm.Int32
     
@@ -481,17 +486,7 @@ Attempt, AttemptLists and AttemptMetadata
 
     ..  od:prop::   ParticipantFacingProctorSystemWidgetUrl  Edm.String
 
-        For use with Questionmark's built-in proctoring functions.  This
-        optional link is set on creation or PATCHed immediately prior to
-        the start of the session.  When set, it indicates that the
-        participant's session will be proctored remotely and that the
-        lobby must show this page to the participant in the form of a
-        pop-up window or panel in order to initiate their proctoring
-        session.  This allows the proctoring system to be embedded
-        within the assessment delivery experience.
-
-        For sessions that are proctored on-site or via a third-party
-        proctoring system this property should be set to NULL.
+        Reserved for future use.
         
     ..  od:prop::   LastModifiedDateTime  Edm.DateTime
         :notnull:
@@ -499,13 +494,41 @@ Attempt, AttemptLists and AttemptMetadata
         A time stamp of when the attempt was last modified.  Set
         automatically, it cannot be modified directly but a call to the
         PATCH method on the associated feed will cause it to be updated.
+        
+    ..  od:prop::   Disabled Edm.Boolean
+        :notnull:
+
+        .. versionadded:: 2021.04
+
+        If True then any associated Schedule is disabled *for the
+        associated Participant*.  An Attempt may be disabled due to an
+        administrative issue that requires administrative intervention
+        before the Participant can be allowed to resume taking the
+        scheduled assessment.  The Disabled flag affects the permitted
+        actions returned by the various actions that return
+        :od:type:`ActionableSchedule`.
 
     ..  od:prop::   Result  Result
 
         .. versionadded:: 2017.11
         
-        This optional field allows you to navigate to the associated
-        Result entity.  See also :od:prop:`ResultID`.
+        This optional field allows you to navigate to the currently
+        associated Result entity.  See also :od:prop:`ResultID`.
+
+    ..  od:prop::   BranchedResults Result
+    
+        .. versionadded:: 2020.01
+
+        Assessment branching allows a single Attempt to be used to
+        control access to a chain of Assessments through conditional
+        branching.  An AssessmentOutcome can be configured to branch to
+        the next Assessment in the chain.  The Result navigation
+        property always points to the the result of the current (or
+        last) Assessment in the chain.  To gain access to all the
+        results associated with the Attempt use the BranchedResults
+        navigation property instead.  The :od:prop:`Result.WhenStarted`
+        time can be used to determine the order in which the results
+        were generated.
 
     ..  od:prop::   Schedule  Schedule
 
@@ -521,6 +544,15 @@ Attempt, AttemptLists and AttemptMetadata
         This optional field allows you to navigate to the associated
         MonitoringType entity.  See also :od:prop:`MonitoringTypeID`.
 
+    ..  od:prop::   Appointments Appointment
+        :collection:
+
+        .. versionadded:: 2019.05
+
+        When used with a MonitoringType that requires appointments to be
+        pre-booked, this navigation property exposes the information
+        about the Appointments associated with the Attempt.
+                            
     ..  od:prop::   AnswerUpload  AnswerUpload
 
         A navigation property to a set of answers uploaded from an
@@ -553,6 +585,7 @@ Attempt, AttemptLists and AttemptMetadata
         log for this attempt.  The audit log is a detailed trail of
         evidence collected during the assessment that can help validate
         the fairness of the overall process.
+
 
 
 ..  od:type::   AttemptMetadata
@@ -607,6 +640,60 @@ Attempt, AttemptLists and AttemptMetadata
         A navigation property to the associated Attempt.
 
 
+..  od:type::       AttemptMetadataKeyValue
+
+    A complex type used to pass metadata key-value pairs in contexts
+    where the associated :od:type:`Attempt` is implicit and the complete
+    entity is not required.
+
+    ..  od:prop::   Key  Edm.String
+        :notnull:
+
+    ..  od:prop::   Value  Edm.String
+        :notnull:
+
+
+..  od:type::   Appointment
+
+    .. versionadded:: 2019.05
+
+    ..  od:prop::   ID  Edm.Int32
+        :key:
+        :notnull:
+
+    ..  od:prop::   AttemptID  Edm.Int32
+        :notnull:
+
+        The ID of the associated :od:type:`Attempt`
+
+    ..  od:prop::   ExternalID  Edm.String
+
+        The ID of the appointment in the (external) proctoring system.
+
+    ..  od:prop::   AppointmentStartUtc  Edm.DateTime
+        :notnull:
+
+        The UTC time the appointment is due to start.
+
+    ..  od:prop::   TimeZoneID  Edm.String
+
+        The time zone in which the appointment was booked.
+
+    ..  od:prop::   TimezoneTime_Title  Edm.String
+
+        A human-friendly representation of the time zone.
+
+    ..  od:prop::   Status  Edm.String
+
+        The status of this appointment.  The status values may vary
+        depending on the proctoring provider in use.
+
+    ..  od:prop::   Attempt  Attempt
+    
+        The :od:type:`Attempt` associated with this Appointment.
+
+    
+    
 ..  od:type::   AttemptList
 
     .. versionadded:: 2016.09

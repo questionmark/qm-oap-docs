@@ -198,12 +198,47 @@ Schedules Reference
     ..  od:prop::   ReportFrom    Edm.DateTime
 
         The UTC time that constrains when a coaching report may
-        be viewed by the participant.  (Reserved for future use.)
+        be viewed by the participant.
 
     ..  od:prop::   ReportTo    Edm.DateTime
 
         The UTC time that constrains when a coaching report may
-        be viewed by the participant.  (Reserved for future use.)
+        be viewed by the participant.
+
+    ..  od:prop::   ReportTemplateName  Edm.String
+
+        The name of the coaching report template to use when reporting
+        on results created through this schedule.  This value is
+        optional, if null then the default template is used (defined in
+        system settings through the user interface).
+
+        .. versionadded::   2021.05
+
+    ..  od:prop::   ReportedResult  Edm.String
+
+        An enumerated value that indicates which Attempt will be
+        reported on where multiple attempts exist for the same
+        participant.  The allowed values are "First", "Last", "Best",
+        "Worst".  If unspecified then the Last result (the most recent)
+        is used by default.
+        
+        .. versionadded::   2021.05
+
+    ..  od:action:: GetReportedResult Result
+        :input: ParticipantID Edm.Int32
+        
+        This action, given a participant ID, evaluates the rule set in
+        :od:prop:`ReportedResult` and returns a single :od:type:`Result`
+        entity representing the result that should be reported for that
+        participant.  If no result is available, status 404 is returned.
+        
+        .. versionadded::   2021.05
+
+        ..  warning::   in versions prior to 2021.08 this action's
+                        return type may appear incorrectly bound to a
+                        Collection in the service metadata.  The return
+                        type is actually a single entity.
+
 
     ..  od:prop::   ExtraTime    Edm.Int32
 
@@ -270,6 +305,13 @@ Schedules Reference
         proctored and that access to launch the test will be controlled
         by the proctor.
         
+    ..  od:prop::   RulesOfConductID  Edm.Int32
+
+        The ID of an associated :od:type:`RulesOfConduct` entity.  See
+        :od:prop:`Schedule.RulesOfConduct` for more information.
+
+        .. versionadded::   2021.08
+
     ..  od:prop::   Assessment  Assessment
     
         A navigation property to the Assessment.
@@ -298,6 +340,16 @@ Schedules Reference
     
         A navigation property to the (optional) monitoring type.
         
+    ..  od:prop::   RulesOfConduct  RulesOfConduct
+        
+        Navigation property to an optional :od:type:`RulesOfConduct`
+        entity associated with this schedule.  If present, the
+        associated rules of conduct are used instead of the default
+        rules associated with the :od:type:`Assessment` or
+        :od:type:`MonitoringType` used.
+
+        .. versionadded::   2021.08
+
     ..  od:prop::   TestCenter  TestCenter
     
         .. versionadded::   2017.11
@@ -320,7 +372,7 @@ Schedules Reference
         initiated for this Schedule.
             
     ..  od:action:: InvokeAction Edm.String
-        :input: Action Edm.String, ParticipantID Edm.Int32, ObserverID Edm.Int32
+        :input: Action Edm.String, ParticipantID Edm.Int32, ObserverID Edm.Int32, AttemptMetadata Collection(AttemptMetadataKeyValue)
         
         Invokes the specified action for a given participant.  The
         Action string is a text string for an action as previously
@@ -340,6 +392,21 @@ Schedules Reference
                 "ParticipantID": 123456
             }
 
+        The optional AttemptMetadata collection allows the caller to set
+        some launch-specific metadata that will be saved with the
+        associated Attempt.  For example, a lab-management system
+        integrating through this API may want to provide a key/value to
+        record which PC within the lab was used to start/resume the
+        test.  This can be done by providing a parameter like the
+        following::
+
+                "AttemptMetadata": [
+                    {
+                        "Key": "Device",
+                        "Value: "LABA-PC34"
+                    }
+                ]
+                
         The return result is a URL (string) that is suitable for sending
         to the participant's browser (or the observer's browser) to
         initiate the specified action.
@@ -366,7 +433,7 @@ Schedules Reference
         :collection:
         
         Reserved for future use.
-            
+        
 
 ..  od:type::   ActionableSchedule
 

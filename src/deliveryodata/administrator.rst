@@ -23,7 +23,16 @@ Administrator
     Administrator entities are drawn from :qm:table:`G_User` in the data
     model but contain only a subset of the properties.  They are read
     only in OData.
+
+    ..  od:prop::   Password Edm.String
     
+        The Administrator's password.  This field is not available
+        during a GET operation and will always appear to be set to null
+        but it can provided when creating (POST) or updating (PATCH) an
+        Administrator's record.        
+
+        .. versionadded::   2021.05
+
     ..  od:prop::   ID  Edm.Int32
         :key:
         :notnull:
@@ -50,12 +59,34 @@ Administrator
         
         See :qm:field:`G_User.Email`.
 
+    ..  od:prop::   SsoId  Edm.String
+
+        .. versionadded::   2021.05
+
+    ..  od:prop::   Url  Edm.String
+
+        .. versionadded::   2021.05
+
+    ..  od:prop::   AlternateName  Edm.String
+
+        .. versionadded::   2021.05
+
     ..  od:prop::   Groups  Group
         :collection:
         
         Navigation property to the Groups associated with this
         administrator as per :qm:table:`G_Owner`.  An Administrator may
         be associated with multiple Group entities.
+
+    ..  od:prop::   AllGroups  Group
+        :collection:
+
+        .. versionadded::   2020.03
+        
+        Navigation property to the Groups associated with this
+        administrator as per :qm:table:`G_Owner` *including all
+        sub-groups* owned by inheritance.  An Administrator may be
+        associated with multiple Group entities.
 
     ..  od:prop::   TestCenters  TestCenter
         :collection:
@@ -71,6 +102,15 @@ Administrator
         access to TestCenter-specific functions such as opening
         TestCenters and proctoring exams being taken on site.
 
+    ..  od:action:: CheckPassword Edm.Boolean
+        :input: Password Edm.String
+        
+        .. versionadded:: 2021.05
+
+        Returns True if the input parameter matches the password set for
+        this administrator and False otherwise.
+        
+
     ..  od:action:: ActionableSchedulesForObservation ActionableSchedule
         :collection:
 
@@ -85,3 +125,15 @@ Administrator
             
             {
             }
+
+
+..  od:type::   Role
+
+    Role entities are simple entities that allow access to read the list
+    of roles defined in the portal.
+
+        .. versionadded::   2021.05
+
+    ..  od:prop::   ID  Edm.String
+        :key:
+        :notnull:

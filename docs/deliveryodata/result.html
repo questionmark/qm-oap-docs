@@ -148,6 +148,34 @@ for a given assessment are removed instead.</p>
 </div>
 </dd></dl>
 
+<dl class="action">
+<dt id="od-action.deliveryodata.Results.PurgeResultsByRetentionPolicy">
+<em class="property">action </em><code class="descname">PurgeResultsByRetentionPolicy</code> (AdministratorName  Edm.String, RunType  Edm.String)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.PurgeResultsByRetentionPolicy" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2020.11.</span></p>
+</div>
+<p>It is possible to configure an area with a retention policy for
+results, effectively a number of days after which <em>Result</em> data
+will be purged by this method.  If a policy has not been set,
+or is invalid, then no action is taken.</p>
+<p>The AdministratorName allows the caller to provide the name of
+the end user that triggered the action (for auditing purposes).</p>
+<p>The RunType parameter can be used to provide a description of
+the trigger for the action (for auditing purposes).  The value
+&#8220;Scheduled&#8221; is reserved for Questionmark use and indicates that
+an automated periodic clean-up process was responsible for the
+action.</p>
+</dd></dl>
+
+<dl class="action">
+<dt id="od-action.deliveryodata.Results.ReplayResultsByDateRange">
+<em class="property">action </em><code class="descname">ReplayResultsByDateRange</code> (StartDate  Edm.DateTime, EndDate  Edm.DateTime)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.ReplayResultsByDateRange" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.03.</span></p>
+</div>
+<p>Reserved for internal use.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="type">
@@ -441,6 +469,15 @@ also removed from the Results Warehouse.</p>
 <p>The Purge action returns a 202 accepted response on success, result
 deletion happens asynchronously to ensure that it doesn&#8217;t conflict
 with the delivery of assessments.</p>
+</dd></dl>
+
+<dl class="action">
+<dt id="od-action.deliveryodata.Result.ReplayResult">
+<em class="property">action </em><code class="descname">ReplayResult</code> ()  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Result.ReplayResult" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.03.</span></p>
+</div>
+<p>Reserved for internal use.</p>
 </dd></dl>
 
 </dd></dl>

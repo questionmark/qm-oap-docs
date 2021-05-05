@@ -81,6 +81,19 @@ Answer
 
         See :qm:field:`A_Answer.Actual_Score`.
 
+    ..  od:prop::   AnswerTruncated  Edm.String
+
+        See :qm:field:`A_Answer.Answer_Truncated`.  A truncated
+        representation of the answer given by the Participant.  The
+        format of this field varies depending on the type of the
+        associated question.
+
+        .. versionadded::   2021.05
+
+    ..  od:prop::   Revision Edm.Int32
+
+        Reserved for future use.
+
     ..  od:prop::   Question  Question
 
         Navigation property to the a single Question associated with
@@ -97,6 +110,103 @@ Answer
         this answer.  ScoringTasks are only associated with answers that
         require subjective marking.
     
+    ..  od:prop::   AnswerAuditLogs  AnswerAuditLog
+        :collection:
+        
+        Navigation property to an audit log of changes to this answer
+        record (e.g., with Scoring Editor).
+
+        .. versionadded::   2021.05
+
+
+..  od:type::   AnswerAuditLog
+
+    Changes to Answer records (other than those made by the participant
+    during the assessment itself) are recorded in AnswerAuditLog
+    entities.
+
+    .. versionadded::   2021.05
+        
+    ..  od:prop::   ID  Edm.Int32
+        :key:
+        :notnull:
+
+        An internal ID for this log entity.
+
+    ..  od:prop::   ResultID  Edm.Int32
+        :notnull:
+
+        The ResultID of the associated :od:type:`Result`.  Changes to
+        the score given for an answer will result in corresponding
+        changes to the result.
+
+    ..  od:prop::   QuestionID  Edm.Int64
+        :notnull:
+
+        The QuestionID (used in the association with the corresponding
+        Answer entity).
+    
+    ..  od:prop::   BlockNumber  Edm.Int16
+        :notnull:
+
+        The block number in which this answer was given (used in the
+        association with the corresponding Answer entity).
+
+    ..  od:prop::   Occurrence  Edm.Int16
+        :notnull:
+
+        Deprecated property used in the association with the corresponding
+        Answer entity).
+            
+    ..  od:prop::   RevisionNumber  Edm.Int32
+        :notnull:
+
+        A revision number for ordering changes to the associated
+        :od:type:`Answer`.
+
+    ..  od:prop::   AdministratorName  Edm.String
+
+        The login name of the Administrator that made the change.  This
+        property is set to the name of the logged in user when changes
+        are made through the user interface.  Changes made through the
+        API can provide any value for this field (e.g., the name of a
+        user in a remote system integrated using this API). 
+
+    ..  od:prop::   ActualScoreOld  Edm.Int32
+        :notnull:
+
+        The original score awarded for the associated answer.
+        
+    ..  od:prop::   ActualScoreNew  Edm.Int32
+        :notnull:
+
+        The new score awarded for the associated answer.
+
+    ..  od:prop::   AnswerFullOld  Edm.String
+
+        The original Answer provided by the participant.
+        
+    ..  od:prop::   AnswerFullNew  Edm.String
+
+        The updated Answer *as if* provided by the participant.  These
+        fields are provided for compatibility with the classic Score
+        Editor tool only.  The modification of participant-provided
+        answers is deprecated.
+       
+    ..  od:prop::   Comment  Edm.String
+
+        A comment describing the reason for the change.
+
+    ..  od:prop::   TimeStampUtc  Edm.DateTime
+        :notnull:
+
+        The UTC time and date of the change.
+    
+    ..  od:prop::   Answer  Answer
+
+        Navigation property to the Answer entity affected by this
+        change.
+
 
 Reading the Participant's Answer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

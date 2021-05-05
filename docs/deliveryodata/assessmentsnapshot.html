@@ -212,6 +212,17 @@ like this:</p>
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentWithAnswersSourceUrl">
+<code class="descname">PrintableDocumentWithAnswersSourceUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentWithAnswersSourceUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>A link to a printable HTML5 version of the snapshot with the
+correct answers indicated (the answer key).  See also
+<a class="reference internal" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl" title="PrintableDocumentSourceUrl"><code class="xref od od-prop docutils literal"><span class="pre">PrintableDocumentSourceUrl</span></code></a> for a related example.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2020.02.</span></p>
+</div>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.AssessmentSnapshot.CreatedDateTime">
 <code class="descname">CreatedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A time stamp of when the snapshot was created.  Set
@@ -243,6 +254,16 @@ snapshot.</p>
 snapshot.  This collection may be empty as PrintBatches are an
 optional grouping structure used to help manage printing and
 scanning workflows..</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AssessmentSnapshot.Assessment">
+<code class="descname">Assessment</code> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Assessment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the Assessment that this is a snapshot
+of.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2020.02.</span></p>
+</div>
 </dd></dl>
 
 </dd></dl>

@@ -23,7 +23,9 @@ Topic
 
     ..  od:prop::   Name    Edm.String
 
-    ..  od:prop::   Path    Edm.String
+    ..  od:prop::   Path  Edm.String
+    
+        The full path of the Topic.
 
     ..  od:prop::   PublishedId  Edm.Int32
 
@@ -31,7 +33,7 @@ Topic
 
     ..  od:prop::   CreatedDateTime  Edm.DateTimeOffset
 
-        The date and time (in UTC) when the Question was created.
+        The date and time (in UTC) when the Topic was created.
 
     ..  od:prop::   Author  Edm.String
     
@@ -39,16 +41,22 @@ Topic
 
     ..  od:prop::   ModifiedDateTime  Edm.String
 
-        The date and time (in UTC) when the Question was last modified. 
-        This revision time refers only to the base language. 
-        Modifications to any translations are represented in the related
-        :od:prop:`QuestionQMLs` entities.
+        The date and time (in UTC) when the Topic was last modified. 
 
     ..  od:prop::   Editor  Edm.String
 
-        The user name of the user that last modified the question. 
+        The user name of the user that last modified the Topic. 
         Again, this refers to the base language and not any
         translations.
+
+    ..  od:prop::   IsDeleted  Edm.Boolean
+        :notnull:
+    
+        A boolean set to True if the Topic has been *archived*.  In
+        versions prior to 2021.05 this action was referred to as
+        deletion (though such Topics are still available through the
+        API and from 2021.05 can be restored in the user interface
+        too).
 
     ..  od:prop::   QuestionRevisions  QuestionRevision
         :collection:

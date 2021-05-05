@@ -53,5 +53,5 @@ ScoringTasks: details moved to :od:feed:`deliveryodata.ScoringTasks`
 
 TestCenters: details moved to :od:feed:`deliveryodata.TestCenters`
 
-    
+TimeZones: see :od:feed:`deliveryodata.TimeZones`    
     

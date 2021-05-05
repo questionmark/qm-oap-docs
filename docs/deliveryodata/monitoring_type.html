@@ -103,6 +103,12 @@ type.</p>
 <p>The ProctoringProviders feed contains data about the configuration
 of external proctoring providers integrated through a proctoring
 API. Entries are defined by the <a class="reference internal" href="#od-type.deliveryodata.ProctoringProvider" title="ProctoringProvider"><code class="xref od od-type docutils literal"><span class="pre">ProctoringProvider</span></code></a> type.</p>
+<dl class="action">
+<dt>
+<code class="descname">AppointmentDateRange Edm.String</code></dt>
+<dd><p>Reserved for internal use.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="type">
@@ -205,6 +211,148 @@ associated MonitoringType.</p>
 associated with this monitoring type.</p>
 </dd></dl>
 
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.RequireTestCenter">
+<code class="descname">RequireTestCenter</code>  Edm.Boolean<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireTestCenter" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2018.12.</span></p>
+</div>
+<p>If True, any associated Schedule entity created with this
+MonitoringType is required to have an associated TestCenter.</p>
+<p>Attempts associated with this MonitoringType must be associated
+with an AttemptList and an open TestCenter: these constraints
+are implemented automatically when using the actions related to
+the <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal"><span class="pre">Schedule</span></code></a> entity to start or resume an assessment.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.Disabled">
+<code class="descname">Disabled</code>  Edm.Boolean<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.Disabled" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2020.06.</span></p>
+</div>
+<p>A MonitoringType can be disabled by setting this flag to True.
+When disabled, all associated Schedules become inactive and
+Attempts cannot be launched.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.RulesOfConductID">
+<code class="descname">RulesOfConductID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RulesOfConductID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of an associated <a class="reference internal" href="#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal"><span class="pre">RulesOfConduct</span></code></a> entity.  See
+<a class="reference internal" href="#od-prop.deliveryodata.MonitoringType.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-prop docutils literal"><span class="pre">MonitoringType.RulesOfConduct</span></code></a> for more information.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2021.08.</span></p>
+</div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.MonitoringType.RulesOfConduct">
+<code class="descname">RulesOfConduct</code> <a class="reference internal" href="#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct">RulesOfConduct</a><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to an optional <a class="reference internal" href="#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal"><span class="pre">RulesOfConduct</span></code></a>
+entity associated with this assessment.  When scheduling with
+this monitoring type the associated rules of conduct are used by
+default. These rules may themselves be overridden in the
+<a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><code class="xref od od-type docutils literal"><span class="pre">Assessment</span></code></a> or <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal"><span class="pre">Schedule</span></code></a> entities.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2021.08.</span></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.deliveryodata.RulesOfConduct">
+<em class="property">EntityType: </em><code class="descname">RulesOfConduct</code><a class="headerlink" href="#od-type.deliveryodata.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.05.</span></p>
+</div>
+<p>The rules of conduct entity is used to create a template for a set
+of rules for conducting an assessment.  The template contains two
+HTML-fragments, one that will be presented to the Participant at the
+start of the test and one that will be presented to the Proctor
+overseeing the process.</p>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConduct.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConduct.Name">
+<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of this rules templates.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConduct.ParticipantRules">
+<code class="descname">ParticipantRules</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ParticipantRules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConduct.ProctorRules">
+<code class="descname">ProctorRules</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ProctorRules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConduct.Language">
+<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.Language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConduct.CreatedDateTime">
+<code class="descname">CreatedDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConduct.ModifiedDateTime">
+<code class="descname">ModifiedDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConduct.RulesOfConductTranslations">
+<code class="descname">RulesOfConductTranslations</code>  Edm.RulesOfConductTranslation<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.RulesOfConductTranslations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.deliveryodata.RulesOfConductTranslation">
+<em class="property">EntityType: </em><code class="descname">RulesOfConductTranslation</code><a class="headerlink" href="#od-type.deliveryodata.RulesOfConductTranslation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConductTranslation.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConductTranslation.ParticipantRules">
+<code class="descname">ParticipantRules</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ParticipantRules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConductTranslation.ProctorRules">
+<code class="descname">ProctorRules</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ProctorRules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConductTranslation.Language">
+<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.Language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConductTranslation.CreatedDateTime">
+<code class="descname">CreatedDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConductTranslation.ModifiedDateTime">
+<code class="descname">ModifiedDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.RulesOfConductTranslation.RulesOfConduct">
+<code class="descname">RulesOfConduct</code>  Edm.RulesOfConduct<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="type">
@@ -262,10 +410,31 @@ version in the response to GET requests.</p>
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.ProctoringProvider.WebhookSecret">
+<code class="descname">WebhookSecret</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.WebhookSecret" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.05.</span></p>
+</div>
+<p>The API secret that has been given to the proctoring provider
+for use with Webhook-based callbacks.  Although this value may
+be POSTed when creating an entity and updated using PATCH it
+cannot be read back and is replaced by an encrypted version in
+the response to GET requests.</p>
+<p>The supported Webhooks are determined by the
+<a class="reference internal" href="#od-prop.deliveryodata.ProctoringProvider.Protocol" title="Protocol"><code class="xref od od-prop docutils literal"><span class="pre">Protocol</span></code></a>.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.ProctoringProvider.MonitoringTypes">
 <code class="descname">MonitoringTypes</code> <a class="reference internal" href="#od-type.deliveryodata.MonitoringType" title="MonitoringType">MonitoringType</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.MonitoringTypes" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the MonitoringTypes that are associated
 with this ProctoringProvider entity.</p>
+</dd></dl>
+
+<dl class="action">
+<dt>
+<code class="descname">AvailableAppointments Edm.DateTime</code></dt>
+<dd><p>Reserved for internal use.</p>
 </dd></dl>
 
 </dd></dl>

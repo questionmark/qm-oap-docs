@@ -55,7 +55,10 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; read only</li>
+<li><strong>GET</strong> &#8211; read participant entities</li>
+<li><strong>POST</strong> &#8211; create participant entity</li>
+<li><strong>PATCH</strong> &#8211; update participant entity (some properties read only)</li>
+<li><strong>DELETE</strong> &#8211; delete participant entity, deletes the user from the system entirely</li>
 </ul>
 </td>
 </tr>
@@ -82,6 +85,18 @@ special Participant role.</p>
 <dt id="od-type.deliveryodata.Participant">
 <em class="property">EntityType: </em><code class="descname">Participant</code><a class="headerlink" href="#od-type.deliveryodata.Participant" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="prop">
+<dt id="od-prop.deliveryodata.Participant.Password">
+<code class="descname">Password</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Participant.Password" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Participant&#8217;s password.  This field is not available during
+a GET operation and will always appear to be set to null but it
+can provided when creating (POST) or updating (PATCH) a
+Participant record.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2021.02.</span></p>
+</div>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Participant.ID">
 <em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Participant.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The numeric ID of the Participant.</p>
@@ -494,9 +509,33 @@ participant&#8217;s full name.</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Participant.PreferredLang">
 <code class="descname">PreferredLang</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Participant.PreferredLang" title="Permalink to this definition">¶</a></dt>
-<dd><div class="versionadded">
+<dd><p>The preferred language of the participant.  This is specified
+using ISO two-letter language codes with additional region
+qualification through the use of 2-letter country codes, e.g,
+en-US for English as spoken in the United States.</p>
+<div class="versionadded">
 <p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Participant.PreferredTimezone">
+<code class="descname">PreferredTimezone</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Participant.PreferredTimezone" title="Permalink to this definition">¶</a></dt>
+<dd><p>The preferred timezone of the participant.  Reserved for future
+use.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2021.05.</span></p>
+</div>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Participant.SsoId">
+<code class="descname">SsoId</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Participant.SsoId" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.02.</span></p>
+</div>
+<p>The unique identifier used by the external identity provider to
+identify the participant.</p>
 </dd></dl>
 
 <dl class="prop">
@@ -521,6 +560,29 @@ of.</p>
 <p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
 <p>Navigation property to the Schedules related to this participant</p>
+</dd></dl>
+
+<dl class="action">
+<dt id="od-action.deliveryodata.Participant.CheckPassword">
+<em class="property">action </em><code class="descname">CheckPassword</code> (Password  Edm.String)  Edm.Boolean<a class="headerlink" href="#od-action.deliveryodata.Participant.CheckPassword" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.05.</span></p>
+</div>
+<p>Returns True if the input parameter matches the password set for
+this participant and False otherwise.</p>
+</dd></dl>
+
+<dl class="action">
+<dt id="od-action.deliveryodata.Participant.SendWelcomeEmail">
+<em class="property">action </em><code class="descname">SendWelcomeEmail</code> ()  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Participant.SendWelcomeEmail" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.05.</span></p>
+</div>
+<p>Generates the standard Welcome email for the participant.  A
+participant created through this API does not automatically get
+an email notification of their new account so this action must
+be used if a notification is required.  It can be called at any
+time to resend the message.</p>
 </dd></dl>
 
 <dl class="action">
@@ -569,7 +631,18 @@ parameter.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>If there are no actions available then 404 status code is
+returned.</p>
 <p>See <a class="reference internal" href="#od-action.deliveryodata.Participant.ActionableSchedules" title="ActionableSchedules"><code class="xref od od-action docutils literal"><span class="pre">ActionableSchedules</span></code></a> for more information.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">as of the 2021.05 release, if a participant has
+an exception schedule and the parent schedule ID
+is passed to this action then the exception
+schedule is evaluated <em>instead</em>.  As a result,
+the returned ActionableSchedule may have a
+<em>different</em> ID from the passed parameter value.</p>
+</div>
 </dd></dl>
 
 </dd></dl>

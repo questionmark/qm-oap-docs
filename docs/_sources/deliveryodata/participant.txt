@@ -6,7 +6,10 @@ Participant
 
 ..  od:feed::   Participants Participant
 
-    :method GET: read only
+    :method GET: read participant entities
+    :method POST: create participant entity
+    :method PATCH: update participant entity (some properties read only)   
+    :method DELETE: delete participant entity, deletes the user from the system entirely 
     :filter ID: primary key
     :filter Name: filtering by participant name
     :expand Groups: the collection of groups this participant is a member of
@@ -16,6 +19,15 @@ Participant
 
 
 ..  od:type::   Participant
+
+    ..  od:prop::   Password  Edm.String
+
+        The Participant's password.  This field is not available during
+        a GET operation and will always appear to be set to null but it
+        can provided when creating (POST) or updating (PATCH) a
+        Participant record.        
+
+        .. versionadded::   2021.02
 
     ..  od:prop::   ID  Edm.Int32
         :key:
@@ -235,8 +247,27 @@ Participant
 
     ..  od:prop::   PreferredLang  Edm.String
 
+        The preferred language of the participant.  This is specified
+        using ISO two-letter language codes with additional region
+        qualification through the use of 2-letter country codes, e.g,
+        en-US for English as spoken in the United States.
+ 
         .. versionadded:: 2017.11
             
+    ..  od:prop::   PreferredTimezone  Edm.String
+    
+        The preferred timezone of the participant.  Reserved for future
+        use.
+
+        .. versionadded:: 2021.05
+
+    ..  od:prop::   SsoId  Edm.String
+
+        .. versionadded:: 2021.02
+
+        The unique identifier used by the external identity provider to
+        identify the participant.
+
     ..  od:prop::   RegistrationDateTime  Edm.DateTime
         :notnull:
         
@@ -256,7 +287,25 @@ Participant
         .. versionadded:: 2017.11
         
         Navigation property to the Schedules related to this participant
-    
+
+    ..  od:action:: CheckPassword Edm.Boolean
+        :input: Password Edm.String
+        
+        .. versionadded:: 2021.05
+
+        Returns True if the input parameter matches the password set for
+        this participant and False otherwise.
+        
+    ..  od:action:: SendWelcomeEmail
+        
+        .. versionadded:: 2021.05
+
+        Generates the standard Welcome email for the participant.  A
+        participant created through this API does not automatically get
+        an email notification of their new account so this action must
+        be used if a notification is required.  It can be called at any
+        time to resend the message.
+        
     ..  od:action:: ActionableSchedules ActionableSchedule
         :collection:
 
@@ -300,5 +349,17 @@ Participant
                 "ScheduleID": 12345
             }
         
+        If there are no actions available then 404 status code is
+        returned.
+        
         See :od:action:`ActionableSchedules` for more information.
+        
+        ..  warning::   as of the 2021.05 release, if a participant has
+                        an exception schedule and the parent schedule ID
+                        is passed to this action then the exception
+                        schedule is evaluated *instead*.  As a result,
+                        the returned ActionableSchedule may have a
+                        *different* ID from the passed parameter value.
+        
+         
        

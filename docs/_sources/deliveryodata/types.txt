@@ -20,3 +20,4 @@ Entity Type Reference
     schedule
     scoringtask
     testcenter
+    timezone

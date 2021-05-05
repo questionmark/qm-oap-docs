@@ -93,7 +93,8 @@ the item bank.  There is one entity for each topic.</p>
 <dl class="prop">
 <dt id="od-prop.authoringodata.Topic.Path">
 <code class="descname">Path</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.Topic.Path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The full path of the Topic.</p>
+</dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.authoringodata.Topic.PublishedId">
@@ -108,7 +109,7 @@ the item bank.  There is one entity for each topic.</p>
 <dl class="prop">
 <dt id="od-prop.authoringodata.Topic.CreatedDateTime">
 <code class="descname">CreatedDateTime</code>  Edm.DateTimeOffset<a class="headerlink" href="#od-prop.authoringodata.Topic.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date and time (in UTC) when the Question was created.</p>
+<dd><p>The date and time (in UTC) when the Topic was created.</p>
 </dd></dl>
 
 <dl class="prop">
@@ -120,18 +121,25 @@ the item bank.  There is one entity for each topic.</p>
 <dl class="prop">
 <dt id="od-prop.authoringodata.Topic.ModifiedDateTime">
 <code class="descname">ModifiedDateTime</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.Topic.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date and time (in UTC) when the Question was last modified.
-This revision time refers only to the base language.
-Modifications to any translations are represented in the related
-<code class="xref od od-prop docutils literal"><span class="pre">QuestionQMLs</span></code> entities.</p>
+<dd><p>The date and time (in UTC) when the Topic was last modified.</p>
 </dd></dl>
 
 <dl class="prop">
 <dt id="od-prop.authoringodata.Topic.Editor">
 <code class="descname">Editor</code>  Edm.String<a class="headerlink" href="#od-prop.authoringodata.Topic.Editor" title="Permalink to this definition">¶</a></dt>
-<dd><p>The user name of the user that last modified the question.
+<dd><p>The user name of the user that last modified the Topic.
 Again, this refers to the base language and not any
 translations.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.authoringodata.Topic.IsDeleted">
+<code class="descname">IsDeleted</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.authoringodata.Topic.IsDeleted" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean set to True if the Topic has been <em>archived</em>.  In
+versions prior to 2021.05 this action was referred to as
+deletion (though such Topics are still available through the
+API and from 2021.05 can be restored in the user interface
+too).</p>
 </dd></dl>
 
 <dl class="prop">

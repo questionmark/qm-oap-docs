@@ -131,6 +131,14 @@ AssessmentSnapshot(Data)
                 ExpiresDateTime: null
             }
 
+    ..  od:prop::   PrintableDocumentWithAnswersSourceUrl  Edm.String
+    
+        A link to a printable HTML5 version of the snapshot with the
+        correct answers indicated (the answer key).  See also
+        :od:prop:`PrintableDocumentSourceUrl` for a related example.
+
+        .. versionadded::   2020.02
+
     ..  od:prop::   CreatedDateTime  Edm.DateTime
         :notnull:
     
@@ -160,6 +168,14 @@ AssessmentSnapshot(Data)
         snapshot.  This collection may be empty as PrintBatches are an
         optional grouping structure used to help manage printing and
         scanning workflows..
+
+    ..  od:prop::   Assessment Assessment
+        :notnull:
+        
+        Navigation property to the Assessment that this is a snapshot
+        of.
+
+        .. versionadded::   2020.02
 
 
 ..  od:type::   AssessmentSnapshotData

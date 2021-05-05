@@ -276,7 +276,7 @@ class ODataActionDirective(ObjectDescription):
                     comma = True
                 if ptype.startswith("Collection("):
                     ptype = ptype[11:-1]
-                    signode += nodes.Text("%s Collection(")
+                    signode += nodes.Text("%s Collection(" % pname)
                     cflag = True
                 else:
                     signode += nodes.Text("%s " % pname)

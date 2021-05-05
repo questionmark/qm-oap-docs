@@ -78,7 +78,33 @@ Result
 
         ..  warning::   The AssessmentID is a *string* and not an Int64.
 
+    ..  od:action:: PurgeResultsByRetentionPolicy
+        :input: AdministratorName Edm.String, RunType Edm.String
 
+        .. versionadded::   2020.11
+        
+        It is possible to configure an area with a retention policy for
+        results, effectively a number of days after which *Result* data
+        will be purged by this method.  If a policy has not been set,
+        or is invalid, then no action is taken.
+
+        The AdministratorName allows the caller to provide the name of
+        the end user that triggered the action (for auditing purposes).
+        
+        The RunType parameter can be used to provide a description of
+        the trigger for the action (for auditing purposes).  The value
+        "Scheduled" is reserved for Questionmark use and indicates that
+        an automated periodic clean-up process was responsible for the
+        action.
+
+    ..  od:action:: ReplayResultsByDateRange
+        :input: StartDate Edm.DateTime, EndDate Edm.DateTime
+
+        .. versionadded::   2021.03
+
+        Reserved for internal use.
+
+ 
 ..  od:type::   Result
 
     Result entities are drawn from :qm:table:`A_Result` in the data
@@ -294,6 +320,12 @@ Result
         The Purge action returns a 202 accepted response on success, result
         deletion happens asynchronously to ensure that it doesn't conflict
         with the delivery of assessments.        
+
+    ..  od:action:: ReplayResult
+
+        .. versionadded::   2021.03
+
+        Reserved for internal use.
 
 
 ..  od:feed::   ResultsAuditLog ResultAuditLog

@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Timezone &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016.10.12a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
+    <link rel="up" title="Entity Type Reference" href="types.html" />
+    <link rel="next" title="Results OData API" href="../resultsodata.html" />
+    <link rel="prev" title="TestCenter" href="testcenter.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="timezone">
+<h1>Timezone<a class="headerlink" href="#timezone" title="Permalink to this headline">¶</a></h1>
+<dl class="feed">
+<dt id="od-feed.deliveryodata.TimeZones">
+<code class="descname">TimeZones</code> <a class="reference internal" href="#od-type.deliveryodata.Timezone" title="Timezone">Timezone</a><a class="headerlink" href="#od-feed.deliveryodata.TimeZones" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; for reading test centres</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ID</strong> &#8211; the primary key</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="action">
+<dt id="od-action.deliveryodata.TimeZones.GetSupportedTimezones">
+<em class="property">action </em><code class="descname">GetSupportedTimezones</code> (ProctorProviderId  Edm.Int32) <a class="reference internal" href="#od-type.deliveryodata.Timezone" title="Timezone">Timezone</a> Collection<a class="headerlink" href="#od-action.deliveryodata.TimeZones.GetSupportedTimezones" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reserved for internal use.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.deliveryodata.Timezone">
+<em class="property">EntityType: </em><code class="descname">Timezone</code><a class="headerlink" href="#od-type.deliveryodata.Timezone" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.05.</span></p>
+</div>
+<p>This entity is subject to change and is reserved for future use.</p>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Timezone.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Timezone.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of this Timezone.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Timezone.Name">
+<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Timezone.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of this Timezone.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Timezone.BaseUTCOffset">
+<code class="descname">BaseUTCOffset</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Timezone.BaseUTCOffset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Timezone.BaseUTCOffsetMinutes">
+<code class="descname">BaseUTCOffsetMinutes</code>  Edm.Double<a class="headerlink" href="#od-prop.deliveryodata.Timezone.BaseUTCOffsetMinutes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Timezone.CurrentUTCOffset">
+<code class="descname">CurrentUTCOffset</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Timezone.CurrentUTCOffset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Timezone.CurrentUTCOffsetMinutes">
+<code class="descname">CurrentUTCOffsetMinutes</code>  Edm.Double<a class="headerlink" href="#od-prop.deliveryodata.Timezone.CurrentUTCOffsetMinutes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Timezone.CurrentUtcTime">
+<code class="descname">CurrentUtcTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Timezone.CurrentUtcTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current time in UTC.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Timezone.CurrentTimezoneTime">
+<code class="descname">CurrentTimezoneTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Timezone.CurrentTimezoneTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The local time in this timezone.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authoringodata.html">Authoring OData API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+  <li><a href="types.html">Entity Type Reference</a><ul>
+      <li>Previous: <a href="testcenter.html" title="previous chapter">TestCenter</a></li>
+      <li>Next: <a href="../resultsodata.html" title="next chapter">Results OData API</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016-2017, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/deliveryodata/timezone.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

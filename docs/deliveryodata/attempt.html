@@ -526,6 +526,10 @@ as soon as an external system uploads a set of answers, a result
 record is created.  This value is set automatically and will
 always be NULL on creation.  See
 <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.Result</span></code></a> for more information.</p>
+<p>In branching scenarios this ID is updated to point to a new
+Result each time the assessment branches.  Therefore, this ID is
+the ID of the current (or latest) assessment in any chain of
+branched assessments.</p>
 </dd></dl>
 
 <dl class="prop">
@@ -624,16 +628,7 @@ sessions a new link will need to be generated each time.</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Attempt.ParticipantFacingProctorSystemWidgetUrl">
 <code class="descname">ParticipantFacingProctorSystemWidgetUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ParticipantFacingProctorSystemWidgetUrl" title="Permalink to this definition">¶</a></dt>
-<dd><p>For use with Questionmark&#8217;s built-in proctoring functions.  This
-optional link is set on creation or PATCHed immediately prior to
-the start of the session.  When set, it indicates that the
-participant&#8217;s session will be proctored remotely and that the
-lobby must show this page to the participant in the form of a
-pop-up window or panel in order to initiate their proctoring
-session.  This allows the proctoring system to be embedded
-within the assessment delivery experience.</p>
-<p>For sessions that are proctored on-site or via a third-party
-proctoring system this property should be set to NULL.</p>
+<dd><p>Reserved for future use.</p>
 </dd></dl>
 
 <dl class="prop">
@@ -645,13 +640,46 @@ PATCH method on the associated feed will cause it to be updated.</p>
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Attempt.Disabled">
+<code class="descname">Disabled</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Attempt.Disabled" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.04.</span></p>
+</div>
+<p>If True then any associated Schedule is disabled <em>for the
+associated Participant</em>.  An Attempt may be disabled due to an
+administrative issue that requires administrative intervention
+before the Participant can be allowed to resume taking the
+scheduled assessment.  The Disabled flag affects the permitted
+actions returned by the various actions that return
+<a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><code class="xref od od-type docutils literal"><span class="pre">ActionableSchedule</span></code></a>.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Attempt.Result">
 <code class="descname">Result</code> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.Result" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified">New in version 2017.11.</span></p>
 </div>
-<p>This optional field allows you to navigate to the associated
-Result entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.ResultID" title="ResultID"><code class="xref od od-prop docutils literal"><span class="pre">ResultID</span></code></a>.</p>
+<p>This optional field allows you to navigate to the currently
+associated Result entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.ResultID" title="ResultID"><code class="xref od od-prop docutils literal"><span class="pre">ResultID</span></code></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Attempt.BranchedResults">
+<code class="descname">BranchedResults</code> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.BranchedResults" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2020.01.</span></p>
+</div>
+<p>Assessment branching allows a single Attempt to be used to
+control access to a chain of Assessments through conditional
+branching.  An AssessmentOutcome can be configured to branch to
+the next Assessment in the chain.  The Result navigation
+property always points to the the result of the current (or
+last) Assessment in the chain.  To gain access to all the
+results associated with the Attempt use the BranchedResults
+navigation property instead.  The <a class="reference internal" href="result.html#od-prop.deliveryodata.Result.WhenStarted" title="WhenStarted"><code class="xref od od-prop docutils literal"><span class="pre">Result.WhenStarted</span></code></a>
+time can be used to determine the order in which the results
+were generated.</p>
 </dd></dl>
 
 <dl class="prop">
@@ -672,6 +700,17 @@ Schedule entity.  See also <a class="reference internal" href="#od-prop.delivery
 </div>
 <p>This optional field allows you to navigate to the associated
 MonitoringType entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.MonitoringTypeID" title="MonitoringTypeID"><code class="xref od od-prop docutils literal"><span class="pre">MonitoringTypeID</span></code></a>.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Attempt.Appointments">
+<code class="descname">Appointments</code> <a class="reference internal" href="#od-type.deliveryodata.Appointment" title="Appointment">Appointment</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Attempt.Appointments" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2019.05.</span></p>
+</div>
+<p>When used with a MonitoringType that requires appointments to be
+pre-booked, this navigation property exposes the information
+about the Appointments associated with the Attempt.</p>
 </dd></dl>
 
 <dl class="prop">
@@ -772,6 +811,80 @@ externally defined metadata schema.</p>
 <dt id="od-prop.deliveryodata.AttemptMetadata.Attempt">
 <code class="descname">Attempt</code> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.Attempt" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the associated Attempt.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.deliveryodata.AttemptMetadataKeyValue">
+<em class="property">EntityType: </em><code class="descname">AttemptMetadataKeyValue</code><a class="headerlink" href="#od-type.deliveryodata.AttemptMetadataKeyValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>A complex type used to pass metadata key-value pairs in contexts
+where the associated <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><code class="xref od od-type docutils literal"><span class="pre">Attempt</span></code></a> is implicit and the complete
+entity is not required.</p>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AttemptMetadataKeyValue.Key">
+<code class="descname">Key</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadataKeyValue.Key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.AttemptMetadataKeyValue.Value">
+<code class="descname">Value</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadataKeyValue.Value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.deliveryodata.Appointment">
+<em class="property">EntityType: </em><code class="descname">Appointment</code><a class="headerlink" href="#od-type.deliveryodata.Appointment" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2019.05.</span></p>
+</div>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Appointment.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Appointment.ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Appointment.AttemptID">
+<code class="descname">AttemptID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Appointment.AttemptID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the associated <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><code class="xref od od-type docutils literal"><span class="pre">Attempt</span></code></a></p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Appointment.ExternalID">
+<code class="descname">ExternalID</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Appointment.ExternalID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the appointment in the (external) proctoring system.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Appointment.AppointmentStartUtc">
+<code class="descname">AppointmentStartUtc</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Appointment.AppointmentStartUtc" title="Permalink to this definition">¶</a></dt>
+<dd><p>The UTC time the appointment is due to start.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Appointment.TimeZoneID">
+<code class="descname">TimeZoneID</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Appointment.TimeZoneID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time zone in which the appointment was booked.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Appointment.TimezoneTime_Title">
+<code class="descname">TimezoneTime_Title</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Appointment.TimezoneTime_Title" title="Permalink to this definition">¶</a></dt>
+<dd><p>A human-friendly representation of the time zone.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Appointment.Status">
+<code class="descname">Status</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Appointment.Status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of this appointment.  The status values may vary
+depending on the proctoring provider in use.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Appointment.Attempt">
+<code class="descname">Attempt</code> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-prop.deliveryodata.Appointment.Attempt" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><code class="xref od od-type docutils literal"><span class="pre">Attempt</span></code></a> associated with this Appointment.</p>
 </dd></dl>
 
 </dd></dl>

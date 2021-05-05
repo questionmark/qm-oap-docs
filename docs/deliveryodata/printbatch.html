@@ -77,7 +77,84 @@ take externally, typically through printing and scanning.</p>
 <dl class="type">
 <dt id="od-type.deliveryodata.PrintBatch">
 <em class="property">EntityType: </em><code class="descname">PrintBatch</code><a class="headerlink" href="#od-type.deliveryodata.PrintBatch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="prop">
+<dt id="od-prop.deliveryodata.PrintBatch.ID">
+<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numeric ID of this batch.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.PrintBatch.Name">
+<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name given to this batch</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.PrintBatch.SnapshotID">
+<code class="descname">SnapshotID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.SnapshotID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the associated <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><code class="xref od od-type docutils literal"><span class="pre">AssessmentSnapshot</span></code></a> entity.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.PrintBatch.GroupID">
+<code class="descname">GroupID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.GroupID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the associated <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><code class="xref od od-type docutils literal"><span class="pre">Group</span></code></a> entity.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.PrintBatch.CreatedDateTime">
+<code class="descname">CreatedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.PrintBatch.ModifiedDateTime">
+<code class="descname">ModifiedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.PrintBatch.LastUploadedDateTime">
+<code class="descname">LastUploadedDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.LastUploadedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time at which the last upload for this batch took place.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.PrintBatch.AssessmentSnapshot">
+<code class="descname">AssessmentSnapshot</code> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot">AssessmentSnapshot</a><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.AssessmentSnapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the associated AssessmentSnapshot.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.PrintBatch.Group">
+<code class="descname">Group</code> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.Group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the associated Group.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.PrintBatch.PrintBatchUploads">
+<code class="descname">PrintBatchUploads</code> <a class="reference internal" href="#od-type.deliveryodata.PrintBatchUpload" title="PrintBatchUpload">PrintBatchUpload</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.PrintBatchUploads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to a collection of PrintBatchUpload entities.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.deliveryodata.PrintBatchUpload">
+<em class="property">EntityType: </em><code class="descname">PrintBatchUpload</code><a class="headerlink" href="#od-type.deliveryodata.PrintBatchUpload" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2020.02.</span></p>
+</div>
+<p>With Questionmark OnPremise and certain configurations of
+Questionmark OnDemand, printing and scanning uses an external
+scanning process resulting in CSV files that are uploaded
+representing multiple participants within a print batch.  Typically
+a single batch upload contains the scanned responses for all
+participants within the batch.  In this case, the PrintBatchUpload
+entity is used to represent the uploaded CSV.</p>
+<p>With Questionmark OnDemand, printing and scanning uses scanned
+bubble sheets in PDF format that are uploaded and then processed to
+create individual <a class="reference internal" href="answerupload.html#od-type.deliveryodata.AnswerUpload" title="AnswerUpload"><code class="xref od od-type docutils literal"><span class="pre">AnswerUpload</span></code></a> entities.  Print batch
+uploads are not used when uploading PDFs for scanning.</p>
+</dd></dl>
 
 </div>
 
