@@ -97,10 +97,23 @@ Result
         an automated periodic clean-up process was responsible for the
         action.
 
+        ..  warning::   The PurgeResultByRetentionPolicy action cannot
+                        be undone.  Use of this method on the
+                        Questionmark OnDemand platform requires a
+                        Questionmark approved retention policy to have
+                        been configured for the tenant concerned.
+        
     ..  od:action:: ReplayResultsByDateRange
         :input: StartDate Edm.DateTime, EndDate Edm.DateTime
 
         .. versionadded::   2021.03
+
+        Reserved for internal use.
+
+    ..  od:action:: ReplayResultsByIDList
+        :input: ResultIds Collection(Edm.Int32)
+
+        .. versionadded::   2022.02
 
         Reserved for internal use.
 
@@ -301,6 +314,14 @@ Result
 
         .. versionadded::   2020.02
 
+    ..  od:prop::   TopicScores TopicScore
+        :collection:
+        
+        .. versionadded::   2021.11
+        
+        A navigation property to the TopicScores associated with this
+        result, if any.
+
     ..  od:action:: Purge
 
         .. versionadded::   2018.05
@@ -328,6 +349,50 @@ Result
         Reserved for internal use.
 
 
+..  od:feed::   TopicScores TopicScore
+
+
+    :method GET: read only
+    :filter ID: primary key
+    :expand Result: the Result the TopicScore is associated with.
+
+    .. versionadded::   2021.11
+
+
+..  od:type::   TopicScore
+
+    .. versionadded::   2021.11
+    
+    An entity representing a sub-score for the specified topic.  TopicScores
+    are always associated with a related :od:type:`Result` entity.
+    
+    ..  od:prop::   ResultID    Edm.Int32
+        :key:
+        :notnull:
+
+    ..  od:prop::   TopicID     Edm.Int32
+        :key:
+        :notnull:
+
+    ..  od:prop::   PercentageScore Edm.Double
+        :notnull:
+
+    ..  od:prop::   TotalScore  Edm.Int32
+        :notnull:
+
+    ..  od:prop::   MaxScore    Edm.Int32
+        :notnull:
+
+    ..  od:prop::   ScoreBandTitle  Edm.String
+    
+    ..  od:prop::   NumQuestions    Edm.Int32
+        :notnull:
+
+    ..  od:prop::   TopicPath   Edm.String
+    
+    ..  od:prop::   Result  Result
+    
+    
 ..  od:feed::   ResultsAuditLog ResultAuditLog
 
     :method GET: read only

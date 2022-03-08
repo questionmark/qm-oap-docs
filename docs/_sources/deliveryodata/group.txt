@@ -6,7 +6,9 @@ Group
 
 ..  od:feed::   Groups Group
 
-    :method GET: read only
+    :method GET: read a list of all Groups
+    :method POST: create a new *root* Group
+    :method DELETE: remove a Group
     :filter ID: primary key
     :filter Name: filtering by group name
     :filter RootGroupID: filtering by the top-level group (expected in 2018.02)
@@ -18,6 +20,51 @@ Group
 
     The Groups feed contains data about groups of participants.  Entries
     are defined by the :od:type:`Group` type.
+
+    You can create a Group hierarchy in a single call by including SubGroups
+    in a POST call::
+
+        POST <service root>/Groups
+        Content-Type: application/json
+        
+        {
+            "Name": "G1",
+            "Description": "The Root Group",
+            "SubGroups": [
+                {
+                    "Name": "G1.1",
+                    "Description": "G1.1 child of G1",
+                    "SubGroups": [
+                        {
+                            "Name": "G1.1.1",
+                            "Description": "G1.1.1 child of G1.1"
+                        },
+                        {
+                            "Name": "G1.1.2",
+                            "Description": "G1.1.2 child of G1.1"
+                        }
+                    ]
+                },
+                {
+                    "Name": "G1.2",
+                    "Description": "G1.2 child of G1",
+                    "SubGroups": [
+                        {
+                            "Name": "G1.2.1",
+                            "Description": "G1.2.1 child of G1.2"
+                        },
+                        {
+                            "Name": "G1.2.2",
+                            "Description": "G1.2.2 child of G1.2"
+                        }
+                    ]
+                },
+                {
+                    "Name": "G1.3",
+                    "Description": "G1.3 child of G1"
+                }
+            ]
+        }
 
 
 ..  od:type::   Group
@@ -49,6 +96,12 @@ Group
         RootGroupID.  For root groups themselves this value will be the
         same as :od:prop:`ID`.
 
+    ..  od:prop::   DefaultTestCenterId Edm.Int32
+        
+        .. versionadded::   2021.09
+        
+        The ID of the default TestCenter (see below navigation property).
+        
     ..  od:prop::   Participants  Participant
         :collection:
         
@@ -64,8 +117,22 @@ Group
     ..  od:prop::   SubGroups  Group
         :collection:
         
-        Navigation property to the sub-groups of each group.
-    
+        Navigation property to the sub-groups of each group.  Can also
+        be used to create individual SubGroups using the POST method::
+        
+            POST <service root>/Groups(<id>)/SubGroups
+            Content-Type: application/json
+            
+            {
+                "Name": "G1.4",
+                "Description": "G1.4 child of G1",
+            }
+
+        Note that there is no $links function for linking existing
+        Groups as the hierarchy is determined at the time a Group is
+        created and Groups cannot be moved within the existing
+        hierarchy.
+
     ..  od:prop::   ParentGroup  Group
         
         For sub-groups, the optional parent group.
@@ -113,3 +180,10 @@ Group
         :collection:
 
         Navigation property to any PrintBatches associated with this Group.
+
+    ..  od:prop::   DefaultTestCenter TestCenter
+
+        .. versionadded::   2021.09
+
+        Navigation property to the default TestCenter for the group
+        (optional).

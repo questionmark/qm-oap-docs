@@ -96,7 +96,7 @@ Answer
 
     ..  od:prop::   Question  Question
 
-        Navigation property to the a single Question associated with
+        Navigation property to the single Question associated with
         this answer.
     
     ..  od:prop::   Result  Result

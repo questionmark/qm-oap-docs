@@ -507,6 +507,15 @@ participant&#8217;s full name.</p>
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Participant.DateOfBirth">
+<code class="descname">DateOfBirth</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Participant.DateOfBirth" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.08.</span></p>
+</div>
+<p>The optional date of birth of the participant.</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Participant.PreferredLang">
 <code class="descname">PreferredLang</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Participant.PreferredLang" title="Permalink to this definition">¶</a></dt>
 <dd><p>The preferred language of the participant.  This is specified
@@ -611,6 +620,20 @@ follows:</p>
     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">as of the 2022.03 release, a new optional
+parameter <em>ShowHidden</em> will be supported that
+will default to False.  Currently, all schedules
+are returned by default but in future you <em>must</em>
+pass ShowHidden as True if you want hidden
+schedules to be returned by this call.  To
+determine if a hidden schedule is actionable for
+a Participant it is recommended to use
+<a class="reference internal" href="#od-action.deliveryodata.Participant.ActionableSchedule" title="ActionableSchedule"><code class="xref od od-action docutils literal"><span class="pre">ActionableSchedule</span></code></a> passing the
+ScheduleID explicitly as to avoid returning
+hidden Schedules that apply to all Participants.</p>
 </div>
 </dd></dl>
 

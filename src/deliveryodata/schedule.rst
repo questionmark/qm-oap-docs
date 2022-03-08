@@ -372,7 +372,7 @@ Schedules Reference
         initiated for this Schedule.
             
     ..  od:action:: InvokeAction Edm.String
-        :input: Action Edm.String, ParticipantID Edm.Int32, ObserverID Edm.Int32, AttemptMetadata Collection(AttemptMetadataKeyValue)
+        :input: Action Edm.String, ParticipantID Edm.Int32, ObserverID Edm.Int32, AttemptMetadata Collection(deliveryodata.AttemptMetadataKeyValue)
         
         Invokes the specified action for a given participant.  The
         Action string is a text string for an action as previously

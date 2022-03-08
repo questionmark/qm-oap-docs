@@ -55,7 +55,9 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; read only</li>
+<li><strong>GET</strong> &#8211; read a list of all Groups</li>
+<li><strong>POST</strong> &#8211; create a new <em>root</em> Group</li>
+<li><strong>DELETE</strong> &#8211; remove a Group</li>
 </ul>
 </td>
 </tr>
@@ -81,6 +83,51 @@
 </table>
 <p>The Groups feed contains data about groups of participants.  Entries
 are defined by the <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group"><code class="xref od od-type docutils literal"><span class="pre">Group</span></code></a> type.</p>
+<p>You can create a Group hierarchy in a single call by including SubGroups
+in a POST call:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span><span class="n">Groups</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;G1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;The Root Group&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SubGroups&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.1 child of G1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;SubGroups&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.1.1&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.1.1 child of G1.1&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.1.2&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.1.2 child of G1.1&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.2 child of G1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;SubGroups&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.2.1&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.2.1 child of G1.2&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.2.2&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.2.2 child of G1.2&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.3 child of G1&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="type">
@@ -120,6 +167,15 @@ same as <a class="reference internal" href="#od-prop.deliveryodata.Group.ID" tit
 </dd></dl>
 
 <dl class="prop">
+<dt id="od-prop.deliveryodata.Group.DefaultTestCenterId">
+<code class="descname">DefaultTestCenterId</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Group.DefaultTestCenterId" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.09.</span></p>
+</div>
+<p>The ID of the default TestCenter (see below navigation property).</p>
+</dd></dl>
+
+<dl class="prop">
 <dt id="od-prop.deliveryodata.Group.Participants">
 <code class="descname">Participants</code> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant">Participant</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.Participants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the participants that are in the group.</p>
@@ -136,7 +192,21 @@ permissions are out of scope for this API)</p>
 <dl class="prop">
 <dt id="od-prop.deliveryodata.Group.SubGroups">
 <code class="descname">SubGroups</code> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.SubGroups" title="Permalink to this definition">¶</a></dt>
-<dd><p>Navigation property to the sub-groups of each group.</p>
+<dd><p>Navigation property to the sub-groups of each group.  Can also
+be used to create individual SubGroups using the POST method:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span><span class="n">Groups</span><span class="p">(</span><span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span><span class="p">)</span><span class="o">/</span><span class="n">SubGroups</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;G1.4 child of G1&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that there is no $links function for linking existing
+Groups as the hierarchy is determined at the time a Group is
+created and Groups cannot be moved within the existing
+hierarchy.</p>
 </dd></dl>
 
 <dl class="prop">
@@ -197,6 +267,16 @@ for more information.</p>
 <dt id="od-prop.deliveryodata.Group.PrintBatches">
 <code class="descname">PrintBatches</code> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.PrintBatches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to any PrintBatches associated with this Group.</p>
+</dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Group.DefaultTestCenter">
+<code class="descname">DefaultTestCenter</code> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter">TestCenter</a><a class="headerlink" href="#od-prop.deliveryodata.Group.DefaultTestCenter" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.09.</span></p>
+</div>
+<p>Navigation property to the default TestCenter for the group
+(optional).</p>
 </dd></dl>
 
 </dd></dl>

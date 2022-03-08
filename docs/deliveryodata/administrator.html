@@ -55,7 +55,10 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; feed is read only</li>
+<li><strong>GET</strong> &#8211; returns the feed of Administrators</li>
+<li><strong>POST</strong> &#8211; creates an Administrator <em>with no role</em></li>
+<li><strong>PATCH</strong> &#8211; updates an Administrator</li>
+<li><strong>DELETE</strong> &#8211; deletes an Administrator</li>
 </ul>
 </td>
 </tr>
@@ -79,6 +82,45 @@
 roles in the user data base.  A user with an administrator role is
 defined as being a user with <em>any</em> role other than special
 Participant role.</p>
+<p>The feed can be used to create, update and delete Administrators.
+Note that creating an Administrator editor does not associate the
+new user with any role.  You can use the <code class="xref od od-action docutils literal"><span class="pre">Upsert</span></code> action
+to create a user with one or more existing Administrator roles.</p>
+<p>If you want to promote a user that exists in the Portal as a
+Participant (or as an authenticated user with no assigned role) to
+being an Administrator then you may POST to the Administrators feed
+to create the entity representing the user and then assign the
+additional roles but the recommended approach would be to use the
+<code class="xref od od-action docutils literal"><span class="pre">Upsert</span></code> action.</p>
+<dl class="action">
+<dt id="od-action.deliveryodata.Administrators.Upsert">
+<em class="property">action </em><code class="descname">Upsert</code> (Name  Edm.String, Email  Edm.String, Password  Edm.String, FirstName  Edm.String, LastName  Edm.String, Department  Edm.String, SsoId  Edm.String, Url  Edm.String, AlternateName  Edm.String, Roles Collection( Edm.String), Groups Collection( Edm.String))  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Administrators.Upsert" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.08.</span></p>
+</div>
+<p>To invoke this action use http POST with a JSON body like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrators</span><span class="o">/</span><span class="n">Upsert</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;bob&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Email&quot;</span><span class="p">:</span> <span class="s2">&quot;bob@example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Groups&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;GroupA&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupB&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Roles&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Author&quot;</span><span class="p">,</span> <span class="s2">&quot;Reporter&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The action creates the user if they don&#8217;t exist or updates an
+existing user with matching Name.  Omitted parameters are
+ignored. The Groups parameter contains a list of Group names
+that are used to assign the user as an owner of those groups.
+(Only root groups may be specified.)  The Roles parameter
+contains a list of Role names that should be assigned to the
+user.</p>
+<p>The purpose of Upsert is to provide a more efficient
+implementation of the individual combined operations to reduce
+the impact of network latency on integrated systems.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="type">
@@ -92,8 +134,8 @@ only in OData.</p>
 <code class="descname">Password</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Password" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Administrator&#8217;s password.  This field is not available
 during a GET operation and will always appear to be set to null
-but it can provided when creating (POST) or updating (PATCH) an
-Administrator&#8217;s record.</p>
+but it can be provided when creating (POST) or updating (PATCH)
+an Administrator&#8217;s record.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2021.05.</span></p>
 </div>
@@ -165,18 +207,67 @@ Administrator&#8217;s record.</p>
 <dd><p>Navigation property to the Groups associated with this
 administrator as per <a class="reference internal" href="../model/g_owner.html#qm-table.g_owner" title="G_Owner"><code class="xref qm qm-table docutils literal"><span class="pre">G_Owner</span></code></a>.  An Administrator may
 be associated with multiple Group entities.</p>
+<p>Ownership is currently limited to root groups, that is, Groups
+where the RootGroupID matches the Group ID (and the navigation
+property ParentGroup is empty).</p>
+<p>You can modify this list using the special $links property.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2021.08.</span></p>
+</div>
+<p>To add a Group to the list you must use the full URL of the
+Group Entity and POST it to the following URL:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>POST /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Groups
+
+{
+    &quot;url&quot;: &quot;https://&lt;platform&gt;/deliveryodata/&lt;customer-id&gt;/Groups(&lt;group-id&gt;)&quot;
+}
+</pre></div>
+</div>
+<p>You must replace &lt;customer-id&gt;, &lt;administrator-id&gt;, &lt;platform&gt;
+and &lt;group-id&gt; accordingly.</p>
+<p>To remove a Group membership use the DELETE operation as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>DELETE /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Groups(&lt;group-id&gt;)
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.AllGroups">
-<code class="descname">AllGroups</code> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Administrator.AllGroups" title="Permalink to this definition">¶</a></dt>
-<dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2020.03.</span></p>
+<dt id="od-prop.deliveryodata.Administrator.Roles">
+<code class="descname">Roles</code> <a class="reference internal" href="#od-type.deliveryodata.Role" title="Role">Role</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Roles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to the Roles associated with this
+administrator.  An Administrator may be associated with multiple
+Role entities <em>or no Role entities</em>.  In the latter case, the
+user is merely an authenticated user of the platform and not an
+administrator at all.  This behaviour enables Administrators to
+be created <em>with the API</em> without an associated Role and for the
+Role to be added by a later call.  Users created without a role
+through the Portal user interface do not appear in the
+Administrators feed until they are assigned a non-Participant
+role <em>in the user interface</em>.</p>
+<p>You can modify this list using the special $links property.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2021.08.</span></p>
 </div>
-<p>Navigation property to the Groups associated with this
-administrator as per <a class="reference internal" href="../model/g_owner.html#qm-table.g_owner" title="G_Owner"><code class="xref qm qm-table docutils literal"><span class="pre">G_Owner</span></code></a> <em>including all
-sub-groups</em> owned by inheritance.  An Administrator may be
-associated with multiple Group entities.</p>
+<p>To add a Role to the list you must use the full URL of the
+Role Entity and POST it to the following URL:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>POST /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Roles
+
+{
+    &quot;url&quot;: &quot;https://&lt;platform&gt;/deliveryodata/&lt;customer-id&gt;/Groups(&lt;role-id&gt;)&quot;
+}
+</pre></div>
+</div>
+<p>You must replace &lt;customer-id&gt;, &lt;administrator-id&gt;, &lt;platform&gt;
+and &lt;role-id&gt; accordingly.  Note that Role IDs are actually
+strings with the name of the Role, e.g., Roles(&#8216;Author&#8217;).</p>
+<p>To remove a Group membership use the DELETE operation as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>DELETE /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Roles(&lt;group-id&gt;)
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">DELETE operation planned for release in 2022</p>
+</div>
 </dd></dl>
 
 <dl class="prop">
@@ -205,6 +296,25 @@ this administrator and False otherwise.</p>
 </dd></dl>
 
 <dl class="action">
+<dt id="od-action.deliveryodata.Administrator.AllGroups">
+<em class="property">action </em><code class="descname">AllGroups</code> (GroupName  Edm.String) <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-action.deliveryodata.Administrator.AllGroups" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2020.03.</span></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Previously documented as a navigation property
+in error.</p>
+</div>
+<p>An action that evaluates all Groups owned by this administrator
+as per <a class="reference internal" href="../model/g_owner.html#qm-table.g_owner" title="G_Owner"><code class="xref qm qm-table docutils literal"><span class="pre">G_Owner</span></code></a> <em>including all sub-groups</em> owned by
+inheritance.  The required GroupName parameter is a filter
+limiting the list of returned groups to those that contain the
+filter string.  GroupName may be passed as the empty string to
+return an unfiltered list.</p>
+</dd></dl>
+
+<dl class="action">
 <dt id="od-action.deliveryodata.Administrator.ActionableSchedulesForObservation">
 <em class="property">action </em><code class="descname">ActionableSchedulesForObservation</code> () <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule">ActionableSchedule</a> Collection<a class="headerlink" href="#od-action.deliveryodata.Administrator.ActionableSchedulesForObservation" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
@@ -229,6 +339,7 @@ like this:</p>
 <em class="property">EntityType: </em><code class="descname">Role</code><a class="headerlink" href="#od-type.deliveryodata.Role" title="Permalink to this definition">¶</a></dt>
 <dd><p>Role entities are simple entities that allow access to read the list
 of roles defined in the portal.</p>
+<p>This entity is subject to change.</p>
 <blockquote>
 <div><div class="versionadded">
 <p><span class="versionmodified">New in version 2021.05.</span></p>

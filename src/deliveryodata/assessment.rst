@@ -115,6 +115,10 @@ Assessment
 
         .. versionadded::   2021.08
 
+    ..  od:prop::   Type    Edm.Int16
+
+        Reserved for future use.
+
     ..  od:prop::   AssessmentOutcomes AssessmentOutcome
         :collection:
     
@@ -259,7 +263,7 @@ Assessment
     ..  od:prop::   TimeLimit  Edm.Int32
 
         Reserved for future use.
-
+        
     ..  od:prop::   Assessment Assessment
 
         A navigation property to the base language version of the

@@ -245,6 +245,12 @@ Participant
 
         .. versionadded:: 2017.11
 
+    ..  od:prop::   DateOfBirth  Edm.String
+
+        .. versionadded:: 2021.08
+
+        The optional date of birth of the participant.
+        
     ..  od:prop::   PreferredLang  Edm.String
 
         The preferred language of the participant.  This is specified
@@ -332,6 +338,18 @@ Participant
                 "value": []
             }        
 
+        ..  warning::   as of the 2022.03 release, a new optional
+                        parameter *ShowHidden* will be supported that
+                        will default to False.  Currently, all schedules
+                        are returned by default but in future you *must*
+                        pass ShowHidden as True if you want hidden
+                        schedules to be returned by this call.  To
+                        determine if a hidden schedule is actionable for
+                        a Participant it is recommended to use
+                        :od:action:`ActionableSchedule` passing the
+                        ScheduleID explicitly as to avoid returning
+                        hidden Schedules that apply to all Participants.
+        
     ..  od:action:: ActionableSchedule ActionableSchedule
         :input: ScheduleID Edm.Int32
 

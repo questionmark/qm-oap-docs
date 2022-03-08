@@ -165,6 +165,14 @@ the trigger for the action (for auditing purposes).  The value
 &#8220;Scheduled&#8221; is reserved for Questionmark use and indicates that
 an automated periodic clean-up process was responsible for the
 action.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The PurgeResultByRetentionPolicy action cannot
+be undone.  Use of this method on the
+Questionmark OnDemand platform requires a
+Questionmark approved retention policy to have
+been configured for the tenant concerned.</p>
+</div>
 </dd></dl>
 
 <dl class="action">
@@ -172,6 +180,15 @@ action.</p>
 <em class="property">action </em><code class="descname">ReplayResultsByDateRange</code> (StartDate  Edm.DateTime, EndDate  Edm.DateTime)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.ReplayResultsByDateRange" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified">New in version 2021.03.</span></p>
+</div>
+<p>Reserved for internal use.</p>
+</dd></dl>
+
+<dl class="action">
+<dt id="od-action.deliveryodata.Results.ReplayResultsByIDList">
+<em class="property">action </em><code class="descname">ReplayResultsByIDList</code> (ResultIds Collection( Edm.Int32))  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.ReplayResultsByIDList" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2022.02.</span></p>
 </div>
 <p>Reserved for internal use.</p>
 </dd></dl>
@@ -449,6 +466,16 @@ result, if any.</p>
 </div>
 </dd></dl>
 
+<dl class="prop">
+<dt id="od-prop.deliveryodata.Result.TopicScores">
+<code class="descname">TopicScores</code> <a class="reference internal" href="#od-type.deliveryodata.TopicScore" title="TopicScore">TopicScore</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Result.TopicScores" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.11.</span></p>
+</div>
+<p>A navigation property to the TopicScores associated with this
+result, if any.</p>
+</dd></dl>
+
 <dl class="action">
 <dt id="od-action.deliveryodata.Result.Purge">
 <em class="property">action </em><code class="descname">Purge</code> ()  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Result.Purge" title="Permalink to this definition">¶</a></dt>
@@ -479,6 +506,93 @@ with the delivery of assessments.</p>
 </div>
 <p>Reserved for internal use.</p>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="feed">
+<dt id="od-feed.deliveryodata.TopicScores">
+<code class="descname">TopicScores</code> <a class="reference internal" href="#od-type.deliveryodata.TopicScore" title="TopicScore">TopicScore</a><a class="headerlink" href="#od-feed.deliveryodata.TopicScores" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>GET</strong> &#8211; read only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>ID</strong> &#8211; primary key</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>Result</strong> &#8211; the Result the TopicScore is associated with.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2021.11.</span></p>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="od-type.deliveryodata.TopicScore">
+<em class="property">EntityType: </em><code class="descname">TopicScore</code><a class="headerlink" href="#od-type.deliveryodata.TopicScore" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">New in version 2021.11.</span></p>
+</div>
+<p>An entity representing a sub-score for the specified topic.  TopicScores
+are always associated with a related <a class="reference internal" href="#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal"><span class="pre">Result</span></code></a> entity.</p>
+<dl class="prop">
+<dt id="od-prop.deliveryodata.TopicScore.ResultID">
+<em class="property">Entity Key: </em><code class="descname">ResultID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.ResultID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.TopicScore.TopicID">
+<em class="property">Entity Key: </em><code class="descname">TopicID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.TopicID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.TopicScore.PercentageScore">
+<code class="descname">PercentageScore</code>  Edm.Double NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.PercentageScore" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.TopicScore.TotalScore">
+<code class="descname">TotalScore</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.TotalScore" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.TopicScore.MaxScore">
+<code class="descname">MaxScore</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.MaxScore" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.TopicScore.ScoreBandTitle">
+<code class="descname">ScoreBandTitle</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.ScoreBandTitle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.TopicScore.NumQuestions">
+<code class="descname">NumQuestions</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.NumQuestions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.TopicScore.TopicPath">
+<code class="descname">TopicPath</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.TopicPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="prop">
+<dt id="od-prop.deliveryodata.TopicScore.Result">
+<code class="descname">Result</code> <a class="reference internal" href="#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-prop.deliveryodata.TopicScore.Result" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 

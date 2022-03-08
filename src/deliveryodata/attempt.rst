@@ -683,6 +683,11 @@ Attempt, AttemptLists and AttemptMetadata
 
         A human-friendly representation of the time zone.
 
+    ..  od:prop::   AppointmentStart  Edm.DateTime
+
+        The local time the appointment is due to start (in the time zone
+        indicated by :od:prop:`TimeZoneID`.
+
     ..  od:prop::   Status  Edm.String
 
         The status of this appointment.  The status values may vary

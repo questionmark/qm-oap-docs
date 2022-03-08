@@ -107,3 +107,9 @@ TestCenter
         AttemptList that is then used to group together the Attempts
         that are proctored together.  Each AttemptList represents a
         single session or sitting.
+
+    ..  od:prop::   Groups  Group
+        :collection:
+
+        The Groups for which this TestCenter is the default TestCenter.
+
