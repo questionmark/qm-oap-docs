@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>PrintBatch &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Question and QuestionTranslation" href="question.html" />
     <link rel="prev" title="Participant" href="participant.html" />
    
@@ -35,113 +21,108 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="printbatch">
-<h1>PrintBatch<a class="headerlink" href="#printbatch" title="Permalink to this headline">¶</a></h1>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.PrintBatches">
-<code class="descname">PrintBatches</code> <a class="reference internal" href="#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a><a class="headerlink" href="#od-feed.deliveryodata.PrintBatches" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; read only</li>
+  <section id="printbatch">
+<h1>PrintBatch<a class="headerlink" href="#printbatch" title="Permalink to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.PrintBatches">
+<span class="sig-name descname"><span class="pre">PrintBatches</span></span> <a class="reference internal" href="#od-type.deliveryodata.PrintBatch" title="PrintBatch"><span class="pre">PrintBatch</span></a><a class="headerlink" href="#od-feed.deliveryodata.PrintBatches" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – read only</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>GroupID</strong> &#8211; the ID of the group associated with this batch</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>GroupID</strong> – the ID of the group associated with this batch</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>$orderby is <em>not</em> supported.</p>
 <p>The PrintBatches feed contains information about a group of users
 who have been assigned a particular snapshot of an assessment to
 take externally, typically through printing and scanning.</p>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.PrintBatch">
-<em class="property">EntityType: </em><code class="descname">PrintBatch</code><a class="headerlink" href="#od-type.deliveryodata.PrintBatch" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="prop">
-<dt id="od-prop.deliveryodata.PrintBatch.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.PrintBatch">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">PrintBatch</span></span><a class="headerlink" href="#od-type.deliveryodata.PrintBatch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatch.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The numeric ID of this batch.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.PrintBatch.Name">
-<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.Name" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatch.Name">
+<span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.Name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name given to this batch</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.PrintBatch.SnapshotID">
-<code class="descname">SnapshotID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.SnapshotID" title="Permalink to this definition">¶</a></dt>
-<dd><p>The ID of the associated <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><code class="xref od od-type docutils literal"><span class="pre">AssessmentSnapshot</span></code></a> entity.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatch.SnapshotID">
+<span class="sig-name descname"><span class="pre">SnapshotID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.SnapshotID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the associated <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><code class="xref od od-type docutils literal notranslate"><span class="pre">AssessmentSnapshot</span></code></a> entity.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.PrintBatch.GroupID">
-<code class="descname">GroupID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.GroupID" title="Permalink to this definition">¶</a></dt>
-<dd><p>The ID of the associated <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><code class="xref od od-type docutils literal"><span class="pre">Group</span></code></a> entity.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatch.GroupID">
+<span class="sig-name descname"><span class="pre">GroupID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.GroupID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the associated <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><code class="xref od od-type docutils literal notranslate"><span class="pre">Group</span></code></a> entity.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.PrintBatch.CreatedDateTime">
-<code class="descname">CreatedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatch.CreatedDateTime">
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.PrintBatch.ModifiedDateTime">
-<code class="descname">ModifiedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatch.ModifiedDateTime">
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.PrintBatch.LastUploadedDateTime">
-<code class="descname">LastUploadedDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.LastUploadedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatch.LastUploadedDateTime">
+<span class="sig-name descname"><span class="pre">LastUploadedDateTime</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.LastUploadedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The time at which the last upload for this batch took place.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.PrintBatch.AssessmentSnapshot">
-<code class="descname">AssessmentSnapshot</code> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot">AssessmentSnapshot</a><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.AssessmentSnapshot" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatch.AssessmentSnapshot">
+<span class="sig-name descname"><span class="pre">AssessmentSnapshot</span></span> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><span class="pre">AssessmentSnapshot</span></a><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.AssessmentSnapshot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the associated AssessmentSnapshot.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.PrintBatch.Group">
-<code class="descname">Group</code> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.Group" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatch.Group">
+<span class="sig-name descname"><span class="pre">Group</span></span> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.Group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the associated Group.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.PrintBatch.PrintBatchUploads">
-<code class="descname">PrintBatchUploads</code> <a class="reference internal" href="#od-type.deliveryodata.PrintBatchUpload" title="PrintBatchUpload">PrintBatchUpload</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.PrintBatchUploads" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatch.PrintBatchUploads">
+<span class="sig-name descname"><span class="pre">PrintBatchUploads</span></span> <a class="reference internal" href="#od-type.deliveryodata.PrintBatchUpload" title="PrintBatchUpload"><span class="pre">PrintBatchUpload</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.PrintBatchUploads" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to a collection of PrintBatchUpload entities.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.PrintBatchUpload">
-<em class="property">EntityType: </em><code class="descname">PrintBatchUpload</code><a class="headerlink" href="#od-type.deliveryodata.PrintBatchUpload" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.PrintBatchUpload">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">PrintBatchUpload</span></span><a class="headerlink" href="#od-type.deliveryodata.PrintBatchUpload" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2020.02.</span></p>
+<p><span class="versionmodified added">New in version 2020.02.</span></p>
 </div>
 <p>With Questionmark OnPremise and certain configurations of
 Questionmark OnDemand, printing and scanning uses an external
@@ -152,19 +133,20 @@ participants within the batch.  In this case, the PrintBatchUpload
 entity is used to represent the uploaded CSV.</p>
 <p>With Questionmark OnDemand, printing and scanning uses scanned
 bubble sheets in PDF format that are uploaded and then processed to
-create individual <a class="reference internal" href="answerupload.html#od-type.deliveryodata.AnswerUpload" title="AnswerUpload"><code class="xref od od-type docutils literal"><span class="pre">AnswerUpload</span></code></a> entities.  Print batch
+create individual <a class="reference internal" href="answerupload.html#od-type.deliveryodata.AnswerUpload" title="AnswerUpload"><code class="xref od od-type docutils literal notranslate"><span class="pre">AnswerUpload</span></code></a> entities.  Print batch
 uploads are not used when uploading PDFs for scanning.</p>
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -195,15 +177,15 @@ uploads are not used when uploading PDFs for scanning.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -212,11 +194,11 @@ uploads are not used when uploading PDFs for scanning.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/printbatch.txt"
+      <a href="../_sources/deliveryodata/printbatch.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

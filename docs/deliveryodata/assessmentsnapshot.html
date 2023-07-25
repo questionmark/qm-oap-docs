@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>AssessmentSnapshot(Data) &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Attempt, AttemptLists and AttemptMetadata" href="attempt.html" />
     <link rel="prev" title="Assessment" href="assessment.html" />
    
@@ -35,42 +21,37 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="assessmentsnapshot-data">
-<h1>AssessmentSnapshot(Data)<a class="headerlink" href="#assessmentsnapshot-data" title="Permalink to this headline">¶</a></h1>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.AssessmentSnapshots">
-<code class="descname">AssessmentSnapshots</code> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot">AssessmentSnapshot</a><a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshots" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; reading snapshot entities</li>
-<li><strong>POST</strong> &#8211; creating snapshot entities</li>
-<li><strong>PATCH</strong> &#8211; some properties may be updated, see entity for details</li>
+  <section id="assessmentsnapshot-data">
+<h1>AssessmentSnapshot(Data)<a class="headerlink" href="#assessmentsnapshot-data" title="Permalink to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.AssessmentSnapshots">
+<span class="sig-name descname"><span class="pre">AssessmentSnapshots</span></span> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><span class="pre">AssessmentSnapshot</span></a><a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshots" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – reading snapshot entities</p></li>
+<li><p><strong>POST</strong> – creating snapshot entities</p></li>
+<li><p><strong>PATCH</strong> – some properties may be updated, see entity for details</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>AssessmentID</strong> &#8211; the assessment used to create the snapshot ($orderby not supported)</li>
-<li><strong>CreatedDateTime</strong> &#8211; the time the snapshot was created ($orderby only, $filter not supported)</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>AssessmentID</strong> – the assessment used to create the snapshot ($orderby not supported)</p></li>
+<li><p><strong>CreatedDateTime</strong> – the time the snapshot was created ($orderby only, $filter not supported)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>The AssessmentSnapshots feed contains information about snapshots of
 assessments.  Snapshots are versions of an assessment that have
 fixed any randomisation, such as which questions are picked and the
@@ -81,51 +62,45 @@ writing they are used only for external delivery workflows,
 including printing and scanning.</p>
 </dd></dl>
 
-<dl class="feed">
-<dt id="od-feed.deliveryodata.AssessmentSnapshotsData">
-<code class="descname">AssessmentSnapshotsData</code> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData">AssessmentSnapshotData</a> (Media Link Entry)<a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshotsData" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; feed is read only</li>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.AssessmentSnapshotsData">
+<span class="sig-name descname"><span class="pre">AssessmentSnapshotsData</span></span> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData"><span class="pre">AssessmentSnapshotData</span></a> <span class="pre">(Media</span> <span class="pre">Link</span> <span class="pre">Entry)</span><a class="headerlink" href="#od-feed.deliveryodata.AssessmentSnapshotsData" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – feed is read only</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>ID</strong> &#8211; primary key</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>$orderby is <em>not</em> supported.</p>
-<p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.AssessmentSnapshots" title="AssessmentSnapshots"><code class="xref od od-feed docutils literal"><span class="pre">AssessmentSnapshots</span></code></a> which contains
+<p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.AssessmentSnapshots" title="AssessmentSnapshots"><code class="xref od od-feed docutils literal notranslate"><span class="pre">AssessmentSnapshots</span></code></a> which contains
 the raw XML data describing the snapshot.  Values are normally
 obtained by navigation from the associated
-<a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.AssessmentSnapshot</span></code></a> rather than directly.</p>
+<a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><code class="xref od od-type docutils literal notranslate"><span class="pre">deliveryodata.AssessmentSnapshot</span></code></a> rather than directly.</p>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.AssessmentSnapshot">
-<em class="property">EntityType: </em><code class="descname">AssessmentSnapshot</code><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshot" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.AssessmentSnapshot">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">AssessmentSnapshot</span></span><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshot" title="Permalink to this definition">¶</a></dt>
 <dd><p>AssessmentSnapshot entities are drawn from
-<a class="reference internal" href="../model/assessmentsnapshot.html#qm-table.assessmentsnapshot" title="AssessmentSnapshot"><code class="xref qm qm-table docutils literal"><span class="pre">AssessmentSnapshot</span></code></a>.  You can create entities using
+<a class="reference internal" href="../model/assessmentsnapshot.html#qm-table.assessmentsnapshot" title="AssessmentSnapshot"><code class="xref qm qm-table docutils literal notranslate"><span class="pre">AssessmentSnapshot</span></code></a>.  You can create entities using
 a POST request to the corresponding feed.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshot.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshot.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of the snapshot
-(<a class="reference internal" href="../model/assessmentsnapshot.html#qm-field.assessmentsnapshot.assessmentsnapshot_id" title="AssessmentSnapshot_ID"><code class="xref qm qm-field docutils literal"><span class="pre">AssessmentSnapshot.AssessmentSnapshot_ID</span></code></a>). The
+(<a class="reference internal" href="../model/assessmentsnapshot.html#qm-field.assessmentsnapshot.assessmentsnapshot_id" title="AssessmentSnapshot_ID"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">AssessmentSnapshot.AssessmentSnapshot_ID</span></code></a>). The
 value cannot be modified.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshot.AssessmentID">
-<code class="descname">AssessmentID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.AssessmentID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshot.AssessmentID">
+<span class="sig-name descname"><span class="pre">AssessmentID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.AssessmentID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of the assessment used to create the snapshot.  Along
 with the Language, this is used to find the assessment
 definition. When POSTing to the feed to create a snapshot you
@@ -135,35 +110,35 @@ not affect the delivery of the snapshot.</p>
 <p>You cannot modify this field once the snapshot has been created.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshot.Language">
-<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Language" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshot.Language">
+<span class="sig-name descname"><span class="pre">Language</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Language" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Language of the assessment (if translated).  This field is
 optional.  If unspecified then for assessments that have not
-been translated it will take the value &#8216;-&#8216;, indicating an
+been translated it will take the value ‘-’, indicating an
 unknown language.  For assessments that have been translated the
 base language is selected.  When specified it must match one
 of the languages the assessment has been translated into.</p>
 <p>You cannot modify this field once the snapshot has been created.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshot.Name">
-<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Name" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshot.Name">
+<span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Name" title="Permalink to this definition">¶</a></dt>
 <dd><p>A human friendly name for the snapshot.  This field can be
 modified using the PATCH method.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshot.ExpiresDateTime">
-<code class="descname">ExpiresDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ExpiresDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshot.ExpiresDateTime">
+<span class="sig-name descname"><span class="pre">ExpiresDateTime</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ExpiresDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The time after which new attempts that use this snapshot cannot
 be created.  This value can be modified using the PATCH method.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl">
-<code class="descname">PrintableDocumentSourceUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl">
+<span class="sig-name descname"><span class="pre">PrintableDocumentSourceUrl</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl" title="Permalink to this definition">¶</a></dt>
 <dd><p>A link to a printable HTML5 version of the snapshot.  This link
 is time-stamped and signed and must be generated immediately
 prior to use.  It is only available when an individual entity is
@@ -171,7 +146,7 @@ queried, whenever a collection of AssessmentSnapshot entities
 can be returned from a query (such as filtering the parent feed)
 this property is set to NULL in the entities returned (for
 security reasons).  For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AssessmentSnapshots</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AssessmentSnapshots</span>
 
 <span class="p">{</span>
     <span class="n">odata</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/123456/$metadata#AssessmentSnapshots&quot;</span><span class="p">,</span>
@@ -194,7 +169,7 @@ security reasons).  For example:</p>
 </div>
 <p>To get the printable link to the snapshot you must use a query
 like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AssessmentSnapshots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">AssessmentSnapshots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="p">{</span>
     <span class="n">odata</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/123456/$metadata#AssessmentSnapshots/@Element&quot;</span><span class="p">,</span>
@@ -211,35 +186,35 @@ like this:</p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentWithAnswersSourceUrl">
-<code class="descname">PrintableDocumentWithAnswersSourceUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentWithAnswersSourceUrl" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentWithAnswersSourceUrl">
+<span class="sig-name descname"><span class="pre">PrintableDocumentWithAnswersSourceUrl</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentWithAnswersSourceUrl" title="Permalink to this definition">¶</a></dt>
 <dd><p>A link to a printable HTML5 version of the snapshot with the
 correct answers indicated (the answer key).  See also
-<a class="reference internal" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl" title="PrintableDocumentSourceUrl"><code class="xref od od-prop docutils literal"><span class="pre">PrintableDocumentSourceUrl</span></code></a> for a related example.</p>
+<a class="reference internal" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintableDocumentSourceUrl" title="PrintableDocumentSourceUrl"><code class="xref od od-prop docutils literal notranslate"><span class="pre">PrintableDocumentSourceUrl</span></code></a> for a related example.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2020.02.</span></p>
+<p><span class="versionmodified added">New in version 2020.02.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshot.CreatedDateTime">
-<code class="descname">CreatedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshot.CreatedDateTime">
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A time stamp of when the snapshot was created.  Set
 automatically, it cannot be modified.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshot.ModifiedDateTime">
-<code class="descname">ModifiedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshot.ModifiedDateTime">
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A time stamp of when the snapshot was last modified.  Set
 automatically, it cannot be modified directly but a call to the
 PATCH method on the associated feed will cause it to be updated.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshot.AssessmentSnapshotData">
-<code class="descname">AssessmentSnapshotData</code> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData">AssessmentSnapshotData</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.AssessmentSnapshotData" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshot.AssessmentSnapshotData">
+<span class="sig-name descname"><span class="pre">AssessmentSnapshotData</span></span> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshotData" title="AssessmentSnapshotData"><span class="pre">AssessmentSnapshotData</span></a> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.AssessmentSnapshotData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the associated XML data for this
 snapshot. As a single entity you can just append
 /AssessmentSnapshotData/$value to the URL of an
@@ -247,64 +222,65 @@ AssessmentSnapshot entity to obtain the raw XML source of the
 snapshot.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshot.PrintBatches">
-<code class="descname">PrintBatches</code> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintBatches" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshot.PrintBatches">
+<span class="sig-name descname"><span class="pre">PrintBatches</span></span> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch"><span class="pre">PrintBatch</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.PrintBatches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to all PrintBatch entities that use this
 snapshot.  This collection may be empty as PrintBatches are an
 optional grouping structure used to help manage printing and
 scanning workflows..</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshot.Assessment">
-<code class="descname">Assessment</code> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Assessment" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshot.Assessment">
+<span class="sig-name descname"><span class="pre">Assessment</span></span> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><span class="pre">Assessment</span></a> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshot.Assessment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the Assessment that this is a snapshot
 of.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2020.02.</span></p>
+<p><span class="versionmodified added">New in version 2020.02.</span></p>
 </div>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.AssessmentSnapshotData">
-<em class="property">EntityType: </em><code class="descname">AssessmentSnapshotData</code><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshotData" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.AssessmentSnapshotData">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">AssessmentSnapshotData</span></span><a class="headerlink" href="#od-type.deliveryodata.AssessmentSnapshotData" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>This is a media link entry that describes the XML file
 associated with a snapshot.  You obtain the XML stream by taking
-the value of the identified enity using OData&#8217;s $value suffix.</p>
+the value of the identified enity using OData’s $value suffix.</p>
 <p>The format of the XML data is described in <a class="reference internal" href="#snapshotxml"><span class="std std-ref">Snapshot File Format</span></a>
 below.</p>
 </div></blockquote>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshotData.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshotData.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshotData.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshotData.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of the snapshot for which this is the data.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentSnapshotData.AssessmentSnapshot">
-<code class="descname">AssessmentSnapshot</code> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot">AssessmentSnapshot</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshotData.AssessmentSnapshot" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentSnapshotData.AssessmentSnapshot">
+<span class="sig-name descname"><span class="pre">AssessmentSnapshot</span></span> <a class="reference internal" href="#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><span class="pre">AssessmentSnapshot</span></a> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentSnapshotData.AssessmentSnapshot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property back to the owning AssessmentSnapshot.</p>
 </dd></dl>
 
 </dd></dl>
 
-<div class="section" id="snapshot-file-format">
-<span id="snapshotxml"></span><h2>Snapshot File Format<a class="headerlink" href="#snapshot-file-format" title="Permalink to this headline">¶</a></h2>
+<section id="snapshot-file-format">
+<span id="snapshotxml"></span><h2>Snapshot File Format<a class="headerlink" href="#snapshot-file-format" title="Permalink to this heading">¶</a></h2>
 <p>TBC</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -335,15 +311,15 @@ below.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -352,11 +328,11 @@ below.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/assessmentsnapshot.txt"
+      <a href="../_sources/deliveryodata/assessmentsnapshot.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

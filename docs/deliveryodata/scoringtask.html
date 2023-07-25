@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>ScoringTask, ScoringResult and DimensionScore &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="TestCenter" href="testcenter.html" />
     <link rel="prev" title="Schedule and ScheduleMetadata" href="schedule.html" />
    
@@ -35,213 +21,193 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="scoringtask-scoringresult-and-dimensionscore">
-<h1>ScoringTask, ScoringResult and DimensionScore<a class="headerlink" href="#scoringtask-scoringresult-and-dimensionscore" title="Permalink to this headline">¶</a></h1>
+  <section id="scoringtask-scoringresult-and-dimensionscore">
+<h1>ScoringTask, ScoringResult and DimensionScore<a class="headerlink" href="#scoringtask-scoringresult-and-dimensionscore" title="Permalink to this heading">¶</a></h1>
 <p>For a worked example of using these entities to set scores for
 unscored responses please refer to <a class="reference internal" href="scoring.html"><span class="doc">Subjective Scoring</span></a>.</p>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.ScoringTasks">
-<code class="descname">ScoringTasks</code> <a class="reference internal" href="#od-type.deliveryodata.ScoringTask" title="ScoringTask">ScoringTask</a><a class="headerlink" href="#od-feed.deliveryodata.ScoringTasks" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; for reading scoring tasks</li>
-<li><strong>PUT</strong> &#8211; for updating the status of a scoring task</li>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.ScoringTasks">
+<span class="sig-name descname"><span class="pre">ScoringTasks</span></span> <a class="reference internal" href="#od-type.deliveryodata.ScoringTask" title="ScoringTask"><span class="pre">ScoringTask</span></a><a class="headerlink" href="#od-feed.deliveryodata.ScoringTasks" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – for reading scoring tasks</p></li>
+<li><p><strong>PUT</strong> – for updating the status of a scoring task</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>QuestionID</strong> &#8211; the question being answered</li>
-<li><strong>ResultID</strong> &#8211; the result that generated the scoring task</li>
-<li><strong>Status</strong> &#8211; the status of the scoring task</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>QuestionID</strong> – the question being answered</p></li>
+<li><p><strong>ResultID</strong> – the result that generated the scoring task</p></li>
+<li><p><strong>Status</strong> – the status of the scoring task</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>Assessment</strong> &#8211; expands the assessment that was being taken</li>
-<li><strong>Question</strong> &#8211; expands the question that was answered</li>
-<li><strong>Result</strong> &#8211; expands the result that generated the scoring task</li>
-<li><strong>Answer</strong> &#8211; expands the answer that generated the scoring task</li>
-<li><strong>Group</strong> &#8211; expands the optional Group related to this task</li>
-<li><strong>ScoringResult</strong> &#8211; use with caution, see <a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.ScoringResult" title="ScoringResult"><code class="xref od od-prop docutils literal"><span class="pre">ScoringTask.ScoringResult</span></code></a> for details</li>
+</dd>
+<dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Assessment</strong> – expands the assessment that was being taken</p></li>
+<li><p><strong>Question</strong> – expands the question that was answered</p></li>
+<li><p><strong>Result</strong> – expands the result that generated the scoring task</p></li>
+<li><p><strong>Answer</strong> – expands the answer that generated the scoring task</p></li>
+<li><p><strong>Group</strong> – expands the optional Group related to this task</p></li>
+<li><p><strong>ScoringResult</strong> – use with caution, see <a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.ScoringResult" title="ScoringResult"><code class="xref od od-prop docutils literal notranslate"><span class="pre">ScoringTask.ScoringResult</span></code></a> for details</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<p>The ScoringTasks feed contains one entity for each <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer"><code class="xref od od-type docutils literal"><span class="pre">Answer</span></code></a>
+</dd>
+</dl>
+<p>The ScoringTasks feed contains one entity for each <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer"><code class="xref od od-type docutils literal notranslate"><span class="pre">Answer</span></code></a>
 that requires subjective scoring.  The scores actually awarded are
-in the associated <a class="reference internal" href="#od-type.deliveryodata.ScoringResult" title="ScoringResult"><code class="xref od od-type docutils literal"><span class="pre">ScoringResult</span></code></a>.</p>
+in the associated <a class="reference internal" href="#od-type.deliveryodata.ScoringResult" title="ScoringResult"><code class="xref od od-type docutils literal notranslate"><span class="pre">ScoringResult</span></code></a>.</p>
 </dd></dl>
 
-<dl class="feed">
-<dt id="od-feed.deliveryodata.ScoringResults">
-<code class="descname">ScoringResults</code> <a class="reference internal" href="#od-type.deliveryodata.ScoringResult" title="ScoringResult">ScoringResult</a><a class="headerlink" href="#od-feed.deliveryodata.ScoringResults" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; for reading scoring results</li>
-<li><strong>PUT</strong> &#8211; for updating the score</li>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.ScoringResults">
+<span class="sig-name descname"><span class="pre">ScoringResults</span></span> <a class="reference internal" href="#od-type.deliveryodata.ScoringResult" title="ScoringResult"><span class="pre">ScoringResult</span></a><a class="headerlink" href="#od-feed.deliveryodata.ScoringResults" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – for reading scoring results</p></li>
+<li><p><strong>PUT</strong> – for updating the score</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>QuestionID</strong> &#8211; the question being answered</li>
-<li><strong>ResultID</strong> &#8211; the result that generated the scoring task</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>QuestionID</strong> – the question being answered</p></li>
+<li><p><strong>ResultID</strong> – the result that generated the scoring task</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>ScoringTask</strong> &#8211; the task</li>
-<li><strong>Rubric</strong> &#8211; the scoring rules</li>
-<li><strong>DimensionScores</strong> &#8211; the individual dimension scores</li>
+</dd>
+<dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ScoringTask</strong> – the task</p></li>
+<li><p><strong>Rubric</strong> – the scoring rules</p></li>
+<li><p><strong>DimensionScores</strong> – the individual dimension scores</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>The Scoring Results feed contains the scores awarded by subjective
 marking.  ScoringResults are associated with ScoringTasks.</p>
 </dd></dl>
 
-<dl class="feed">
-<dt id="od-feed.deliveryodata.DimensionScores">
-<code class="descname">DimensionScores</code> <a class="reference internal" href="#od-type.deliveryodata.DimensionScore" title="DimensionScore">DimensionScore</a><a class="headerlink" href="#od-feed.deliveryodata.DimensionScores" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; for reading individual scores</li>
-<li><strong>PUT</strong> &#8211; for updating the scores</li>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.DimensionScores">
+<span class="sig-name descname"><span class="pre">DimensionScores</span></span> <a class="reference internal" href="#od-type.deliveryodata.DimensionScore" title="DimensionScore"><span class="pre">DimensionScore</span></a><a class="headerlink" href="#od-feed.deliveryodata.DimensionScores" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – for reading individual scores</p></li>
+<li><p><strong>PUT</strong> – for updating the scores</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>QuestionID</strong> &#8211; note that ordering is <em>not</em> supported</li>
-<li><strong>Order</strong> &#8211; supports $orderby only, cannot be used as a filter</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>QuestionID</strong> – note that ordering is <em>not</em> supported</p></li>
+<li><p><strong>Order</strong> – supports $orderby only, cannot be used as a filter</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>Rubric</strong> &#8211; expands the associated Rubric</li>
-<li><strong>Dimension</strong> &#8211; expands the Dimension of the Rubric</li>
+</dd>
+<dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Rubric</strong> – expands the associated Rubric</p></li>
+<li><p><strong>Dimension</strong> – expands the Dimension of the Rubric</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>The DimensionScores feed contains information about the actual
 scores awarded to an answer by a subjective marking process on a
 per-dimension basis.</p>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.ScoringTask">
-<em class="property">EntityType: </em><code class="descname">ScoringTask</code><a class="headerlink" href="#od-type.deliveryodata.ScoringTask" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.ScoringTask">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">ScoringTask</span></span><a class="headerlink" href="#od-type.deliveryodata.ScoringTask" title="Permalink to this definition">¶</a></dt>
 <dd><p>A ScoringTask is created each time a participant submits an answer to
 an unscored question.</p>
-<p>ScoringTasks are keyed on a tuple of (<a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.QuestionID" title="QuestionID"><code class="xref od od-prop docutils literal"><span class="pre">QuestionID</span></code></a>,
-<a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.ResultID" title="ResultID"><code class="xref od od-prop docutils literal"><span class="pre">ResultID</span></code></a>).  On their own these values are insufficient to
+<p>ScoringTasks are keyed on a tuple of (<a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.QuestionID" title="QuestionID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">QuestionID</span></code></a>,
+<a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.ResultID" title="ResultID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">ResultID</span></code></a>).  On their own these values are insufficient to
 identify an answer record uniquely because a participant may answer
 the same question multiple times in a single assessment (but not
 twice in the same block).  The lack of an
-<a class="reference internal" href="answer.html#od-prop.deliveryodata.Answer.BlockNumber" title="BlockNumber"><code class="xref od od-prop docutils literal"><span class="pre">Answer.BlockNumber</span></code></a> property means that, for the purposes
+<a class="reference internal" href="answer.html#od-prop.deliveryodata.Answer.BlockNumber" title="BlockNumber"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Answer.BlockNumber</span></code></a> property means that, for the purposes
 of subjective scoring, an assessment must contain no more than one
 instance of each unscored question. Assessments that do not satisfy
 this constraint cannot be subjectively marked.  In practice, this is
 not a significant limitation.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringTask.QuestionID">
-<em class="property">Entity Key: </em><code class="descname">QuestionID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.QuestionID" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identifier of the question that the participant&#8217;s answer was
-a response to.  The <a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.Question" title="Question"><code class="xref od od-prop docutils literal"><span class="pre">Question</span></code></a> navigation property
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringTask.QuestionID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">QuestionID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.QuestionID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The identifier of the question that the participant’s answer was
+a response to.  The <a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.Question" title="Question"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Question</span></code></a> navigation property
 provides a more convenient way to obtain the associated question
 entity.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringTask.ResultID">
-<em class="property">Entity Key: </em><code class="descname">ResultID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.ResultID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringTask.ResultID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ResultID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.ResultID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The identifier of the result record that contains the answer.
 The
-<a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.Result" title="Result"><code class="xref od od-prop docutils literal"><span class="pre">Result</span></code></a> navigation property provides a more convenient
+<a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.Result" title="Result"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Result</span></code></a> navigation property provides a more convenient
 way to obtain the associated result entity.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringTask.Status">
-<code class="descname">Status</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.Status" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringTask.Status">
+<span class="sig-name descname"><span class="pre">Status</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.Status" title="Permalink to this definition">¶</a></dt>
 <dd><p>The status of this task:</p>
 <blockquote>
 <div><p>0   Unscored</p>
-<dl class="docutils">
-<dt>1   Locked: in this state the task cannot be scored in the</dt>
-<dd>native scoring tool in Enterprise Manager</dd>
-<dt>2   Saved: indicates that some scores have been recorded but</dt>
-<dd>the scoring process is not yet complete.</dd>
-<dt>3   Scored: indicates that the scores have been finalised</dt>
-<dd>for this task.</dd>
+<dl class="simple">
+<dt>1   Locked: in this state the task cannot be scored in the</dt><dd><p>native scoring tool in Enterprise Manager</p>
+</dd>
+<dt>2   Saved: indicates that some scores have been recorded but</dt><dd><p>the scoring process is not yet complete.</p>
+</dd>
+<dt>3   Scored: indicates that the scores have been finalised</dt><dd><p>for this task.</p>
+</dd>
 </dl>
 </div></blockquote>
 <p>The value of this property can be updated using the PUT method
 on the entity.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringTask.Question">
-<code class="descname">Question</code> <a class="reference internal" href="question.html#od-type.deliveryodata.Question" title="Question">Question</a><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.Question" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringTask.Question">
+<span class="sig-name descname"><span class="pre">Question</span></span> <a class="reference internal" href="question.html#od-type.deliveryodata.Question" title="Question"><span class="pre">Question</span></a><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.Question" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the question the participant answered.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringTask.Result">
-<code class="descname">Result</code> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.Result" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringTask.Result">
+<span class="sig-name descname"><span class="pre">Result</span></span> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><span class="pre">Result</span></a><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.Result" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the result associated with the
-participant&#8217;s answer.</p>
+participant’s answer.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringTask.Group">
-<code class="descname">Group</code> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.Group" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringTask.Group">
+<span class="sig-name descname"><span class="pre">Group</span></span> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.Group" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the optional group that provides a
-context for the participant&#8217;s result.  For example, if the
+context for the participant’s result.  For example, if the
 result was generated from an assessment scheduled to a group of
 participants the group will be available here.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringTask.Assessment">
-<code class="descname">Assessment</code> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.Assessment" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringTask.Assessment">
+<span class="sig-name descname"><span class="pre">Assessment</span></span> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><span class="pre">Assessment</span></a><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.Assessment" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the assessment the participant was
 taking when they answered the question.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringTask.ScoringResult">
-<code class="descname">ScoringResult</code> <a class="reference internal" href="#od-type.deliveryodata.ScoringResult" title="ScoringResult">ScoringResult</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.ScoringResult" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringTask.ScoringResult">
+<span class="sig-name descname"><span class="pre">ScoringResult</span></span> <a class="reference internal" href="#od-type.deliveryodata.ScoringResult" title="ScoringResult"><span class="pre">ScoringResult</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.ScoringResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the entity representing the scores
 awarded to the participant by the external marking process.
 Although this navigation property yields a collection there can
@@ -249,19 +215,19 @@ be at most one scoring result associated with a scoring task.</p>
 <p>The ScoringResult is created automatically the first time this
 collection is retrieved.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<p class="admonition-title">Warning</p>
 <p>if you expand this navigation property the API
 will yield an empty collection if the
 ScoringResult has not yet been created.  To
 ensure that the entity is created you must load
 this collection directly, e.g.:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">ScoringTask</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">/</span><span class="n">ScoringResult</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">ScoringTask</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">/</span><span class="n">ScoringResult</span>
 </pre></div>
 </div>
 <p>The brackets would contain the key identifying
 the ScoringTask entity and have been omitted in
 the example to improve readability.</p>
-<p class="last">The Question that generated the answer <em>MUST</em> be
+<p>The Question that generated the answer <em>MUST</em> be
 associated with a rubric before any
 ScoringResults can be created.  Failure to
 obtain a ScoringResult entity for a ScoringTask
@@ -270,42 +236,42 @@ been associated with a Rubric.</p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringTask.Answer">
-<code class="descname">Answer</code> <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer">Answer</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.Answer" title="Permalink to this definition">¶</a></dt>
-<dd><p>A navigation property to the entity representing the participant&#8217;s
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringTask.Answer">
+<span class="sig-name descname"><span class="pre">Answer</span></span> <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer"><span class="pre">Answer</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringTask.Answer" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the entity representing the participant’s
 answer.  Although defined as a collection there will always
 be a single Answer entity associated with each ScoringTask.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.ScoringResult">
-<em class="property">EntityType: </em><code class="descname">ScoringResult</code><a class="headerlink" href="#od-type.deliveryodata.ScoringResult" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.ScoringResult">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">ScoringResult</span></span><a class="headerlink" href="#od-type.deliveryodata.ScoringResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Results are scored using ScoringResult entities.  These entities are
 created automatically as required when the navigation collection of
 the associated ScoringTask is retrieved.  See
-<a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.ScoringResult" title="ScoringResult"><code class="xref od od-prop docutils literal"><span class="pre">ScoringTask.ScoringResult</span></code></a> for details.</p>
+<a class="reference internal" href="#od-prop.deliveryodata.ScoringTask.ScoringResult" title="ScoringResult"><code class="xref od od-prop docutils literal notranslate"><span class="pre">ScoringTask.ScoringResult</span></code></a> for details.</p>
 <p>The data exposed by this entity is stored in the
-<a class="reference internal" href="../model/st_rubric_scores.html#qm-table.st_rubricscores" title="ST_RUBRICSCORES"><code class="xref qm qm-table docutils literal"><span class="pre">ST_RUBRICSCORES</span></code></a> table in the data model.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringResult.QuestionID">
-<em class="property">Entity Key: </em><code class="descname">QuestionID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.QuestionID" title="Permalink to this definition">¶</a></dt>
+<a class="reference internal" href="../model/st_rubric_scores.html#qm-table.st_rubricscores" title="ST_RUBRICSCORES"><code class="xref qm qm-table docutils literal notranslate"><span class="pre">ST_RUBRICSCORES</span></code></a> table in the data model.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringResult.QuestionID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">QuestionID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.QuestionID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The identifier of the question - used as part of the key
 required to identify the associated ScoringTask.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringResult.ResultID">
-<em class="property">Entity Key: </em><code class="descname">ResultID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.ResultID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringResult.ResultID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ResultID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.ResultID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The identifier of the result - used as part of the key required
 to identify the associated ScoringTask.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringResult.RubricID">
-<em class="property">Entity Key: </em><code class="descname">RubricID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.RubricID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringResult.RubricID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">RubricID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.RubricID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The identifier of the Rubric that defines the rules for scoring
 the participants response.  This property is part of the key of
 the entity and, hence, the question that generated a ScoringTask
@@ -313,13 +279,13 @@ must have an associated rubric before a ScoringResult entity can
 be created to score it.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringResult.Score">
-<code class="descname">Score</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.Score" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringResult.Score">
+<span class="sig-name descname"><span class="pre">Score</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.Score" title="Permalink to this definition">¶</a></dt>
 <dd><p>The total score for the question awarded to the participant.
 This property can be updated using the PUT method on the entity.
 The score must be calculated externally and should be equal to
-the sum of the individual <a class="reference internal" href="#od-prop.deliveryodata.ScoringResult.DimensionScores" title="DimensionScores"><code class="xref od od-prop docutils literal"><span class="pre">DimensionScores</span></code></a>.  This
+the sum of the individual <a class="reference internal" href="#od-prop.deliveryodata.ScoringResult.DimensionScores" title="DimensionScores"><code class="xref od od-prop docutils literal notranslate"><span class="pre">DimensionScores</span></code></a>.  This
 constraint is not checked by the API, it is recommended that
 when updating scores you use the PUT method to update individual
 DimensionScores first and then calculate the total and update
@@ -329,137 +295,138 @@ this is the value that is used to update the score in the Answer
 entity and the corresponding result.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringResult.Comments">
-<code class="descname">Comments</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.Comments" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringResult.Comments">
+<span class="sig-name descname"><span class="pre">Comments</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.Comments" title="Permalink to this definition">¶</a></dt>
 <dd><p>A text string containing comments from the person or system
 doing the scoring.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringResult.Annotated">
-<code class="descname">Annotated</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.Annotated" title="Permalink to this definition">¶</a></dt>
-<dd><p>An annotated version of the participant&#8217;s answer as an HTML
-fragment.  See <a class="reference internal" href="../model/st_rubric_scores.html#qm-field.st_rubricscores.st_annotated" title="ST_ANNOTATED"><code class="xref qm qm-field docutils literal"><span class="pre">ST_RUBRICSCORES.ST_ANNOTATED</span></code></a> for more
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringResult.Annotated">
+<span class="sig-name descname"><span class="pre">Annotated</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.Annotated" title="Permalink to this definition">¶</a></dt>
+<dd><p>An annotated version of the participant’s answer as an HTML
+fragment.  See <a class="reference internal" href="../model/st_rubric_scores.html#qm-field.st_rubricscores.st_annotated" title="ST_ANNOTATED"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">ST_RUBRICSCORES.ST_ANNOTATED</span></code></a> for more
 information about this field.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringResult.CreatedDateTime">
-<code class="descname">CreatedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringResult.CreatedDateTime">
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A time stamp of when the entity was created.  Set automatically,
 it cannot be modified.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringResult.ModifiedDateTime">
-<code class="descname">ModifiedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringResult.ModifiedDateTime">
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A time stamp of when the entity was last modified.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">when updating the score, you must PUT the updated
+<p class="admonition-title">Note</p>
+<p>when updating the score, you must PUT the updated
 entity with the same ModifiedDateTime value as you
 received when you retrieved the entity. If the
 ModifiedDateTime date on the server has changed,
-then you&#8217;ll get a contention error and the update
+then you’ll get a contention error and the update
 will fail (with a 400 series error).  In that case
-you&#8217;ll have to retrieve the record again and compare
+you’ll have to retrieve the record again and compare
 the current values to determine whether to retry or
 abort. This procedure replaces the concept of
-&#8220;locking&#8221; a result for scoring with a form of
+“locking” a result for scoring with a form of
 optimistic concurrency control.</p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringResult.ScoringTask">
-<code class="descname">ScoringTask</code> <a class="reference internal" href="#od-type.deliveryodata.ScoringTask" title="ScoringTask">ScoringTask</a><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.ScoringTask" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringResult.ScoringTask">
+<span class="sig-name descname"><span class="pre">ScoringTask</span></span> <a class="reference internal" href="#od-type.deliveryodata.ScoringTask" title="ScoringTask"><span class="pre">ScoringTask</span></a><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.ScoringTask" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ScoringTask that this entity is providing scores for.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringResult.Rubric">
-<code class="descname">Rubric</code> <a class="reference internal" href="rubric.html#od-type.deliveryodata.Rubric" title="Rubric">Rubric</a><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.Rubric" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Rubric used to score the participant&#8217;s answer.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringResult.Rubric">
+<span class="sig-name descname"><span class="pre">Rubric</span></span> <a class="reference internal" href="rubric.html#od-type.deliveryodata.Rubric" title="Rubric"><span class="pre">Rubric</span></a><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.Rubric" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Rubric used to score the participant’s answer.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScoringResult.DimensionScores">
-<code class="descname">DimensionScores</code> <a class="reference internal" href="#od-type.deliveryodata.DimensionScore" title="DimensionScore">DimensionScore</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.DimensionScores" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScoringResult.DimensionScores">
+<span class="sig-name descname"><span class="pre">DimensionScores</span></span> <a class="reference internal" href="#od-type.deliveryodata.DimensionScore" title="DimensionScore"><span class="pre">DimensionScore</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.ScoringResult.DimensionScores" title="Permalink to this definition">¶</a></dt>
 <dd><p>A collection of DimensionScores, one per dimension defined by the
 Rubric.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.DimensionScore">
-<em class="property">EntityType: </em><code class="descname">DimensionScore</code><a class="headerlink" href="#od-type.deliveryodata.DimensionScore" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.DimensionScore">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">DimensionScore</span></span><a class="headerlink" href="#od-type.deliveryodata.DimensionScore" title="Permalink to this definition">¶</a></dt>
 <dd><p>A DimensionScore is an instance of a score for a specific
-participant&#8217;s result.  The entity is created automatically with the
-associated <a class="reference internal" href="#od-type.deliveryodata.ScoringResult" title="ScoringResult"><code class="xref od od-type docutils literal"><span class="pre">ScoringResult</span></code></a>.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.DimensionScore.QuestionID">
-<em class="property">Entity Key: </em><code class="descname">QuestionID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.QuestionID" title="Permalink to this definition">¶</a></dt>
+participant’s result.  The entity is created automatically with the
+associated <a class="reference internal" href="#od-type.deliveryodata.ScoringResult" title="ScoringResult"><code class="xref od od-type docutils literal notranslate"><span class="pre">ScoringResult</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.DimensionScore.QuestionID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">QuestionID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.QuestionID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The identifier of the question that this score relates to.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.DimensionScore.ResultID">
-<em class="property">Entity Key: </em><code class="descname">ResultID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.ResultID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.DimensionScore.ResultID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ResultID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.ResultID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The identifier of the result that was being scored.  Together
-with the <a class="reference internal" href="#od-prop.deliveryodata.DimensionScore.QuestionID" title="QuestionID"><code class="xref od od-prop docutils literal"><span class="pre">QuestionID</span></code></a> this identifies the
-<a class="reference internal" href="#od-type.deliveryodata.ScoringTask" title="ScoringTask"><code class="xref od od-type docutils literal"><span class="pre">ScoringTask</span></code></a> associated with this score.</p>
+with the <a class="reference internal" href="#od-prop.deliveryodata.DimensionScore.QuestionID" title="QuestionID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">QuestionID</span></code></a> this identifies the
+<a class="reference internal" href="#od-type.deliveryodata.ScoringTask" title="ScoringTask"><code class="xref od od-type docutils literal notranslate"><span class="pre">ScoringTask</span></code></a> associated with this score.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.DimensionScore.RubricID">
-<em class="property">Entity Key: </em><code class="descname">RubricID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.RubricID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.DimensionScore.RubricID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">RubricID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.RubricID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The identifier of the rubric containing the dimension being
 scored.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.DimensionScore.Order">
-<em class="property">Entity Key: </em><code class="descname">Order</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.Order" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.DimensionScore.Order">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">Order</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.Order" title="Permalink to this definition">¶</a></dt>
 <dd><p>The order number of the dimension being scored within the
-defining rubric.  Together with the <a class="reference internal" href="#od-prop.deliveryodata.DimensionScore.RubricID" title="RubricID"><code class="xref od od-prop docutils literal"><span class="pre">RubricID</span></code></a> this
-uniquely identifies the <a class="reference internal" href="rubric.html#od-type.deliveryodata.Dimension" title="Dimension"><code class="xref od od-type docutils literal"><span class="pre">Dimension</span></code></a> being scored.</p>
+defining rubric.  Together with the <a class="reference internal" href="#od-prop.deliveryodata.DimensionScore.RubricID" title="RubricID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">RubricID</span></code></a> this
+uniquely identifies the <a class="reference internal" href="rubric.html#od-type.deliveryodata.Dimension" title="Dimension"><code class="xref od od-type docutils literal notranslate"><span class="pre">Dimension</span></code></a> being scored.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.DimensionScore.Score">
-<code class="descname">Score</code>  Edm.Int16<a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.Score" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.DimensionScore.Score">
+<span class="sig-name descname"><span class="pre">Score</span></span>  <span class="pre">Edm.Int16</span><a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.Score" title="Permalink to this definition">¶</a></dt>
 <dd><p>The score being awarded to this participant for this dimension.
 This value can be updated using the PUT method on the entity.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.DimensionScore.Comment">
-<code class="descname">Comment</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.Comment" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.DimensionScore.Comment">
+<span class="sig-name descname"><span class="pre">Comment</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.Comment" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.DimensionScore.ScoringResult">
-<code class="descname">ScoringResult</code>  Edm.ScoringResult<a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.ScoringResult" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.DimensionScore.ScoringResult">
+<span class="sig-name descname"><span class="pre">ScoringResult</span></span>  <span class="pre">Edm.ScoringResult</span><a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.ScoringResult" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.DimensionScore.Dimension">
-<code class="descname">Dimension</code>  Edm.Dimension<a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.Dimension" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.DimensionScore.Dimension">
+<span class="sig-name descname"><span class="pre">Dimension</span></span>  <span class="pre">Edm.Dimension</span><a class="headerlink" href="#od-prop.deliveryodata.DimensionScore.Dimension" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -490,15 +457,15 @@ This value can be updated using the PUT method on the entity.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -507,11 +474,11 @@ This value can be updated using the PUT method on the entity.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/scoringtask.txt"
+      <a href="../_sources/deliveryodata/scoringtask.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

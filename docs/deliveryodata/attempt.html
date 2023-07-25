@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Attempt, AttemptLists and AttemptMetadata &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Group" href="group.html" />
     <link rel="prev" title="AssessmentSnapshot(Data)" href="assessmentsnapshot.html" />
    
@@ -35,53 +21,47 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="attempt-attemptlists-and-attemptmetadata">
-<h1>Attempt, AttemptLists and AttemptMetadata<a class="headerlink" href="#attempt-attemptlists-and-attemptmetadata" title="Permalink to this headline">¶</a></h1>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.Attempts">
-<code class="descname">Attempts</code> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-feed.deliveryodata.Attempts" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; reading attempt entities</li>
-<li><strong>POST</strong> &#8211; creating attempt entities</li>
-<li><strong>PATCH</strong> &#8211; limited support for some properties, see property descriptions for details</li>
+  <section id="attempt-attemptlists-and-attemptmetadata">
+<h1>Attempt, AttemptLists and AttemptMetadata<a class="headerlink" href="#attempt-attemptlists-and-attemptmetadata" title="Permalink to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.Attempts">
+<span class="sig-name descname"><span class="pre">Attempts</span></span> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><span class="pre">Attempt</span></a><a class="headerlink" href="#od-feed.deliveryodata.Attempts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – reading attempt entities</p></li>
+<li><p><strong>POST</strong> – creating attempt entities</p></li>
+<li><p><strong>PATCH</strong> – limited support for some properties, see property descriptions for details</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>ExternalAttemptID</strong> &#8211; reference in external system</li>
-<li><strong>ScheduleID</strong> &#8211; the associated schedule</li>
-<li><strong>AttemptListID</strong> &#8211; the associated attempt list</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>ExternalAttemptID</strong> – reference in external system</p></li>
+<li><p><strong>ScheduleID</strong> – the associated schedule</p></li>
+<li><p><strong>AttemptListID</strong> – the associated attempt list</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>AnswerUpload</strong> &#8211; expands the optional associated AnswerUpload</li>
-<li><strong>AttemptList</strong> &#8211; expands the optional associated AttemptList</li>
-<li><strong>AttemptMetadata</strong> &#8211; expands the optional metadata</li>
-<li><strong>MonitoringType</strong> &#8211; expands the optional MonitoringType</li>
-<li><strong>Result</strong> &#8211; expands the optional Result</li>
+</dd>
+<dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AnswerUpload</strong> – expands the optional associated AnswerUpload</p></li>
+<li><p><strong>AttemptList</strong> – expands the optional associated AttemptList</p></li>
+<li><p><strong>AttemptMetadata</strong> – expands the optional metadata</p></li>
+<li><p><strong>MonitoringType</strong> – expands the optional MonitoringType</p></li>
+<li><p><strong>Result</strong> – expands the optional Result</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>$orderby is <em>not</em> supported.</p>
 <p>The Attempts feed contains an entry for each attempt at an
 assessment. Attempts represent the authority to take a test and link
@@ -96,80 +76,66 @@ general platform for use by external systems that maintain their own
 business rules.</p>
 </dd></dl>
 
-<dl class="feed">
-<dt id="od-feed.deliveryodata.AttemptLists">
-<code class="descname">AttemptLists</code> <a class="reference internal" href="#od-type.deliveryodata.AttemptList" title="AttemptList">AttemptList</a><a class="headerlink" href="#od-feed.deliveryodata.AttemptLists" title="Permalink to this definition">¶</a></dt>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.AttemptLists">
+<span class="sig-name descname"><span class="pre">AttemptLists</span></span> <a class="reference internal" href="#od-type.deliveryodata.AttemptList" title="AttemptList"><span class="pre">AttemptList</span></a><a class="headerlink" href="#od-feed.deliveryodata.AttemptLists" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version OnDemand: </span>2016.09</p>
+<p><span class="versionmodified added">New in version OnDemand: </span>2016.09</p>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; reading attempt list entities</li>
-<li><strong>POST</strong> &#8211; creating attempt list entities</li>
+<dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – reading attempt list entities</p></li>
+<li><p><strong>POST</strong> – creating attempt list entities</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>ExternalAttemptListID</strong> &#8211; external reference</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>ExternalAttemptListID</strong> – external reference</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>Attempts</strong> &#8211; expands the associated Attempts</li>
+</dd>
+<dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Attempts</strong> – expands the associated Attempts</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>$orderby is <em>not</em> supported.</p>
 <p>The AttemptLists feed supports the arbitrary grouping of attempts
 allowing a pre-defined group of attempts to be managed by a single
 proctor or external business process.</p>
 </dd></dl>
 
-<dl class="feed">
-<dt id="od-feed.deliveryodata.AttemptMetadata">
-<code class="descname">AttemptMetadata</code> <a class="reference internal" href="#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata">AttemptMetadata</a><a class="headerlink" href="#od-feed.deliveryodata.AttemptMetadata" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; reading attempt metadata key-value pairs</li>
-<li><strong>POST</strong> &#8211; creating attempt metadata key-value pairs</li>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.AttemptMetadata">
+<span class="sig-name descname"><span class="pre">AttemptMetadata</span></span> <a class="reference internal" href="#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata"><span class="pre">AttemptMetadata</span></a><a class="headerlink" href="#od-feed.deliveryodata.AttemptMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – reading attempt metadata key-value pairs</p></li>
+<li><p><strong>POST</strong> – creating attempt metadata key-value pairs</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>AttemptID</strong> &#8211; associated attempt</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>AttemptID</strong> – associated attempt</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>Attempt</strong> &#8211; expands the associated Attempt</li>
+</dd>
+<dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Attempt</strong> – expands the associated Attempt</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>$orderby is <em>not</em> supported.</p>
 <p>The attempt metadata feed allows arbitrary metadata to be associated
 with an attempt.  Although entities can be created and accessed
 directly from this feed they are always associated with an Attempt
 and can be created in a single OData call at the same time as the
 Attempt itself.  For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span><span class="n">Attempts</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span><span class="n">Attempts</span>
 <span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
 
 <span class="p">{</span>
@@ -190,7 +156,7 @@ Attempt itself.  For example:</p>
 </pre></div>
 </div>
 <p>The response is a new Attempt record:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">201</span> <span class="n">Created</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">201</span> <span class="n">Created</span>
 <span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
 
 <span class="p">{</span>
@@ -214,7 +180,7 @@ Attempt itself.  For example:</p>
 </div>
 <p>You can see the newly created metadata records by expanding the
 AttemptMetadata:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>GET &lt;service root&gt;/Attempts(180)?$expand=AttemptMetadata
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET &lt;service root&gt;/Attempts(180)?$expand=AttemptMetadata
 
 200 OK
 Content-Type: application/json; charset=utf-8
@@ -254,28 +220,23 @@ Content-Type: application/json; charset=utf-8
 </div>
 </dd></dl>
 
-<dl class="feed">
-<dt id="od-feed.deliveryodata.SessionAuditLog">
-<code class="descname">SessionAuditLog</code> <a class="reference internal" href="#od-type.deliveryodata.SessionAuditLog" title="SessionAuditLog">SessionAuditLog</a><a class="headerlink" href="#od-feed.deliveryodata.SessionAuditLog" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>GET</strong> &#8211; read only</li>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.SessionAuditLog">
+<span class="sig-name descname"><span class="pre">SessionAuditLog</span></span> <a class="reference internal" href="#od-type.deliveryodata.SessionAuditLog" title="SessionAuditLog"><span class="pre">SessionAuditLog</span></a><a class="headerlink" href="#od-feed.deliveryodata.SessionAuditLog" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – read only</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.Attempt">
-<em class="property">EntityType: </em><code class="descname">Attempt</code><a class="headerlink" href="#od-type.deliveryodata.Attempt" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.Attempt">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">Attempt</span></span><a class="headerlink" href="#od-type.deliveryodata.Attempt" title="Permalink to this definition">¶</a></dt>
 <dd><p>The attempt entity and the corresponding feed are being developed as
-the preferred way to control assessment delivery in Questionmark&#8217;s
+the preferred way to control assessment delivery in Questionmark’s
 <em>next generation</em> toolset.  The entity was introduced to
 Questionmark OnDemand during 2015 covering initial use cases centred
 on proctoring, allowing assessments to be launched into a lockable
@@ -284,29 +245,29 @@ in 2016 to cover external delivery through printing and scanning.</p>
 <p>It is currently be extended further to support both proctored and
 unproctored scenarios providing support for a wide range of
 scheduling modules including a new Scheduling API based on the
-<a class="reference internal" href="schedule.html#od-feed.deliveryodata.Schedules" title="Schedules"><code class="xref od od-feed docutils literal"><span class="pre">Schedules</span></code></a> feed.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ID" title="Permalink to this definition">¶</a></dt>
+<a class="reference internal" href="schedule.html#od-feed.deliveryodata.Schedules" title="Schedules"><code class="xref od od-feed docutils literal notranslate"><span class="pre">Schedules</span></code></a> feed.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attempts are identified by a numeric ID automatically assigned
 on creation.  You cannot control this value.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.AttemptListID">
-<code class="descname">AttemptListID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Attempt.AttemptListID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.AttemptListID">
+<span class="sig-name descname"><span class="pre">AttemptListID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.AttemptListID" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2016.09.</span></p>
+<p><span class="versionmodified added">New in version 2016.09.</span></p>
 </div>
 <p>This optional field allows attempts to be grouped together (for
 the purposes of simultaneously proctoring multiple running
 assessments).  An attempt may only be associated with a single
-<a class="reference internal" href="#od-type.deliveryodata.AttemptList" title="AttemptList"><code class="xref od od-type docutils literal"><span class="pre">AttemptList</span></code></a>.</p>
+<a class="reference internal" href="#od-type.deliveryodata.AttemptList" title="AttemptList"><code class="xref od od-type docutils literal notranslate"><span class="pre">AttemptList</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.ExternalAttemptID">
-<code class="descname">ExternalAttemptID</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ExternalAttemptID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.ExternalAttemptID">
+<span class="sig-name descname"><span class="pre">ExternalAttemptID</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.ExternalAttemptID" title="Permalink to this definition">¶</a></dt>
 <dd><p>An external identifier for the attempt.  This value is intended
 to be used by external scheduling modules that contain their own
 business rules.  Such a module may set this property on creation
@@ -323,22 +284,22 @@ characters.</p>
 <p>This required property provides an important defence against the
 accidental creation of multiple attempts where only one is
 allowed, for example, through a race condition in the calling
-application.  By guaranteeing the uniqueness of this property&#8217;s
+application.  By guaranteeing the uniqueness of this property’s
 value the API will return an error if the caller attempts to
 create a an attempt with an external ID that matches an attempt
 that has already been created.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.ScheduleID">
-<code class="descname">ScheduleID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ScheduleID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.ScheduleID">
+<span class="sig-name descname"><span class="pre">ScheduleID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.ScheduleID" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.07.</span></p>
+<p><span class="versionmodified added">New in version 2017.07.</span></p>
 </div>
-<p>An optional ID for the associated <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal"><span class="pre">Schedule</span></code></a> entity.
-Unlike the ExternalAttemptID this value is used by the API&#8217;s own
+<p>An optional ID for the associated <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal notranslate"><span class="pre">Schedule</span></code></a> entity.
+Unlike the ExternalAttemptID this value is used by the API’s own
 <em>internal</em> scheduling features.  It is used in conjunction with
-the <a class="reference internal" href="#od-prop.deliveryodata.Attempt.AttemptNumber" title="AttemptNumber"><code class="xref od od-prop docutils literal"><span class="pre">AttemptNumber</span></code></a> to manage attempt limits with a
+the <a class="reference internal" href="#od-prop.deliveryodata.Attempt.AttemptNumber" title="AttemptNumber"><code class="xref od od-prop docutils literal notranslate"><span class="pre">AttemptNumber</span></code></a> to manage attempt limits with a
 high degree of defence against race conditions ensuring that
 callers cannot create two attempts that reference the same
 Schedule with the same AttemptNumber.</p>
@@ -346,54 +307,54 @@ Schedule with the same AttemptNumber.</p>
 as NULL.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.AttemptNumber">
-<code class="descname">AttemptNumber</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Attempt.AttemptNumber" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.AttemptNumber">
+<span class="sig-name descname"><span class="pre">AttemptNumber</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.AttemptNumber" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.07.</span></p>
+<p><span class="versionmodified added">New in version 2017.07.</span></p>
 </div>
 <p>An optional attempt number used in conjunction with the
-<a class="reference internal" href="#od-prop.deliveryodata.Attempt.ScheduleID" title="ScheduleID"><code class="xref od od-prop docutils literal"><span class="pre">ScheduleID</span></code></a> to control the way attempts are created
+<a class="reference internal" href="#od-prop.deliveryodata.Attempt.ScheduleID" title="ScheduleID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">ScheduleID</span></code></a> to control the way attempts are created
 for a scheduled assessment.  When creating attempts yourself you
 should leave this property as NULL.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.ParticipantID">
-<code class="descname">ParticipantID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ParticipantID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.ParticipantID">
+<span class="sig-name descname"><span class="pre">ParticipantID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.ParticipantID" title="Permalink to this definition">¶</a></dt>
 <dd><p>All attempts must be for a specified participant, this value is
-required.  Attempts are non-transferable, you can&#8217;t modify this
+required.  Attempts are non-transferable, you can’t modify this
 value once the attempt has been created.  This value must also
-be the ID of an existing <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant"><code class="xref od od-type docutils literal"><span class="pre">Participant</span></code></a> entity.</p>
+be the ID of an existing <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant"><code class="xref od od-type docutils literal notranslate"><span class="pre">Participant</span></code></a> entity.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.AssessmentID">
-<code class="descname">AssessmentID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Attempt.AssessmentID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.AssessmentID">
+<span class="sig-name descname"><span class="pre">AssessmentID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.AssessmentID" title="Permalink to this definition">¶</a></dt>
 <dd><p>All attempts must be for a specified assessment, this value is
-required.  You can&#8217;t modify this value once the attempt has been
+required.  You can’t modify this value once the attempt has been
 created.  This value must also be the ID of an existing
-<a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><code class="xref od od-type docutils literal"><span class="pre">Assessment</span></code></a> entity.  See also
-<a class="reference internal" href="assessment.html#od-prop.deliveryodata.Assessment.Language" title="Language"><code class="xref od od-prop docutils literal"><span class="pre">Assessment.Language</span></code></a> below.</p>
+<a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><code class="xref od od-type docutils literal notranslate"><span class="pre">Assessment</span></code></a> entity.  See also
+<a class="reference internal" href="assessment.html#od-prop.deliveryodata.Assessment.Language" title="Language"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Assessment.Language</span></code></a> below.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.AssessmentSnapshotID">
-<code class="descname">AssessmentSnapshotID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Attempt.AssessmentSnapshotID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.AssessmentSnapshotID">
+<span class="sig-name descname"><span class="pre">AssessmentSnapshotID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.AssessmentSnapshotID" title="Permalink to this definition">¶</a></dt>
 <dd><p>An attempt may optionally be associated with a specific snapshot
-of the assessment.  You can&#8217;t modify this value once the attempt
+of the assessment.  You can’t modify this value once the attempt
 has been created.  If specified, this value must be the ID of an
-<a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><code class="xref od od-type docutils literal"><span class="pre">AssessmentSnapshot</span></code></a> entity.</p>
+<a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><code class="xref od od-type docutils literal notranslate"><span class="pre">AssessmentSnapshot</span></code></a> entity.</p>
 <p>This feature is currently only implemented for external delivery
 methods.  In other words, an attempt for a specified snapshot
 <em>must</em> be delivered externally (e.g., using printing and
 scanning) and scored by uploading a result file to the
-<a class="reference internal" href="answerupload.html#od-feed.deliveryodata.AnswerUploads" title="AnswerUploads"><code class="xref od od-feed docutils literal"><span class="pre">deliveryodata.AnswerUploads</span></code></a> feed.</p>
+<a class="reference internal" href="answerupload.html#od-feed.deliveryodata.AnswerUploads" title="AnswerUploads"><code class="xref od od-feed docutils literal notranslate"><span class="pre">deliveryodata.AnswerUploads</span></code></a> feed.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.Language">
-<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Attempt.Language" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.Language">
+<span class="sig-name descname"><span class="pre">Language</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.Language" title="Permalink to this definition">¶</a></dt>
 <dd><p>The optional Language property allows you to control which
 language the assessment will be delivered in.  By default this
 value is NULL and the participant will be offered a choice of
@@ -405,45 +366,45 @@ that language.  The assessment is then started in that language
 and the participant is not offered a choice.</p>
 <p>Specifying a snapshot automatically specifies the language of
 the assessment, the value of this property is ignored if
-<a class="reference internal" href="#od-prop.deliveryodata.Attempt.AssessmentSnapshotID" title="AssessmentSnapshotID"><code class="xref od od-prop docutils literal"><span class="pre">AssessmentSnapshotID</span></code></a> is specified.</p>
+<a class="reference internal" href="#od-prop.deliveryodata.Attempt.AssessmentSnapshotID" title="AssessmentSnapshotID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">AssessmentSnapshotID</span></code></a> is specified.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.MonitoringTypeID">
-<code class="descname">MonitoringTypeID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Attempt.MonitoringTypeID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.MonitoringTypeID">
+<span class="sig-name descname"><span class="pre">MonitoringTypeID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.MonitoringTypeID" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
-<p>An optional reference to a <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal"><span class="pre">MonitoringType</span></code></a> entity.</p>
+<p>An optional reference to a <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal notranslate"><span class="pre">MonitoringType</span></code></a> entity.</p>
 <p>Online assessments may be proctored or <em>monitored</em> using a range
 of technical approaches depending on the requirements.  In some
 cases, <em>all</em> attempts at an assessment are managed in the same
 way but this is not required.  The monitoring type can be
 controlled on an attempt-by-attempt basis switching between
 different configurations of the monitoring toolset.</p>
-<p>For more information see <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal"><span class="pre">MonitoringType</span></code></a>.</p>
+<p>For more information see <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal notranslate"><span class="pre">MonitoringType</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.LockRequired">
-<code class="descname">LockRequired</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Attempt.LockRequired" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.LockRequired">
+<span class="sig-name descname"><span class="pre">LockRequired</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.LockRequired" title="Permalink to this definition">¶</a></dt>
 <dd><p>Online assessments may be proctored.  A proctored assessment may
 not be started until a second actor (the Proctor) has approved
 it.  There are many ways of providing this approval but for the
 purposes of this API, assessments proctored using
-Quesetionmark&#8217;s built-in proctoring tools are indicated by
+Quesetionmark’s built-in proctoring tools are indicated by
 setting LockRequired to True on creation.  The value may not be
 modified.</p>
 <p>When the participant launches (or resumes) an attempt that
 requires a lock they are taken to the exam lobby.  The lobby is
 automatically locked on entry and the participant is not allowed
 to start the assessment until the attempt is unlocked (see
-<a class="reference internal" href="#od-prop.deliveryodata.Attempt.LockStatus" title="LockStatus"><code class="xref od od-prop docutils literal"><span class="pre">LockStatus</span></code></a> below for more information).</p>
+<a class="reference internal" href="#od-prop.deliveryodata.Attempt.LockStatus" title="LockStatus"><code class="xref od od-prop docutils literal notranslate"><span class="pre">LockStatus</span></code></a> below for more information).</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.LockStatus">
-<code class="descname">LockStatus</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Attempt.LockStatus" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.LockStatus">
+<span class="sig-name descname"><span class="pre">LockStatus</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.LockStatus" title="Permalink to this definition">¶</a></dt>
 <dd><p>For proctored attempts, the lock status property indicates
 whether or not the lobby is currently locked.  The value True
 indicates that the lobby is locked, False indicates that it is
@@ -454,36 +415,36 @@ lobby) using the PATCH method.  If the participant is waiting in
 the lobby they are notified immediately, typically by enabling
 (or disabling) the button used to start the assessment itself.</p>
 <p>It is recommended that on creation, this value is set to match
-the value of <a class="reference internal" href="#od-prop.deliveryodata.Attempt.LockRequired" title="LockRequired"><code class="xref od od-prop docutils literal"><span class="pre">LockRequired</span></code></a>, however, when the
+the value of <a class="reference internal" href="#od-prop.deliveryodata.Attempt.LockRequired" title="LockRequired"><code class="xref od od-prop docutils literal notranslate"><span class="pre">LockRequired</span></code></a>, however, when the
 participant enters or re-enters the lobby the lock status will
 automatically be set to True if LockRequired is True.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.ParticipantSystemCheckUrl">
-<code class="descname">ParticipantSystemCheckUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ParticipantSystemCheckUrl" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.ParticipantSystemCheckUrl">
+<span class="sig-name descname"><span class="pre">ParticipantSystemCheckUrl</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.ParticipantSystemCheckUrl" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2016.12.</span></p>
+<p><span class="versionmodified added">New in version 2016.12.</span></p>
 </div>
 <p>An optional URL that will be displayed to the participant on
 entering the exam lobby to assist with checking compatibility
-of the participant&#8217;s device against the technology requirements
+of the participant’s device against the technology requirements
 of the proctoring process.</p>
 <p>This property may be PATCHed.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">if you omit this value or pass NULL a default system
+<p class="admonition-title">Note</p>
+<p>if you omit this value or pass NULL a default system
 check page is shown.  To explicitly indicate that no
 system check is required pass the special URL
-&#8220;<a class="reference external" href="about:blank">about:blank</a>&#8221;.</p>
+“<a class="reference external" href="about:blank">about:blank</a>”.</p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.UnlockCode">
-<code class="descname">UnlockCode</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Attempt.UnlockCode" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.UnlockCode">
+<span class="sig-name descname"><span class="pre">UnlockCode</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.UnlockCode" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.03.</span></p>
+<p><span class="versionmodified added">New in version 2017.03.</span></p>
 </div>
 <p>An optional alpha-numeric string that may be used by the
 participant to start their test <em>without</em> unlocking the lobby.
@@ -493,21 +454,21 @@ instead of waiting for a proctor to unlock their exam manually
 using the proctor controls.  This technique can be used in cases
 where the proctor does not have access to the controls (for
 whatever reason) or for convenience when proctoring groups of
-people (see <a class="reference internal" href="#od-type.deliveryodata.AttemptList" title="AttemptList"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.AttemptList</span></code></a>). It is
+people (see <a class="reference internal" href="#od-type.deliveryodata.AttemptList" title="AttemptList"><code class="xref od od-type docutils literal notranslate"><span class="pre">deliveryodata.AttemptList</span></code></a>). It is
 critical that the participant is only given the unlock code by
-the proctor once they are satisfied that the participant&#8217;s
+the proctor once they are satisfied that the participant’s
 environment has been secured and that any extended
 identification checks have completed successfully.</p>
 <p>This property may be PATCHed.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.UnlockCodeExpiresDateTime">
-<code class="descname">UnlockCodeExpiresDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Attempt.UnlockCodeExpiresDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.UnlockCodeExpiresDateTime">
+<span class="sig-name descname"><span class="pre">UnlockCodeExpiresDateTime</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.UnlockCodeExpiresDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.07.</span></p>
+<p><span class="versionmodified added">New in version 2017.07.</span></p>
 </div>
-<p>The expiry time of the <a class="reference internal" href="#od-prop.deliveryodata.Attempt.UnlockCode" title="UnlockCode"><code class="xref od od-prop docutils literal"><span class="pre">UnlockCode</span></code></a> in UTC.  After this
+<p>The expiry time of the <a class="reference internal" href="#od-prop.deliveryodata.Attempt.UnlockCode" title="UnlockCode"><code class="xref od od-prop docutils literal notranslate"><span class="pre">UnlockCode</span></code></a> in UTC.  After this
 time the unlock code will be considered void and will not permit
 the participant to start the test.</p>
 <p>If you create an Attempt with an UnlockCode, or PATCH the
@@ -518,36 +479,36 @@ must calculate the required value yourself and ensure it is set
 in the same request (POST or PATCH) as the UnlockCode.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.ResultID">
-<code class="descname">ResultID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ResultID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.ResultID">
+<span class="sig-name descname"><span class="pre">ResultID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.ResultID" title="Permalink to this definition">¶</a></dt>
 <dd><p>As soon as the candidate starts taking the assessment online, or
 as soon as an external system uploads a set of answers, a result
 record is created.  This value is set automatically and will
 always be NULL on creation.  See
-<a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.Result</span></code></a> for more information.</p>
+<a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal notranslate"><span class="pre">deliveryodata.Result</span></code></a> for more information.</p>
 <p>In branching scenarios this ID is updated to point to a new
 Result each time the assessment branches.  Therefore, this ID is
 the ID of the current (or latest) assessment in any chain of
 branched assessments.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.NextBranchedAttemptID">
-<code class="descname">NextBranchedAttemptID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Attempt.NextBranchedAttemptID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.NextBranchedAttemptID">
+<span class="sig-name descname"><span class="pre">NextBranchedAttemptID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.NextBranchedAttemptID" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>Reserved for future use.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.ParticipantFacingQMLobbyUrl">
-<code class="descname">ParticipantFacingQMLobbyUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ParticipantFacingQMLobbyUrl" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.ParticipantFacingQMLobbyUrl">
+<span class="sig-name descname"><span class="pre">ParticipantFacingQMLobbyUrl</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.ParticipantFacingQMLobbyUrl" title="Permalink to this definition">¶</a></dt>
 <dd><p>In order to start the assessmet described by the attempt the
 candidate must launch the participant-facing lobby URL.  This is
 a time-limited cryptographically signed URL that must be sent
-to the participant&#8217;s browser to allow them to enter the lobby
+to the participant’s browser to allow them to enter the lobby
 (and hence to start the assessment itself).</p>
 <p>If the assessment is marked as requiring Questionmark Secure
 this link may be a specially encrypted qmsb: URL suitable for
@@ -555,23 +516,23 @@ launching Questionmark Secure automatically if it is already
 installed. Determining whether or not Questionmark Secure is
 installed is out of scope for the lobby as currently implemented.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">in future this URL may launch unproctored
+<p class="admonition-title">Warning</p>
+<p>in future this URL may launch unproctored
 assessments directly without directing the
 candidate to the lobby first.</p>
 </div>
-<p>This property is read only.  The property&#8217;s value is updated
+<p>This property is read only.  The property’s value is updated
 each time the entity is retrieved but is only present when the
-entity is retrieved directly from the <em>entity&#8217;s</em> URL.  If the
+entity is retrieved directly from the <em>entity’s</em> URL.  If the
 entity is retrieved as part of a larger collection (even if that
 collection contains a single member) then its value will be
 NULL.  In practice this means that a URL such as:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Attempts</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Attempts</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>can be used to retrieve the URL for the participant but that a
 general URL such as:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Attempts</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Attempts</span>
 </pre></div>
 </div>
 <p>cannot.</p>
@@ -580,70 +541,70 @@ prior to the start of the assessment.  The link is only valid
 for a single request, to re-enter the lobby after a failure the
 entity will need to be retrieved again to obtain a new link.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>The time window is sufficient to cover
 network latency and page load times but is not long
 enough to allow it to be retrieved in advance and
 stored for later use. A suitable implementation
 would be to retrieve the entity when the participant
-clicks a &#8216;start test&#8217; button and then use this link
-to redirect the participant&#8217;s browser to the lobby
+clicks a ‘start test’ button and then use this link
+to redirect the participant’s browser to the lobby
 without further user intervention.</p>
-<p class="last">This time window may be variable in future to
+<p>This time window may be variable in future to
 accommodate unproctored sessions or third party
 proctoring solutions (see
-<a class="reference internal" href="#od-prop.deliveryodata.Attempt.ParticipantFacingProctorSystemWidgetUrl" title="ParticipantFacingProctorSystemWidgetUrl"><code class="xref od od-prop docutils literal"><span class="pre">ParticipantFacingProctorSystemWidgetUrl</span></code></a>
+<a class="reference internal" href="#od-prop.deliveryodata.Attempt.ParticipantFacingProctorSystemWidgetUrl" title="ParticipantFacingProctorSystemWidgetUrl"><code class="xref od od-prop docutils literal notranslate"><span class="pre">ParticipantFacingProctorSystemWidgetUrl</span></code></a>
 for more information).</p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.ProctorFacingQMControlsWidgetUrl">
-<code class="descname">ProctorFacingQMControlsWidgetUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ProctorFacingQMControlsWidgetUrl" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.ProctorFacingQMControlsWidgetUrl">
+<span class="sig-name descname"><span class="pre">ProctorFacingQMControlsWidgetUrl</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.ProctorFacingQMControlsWidgetUrl" title="Permalink to this definition">¶</a></dt>
 <dd><p>This property contains a URL that can be used by a proctor to
 access a widget suitable for controlling the attempt.  The
 controls allow the proctor to unlock, pause, continue and
 terminate the attempt.</p>
-<p>This property is read only.  The property&#8217;s value is updated
+<p>This property is read only.  The property’s value is updated
 each time the entity is retrieved but, like
 ParticipantFacingQMLobbyUrl, it is only present when the entity
-is retrieved directly from the <em>entity&#8217;s</em> URL.</p>
+is retrieved directly from the <em>entity’s</em> URL.</p>
 <p>It is intended that the entity will be retrieved when the
 participant is ready to take the assessment and this link passed
-to the proctor&#8217;s browser for use during the session. The link
+to the proctor’s browser for use during the session. The link
 may be accessed multiple times and may also be stored by the
 proctoring system for the duration of the session and re-used to
 bring up the controls on an as-needed basis.  The link is
 time-limited, it will remain valid throughout the session but if
-the participant&#8217;s attempt is split over multiple proctoring
+the participant’s attempt is split over multiple proctoring
 sessions a new link will need to be generated each time.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.ReviewUrl">
-<code class="descname">ReviewUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ReviewUrl" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.ReviewUrl">
+<span class="sig-name descname"><span class="pre">ReviewUrl</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.ReviewUrl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reserved for future use.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.ParticipantFacingProctorSystemWidgetUrl">
-<code class="descname">ParticipantFacingProctorSystemWidgetUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Attempt.ParticipantFacingProctorSystemWidgetUrl" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.ParticipantFacingProctorSystemWidgetUrl">
+<span class="sig-name descname"><span class="pre">ParticipantFacingProctorSystemWidgetUrl</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.ParticipantFacingProctorSystemWidgetUrl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reserved for future use.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.LastModifiedDateTime">
-<code class="descname">LastModifiedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Attempt.LastModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.LastModifiedDateTime">
+<span class="sig-name descname"><span class="pre">LastModifiedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.LastModifiedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A time stamp of when the attempt was last modified.  Set
 automatically, it cannot be modified directly but a call to the
 PATCH method on the associated feed will cause it to be updated.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.Disabled">
-<code class="descname">Disabled</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Attempt.Disabled" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.Disabled">
+<span class="sig-name descname"><span class="pre">Disabled</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.Disabled" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.04.</span></p>
+<p><span class="versionmodified added">New in version 2021.04.</span></p>
 </div>
 <p>If True then any associated Schedule is disabled <em>for the
 associated Participant</em>.  An Attempt may be disabled due to an
@@ -651,24 +612,24 @@ administrative issue that requires administrative intervention
 before the Participant can be allowed to resume taking the
 scheduled assessment.  The Disabled flag affects the permitted
 actions returned by the various actions that return
-<a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><code class="xref od od-type docutils literal"><span class="pre">ActionableSchedule</span></code></a>.</p>
+<a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><code class="xref od od-type docutils literal notranslate"><span class="pre">ActionableSchedule</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.Result">
-<code class="descname">Result</code> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.Result" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.Result">
+<span class="sig-name descname"><span class="pre">Result</span></span> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><span class="pre">Result</span></a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.Result" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>This optional field allows you to navigate to the currently
-associated Result entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.ResultID" title="ResultID"><code class="xref od od-prop docutils literal"><span class="pre">ResultID</span></code></a>.</p>
+associated Result entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.ResultID" title="ResultID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">ResultID</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.BranchedResults">
-<code class="descname">BranchedResults</code> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.BranchedResults" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.BranchedResults">
+<span class="sig-name descname"><span class="pre">BranchedResults</span></span> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><span class="pre">Result</span></a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.BranchedResults" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2020.01.</span></p>
+<p><span class="versionmodified added">New in version 2020.01.</span></p>
 </div>
 <p>Assessment branching allows a single Attempt to be used to
 control access to a chain of Assessments through conditional
@@ -677,45 +638,45 @@ the next Assessment in the chain.  The Result navigation
 property always points to the the result of the current (or
 last) Assessment in the chain.  To gain access to all the
 results associated with the Attempt use the BranchedResults
-navigation property instead.  The <a class="reference internal" href="result.html#od-prop.deliveryodata.Result.WhenStarted" title="WhenStarted"><code class="xref od od-prop docutils literal"><span class="pre">Result.WhenStarted</span></code></a>
+navigation property instead.  The <a class="reference internal" href="result.html#od-prop.deliveryodata.Result.WhenStarted" title="WhenStarted"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Result.WhenStarted</span></code></a>
 time can be used to determine the order in which the results
 were generated.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.Schedule">
-<code class="descname">Schedule</code> <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule">Schedule</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.Schedule" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.Schedule">
+<span class="sig-name descname"><span class="pre">Schedule</span></span> <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><span class="pre">Schedule</span></a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.Schedule" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.07.</span></p>
+<p><span class="versionmodified added">New in version 2017.07.</span></p>
 </div>
 <p>This optional field allows you to navigate to the associated
-Schedule entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.ScheduleID" title="ScheduleID"><code class="xref od od-prop docutils literal"><span class="pre">ScheduleID</span></code></a>.</p>
+Schedule entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.ScheduleID" title="ScheduleID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">ScheduleID</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.MonitoringType">
-<code class="descname">MonitoringType</code> <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType">MonitoringType</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.MonitoringType" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.MonitoringType">
+<span class="sig-name descname"><span class="pre">MonitoringType</span></span> <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><span class="pre">MonitoringType</span></a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.MonitoringType" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>This optional field allows you to navigate to the associated
-MonitoringType entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.MonitoringTypeID" title="MonitoringTypeID"><code class="xref od od-prop docutils literal"><span class="pre">MonitoringTypeID</span></code></a>.</p>
+MonitoringType entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.MonitoringTypeID" title="MonitoringTypeID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">MonitoringTypeID</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.Appointments">
-<code class="descname">Appointments</code> <a class="reference internal" href="#od-type.deliveryodata.Appointment" title="Appointment">Appointment</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Attempt.Appointments" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.Appointments">
+<span class="sig-name descname"><span class="pre">Appointments</span></span> <a class="reference internal" href="#od-type.deliveryodata.Appointment" title="Appointment"><span class="pre">Appointment</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.Appointments" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2019.05.</span></p>
+<p><span class="versionmodified added">New in version 2019.05.</span></p>
 </div>
 <p>When used with a MonitoringType that requires appointments to be
 pre-booked, this navigation property exposes the information
 about the Appointments associated with the Attempt.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.AnswerUpload">
-<code class="descname">AnswerUpload</code> <a class="reference internal" href="answerupload.html#od-type.deliveryodata.AnswerUpload" title="AnswerUpload">AnswerUpload</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.AnswerUpload" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.AnswerUpload">
+<span class="sig-name descname"><span class="pre">AnswerUpload</span></span> <a class="reference internal" href="answerupload.html#od-type.deliveryodata.AnswerUpload" title="AnswerUpload"><span class="pre">AnswerUpload</span></a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.AnswerUpload" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to a set of answers uploaded from an
 external delivery system.  The presence of a related
 AnswerUpload entity indicates that the attempt has been taken
@@ -723,32 +684,32 @@ externally. There can only ever be a single set of uploaded answers
 associated with an attempt.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.AttemptList">
-<code class="descname">AttemptList</code> <a class="reference internal" href="#od-type.deliveryodata.AttemptList" title="AttemptList">AttemptList</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.AttemptList" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.AttemptList">
+<span class="sig-name descname"><span class="pre">AttemptList</span></span> <a class="reference internal" href="#od-type.deliveryodata.AttemptList" title="AttemptList"><span class="pre">AttemptList</span></a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.AttemptList" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2016.09.</span></p>
+<p><span class="versionmodified added">New in version 2016.09.</span></p>
 </div>
 <p>This optional field allows you to navigate to an associated
-AttemptList entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.AttemptListID" title="AttemptListID"><code class="xref od od-prop docutils literal"><span class="pre">AttemptListID</span></code></a>.</p>
+AttemptList entity.  See also <a class="reference internal" href="#od-prop.deliveryodata.Attempt.AttemptListID" title="AttemptListID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">AttemptListID</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.AttemptMetadata">
-<code class="descname">AttemptMetadata</code> <a class="reference internal" href="#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata">AttemptMetadata</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Attempt.AttemptMetadata" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.AttemptMetadata">
+<span class="sig-name descname"><span class="pre">AttemptMetadata</span></span> <a class="reference internal" href="#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata"><span class="pre">AttemptMetadata</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.AttemptMetadata" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2016.12.</span></p>
+<p><span class="versionmodified added">New in version 2016.12.</span></p>
 </div>
 <p>This optional field allows you to navigate to the associated
-AttemptMetdata entities.  See <a class="reference internal" href="#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata"><code class="xref od od-type docutils literal"><span class="pre">AttemptMetadata</span></code></a> for
+AttemptMetdata entities.  See <a class="reference internal" href="#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata"><code class="xref od od-type docutils literal notranslate"><span class="pre">AttemptMetadata</span></code></a> for
 more information.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Attempt.SessionAuditLog">
-<code class="descname">SessionAuditLog</code> <a class="reference internal" href="#od-type.deliveryodata.SessionAuditLog" title="SessionAuditLog">SessionAuditLog</a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.SessionAuditLog" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.SessionAuditLog">
+<span class="sig-name descname"><span class="pre">SessionAuditLog</span></span> <a class="reference internal" href="#od-type.deliveryodata.SessionAuditLog" title="SessionAuditLog"><span class="pre">SessionAuditLog</span></a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.SessionAuditLog" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2019.02.</span></p>
+<p><span class="versionmodified added">New in version 2019.02.</span></p>
 </div>
 <p>This optional field allows you to navigate to the session audit
 log for this attempt.  The audit log is a detailed trail of
@@ -758,164 +719,164 @@ the fairness of the overall process.</p>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.AttemptMetadata">
-<em class="property">EntityType: </em><code class="descname">AttemptMetadata</code><a class="headerlink" href="#od-type.deliveryodata.AttemptMetadata" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.AttemptMetadata">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">AttemptMetadata</span></span><a class="headerlink" href="#od-type.deliveryodata.AttemptMetadata" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2016.12.</span></p>
+<p><span class="versionmodified added">New in version 2016.12.</span></p>
 </div>
 <p>AttemptMetadata entities store key-value pairs associated with each
 attempt.  They can store any arbitrary additional data but the
 intention is to support tagging of the data for reporting purposes.</p>
-<p>A number of keys have a reserved purpose.  The keys S1, S2,..., S10
+<p>A number of keys have a reserved purpose.  The keys S1, S2,…, S10
 are treated as special field values and will be used to set the
-values in the result record, e.g., <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_1" title="Special_1"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_1</span></code></a>,
-<a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_2" title="Special_2"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_2</span></code></a>, etc.  By default these values are set
+values in the result record, e.g., <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_1" title="Special_1"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Special_1</span></code></a>,
+<a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_2" title="Special_2"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Special_2</span></code></a>, etc.  By default these values are set
 using the mapping rules defined in the system settings (within
 Enterprise Manager).  The mapping rules allow up to 10 fields from
-the associated <a class="reference internal" href="../model/g_participant.html#qm-table.g_participant" title="G_Participant"><code class="xref qm qm-table docutils literal"><span class="pre">G_Participant</span></code></a> table to be copied
+the associated <a class="reference internal" href="../model/g_participant.html#qm-table.g_participant" title="G_Participant"><code class="xref qm qm-table docutils literal notranslate"><span class="pre">G_Participant</span></code></a> table to be copied
 automatically when the result is created.  A value provided in the
 AttemptMetadata always takes precedence over the mapping rule for a
 given special field. Special fields can be used to filter results in
 Questionmark Analytics and in Enterprise Reporter.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptMetadata.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptMetadata.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unique ID of this metadata record.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptMetadata.AttemptID">
-<code class="descname">AttemptID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.AttemptID" title="Permalink to this definition">¶</a></dt>
-<dd><p>ID of the associated Attempt, see <a class="reference internal" href="#od-prop.deliveryodata.AttemptMetadata.Attempt" title="Attempt"><code class="xref od od-prop docutils literal"><span class="pre">Attempt</span></code></a> for a more
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptMetadata.AttemptID">
+<span class="sig-name descname"><span class="pre">AttemptID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.AttemptID" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the associated Attempt, see <a class="reference internal" href="#od-prop.deliveryodata.AttemptMetadata.Attempt" title="Attempt"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Attempt</span></code></a> for a more
 convenient navigation property.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptMetadata.Key">
-<code class="descname">Key</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.Key" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptMetadata.Key">
+<span class="sig-name descname"><span class="pre">Key</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.Key" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the metadata field.  Any unicode string is allowed
 up to a maximum length of 200 unicode characters.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptMetadata.Value">
-<code class="descname">Value</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.Value" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptMetadata.Value">
+<span class="sig-name descname"><span class="pre">Value</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.Value" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the metadata field.  The value may be any unicode
 string and is limited to 4000 unicode characters to accommodate
 values such as URNs or other URIs used to identify terms in an
 externally defined metadata schema.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptMetadata.Attempt">
-<code class="descname">Attempt</code> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.Attempt" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptMetadata.Attempt">
+<span class="sig-name descname"><span class="pre">Attempt</span></span> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><span class="pre">Attempt</span></a> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.Attempt" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the associated Attempt.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.AttemptMetadataKeyValue">
-<em class="property">EntityType: </em><code class="descname">AttemptMetadataKeyValue</code><a class="headerlink" href="#od-type.deliveryodata.AttemptMetadataKeyValue" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.AttemptMetadataKeyValue">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">AttemptMetadataKeyValue</span></span><a class="headerlink" href="#od-type.deliveryodata.AttemptMetadataKeyValue" title="Permalink to this definition">¶</a></dt>
 <dd><p>A complex type used to pass metadata key-value pairs in contexts
-where the associated <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><code class="xref od od-type docutils literal"><span class="pre">Attempt</span></code></a> is implicit and the complete
+where the associated <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><code class="xref od od-type docutils literal notranslate"><span class="pre">Attempt</span></code></a> is implicit and the complete
 entity is not required.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptMetadataKeyValue.Key">
-<code class="descname">Key</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadataKeyValue.Key" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptMetadataKeyValue.Key">
+<span class="sig-name descname"><span class="pre">Key</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadataKeyValue.Key" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptMetadataKeyValue.Value">
-<code class="descname">Value</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadataKeyValue.Value" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptMetadataKeyValue.Value">
+<span class="sig-name descname"><span class="pre">Value</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadataKeyValue.Value" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.Appointment">
-<em class="property">EntityType: </em><code class="descname">Appointment</code><a class="headerlink" href="#od-type.deliveryodata.Appointment" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.Appointment">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">Appointment</span></span><a class="headerlink" href="#od-type.deliveryodata.Appointment" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2019.05.</span></p>
+<p><span class="versionmodified added">New in version 2019.05.</span></p>
 </div>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Appointment.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Appointment.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Appointment.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Appointment.ID" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Appointment.AttemptID">
-<code class="descname">AttemptID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Appointment.AttemptID" title="Permalink to this definition">¶</a></dt>
-<dd><p>The ID of the associated <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><code class="xref od od-type docutils literal"><span class="pre">Attempt</span></code></a></p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Appointment.AttemptID">
+<span class="sig-name descname"><span class="pre">AttemptID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Appointment.AttemptID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the associated <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><code class="xref od od-type docutils literal notranslate"><span class="pre">Attempt</span></code></a></p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Appointment.ExternalID">
-<code class="descname">ExternalID</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Appointment.ExternalID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Appointment.ExternalID">
+<span class="sig-name descname"><span class="pre">ExternalID</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Appointment.ExternalID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of the appointment in the (external) proctoring system.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Appointment.AppointmentStartUtc">
-<code class="descname">AppointmentStartUtc</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Appointment.AppointmentStartUtc" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Appointment.AppointmentStartUtc">
+<span class="sig-name descname"><span class="pre">AppointmentStartUtc</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Appointment.AppointmentStartUtc" title="Permalink to this definition">¶</a></dt>
 <dd><p>The UTC time the appointment is due to start.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Appointment.TimeZoneID">
-<code class="descname">TimeZoneID</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Appointment.TimeZoneID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Appointment.TimeZoneID">
+<span class="sig-name descname"><span class="pre">TimeZoneID</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Appointment.TimeZoneID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The time zone in which the appointment was booked.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Appointment.TimezoneTime_Title">
-<code class="descname">TimezoneTime_Title</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Appointment.TimezoneTime_Title" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Appointment.TimezoneTime_Title">
+<span class="sig-name descname"><span class="pre">TimezoneTime_Title</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Appointment.TimezoneTime_Title" title="Permalink to this definition">¶</a></dt>
 <dd><p>A human-friendly representation of the time zone.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Appointment.AppointmentStart">
-<code class="descname">AppointmentStart</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Appointment.AppointmentStart" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Appointment.AppointmentStart">
+<span class="sig-name descname"><span class="pre">AppointmentStart</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.Appointment.AppointmentStart" title="Permalink to this definition">¶</a></dt>
 <dd><p>The local time the appointment is due to start (in the time zone
-indicated by <a class="reference internal" href="#od-prop.deliveryodata.Appointment.TimeZoneID" title="TimeZoneID"><code class="xref od od-prop docutils literal"><span class="pre">TimeZoneID</span></code></a>.</p>
+indicated by <a class="reference internal" href="#od-prop.deliveryodata.Appointment.TimeZoneID" title="TimeZoneID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">TimeZoneID</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Appointment.Status">
-<code class="descname">Status</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Appointment.Status" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Appointment.Status">
+<span class="sig-name descname"><span class="pre">Status</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Appointment.Status" title="Permalink to this definition">¶</a></dt>
 <dd><p>The status of this appointment.  The status values may vary
 depending on the proctoring provider in use.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Appointment.Attempt">
-<code class="descname">Attempt</code> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-prop.deliveryodata.Appointment.Attempt" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><code class="xref od od-type docutils literal"><span class="pre">Attempt</span></code></a> associated with this Appointment.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Appointment.Attempt">
+<span class="sig-name descname"><span class="pre">Attempt</span></span> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><span class="pre">Attempt</span></a><a class="headerlink" href="#od-prop.deliveryodata.Appointment.Attempt" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><code class="xref od od-type docutils literal notranslate"><span class="pre">Attempt</span></code></a> associated with this Appointment.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.AttemptList">
-<em class="property">EntityType: </em><code class="descname">AttemptList</code><a class="headerlink" href="#od-type.deliveryodata.AttemptList" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.AttemptList">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">AttemptList</span></span><a class="headerlink" href="#od-type.deliveryodata.AttemptList" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2016.09.</span></p>
+<p><span class="versionmodified added">New in version 2016.09.</span></p>
 </div>
 <p>AttemptLists are used to enable a single proctor to control multiple
 running assessments simultaneously.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptList.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptList.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptList.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptList.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>AttemptLists are identified by a numeric ID automatically
 assigned on creation.  You cannot control this value.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptList.ExternalAttemptListID">
-<code class="descname">ExternalAttemptListID</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptList.ExternalAttemptListID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptList.ExternalAttemptListID">
+<span class="sig-name descname"><span class="pre">ExternalAttemptListID</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptList.ExternalAttemptListID" title="Permalink to this definition">¶</a></dt>
 <dd><p>An external identifier for the attempt list.  See
-<a class="reference internal" href="#od-prop.deliveryodata.Attempt.ExternalAttemptID" title="ExternalAttemptID"><code class="xref od od-prop docutils literal"><span class="pre">Attempt.ExternalAttemptID</span></code></a> for an explanation of the
+<a class="reference internal" href="#od-prop.deliveryodata.Attempt.ExternalAttemptID" title="ExternalAttemptID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Attempt.ExternalAttemptID</span></code></a> for an explanation of the
 basic concept of external identifiers.  This property is used by
 external applications in a similar way to identify whole lists
 of attempts.</p>
@@ -923,22 +884,22 @@ of attempts.</p>
 characters.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptList.ProctorFacingQMControlsUrl">
-<code class="descname">ProctorFacingQMControlsUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AttemptList.ProctorFacingQMControlsUrl" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptList.ProctorFacingQMControlsUrl">
+<span class="sig-name descname"><span class="pre">ProctorFacingQMControlsUrl</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptList.ProctorFacingQMControlsUrl" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.03.</span></p>
+<p><span class="versionmodified added">New in version 2017.03.</span></p>
 </div>
 <p>This property contains a URL that can be used by a proctor to
 load a page suitable for controlling <em>all</em> attempts in the
 attempt list.  The controls allow the proctor to unlock, pause,
 continue and terminate the attempt.</p>
-<p>This property is read only.  The property&#8217;s value is updated
+<p>This property is read only.  The property’s value is updated
 each time the entity is retrieved but, like the similar
-<a class="reference internal" href="#od-prop.deliveryodata.Attempt.ProctorFacingQMControlsWidgetUrl" title="ProctorFacingQMControlsWidgetUrl"><code class="xref od od-prop docutils literal"><span class="pre">Attempt.ProctorFacingQMControlsWidgetUrl</span></code></a> it is only
+<a class="reference internal" href="#od-prop.deliveryodata.Attempt.ProctorFacingQMControlsWidgetUrl" title="ProctorFacingQMControlsWidgetUrl"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Attempt.ProctorFacingQMControlsWidgetUrl</span></code></a> it is only
 present when the entity is retrieved directly from the
-<em>entity&#8217;s</em> URL.</p>
-<p>It is intended that this link is passed to the proctor&#8217;s browser
+<em>entity’s</em> URL.</p>
+<p>It is intended that this link is passed to the proctor’s browser
 for use during a proctoring session. The link may be accessed
 multiple times and may also be stored by the proctoring system
 for the duration of the session and re-used to bring up the
@@ -948,84 +909,85 @@ split over multiple proctoring sessions a new link will need to
 be generated each time.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptList.CreatedDateTime">
-<code class="descname">CreatedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptList.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptList.CreatedDateTime">
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptList.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A time stamp of when the attempt list was created.  Set
 automatically, it cannot be modified.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptList.TestCenterID">
-<code class="descname">TestCenterID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.AttemptList.TestCenterID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptList.TestCenterID">
+<span class="sig-name descname"><span class="pre">TestCenterID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptList.TestCenterID" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2019.02.</span></p>
+<p><span class="versionmodified added">New in version 2019.02.</span></p>
 </div>
-<p>The ID of a <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter"><code class="xref od od-type docutils literal"><span class="pre">TestCenter</span></code></a> entity associated with this
+<p>The ID of a <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter"><code class="xref od od-type docutils literal notranslate"><span class="pre">TestCenter</span></code></a> entity associated with this
 list of Attempts.  This value is optional, AttemptLists can be
 created to manage groups of Attempts that should be proctored
 together without requiring an associated TestCenter.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptList.Open">
-<code class="descname">Open</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AttemptList.Open" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptList.Open">
+<span class="sig-name descname"><span class="pre">Open</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptList.Open" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2019.02.</span></p>
+<p><span class="versionmodified added">New in version 2019.02.</span></p>
 </div>
-<p>Used in conjunction with <a class="reference internal" href="#od-prop.deliveryodata.AttemptList.TestCenterID" title="TestCenterID"><code class="xref od od-prop docutils literal"><span class="pre">TestCenterID</span></code></a> to track the
+<p>Used in conjunction with <a class="reference internal" href="#od-prop.deliveryodata.AttemptList.TestCenterID" title="TestCenterID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">TestCenterID</span></code></a> to track the
 AttemptList associated with an <em>open</em> TestCenter.  A TestCenter
 can have at most one open AttemptList at any time.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptList.Attempts">
-<code class="descname">Attempts</code> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.AttemptList.Attempts" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptList.Attempts">
+<span class="sig-name descname"><span class="pre">Attempts</span></span> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><span class="pre">Attempt</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptList.Attempts" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the attempts in the list.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AttemptList.TestCenter">
-<code class="descname">TestCenter</code> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter">TestCenter</a><a class="headerlink" href="#od-prop.deliveryodata.AttemptList.TestCenter" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptList.TestCenter">
+<span class="sig-name descname"><span class="pre">TestCenter</span></span> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter"><span class="pre">TestCenter</span></a><a class="headerlink" href="#od-prop.deliveryodata.AttemptList.TestCenter" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the optional associated TestCenter.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.SessionAuditLog">
-<em class="property">EntityType: </em><code class="descname">SessionAuditLog</code><a class="headerlink" href="#od-type.deliveryodata.SessionAuditLog" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.SessionAuditLog">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">SessionAuditLog</span></span><a class="headerlink" href="#od-type.deliveryodata.SessionAuditLog" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2019.02.</span></p>
+<p><span class="versionmodified added">New in version 2019.02.</span></p>
 </div>
 <p>This is a media link entry whose value is a csv file containing
 detailed information captured during an Attempt. You can
-download the file using OData&#8217;s $value suffix.</p>
+download the file using OData’s $value suffix.</p>
 <p>This data is currently experimental and is not available in all
 OnDemand environments or OnPremise.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.SessionAuditLog.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.SessionAuditLog.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.SessionAuditLog.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.SessionAuditLog.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of the Attempt for which this is the data.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.SessionAuditLog.Attempt">
-<code class="descname">Attempt</code> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.SessionAuditLog.Attempt" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.SessionAuditLog.Attempt">
+<span class="sig-name descname"><span class="pre">Attempt</span></span> <a class="reference internal" href="#od-type.deliveryodata.Attempt" title="Attempt"><span class="pre">Attempt</span></a> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.SessionAuditLog.Attempt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property back to the owning Attempt.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -1056,15 +1018,15 @@ OnDemand environments or OnPremise.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1073,11 +1035,11 @@ OnDemand environments or OnPremise.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/attempt.txt"
+      <a href="../_sources/deliveryodata/attempt.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

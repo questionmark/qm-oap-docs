@@ -438,7 +438,7 @@ class ODataDomain(Domain):
                                 obj.get_target_id(), contnode,
                                 obj.title)
         else:            
-            print qtarget
+            print(qtarget)
             return None
 
 
@@ -752,6 +752,6 @@ class QMDomain(Domain):
             return make_refnode(builder, fromdocname, target_obj.docname,
                                 qtarget, contnode, target_obj.title)
         else:            
-            print qtarget
+            print(qtarget)
             return None
 

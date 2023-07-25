@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Schedule and ScheduleMetadata &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="ScoringTask, ScoringResult and DimensionScore" href="scoringtask.html" />
     <link rel="prev" title="Rubric and Dimension" href="rubric.html" />
    
@@ -35,17 +21,18 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="schedule-and-schedulemetadata">
-<h1>Schedule and ScheduleMetadata<a class="headerlink" href="#schedule-and-schedulemetadata" title="Permalink to this headline">¶</a></h1>
+  <section id="schedule-and-schedulemetadata">
+<h1>Schedule and ScheduleMetadata<a class="headerlink" href="#schedule-and-schedulemetadata" title="Permalink to this heading">¶</a></h1>
 <p>These entities represent the next-generation scheduling API that has
 been redesigned to focus on the different monitoring types available in
 Questionmark OnDemand and OnPremise.</p>
@@ -53,15 +40,15 @@ Questionmark OnDemand and OnPremise.</p>
 and they are <em>not</em> related to the classic schedule entities created
 using QMWISe.</p>
 <p>The Schedule entity presents an alternative to creating
-<a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt"><code class="xref od od-type docutils literal"><span class="pre">Attempt</span></code></a> entities directly.  It supports scheduling to
+<a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt"><code class="xref od od-type docutils literal notranslate"><span class="pre">Attempt</span></code></a> entities directly.  It supports scheduling to
 participants and/or groups including creating exceptions to enable
 additional time or to reschedule individual group members.  It also
 provides a way for your to safely limit the number of attempts the
 participant is allowed at an assessment without having to manage the
 information yourself in an external entity.</p>
 <p>The following call illustrates the simplest way to create a schedule
-called &#8220;Demo Schedule&#8221; for the Group with ID 8320236:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">&gt;/</span><span class="n">Schedules</span>
+called “Demo Schedule” for the Group with ID 8320236:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">&gt;/</span><span class="n">Schedules</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -73,7 +60,7 @@ called &#8220;Demo Schedule&#8221; for the Group with ID 8320236:</p>
 </pre></div>
 </div>
 <p>Example response:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">201</span> <span class="n">Created</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">201</span> <span class="n">Created</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://ondemand.questionmark.com/deliveryodata/&lt;customer&gt;/$metadata#Schedules/@Element&quot;</span><span class="p">,</span>
@@ -107,87 +94,76 @@ called &#8220;Demo Schedule&#8221; for the Group with ID 8320236:</p>
 creation, the input value is ignored.</p>
 <p>The AssessmentID and one of the GroupID or ParticipantID MUST be
 specified.</p>
-<div class="section" id="schedules-reference">
-<h2>Schedules Reference<a class="headerlink" href="#schedules-reference" title="Permalink to this headline">¶</a></h2>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.Schedules">
-<code class="descname">Schedules</code> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule">Schedule</a><a class="headerlink" href="#od-feed.deliveryodata.Schedules" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; for reading schedules</li>
-<li><strong>PATCH</strong> &#8211; for updating writable properties of a schedule</li>
+<section id="schedules-reference">
+<h2>Schedules Reference<a class="headerlink" href="#schedules-reference" title="Permalink to this heading">¶</a></h2>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.Schedules">
+<span class="sig-name descname"><span class="pre">Schedules</span></span> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule"><span class="pre">Schedule</span></a><a class="headerlink" href="#od-feed.deliveryodata.Schedules" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – for reading schedules</p></li>
+<li><p><strong>PATCH</strong> – for updating writable properties of a schedule</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>ParticipantID</strong> &#8211; the associated participant</li>
-<li><strong>GroupID</strong> &#8211; the associated group</li>
-<li><strong>StartFrom</strong> &#8211; the schedule start time</li>
-<li><strong>StartTo</strong> &#8211; the schedule end time</li>
-<li><strong>MonitoringTypeID</strong> &#8211; the associated monitoring type</li>
-<li><strong>TestCenterID</strong> &#8211; the associated test center</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>ParticipantID</strong> – the associated participant</p></li>
+<li><p><strong>GroupID</strong> – the associated group</p></li>
+<li><p><strong>StartFrom</strong> – the schedule start time</p></li>
+<li><p><strong>StartTo</strong> – the schedule end time</p></li>
+<li><p><strong>MonitoringTypeID</strong> – the associated monitoring type</p></li>
+<li><p><strong>TestCenterID</strong> – the associated test center</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>$orderby is <em>not</em> supported.</p>
 </dd></dl>
 
-<dl class="feed">
-<dt id="od-feed.deliveryodata.ScheduleMetadata">
-<code class="descname">ScheduleMetadata</code> <a class="reference internal" href="#od-type.deliveryodata.ScheduleMetadata" title="ScheduleMetadata">ScheduleMetadata</a><a class="headerlink" href="#od-feed.deliveryodata.ScheduleMetadata" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>GET</strong> &#8211; reading schedule metadata key-value pairs</li>
-<li><strong>POST</strong> &#8211; creating schedule metadata key-value pairs</li>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.ScheduleMetadata">
+<span class="sig-name descname"><span class="pre">ScheduleMetadata</span></span> <a class="reference internal" href="#od-type.deliveryodata.ScheduleMetadata" title="ScheduleMetadata"><span class="pre">ScheduleMetadata</span></a><a class="headerlink" href="#od-feed.deliveryodata.ScheduleMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – reading schedule metadata key-value pairs</p></li>
+<li><p><strong>POST</strong> – creating schedule metadata key-value pairs</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.Schedule">
-<em class="property">EntityType: </em><code class="descname">Schedule</code><a class="headerlink" href="#od-type.deliveryodata.Schedule" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.Schedule">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">Schedule</span></span><a class="headerlink" href="#od-type.deliveryodata.Schedule" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.07.</span></p>
+<p><span class="versionmodified added">New in version 2017.07.</span></p>
 </div>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>A unique integer key for this schedule.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ParentScheduleID">
-<code class="descname">ParentScheduleID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ParentScheduleID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ParentScheduleID">
+<span class="sig-name descname"><span class="pre">ParentScheduleID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ParentScheduleID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID to the optional parent schedule.  A schedule may have a
 parent if it is for a specific participant
-(<a class="reference internal" href="#od-prop.deliveryodata.Schedule.ParticipantID" title="ParticipantID"><code class="xref od od-prop docutils literal"><span class="pre">ParticipantID</span></code></a> is not null) <em>and</em> the parent is a
+(<a class="reference internal" href="#od-prop.deliveryodata.Schedule.ParticipantID" title="ParticipantID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">ParticipantID</span></code></a> is not null) <em>and</em> the parent is a
 group schedule <em>without</em> a ParticipantID).  Essentially, a child
 schedule is an exception for a specific candidate to a general
 schedule set out in the parent. You can think of these as being
 similar to the way calendar tools deal with recurring meetings
-and exceptions only, in this case, the &#8216;recurrence&#8217; refers to
+and exceptions only, in this case, the ‘recurrence’ refers to
 one scheduling applying to multiple participants and the
 exception with the schedule for a specific participant.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ExternalID">
-<code class="descname">ExternalID</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ExternalID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ExternalID">
+<span class="sig-name descname"><span class="pre">ExternalID</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ExternalID" title="Permalink to this definition">¶</a></dt>
 <dd><p>An external identifier for the schedule.  This value is intended
 to be used by external scheduling modules that contain their own
 business rules.  Such a module may set this property on creation
@@ -195,31 +171,31 @@ and then use it later to locate information in its own database
 that relates to this schedule.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.Name">
-<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Name" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.Name">
+<span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Name" title="Permalink to this definition">¶</a></dt>
 <dd><p>A human-readable name for this schedule.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.AssessmentID">
-<code class="descname">AssessmentID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.AssessmentID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.AssessmentID">
+<span class="sig-name descname"><span class="pre">AssessmentID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.AssessmentID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The assessment that is being scheduled.  This is required and
 cannot be changed using PATCH.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.Language">
-<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Language" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.Language">
+<span class="sig-name descname"><span class="pre">Language</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Language" title="Permalink to this definition">¶</a></dt>
 <dd><p>The language of the assessment that is being scheduled.  In
 cases where the assessment may be available in multiple
 languages this allows a schedule to be for a specific language
 version.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.GroupID">
-<code class="descname">GroupID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.GroupID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.GroupID">
+<span class="sig-name descname"><span class="pre">GroupID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.GroupID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The (optional) group associated with this schedule.  The group
 information is copied to the result when the participants takes
 an attempt based on the schedule and so is then available for
@@ -228,193 +204,193 @@ and are used to determine which schedules are returned by the
 related actions.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ParticipantID">
-<code class="descname">ParticipantID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ParticipantID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ParticipantID">
+<span class="sig-name descname"><span class="pre">ParticipantID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ParticipantID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of the participant that this schedule is for.  This is
 optional though one of GroupID and/or ParticipantID <em>MUST</em> be
 present.  (In future, this constraint may be relaxed to enable
 assessments to be scheduled to all users.)</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.Disabled">
-<code class="descname">Disabled</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Disabled" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.Disabled">
+<span class="sig-name descname"><span class="pre">Disabled</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Disabled" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set to True to disable this schedule.  The participant will not
 be able to start or resume the assessment even if the time is
 within the Start/Resume windows.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.StartFrom">
-<code class="descname">StartFrom</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Schedule.StartFrom" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.StartFrom">
+<span class="sig-name descname"><span class="pre">StartFrom</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.StartFrom" title="Permalink to this definition">¶</a></dt>
 <dd><p>The UTC time that constrains when this schedule may be started
 by the participant.  If null there is not restriction and the
 participant may start the assessment now (subject to StartTo).</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.StartTo">
-<code class="descname">StartTo</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Schedule.StartTo" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.StartTo">
+<span class="sig-name descname"><span class="pre">StartTo</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.StartTo" title="Permalink to this definition">¶</a></dt>
 <dd><p>The UTC time that constrains the latest time this schedule may
 be started by participant.  If null there is no restriction and
 the participant may start the assessment at any time in the
 future subject to StartFrom.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ResumeAllowed">
-<code class="descname">ResumeAllowed</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ResumeAllowed" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ResumeAllowed">
+<span class="sig-name descname"><span class="pre">ResumeAllowed</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ResumeAllowed" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>Set to True to enable failed attempts to be resumed using this
 schedule.  If False then the ResumeTo time is ignored.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ResumeTo">
-<code class="descname">ResumeTo</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ResumeTo" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ResumeTo">
+<span class="sig-name descname"><span class="pre">ResumeTo</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ResumeTo" title="Permalink to this definition">¶</a></dt>
 <dd><p>The UTC time that constrains when this schedule may be resumed
 by the participant.  If null there is not restriction and the
 participant may resume a partially completed assessment at any
 time.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ReportFrom">
-<code class="descname">ReportFrom</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ReportFrom" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ReportFrom">
+<span class="sig-name descname"><span class="pre">ReportFrom</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ReportFrom" title="Permalink to this definition">¶</a></dt>
 <dd><p>The UTC time that constrains when a coaching report may
 be viewed by the participant.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ReportTo">
-<code class="descname">ReportTo</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ReportTo" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ReportTo">
+<span class="sig-name descname"><span class="pre">ReportTo</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ReportTo" title="Permalink to this definition">¶</a></dt>
 <dd><p>The UTC time that constrains when a coaching report may
 be viewed by the participant.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ReportTemplateName">
-<code class="descname">ReportTemplateName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ReportTemplateName" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ReportTemplateName">
+<span class="sig-name descname"><span class="pre">ReportTemplateName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ReportTemplateName" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the coaching report template to use when reporting
 on results created through this schedule.  This value is
 optional, if null then the default template is used (defined in
 system settings through the user interface).</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ReportedResult">
-<code class="descname">ReportedResult</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ReportedResult" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ReportedResult">
+<span class="sig-name descname"><span class="pre">ReportedResult</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ReportedResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>An enumerated value that indicates which Attempt will be
 reported on where multiple attempts exist for the same
-participant.  The allowed values are &#8220;First&#8221;, &#8220;Last&#8221;, &#8220;Best&#8221;,
-&#8220;Worst&#8221;.  If unspecified then the Last result (the most recent)
+participant.  The allowed values are “First”, “Last”, “Best”,
+“Worst”.  If unspecified then the Last result (the most recent)
 is used by default.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Schedule.GetReportedResult">
-<em class="property">action </em><code class="descname">GetReportedResult</code> (ParticipantID  Edm.Int32) <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-action.deliveryodata.Schedule.GetReportedResult" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Schedule.GetReportedResult">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">GetReportedResult</span></span> <span class="pre">(</span><span class="pre">ParticipantID</span>  <span class="pre">Edm.Int32</span><span class="pre">)</span> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><span class="pre">Result</span></a><a class="headerlink" href="#od-action.deliveryodata.Schedule.GetReportedResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>This action, given a participant ID, evaluates the rule set in
-<a class="reference internal" href="#od-prop.deliveryodata.Schedule.ReportedResult" title="ReportedResult"><code class="xref od od-prop docutils literal"><span class="pre">ReportedResult</span></code></a> and returns a single <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal"><span class="pre">Result</span></code></a>
+<a class="reference internal" href="#od-prop.deliveryodata.Schedule.ReportedResult" title="ReportedResult"><code class="xref od od-prop docutils literal notranslate"><span class="pre">ReportedResult</span></code></a> and returns a single <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal notranslate"><span class="pre">Result</span></code></a>
 entity representing the result that should be reported for that
 participant.  If no result is available, status 404 is returned.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">in versions prior to 2021.08 this action&#8217;s
+<p class="admonition-title">Warning</p>
+<p>in versions prior to 2021.08 this action’s
 return type may appear incorrectly bound to a
 Collection in the service metadata.  The return
 type is actually a single entity.</p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ExtraTime">
-<code class="descname">ExtraTime</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ExtraTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ExtraTime">
+<span class="sig-name descname"><span class="pre">ExtraTime</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ExtraTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of minutes of extra time that should be allocated to
 participants launching an assessment from this schedule. This
 time may be negative to reduce the assessment time limit.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.MaxAttempts">
-<code class="descname">MaxAttempts</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.MaxAttempts" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.MaxAttempts">
+<span class="sig-name descname"><span class="pre">MaxAttempts</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.MaxAttempts" title="Permalink to this definition">¶</a></dt>
 <dd><p>The maximum number of attempts the participant is allowed at the
 assessment.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.MonitoringTypeID">
-<code class="descname">MonitoringTypeID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.MonitoringTypeID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.MonitoringTypeID">
+<span class="sig-name descname"><span class="pre">MonitoringTypeID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.MonitoringTypeID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The type of monitoring that will be used during the assessment.
 If this value is null then no monitoring will be performed.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ObserverInitiated">
-<code class="descname">ObserverInitiated</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ObserverInitiated" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ObserverInitiated">
+<span class="sig-name descname"><span class="pre">ObserverInitiated</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ObserverInitiated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether or not this Schedule is for an observational assessment.
 An observational assessment is hidden from the Participant as it
 must be initiated by an observer (an Administrator).  Defaults
 to false.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ObserverID">
-<code class="descname">ObserverID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ObserverID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ObserverID">
+<span class="sig-name descname"><span class="pre">ObserverID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ObserverID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of an Administrator (observer) who will take the test on
 behalf of the participant.  (Reserved for future use.)</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.Created">
-<code class="descname">Created</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Created" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.Created">
+<span class="sig-name descname"><span class="pre">Created</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Created" title="Permalink to this definition">¶</a></dt>
 <dd><p>The UTC time the Schedule was created.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.CreatedBy">
-<code class="descname">CreatedBy</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Schedule.CreatedBy" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.CreatedBy">
+<span class="sig-name descname"><span class="pre">CreatedBy</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.CreatedBy" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Name of the Administrator that created the schedule.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.Modified">
-<code class="descname">Modified</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Modified" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.Modified">
+<span class="sig-name descname"><span class="pre">Modified</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Modified" title="Permalink to this definition">¶</a></dt>
 <dd><p>The UTC time the Schedule was last modified.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ModifiedBy">
-<code class="descname">ModifiedBy</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ModifiedBy" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ModifiedBy">
+<span class="sig-name descname"><span class="pre">ModifiedBy</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ModifiedBy" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Name of the Administrator that last modified the schedule.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.Hidden">
-<code class="descname">Hidden</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Hidden" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.Hidden">
+<span class="sig-name descname"><span class="pre">Hidden</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Hidden" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether or not this Schedule should be hidden from the
 participant. A hidden schedule may still be initiated through
-the API but it won&#8217;t show up in the participants <em>My
+the API but it won’t show up in the participants <em>My
 Assessments</em> page.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.TestCenterID">
-<code class="descname">TestCenterID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.TestCenterID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.TestCenterID">
+<span class="sig-name descname"><span class="pre">TestCenterID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.TestCenterID" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>The ID of a TestCenter where participants must be located in
 order to take this test.  It is assumed that this test will be
@@ -422,98 +398,98 @@ proctored and that access to launch the test will be controlled
 by the proctor.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.RulesOfConductID">
-<code class="descname">RulesOfConductID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Schedule.RulesOfConductID" title="Permalink to this definition">¶</a></dt>
-<dd><p>The ID of an associated <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal"><span class="pre">RulesOfConduct</span></code></a> entity.  See
-<a class="reference internal" href="#od-prop.deliveryodata.Schedule.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-prop docutils literal"><span class="pre">Schedule.RulesOfConduct</span></code></a> for more information.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.RulesOfConductID">
+<span class="sig-name descname"><span class="pre">RulesOfConductID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.RulesOfConductID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of an associated <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal notranslate"><span class="pre">RulesOfConduct</span></code></a> entity.  See
+<a class="reference internal" href="#od-prop.deliveryodata.Schedule.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Schedule.RulesOfConduct</span></code></a> for more information.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.08.</span></p>
+<p><span class="versionmodified added">New in version 2021.08.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.Assessment">
-<code class="descname">Assessment</code> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Assessment" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.Assessment">
+<span class="sig-name descname"><span class="pre">Assessment</span></span> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><span class="pre">Assessment</span></a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Assessment" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the Assessment.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.Participant">
-<code class="descname">Participant</code> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant">Participant</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Participant" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.Participant">
+<span class="sig-name descname"><span class="pre">Participant</span></span> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant"><span class="pre">Participant</span></a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Participant" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the optional Participant.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.Group">
-<code class="descname">Group</code> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Group" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.Group">
+<span class="sig-name descname"><span class="pre">Group</span></span> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Group" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the optional Group.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ParentSchedule">
-<code class="descname">ParentSchedule</code> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule">Schedule</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ParentSchedule" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ParentSchedule">
+<span class="sig-name descname"><span class="pre">ParentSchedule</span></span> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule"><span class="pre">Schedule</span></a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ParentSchedule" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the (optional) parent schedule.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ExceptionSchedules">
-<code class="descname">ExceptionSchedules</code> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule">Schedule</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ExceptionSchedules" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ExceptionSchedules">
+<span class="sig-name descname"><span class="pre">ExceptionSchedules</span></span> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule"><span class="pre">Schedule</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ExceptionSchedules" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property from a parent schedule to all the
 exceptions to this schedule.</p>
 <p>A navigation property to the (optional) parent schedule.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.MonitoringType">
-<code class="descname">MonitoringType</code> <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType">MonitoringType</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.MonitoringType" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.MonitoringType">
+<span class="sig-name descname"><span class="pre">MonitoringType</span></span> <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><span class="pre">MonitoringType</span></a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.MonitoringType" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the (optional) monitoring type.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.RulesOfConduct">
-<code class="descname">RulesOfConduct</code> <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct">RulesOfConduct</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
-<dd><p>Navigation property to an optional <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal"><span class="pre">RulesOfConduct</span></code></a>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.RulesOfConduct">
+<span class="sig-name descname"><span class="pre">RulesOfConduct</span></span> <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><span class="pre">RulesOfConduct</span></a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to an optional <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal notranslate"><span class="pre">RulesOfConduct</span></code></a>
 entity associated with this schedule.  If present, the
 associated rules of conduct are used instead of the default
-rules associated with the <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><code class="xref od od-type docutils literal"><span class="pre">Assessment</span></code></a> or
-<a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal"><span class="pre">MonitoringType</span></code></a> used.</p>
+rules associated with the <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><code class="xref od od-type docutils literal notranslate"><span class="pre">Assessment</span></code></a> or
+<a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal notranslate"><span class="pre">MonitoringType</span></code></a> used.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.08.</span></p>
+<p><span class="versionmodified added">New in version 2021.08.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.TestCenter">
-<code class="descname">TestCenter</code> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter">TestCenter</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.TestCenter" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.TestCenter">
+<span class="sig-name descname"><span class="pre">TestCenter</span></span> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter"><span class="pre">TestCenter</span></a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.TestCenter" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>A navigation property to the optional TestCenter.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.Observer">
-<code class="descname">Observer</code> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Observer" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.Observer">
+<span class="sig-name descname"><span class="pre">Observer</span></span> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator"><span class="pre">Administrator</span></a><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Observer" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the optional Observer.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.ScheduleMetadata">
-<code class="descname">ScheduleMetadata</code> <a class="reference internal" href="#od-type.deliveryodata.ScheduleMetadata" title="ScheduleMetadata">ScheduleMetadata</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Schedule.ScheduleMetadata" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ScheduleMetadata">
+<span class="sig-name descname"><span class="pre">ScheduleMetadata</span></span> <a class="reference internal" href="#od-type.deliveryodata.ScheduleMetadata" title="ScheduleMetadata"><span class="pre">ScheduleMetadata</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ScheduleMetadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the schedule metadata.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Schedule.Attempts">
-<code class="descname">Attempts</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Schedule.Attempts" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.Attempts">
+<span class="sig-name descname"><span class="pre">Attempts</span></span> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt"><span class="pre">Attempt</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.Attempts" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to all the attempts that have been
 initiated for this Schedule.</p>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Schedule.InvokeAction">
-<em class="property">action </em><code class="descname">InvokeAction</code> (Action  Edm.String, ParticipantID  Edm.Int32, ObserverID  Edm.Int32, AttemptMetadata Collection(<a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptMetadataKeyValue" title="AttemptMetadataKeyValue">deliveryodata.AttemptMetadataKeyValue</a>))  Edm.String<a class="headerlink" href="#od-action.deliveryodata.Schedule.InvokeAction" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Schedule.InvokeAction">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">InvokeAction</span></span> <span class="pre">(</span><span class="pre">Action</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">ParticipantID</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">ObserverID</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">AttemptMetadata</span> <span class="pre">Collection(</span><a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptMetadataKeyValue" title="AttemptMetadataKeyValue"><span class="pre">deliveryodata.AttemptMetadataKeyValue</span></a><span class="pre">)</span><span class="pre">)</span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-action.deliveryodata.Schedule.InvokeAction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invokes the specified action for a given participant.  The
 Action string is a text string for an action as previously
 returned by a <em>recent</em> call to ActionableSchedule or similar.</p>
@@ -522,7 +498,7 @@ for the assessment and the (optional) ObserverID is the observer
 that will be observing the assessment (observational schedules
 only).</p>
 <p>For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedule</span><span class="p">(</span><span class="mi">654321</span><span class="p">)</span><span class="o">/</span><span class="n">InvokeAction</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedule</span><span class="p">(</span><span class="mi">654321</span><span class="p">)</span><span class="o">/</span><span class="n">InvokeAction</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;Action&quot;</span><span class="p">:</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span>
@@ -537,7 +513,7 @@ integrating through this API may want to provide a key/value to
 record which PC within the lab was used to start/resume the
 test.  This can be done by providing a parameter like the
 following:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;AttemptMetadata&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;AttemptMetadata&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="s2">&quot;Key&quot;</span><span class="p">:</span> <span class="s2">&quot;Device&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Value: &quot;</span><span class="n">LABA</span><span class="o">-</span><span class="n">PC34</span><span class="s2">&quot;</span>
@@ -546,45 +522,45 @@ following:</p>
 </pre></div>
 </div>
 <p>The return result is a URL (string) that is suitable for sending
-to the participant&#8217;s browser (or the observer&#8217;s browser) to
+to the participant’s browser (or the observer’s browser) to
 initiate the specified action.</p>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Schedule.CanReview">
-<em class="property">action </em><code class="descname">CanReview</code> ()  Edm.Boolean<a class="headerlink" href="#od-action.deliveryodata.Schedule.CanReview" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Schedule.CanReview">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">CanReview</span></span> <span class="pre">(</span><span class="pre">)</span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-action.deliveryodata.Schedule.CanReview" title="Permalink to this definition">¶</a></dt>
 <dd><p>When called for a Schedule returns True if a ReviewUrl is
 available.  The purpose of this action is to enable the caller
 to quickly determine if the schedule can be reviewed without
 actually obtaining the review URL (see
-<a class="reference internal" href="#od-action.deliveryodata.Schedule.GetReviewUrl" title="GetReviewUrl"><code class="xref od od-action docutils literal"><span class="pre">GetReviewUrl</span></code></a>) which is a slower operation.</p>
+<a class="reference internal" href="#od-action.deliveryodata.Schedule.GetReviewUrl" title="GetReviewUrl"><code class="xref od od-action docutils literal notranslate"><span class="pre">GetReviewUrl</span></code></a>) which is a slower operation.</p>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Schedule.GetReviewUrl">
-<em class="property">action </em><code class="descname">GetReviewUrl</code> ()  Edm.String<a class="headerlink" href="#od-action.deliveryodata.Schedule.GetReviewUrl" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Schedule.GetReviewUrl">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">GetReviewUrl</span></span> <span class="pre">(</span><span class="pre">)</span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-action.deliveryodata.Schedule.GetReviewUrl" title="Permalink to this definition">¶</a></dt>
 <dd><p>If a schedule uses a monitoring type that generates some type of
 report concerning the conduct of the assessment then this action
-will return a URL that can be provided to the user&#8217;s browser to
+will return a URL that can be provided to the user’s browser to
 redirect them to view that report.  For example, if the
 monitoring type uses Proctoring Record and Review then the
 review URL will launch a tool that allows the user to review the
-recordings of the participants&#8217; attempts.</p>
+recordings of the participants’ attempts.</p>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Schedule.ActionableSchedules">
-<em class="property">action </em><code class="descname">ActionableSchedules</code> () <a class="reference internal" href="#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule">ActionableSchedule</a> Collection<a class="headerlink" href="#od-action.deliveryodata.Schedule.ActionableSchedules" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Schedule.ActionableSchedules">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">ActionableSchedules</span></span> <span class="pre">(</span><span class="pre">)</span> <a class="reference internal" href="#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><span class="pre">ActionableSchedule</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-action.deliveryodata.Schedule.ActionableSchedules" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reserved for future use.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.ActionableSchedule">
-<em class="property">EntityType: </em><code class="descname">ActionableSchedule</code><a class="headerlink" href="#od-type.deliveryodata.ActionableSchedule" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.ActionableSchedule">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">ActionableSchedule</span></span><a class="headerlink" href="#od-type.deliveryodata.ActionableSchedule" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.08.</span></p>
+<p><span class="versionmodified added">New in version 2017.08.</span></p>
 </div>
 <p>An actionable schedule is a list of actions that are currently
 relevant to a specific schedule <em>for a specific participant</em>.  Given
@@ -594,60 +570,60 @@ actions will vary from time to time and should not be cached for any
 length of time.  For example, a list of actions might be obtained
 while creating a web page showing a list of current schedules to a
 participant.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ActionableSchedule.ScheduleID">
-<code class="descname">ScheduleID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.ScheduleID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ActionableSchedule.ScheduleID">
+<span class="sig-name descname"><span class="pre">ScheduleID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.ScheduleID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of the schedule these possible actions relate to</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ActionableSchedule.Name">
-<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.Name" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ActionableSchedule.Name">
+<span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.Name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The human-readable name of this schedule.  This is repeated here
 to reduce the need to retrieve each schedule in full.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ActionableSchedule.ParticipantID">
-<code class="descname">ParticipantID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.ParticipantID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ActionableSchedule.ParticipantID">
+<span class="sig-name descname"><span class="pre">ParticipantID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.ParticipantID" title="Permalink to this definition">¶</a></dt>
 <dd><p>All actionable schedules relate to a specific Participant.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ActionableSchedule.ParticipantName">
-<code class="descname">ParticipantName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.ParticipantName" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Participant&#8217;s name.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ActionableSchedule.ParticipantName">
+<span class="sig-name descname"><span class="pre">ParticipantName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.ParticipantName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Participant’s name.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ActionableSchedule.Hidden">
-<code class="descname">Hidden</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.Hidden" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ActionableSchedule.Hidden">
+<span class="sig-name descname"><span class="pre">Hidden</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.Hidden" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether or not the schedule is hidden from the participant in
 the Questionmark portal.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ActionableSchedule.AttemptsRemaining">
-<code class="descname">AttemptsRemaining</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.AttemptsRemaining" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ActionableSchedule.AttemptsRemaining">
+<span class="sig-name descname"><span class="pre">AttemptsRemaining</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.AttemptsRemaining" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of attempts remaining on the schedule.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ActionableSchedule.Actions">
-<code class="descname">Actions</code>  Edm.String Collection<a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.Actions" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ActionableSchedule.Actions">
+<span class="sig-name descname"><span class="pre">Actions</span></span>  <span class="pre">Edm.String</span> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.Actions" title="Permalink to this definition">¶</a></dt>
 <dd><p>A collection of symbolic strings representing allowable actions.
-For example &#8220;start&#8221; and &#8220;resume&#8221;.  These strings are not
+For example “start” and “resume”.  These strings are not
 intended to be used directly in the user interface but as keys
-for future calls to <a class="reference internal" href="#od-action.deliveryodata.Schedule.InvokeAction" title="InvokeAction"><code class="xref od od-action docutils literal"><span class="pre">Schedule.InvokeAction</span></code></a>.</p>
+for future calls to <a class="reference internal" href="#od-action.deliveryodata.Schedule.InvokeAction" title="InvokeAction"><code class="xref od od-action docutils literal notranslate"><span class="pre">Schedule.InvokeAction</span></code></a>.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.ScheduleMetadata">
-<em class="property">EntityType: </em><code class="descname">ScheduleMetadata</code><a class="headerlink" href="#od-type.deliveryodata.ScheduleMetadata" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.ScheduleMetadata">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">ScheduleMetadata</span></span><a class="headerlink" href="#od-type.deliveryodata.ScheduleMetadata" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.07.</span></p>
+<p><span class="versionmodified added">New in version 2017.07.</span></p>
 </div>
 <p>ScheduleMetadata entities store key-value pairs associated with a
 schedule.  They can store any arbitrary additional data but the
@@ -658,59 +634,60 @@ the launch actions.  A number of dynamic values are supported to
 enable a restricted set of fields to be copied from the Participant,
 TestCenter or Administrator (as an observer) entities into the
 AttemptMetadata to enable reporting based on arbitrary demographics.</p>
-<p>For example, a ScheduleMetadata field with <em>Key</em> &#8220;Country&#8221; and
-<em>Value</em> &#8220;%Participant.Primary_Country%&#8221; will cause the Participant&#8217;s
+<p>For example, a ScheduleMetadata field with <em>Key</em> “Country” and
+<em>Value</em> “%Participant.Primary_Country%” will cause the Participant’s
 primary country to be looked up in the Participant record and copied
-to the AttemptMetadata with key &#8220;Country&#8221; on assessment launch.  If
-the participant&#8217;s Primary_Country field was set to &#8220;US&#8221; then the
-AttemptMetadata would contain Key=&#8221;Country&#8221;, Value=&#8221;US&#8221;.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScheduleMetadata.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.ID" title="Permalink to this definition">¶</a></dt>
+to the AttemptMetadata with key “Country” on assessment launch.  If
+the participant’s Primary_Country field was set to “US” then the
+AttemptMetadata would contain Key=”Country”, Value=”US”.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScheduleMetadata.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unique ID of this metadata record.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScheduleMetadata.ScheduleID">
-<code class="descname">ScheduleID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.ScheduleID" title="Permalink to this definition">¶</a></dt>
-<dd><p>ID of the associated Schedule, see <a class="reference internal" href="#od-prop.deliveryodata.ScheduleMetadata.Schedule" title="Schedule"><code class="xref od od-prop docutils literal"><span class="pre">Schedule</span></code></a> for a more
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScheduleMetadata.ScheduleID">
+<span class="sig-name descname"><span class="pre">ScheduleID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.ScheduleID" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the associated Schedule, see <a class="reference internal" href="#od-prop.deliveryodata.ScheduleMetadata.Schedule" title="Schedule"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Schedule</span></code></a> for a more
 convenient navigation property.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScheduleMetadata.Key">
-<code class="descname">Key</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.Key" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScheduleMetadata.Key">
+<span class="sig-name descname"><span class="pre">Key</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.Key" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the metadata field.  Any unicode string is allowed
 up to a maximum length of 200 unicode characters.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScheduleMetadata.Value">
-<code class="descname">Value</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.Value" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScheduleMetadata.Value">
+<span class="sig-name descname"><span class="pre">Value</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.Value" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the metadata field.  The value may be any unicode
 string and is limited to 4000 unicode characters to accommodate
 values such as URNs or other URIs used to identify terms in an
 externally defined metadata schema.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ScheduleMetadata.Schedule">
-<code class="descname">Schedule</code> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule">Schedule</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.Schedule" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ScheduleMetadata.Schedule">
+<span class="sig-name descname"><span class="pre">Schedule</span></span> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule"><span class="pre">Schedule</span></a> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ScheduleMetadata.Schedule" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the associated Schedule.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -741,15 +718,15 @@ externally defined metadata schema.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -758,11 +735,11 @@ externally defined metadata schema.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/schedule.txt"
+      <a href="../_sources/deliveryodata/schedule.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

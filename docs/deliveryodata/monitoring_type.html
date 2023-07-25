@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>MonitoringTypes and ProctoringProviders &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Participant" href="participant.html" />
     <link rel="prev" title="Group" href="group.html" />
    
@@ -35,103 +21,92 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="monitoringtypes-and-proctoringproviders">
-<h1>MonitoringTypes and ProctoringProviders<a class="headerlink" href="#monitoringtypes-and-proctoringproviders" title="Permalink to this headline">¶</a></h1>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.MonitoringTypes">
-<code class="descname">MonitoringTypes</code> <a class="reference internal" href="#od-type.deliveryodata.MonitoringType" title="MonitoringType">MonitoringType</a><a class="headerlink" href="#od-feed.deliveryodata.MonitoringTypes" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; read only</li>
+  <section id="monitoringtypes-and-proctoringproviders">
+<h1>MonitoringTypes and ProctoringProviders<a class="headerlink" href="#monitoringtypes-and-proctoringproviders" title="Permalink to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.MonitoringTypes">
+<span class="sig-name descname"><span class="pre">MonitoringTypes</span></span> <a class="reference internal" href="#od-type.deliveryodata.MonitoringType" title="MonitoringType"><span class="pre">MonitoringType</span></a><a class="headerlink" href="#od-feed.deliveryodata.MonitoringTypes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – read only</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>Name</strong> &#8211; the symbolic name of this monitoring type</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>Name</strong> – the symbolic name of this monitoring type</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>$orderby is <em>not</em> supported.</p>
 <p>The MonitoringTypes feed contains data about methods of monitoring
-assessments. Entries are defined by the <a class="reference internal" href="#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal"><span class="pre">MonitoringType</span></code></a>
+assessments. Entries are defined by the <a class="reference internal" href="#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal notranslate"><span class="pre">MonitoringType</span></code></a>
 type.</p>
 </dd></dl>
 
-<dl class="feed">
-<dt id="od-feed.deliveryodata.ProctoringProviders">
-<code class="descname">ProctoringProviders</code> <a class="reference internal" href="#od-type.deliveryodata.ProctoringProvider" title="ProctoringProvider">ProctoringProvider</a><a class="headerlink" href="#od-feed.deliveryodata.ProctoringProviders" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; read only</li>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.ProctoringProviders">
+<span class="sig-name descname"><span class="pre">ProctoringProviders</span></span> <a class="reference internal" href="#od-type.deliveryodata.ProctoringProvider" title="ProctoringProvider"><span class="pre">ProctoringProvider</span></a><a class="headerlink" href="#od-feed.deliveryodata.ProctoringProviders" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – read only</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>Name</strong> &#8211; the symbolic name of this monitoring type</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>Name</strong> – the symbolic name of this monitoring type</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>$orderby is <em>not</em> supported.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2018.04.</span></p>
+<p><span class="versionmodified added">New in version 2018.04.</span></p>
 </div>
 <p>The ProctoringProviders feed contains data about the configuration
 of external proctoring providers integrated through a proctoring
-API. Entries are defined by the <a class="reference internal" href="#od-type.deliveryodata.ProctoringProvider" title="ProctoringProvider"><code class="xref od od-type docutils literal"><span class="pre">ProctoringProvider</span></code></a> type.</p>
-<dl class="action">
-<dt>
-<code class="descname">AppointmentDateRange Edm.String</code></dt>
+API. Entries are defined by the <a class="reference internal" href="#od-type.deliveryodata.ProctoringProvider" title="ProctoringProvider"><code class="xref od od-type docutils literal notranslate"><span class="pre">ProctoringProvider</span></code></a> type.</p>
+<dl class="od action">
+<dt class="sig sig-object od">
+<span class="sig-name descname"><span class="pre">AppointmentDateRange</span> <span class="pre">Edm.String</span></span></dt>
 <dd><p>Reserved for internal use.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.MonitoringType">
-<em class="property">EntityType: </em><code class="descname">MonitoringType</code><a class="headerlink" href="#od-type.deliveryodata.MonitoringType" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.MonitoringType">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">MonitoringType</span></span><a class="headerlink" href="#od-type.deliveryodata.MonitoringType" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.07.</span></p>
+<p><span class="versionmodified added">New in version 2017.07.</span></p>
 </div>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.MonitoringType.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The numeric ID of this monitoring type.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.MonitoringType.Name">
-<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.Name" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.Name">
+<span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.Name" title="Permalink to this definition">¶</a></dt>
 <dd><p>A language-independent name to be used as an alternative key for
 this monitoring type.  This version of the key is used to
 look-up language dependent human-readable text and is set to a
 (readable) symbolic textual identifier for this type of
-monitoring. Example values are: &#8220;UNMONITORED&#8221;,
-&#8220;QSB_WITH_EVENTS&#8221;, etc.</p>
+monitoring. Example values are: “UNMONITORED”,
+“QSB_WITH_EVENTS”, etc.</p>
 <p>You should not assume any specific behaviour based purely on the
 name. Monitoring types contain additional attributes that
 determine how (monitored) attempts are launched by the
@@ -140,59 +115,59 @@ consumers to select an appropriate type for a specific Schedule
 or Attempt.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.MonitoringType.RequireQSB">
-<code class="descname">RequireQSB</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireQSB" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.RequireQSB">
+<span class="sig-name descname"><span class="pre">RequireQSB</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireQSB" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>A flag indicating whether or not Attempts launched with this
-MonitoringType <em>MUST</em> use Questionmark&#8217;s Secure Browser
+MonitoringType <em>MUST</em> use Questionmark’s Secure Browser
 technology.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.MonitoringType.RequireDeviceEvents">
-<code class="descname">RequireDeviceEvents</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireDeviceEvents" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.RequireDeviceEvents">
+<span class="sig-name descname"><span class="pre">RequireDeviceEvents</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireDeviceEvents" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>A flag indicating whether or not Attempts launched with this
-Monitoring type <em>MUST</em> use Questionmark&#8217;s next-generation device
+Monitoring type <em>MUST</em> use Questionmark’s next-generation device
 monitoring technology.  Requires a next-generation Questionmark
 Secure Browser client.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.MonitoringType.SystemCheckUrl">
-<code class="descname">SystemCheckUrl</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.SystemCheckUrl" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.SystemCheckUrl">
+<span class="sig-name descname"><span class="pre">SystemCheckUrl</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.SystemCheckUrl" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>An optional URL that will be displayed to the participant on
 entering the exam lobby to assist with checking compatibility
-of the participant&#8217;s device against the technology requirements
+of the participant’s device against the technology requirements
 of this monitoring technology.</p>
-<p>The special URL &#8220;<a class="reference external" href="about:blank">about:blank</a>&#8221; should be used to indicate that no
+<p>The special URL “<a class="reference external" href="about:blank">about:blank</a>” should be used to indicate that no
 system check page is required.  A null value means that the
 default system check will be used.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.MonitoringType.ProctoringProviderId">
-<code class="descname">ProctoringProviderId</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ProctoringProviderId" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.ProctoringProviderId">
+<span class="sig-name descname"><span class="pre">ProctoringProviderId</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ProctoringProviderId" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2018.04.</span></p>
+<p><span class="versionmodified added">New in version 2018.04.</span></p>
 </div>
 <p>The ID of the optional ProctoringProvider entity.  See also
-<a class="reference internal" href="#od-prop.deliveryodata.MonitoringType.ProctoringProvider" title="ProctoringProvider"><code class="xref od od-prop docutils literal"><span class="pre">ProctoringProvider</span></code></a>.</p>
+<a class="reference internal" href="#od-prop.deliveryodata.MonitoringType.ProctoringProvider" title="ProctoringProvider"><code class="xref od od-prop docutils literal notranslate"><span class="pre">ProctoringProvider</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.MonitoringType.ProctoringProviderOptions">
-<code class="descname">ProctoringProviderOptions</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ProctoringProviderOptions" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.ProctoringProviderOptions">
+<span class="sig-name descname"><span class="pre">ProctoringProviderOptions</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ProctoringProviderOptions" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2018.04.</span></p>
+<p><span class="versionmodified added">New in version 2018.04.</span></p>
 </div>
 <p>A text string containing options to be used in conjunction with
 the associated ProctoringProvider.  This property means that it
@@ -201,219 +176,219 @@ in multiple different configurations, each with its own
 associated MonitoringType.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.MonitoringType.ProctoringProvider">
-<code class="descname">ProctoringProvider</code> <a class="reference internal" href="#od-type.deliveryodata.ProctoringProvider" title="ProctoringProvider">ProctoringProvider</a><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ProctoringProvider" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.ProctoringProvider">
+<span class="sig-name descname"><span class="pre">ProctoringProvider</span></span> <a class="reference internal" href="#od-type.deliveryodata.ProctoringProvider" title="ProctoringProvider"><span class="pre">ProctoringProvider</span></a><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ProctoringProvider" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2018.04.</span></p>
+<p><span class="versionmodified added">New in version 2018.04.</span></p>
 </div>
 <p>An optional navigation property to the ProctoringProvider
 associated with this monitoring type.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.MonitoringType.RequireTestCenter">
-<code class="descname">RequireTestCenter</code>  Edm.Boolean<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireTestCenter" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.RequireTestCenter">
+<span class="sig-name descname"><span class="pre">RequireTestCenter</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireTestCenter" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2018.12.</span></p>
+<p><span class="versionmodified added">New in version 2018.12.</span></p>
 </div>
 <p>If True, any associated Schedule entity created with this
 MonitoringType is required to have an associated TestCenter.</p>
 <p>Attempts associated with this MonitoringType must be associated
 with an AttemptList and an open TestCenter: these constraints
 are implemented automatically when using the actions related to
-the <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal"><span class="pre">Schedule</span></code></a> entity to start or resume an assessment.</p>
+the <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal notranslate"><span class="pre">Schedule</span></code></a> entity to start or resume an assessment.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.MonitoringType.Disabled">
-<code class="descname">Disabled</code>  Edm.Boolean<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.Disabled" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.Disabled">
+<span class="sig-name descname"><span class="pre">Disabled</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.Disabled" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2020.06.</span></p>
+<p><span class="versionmodified added">New in version 2020.06.</span></p>
 </div>
 <p>A MonitoringType can be disabled by setting this flag to True.
 When disabled, all associated Schedules become inactive and
 Attempts cannot be launched.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.MonitoringType.RulesOfConductID">
-<code class="descname">RulesOfConductID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RulesOfConductID" title="Permalink to this definition">¶</a></dt>
-<dd><p>The ID of an associated <a class="reference internal" href="#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal"><span class="pre">RulesOfConduct</span></code></a> entity.  See
-<a class="reference internal" href="#od-prop.deliveryodata.MonitoringType.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-prop docutils literal"><span class="pre">MonitoringType.RulesOfConduct</span></code></a> for more information.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.RulesOfConductID">
+<span class="sig-name descname"><span class="pre">RulesOfConductID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RulesOfConductID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of an associated <a class="reference internal" href="#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal notranslate"><span class="pre">RulesOfConduct</span></code></a> entity.  See
+<a class="reference internal" href="#od-prop.deliveryodata.MonitoringType.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-prop docutils literal notranslate"><span class="pre">MonitoringType.RulesOfConduct</span></code></a> for more information.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.08.</span></p>
+<p><span class="versionmodified added">New in version 2021.08.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.MonitoringType.RulesOfConduct">
-<code class="descname">RulesOfConduct</code> <a class="reference internal" href="#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct">RulesOfConduct</a><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
-<dd><p>Navigation property to an optional <a class="reference internal" href="#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal"><span class="pre">RulesOfConduct</span></code></a>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.RulesOfConduct">
+<span class="sig-name descname"><span class="pre">RulesOfConduct</span></span> <a class="reference internal" href="#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><span class="pre">RulesOfConduct</span></a><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to an optional <a class="reference internal" href="#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal notranslate"><span class="pre">RulesOfConduct</span></code></a>
 entity associated with this assessment.  When scheduling with
 this monitoring type the associated rules of conduct are used by
 default. These rules may themselves be overridden in the
-<a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><code class="xref od od-type docutils literal"><span class="pre">Assessment</span></code></a> or <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal"><span class="pre">Schedule</span></code></a> entities.</p>
+<a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><code class="xref od od-type docutils literal notranslate"><span class="pre">Assessment</span></code></a> or <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal notranslate"><span class="pre">Schedule</span></code></a> entities.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.08.</span></p>
+<p><span class="versionmodified added">New in version 2021.08.</span></p>
 </div>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.RulesOfConduct">
-<em class="property">EntityType: </em><code class="descname">RulesOfConduct</code><a class="headerlink" href="#od-type.deliveryodata.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.RulesOfConduct">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">RulesOfConduct</span></span><a class="headerlink" href="#od-type.deliveryodata.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 <p>The rules of conduct entity is used to create a template for a set
 of rules for conducting an assessment.  The template contains two
 HTML-fragments, one that will be presented to the Participant at the
 start of the test and one that will be presented to the Proctor
 overseeing the process.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConduct.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConduct.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ID" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConduct.Name">
-<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.Name" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConduct.Name">
+<span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.Name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of this rules templates.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConduct.ParticipantRules">
-<code class="descname">ParticipantRules</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ParticipantRules" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConduct.ParticipantRules">
+<span class="sig-name descname"><span class="pre">ParticipantRules</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ParticipantRules" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConduct.ProctorRules">
-<code class="descname">ProctorRules</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ProctorRules" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConduct.ProctorRules">
+<span class="sig-name descname"><span class="pre">ProctorRules</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ProctorRules" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConduct.Language">
-<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.Language" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConduct.Language">
+<span class="sig-name descname"><span class="pre">Language</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.Language" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConduct.CreatedDateTime">
-<code class="descname">CreatedDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConduct.CreatedDateTime">
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConduct.ModifiedDateTime">
-<code class="descname">ModifiedDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConduct.ModifiedDateTime">
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConduct.RulesOfConductTranslations">
-<code class="descname">RulesOfConductTranslations</code>  Edm.RulesOfConductTranslation<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.RulesOfConductTranslations" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="type">
-<dt id="od-type.deliveryodata.RulesOfConductTranslation">
-<em class="property">EntityType: </em><code class="descname">RulesOfConductTranslation</code><a class="headerlink" href="#od-type.deliveryodata.RulesOfConductTranslation" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConductTranslation.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ID" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConductTranslation.ParticipantRules">
-<code class="descname">ParticipantRules</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ParticipantRules" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConductTranslation.ProctorRules">
-<code class="descname">ProctorRules</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ProctorRules" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConductTranslation.Language">
-<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.Language" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConductTranslation.CreatedDateTime">
-<code class="descname">CreatedDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConductTranslation.ModifiedDateTime">
-<code class="descname">ModifiedDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.RulesOfConductTranslation.RulesOfConduct">
-<code class="descname">RulesOfConduct</code>  Edm.RulesOfConduct<a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConduct.RulesOfConductTranslations">
+<span class="sig-name descname"><span class="pre">RulesOfConductTranslations</span></span>  <span class="pre">Edm.RulesOfConductTranslation</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.RulesOfConductTranslations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.ProctoringProvider">
-<em class="property">EntityType: </em><code class="descname">ProctoringProvider</code><a class="headerlink" href="#od-type.deliveryodata.ProctoringProvider" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.RulesOfConductTranslation">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">RulesOfConductTranslation</span></span><a class="headerlink" href="#od-type.deliveryodata.RulesOfConductTranslation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConductTranslation.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConductTranslation.ParticipantRules">
+<span class="sig-name descname"><span class="pre">ParticipantRules</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ParticipantRules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConductTranslation.ProctorRules">
+<span class="sig-name descname"><span class="pre">ProctorRules</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ProctorRules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConductTranslation.Language">
+<span class="sig-name descname"><span class="pre">Language</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.Language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConductTranslation.CreatedDateTime">
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConductTranslation.ModifiedDateTime">
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConductTranslation.RulesOfConduct">
+<span class="sig-name descname"><span class="pre">RulesOfConduct</span></span>  <span class="pre">Edm.RulesOfConduct</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.ProctoringProvider">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">ProctoringProvider</span></span><a class="headerlink" href="#od-type.deliveryodata.ProctoringProvider" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2018.04.</span></p>
+<p><span class="versionmodified added">New in version 2018.04.</span></p>
 </div>
 <p>An entity used to hold the API credentials and connection
 information associated with an external provider of proctoring
 services.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ProctoringProvider.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ProctoringProvider.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The numeric ID of this proctoring provider entity, allocated
 automatically by the API.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ProctoringProvider.Name">
-<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Name" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ProctoringProvider.Name">
+<span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The human readable string identifier to use for the proctoring
 provider.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ProctoringProvider.Protocol">
-<code class="descname">Protocol</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Protocol" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ProctoringProvider.Protocol">
+<span class="sig-name descname"><span class="pre">Protocol</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Protocol" title="Permalink to this definition">¶</a></dt>
 <dd><p>The protocol to use when communicating with the proctoring
-provider.  This property&#8217;s value is taken from a limited
+provider.  This property’s value is taken from a limited
 vocabulary of supported protocols.  Information about the
 allowable values will be published in future versions of the
 documentation.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ProctoringProvider.Url">
-<code class="descname">Url</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Url" title="Permalink to this definition">¶</a></dt>
-<dd><p>The URL of the provider&#8217;s API endpoint.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ProctoringProvider.Url">
+<span class="sig-name descname"><span class="pre">Url</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Url" title="Permalink to this definition">¶</a></dt>
+<dd><p>The URL of the provider’s API endpoint.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ProctoringProvider.Key">
-<code class="descname">Key</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Key" title="Permalink to this definition">¶</a></dt>
-<dd><p>The API key to use with the provider&#8217;s API endpoint.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ProctoringProvider.Key">
+<span class="sig-name descname"><span class="pre">Key</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The API key to use with the provider’s API endpoint.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ProctoringProvider.Secret">
-<code class="descname">Secret</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Secret" title="Permalink to this definition">¶</a></dt>
-<dd><p>The API secret to use with the provider&#8217;s API endpoint.  Although
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ProctoringProvider.Secret">
+<span class="sig-name descname"><span class="pre">Secret</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.Secret" title="Permalink to this definition">¶</a></dt>
+<dd><p>The API secret to use with the provider’s API endpoint.  Although
 this value may be POSTed when creating an entity and updated
 using PATCH it cannot be read back and is replaced by an encrypted
 version in the response to GET requests.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ProctoringProvider.WebhookSecret">
-<code class="descname">WebhookSecret</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.WebhookSecret" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ProctoringProvider.WebhookSecret">
+<span class="sig-name descname"><span class="pre">WebhookSecret</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.WebhookSecret" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 <p>The API secret that has been given to the proctoring provider
 for use with Webhook-based callbacks.  Although this value may
@@ -421,33 +396,34 @@ be POSTed when creating an entity and updated using PATCH it
 cannot be read back and is replaced by an encrypted version in
 the response to GET requests.</p>
 <p>The supported Webhooks are determined by the
-<a class="reference internal" href="#od-prop.deliveryodata.ProctoringProvider.Protocol" title="Protocol"><code class="xref od od-prop docutils literal"><span class="pre">Protocol</span></code></a>.</p>
+<a class="reference internal" href="#od-prop.deliveryodata.ProctoringProvider.Protocol" title="Protocol"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Protocol</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ProctoringProvider.MonitoringTypes">
-<code class="descname">MonitoringTypes</code> <a class="reference internal" href="#od-type.deliveryodata.MonitoringType" title="MonitoringType">MonitoringType</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.MonitoringTypes" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ProctoringProvider.MonitoringTypes">
+<span class="sig-name descname"><span class="pre">MonitoringTypes</span></span> <a class="reference internal" href="#od-type.deliveryodata.MonitoringType" title="MonitoringType"><span class="pre">MonitoringType</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.MonitoringTypes" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the MonitoringTypes that are associated
 with this ProctoringProvider entity.</p>
 </dd></dl>
 
-<dl class="action">
-<dt>
-<code class="descname">AvailableAppointments Edm.DateTime</code></dt>
+<dl class="od action">
+<dt class="sig sig-object od">
+<span class="sig-name descname"><span class="pre">AvailableAppointments</span> <span class="pre">Edm.DateTime</span></span></dt>
 <dd><p>Reserved for internal use.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -478,15 +454,15 @@ with this ProctoringProvider entity.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -495,11 +471,11 @@ with this ProctoringProvider entity.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/monitoring_type.txt"
+      <a href="../_sources/deliveryodata/monitoring_type.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

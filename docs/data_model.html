@@ -1,31 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Data Model &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="index.html" />
     <link rel="next" title="Security Tables" href="model/security.html" />
     <link rel="prev" title="URLs" href="qmwise/urls.html" />
    
@@ -34,17 +21,18 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="data-model">
-<h1>Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline">¶</a></h1>
+  <section id="data-model">
+<h1>Data Model<a class="headerlink" href="#data-model" title="Permalink to this heading">¶</a></h1>
 <p>Underlying the Questionmark system is a data model that describes the
 data stored about quizzes, tests and exams (content); about the delivery
 of the content and about results.</p>
@@ -108,10 +96,10 @@ up-to-date. The older guide is no longer being maintained.</p>
 </li>
 </ul>
 </div>
-<div class="section" id="misc-topics">
-<h2>Misc Topics<a class="headerlink" href="#misc-topics" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="fields-defined-with-varchar">
-<span id="varchar"></span><h3>Fields defined with varchar<a class="headerlink" href="#fields-defined-with-varchar" title="Permalink to this headline">¶</a></h3>
+<section id="misc-topics">
+<h2>Misc Topics<a class="headerlink" href="#misc-topics" title="Permalink to this heading">¶</a></h2>
+<section id="fields-defined-with-varchar">
+<span id="varchar"></span><h3>Fields defined with varchar<a class="headerlink" href="#fields-defined-with-varchar" title="Permalink to this heading">¶</a></h3>
 <p>Users are strongly advised to use API calls where possible.  OnPremise
 or Perception users who must manipulate data in the database tables
 directly should be aware of the way text fields are encoded.</p>
@@ -125,46 +113,47 @@ database field.</p>
 strings of characters drawn from the character set defined by the
 collation in operation.  For Questionmark databases this collation will
 always be one of: SQL_Latin1_General_CP1_CI_AS or Latin1_General_CI_AS.
-In both cases, the character set is the same and is the &#8216;Latin1&#8217;
+In both cases, the character set is the same and is the ‘Latin1’
 character set defined by Microsoft.  This should not be confused with
 the ISO Latin-1 character set defined by ISO-8859-1 as it is different.
-Microsoft&#8217;s Latin1 character set is also often referred to as <a class="reference external" href="https://en.wikipedia.org/wiki/Windows-1252">CP1252</a>.</p>
+Microsoft’s Latin1 character set is also often referred to as <a class="reference external" href="https://en.wikipedia.org/wiki/Windows-1252">CP1252</a>.</p>
 <p>To interpret data drawn directly from a Questionmark database it is
 necessary to understand the transformation applied to enable Unicode
 data to be stored in varchar fields.</p>
 <p>varchar encoding:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Convert a string of Unicode characters into bytes by applying
-the UTF-8 encoding.</li>
-<li>Transform this string of bytes back into a string of characters
+<li><p>Convert a string of Unicode characters into bytes by applying
+the UTF-8 encoding.</p></li>
+<li><p>Transform this string of bytes back into a string of characters
 by replacing each byte with its corresponding character in
-CP1252.</li>
-<li>Store the resulting string of characters in the varchar data
-field.</li>
+CP1252.</p></li>
+<li><p>Store the resulting string of characters in the varchar data
+field.</p></li>
 </ol>
 </div></blockquote>
 <p>varchar decoding:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Retrieve the string of characters from the varchar data field</li>
-<li>Encode these characters into a string of bytes by replacing each
-character with the byte that represents it in CP1252.</li>
-<li>Decode the resulting string of bytes using UTF-8 to obtain the
-original Unicode data.</li>
+<li><p>Retrieve the string of characters from the varchar data field</p></li>
+<li><p>Encode these characters into a string of bytes by replacing each
+character with the byte that represents it in CP1252.</p></li>
+<li><p>Decode the resulting string of bytes using UTF-8 to obtain the
+original Unicode data.</p></li>
 </ol>
 </div></blockquote>
 <p>The following example may help.  Suppose we have the Unicode string:</p>
 <blockquote>
-<div>© 2016</div></blockquote>
+<div><p>© 2016</p>
+</div></blockquote>
 <p>To convert this into its varchar representation for storage in a varchar
 data field we follow the encoding procedure defined above.</p>
 <blockquote>
 <div><ol class="arabic">
-<li><p class="first">Encode with UTF-8 to obtain (in hex):</p>
+<li><p>Encode with UTF-8 to obtain (in hex):</p>
 <p>C2 A9 20 32 30 31 36</p>
 </li>
-<li><p class="first">Replace bytes with their CP1252 characters:</p>
+<li><p>Replace bytes with their CP1252 characters:</p>
 <p>Â© 2016</p>
 </li>
 </ol>
@@ -175,28 +164,28 @@ but this is just a quirk of the encoding algorithm (and similar
 behaviour is observed for all the characters with Unicode code points
 0x80 through to 0xBF).</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<p class="admonition-title">Warning</p>
 <p>The UTF-8 encoding may create a sequence of bytes that is longer
 than the corresponding sequence of characters.  Non-ASCII characters
 will result in 2 or 3 bytes each.  As a result, the length of a
 varchar field given in the data model represents a restriction on
 the length of the UTF-8 byte sequence and not the maximum number of
 characters.</p>
-<p class="last">In some cases, APIs are conservative in their implementation and may
+<p>In some cases, APIs are conservative in their implementation and may
 truncate or reject character strings that might exceed the
 underlying data model storage.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Due to the nature of UTF-8 and the way the western European
+<p class="admonition-title">Note</p>
+<p>Due to the nature of UTF-8 and the way the western European
 characters are encoded you are highly likely to see byte values
 C0-C5 in the encoded string.  These bytes are all represented as
-upper-case &#8216;A&#8217; (with various accents) in CP1252 and if unexpectedly
+upper-case ‘A’ (with various accents) in CP1252 and if unexpectedly
 seen in Unicode data are diagnostic of a failure to decode data
 correctly (or evidence of earlier double-encoding).</p>
 </div>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<p class="admonition-title">Warning</p>
 <p>Unfortunately, the use of control characters can cause problems as
 CP1252 does not define mappings for all bytes. The values 0x81,
 0x8D, 0x8F, 0x90 and 0x9D are left undefined.  As a result, these
@@ -212,55 +201,54 @@ or simply raise exceptions.</p>
 <p>This is only a problem if you are attempting to read/write directly
 from/to a Questionmark database as API calls always manage the
 encoding for you.</p>
-<p class="last">Most low-level database drivers will have a &#8216;raw&#8217; mode in which
+<p>Most low-level database drivers will have a ‘raw’ mode in which
 varchar data can be read as a string of bytes (instead of
 characters) and it may be necessary to use this mode, in which case,
 you can ignore CP1252 completely and treat the raw data as if it
 were the UTF-8 encoded version of the original Unicode data string.</p>
 </div>
-</div>
-<div class="section" id="timezones">
-<span id="id1"></span><h3>Timezones<a class="headerlink" href="#timezones" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="timezones">
+<span id="id1"></span><h3>Timezones<a class="headerlink" href="#timezones" title="Permalink to this heading">¶</a></h3>
 <p>Datetime values in the data model may be stored in one of three timezones.</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>UTC</dt>
-<dd>Typically indicated by a _UTC suffix to the name of the field in
-the data model.</dd>
-<dt>Repository Time</dt>
-<dd><p class="first">In Questionmark&#8217;s OnDemand platform repositories have their own
+<div><dl>
+<dt>UTC</dt><dd><p>Typically indicated by a _UTC suffix to the name of the field in
+the data model.</p>
+</dd>
+<dt>Repository Time</dt><dd><p>In Questionmark’s OnDemand platform repositories have their own
 default timezone.  This is set when the repository is first
 created and does not usually change.  Historically this was the
 main timezone used for datetime values and is the timezone
 likely to be experienced in the user interface.</p>
-<p class="last">For Perception users the repository time cannot be set and is
+<p>For Perception users the repository time cannot be set and is
 treated as the same as the platform time.</p>
 </dd>
-<dt>Platform Time</dt>
-<dd>In some cases, datetime values are stored using the timezone of
+<dt>Platform Time</dt><dd><p>In some cases, datetime values are stored using the timezone of
 the platform.  This is the default timezone of the server
 running the database.  In Questionmark OnDemand this will vary
-depending on the region in which the repository is hosted.</dd>
+depending on the region in which the repository is hosted.</p>
+</dd>
 </dl>
 </div></blockquote>
-</div>
-<div class="section" id="mid-and-lid">
-<span id="midlid"></span><h3>MID and LID<a class="headerlink" href="#mid-and-lid" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mid-and-lid">
+<span id="midlid"></span><h3>MID and LID<a class="headerlink" href="#mid-and-lid" title="Permalink to this heading">¶</a></h3>
 <p>For legacy reasons, some 64-bit integer IDs are split into two values in
 the data model.  The two values are typically indicated with a _MID and
 _LID suffix.</p>
 <p>Calculation of the 64-bit ID from a MID and LID uses a <em>decimal</em> algorithm:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ID</span> <span class="o">=</span> <span class="n">MID</span> <span class="o">*</span> <span class="mi">100000000</span> <span class="o">+</span> <span class="n">LID</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ID</span> <span class="o">=</span> <span class="n">MID</span> <span class="o">*</span> <span class="mi">100000000</span> <span class="o">+</span> <span class="n">LID</span>
 </pre></div>
 </div>
 <p>Likewise, you need to use <em>decimal</em> arithmetic to split an ID into the
 two separate parts:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MID</span> <span class="o">=</span> <span class="n">ID</span> <span class="o">/</span> <span class="mi">100000000</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MID</span> <span class="o">=</span> <span class="n">ID</span> <span class="o">/</span> <span class="mi">100000000</span>
 <span class="n">LID</span> <span class="o">=</span> <span class="n">ID</span> <span class="o">%</span> <span class="mi">100000000</span>
 </pre></div>
 </div>
 <p>For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MID</span> <span class="o">=</span> <span class="mi">80317034</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MID</span> <span class="o">=</span> <span class="mi">80317034</span>
 <span class="n">LID</span> <span class="o">=</span> <span class="mi">6550612</span>
 <span class="n">ID</span> <span class="o">=</span> <span class="mi">8031703406550612</span>
 </pre></div>
@@ -268,23 +256,24 @@ two separate parts:</p>
 <p>Values of MID and LID are limited to the range [1, 99999999].  If you
 are creating 64-bit ID values yourself you must ensure that they satisfy
 the following constraints:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ID</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">!=</span> <span class="mi">0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ID</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">!=</span> <span class="mi">0</span>
 <span class="n">ID</span> <span class="o">&gt;</span> <span class="mi">100000000</span>
 <span class="n">ID</span> <span class="o">&lt;=</span> <span class="mi">9999999999999999</span>
 </pre></div>
 </div>
 <p>As a result, IDs contains approximately 50 bits of information.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="index.html">Table Of Contents</a></h3>
+<h3><a href="index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="odata.html">OData</a></li>
@@ -314,15 +303,15 @@ the following constraints:</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -331,11 +320,11 @@ the following constraints:</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="_sources/data_model.txt"
+      <a href="_sources/data_model.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

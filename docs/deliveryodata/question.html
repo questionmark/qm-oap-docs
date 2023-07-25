@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Question and QuestionTranslation &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Result" href="result.html" />
     <link rel="prev" title="PrintBatch" href="printbatch.html" />
    
@@ -35,184 +21,180 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="question-and-questiontranslation">
-<h1>Question and QuestionTranslation<a class="headerlink" href="#question-and-questiontranslation" title="Permalink to this headline">¶</a></h1>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.Questions">
-<code class="descname">Questions</code> <a class="reference internal" href="#od-type.deliveryodata.Question" title="Question">Question</a><a class="headerlink" href="#od-feed.deliveryodata.Questions" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; read only</li>
+  <section id="question-and-questiontranslation">
+<h1>Question and QuestionTranslation<a class="headerlink" href="#question-and-questiontranslation" title="Permalink to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.Questions">
+<span class="sig-name descname"><span class="pre">Questions</span></span> <a class="reference internal" href="#od-type.deliveryodata.Question" title="Question"><span class="pre">Question</span></a><a class="headerlink" href="#od-feed.deliveryodata.Questions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – read only</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>QuestionType</strong> &#8211; see note in entity type on space padding</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>QuestionType</strong> – see note in entity type on space padding</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>The Questions feed contains records describing all the questions in
 the assessment catalog.</p>
 </dd></dl>
 
-<dl class="feed">
-<dt id="od-feed.deliveryodata.QuestionTranslations">
-<code class="descname">QuestionTranslations</code> <a class="reference internal" href="#od-type.deliveryodata.QuestionTranslation" title="QuestionTranslation">QuestionTranslation</a><a class="headerlink" href="#od-feed.deliveryodata.QuestionTranslations" title="Permalink to this definition">¶</a></dt>
-<dd><p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.Questions" title="Questions"><code class="xref od od-feed docutils literal"><span class="pre">Questions</span></code></a> containing translated
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.QuestionTranslations">
+<span class="sig-name descname"><span class="pre">QuestionTranslations</span></span> <a class="reference internal" href="#od-type.deliveryodata.QuestionTranslation" title="QuestionTranslation"><span class="pre">QuestionTranslation</span></a><a class="headerlink" href="#od-feed.deliveryodata.QuestionTranslations" title="Permalink to this definition">¶</a></dt>
+<dd><p>An auxiliary feed to <a class="reference internal" href="#od-feed.deliveryodata.Questions" title="Questions"><code class="xref od od-feed docutils literal notranslate"><span class="pre">Questions</span></code></a> containing translated
 versions of the Questions.</p>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.Question">
-<em class="property">EntityType: </em><code class="descname">Question</code><a class="headerlink" href="#od-type.deliveryodata.Question" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="prop">
-<dt id="od-prop.deliveryodata.Question.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Question.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.Question">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">Question</span></span><a class="headerlink" href="#od-type.deliveryodata.Question" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Question.ID" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Question.Revision">
-<code class="descname">Revision</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Question.Revision" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.Revision">
+<span class="sig-name descname"><span class="pre">Revision</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Question.Revision" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Question.Language">
-<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Question.Language" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.Language">
+<span class="sig-name descname"><span class="pre">Language</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Question.Language" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Question.Status">
-<code class="descname">Status</code>  Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Question.Status" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.Status">
+<span class="sig-name descname"><span class="pre">Status</span></span>  <span class="pre">Edm.Int16</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Question.Status" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Question.Description">
-<code class="descname">Description</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Question.Description" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.Description">
+<span class="sig-name descname"><span class="pre">Description</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Question.Description" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Question.Author">
-<code class="descname">Author</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Question.Author" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.Author">
+<span class="sig-name descname"><span class="pre">Author</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Question.Author" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Question.Editor">
-<code class="descname">Editor</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Question.Editor" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.Editor">
+<span class="sig-name descname"><span class="pre">Editor</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Question.Editor" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Question.CreatedDateTime">
-<code class="descname">CreatedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Question.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.CreatedDateTime">
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Question.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Question.ModifiedDateTime">
-<code class="descname">ModifiedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Question.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.ModifiedDateTime">
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Question.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Question.QuestionType">
-<code class="descname">QuestionType</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Question.QuestionType" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.QuestionType">
+<span class="sig-name descname"><span class="pre">QuestionType</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Question.QuestionType" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Question.QuestionTranslations">
-<code class="descname">QuestionTranslations</code> <a class="reference internal" href="#od-type.deliveryodata.QuestionTranslation" title="QuestionTranslation">QuestionTranslation</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Question.QuestionTranslations" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.QuestionTranslations">
+<span class="sig-name descname"><span class="pre">QuestionTranslations</span></span> <a class="reference internal" href="#od-type.deliveryodata.QuestionTranslation" title="QuestionTranslation"><span class="pre">QuestionTranslation</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Question.QuestionTranslations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Question.Rubric">
-<code class="descname">Rubric</code> <a class="reference internal" href="rubric.html#od-type.deliveryodata.Rubric" title="Rubric">Rubric</a><a class="headerlink" href="#od-prop.deliveryodata.Question.Rubric" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.Rubric">
+<span class="sig-name descname"><span class="pre">Rubric</span></span> <a class="reference internal" href="rubric.html#od-type.deliveryodata.Rubric" title="Rubric"><span class="pre">Rubric</span></a><a class="headerlink" href="#od-prop.deliveryodata.Question.Rubric" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Question.Answers">
-<code class="descname">Answers</code> <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer">Answer</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Question.Answers" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="type">
-<dt id="od-type.deliveryodata.QuestionTranslation">
-<em class="property">EntityType: </em><code class="descname">QuestionTranslation</code><a class="headerlink" href="#od-type.deliveryodata.QuestionTranslation" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="prop">
-<dt id="od-prop.deliveryodata.QuestionTranslation.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.ID" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.QuestionTranslation.Language">
-<em class="property">Entity Key: </em><code class="descname">Language</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Language" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.QuestionTranslation.Revision">
-<code class="descname">Revision</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Revision" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.QuestionTranslation.Status">
-<code class="descname">Status</code>  Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Status" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.QuestionTranslation.Description">
-<code class="descname">Description</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Description" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.QuestionTranslation.Author">
-<code class="descname">Author</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Author" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.QuestionTranslation.Editor">
-<code class="descname">Editor</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Editor" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.QuestionTranslation.CreatedDateTime">
-<code class="descname">CreatedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.QuestionTranslation.ModifiedDateTime">
-<code class="descname">ModifiedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="prop">
-<dt id="od-prop.deliveryodata.QuestionTranslation.Question">
-<code class="descname">Question</code> <a class="reference internal" href="#od-type.deliveryodata.Question" title="Question">Question</a><a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Question" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Question.Answers">
+<span class="sig-name descname"><span class="pre">Answers</span></span> <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer"><span class="pre">Answer</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Question.Answers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-</div>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.QuestionTranslation">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">QuestionTranslation</span></span><a class="headerlink" href="#od-type.deliveryodata.QuestionTranslation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.QuestionTranslation.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.QuestionTranslation.Language">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">Language</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.QuestionTranslation.Revision">
+<span class="sig-name descname"><span class="pre">Revision</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Revision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.QuestionTranslation.Status">
+<span class="sig-name descname"><span class="pre">Status</span></span>  <span class="pre">Edm.Int16</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.QuestionTranslation.Description">
+<span class="sig-name descname"><span class="pre">Description</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.QuestionTranslation.Author">
+<span class="sig-name descname"><span class="pre">Author</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Author" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.QuestionTranslation.Editor">
+<span class="sig-name descname"><span class="pre">Editor</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Editor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.QuestionTranslation.CreatedDateTime">
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.QuestionTranslation.ModifiedDateTime">
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.QuestionTranslation.Question">
+<span class="sig-name descname"><span class="pre">Question</span></span> <a class="reference internal" href="#od-type.deliveryodata.Question" title="Question"><span class="pre">Question</span></a><a class="headerlink" href="#od-prop.deliveryodata.QuestionTranslation.Question" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -243,15 +225,15 @@ versions of the Questions.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -260,11 +242,11 @@ versions of the Questions.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/question.txt"
+      <a href="../_sources/deliveryodata/question.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

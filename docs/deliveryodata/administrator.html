@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Administrator &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Answer" href="answer.html" />
     <link rel="prev" title="Entity Type Reference" href="types.html" />
    
@@ -35,71 +21,65 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="administrator">
-<h1>Administrator<a class="headerlink" href="#administrator" title="Permalink to this headline">¶</a></h1>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.Administrators">
-<code class="descname">Administrators</code> <a class="reference internal" href="#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a><a class="headerlink" href="#od-feed.deliveryodata.Administrators" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; returns the feed of Administrators</li>
-<li><strong>POST</strong> &#8211; creates an Administrator <em>with no role</em></li>
-<li><strong>PATCH</strong> &#8211; updates an Administrator</li>
-<li><strong>DELETE</strong> &#8211; deletes an Administrator</li>
+  <section id="administrator">
+<h1>Administrator<a class="headerlink" href="#administrator" title="Permalink to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.Administrators">
+<span class="sig-name descname"><span class="pre">Administrators</span></span> <a class="reference internal" href="#od-type.deliveryodata.Administrator" title="Administrator"><span class="pre">Administrator</span></a><a class="headerlink" href="#od-feed.deliveryodata.Administrators" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – returns the feed of Administrators</p></li>
+<li><p><strong>POST</strong> – creates an Administrator <em>with no role</em></p></li>
+<li><p><strong>PATCH</strong> – updates an Administrator</p></li>
+<li><p><strong>DELETE</strong> – deletes an Administrator</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>Name</strong> &#8211; administrator name</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>Name</strong> – administrator name</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>Groups</strong> &#8211; associated groups</li>
-<li><strong>TestCenters</strong> &#8211; associated test centers</li>
+</dd>
+<dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Groups</strong> – associated groups</p></li>
+<li><p><strong>TestCenters</strong> – associated test centers</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>The Administrators feed contains data about users with administrator
 roles in the user data base.  A user with an administrator role is
 defined as being a user with <em>any</em> role other than special
 Participant role.</p>
 <p>The feed can be used to create, update and delete Administrators.
 Note that creating an Administrator editor does not associate the
-new user with any role.  You can use the <code class="xref od od-action docutils literal"><span class="pre">Upsert</span></code> action
+new user with any role.  You can use the <code class="xref od od-action docutils literal notranslate"><span class="pre">Upsert</span></code> action
 to create a user with one or more existing Administrator roles.</p>
 <p>If you want to promote a user that exists in the Portal as a
 Participant (or as an authenticated user with no assigned role) to
 being an Administrator then you may POST to the Administrators feed
 to create the entity representing the user and then assign the
 additional roles but the recommended approach would be to use the
-<code class="xref od od-action docutils literal"><span class="pre">Upsert</span></code> action.</p>
-<dl class="action">
-<dt id="od-action.deliveryodata.Administrators.Upsert">
-<em class="property">action </em><code class="descname">Upsert</code> (Name  Edm.String, Email  Edm.String, Password  Edm.String, FirstName  Edm.String, LastName  Edm.String, Department  Edm.String, SsoId  Edm.String, Url  Edm.String, AlternateName  Edm.String, Roles Collection( Edm.String), Groups Collection( Edm.String))  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Administrators.Upsert" title="Permalink to this definition">¶</a></dt>
+<code class="xref od od-action docutils literal notranslate"><span class="pre">Upsert</span></code> action.</p>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Administrators.Upsert">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">Upsert</span></span> <span class="pre">(</span><span class="pre">Name</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Email</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Password</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">FirstName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">LastName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Department</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SsoId</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Url</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">AlternateName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Roles</span> <span class="pre">Collection(</span> <span class="pre">Edm.String</span><span class="pre">)</span><span class="pre">,</span> <span class="pre">Groups</span> <span class="pre">Collection(</span> <span class="pre">Edm.String</span><span class="pre">)</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Administrators.Upsert" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.08.</span></p>
+<p><span class="versionmodified added">New in version 2021.08.</span></p>
 </div>
 <p>To invoke this action use http POST with a JSON body like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrators</span><span class="o">/</span><span class="n">Upsert</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrators</span><span class="o">/</span><span class="n">Upsert</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;bob&quot;</span><span class="p">,</span>
@@ -109,7 +89,7 @@ additional roles but the recommended approach would be to use the
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The action creates the user if they don&#8217;t exist or updates an
+<p>The action creates the user if they don’t exist or updates an
 existing user with matching Name.  Omitted parameters are
 ignored. The Groups parameter contains a list of Group names
 that are used to assign the user as an owner of those groups.
@@ -123,100 +103,100 @@ the impact of network latency on integrated systems.</p>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.Administrator">
-<em class="property">EntityType: </em><code class="descname">Administrator</code><a class="headerlink" href="#od-type.deliveryodata.Administrator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Administrator entities are drawn from <a class="reference internal" href="../model/g_user.html#qm-table.g_user" title="G_User"><code class="xref qm qm-table docutils literal"><span class="pre">G_User</span></code></a> in the data
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.Administrator">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">Administrator</span></span><a class="headerlink" href="#od-type.deliveryodata.Administrator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Administrator entities are drawn from <a class="reference internal" href="../model/g_user.html#qm-table.g_user" title="G_User"><code class="xref qm qm-table docutils literal notranslate"><span class="pre">G_User</span></code></a> in the data
 model but contain only a subset of the properties.  They are read
 only in OData.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.Password">
-<code class="descname">Password</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Password" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Administrator&#8217;s password.  This field is not available
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.Password">
+<span class="sig-name descname"><span class="pre">Password</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.Password" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Administrator’s password.  This field is not available
 during a GET operation and will always appear to be set to null
 but it can be provided when creating (POST) or updating (PATCH)
-an Administrator&#8217;s record.</p>
+an Administrator’s record.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Administrator.ID" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.user_id" title="User_ID"><code class="xref qm qm-field docutils literal"><span class="pre">G_User.User_ID</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.user_id" title="User_ID"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">G_User.User_ID</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.Name">
-<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Name" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.user_name" title="User_Name"><code class="xref qm qm-field docutils literal"><span class="pre">G_User.User_Name</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.Name">
+<span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.user_name" title="User_Name"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">G_User.User_Name</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.FirstName">
-<code class="descname">FirstName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.FirstName" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.first_name" title="First_Name"><code class="xref qm qm-field docutils literal"><span class="pre">G_User.First_Name</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.FirstName">
+<span class="sig-name descname"><span class="pre">FirstName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.FirstName" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.first_name" title="First_Name"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">G_User.First_Name</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.LastName">
-<code class="descname">LastName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.LastName" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.last_name" title="Last_Name"><code class="xref qm qm-field docutils literal"><span class="pre">G_User.Last_Name</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.LastName">
+<span class="sig-name descname"><span class="pre">LastName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.LastName" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.last_name" title="Last_Name"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">G_User.Last_Name</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.Department">
-<code class="descname">Department</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Department" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.department" title="Department"><code class="xref qm qm-field docutils literal"><span class="pre">G_User.Department</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.Department">
+<span class="sig-name descname"><span class="pre">Department</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.Department" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.department" title="Department"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">G_User.Department</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.Email">
-<code class="descname">Email</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Email" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.email" title="Email"><code class="xref qm qm-field docutils literal"><span class="pre">G_User.Email</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.Email">
+<span class="sig-name descname"><span class="pre">Email</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.Email" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/g_user.html#qm-field.g_user.email" title="Email"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">G_User.Email</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.SsoId">
-<code class="descname">SsoId</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.SsoId" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.SsoId">
+<span class="sig-name descname"><span class="pre">SsoId</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.SsoId" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.Url">
-<code class="descname">Url</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Url" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.Url">
+<span class="sig-name descname"><span class="pre">Url</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.Url" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.AlternateName">
-<code class="descname">AlternateName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Administrator.AlternateName" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.AlternateName">
+<span class="sig-name descname"><span class="pre">AlternateName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.AlternateName" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.Groups">
-<code class="descname">Groups</code> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Groups" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.Groups">
+<span class="sig-name descname"><span class="pre">Groups</span></span> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.Groups" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the Groups associated with this
-administrator as per <a class="reference internal" href="../model/g_owner.html#qm-table.g_owner" title="G_Owner"><code class="xref qm qm-table docutils literal"><span class="pre">G_Owner</span></code></a>.  An Administrator may
+administrator as per <a class="reference internal" href="../model/g_owner.html#qm-table.g_owner" title="G_Owner"><code class="xref qm qm-table docutils literal notranslate"><span class="pre">G_Owner</span></code></a>.  An Administrator may
 be associated with multiple Group entities.</p>
 <p>Ownership is currently limited to root groups, that is, Groups
 where the RootGroupID matches the Group ID (and the navigation
 property ParentGroup is empty).</p>
 <p>You can modify this list using the special $links property.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.08.</span></p>
+<p><span class="versionmodified added">New in version 2021.08.</span></p>
 </div>
 <p>To add a Group to the list you must use the full URL of the
 Group Entity and POST it to the following URL:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>POST /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Groups
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>POST /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Groups
 
 {
     &quot;url&quot;: &quot;https://&lt;platform&gt;/deliveryodata/&lt;customer-id&gt;/Groups(&lt;group-id&gt;)&quot;
@@ -226,14 +206,14 @@ Group Entity and POST it to the following URL:</p>
 <p>You must replace &lt;customer-id&gt;, &lt;administrator-id&gt;, &lt;platform&gt;
 and &lt;group-id&gt; accordingly.</p>
 <p>To remove a Group membership use the DELETE operation as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>DELETE /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Groups(&lt;group-id&gt;)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DELETE /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Groups(&lt;group-id&gt;)
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.Roles">
-<code class="descname">Roles</code> <a class="reference internal" href="#od-type.deliveryodata.Role" title="Role">Role</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Administrator.Roles" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.Roles">
+<span class="sig-name descname"><span class="pre">Roles</span></span> <a class="reference internal" href="#od-type.deliveryodata.Role" title="Role"><span class="pre">Role</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.Roles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the Roles associated with this
 administrator.  An Administrator may be associated with multiple
 Role entities <em>or no Role entities</em>.  In the latter case, the
@@ -246,11 +226,11 @@ Administrators feed until they are assigned a non-Participant
 role <em>in the user interface</em>.</p>
 <p>You can modify this list using the special $links property.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.08.</span></p>
+<p><span class="versionmodified added">New in version 2021.08.</span></p>
 </div>
 <p>To add a Role to the list you must use the full URL of the
 Role Entity and POST it to the following URL:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>POST /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Roles
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>POST /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Roles
 
 {
     &quot;url&quot;: &quot;https://&lt;platform&gt;/deliveryodata/&lt;customer-id&gt;/Groups(&lt;role-id&gt;)&quot;
@@ -259,25 +239,25 @@ Role Entity and POST it to the following URL:</p>
 </div>
 <p>You must replace &lt;customer-id&gt;, &lt;administrator-id&gt;, &lt;platform&gt;
 and &lt;role-id&gt; accordingly.  Note that Role IDs are actually
-strings with the name of the Role, e.g., Roles(&#8216;Author&#8217;).</p>
+strings with the name of the Role, e.g., Roles(‘Author’).</p>
 <p>To remove a Group membership use the DELETE operation as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>DELETE /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Roles(&lt;group-id&gt;)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DELETE /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Roles(&lt;group-id&gt;)
 </pre></div>
 </div>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">DELETE operation planned for release in 2022</p>
+<p class="admonition-title">Warning</p>
+<p>DELETE operation planned for release in 2022</p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Administrator.TestCenters">
-<code class="descname">TestCenters</code> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter">TestCenter</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Administrator.TestCenters" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.TestCenters">
+<span class="sig-name descname"><span class="pre">TestCenters</span></span> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter"><span class="pre">TestCenter</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.TestCenters" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>Navigation property to the TestCenters associated with this
-administrator as per <a class="reference internal" href="../model/g_test_center.html#qm-table.g_test_center_owner" title="G_Test_Center_Owner"><code class="xref qm qm-table docutils literal"><span class="pre">G_Test_Center_Owner</span></code></a>.  An
+administrator as per <a class="reference internal" href="../model/g_test_center.html#qm-table.g_test_center_owner" title="G_Test_Center_Owner"><code class="xref qm qm-table docutils literal notranslate"><span class="pre">G_Test_Center_Owner</span></code></a>.  An
 Administrator may be associated with multiple TestCenter
 entities.</p>
 <p>The client application can use this information to control
@@ -285,46 +265,46 @@ access to TestCenter-specific functions such as opening
 TestCenters and proctoring exams being taken on site.</p>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Administrator.CheckPassword">
-<em class="property">action </em><code class="descname">CheckPassword</code> (Password  Edm.String)  Edm.Boolean<a class="headerlink" href="#od-action.deliveryodata.Administrator.CheckPassword" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Administrator.CheckPassword">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">CheckPassword</span></span> <span class="pre">(</span><span class="pre">Password</span>  <span class="pre">Edm.String</span><span class="pre">)</span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-action.deliveryodata.Administrator.CheckPassword" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 <p>Returns True if the input parameter matches the password set for
 this administrator and False otherwise.</p>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Administrator.AllGroups">
-<em class="property">action </em><code class="descname">AllGroups</code> (GroupName  Edm.String) <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-action.deliveryodata.Administrator.AllGroups" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Administrator.AllGroups">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">AllGroups</span></span> <span class="pre">(</span><span class="pre">GroupName</span>  <span class="pre">Edm.String</span><span class="pre">)</span> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-action.deliveryodata.Administrator.AllGroups" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2020.03.</span></p>
+<p><span class="versionmodified added">New in version 2020.03.</span></p>
 </div>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Previously documented as a navigation property
+<p class="admonition-title">Warning</p>
+<p>Previously documented as a navigation property
 in error.</p>
 </div>
 <p>An action that evaluates all Groups owned by this administrator
-as per <a class="reference internal" href="../model/g_owner.html#qm-table.g_owner" title="G_Owner"><code class="xref qm qm-table docutils literal"><span class="pre">G_Owner</span></code></a> <em>including all sub-groups</em> owned by
+as per <a class="reference internal" href="../model/g_owner.html#qm-table.g_owner" title="G_Owner"><code class="xref qm qm-table docutils literal notranslate"><span class="pre">G_Owner</span></code></a> <em>including all sub-groups</em> owned by
 inheritance.  The required GroupName parameter is a filter
 limiting the list of returned groups to those that contain the
 filter string.  GroupName may be passed as the empty string to
 return an unfiltered list.</p>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Administrator.ActionableSchedulesForObservation">
-<em class="property">action </em><code class="descname">ActionableSchedulesForObservation</code> () <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule">ActionableSchedule</a> Collection<a class="headerlink" href="#od-action.deliveryodata.Administrator.ActionableSchedulesForObservation" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Administrator.ActionableSchedulesForObservation">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">ActionableSchedulesForObservation</span></span> <span class="pre">(</span><span class="pre">)</span> <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><span class="pre">ActionableSchedule</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-action.deliveryodata.Administrator.ActionableSchedulesForObservation" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>Returns a collection of actionable schedules related to this
 administrator <em>as an assessment observer</em>.  It takes no
 parameters and is bound to a specific Administrator so is called
 like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrator</span><span class="p">(</span><span class="mi">456789</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedulesForObservation</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrator</span><span class="p">(</span><span class="mi">456789</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedulesForObservation</span>
 
 <span class="p">{</span>
 <span class="p">}</span>
@@ -334,33 +314,34 @@ like this:</p>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.Role">
-<em class="property">EntityType: </em><code class="descname">Role</code><a class="headerlink" href="#od-type.deliveryodata.Role" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.Role">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">Role</span></span><a class="headerlink" href="#od-type.deliveryodata.Role" title="Permalink to this definition">¶</a></dt>
 <dd><p>Role entities are simple entities that allow access to read the list
 of roles defined in the portal.</p>
 <p>This entity is subject to change.</p>
 <blockquote>
 <div><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 </div></blockquote>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Role.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Role.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Role.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Role.ID" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -391,15 +372,15 @@ of roles defined in the portal.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -408,11 +389,11 @@ of roles defined in the portal.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/administrator.txt"
+      <a href="../_sources/deliveryodata/administrator.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Result &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Rubric and Dimension" href="rubric.html" />
     <link rel="prev" title="Question and QuestionTranslation" href="question.html" />
    
@@ -35,61 +21,55 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="result">
-<h1>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h1>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.Results">
-<code class="descname">Results</code> <a class="reference internal" href="#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-feed.deliveryodata.Results" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; read only</li>
+  <section id="result">
+<h1>Result<a class="headerlink" href="#result" title="Permalink to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.Results">
+<span class="sig-name descname"><span class="pre">Results</span></span> <a class="reference internal" href="#od-type.deliveryodata.Result" title="Result"><span class="pre">Result</span></a><a class="headerlink" href="#od-feed.deliveryodata.Results" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – read only</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>AssessmentID</strong> &#8211; the related assessment</li>
-<li><strong>ParticipantName</strong> &#8211; for filtering by Participant</li>
-<li><strong>GroupName</strong> &#8211; for filtering by Group</li>
-<li><strong>WhenFinished</strong> &#8211; for filtering by data of submission</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>AssessmentID</strong> – the related assessment</p></li>
+<li><p><strong>ParticipantName</strong> – for filtering by Participant</p></li>
+<li><p><strong>GroupName</strong> – for filtering by Group</p></li>
+<li><p><strong>WhenFinished</strong> – for filtering by data of submission</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>Answers</strong> &#8211; the answers associated with this result</li>
+</dd>
+<dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Answers</strong> – the answers associated with this result</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>The Results feed contains data about assessment results.  Entries
-are defined by the <a class="reference internal" href="#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.Result</span></code></a> type.</p>
-<dl class="action">
-<dt id="od-action.deliveryodata.Results.PurgeResultsByParticipantName">
-<em class="property">action </em><code class="descname">PurgeResultsByParticipantName</code> (ParticipantName  Edm.String)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.PurgeResultsByParticipantName" title="Permalink to this definition">¶</a></dt>
+are defined by the <a class="reference internal" href="#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal notranslate"><span class="pre">deliveryodata.Result</span></code></a> type.</p>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Results.PurgeResultsByParticipantName">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">PurgeResultsByParticipantName</span></span> <span class="pre">(</span><span class="pre">ParticipantName</span>  <span class="pre">Edm.String</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Results.PurgeResultsByParticipantName" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2018.05.</span></p>
+<p><span class="versionmodified added">New in version 2018.05.</span></p>
 </div>
 <p>Purges all results for a <em>named</em> participant, all answers and other
 data associated with the results are removed.  The results are
 also removed from the Results Warehouse.</p>
 <p>To invoke this action use http POST with a JSON body like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Results</span><span class="o">/</span><span class="n">PurgeResultsByParticipantName</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Results</span><span class="o">/</span><span class="n">PurgeResultsByParticipantName</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;ParticipantName&quot;</span><span class="p">:</span> <span class="s2">&quot;bob&quot;</span>
@@ -98,15 +78,15 @@ also removed from the Results Warehouse.</p>
 </div>
 <p>The PurgeResultsByParticipantName action returns a 202 accepted
 response on success, result deletion happens asynchronously to
-ensure that it doesn&#8217;t conflict with the delivery of
+ensure that it doesn’t conflict with the delivery of
 assessments.</p>
 <p>The participant is passed by <em>name</em> and not by ParticipantID.  This
 ensures that it is possible to delete results for participants that
 have already been deleted from the repository and for participants
 that were never created as real users.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Matching results of open assessments are also
+<p class="admonition-title">Warning</p>
+<p>Matching results of open assessments are also
 removed by this action.  Users of open
 assessments are typically prompted to enter
 their name at the start of the assessment
@@ -116,26 +96,26 @@ database as the participant name.</p>
 </div>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Results.PurgeParticipantAndResultsByParticipantName">
-<em class="property">action </em><code class="descname">PurgeParticipantAndResultsByParticipantName</code> (ParticipantName  Edm.String)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.PurgeParticipantAndResultsByParticipantName" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Results.PurgeParticipantAndResultsByParticipantName">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">PurgeParticipantAndResultsByParticipantName</span></span> <span class="pre">(</span><span class="pre">ParticipantName</span>  <span class="pre">Edm.String</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Results.PurgeParticipantAndResultsByParticipantName" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2018.05.</span></p>
+<p><span class="versionmodified added">New in version 2018.05.</span></p>
 </div>
 <p>Similar to PurgeResultsByParticipantName but also removes the
-Participant&#8217;s user account if one exists in the repository.</p>
+Participant’s user account if one exists in the repository.</p>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Results.PurgeResultsByAssessmentId">
-<em class="property">action </em><code class="descname">PurgeResultsByAssessmentId</code> (AssessmentID  Edm.String)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.PurgeResultsByAssessmentId" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Results.PurgeResultsByAssessmentId">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">PurgeResultsByAssessmentId</span></span> <span class="pre">(</span><span class="pre">AssessmentID</span>  <span class="pre">Edm.String</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Results.PurgeResultsByAssessmentId" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2018.05.</span></p>
+<p><span class="versionmodified added">New in version 2018.05.</span></p>
 </div>
 <p>Similar to PurgeResultsByParticipantName except that all results
 for a given assessment are removed instead.</p>
 <p>To invoke this action use http POST with a JSON body like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Results</span><span class="o">/</span><span class="n">PurgeResultsByAssessmentId</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Results</span><span class="o">/</span><span class="n">PurgeResultsByAssessmentId</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;2185231530264478&quot;</span>
@@ -143,16 +123,16 @@ for a given assessment are removed instead.</p>
 </pre></div>
 </div>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">The AssessmentID is a <em>string</em> and not an Int64.</p>
+<p class="admonition-title">Warning</p>
+<p>The AssessmentID is a <em>string</em> and not an Int64.</p>
 </div>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Results.PurgeResultsByRetentionPolicy">
-<em class="property">action </em><code class="descname">PurgeResultsByRetentionPolicy</code> (AdministratorName  Edm.String, RunType  Edm.String)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.PurgeResultsByRetentionPolicy" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Results.PurgeResultsByRetentionPolicy">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">PurgeResultsByRetentionPolicy</span></span> <span class="pre">(</span><span class="pre">AdministratorName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">RunType</span>  <span class="pre">Edm.String</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Results.PurgeResultsByRetentionPolicy" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2020.11.</span></p>
+<p><span class="versionmodified added">New in version 2020.11.</span></p>
 </div>
 <p>It is possible to configure an area with a retention policy for
 results, effectively a number of days after which <em>Result</em> data
@@ -162,12 +142,12 @@ or is invalid, then no action is taken.</p>
 the end user that triggered the action (for auditing purposes).</p>
 <p>The RunType parameter can be used to provide a description of
 the trigger for the action (for auditing purposes).  The value
-&#8220;Scheduled&#8221; is reserved for Questionmark use and indicates that
+“Scheduled” is reserved for Questionmark use and indicates that
 an automated periodic clean-up process was responsible for the
 action.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">The PurgeResultByRetentionPolicy action cannot
+<p class="admonition-title">Warning</p>
+<p>The PurgeResultByRetentionPolicy action cannot
 be undone.  Use of this method on the
 Questionmark OnDemand platform requires a
 Questionmark approved retention policy to have
@@ -175,83 +155,83 @@ been configured for the tenant concerned.</p>
 </div>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Results.ReplayResultsByDateRange">
-<em class="property">action </em><code class="descname">ReplayResultsByDateRange</code> (StartDate  Edm.DateTime, EndDate  Edm.DateTime)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.ReplayResultsByDateRange" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Results.ReplayResultsByDateRange">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">ReplayResultsByDateRange</span></span> <span class="pre">(</span><span class="pre">StartDate</span>  <span class="pre">Edm.DateTime</span><span class="pre">,</span> <span class="pre">EndDate</span>  <span class="pre">Edm.DateTime</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Results.ReplayResultsByDateRange" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.03.</span></p>
+<p><span class="versionmodified added">New in version 2021.03.</span></p>
 </div>
 <p>Reserved for internal use.</p>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Results.ReplayResultsByIDList">
-<em class="property">action </em><code class="descname">ReplayResultsByIDList</code> (ResultIds Collection( Edm.Int32))  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Results.ReplayResultsByIDList" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Results.ReplayResultsByIDList">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">ReplayResultsByIDList</span></span> <span class="pre">(</span><span class="pre">ResultIds</span> <span class="pre">Collection(</span> <span class="pre">Edm.Int32</span><span class="pre">)</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Results.ReplayResultsByIDList" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2022.02.</span></p>
+<p><span class="versionmodified added">New in version 2022.02.</span></p>
 </div>
 <p>Reserved for internal use.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.Result">
-<em class="property">EntityType: </em><code class="descname">Result</code><a class="headerlink" href="#od-type.deliveryodata.Result" title="Permalink to this definition">¶</a></dt>
-<dd><p>Result entities are drawn from <a class="reference internal" href="../model/a_result.html#qm-table.a_result" title="A_Result"><code class="xref qm qm-table docutils literal"><span class="pre">A_Result</span></code></a> in the data
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.Result">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">Result</span></span><a class="headerlink" href="#od-type.deliveryodata.Result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Result entities are drawn from <a class="reference internal" href="../model/a_result.html#qm-table.a_result" title="A_Result"><code class="xref qm qm-table docutils literal notranslate"><span class="pre">A_Result</span></code></a> in the data
 model but contain only a subset of the properties.  Result entities
 are generally read-only with the exception of the
-<a class="reference internal" href="#od-prop.deliveryodata.Result.Status" title="Status"><code class="xref od od-prop docutils literal"><span class="pre">Result.Status</span></code></a> and <a class="reference internal" href="#od-prop.deliveryodata.Result.ExtraTime" title="ExtraTime"><code class="xref od od-prop docutils literal"><span class="pre">Result.ExtraTime</span></code></a> properties.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Result.ID" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.result_id" title="Result_ID"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Result_ID</span></code></a>.</p>
+<a class="reference internal" href="#od-prop.deliveryodata.Result.Status" title="Status"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Result.Status</span></code></a> and <a class="reference internal" href="#od-prop.deliveryodata.Result.ExtraTime" title="ExtraTime"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Result.ExtraTime</span></code></a> properties.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Result.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.result_id" title="Result_ID"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Result_ID</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.AssessmentID">
-<code class="descname">AssessmentID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Result.AssessmentID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.AssessmentID">
+<span class="sig-name descname"><span class="pre">AssessmentID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Result.AssessmentID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The OData feed exposes the Assessment using a combined ID rather
 than the MID+LID forms found in the data model.  See
-<a class="reference internal" href="../model/a_result.html#qm-field.a_result.session_mid" title="Session_MID"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Session_MID</span></code></a> for more information.</p>
+<a class="reference internal" href="../model/a_result.html#qm-field.a_result.session_mid" title="Session_MID"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Session_MID</span></code></a> for more information.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.ParticipantName">
-<code class="descname">ParticipantName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.ParticipantName" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.ParticipantName">
+<span class="sig-name descname"><span class="pre">ParticipantName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.ParticipantName" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the participant, see
-<a class="reference internal" href="../model/a_result.html#qm-field.a_result.participant" title="Participant"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Participant</span></code></a>.</p>
+<a class="reference internal" href="../model/a_result.html#qm-field.a_result.participant" title="Participant"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Participant</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.GroupName">
-<code class="descname">GroupName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.GroupName" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the participant&#8217;s group, see
-<a class="reference internal" href="../model/a_result.html#qm-field.a_result.member_group" title="Member_Group"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Member_Group</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.GroupName">
+<span class="sig-name descname"><span class="pre">GroupName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.GroupName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the participant’s group, see
+<a class="reference internal" href="../model/a_result.html#qm-field.a_result.member_group" title="Member_Group"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Member_Group</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.TestCenterName">
-<code class="descname">TestCenterName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.TestCenterName" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.TestCenterName">
+<span class="sig-name descname"><span class="pre">TestCenterName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.TestCenterName" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the Test Center where the participant took the
 assessment that generated this result.  This value is populated
 automatically if the assessment was created using an associated
-<a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal"><span class="pre">Schedule</span></code></a>.</p>
+<a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal notranslate"><span class="pre">Schedule</span></code></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2019.02.</span></p>
+<p><span class="versionmodified added">New in version 2019.02.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.ParticipantDetails">
-<code class="descname">ParticipantDetails</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.ParticipantDetails" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.participant_details" title="Participant_Details"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Participant_Details</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.ParticipantDetails">
+<span class="sig-name descname"><span class="pre">ParticipantDetails</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.ParticipantDetails" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.participant_details" title="Participant_Details"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Participant_Details</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Status">
-<code class="descname">Status</code>  Edm.Int16<a class="headerlink" href="#od-prop.deliveryodata.Result.Status" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.status" title="Status"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Status</span></code></a> for details of the permitted
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Status">
+<span class="sig-name descname"><span class="pre">Status</span></span>  <span class="pre">Edm.Int16</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Status" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.status" title="Status"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Status</span></code></a> for details of the permitted
 values.</p>
 <p>Unlike most fields in this entity the value of Status may be set
 directly by a PATCH/MERGE or PUT request. A very limited set of
@@ -265,228 +245,228 @@ state of the running assessment but it may change the behaviour
 when an assessment is resumed (e.g., after a device or network
 failure).  Questionmark software uses an additional component,
 known as the Real Time Service (RTS), to signal state changes to
-the client&#8217;s device.</p>
+the client’s device.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.MaxScore">
-<code class="descname">MaxScore</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Result.MaxScore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.max_score" title="Max_Score"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Max_Score</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.MaxScore">
+<span class="sig-name descname"><span class="pre">MaxScore</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Result.MaxScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.max_score" title="Max_Score"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Max_Score</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.TotalScore">
-<code class="descname">TotalScore</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Result.TotalScore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.total_score" title="Total_Score"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Total_Score</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.TotalScore">
+<span class="sig-name descname"><span class="pre">TotalScore</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Result.TotalScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.total_score" title="Total_Score"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Total_Score</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.ScoreBandTitle">
-<code class="descname">ScoreBandTitle</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.ScoreBandTitle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.score_band_title" title="Score_Band_Title"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Score_Band_Title</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.ScoreBandTitle">
+<span class="sig-name descname"><span class="pre">ScoreBandTitle</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.ScoreBandTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.score_band_title" title="Score_Band_Title"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Score_Band_Title</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.PercentageScore">
-<code class="descname">PercentageScore</code>  Edm.Int16<a class="headerlink" href="#od-prop.deliveryodata.Result.PercentageScore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.percentage_score" title="Percentage_Score"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Percentage_Score</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.PercentageScore">
+<span class="sig-name descname"><span class="pre">PercentageScore</span></span>  <span class="pre">Edm.Int16</span><a class="headerlink" href="#od-prop.deliveryodata.Result.PercentageScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.percentage_score" title="Percentage_Score"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Percentage_Score</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.WhenFinished">
-<code class="descname">WhenFinished</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Result.WhenFinished" title="Permalink to this definition">¶</a></dt>
-<dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.when_finished_utc" title="When_Finished_UTC"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.When_Finished_UTC</span></code></a>.  Despite
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.WhenFinished">
+<span class="sig-name descname"><span class="pre">WhenFinished</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.Result.WhenFinished" title="Permalink to this definition">¶</a></dt>
+<dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.when_finished_utc" title="When_Finished_UTC"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.When_Finished_UTC</span></code></a>.  Despite
 having no UTC suffix this time is always expressed in UTC.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.WhenStarted">
-<code class="descname">WhenStarted</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.Result.WhenStarted" title="Permalink to this definition">¶</a></dt>
-<dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.when_started_utc" title="When_Started_UTC"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.When_Started_UTC</span></code></a>.  Despite
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.WhenStarted">
+<span class="sig-name descname"><span class="pre">WhenStarted</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.Result.WhenStarted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Taken from <a class="reference internal" href="../model/a_result.html#qm-field.a_result.when_started_utc" title="When_Started_UTC"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.When_Started_UTC</span></code></a>.  Despite
 having no UTC suffix this time is always expressed in UTC.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.ExtraTime">
-<code class="descname">ExtraTime</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Result.ExtraTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.ExtraTime">
+<span class="sig-name descname"><span class="pre">ExtraTime</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Result.ExtraTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>May be set directly using PATCH/MERGE or PUT messages on the
-entity.  See also the comments under <a class="reference internal" href="#od-prop.deliveryodata.Result.Status" title="Status"><code class="xref od od-prop docutils literal"><span class="pre">Result.Status</span></code></a>
+entity.  See also the comments under <a class="reference internal" href="#od-prop.deliveryodata.Result.Status" title="Status"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Result.Status</span></code></a>
 for limitations on the use of this adjustment for a running
 assessment.</p>
-<p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.extra_time" title="EXTRA_TIME"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.EXTRA_TIME</span></code></a> for information about the
-interpretation of this field&#8217;s value.</p>
+<p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.extra_time" title="EXTRA_TIME"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.EXTRA_TIME</span></code></a> for information about the
+interpretation of this field’s value.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Special1">
-<code class="descname">Special1</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.Special1" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_1" title="Special_1"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Special_1</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Special1">
+<span class="sig-name descname"><span class="pre">Special1</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Special1" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_result.html#qm-field.a_result.special_1" title="Special_1"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Special_1</span></code></a>.</p>
 <p>The special field values (Special1..Special10) are populated
-from <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata"><code class="xref od od-type docutils literal"><span class="pre">AttemptMetadata</span></code></a>, from input parameters in PIP
+from <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptMetadata" title="AttemptMetadata"><code class="xref od od-type docutils literal notranslate"><span class="pre">AttemptMetadata</span></code></a>, from input parameters in PIP
 calls or from default values configured in System Settings.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2019.02.</span></p>
+<p><span class="versionmodified added">New in version 2019.02.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Special2">
-<code class="descname">Special2</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.Special2" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Special2">
+<span class="sig-name descname"><span class="pre">Special2</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Special2" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Special3">
-<code class="descname">Special3</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.Special3" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Special3">
+<span class="sig-name descname"><span class="pre">Special3</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Special3" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Special4">
-<code class="descname">Special4</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.Special4" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Special4">
+<span class="sig-name descname"><span class="pre">Special4</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Special4" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Special5">
-<code class="descname">Special5</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.Special5" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Special5">
+<span class="sig-name descname"><span class="pre">Special5</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Special5" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Special6">
-<code class="descname">Special6</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.Special6" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Special6">
+<span class="sig-name descname"><span class="pre">Special6</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Special6" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Special7">
-<code class="descname">Special7</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.Special7" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Special7">
+<span class="sig-name descname"><span class="pre">Special7</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Special7" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Special8">
-<code class="descname">Special8</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.Special8" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Special8">
+<span class="sig-name descname"><span class="pre">Special8</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Special8" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Special9">
-<code class="descname">Special9</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.Special9" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Special9">
+<span class="sig-name descname"><span class="pre">Special9</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Special9" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Special10">
-<code class="descname">Special10</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.Special10" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Special10">
+<span class="sig-name descname"><span class="pre">Special10</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Special10" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.StillGoing">
-<code class="descname">StillGoing</code>  Edm.Boolean<a class="headerlink" href="#od-prop.deliveryodata.Result.StillGoing" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean indicating if the participant&#8217;s attempt is in progress
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.StillGoing">
+<span class="sig-name descname"><span class="pre">StillGoing</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.deliveryodata.Result.StillGoing" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean indicating if the participant’s attempt is in progress
 (True) or complete (False).</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2019.02.</span></p>
+<p><span class="versionmodified added">New in version 2019.02.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.TimeTaken">
-<code class="descname">TimeTaken</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Result.TimeTaken" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.TimeTaken">
+<span class="sig-name descname"><span class="pre">TimeTaken</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Result.TimeTaken" title="Permalink to this definition">¶</a></dt>
 <dd><p>The length of tie taken on the assessment (in seconds).</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2019.02.</span></p>
+<p><span class="versionmodified added">New in version 2019.02.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.ScheduleName">
-<code class="descname">ScheduleName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.ScheduleName" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.ScheduleName">
+<span class="sig-name descname"><span class="pre">ScheduleName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.ScheduleName" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the schedule that was used to launch the
 corresponding Attempt.  This value is the name at the time the
 participant launched their attempt at the Assessment, if the
 Schedule is subsequently renamed or deleted the original value
 can still be retrieved here.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2019.02.</span></p>
+<p><span class="versionmodified added">New in version 2019.02.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.FirstName">
-<code class="descname">FirstName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.FirstName" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.FirstName">
+<span class="sig-name descname"><span class="pre">FirstName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.FirstName" title="Permalink to this definition">¶</a></dt>
 <dd><p>The first name of the Participant <em>at the time they launched the
-corresponding Attempt</em>.  See <a class="reference internal" href="participant.html#od-prop.deliveryodata.Participant.FirstName" title="FirstName"><code class="xref od od-prop docutils literal"><span class="pre">Participant.FirstName</span></code></a>.</p>
+corresponding Attempt</em>.  See <a class="reference internal" href="participant.html#od-prop.deliveryodata.Participant.FirstName" title="FirstName"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Participant.FirstName</span></code></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2019.02.</span></p>
+<p><span class="versionmodified added">New in version 2019.02.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.LastName">
-<code class="descname">LastName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Result.LastName" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.LastName">
+<span class="sig-name descname"><span class="pre">LastName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Result.LastName" title="Permalink to this definition">¶</a></dt>
 <dd><p>The first name of the Participant <em>at the time they launched the
-corresponding Attempt</em>.  See <a class="reference internal" href="participant.html#od-prop.deliveryodata.Participant.LastName" title="LastName"><code class="xref od od-prop docutils literal"><span class="pre">Participant.LastName</span></code></a>.</p>
+corresponding Attempt</em>.  See <a class="reference internal" href="participant.html#od-prop.deliveryodata.Participant.LastName" title="LastName"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Participant.LastName</span></code></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2019.02.</span></p>
+<p><span class="versionmodified added">New in version 2019.02.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.AttemptId">
-<code class="descname">AttemptId</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Result.AttemptId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <a class="reference internal" href="attempt.html#od-prop.deliveryodata.Attempt.ID" title="ID"><code class="xref od od-prop docutils literal"><span class="pre">Attempt.ID</span></code></a> of the corresponding Attempt.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.AttemptId">
+<span class="sig-name descname"><span class="pre">AttemptId</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Result.AttemptId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="attempt.html#od-prop.deliveryodata.Attempt.ID" title="ID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Attempt.ID</span></code></a> of the corresponding Attempt.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2020.02.</span></p>
+<p><span class="versionmodified added">New in version 2020.02.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Assessment">
-<code class="descname">Assessment</code> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Result.Assessment" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Assessment">
+<span class="sig-name descname"><span class="pre">Assessment</span></span> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><span class="pre">Assessment</span></a> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Assessment" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the associated Assessment (see also
-<a class="reference internal" href="#od-prop.deliveryodata.Result.AssessmentID" title="AssessmentID"><code class="xref od od-prop docutils literal"><span class="pre">AssessmentID</span></code></a>).</p>
+<a class="reference internal" href="#od-prop.deliveryodata.Result.AssessmentID" title="AssessmentID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">AssessmentID</span></code></a>).</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Answers">
-<code class="descname">Answers</code> <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer">Answer</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Result.Answers" title="Permalink to this definition">¶</a></dt>
-<dd><p>A navigation property to the Participant&#8217;s Answers</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Answers">
+<span class="sig-name descname"><span class="pre">Answers</span></span> <a class="reference internal" href="answer.html#od-type.deliveryodata.Answer" title="Answer"><span class="pre">Answer</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Result.Answers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A navigation property to the Participant’s Answers</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.ScoringTasks">
-<code class="descname">ScoringTasks</code> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringTask" title="ScoringTask">ScoringTask</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Result.ScoringTasks" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.ScoringTasks">
+<span class="sig-name descname"><span class="pre">ScoringTasks</span></span> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringTask" title="ScoringTask"><span class="pre">ScoringTask</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Result.ScoringTasks" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the ScoringTasks associated with this
 result, if any.  One ScoringTasks is associated with the result
 for each unscored Answer.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.Attempt">
-<code class="descname">Attempt</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-prop.deliveryodata.Result.Attempt" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.Attempt">
+<span class="sig-name descname"><span class="pre">Attempt</span></span> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt"><span class="pre">Attempt</span></a><a class="headerlink" href="#od-prop.deliveryodata.Result.Attempt" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the Attempt associated with this
 result, if any.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2020.02.</span></p>
+<p><span class="versionmodified added">New in version 2020.02.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Result.TopicScores">
-<code class="descname">TopicScores</code> <a class="reference internal" href="#od-type.deliveryodata.TopicScore" title="TopicScore">TopicScore</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Result.TopicScores" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Result.TopicScores">
+<span class="sig-name descname"><span class="pre">TopicScores</span></span> <a class="reference internal" href="#od-type.deliveryodata.TopicScore" title="TopicScore"><span class="pre">TopicScore</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Result.TopicScores" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.11.</span></p>
+<p><span class="versionmodified added">New in version 2021.11.</span></p>
 </div>
 <p>A navigation property to the TopicScores associated with this
 result, if any.</p>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Result.Purge">
-<em class="property">action </em><code class="descname">Purge</code> ()  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Result.Purge" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Result.Purge">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">Purge</span></span> <span class="pre">(</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Result.Purge" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2018.05.</span></p>
+<p><span class="versionmodified added">New in version 2018.05.</span></p>
 </div>
 <p>Purges this result from the repository, all answers and other
 data associated with the result are removed.  The result is
 also removed from the Results Warehouse.</p>
 <p>To invoke this action use http POST with an empty JSON body:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Result</span><span class="p">(</span><span class="mi">123457</span><span class="p">)</span><span class="o">/</span><span class="n">Purge</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Result</span><span class="p">(</span><span class="mi">123457</span><span class="p">)</span><span class="o">/</span><span class="n">Purge</span>
 
 <span class="p">{</span>
 
@@ -494,240 +474,228 @@ also removed from the Results Warehouse.</p>
 </pre></div>
 </div>
 <p>The Purge action returns a 202 accepted response on success, result
-deletion happens asynchronously to ensure that it doesn&#8217;t conflict
+deletion happens asynchronously to ensure that it doesn’t conflict
 with the delivery of assessments.</p>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.Result.ReplayResult">
-<em class="property">action </em><code class="descname">ReplayResult</code> ()  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.Result.ReplayResult" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Result.ReplayResult">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">ReplayResult</span></span> <span class="pre">(</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Result.ReplayResult" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.03.</span></p>
+<p><span class="versionmodified added">New in version 2021.03.</span></p>
 </div>
 <p>Reserved for internal use.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="feed">
-<dt id="od-feed.deliveryodata.TopicScores">
-<code class="descname">TopicScores</code> <a class="reference internal" href="#od-type.deliveryodata.TopicScore" title="TopicScore">TopicScore</a><a class="headerlink" href="#od-feed.deliveryodata.TopicScores" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; read only</li>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.TopicScores">
+<span class="sig-name descname"><span class="pre">TopicScores</span></span> <a class="reference internal" href="#od-type.deliveryodata.TopicScore" title="TopicScore"><span class="pre">TopicScore</span></a><a class="headerlink" href="#od-feed.deliveryodata.TopicScores" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – read only</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>ID</strong> &#8211; primary key</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>Result</strong> &#8211; the Result the TopicScore is associated with.</li>
+</dd>
+<dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Result</strong> – the Result the TopicScore is associated with.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.11.</span></p>
+<p><span class="versionmodified added">New in version 2021.11.</span></p>
 </div>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.TopicScore">
-<em class="property">EntityType: </em><code class="descname">TopicScore</code><a class="headerlink" href="#od-type.deliveryodata.TopicScore" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.TopicScore">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">TopicScore</span></span><a class="headerlink" href="#od-type.deliveryodata.TopicScore" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.11.</span></p>
+<p><span class="versionmodified added">New in version 2021.11.</span></p>
 </div>
 <p>An entity representing a sub-score for the specified topic.  TopicScores
-are always associated with a related <a class="reference internal" href="#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal"><span class="pre">Result</span></code></a> entity.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TopicScore.ResultID">
-<em class="property">Entity Key: </em><code class="descname">ResultID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.ResultID" title="Permalink to this definition">¶</a></dt>
+are always associated with a related <a class="reference internal" href="#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal notranslate"><span class="pre">Result</span></code></a> entity.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TopicScore.ResultID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ResultID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.TopicScore.ResultID" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TopicScore.TopicID">
-<em class="property">Entity Key: </em><code class="descname">TopicID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.TopicID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TopicScore.TopicID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">TopicID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.TopicScore.TopicID" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TopicScore.PercentageScore">
-<code class="descname">PercentageScore</code>  Edm.Double NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.PercentageScore" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TopicScore.PercentageScore">
+<span class="sig-name descname"><span class="pre">PercentageScore</span></span>  <span class="pre">Edm.Double</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.TopicScore.PercentageScore" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TopicScore.TotalScore">
-<code class="descname">TotalScore</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.TotalScore" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TopicScore.TotalScore">
+<span class="sig-name descname"><span class="pre">TotalScore</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.TopicScore.TotalScore" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TopicScore.MaxScore">
-<code class="descname">MaxScore</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.MaxScore" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TopicScore.MaxScore">
+<span class="sig-name descname"><span class="pre">MaxScore</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.TopicScore.MaxScore" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TopicScore.ScoreBandTitle">
-<code class="descname">ScoreBandTitle</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.ScoreBandTitle" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TopicScore.ScoreBandTitle">
+<span class="sig-name descname"><span class="pre">ScoreBandTitle</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TopicScore.ScoreBandTitle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TopicScore.NumQuestions">
-<code class="descname">NumQuestions</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.NumQuestions" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TopicScore.NumQuestions">
+<span class="sig-name descname"><span class="pre">NumQuestions</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.TopicScore.NumQuestions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TopicScore.TopicPath">
-<code class="descname">TopicPath</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TopicScore.TopicPath" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TopicScore.TopicPath">
+<span class="sig-name descname"><span class="pre">TopicPath</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TopicScore.TopicPath" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TopicScore.Result">
-<code class="descname">Result</code> <a class="reference internal" href="#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-prop.deliveryodata.TopicScore.Result" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TopicScore.Result">
+<span class="sig-name descname"><span class="pre">Result</span></span> <a class="reference internal" href="#od-type.deliveryodata.Result" title="Result"><span class="pre">Result</span></a><a class="headerlink" href="#od-prop.deliveryodata.TopicScore.Result" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="feed">
-<dt id="od-feed.deliveryodata.ResultsAuditLog">
-<code class="descname">ResultsAuditLog</code> <a class="reference internal" href="#od-type.deliveryodata.ResultAuditLog" title="ResultAuditLog">ResultAuditLog</a><a class="headerlink" href="#od-feed.deliveryodata.ResultsAuditLog" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; read only</li>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.ResultsAuditLog">
+<span class="sig-name descname"><span class="pre">ResultsAuditLog</span></span> <a class="reference internal" href="#od-type.deliveryodata.ResultAuditLog" title="ResultAuditLog"><span class="pre">ResultAuditLog</span></a><a class="headerlink" href="#od-feed.deliveryodata.ResultsAuditLog" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – read only</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>MessageID</strong> &#8211; the unique ID used in the message queue</li>
-<li><strong>RequestUserID</strong> &#8211; the type of action requested</li>
-<li><strong>RequestDateTime</strong> &#8211; when the action was requested</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>MessageID</strong> – the unique ID used in the message queue</p></li>
+<li><p><strong>RequestUserID</strong> – the type of action requested</p></li>
+<li><p><strong>RequestDateTime</strong> – when the action was requested</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2018.05.</span></p>
+<p><span class="versionmodified added">New in version 2018.05.</span></p>
 </div>
 <p>$orderby <em>is</em> supported so you can reverse sort the log using:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$orderby=RequestDateTime desc
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$orderby=RequestDateTime desc
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.ResultAuditLog">
-<em class="property">EntityType: </em><code class="descname">ResultAuditLog</code><a class="headerlink" href="#od-type.deliveryodata.ResultAuditLog" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.ResultAuditLog">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">ResultAuditLog</span></span><a class="headerlink" href="#od-type.deliveryodata.ResultAuditLog" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2018.05.</span></p>
+<p><span class="versionmodified added">New in version 2018.05.</span></p>
 </div>
 <p>An entity documenting auditable actions against the entity set of
 results.  Due to the importance of the result set some actions
 generate a ResultAuditLog entity automatically when they are called.
 This entity also allows the status of long running tasks (such as
 the bulk removal of data) to be tracked.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ResultAuditLog.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ResultAuditLog.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The primary key of this entity.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ResultAuditLog.MessageID">
-<code class="descname">MessageID</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.MessageID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ResultAuditLog.MessageID">
+<span class="sig-name descname"><span class="pre">MessageID</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.MessageID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The unique message ID associated with this action.  This value
 is a longer key used internally to track the action from the
 initial point of the request through to completion.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ResultAuditLog.RequestUserID">
-<code class="descname">RequestUserID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.RequestUserID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ResultAuditLog.RequestUserID">
+<span class="sig-name descname"><span class="pre">RequestUserID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.RequestUserID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The user (Administrator) that initiated the request.  This is
 typically the ID of the service account responsible for calling
 the API method that triggered the auditable action.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ResultAuditLog.RequestType">
-<code class="descname">RequestType</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.RequestType" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ResultAuditLog.RequestType">
+<span class="sig-name descname"><span class="pre">RequestType</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.RequestType" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the auditable action such as
 PurgeResultsByResultIdCommand.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ResultAuditLog.RequestData">
-<code class="descname">RequestData</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.RequestData" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ResultAuditLog.RequestData">
+<span class="sig-name descname"><span class="pre">RequestData</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.RequestData" title="Permalink to this definition">¶</a></dt>
 <dd><p>The data associated with the request.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ResultAuditLog.Source">
-<code class="descname">Source</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.Source" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ResultAuditLog.Source">
+<span class="sig-name descname"><span class="pre">Source</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.Source" title="Permalink to this definition">¶</a></dt>
 <dd><p>The source of the request, for API calls this is the IP address
 of the machine that issued the request.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ResultAuditLog.RequestDateTime">
-<code class="descname">RequestDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.RequestDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ResultAuditLog.RequestDateTime">
+<span class="sig-name descname"><span class="pre">RequestDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.RequestDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The time the request was made.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ResultAuditLog.IsInQueue">
-<code class="descname">IsInQueue</code>  Edm.Boolean&quot; NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.IsInQueue" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean which is &#8220;true&#8221; if the request is waiting to be
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ResultAuditLog.IsInQueue">
+<span class="sig-name descname"><span class="pre">IsInQueue</span></span>  <span class="pre">Edm.Boolean&quot;</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.IsInQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean which is “true” if the request is waiting to be
 processed. Auditable actions are placed in a queue and actioned
 when system resources become available.  Once the action has
-been carried out this is updated to &#8220;false&#8221; and the remaining
+been carried out this is updated to “false” and the remaining
 fields can be used to read back the outcome.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ResultAuditLog.ProcessedDateTime">
-<code class="descname">ProcessedDateTime</code>  Edm.DateTime<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.ProcessedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ResultAuditLog.ProcessedDateTime">
+<span class="sig-name descname"><span class="pre">ProcessedDateTime</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.ProcessedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The time the request was processed.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ResultAuditLog.WasSuccessful">
-<code class="descname">WasSuccessful</code>  Edm.Boolean<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.WasSuccessful" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ResultAuditLog.WasSuccessful">
+<span class="sig-name descname"><span class="pre">WasSuccessful</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.WasSuccessful" title="Permalink to this definition">¶</a></dt>
 <dd><p>A boolean flag indicating whether or not the request was
 successfully processed (true) or if it failed (false).</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.ResultAuditLog.TotalResultsAffected">
-<code class="descname">TotalResultsAffected</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.TotalResultsAffected" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ResultAuditLog.TotalResultsAffected">
+<span class="sig-name descname"><span class="pre">TotalResultsAffected</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.TotalResultsAffected" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of results affected by the request.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -758,15 +726,15 @@ successfully processed (true) or if it failed (false).</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -775,11 +743,11 @@ successfully processed (true) or if it failed (false).</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/result.txt"
+      <a href="../_sources/deliveryodata/result.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

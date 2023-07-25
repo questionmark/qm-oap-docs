@@ -1,31 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>OData &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="index.html" />
     <link rel="next" title="Authoring OData API" href="authoringodata.html" />
     <link rel="prev" title="Overview" href="overview.html" />
    
@@ -34,19 +21,20 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="odata">
-<h1>OData<a class="headerlink" href="#odata" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="odata-primer">
-<span id="id1"></span><h2>OData Primer<a class="headerlink" href="#odata-primer" title="Permalink to this headline">¶</a></h2>
+  <section id="odata">
+<h1>OData<a class="headerlink" href="#odata" title="Permalink to this heading">¶</a></h1>
+<section id="odata-primer">
+<span id="id1"></span><h2>OData Primer<a class="headerlink" href="#odata-primer" title="Permalink to this heading">¶</a></h2>
 <p>OData is a standard for constructing APIs that follow a RESTful pattern.
 In this pattern data (resources) are identified by URLs.  When resources
 are retrieved they may contain links to other resources which are
@@ -55,8 +43,8 @@ can be created by POSTing information and existing resources can be
 updated using the HTTP methods PUT and PATCH.</p>
 <p>This standard was chosen as the basis of these APIs as it provides a
 simple way to map database tables and the records they contain into a
-web-service.  In fact, OData is sometimes referred to as &#8216;SQL over the
-web&#8217;.  Database tables map on to the OData concept of a feed (inherited
+web-service.  In fact, OData is sometimes referred to as ‘SQL over the
+web’.  Database tables map on to the OData concept of a feed (inherited
 from the Atom standard), records map on to entities  and the values
 within the records map on to the property values of the entities.  Each
 record in the database that is exposed through OData therefore has a
@@ -64,51 +52,49 @@ corresponding entity in the OData API with a corresponding URL that can
 be used to retrieve it.</p>
 <p>For more information about how to construct OData URLs see <a class="reference external" href="http://www.odata.org/documentation/odata-version-3-0/url-conventions/">OData: URI
 Conventions</a></p>
-</div>
-<div class="section" id="frequently-asked-questions">
-<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Can I access OData feeds directly in Excel?</dt>
-<dd><p class="first">Yes!</p>
-<p class="last">The Results OData API can be used directly from the PowerPivot
+</section>
+<section id="frequently-asked-questions">
+<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt>Can I access OData feeds directly in Excel?</dt><dd><p>Yes!</p>
+<p>The Results OData API can be used directly from the PowerPivot
 Excel plugin but the Delivery OData API uses a newer version of
 the protocol and cannot be used with PowerPivot.  Newer versions
 of Excel do however contain support for importing data directly into
 your worksheet.  For more information see <a class="reference external" href="https://support.office.com/en-gb/article/Connect-external-data-to-your-workbook-945f2cbb-d50b-4ee2-bae8-c4c9381000c6">Connect external data to
 your workbook</a></p>
 </dd>
-<dt>Why am I getting the error <em>Unrecognized &#8216;Edm.Int32&#8217; literal</em>?</dt>
-<dd><p class="first">The following URL path returns an error like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>/deliveryodata/12345/Results?$filter=AssessmentID eq 1234567890123
+<dt>Why am I getting the error <em>Unrecognized ‘Edm.Int32’ literal</em>?</dt><dd><p>The following URL path returns an error like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/deliveryodata/12345/Results?$filter=AssessmentID eq 1234567890123
 </pre></div>
 </div>
 <p>The reason is that the integer 1234567890123 is too large to be
 represented as a 32-bit integer.  The largest 32-bit integer is
 2147483647.  The real issue is that the AssessmentID property is of
 type Edm.Int64, a 64-bit integer, and values of this type require
-the &#8216;L&#8217; suffix as follows:</p>
-<div class="last highlight-default"><div class="highlight"><pre><span></span>/deliveryodata/12345/Results?$filter=AssessmentID eq 1234567890123L
+the ‘L’ suffix as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/deliveryodata/12345/Results?$filter=AssessmentID eq 1234567890123L
 </pre></div>
 </div>
 </dd>
-<dt>Why is my WCF DataService not loading expanded properties?</dt>
-<dd><p class="first">Users of the WCF client will need to set the MergeOption to
+<dt>Why is my WCF DataService not loading expanded properties?</dt><dd><p>Users of the WCF client will need to set the MergeOption to
 OverwriteChanges as per the reply to this question on StackOverflow.
 See <a class="reference external" href="http://stackoverflow.com/questions/14956172/why-is-my-wcf-dataservice-not-loading-expanded-properties">Why is my WCF DataService not loading expanded properties?</a></p>
-<p class="last">Failure to do this may cause unexpected failures when loading
+<p>Failure to do this may cause unexpected failures when loading
 entities from the OData service.</p>
 </dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="index.html">Table Of Contents</a></h3>
+<h3><a href="index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OData</a><ul>
@@ -133,15 +119,15 @@ entities from the OData service.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -150,11 +136,11 @@ entities from the OData service.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="_sources/odata.txt"
+      <a href="_sources/odata.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

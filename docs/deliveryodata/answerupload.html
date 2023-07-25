@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>AnswerUpload &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Assessment" href="assessment.html" />
     <link rel="prev" title="Answer" href="answer.html" />
    
@@ -35,39 +21,34 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="answerupload">
-<h1>AnswerUpload<a class="headerlink" href="#answerupload" title="Permalink to this headline">¶</a></h1>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.AnswerUploads">
-<code class="descname">AnswerUploads</code> <a class="reference internal" href="#od-type.deliveryodata.AnswerUpload" title="AnswerUpload">AnswerUpload</a> (Media Link Entry)<a class="headerlink" href="#od-feed.deliveryodata.AnswerUploads" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; returns AnswerUpload metadata entities</li>
-<li><strong>POST</strong> &#8211; submits new AnswerUpload file for scoring</li>
+  <section id="answerupload">
+<h1>AnswerUpload<a class="headerlink" href="#answerupload" title="Permalink to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.AnswerUploads">
+<span class="sig-name descname"><span class="pre">AnswerUploads</span></span> <a class="reference internal" href="#od-type.deliveryodata.AnswerUpload" title="AnswerUpload"><span class="pre">AnswerUpload</span></a> <span class="pre">(Media</span> <span class="pre">Link</span> <span class="pre">Entry)</span><a class="headerlink" href="#od-feed.deliveryodata.AnswerUploads" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – returns AnswerUpload metadata entities</p></li>
+<li><p><strong>POST</strong> – submits new AnswerUpload file for scoring</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>AttemptID</strong> &#8211; the primary key</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>AttemptID</strong> – the primary key</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>$orderby is <em>not</em> supported.</p>
 <p>The AnswerUpload feed is used for external delivery use cases where
 response data is obtained externally (e.g., through printing and
@@ -76,15 +57,15 @@ also maintains a record of the raw response data in its uploaded
 form for future audit.</p>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.AnswerUpload">
-<em class="property">EntityType: </em><code class="descname">AnswerUpload</code><a class="headerlink" href="#od-type.deliveryodata.AnswerUpload" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.AnswerUpload">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">AnswerUpload</span></span><a class="headerlink" href="#od-type.deliveryodata.AnswerUpload" title="Permalink to this definition">¶</a></dt>
 <dd><p>AnswerUpload entities are media link entries that contain the
 response files uploaded for scoring.  Only one format is supported
 and that is application/json with fields as documented below.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerUpload.AttemptID">
-<em class="property">Entity Key: </em><code class="descname">AttemptID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.AttemptID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerUpload.AttemptID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">AttemptID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.AttemptID" title="Permalink to this definition">¶</a></dt>
 <dd><p>Each AnswerUpload must be associated with an Attempt.  Due to
 the nature of media link entries the AttemptID cannot be
 specified in the URL on upload as the response file is POSTed to
@@ -93,51 +74,48 @@ file itself and is used as the primary key of the associated
 entity on creation.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerUpload.Attempt">
-<code class="descname">Attempt</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt">Attempt</a><a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.Attempt" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerUpload.Attempt">
+<span class="sig-name descname"><span class="pre">Attempt</span></span> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt"><span class="pre">Attempt</span></a><a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.Attempt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the associated Attempt.</p>
 </dd></dl>
 
 </dd></dl>
 
-<div class="section" id="answer-upload-file-format">
-<span id="id1"></span><h2>Answer Upload File Format<a class="headerlink" href="#answer-upload-file-format" title="Permalink to this headline">¶</a></h2>
+<section id="answer-upload-file-format">
+<span id="id1"></span><h2>Answer Upload File Format<a class="headerlink" href="#answer-upload-file-format" title="Permalink to this heading">¶</a></h2>
 <p>The answer upload file format is a JSON format (content-type
 application/json) file with the following fields.</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>BatchID</dt>
-<dd>A reference to an associated <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch"><code class="xref od od-type docutils literal"><span class="pre">deliveryodata.PrintBatch</span></code></a>
+<div><dl>
+<dt>BatchID</dt><dd><p>A reference to an associated <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch"><code class="xref od od-type docutils literal notranslate"><span class="pre">deliveryodata.PrintBatch</span></code></a>
 formatted as a string (optional).  If present, group information
 will be read from the batch and used to set the group
-information in the associated result.</dd>
-<dt>AttemptID</dt>
-<dd><p class="first">An integer reference to the associated attempt (required).</p>
+information in the associated result.</p>
+</dd>
+<dt>AttemptID</dt><dd><p>An integer reference to the associated attempt (required).</p>
 <p>The attempt must have an associated snapshot which defines the
 exact version of the assessment that was delivered externally.</p>
-<p class="last">An attempt can only ever be taken once, either online or
+<p>An attempt can only ever be taken once, either online or
 externally.  Therefore, you cannot upload a set of results for
 an attempt that is already associated with a result record (see
-<a class="reference internal" href="attempt.html#od-prop.deliveryodata.Attempt.ResultID" title="ResultID"><code class="xref od od-prop docutils literal"><span class="pre">Attempt.ResultID</span></code></a>).</p>
+<a class="reference internal" href="attempt.html#od-prop.deliveryodata.Attempt.ResultID" title="ResultID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Attempt.ResultID</span></code></a>).</p>
 </dd>
-<dt>QuestionAndChoices</dt>
-<dd><p class="first">An array of objects describing the response to each question.</p>
-<dl class="last docutils">
-<dt>QuestionOrderNumber</dt>
-<dd>Integer index of the question being responded to with 1
+<dt>QuestionAndChoices</dt><dd><p>An array of objects describing the response to each question.</p>
+<dl>
+<dt>QuestionOrderNumber</dt><dd><p>Integer index of the question being responded to with 1
 being the first question.  Explanation questions are ignored
-and to not contribute to the numbering.</dd>
-<dt>UploadedChoices</dt>
-<dd><p class="first">A list of records describing the responses given by the
+and to not contribute to the numbering.</p>
+</dd>
+<dt>UploadedChoices</dt><dd><p>A list of records describing the responses given by the
 participant.</p>
-<dl class="last docutils">
-<dt>ChoiceOrderNumber</dt>
-<dd>An integer reference to the number of the choice
-(formatted as a string).</dd>
-<dt>Selected</dt>
-<dd>A boolean (true/false) indicating whether or not the
-choice was actually selected.</dd>
+<dl class="simple">
+<dt>ChoiceOrderNumber</dt><dd><p>An integer reference to the number of the choice
+(formatted as a string).</p>
+</dd>
+<dt>Selected</dt><dd><p>A boolean (true/false) indicating whether or not the
+choice was actually selected.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -147,7 +125,7 @@ choice was actually selected.</dd>
 <p>In future this documentation and file format will be expanded to support
 a wider range of choice types.  Here is an example of a simple upload
 file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="n">AttemptID</span><span class="p">:</span> <span class="mi">170</span><span class="p">,</span>
     <span class="n">QuestionAndChoices</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -181,16 +159,17 @@ file:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -221,15 +200,15 @@ file:</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -238,11 +217,11 @@ file:</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/answerupload.txt"
+      <a href="../_sources/deliveryodata/answerupload.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

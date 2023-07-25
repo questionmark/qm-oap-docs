@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Group &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="MonitoringTypes and ProctoringProviders" href="monitoring_type.html" />
     <link rel="prev" title="Attempt, AttemptLists and AttemptMetadata" href="attempt.html" />
    
@@ -35,57 +21,51 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="group">
-<h1>Group<a class="headerlink" href="#group" title="Permalink to this headline">¶</a></h1>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.Groups">
-<code class="descname">Groups</code> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-feed.deliveryodata.Groups" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; read a list of all Groups</li>
-<li><strong>POST</strong> &#8211; create a new <em>root</em> Group</li>
-<li><strong>DELETE</strong> &#8211; remove a Group</li>
+  <section id="group">
+<h1>Group<a class="headerlink" href="#group" title="Permalink to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.Groups">
+<span class="sig-name descname"><span class="pre">Groups</span></span> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a><a class="headerlink" href="#od-feed.deliveryodata.Groups" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – read a list of all Groups</p></li>
+<li><p><strong>POST</strong> – create a new <em>root</em> Group</p></li>
+<li><p><strong>DELETE</strong> – remove a Group</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>Name</strong> &#8211; filtering by group name</li>
-<li><strong>RootGroupID</strong> &#8211; filtering by the top-level group (expected in 2018.02)</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>Name</strong> – filtering by group name</p></li>
+<li><p><strong>RootGroupID</strong> – filtering by the top-level group (expected in 2018.02)</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>Administrators</strong> &#8211; the administrators responsible for the group</li>
-<li><strong>Participants</strong> &#8211; the participant members of the group</li>
-<li><strong>SubGroups</strong> &#8211; the optional list of sub-groups</li>
-<li><strong>ParentGroup</strong> &#8211; the optional parent group (<a class="reference internal" href="#od-prop.deliveryodata.Group.ParentGroup" title="ParentGroup"><code class="xref od od-prop docutils literal"><span class="pre">see</span> <span class="pre">warning</span></code></a>)</li>
-<li><strong>PrintBatches</strong> &#8211; the optional list of associated PrintBatches</li>
+</dd>
+<dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Administrators</strong> – the administrators responsible for the group</p></li>
+<li><p><strong>Participants</strong> – the participant members of the group</p></li>
+<li><p><strong>SubGroups</strong> – the optional list of sub-groups</p></li>
+<li><p><strong>ParentGroup</strong> – the optional parent group (<a class="reference internal" href="#od-prop.deliveryodata.Group.ParentGroup" title="ParentGroup"><code class="xref od od-prop docutils literal notranslate"><span class="pre">see</span> <span class="pre">warning</span></code></a>)</p></li>
+<li><p><strong>PrintBatches</strong> – the optional list of associated PrintBatches</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>The Groups feed contains data about groups of participants.  Entries
-are defined by the <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group"><code class="xref od od-type docutils literal"><span class="pre">Group</span></code></a> type.</p>
+are defined by the <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group"><code class="xref od od-type docutils literal notranslate"><span class="pre">Group</span></code></a> type.</p>
 <p>You can create a Group hierarchy in a single call by including SubGroups
 in a POST call:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span><span class="n">Groups</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span><span class="n">Groups</span>
 <span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
 
 <span class="p">{</span>
@@ -130,71 +110,71 @@ in a POST call:</p>
 </div>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.Group">
-<em class="property">EntityType: </em><code class="descname">Group</code><a class="headerlink" href="#od-type.deliveryodata.Group" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="prop">
-<dt id="od-prop.deliveryodata.Group.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Group.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.Group">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">Group</span></span><a class="headerlink" href="#od-type.deliveryodata.Group" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Group.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The numeric ID of the Group.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.Name">
-<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Group.Name" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.Name">
+<span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Group.Name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the Group.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.Description">
-<code class="descname">Description</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Group.Description" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.Description">
+<span class="sig-name descname"><span class="pre">Description</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Group.Description" title="Permalink to this definition">¶</a></dt>
 <dd><p>The optional description of the Group.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.RootGroupID">
-<code class="descname">RootGroupID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Group.RootGroupID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.RootGroupID">
+<span class="sig-name descname"><span class="pre">RootGroupID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Group.RootGroupID" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
-<p>The numeric ID of the Group&#8217;s top-level parent.  The group
+<p>The numeric ID of the Group’s top-level parent.  The group
 hierarchy does not have a single root node but instead supports
 multiple <em>root</em> groups that may have sub-groups (see
-<a class="reference internal" href="#od-prop.deliveryodata.Group.SubGroups" title="SubGroups"><code class="xref od od-prop docutils literal"><span class="pre">SubGroups</span></code></a>). For any group you can obtain the ID of
+<a class="reference internal" href="#od-prop.deliveryodata.Group.SubGroups" title="SubGroups"><code class="xref od od-prop docutils literal notranslate"><span class="pre">SubGroups</span></code></a>). For any group you can obtain the ID of
 the top-level group that contains this one using the
 RootGroupID.  For root groups themselves this value will be the
-same as <a class="reference internal" href="#od-prop.deliveryodata.Group.ID" title="ID"><code class="xref od od-prop docutils literal"><span class="pre">ID</span></code></a>.</p>
+same as <a class="reference internal" href="#od-prop.deliveryodata.Group.ID" title="ID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">ID</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.DefaultTestCenterId">
-<code class="descname">DefaultTestCenterId</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Group.DefaultTestCenterId" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.DefaultTestCenterId">
+<span class="sig-name descname"><span class="pre">DefaultTestCenterId</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Group.DefaultTestCenterId" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.09.</span></p>
+<p><span class="versionmodified added">New in version 2021.09.</span></p>
 </div>
 <p>The ID of the default TestCenter (see below navigation property).</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.Participants">
-<code class="descname">Participants</code> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant">Participant</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.Participants" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.Participants">
+<span class="sig-name descname"><span class="pre">Participants</span></span> <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant"><span class="pre">Participant</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Group.Participants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the participants that are in the group.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.Administrators">
-<code class="descname">Administrators</code> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.Administrators" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.Administrators">
+<span class="sig-name descname"><span class="pre">Administrators</span></span> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator"><span class="pre">Administrator</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Group.Administrators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the administrators associated with the
 group (sometime referred as group owners though role-based
 permissions are out of scope for this API)</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.SubGroups">
-<code class="descname">SubGroups</code> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.SubGroups" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.SubGroups">
+<span class="sig-name descname"><span class="pre">SubGroups</span></span> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Group.SubGroups" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the sub-groups of each group.  Can also
 be used to create individual SubGroups using the POST method:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span><span class="n">Groups</span><span class="p">(</span><span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span><span class="p">)</span><span class="o">/</span><span class="n">SubGroups</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span><span class="n">Groups</span><span class="p">(</span><span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span><span class="p">)</span><span class="o">/</span><span class="n">SubGroups</span>
 <span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
 
 <span class="p">{</span>
@@ -209,27 +189,27 @@ created and Groups cannot be moved within the existing
 hierarchy.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.ParentGroup">
-<code class="descname">ParentGroup</code> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a><a class="headerlink" href="#od-prop.deliveryodata.Group.ParentGroup" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.ParentGroup">
+<span class="sig-name descname"><span class="pre">ParentGroup</span></span> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a><a class="headerlink" href="#od-prop.deliveryodata.Group.ParentGroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>For sub-groups, the optional parent group.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<p class="admonition-title">Warning</p>
 <p>due to a known issue in the implementation of
 this property it must only be expanded when the
 Group being queried is known to be a sub-group.
 Do not use it in general collections:</p>
-<div class="last highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Groups?$expand=ParentGroup
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Groups?$expand=ParentGroup
 </pre></div>
 </div>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.AncestorGroups">
-<code class="descname">AncestorGroups</code> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.AncestorGroups" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.AncestorGroups">
+<span class="sig-name descname"><span class="pre">AncestorGroups</span></span> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Group.AncestorGroups" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2018.05.</span></p>
+<p><span class="versionmodified added">New in version 2018.05.</span></p>
 </div>
 <p>Navigation property to all ancestors of this group <em>including
 the group itself</em>.  A group is in the collection of ancestors if
@@ -238,11 +218,11 @@ collection.  This recursive definition ensures that all groups
 up to the root group are in the collection.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.DescendantGroups">
-<code class="descname">DescendantGroups</code> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.DescendantGroups" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.DescendantGroups">
+<span class="sig-name descname"><span class="pre">DescendantGroups</span></span> <a class="reference internal" href="#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Group.DescendantGroups" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2018.05.</span></p>
+<p><span class="versionmodified added">New in version 2018.05.</span></p>
 </div>
 <p>Navigation property to all descendants of this group <em>including
 the group itself</em>.  A group is in the collection of descendents
@@ -252,28 +232,28 @@ subgroups possible by repeated expansion are included in a
 single filterable collection.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.SchedulableAssessments">
-<code class="descname">SchedulableAssessments</code> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.SchedulableAssessments" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.SchedulableAssessments">
+<span class="sig-name descname"><span class="pre">SchedulableAssessments</span></span> <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><span class="pre">Assessment</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Group.SchedulableAssessments" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>All the assessments that have had scheduling permissions
-associated with this Group.  See <a class="reference internal" href="assessment.html#od-prop.deliveryodata.Assessment.Groups" title="Groups"><code class="xref od od-prop docutils literal"><span class="pre">Assessment.Groups</span></code></a>
+associated with this Group.  See <a class="reference internal" href="assessment.html#od-prop.deliveryodata.Assessment.Groups" title="Groups"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Assessment.Groups</span></code></a>
 for more information.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.PrintBatches">
-<code class="descname">PrintBatches</code> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch">PrintBatch</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Group.PrintBatches" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.PrintBatches">
+<span class="sig-name descname"><span class="pre">PrintBatches</span></span> <a class="reference internal" href="printbatch.html#od-type.deliveryodata.PrintBatch" title="PrintBatch"><span class="pre">PrintBatch</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Group.PrintBatches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to any PrintBatches associated with this Group.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Group.DefaultTestCenter">
-<code class="descname">DefaultTestCenter</code> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter">TestCenter</a><a class="headerlink" href="#od-prop.deliveryodata.Group.DefaultTestCenter" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Group.DefaultTestCenter">
+<span class="sig-name descname"><span class="pre">DefaultTestCenter</span></span> <a class="reference internal" href="testcenter.html#od-type.deliveryodata.TestCenter" title="TestCenter"><span class="pre">TestCenter</span></a><a class="headerlink" href="#od-prop.deliveryodata.Group.DefaultTestCenter" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2021.09.</span></p>
+<p><span class="versionmodified added">New in version 2021.09.</span></p>
 </div>
 <p>Navigation property to the default TestCenter for the group
 (optional).</p>
@@ -281,15 +261,16 @@ for more information.</p>
 
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -320,15 +301,15 @@ for more information.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -337,11 +318,11 @@ for more information.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/group.txt"
+      <a href="../_sources/deliveryodata/group.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

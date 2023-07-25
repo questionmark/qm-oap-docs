@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>TestCenter &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="Timezone" href="timezone.html" />
     <link rel="prev" title="ScoringTask, ScoringResult and DimensionScore" href="scoringtask.html" />
    
@@ -35,160 +21,155 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="testcenter">
-<h1>TestCenter<a class="headerlink" href="#testcenter" title="Permalink to this headline">¶</a></h1>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.TestCenters">
-<code class="descname">TestCenters</code> <a class="reference internal" href="#od-type.deliveryodata.TestCenter" title="TestCenter">TestCenter</a><a class="headerlink" href="#od-feed.deliveryodata.TestCenters" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; for reading test centres</li>
+  <section id="testcenter">
+<h1>TestCenter<a class="headerlink" href="#testcenter" title="Permalink to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.TestCenters">
+<span class="sig-name descname"><span class="pre">TestCenters</span></span> <a class="reference internal" href="#od-type.deliveryodata.TestCenter" title="TestCenter"><span class="pre">TestCenter</span></a><a class="headerlink" href="#od-feed.deliveryodata.TestCenters" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – for reading test centres</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>ID</strong> &#8211; the primary key</li>
-<li><strong>Name</strong> &#8211; the test center name</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – the primary key</p></li>
+<li><p><strong>Name</strong> – the test center name</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>$orderby is <em>not</em> supported.</p>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.TestCenter">
-<em class="property">EntityType: </em><code class="descname">TestCenter</code><a class="headerlink" href="#od-type.deliveryodata.TestCenter" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.TestCenter">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">TestCenter</span></span><a class="headerlink" href="#od-type.deliveryodata.TestCenter" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>The information in this entity is read directly from the
-<a class="reference internal" href="../model/g_test_center.html#qm-table.g_test_center" title="G_Test_Center"><code class="xref qm qm-table docutils literal"><span class="pre">G_Test_Center</span></code></a> table.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.ID">
-<code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.ID" title="Permalink to this definition">¶</a></dt>
+<a class="reference internal" href="../model/g_test_center.html#qm-table.g_test_center" title="G_Test_Center"><code class="xref qm qm-table docutils literal notranslate"><span class="pre">G_Test_Center</span></code></a> table.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.ID">
+<span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of this TestCenter.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Label">
-<code class="descname">Label</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Label" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Label">
+<span class="sig-name descname"><span class="pre">Label</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Label" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Name">
-<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Name" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Name">
+<span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Department">
-<code class="descname">Department</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Department" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Department">
+<span class="sig-name descname"><span class="pre">Department</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Department" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Location">
-<code class="descname">Location</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Location" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Location">
+<span class="sig-name descname"><span class="pre">Location</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Location" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Active">
-<code class="descname">Active</code>  Edm.Boolean<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Active" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Active">
+<span class="sig-name descname"><span class="pre">Active</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Active" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.TimeZone">
-<code class="descname">TimeZone</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.TimeZone" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.TimeZone">
+<span class="sig-name descname"><span class="pre">TimeZone</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.TimeZone" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.SupportedTechnology">
-<code class="descname">SupportedTechnology</code>  Edm.Int16<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.SupportedTechnology" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.SupportedTechnology">
+<span class="sig-name descname"><span class="pre">SupportedTechnology</span></span>  <span class="pre">Edm.Int16</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.SupportedTechnology" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Capacity">
-<code class="descname">Capacity</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Capacity" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Capacity">
+<span class="sig-name descname"><span class="pre">Capacity</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Capacity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Address1">
-<code class="descname">Address1</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Address1" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Address1">
+<span class="sig-name descname"><span class="pre">Address1</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Address1" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Address2">
-<code class="descname">Address2</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Address2" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Address2">
+<span class="sig-name descname"><span class="pre">Address2</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Address2" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.City">
-<code class="descname">City</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.City" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.City">
+<span class="sig-name descname"><span class="pre">City</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.City" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.State">
-<code class="descname">State</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.State" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.State">
+<span class="sig-name descname"><span class="pre">State</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.State" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.ZipCode">
-<code class="descname">ZipCode</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.ZipCode" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.ZipCode">
+<span class="sig-name descname"><span class="pre">ZipCode</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.ZipCode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Country">
-<code class="descname">Country</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Country" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Country">
+<span class="sig-name descname"><span class="pre">Country</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Country" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Phone">
-<code class="descname">Phone</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Phone" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Phone">
+<span class="sig-name descname"><span class="pre">Phone</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Phone" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Fax">
-<code class="descname">Fax</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Fax" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Fax">
+<span class="sig-name descname"><span class="pre">Fax</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Fax" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Logo">
-<code class="descname">Logo</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Logo" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Logo">
+<span class="sig-name descname"><span class="pre">Logo</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Logo" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.AdminEmail">
-<code class="descname">AdminEmail</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.AdminEmail" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.AdminEmail">
+<span class="sig-name descname"><span class="pre">AdminEmail</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.AdminEmail" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Properties">
-<code class="descname">Properties</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Properties" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Properties">
+<span class="sig-name descname"><span class="pre">Properties</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Properties" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.TestCenter.Open">
-<em class="property">action </em><code class="descname">Open</code> (ExternalAttemptListID  Edm.String)  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.TestCenter.Open" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.TestCenter.Open">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">Open</span></span> <span class="pre">(</span><span class="pre">ExternalAttemptListID</span>  <span class="pre">Edm.String</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.TestCenter.Open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens a TestCenter.  Opening a test center creates a new
 AttemptList entity, marks it as open and associates
 it with the TestCenter.  The AttemptList is created with
 the given ExternalAttemptListID which must be unique.</p>
 <p>For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">TestCenter</span><span class="p">(</span><span class="mi">3824</span><span class="p">)</span><span class="o">/</span><span class="n">Open</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">TestCenter</span><span class="p">(</span><span class="mi">3824</span><span class="p">)</span><span class="o">/</span><span class="n">Open</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;ExternalAttemptListID&quot;</span><span class="p">:</span> <span class="s2">&quot;94a253aa-6a2e-48f2-9031-ebd343a5dfd1&quot;</span>
@@ -201,52 +182,53 @@ ExternalAttemptListID of the current open AttemptList then a
 success code is returned and no further action is taken.</p>
 </dd></dl>
 
-<dl class="action">
-<dt id="od-action.deliveryodata.TestCenter.Close">
-<em class="property">action </em><code class="descname">Close</code> ()  Edm.Null<a class="headerlink" href="#od-action.deliveryodata.TestCenter.Close" title="Permalink to this definition">¶</a></dt>
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.TestCenter.Close">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">Close</span></span> <span class="pre">(</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.TestCenter.Close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Closes a TestCenter.  The associated AttemptList is closed but
 it remains associated with the TestCenter.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Administrators">
-<code class="descname">Administrators</code> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator">Administrator</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Administrators" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Administrators">
+<span class="sig-name descname"><span class="pre">Administrators</span></span> <a class="reference internal" href="administrator.html#od-type.deliveryodata.Administrator" title="Administrator"><span class="pre">Administrator</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Administrators" title="Permalink to this definition">¶</a></dt>
 <dd><p>The administrators that have been set as owners of this
 TestCenter.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Schedules">
-<code class="descname">Schedules</code> <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule">Schedule</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Schedules" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Schedules">
+<span class="sig-name descname"><span class="pre">Schedules</span></span> <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><span class="pre">Schedule</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Schedules" title="Permalink to this definition">¶</a></dt>
 <dd><p>The associated schedules</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.AttemptLists">
-<code class="descname">AttemptLists</code> <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptList" title="AttemptList">AttemptList</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.AttemptLists" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.AttemptLists">
+<span class="sig-name descname"><span class="pre">AttemptLists</span></span> <a class="reference internal" href="attempt.html#od-type.deliveryodata.AttemptList" title="AttemptList"><span class="pre">AttemptList</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.AttemptLists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Each time a TestCenter is opened it is associated with an
 AttemptList that is then used to group together the Attempts
 that are proctored together.  Each AttemptList represents a
 single session or sitting.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.TestCenter.Groups">
-<code class="descname">Groups</code> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Groups" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.TestCenter.Groups">
+<span class="sig-name descname"><span class="pre">Groups</span></span> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.TestCenter.Groups" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Groups for which this TestCenter is the default TestCenter.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -277,15 +259,15 @@ single session or sitting.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -294,11 +276,11 @@ single session or sitting.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/testcenter.txt"
+      <a href="../_sources/deliveryodata/testcenter.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

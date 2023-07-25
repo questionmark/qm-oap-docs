@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>G_Schedule &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Security Tables" href="security.html" />
     <link rel="next" title="G_Session (Scheduling Permissions)" href="g_session.html" />
     <link rel="prev" title="G_Participant" href="g_participant.html" />
    
@@ -35,213 +21,215 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="g-schedule">
-<h1>G_Schedule<a class="headerlink" href="#g-schedule" title="Permalink to this headline">¶</a></h1>
-<dl class="table">
-<dt id="qm-table.g_schedule">
-<em class="property">TABLE </em><code class="descname">G_Schedule</code><a class="headerlink" href="#qm-table.g_schedule" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field">
-<dt id="qm-field.g_schedule.schedule_id">
-<em class="property">Primary Key: </em><code class="descname">Schedule_ID</code> int NOT NULL<a class="headerlink" href="#qm-field.g_schedule.schedule_id" title="Permalink to this definition">¶</a></dt>
+  <section id="g-schedule">
+<h1>G_Schedule<a class="headerlink" href="#g-schedule" title="Permalink to this heading">¶</a></h1>
+<dl class="qm table">
+<dt class="sig sig-object qm" id="qm-table.g_schedule">
+<em class="property"><span class="pre">TABLE</span> </em><span class="sig-name descname"><span class="pre">G_Schedule</span></span><a class="headerlink" href="#qm-table.g_schedule" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.schedule_id">
+<em class="property"><span class="pre">Primary</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">Schedule_ID</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule.schedule_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.session_mid">
-<code class="descname">Session_MID</code> int NOT NULL<a class="headerlink" href="#qm-field.g_schedule.session_mid" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.session_mid">
+<span class="sig-name descname"><span class="pre">Session_MID</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule.session_mid" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.session_lid">
-<code class="descname">Session_LID</code> int NOT NULL<a class="headerlink" href="#qm-field.g_schedule.session_lid" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.session_lid">
+<span class="sig-name descname"><span class="pre">Session_LID</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule.session_lid" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.session_name">
-<code class="descname">Session_Name</code> varchar(200) NOT NULL<a class="headerlink" href="#qm-field.g_schedule.session_name" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.session_name">
+<span class="sig-name descname"><span class="pre">Session_Name</span></span> <span class="pre">varchar(200)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule.session_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.participant_id">
-<code class="descname">Participant_ID</code> int<a class="headerlink" href="#qm-field.g_schedule.participant_id" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.participant_id">
+<span class="sig-name descname"><span class="pre">Participant_ID</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_schedule.participant_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.group_id">
-<code class="descname">Group_ID</code> int<a class="headerlink" href="#qm-field.g_schedule.group_id" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.group_id">
+<span class="sig-name descname"><span class="pre">Group_ID</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_schedule.group_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.schedule_name">
-<code class="descname">Schedule_Name</code> varchar(200) NOT NULL<a class="headerlink" href="#qm-field.g_schedule.schedule_name" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.schedule_name">
+<span class="sig-name descname"><span class="pre">Schedule_Name</span></span> <span class="pre">varchar(200)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule.schedule_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.restrict_times">
-<code class="descname">Restrict_Times</code> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule.restrict_times" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.restrict_times">
+<span class="sig-name descname"><span class="pre">Restrict_Times</span></span> <span class="pre">bit</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule.restrict_times" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.schedule_starts">
-<code class="descname">Schedule_Starts</code> datetime<a class="headerlink" href="#qm-field.g_schedule.schedule_starts" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.schedule_starts">
+<span class="sig-name descname"><span class="pre">Schedule_Starts</span></span> <span class="pre">datetime</span><a class="headerlink" href="#qm-field.g_schedule.schedule_starts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.schedule_stops">
-<code class="descname">Schedule_Stops</code> datetime<a class="headerlink" href="#qm-field.g_schedule.schedule_stops" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.schedule_stops">
+<span class="sig-name descname"><span class="pre">Schedule_Stops</span></span> <span class="pre">datetime</span><a class="headerlink" href="#qm-field.g_schedule.schedule_stops" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.restrict_attempts">
-<code class="descname">Restrict_Attempts</code> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule.restrict_attempts" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.restrict_attempts">
+<span class="sig-name descname"><span class="pre">Restrict_Attempts</span></span> <span class="pre">bit</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule.restrict_attempts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.max_attempts">
-<code class="descname">Max_Attempts</code> int<a class="headerlink" href="#qm-field.g_schedule.max_attempts" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.max_attempts">
+<span class="sig-name descname"><span class="pre">Max_Attempts</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_schedule.max_attempts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.use_conditions">
-<code class="descname">Use_Conditions</code> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule.use_conditions" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.use_conditions">
+<span class="sig-name descname"><span class="pre">Use_Conditions</span></span> <span class="pre">bit</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule.use_conditions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.monitored">
-<code class="descname">Monitored</code> smallint<a class="headerlink" href="#qm-field.g_schedule.monitored" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.monitored">
+<span class="sig-name descname"><span class="pre">Monitored</span></span> <span class="pre">smallint</span><a class="headerlink" href="#qm-field.g_schedule.monitored" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.restrict_r_access_part">
-<code class="descname">Restrict_R_Access_Part</code> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule.restrict_r_access_part" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.restrict_r_access_part">
+<span class="sig-name descname"><span class="pre">Restrict_R_Access_Part</span></span> <span class="pre">bit</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule.restrict_r_access_part" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.restrict_r_access_admin">
-<code class="descname">Restrict_R_Access_Admin</code> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule.restrict_r_access_admin" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.restrict_r_access_admin">
+<span class="sig-name descname"><span class="pre">Restrict_R_Access_Admin</span></span> <span class="pre">bit</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule.restrict_r_access_admin" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.r_access_part_from">
-<code class="descname">R_Access_Part_From</code> datetime<a class="headerlink" href="#qm-field.g_schedule.r_access_part_from" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.r_access_part_from">
+<span class="sig-name descname"><span class="pre">R_Access_Part_From</span></span> <span class="pre">datetime</span><a class="headerlink" href="#qm-field.g_schedule.r_access_part_from" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.r_access_part_to">
-<code class="descname">R_Access_Part_To</code> datetime<a class="headerlink" href="#qm-field.g_schedule.r_access_part_to" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.r_access_part_to">
+<span class="sig-name descname"><span class="pre">R_Access_Part_To</span></span> <span class="pre">datetime</span><a class="headerlink" href="#qm-field.g_schedule.r_access_part_to" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.r_access_admin_from">
-<code class="descname">R_Access_Admin_From</code> datetime<a class="headerlink" href="#qm-field.g_schedule.r_access_admin_from" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.r_access_admin_from">
+<span class="sig-name descname"><span class="pre">R_Access_Admin_From</span></span> <span class="pre">datetime</span><a class="headerlink" href="#qm-field.g_schedule.r_access_admin_from" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.r_access_admin_to">
-<code class="descname">R_Access_Admin_To</code> datetime<a class="headerlink" href="#qm-field.g_schedule.r_access_admin_to" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.r_access_admin_to">
+<span class="sig-name descname"><span class="pre">R_Access_Admin_To</span></span> <span class="pre">datetime</span><a class="headerlink" href="#qm-field.g_schedule.r_access_admin_to" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.test_center_id">
-<code class="descname">Test_Center_ID</code> int<a class="headerlink" href="#qm-field.g_schedule.test_center_id" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.test_center_id">
+<span class="sig-name descname"><span class="pre">Test_Center_ID</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_schedule.test_center_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.group_tree_id">
-<code class="descname">Group_Tree_ID</code> int<a class="headerlink" href="#qm-field.g_schedule.group_tree_id" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.group_tree_id">
+<span class="sig-name descname"><span class="pre">Group_Tree_ID</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_schedule.group_tree_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.min_days_between_attempts">
-<code class="descname">Min_Days_Between_Attempts</code> int<a class="headerlink" href="#qm-field.g_schedule.min_days_between_attempts" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.min_days_between_attempts">
+<span class="sig-name descname"><span class="pre">Min_Days_Between_Attempts</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_schedule.min_days_between_attempts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.time_limit_override">
-<code class="descname">Time_Limit_Override</code> bit<a class="headerlink" href="#qm-field.g_schedule.time_limit_override" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.time_limit_override">
+<span class="sig-name descname"><span class="pre">Time_Limit_Override</span></span> <span class="pre">bit</span><a class="headerlink" href="#qm-field.g_schedule.time_limit_override" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.time_limit">
-<code class="descname">Time_Limit</code> int<a class="headerlink" href="#qm-field.g_schedule.time_limit" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.time_limit">
+<span class="sig-name descname"><span class="pre">Time_Limit</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_schedule.time_limit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.lang">
-<code class="descname">Lang</code> varchar(10) NOT NULL<a class="headerlink" href="#qm-field.g_schedule.lang" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.lang">
+<span class="sig-name descname"><span class="pre">Lang</span></span> <span class="pre">varchar(10)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule.lang" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule.participant_lang">
-<code class="descname">Participant_Lang</code> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule.participant_lang" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule.participant_lang">
+<span class="sig-name descname"><span class="pre">Participant_Lang</span></span> <span class="pre">bit</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule.participant_lang" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="table">
-<dt id="qm-table.g_schedule_details">
-<em class="property">TABLE </em><code class="descname">G_Schedule_Details</code><a class="headerlink" href="#qm-table.g_schedule_details" title="Permalink to this definition">¶</a></dt>
+<dl class="qm table">
+<dt class="sig sig-object qm" id="qm-table.g_schedule_details">
+<em class="property"><span class="pre">TABLE</span> </em><span class="sig-name descname"><span class="pre">G_Schedule_Details</span></span><a class="headerlink" href="#qm-table.g_schedule_details" title="Permalink to this definition">¶</a></dt>
 <dd><p>The basic Schedule table is not relegated to a view but is extended
 by creating an extension table keyed on the same identifier.</p>
-<dl class="field">
-<dt id="qm-field.g_schedule_details.schedule_id">
-<em class="property">Primary Key: </em><code class="descname">Schedule_ID</code> int NOT NULL<a class="headerlink" href="#qm-field.g_schedule_details.schedule_id" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule_details.schedule_id">
+<em class="property"><span class="pre">Primary</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">Schedule_ID</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule_details.schedule_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule_details.web_delivery">
-<code class="descname">Web_Delivery</code> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule_details.web_delivery" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule_details.web_delivery">
+<span class="sig-name descname"><span class="pre">Web_Delivery</span></span> <span class="pre">bit</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule_details.web_delivery" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule_details.offline_delivery">
-<code class="descname">Offline_Delivery</code> bit NOT NULL<a class="headerlink" href="#qm-field.g_schedule_details.offline_delivery" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule_details.offline_delivery">
+<span class="sig-name descname"><span class="pre">Offline_Delivery</span></span> <span class="pre">bit</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_schedule_details.offline_delivery" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule_details.apack_file">
-<code class="descname">APack_File</code> varchar(100)<a class="headerlink" href="#qm-field.g_schedule_details.apack_file" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule_details.apack_file">
+<span class="sig-name descname"><span class="pre">APack_File</span></span> <span class="pre">varchar(100)</span><a class="headerlink" href="#qm-field.g_schedule_details.apack_file" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule_details.resume_allowed">
-<code class="descname">Resume_Allowed</code> smallint<a class="headerlink" href="#qm-field.g_schedule_details.resume_allowed" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule_details.resume_allowed">
+<span class="sig-name descname"><span class="pre">Resume_Allowed</span></span> <span class="pre">smallint</span><a class="headerlink" href="#qm-field.g_schedule_details.resume_allowed" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule_details.rra_resultid">
-<code class="descname">RRA_ResultID</code> int<a class="headerlink" href="#qm-field.g_schedule_details.rra_resultid" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule_details.rra_resultid">
+<span class="sig-name descname"><span class="pre">RRA_ResultID</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_schedule_details.rra_resultid" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule_details.rra_enabled">
-<code class="descname">RRA_Enabled</code> bit<a class="headerlink" href="#qm-field.g_schedule_details.rra_enabled" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule_details.rra_enabled">
+<span class="sig-name descname"><span class="pre">RRA_Enabled</span></span> <span class="pre">bit</span><a class="headerlink" href="#qm-field.g_schedule_details.rra_enabled" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="field">
-<dt id="qm-field.g_schedule_details.resultfilterid">
-<code class="descname">ResultFilterID</code> int<a class="headerlink" href="#qm-field.g_schedule_details.resultfilterid" title="Permalink to this definition">¶</a></dt>
+<dl class="qm field">
+<dt class="sig sig-object qm" id="qm-field.g_schedule_details.resultfilterid">
+<span class="sig-name descname"><span class="pre">ResultFilterID</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_schedule_details.resultfilterid" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -275,15 +263,15 @@ by creating an extension table keyed on the same identifier.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -292,11 +280,11 @@ by creating an extension table keyed on the same identifier.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/model/g_schedule.txt"
+      <a href="../_sources/model/g_schedule.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

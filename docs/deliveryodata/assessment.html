@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Assessment &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="AssessmentSnapshot(Data)" href="assessmentsnapshot.html" />
     <link rel="prev" title="AnswerUpload" href="answerupload.html" />
    
@@ -35,65 +21,59 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="assessment">
-<h1>Assessment<a class="headerlink" href="#assessment" title="Permalink to this headline">¶</a></h1>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.Assessments">
-<code class="descname">Assessments</code> <a class="reference internal" href="#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a><a class="headerlink" href="#od-feed.deliveryodata.Assessments" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; feed is read only</li>
+  <section id="assessment">
+<h1>Assessment<a class="headerlink" href="#assessment" title="Permalink to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.Assessments">
+<span class="sig-name descname"><span class="pre">Assessments</span></span> <a class="reference internal" href="#od-type.deliveryodata.Assessment" title="Assessment"><span class="pre">Assessment</span></a><a class="headerlink" href="#od-feed.deliveryodata.Assessments" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – feed is read only</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>ID</strong> &#8211; primary key</li>
-<li><strong>Name</strong> &#8211; assessment name</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+<li><p><strong>Name</strong> – assessment name</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>Results</strong> &#8211; expands the associated Results</li>
+</dd>
+<dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Results</strong> – expands the associated Results</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>The Assessments feed provides information about the assessment
 catalog. That is, all the assessments that have been published for
 delivery.</p>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.Assessment">
-<em class="property">EntityType: </em><code class="descname">Assessment</code><a class="headerlink" href="#od-type.deliveryodata.Assessment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assessment entities are drawn from <a class="reference internal" href="../model/s_header_ex.html#qm-table.s_header_ex" title="S_Header_Ex"><code class="xref qm qm-table docutils literal"><span class="pre">S_Header_Ex</span></code></a> in the
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.Assessment">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">Assessment</span></span><a class="headerlink" href="#od-type.deliveryodata.Assessment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assessment entities are drawn from <a class="reference internal" href="../model/s_header_ex.html#qm-table.s_header_ex" title="S_Header_Ex"><code class="xref qm qm-table docutils literal notranslate"><span class="pre">S_Header_Ex</span></code></a> in the
 data model but contains only a subset of the properties.  They are
 read only in OData.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The full ID of the assessment, see
-<a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.session_mid" title="Session_MID"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Session_MID</span></code></a> for details of the
+<a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.session_mid" title="Session_MID"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Session_MID</span></code></a> for details of the
 underlying representation in the data model.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">when serialised to JSON format, 64-bit integers
+<p class="admonition-title">Warning</p>
+<p>when serialised to JSON format, 64-bit integers
 are converted to strings, even though they are
 still correctly identified as 64-bit integers in
 the metadata model.  OData aware tools should
@@ -106,303 +86,304 @@ when used in QMWISe methods.  For details see
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.Revision">
-<code class="descname">Revision</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Revision" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.revision" title="Revision"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Revision</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.Revision">
+<span class="sig-name descname"><span class="pre">Revision</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.Revision" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.revision" title="Revision"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Revision</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.Name">
-<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Name" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.session_name" title="Session_Name"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Session_Name</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.Name">
+<span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.session_name" title="Session_Name"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Session_Name</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.Language">
-<code class="descname">Language</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Language" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.lang" title="Lang"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Lang</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.Language">
+<span class="sig-name descname"><span class="pre">Language</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.Language" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.lang" title="Lang"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Lang</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.Description">
-<code class="descname">Description</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Description" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.description" title="Description"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Description</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.Description">
+<span class="sig-name descname"><span class="pre">Description</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.Description" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.description" title="Description"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Description</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.Author">
-<code class="descname">Author</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Author" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.author" title="Author"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Author</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.Author">
+<span class="sig-name descname"><span class="pre">Author</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.Author" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.author" title="Author"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Author</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.CreatedDateTime">
-<code class="descname">CreatedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.created_date" title="Created_Date"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Created_Date</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.CreatedDateTime">
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.created_date" title="Created_Date"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Created_Date</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.Editor">
-<code class="descname">Editor</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Editor" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.editor" title="Editor"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Editor</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.Editor">
+<span class="sig-name descname"><span class="pre">Editor</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.Editor" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.editor" title="Editor"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Editor</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.ModifiedDateTime">
-<code class="descname">ModifiedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.modified_date" title="Modified_Date"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Modified_Date</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.ModifiedDateTime">
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.modified_date" title="Modified_Date"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Modified_Date</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.Base">
-<code class="descname">Base</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Base" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.base" title="Base"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Base</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.Base">
+<span class="sig-name descname"><span class="pre">Base</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.Base" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.base" title="Base"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Base</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.TimeLimit">
-<code class="descname">TimeLimit</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Assessment.TimeLimit" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.time_limit" title="Time_Limit"><code class="xref qm qm-field docutils literal"><span class="pre">S_Header_Ex.Time_Limit</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.TimeLimit">
+<span class="sig-name descname"><span class="pre">TimeLimit</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.TimeLimit" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/s_header_ex.html#qm-field.s_header_ex.time_limit" title="Time_Limit"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Time_Limit</span></code></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2019.02.</span></p>
+<p><span class="versionmodified added">New in version 2019.02.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.IsSecure">
-<code class="descname">IsSecure</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.IsSecure" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.IsSecure">
+<span class="sig-name descname"><span class="pre">IsSecure</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.IsSecure" title="Permalink to this definition">¶</a></dt>
 <dd><p>A boolean indicating whether or not the <em>author</em> of the
 assessment has designated this assessment as for secure delivery
 only. Assessment entities with this flag set to True will not be
 available for scheduling (through the portal user interface)
-with a <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal"><span class="pre">MonitoringType</span></code></a> that does not require use of
+with a <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal notranslate"><span class="pre">MonitoringType</span></code></a> that does not require use of
 Questionmark Secure.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2020.08.</span></p>
+<p><span class="versionmodified added">New in version 2020.08.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.SaveAnswers">
-<code class="descname">SaveAnswers</code>  Edm.Boolean NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Assessment.SaveAnswers" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.SaveAnswers">
+<span class="sig-name descname"><span class="pre">SaveAnswers</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.SaveAnswers" title="Permalink to this definition">¶</a></dt>
 <dd><p>A boolean indicating whether or not this assessment is configured
 to save answers during delivery.  Assessments with this flag set
-to False <strong>must not</strong> be used with the <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal"><span class="pre">Schedule</span></code></a> entity.</p>
+to False <strong>must not</strong> be used with the <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal notranslate"><span class="pre">Schedule</span></code></a> entity.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2020.08.</span></p>
+<p><span class="versionmodified added">New in version 2020.08.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.RulesOfConductID">
-<code class="descname">RulesOfConductID</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Assessment.RulesOfConductID" title="Permalink to this definition">¶</a></dt>
-<dd><p>The ID of an associated <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal"><span class="pre">RulesOfConduct</span></code></a> entity.  See
-<a class="reference internal" href="#od-prop.deliveryodata.Assessment.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-prop docutils literal"><span class="pre">Assessment.RulesOfConduct</span></code></a> for more information.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.RulesOfConductID">
+<span class="sig-name descname"><span class="pre">RulesOfConductID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.RulesOfConductID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of an associated <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal notranslate"><span class="pre">RulesOfConduct</span></code></a> entity.  See
+<a class="reference internal" href="#od-prop.deliveryodata.Assessment.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Assessment.RulesOfConduct</span></code></a> for more information.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.08.</span></p>
+<p><span class="versionmodified added">New in version 2021.08.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.Type">
-<code class="descname">Type</code>  Edm.Int16<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Type" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.Type">
+<span class="sig-name descname"><span class="pre">Type</span></span>  <span class="pre">Edm.Int16</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.Type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reserved for future use.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.AssessmentOutcomes">
-<code class="descname">AssessmentOutcomes</code> <a class="reference internal" href="#od-type.deliveryodata.AssessmentOutcome" title="AssessmentOutcome">AssessmentOutcome</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Assessment.AssessmentOutcomes" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.AssessmentOutcomes">
+<span class="sig-name descname"><span class="pre">AssessmentOutcomes</span></span> <a class="reference internal" href="#od-type.deliveryodata.AssessmentOutcome" title="AssessmentOutcome"><span class="pre">AssessmentOutcome</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.AssessmentOutcomes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the collection of AssessmentOutcomes
 possible for this Assessment.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2020.08.</span></p>
+<p><span class="versionmodified added">New in version 2020.08.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.AssessmentTranslations">
-<code class="descname">AssessmentTranslations</code> <a class="reference internal" href="#od-type.deliveryodata.AssessmentTranslation" title="AssessmentTranslation">AssessmentTranslation</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Assessment.AssessmentTranslations" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.AssessmentTranslations">
+<span class="sig-name descname"><span class="pre">AssessmentTranslations</span></span> <a class="reference internal" href="#od-type.deliveryodata.AssessmentTranslation" title="AssessmentTranslation"><span class="pre">AssessmentTranslation</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.AssessmentTranslations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the collection of AssessmentTranslations
 of this (base language) Assessment.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2018.12.</span></p>
+<p><span class="versionmodified added">New in version 2018.12.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.AssessmentSnapshots">
-<code class="descname">AssessmentSnapshots</code> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot">AssessmentSnapshot</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Assessment.AssessmentSnapshots" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.AssessmentSnapshots">
+<span class="sig-name descname"><span class="pre">AssessmentSnapshots</span></span> <a class="reference internal" href="assessmentsnapshot.html#od-type.deliveryodata.AssessmentSnapshot" title="AssessmentSnapshot"><span class="pre">AssessmentSnapshot</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.AssessmentSnapshots" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the collection of AssessmentSnapshots
 created from this Assessment.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2020.02.</span></p>
+<p><span class="versionmodified added">New in version 2020.02.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.Results">
-<code class="descname">Results</code> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Results" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.Results">
+<span class="sig-name descname"><span class="pre">Results</span></span> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><span class="pre">Result</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.Results" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the collection of result entities
 associated with this assessment.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.Groups">
-<code class="descname">Groups</code> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group">Group</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Assessment.Groups" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.Groups">
+<span class="sig-name descname"><span class="pre">Groups</span></span> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Assessment.Groups" title="Permalink to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified">New in version 2017.11.</span></p>
+<p><span class="versionmodified added">New in version 2017.11.</span></p>
 </div>
 <p>Navigation property to the collection of Group entities
 associated with this assessment.  Assessments are associated
-with groups through the concept of &#8220;Scheduling Permissions&#8221; that
+with groups through the concept of “Scheduling Permissions” that
 are set on <em>Published</em> Assessments.  By assigning a group to an
 assessment you enable (administrator) members of that group to
 create schedules for that assessment.</p>
 <p>These associations are used by the QMWISe method
-<a class="reference internal" href="../qmwise/assessment.html#qm-meth.GetAssessmentListByAdministrator" title="GetAssessmentListByAdministrator"><code class="xref qm qm-meth docutils literal"><span class="pre">GetAssessmentListByAdministrator</span></code></a> to determine which
+<a class="reference internal" href="../qmwise/assessment.html#qm-meth.GetAssessmentListByAdministrator" title="GetAssessmentListByAdministrator"><code class="xref qm qm-meth docutils literal notranslate"><span class="pre">GetAssessmentListByAdministrator</span></code></a> to determine which
 assessments are returned.  This constrasts with the
 author-centric associations returned by
-<a class="reference internal" href="../qmwise/assessment.html#qm-meth.GetAssessmentTreeByAdministrator" title="GetAssessmentTreeByAdministrator"><code class="xref qm qm-meth docutils literal"><span class="pre">GetAssessmentTreeByAdministrator</span></code></a> that are <em>not</em>
+<a class="reference internal" href="../qmwise/assessment.html#qm-meth.GetAssessmentTreeByAdministrator" title="GetAssessmentTreeByAdministrator"><code class="xref qm qm-meth docutils literal notranslate"><span class="pre">GetAssessmentTreeByAdministrator</span></code></a> that are <em>not</em>
 available through OData.</p>
 <p>This relationship is represented in the model by
-<a class="reference internal" href="../model/g_session.html#qm-table.g_session" title="G_Session"><code class="xref qm qm-table docutils literal"><span class="pre">G_Session</span></code></a>.</p>
+<a class="reference internal" href="../model/g_session.html#qm-table.g_session" title="G_Session"><code class="xref qm qm-table docutils literal notranslate"><span class="pre">G_Session</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Assessment.RulesOfConduct">
-<code class="descname">RulesOfConduct</code> <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct">RulesOfConduct</a><a class="headerlink" href="#od-prop.deliveryodata.Assessment.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
-<dd><p>Navigation property to an optional <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal"><span class="pre">RulesOfConduct</span></code></a>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Assessment.RulesOfConduct">
+<span class="sig-name descname"><span class="pre">RulesOfConduct</span></span> <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><span class="pre">RulesOfConduct</span></a><a class="headerlink" href="#od-prop.deliveryodata.Assessment.RulesOfConduct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation property to an optional <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal notranslate"><span class="pre">RulesOfConduct</span></code></a>
 entity associated with this assessment.  When scheduling this
 assessment the associated rules of conduct are used instead of
-the default rules defined by the <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal"><span class="pre">MonitoringType</span></code></a> used.
+the default rules defined by the <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal notranslate"><span class="pre">MonitoringType</span></code></a> used.
 These rules may themselves be overridden in the
-<a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal"><span class="pre">Schedule</span></code></a> entity itself.</p>
+<a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal notranslate"><span class="pre">Schedule</span></code></a> entity itself.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.08.</span></p>
+<p><span class="versionmodified added">New in version 2021.08.</span></p>
 </div>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.AssessmentOutcome">
-<em class="property">EntityType: </em><code class="descname">AssessmentOutcome</code><a class="headerlink" href="#od-type.deliveryodata.AssessmentOutcome" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.AssessmentOutcome">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">AssessmentOutcome</span></span><a class="headerlink" href="#od-type.deliveryodata.AssessmentOutcome" title="Permalink to this definition">¶</a></dt>
 <dd><p>An AssessmentOutcome is a defined score band associated with an
 assessment.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2020.08.</span></p>
+<p><span class="versionmodified added">New in version 2020.08.</span></p>
 </div>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentOutcome.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentOutcome.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentOutcome.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentOutcome.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The full ID of the assessment related to this outcome, see
-<a class="reference internal" href="#od-prop.deliveryodata.Assessment.ID" title="ID"><code class="xref od od-prop docutils literal"><span class="pre">Assessment.ID</span></code></a> for details.</p>
+<a class="reference internal" href="#od-prop.deliveryodata.Assessment.ID" title="ID"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Assessment.ID</span></code></a> for details.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentOutcome.ScoreBandNumber">
-<em class="property">Entity Key: </em><code class="descname">ScoreBandNumber</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentOutcome.ScoreBandNumber" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentOutcome.ScoreBandNumber">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ScoreBandNumber</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentOutcome.ScoreBandNumber" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of the outcome (score band), unique within each
 Assessment.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentOutcome.AssessmentName">
-<code class="descname">AssessmentName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentOutcome.AssessmentName" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentOutcome.AssessmentName">
+<span class="sig-name descname"><span class="pre">AssessmentName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentOutcome.AssessmentName" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the related Assessment.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentOutcome.ScoreBandTitle">
-<code class="descname">ScoreBandTitle</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentOutcome.ScoreBandTitle" title="Permalink to this definition">¶</a></dt>
-<dd><p>The title of this outcome, for example &#8220;Pass&#8221; or &#8220;Fail&#8221;.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentOutcome.ScoreBandTitle">
+<span class="sig-name descname"><span class="pre">ScoreBandTitle</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentOutcome.ScoreBandTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>The title of this outcome, for example “Pass” or “Fail”.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentOutcome.Assessment">
-<code class="descname">Assessment</code> <a class="reference internal" href="#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a> NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentOutcome.Assessment" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentOutcome.Assessment">
+<span class="sig-name descname"><span class="pre">Assessment</span></span> <a class="reference internal" href="#od-type.deliveryodata.Assessment" title="Assessment"><span class="pre">Assessment</span></a> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentOutcome.Assessment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the Assessment.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.AssessmentTranslation">
-<em class="property">EntityType: </em><code class="descname">AssessmentTranslation</code><a class="headerlink" href="#od-type.deliveryodata.AssessmentTranslation" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentTranslation.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.ID" title="Permalink to this definition">¶</a></dt>
-<dd><p>The ID of the <a class="reference internal" href="#od-type.deliveryodata.Assessment" title="Assessment"><code class="xref od od-type docutils literal"><span class="pre">Assessment</span></code></a> that this is a translation
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.AssessmentTranslation">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">AssessmentTranslation</span></span><a class="headerlink" href="#od-type.deliveryodata.AssessmentTranslation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentTranslation.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the <a class="reference internal" href="#od-type.deliveryodata.Assessment" title="Assessment"><code class="xref od od-type docutils literal notranslate"><span class="pre">Assessment</span></code></a> that this is a translation
 of.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentTranslation.Language">
-<em class="property">Entity Key: </em><code class="descname">Language</code>  Edm.String NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.Language" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentTranslation.Language">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">Language</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.Language" title="Permalink to this definition">¶</a></dt>
 <dd><p>The language this translation is represented by.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentTranslation.Revision">
-<code class="descname">Revision</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.Revision" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentTranslation.Revision">
+<span class="sig-name descname"><span class="pre">Revision</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.Revision" title="Permalink to this definition">¶</a></dt>
 <dd><p>The revision of the Assessment that was translated.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentTranslation.Name">
-<code class="descname">Name</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.Name" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentTranslation.Name">
+<span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.Name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The translated name of the Assessment.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentTranslation.Author">
-<code class="descname">Author</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.Author" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentTranslation.Author">
+<span class="sig-name descname"><span class="pre">Author</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.Author" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the user that created this translation.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentTranslation.CreatedDateTime">
-<code class="descname">CreatedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentTranslation.CreatedDateTime">
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.CreatedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date and time this translation was created.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentTranslation.Editor">
-<code class="descname">Editor</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.Editor" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentTranslation.Editor">
+<span class="sig-name descname"><span class="pre">Editor</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.Editor" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the user that last modified this translation.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentTranslation.ModifiedDateTime">
-<code class="descname">ModifiedDateTime</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentTranslation.ModifiedDateTime">
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.ModifiedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date and time this translation was last modified.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentTranslation.TimeLimit">
-<code class="descname">TimeLimit</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.TimeLimit" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentTranslation.TimeLimit">
+<span class="sig-name descname"><span class="pre">TimeLimit</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.TimeLimit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reserved for future use.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AssessmentTranslation.Assessment">
-<code class="descname">Assessment</code> <a class="reference internal" href="#od-type.deliveryodata.Assessment" title="Assessment">Assessment</a><a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.Assessment" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AssessmentTranslation.Assessment">
+<span class="sig-name descname"><span class="pre">Assessment</span></span> <a class="reference internal" href="#od-type.deliveryodata.Assessment" title="Assessment"><span class="pre">Assessment</span></a><a class="headerlink" href="#od-prop.deliveryodata.AssessmentTranslation.Assessment" title="Permalink to this definition">¶</a></dt>
 <dd><p>A navigation property to the base language version of the
 assessment.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -433,15 +414,15 @@ assessment.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -450,11 +431,11 @@ assessment.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/assessment.txt"
+      <a href="../_sources/deliveryodata/assessment.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

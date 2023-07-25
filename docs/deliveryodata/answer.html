@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Answer &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Entity Type Reference" href="types.html" />
     <link rel="next" title="AnswerUpload" href="answerupload.html" />
     <link rel="prev" title="Administrator" href="administrator.html" />
    
@@ -35,223 +21,217 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="answer">
-<h1>Answer<a class="headerlink" href="#answer" title="Permalink to this headline">¶</a></h1>
-<dl class="feed">
-<dt id="od-feed.deliveryodata.Answers">
-<code class="descname">Answers</code> <a class="reference internal" href="#od-type.deliveryodata.Answer" title="Answer">Answer</a> (Media Link Entry)<a class="headerlink" href="#od-feed.deliveryodata.Answers" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Methods Supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>GET</strong> &#8211; feed is read only</li>
+  <section id="answer">
+<h1>Answer<a class="headerlink" href="#answer" title="Permalink to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.Answers">
+<span class="sig-name descname"><span class="pre">Answers</span></span> <a class="reference internal" href="#od-type.deliveryodata.Answer" title="Answer"><span class="pre">Answer</span></a> <span class="pre">(Media</span> <span class="pre">Link</span> <span class="pre">Entry)</span><a class="headerlink" href="#od-feed.deliveryodata.Answers" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – feed is read only</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Filters supported:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>QuestionID</strong> &#8211; ID of the associated Question</li>
-<li><strong>ResultID</strong> &#8211; ID of the associated Result</li>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>QuestionID</strong> – ID of the associated Question</p></li>
+<li><p><strong>ResultID</strong> – ID of the associated Result</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Expansions supported:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>Question</strong> &#8211; expands the associated Question</li>
-<li><strong>Result</strong> &#8211; expands the associated Result</li>
-<li><strong>ScoringTask</strong> &#8211; expands the associated ScoringTask, due to
+</dd>
+<dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Question</strong> – expands the associated Question</p></li>
+<li><p><strong>Result</strong> – expands the associated Result</p></li>
+<li><p><strong>ScoringTask</strong> – expands the associated ScoringTask, due to
 a known issue this expansion will <em>only</em> return
-entities that are associated with a ScoringTask.</li>
+entities that are associated with a ScoringTask.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>$orderby is <em>not</em> supported.</p>
 <p>The Answers feed contains detailed information about the answers
 given by participants.  Each question that a participant answers
 generates a unique record in this feed.</p>
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.Answer">
-<em class="property">EntityType: </em><code class="descname">Answer</code><a class="headerlink" href="#od-type.deliveryodata.Answer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Answer entities are drawn from <a class="reference internal" href="../model/a_answer.html#qm-table.a_answer" title="A_Answer"><code class="xref qm qm-table docutils literal"><span class="pre">A_Answer</span></code></a> in the data
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.Answer">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">Answer</span></span><a class="headerlink" href="#od-type.deliveryodata.Answer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Answer entities are drawn from <a class="reference internal" href="../model/a_answer.html#qm-table.a_answer" title="A_Answer"><code class="xref qm qm-table docutils literal notranslate"><span class="pre">A_Answer</span></code></a> in the data
 model but contain only a subset of the properties.  They are read
 only in OData.</p>
 <p>The Answer entity is a media link entity.  The value of an Answer
-entity (obtained by appending /$value to the entity&#8217;s URL) is the
+entity (obtained by appending /$value to the entity’s URL) is the
 full answer given by the participant (for constructed response
 questions).  See below for an example of how to obtain this.</p>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.QuestionID">
-<em class="property">Entity Key: </em><code class="descname">QuestionID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.QuestionID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.QuestionID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">QuestionID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Answer.QuestionID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The fulle ID of the question being answered, see
-<a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.question_mid" title="Question_MID"><code class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Question_MID</span></code></a>. for more information.</p>
+<a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.question_mid" title="Question_MID"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Answer.Question_MID</span></code></a>. for more information.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.ResultID">
-<em class="property">Entity Key: </em><code class="descname">ResultID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.ResultID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.ResultID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ResultID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Answer.ResultID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ID of the associated Result, see
-<a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.result_id" title="Result_ID"><code class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Result_ID</span></code></a>.</p>
+<a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.result_id" title="Result_ID"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Answer.Result_ID</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.BlockNumber">
-<em class="property">Entity Key: </em><code class="descname">BlockNumber</code>  Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.BlockNumber" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.BlockNumber">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">BlockNumber</span></span>  <span class="pre">Edm.Int16</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Answer.BlockNumber" title="Permalink to this definition">¶</a></dt>
 <dd><p>The sequence number of the block within the which the question
-was presented.  See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.block_number" title="Block_Number"><code class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Block_Number</span></code></a>.</p>
+was presented.  See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.block_number" title="Block_Number"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Answer.Block_Number</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.Occurrence">
-<em class="property">Entity Key: </em><code class="descname">Occurrence</code>  Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.Occurrence" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.occurrence" title="Occurrence"><code class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Occurrence</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.Occurrence">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">Occurrence</span></span>  <span class="pre">Edm.Int16</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Answer.Occurrence" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.occurrence" title="Occurrence"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Answer.Occurrence</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.QuestionNumber">
-<code class="descname">QuestionNumber</code>  Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.QuestionNumber" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.QuestionNumber">
+<span class="sig-name descname"><span class="pre">QuestionNumber</span></span>  <span class="pre">Edm.Int16</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Answer.QuestionNumber" title="Permalink to this definition">¶</a></dt>
 <dd><p>The sequence number of the question presented within the block.
-See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.question_number" title="Question_Number"><code class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Question_Number</span></code></a>.</p>
+See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.question_number" title="Question_Number"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Answer.Question_Number</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.TimesAnswered">
-<code class="descname">TimesAnswered</code>  Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.TimesAnswered" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.times_answered" title="Times_Answered"><code class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Times_Answered</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.TimesAnswered">
+<span class="sig-name descname"><span class="pre">TimesAnswered</span></span>  <span class="pre">Edm.Int16</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Answer.TimesAnswered" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.times_answered" title="Times_Answered"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Answer.Times_Answered</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.MaxScore">
-<code class="descname">MaxScore</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.MaxScore" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.max_score" title="Max_Score"><code class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Max_Score</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.MaxScore">
+<span class="sig-name descname"><span class="pre">MaxScore</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Answer.MaxScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.max_score" title="Max_Score"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Answer.Max_Score</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.ActualScore">
-<code class="descname">ActualScore</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.Answer.ActualScore" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.actual_score" title="Actual_Score"><code class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Actual_Score</span></code></a>.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.ActualScore">
+<span class="sig-name descname"><span class="pre">ActualScore</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Answer.ActualScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.actual_score" title="Actual_Score"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Answer.Actual_Score</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.AnswerTruncated">
-<code class="descname">AnswerTruncated</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.Answer.AnswerTruncated" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.answer_truncated" title="Answer_Truncated"><code class="xref qm qm-field docutils literal"><span class="pre">A_Answer.Answer_Truncated</span></code></a>.  A truncated
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.AnswerTruncated">
+<span class="sig-name descname"><span class="pre">AnswerTruncated</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Answer.AnswerTruncated" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../model/a_answer.html#qm-field.a_answer.answer_truncated" title="Answer_Truncated"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Answer.Answer_Truncated</span></code></a>.  A truncated
 representation of the answer given by the Participant.  The
 format of this field varies depending on the type of the
 associated question.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.Revision">
-<code class="descname">Revision</code>  Edm.Int32<a class="headerlink" href="#od-prop.deliveryodata.Answer.Revision" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.Revision">
+<span class="sig-name descname"><span class="pre">Revision</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Answer.Revision" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reserved for future use.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.Question">
-<code class="descname">Question</code> <a class="reference internal" href="question.html#od-type.deliveryodata.Question" title="Question">Question</a><a class="headerlink" href="#od-prop.deliveryodata.Answer.Question" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.Question">
+<span class="sig-name descname"><span class="pre">Question</span></span> <a class="reference internal" href="question.html#od-type.deliveryodata.Question" title="Question"><span class="pre">Question</span></a><a class="headerlink" href="#od-prop.deliveryodata.Answer.Question" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the single Question associated with
 this answer.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.Result">
-<code class="descname">Result</code> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result">Result</a><a class="headerlink" href="#od-prop.deliveryodata.Answer.Result" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.Result">
+<span class="sig-name descname"><span class="pre">Result</span></span> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><span class="pre">Result</span></a><a class="headerlink" href="#od-prop.deliveryodata.Answer.Result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the single Result associated with this
 answer.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.ScoringTask">
-<code class="descname">ScoringTask</code> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringTask" title="ScoringTask">ScoringTask</a><a class="headerlink" href="#od-prop.deliveryodata.Answer.ScoringTask" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.ScoringTask">
+<span class="sig-name descname"><span class="pre">ScoringTask</span></span> <a class="reference internal" href="scoringtask.html#od-type.deliveryodata.ScoringTask" title="ScoringTask"><span class="pre">ScoringTask</span></a><a class="headerlink" href="#od-prop.deliveryodata.Answer.ScoringTask" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to an optional ScoringTask associated with
 this answer.  ScoringTasks are only associated with answers that
 require subjective marking.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.Answer.AnswerAuditLogs">
-<code class="descname">AnswerAuditLogs</code> <a class="reference internal" href="#od-type.deliveryodata.AnswerAuditLog" title="AnswerAuditLog">AnswerAuditLog</a> Collection<a class="headerlink" href="#od-prop.deliveryodata.Answer.AnswerAuditLogs" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Answer.AnswerAuditLogs">
+<span class="sig-name descname"><span class="pre">AnswerAuditLogs</span></span> <a class="reference internal" href="#od-type.deliveryodata.AnswerAuditLog" title="AnswerAuditLog"><span class="pre">AnswerAuditLog</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Answer.AnswerAuditLogs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to an audit log of changes to this answer
 record (e.g., with Scoring Editor).</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="type">
-<dt id="od-type.deliveryodata.AnswerAuditLog">
-<em class="property">EntityType: </em><code class="descname">AnswerAuditLog</code><a class="headerlink" href="#od-type.deliveryodata.AnswerAuditLog" title="Permalink to this definition">¶</a></dt>
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.AnswerAuditLog">
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">AnswerAuditLog</span></span><a class="headerlink" href="#od-type.deliveryodata.AnswerAuditLog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes to Answer records (other than those made by the participant
 during the assessment itself) are recorded in AnswerAuditLog
 entities.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2021.05.</span></p>
+<p><span class="versionmodified added">New in version 2021.05.</span></p>
 </div>
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.ID">
-<em class="property">Entity Key: </em><code class="descname">ID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.ID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.ID">
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>An internal ID for this log entity.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.ResultID">
-<code class="descname">ResultID</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.ResultID" title="Permalink to this definition">¶</a></dt>
-<dd><p>The ResultID of the associated <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal"><span class="pre">Result</span></code></a>.  Changes to
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.ResultID">
+<span class="sig-name descname"><span class="pre">ResultID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.ResultID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ResultID of the associated <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><code class="xref od od-type docutils literal notranslate"><span class="pre">Result</span></code></a>.  Changes to
 the score given for an answer will result in corresponding
 changes to the result.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.QuestionID">
-<code class="descname">QuestionID</code>  Edm.Int64 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.QuestionID" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.QuestionID">
+<span class="sig-name descname"><span class="pre">QuestionID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.QuestionID" title="Permalink to this definition">¶</a></dt>
 <dd><p>The QuestionID (used in the association with the corresponding
 Answer entity).</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.BlockNumber">
-<code class="descname">BlockNumber</code>  Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.BlockNumber" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.BlockNumber">
+<span class="sig-name descname"><span class="pre">BlockNumber</span></span>  <span class="pre">Edm.Int16</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.BlockNumber" title="Permalink to this definition">¶</a></dt>
 <dd><p>The block number in which this answer was given (used in the
 association with the corresponding Answer entity).</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.Occurrence">
-<code class="descname">Occurrence</code>  Edm.Int16 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.Occurrence" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.Occurrence">
+<span class="sig-name descname"><span class="pre">Occurrence</span></span>  <span class="pre">Edm.Int16</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.Occurrence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated property used in the association with the corresponding
 Answer entity).</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.RevisionNumber">
-<code class="descname">RevisionNumber</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.RevisionNumber" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.RevisionNumber">
+<span class="sig-name descname"><span class="pre">RevisionNumber</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.RevisionNumber" title="Permalink to this definition">¶</a></dt>
 <dd><p>A revision number for ordering changes to the associated
-<a class="reference internal" href="#od-type.deliveryodata.Answer" title="Answer"><code class="xref od od-type docutils literal"><span class="pre">Answer</span></code></a>.</p>
+<a class="reference internal" href="#od-type.deliveryodata.Answer" title="Answer"><code class="xref od od-type docutils literal notranslate"><span class="pre">Answer</span></code></a>.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.AdministratorName">
-<code class="descname">AdministratorName</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.AdministratorName" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.AdministratorName">
+<span class="sig-name descname"><span class="pre">AdministratorName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.AdministratorName" title="Permalink to this definition">¶</a></dt>
 <dd><p>The login name of the Administrator that made the change.  This
 property is set to the name of the logged in user when changes
 are made through the user interface.  Changes made through the
@@ -259,62 +239,62 @@ API can provide any value for this field (e.g., the name of a
 user in a remote system integrated using this API).</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.ActualScoreOld">
-<code class="descname">ActualScoreOld</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.ActualScoreOld" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.ActualScoreOld">
+<span class="sig-name descname"><span class="pre">ActualScoreOld</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.ActualScoreOld" title="Permalink to this definition">¶</a></dt>
 <dd><p>The original score awarded for the associated answer.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.ActualScoreNew">
-<code class="descname">ActualScoreNew</code>  Edm.Int32 NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.ActualScoreNew" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.ActualScoreNew">
+<span class="sig-name descname"><span class="pre">ActualScoreNew</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.ActualScoreNew" title="Permalink to this definition">¶</a></dt>
 <dd><p>The new score awarded for the associated answer.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.AnswerFullOld">
-<code class="descname">AnswerFullOld</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.AnswerFullOld" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.AnswerFullOld">
+<span class="sig-name descname"><span class="pre">AnswerFullOld</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.AnswerFullOld" title="Permalink to this definition">¶</a></dt>
 <dd><p>The original Answer provided by the participant.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.AnswerFullNew">
-<code class="descname">AnswerFullNew</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.AnswerFullNew" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.AnswerFullNew">
+<span class="sig-name descname"><span class="pre">AnswerFullNew</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.AnswerFullNew" title="Permalink to this definition">¶</a></dt>
 <dd><p>The updated Answer <em>as if</em> provided by the participant.  These
 fields are provided for compatibility with the classic Score
 Editor tool only.  The modification of participant-provided
 answers is deprecated.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.Comment">
-<code class="descname">Comment</code>  Edm.String<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.Comment" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.Comment">
+<span class="sig-name descname"><span class="pre">Comment</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.Comment" title="Permalink to this definition">¶</a></dt>
 <dd><p>A comment describing the reason for the change.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.TimeStampUtc">
-<code class="descname">TimeStampUtc</code>  Edm.DateTime NOT NULL<a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.TimeStampUtc" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.TimeStampUtc">
+<span class="sig-name descname"><span class="pre">TimeStampUtc</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.TimeStampUtc" title="Permalink to this definition">¶</a></dt>
 <dd><p>The UTC time and date of the change.</p>
 </dd></dl>
 
-<dl class="prop">
-<dt id="od-prop.deliveryodata.AnswerAuditLog.Answer">
-<code class="descname">Answer</code> <a class="reference internal" href="#od-type.deliveryodata.Answer" title="Answer">Answer</a><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.Answer" title="Permalink to this definition">¶</a></dt>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerAuditLog.Answer">
+<span class="sig-name descname"><span class="pre">Answer</span></span> <a class="reference internal" href="#od-type.deliveryodata.Answer" title="Answer"><span class="pre">Answer</span></a><a class="headerlink" href="#od-prop.deliveryodata.AnswerAuditLog.Answer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Navigation property to the Answer entity affected by this
 change.</p>
 </dd></dl>
 
 </dd></dl>
 
-<div class="section" id="reading-the-participant-s-answer">
-<h2>Reading the Participant&#8217;s Answer<a class="headerlink" href="#reading-the-participant-s-answer" title="Permalink to this headline">¶</a></h2>
+<section id="reading-the-participant-s-answer">
+<h2>Reading the Participant’s Answer<a class="headerlink" href="#reading-the-participant-s-answer" title="Permalink to this heading">¶</a></h2>
 <p>The Answer entity is a media link entity with a corresponding media
-stream that contains the participant&#8217;s full answer.  The stream is
+stream that contains the participant’s full answer.  The stream is
 only available when the Question required a constructed response such as
 an Essay or File Upload question.</p>
 <p>Here is an example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results(634445534)/Answers?$expand=Question
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results(634445534)/Answers?$expand=Question
 
 {
     odata.metadata: &quot;&lt;service root&gt;/$metadata#Answers&quot;,
@@ -381,17 +361,17 @@ and the media link provides the plain text typed by the candidate.
 Question number 2 is a file upload question and actually returns an
 image.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<p class="admonition-title">Warning</p>
 <p>when returning Answer entities the content type encoded
-in the entity&#8217;s serialised representation is defaulted
+in the entity’s serialised representation is defaulted
 to application/octet-stream for performance reasons (as
 the data model does not contain this information).</p>
-<p class="last">To obtain the true content type you must issue a HEAD
+<p>To obtain the true content type you must issue a HEAD
 (or GET) request on the odata.mediaReadLink directly.</p>
 </div>
-<p>Here&#8217;s a sample HTTP session when retrieving the file uploaded by the
+<p>Here’s a sample HTTP session when retrieving the file uploaded by the
 participant:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Answers(QuestionID=1712759025350437L,ResultID=634445534,BlockNumber=1,Occurrence=1)/$value
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Answers(QuestionID=1712759025350437L,ResultID=634445534,BlockNumber=1,Occurrence=1)/$value
 
 GET &lt;service root&gt;/Answers(QuestionID=1712759025350437L,ResultID=634445534,BlockNumber=1,Occurrence=1)/$value HTTP/1.1
 Host: ondemand.questionmark.eu
@@ -422,16 +402,17 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 &lt;GIF image data&gt;
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -462,15 +443,15 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -479,11 +460,11 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/answer.txt"
+      <a href="../_sources/deliveryodata/answer.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

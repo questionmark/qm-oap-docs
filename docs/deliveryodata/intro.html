@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Introduction &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Delivery OData API" href="../deliveryodata.html" />
     <link rel="next" title="Example Applications" href="applications.html" />
     <link rel="prev" title="Delivery OData API" href="../deliveryodata.html" />
    
@@ -35,27 +21,28 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h1>
 <p>Based on the Open Data (<a class="reference external" href="http://www.odata.org/">OData</a>) protocol (version 3), the Delivery OData
 API is a RESTful data service that can be used to retrieve data from a
 Questionmark repository.</p>
 <p>The data in a repository is divided into three main databases covering
-the three main functions of Questionmark&#8217;s assessment management system:
+the three main functions of Questionmark’s assessment management system:
 content creation, delivery, and result reporting. The Delivery OData API
 focuses on the data in the Delivery database.  For information about
 using OData to access data from the Results Warehouse see
-<a class="reference internal" href="../resultsodata.html#od-service.resultsodata" title="Results OData Service"><code class="xref od od-svc docutils literal"><span class="pre">resultsodata</span></code></a>.</p>
-<img alt="../_images/overview1.png" src="../_images/overview1.png" />
+<a class="reference internal" href="../resultsodata.html#od-service.resultsodata" title="Results OData Service"><code class="xref od od-svc docutils literal notranslate"><span class="pre">resultsodata</span></code></a>.</p>
+<img alt="../_images/overview.png" src="../_images/overview.png" />
 <p>Although you can still interact with this API using OData-aware tools
 such as PowerPivot for Excel and Tableau it is not designed to be used
 for reporting and there are significant limits placed on the exposed
@@ -66,38 +53,38 @@ the participant-facing delivery of the tests themselves.</p>
 <p>The main purpose of this API is to support the creation of third-party
 integrations created in programming languages such as C# and Java. Refer
 to the <a class="reference external" href="http://www.odata.org/">OData</a> website for a complete list of tools and libraries that
-have support for the OData protocol.  You don&#8217;t necessarily need a
+have support for the OData protocol.  You don’t necessarily need a
 dedicated OData client library to use the Delivery OData API; you can
 use just about any tool that can make HTTP requests and parse JSON or
 XML responses.  The documentation contains many example requests
 captured using a simple REST-client browser plugin.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">If you are using the WCF OData client, you must set the
+<p class="admonition-title">Warning</p>
+<p>If you are using the WCF OData client, you must set the
 IgnoreMissingProperties setting to true for the
 DataServiceContext.</p>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last">For an overview of the way Questionmark has implemented OData
+<p class="admonition-title">See also</p>
+<p>For an overview of the way Questionmark has implemented OData
 please see <a class="reference internal" href="../odata.html#id1"><span class="std std-ref">OData Primer</span></a>.</p>
 </div>
-<div class="section" id="security">
-<h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
-<p>Access to the Delivery OData API is protected using HTTP&#8217;s basic
+<section id="security">
+<h2>Security<a class="headerlink" href="#security" title="Permalink to this heading">¶</a></h2>
+<p>Access to the Delivery OData API is protected using HTTP’s basic
 authentication. This requires the client to pass the username and
 password of a specially created service account.  The service account
 must be either:</p>
 <blockquote>
 <div><ul class="simple">
-<li>a user that has been assigned the Admin role in OnDemand, or</li>
-<li>a user that has a custom role with the Access Server
-Configuration permission.</li>
+<li><p>a user that has been assigned the Admin role in OnDemand, or</p></li>
+<li><p>a user that has a custom role with the Access Server
+Configuration permission.</p></li>
 </ul>
-<dl class="docutils">
-<dt>..note::    For more information about roles and permissions, please</dt>
-<dd>refer to <a class="reference external" href="https://support.questionmark.com/content/how-can-i-manage-administrator-permissions">Roles and permissions</a>
-section of the OnDemand User Guide.</dd>
+<dl class="simple">
+<dt>..note::    For more information about roles and permissions, please</dt><dd><p>refer to <a class="reference external" href="https://support.questionmark.com/content/how-can-i-manage-administrator-permissions">Roles and permissions</a>
+section of the OnDemand User Guide.</p>
+</dd>
 </dl>
 </div></blockquote>
 <p>When accessed without credentials, requests will generate a 401
@@ -106,21 +93,21 @@ is often convenient to use a web browser when testing OData URLs, the
 401 response will trigger the browser to prompt the user for a username
 and password and then retry the request.</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>..warning:: the credentials required to access the OData APIs have</dt>
-<dd>powerful permissions and should be stored appropriately
+<div><dl class="simple">
+<dt>..warning:: the credentials required to access the OData APIs have</dt><dd><p>powerful permissions and should be stored appropriately
 when configuring your application.  They are not
 suitable for passing to the client browser, these APIs
 are not intended to be used directly from client-side
 JavaScript.  Where examples have been generated in a
 browser-based too this is for illustrative purposes
 only, your application should run in an appropriately
-secured environment.</dd>
+secured environment.</p>
+</dd>
 </dl>
 </div></blockquote>
-</div>
-<div class="section" id="service-root">
-<h2>Service Root<a class="headerlink" href="#service-root" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="service-root">
+<h2>Service Root<a class="headerlink" href="#service-root" title="Permalink to this heading">¶</a></h2>
 <p>To access an OData service you need to determine the service root of the
 service.  The service root is a base URL which returns an overview
 document linking to all the feeds (EntitySets) exposed by the API.  It
@@ -128,36 +115,35 @@ can also be used to calculate the location of a metadata document that
 provides detailed type information about the entity types supported by
 the API.</p>
 <p>For users of Questionmark OnDemand the service root is:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span> <span class="n">ID</span><span class="o">&gt;/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span> <span class="n">ID</span><span class="o">&gt;/</span>
 </pre></div>
 </div>
-<p>...or for customers using the Europe-based service:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">eu</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span> <span class="n">ID</span><span class="o">&gt;/</span>
+<p>…or for customers using the Europe-based service:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">eu</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span> <span class="n">ID</span><span class="o">&gt;/</span>
 </pre></div>
 </div>
 <p>You replaced &lt;customer ID&gt; with the area number assigned to the
 repository, for example a US-based repository with customer (area)
 number 123456 would have the following service root:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span>
 </pre></div>
 </div>
 <p>Individual feeds can be accessed by appending the name of the feed
 to the service root:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Results</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/</span><span class="mi">123456</span><span class="o">/</span><span class="n">Results</span>
 </pre></div>
 </div>
 <p>would return information about Results in the specified repository.</p>
-</div>
-<div class="section" id="odata-features">
-<h2>OData Features<a class="headerlink" href="#odata-features" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="odata-features">
+<h2>OData Features<a class="headerlink" href="#odata-features" title="Permalink to this heading">¶</a></h2>
 <p>The Delivery OData API implements version 3 of the OData standard which
 is generally compatible with both version 3 and version 2 clients.</p>
-<dl class="docutils">
-<dt>$top and $skip</dt>
-<dd><p class="first">If a feed request would cause too many entities to be returned the
+<dl>
+<dt>$top and $skip</dt><dd><p>If a feed request would cause too many entities to be returned the
 collection returned will be truncated.</p>
 <p>For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span><span class="n">Results</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">service</span> <span class="n">root</span><span class="o">&gt;/</span><span class="n">Results</span>
 </pre></div>
 </div>
 <p>There are likely to be lots of results in the repository. The
@@ -165,92 +151,89 @@ returned collection contains the first <em>page</em> of results and a
 continuation link that can be used to retrieve the next <em>page</em>, and
 so on.</p>
 <p>This technique was not possible with previous APIs (compare
-<a class="reference internal" href="../qmwise/results.html#qm-meth.GetResultList" title="GetResultList"><code class="xref qm qm-meth docutils literal"><span class="pre">GetResultList</span></code></a>), but it does require some special handling
-on the client side. Questionmark&#8217;s OData feeds make extensive use of
+<a class="reference internal" href="../qmwise/results.html#qm-meth.GetResultList" title="GetResultList"><code class="xref qm qm-meth docutils literal notranslate"><span class="pre">GetResultList</span></code></a>), but it does require some special handling
+on the client side. Questionmark’s OData feeds make extensive use of
 paging and also impose an upper limit on the number of records that
 will be returned for each request to improve performance of both the
 service and the client itself.  The limit is currently set to 100.</p>
 <p>You can individually control how many results you retrieve (if you
 want fewer than 100) using the $top and $skip options:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$top=10&amp;$orderby=WhenFinished desc
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$top=10&amp;$orderby=WhenFinished desc
 </pre></div>
 </div>
 <p>This query retrieves the 10 most recent results.  To get the next
 10 just add $skip:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$top=10&amp;$skip=10&amp;$orderby=WhenFinished desc
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$top=10&amp;$skip=10&amp;$orderby=WhenFinished desc
 </pre></div>
 </div>
-<p class="last">The format of the continuation links may vary depending on the type
+<p>The format of the continuation links may vary depending on the type
 of index used to satisfy the query internally.  When paging through
 a large feed it is better to use the continuation links provided in
 the previous response than to manually set $top and $skip.</p>
 </dd>
-<dt>$filter</dt>
-<dd><p class="first">Supported.  Filtering is only allowed on certain property values,
+<dt>$filter</dt><dd><p>Supported.  Filtering is only allowed on certain property values,
 see the feed descriptions below for details. The restrictions have
 been put in place to ensure that API requests do not have a negative
 effect on the delivery of assessments.</p>
 <p>Example filter:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$filter=ParticipantName eq &#39;user123&#39;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$filter=ParticipantName eq &#39;user123&#39;
 </pre></div>
 </div>
 <p>Although spaces are shown in the above URL parameter values should
 be appropriately escaped for use in HTTP.</p>
-<p>The representation of values (such as &#8216;user123&#8217; above) is defined by
+<p>The representation of values (such as ‘user123’ above) is defined by
 the OData specification.  Take care to match the type of any values
 provided in filters with the type of the corresponding property.
-In particular, note that 64-bit integers use an &#8216;L&#8217; suffix:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$filter=AssessmentID eq 9962000009962L
+In particular, note that 64-bit integers use an ‘L’ suffix:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$filter=AssessmentID eq 9962000009962L
 </pre></div>
 </div>
 <p>More complex examples:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/ScoringTasks?$filter=Group/Name eq &#39;CS101&#39; and Status lt 3
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/ScoringTasks?$filter=Group/Name eq &#39;CS101&#39; and Status lt 3
 </pre></div>
 </div>
-<p>...returns all ScoringTask entities relating to the Group with name
+<p>…returns all ScoringTask entities relating to the Group with name
 CS101 that have a status less then 3 (Scored).</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/ScoringTasks/$count?$filter=Group/Name eq &#39;CS101&#39; and Status eq 2
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/ScoringTasks/$count?$filter=Group/Name eq &#39;CS101&#39; and Status eq 2
 </pre></div>
 </div>
-<p>...returns the count of all ScoringTask entities relating to the
+<p>…returns the count of all ScoringTask entities relating to the
 Group with name CS101 that have a status of 2 (Saved).</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/ScoringTasks?$filter=Group/Name eq &#39;CS101&#39; and Assessment/ID eq 1234567890L
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/ScoringTasks?$filter=Group/Name eq &#39;CS101&#39; and Assessment/ID eq 1234567890L
 </pre></div>
 </div>
-<p>...returns all ScoringTask entities relating to the Group with name
+<p>…returns all ScoringTask entities relating to the Group with name
 CS101 and the assessment with ID 1234567890.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$filter=GroupName eq &#39;CS101&#39; and Assessment/ID eq 1234567890L&amp;$orderby=WhenFinished desc
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$filter=GroupName eq &#39;CS101&#39; and Assessment/ID eq 1234567890L&amp;$orderby=WhenFinished desc
 </pre></div>
 </div>
-<p>...returns all result entities relating to the group with name CS101
+<p>…returns all result entities relating to the group with name CS101
 and the assessment with ID 1234567890 ordered by the most recently
 submitted first.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$filter=Assessment/ID eq 1234567890L and ParticipantName eq &#39;JaneSmith&#39;&amp;$orderby=WhenFinished
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$filter=Assessment/ID eq 1234567890L and ParticipantName eq &#39;JaneSmith&#39;&amp;$orderby=WhenFinished
 </pre></div>
 </div>
-<p class="last">...returns all result entities relating to JaneSmith&#8217;s attempts at
+<p>…returns all result entities relating to JaneSmith’s attempts at
 the specific assessment with ID 1234567890 ordered from the first to
 the last attempt.</p>
 </dd>
-<dt>$orderby</dt>
-<dd><p class="first">Supported.  Ordering can usually be used on any field marked as
+<dt>$orderby</dt><dd><p>Supported.  Ordering can usually be used on any field marked as
 being suported in $filter.  Exceptions are noted in the feed
 descriptions.</p>
 <p>Example:</p>
-<div class="last highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$orderby=WhenFinished desc
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$orderby=WhenFinished desc
 </pre></div>
 </div>
 </dd>
-<dt>$expand</dt>
-<dd><p class="first">The expansion of navigation properties is supported though some
+<dt>$expand</dt><dd><p>The expansion of navigation properties is supported though some
 special rules apply.  See each feed for details.  There is a limit
 on the depth of expansion that is allowed to ensure result sets are
 manageable.  Example expansion:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$expand=Answers
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results?$expand=Answers
 </pre></div>
 </div>
 <p>A deeper expansion:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results(12345678)?$expand=Answers/Question
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results(12345678)?$expand=Answers/Question
 </pre></div>
 </div>
 <p>The above not only lists all answers for the result but, within each
@@ -267,67 +250,67 @@ exceeds 100 entities a continuation link is provided that can be
 used to retrieve the next 100 results, and so on.</p>
 <p>For example, if there are too many answers associated with a result
 then a query such as:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>Results(12345678)?$expand=Answers
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Results(12345678)?$expand=Answers
 </pre></div>
 </div>
 <p>can instead be retrieved as separate queries:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results(12345678)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results(12345678)
 &lt;service root&gt;/Answers?$filter=ResultID eq 12345678
 &lt;service root&gt;/Answers?$filter=ResultID eq 12345678&amp;$skip=100
 &lt;service root&gt;/Answers?$filter=ResultID eq 12345678&amp;$skip=200
 ...
 </pre></div>
 </div>
-<p>If a feed&#8217;s entity type is related to another type via a navigation
+<p>If a feed’s entity type is related to another type via a navigation
 property with a <em>target</em> multiplicity of 0..1 and $expand is
 supported for that property then it is possible to use the expansion
 directly in filters and orderings.</p>
 <p>For example, to view Answers to a specific question ordered by
 the date when the corresponding result was submitted (most recent
 first) you could use a query like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Answers?$filter=QuestionID eq 100000000373L&amp;$orderby=Result/WhenFinished desc
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Answers?$filter=QuestionID eq 100000000373L&amp;$orderby=Result/WhenFinished desc
 </pre></div>
 </div>
-<p class="last">This query shows an orderby query with an implicit expansion of
+<p>This query shows an orderby query with an implicit expansion of
 depth 1.  In the feed descriptions, allowed filters are described in
 terms of their immediate parent entity (depth 0), however, if a
 filter is supported at depth 0 you may assume that it will also be
 supported at depth 1 when filtering or ordering related entities.</p>
 </dd>
-<dt>$count</dt>
-<dd><p class="first">Supported on base feeds only.  Cannot be used in combination with
+<dt>$count</dt><dd><p>Supported on base feeds only.  Cannot be used in combination with
 navigation properties.  This is OK:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results/$count
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results/$count
 </pre></div>
 </div>
 <p>This is not:</p>
-<div class="last highlight-default"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results(12345678)/Answers/$count
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;service root&gt;/Results(12345678)/Answers/$count
 </pre></div>
 </div>
 </dd>
-<dt>$format</dt>
-<dd>Not supported.  The service returns responses using JSON format by
+<dt>$format</dt><dd><p>Not supported.  The service returns responses using JSON format by
 default.  To obtain XML responses you need to pass a suitably
 restrictive Accept: header as the $format query option is not
-supported.</dd>
-<dt>$value</dt>
-<dd>For feeds labelled <em>Media Link Entry</em> the $value path component can
+supported.</p>
+</dd>
+<dt>$value</dt><dd><p>For feeds labelled <em>Media Link Entry</em> the $value path component can
 be used to obtain the full media resource for an entity.  Access to
-simple property values is not supported.</dd>
-<dt>$select</dt>
-<dd>This query option is not currently supported by the Delivery OData
-API.</dd>
+simple property values is not supported.</p>
+</dd>
+<dt>$select</dt><dd><p>This query option is not currently supported by the Delivery OData
+API.</p>
+</dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -356,15 +339,15 @@ API.</dd>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -373,11 +356,11 @@ API.</dd>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/intro.txt"
+      <a href="../_sources/deliveryodata/intro.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

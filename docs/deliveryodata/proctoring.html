@@ -1,32 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Proctoring Exams &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2016.10.12a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="QuestionmarkAPIs 2016.10.12a documentation" href="../index.html" />
-    <link rel="up" title="Example Applications" href="applications.html" />
     <link rel="next" title="Subjective Scoring" href="scoring.html" />
     <link rel="prev" title="External Delivery" href="xdelivery.html" />
    
@@ -35,19 +21,20 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="proctoring-exams">
-<h1>Proctoring Exams<a class="headerlink" href="#proctoring-exams" title="Permalink to this headline">¶</a></h1>
+  <section id="proctoring-exams">
+<h1>Proctoring Exams<a class="headerlink" href="#proctoring-exams" title="Permalink to this heading">¶</a></h1>
 <p>This section describes how proctored exams can be launched in
-Questionmark&#8217;s delivery system using <a class="reference internal" href="../deliveryodata.html#od-service.deliveryodata" title="Delivery OData Service"><code class="xref od od-svc docutils literal"><span class="pre">deliveryodata</span></code></a>. In this
+Questionmark’s delivery system using <a class="reference internal" href="../deliveryodata.html#od-service.deliveryodata" title="Delivery OData Service"><code class="xref od od-svc docutils literal notranslate"><span class="pre">deliveryodata</span></code></a>. In this
 application we use the term candidate to mean participant and the word
 exam to refer to the assessment being taken so as to emphasise the
 higher stakes involved when proctoring.</p>
@@ -56,60 +43,57 @@ developed that uses the API to drive an exam process involving online
 proctoring.  Online proctoring refers to exams that are overseen by a
 Proctor who is connected to the Candidate using a remove video/audio
 link.</p>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
 <p>The following two diagrams outline the transactions that occur between
-the proctoring system and Questionmark&#8217;s delivery system (the first
+the proctoring system and Questionmark’s delivery system (the first
 diagram) and the transactions that occur between the candidate portal,
-the proctoring system, and Questionmark&#8217;s delivery system (the second
+the proctoring system, and Questionmark’s delivery system (the second
 diagram).</p>
 <img alt="../_images/remote-proctoring-diagram-001.png" src="../_images/remote-proctoring-diagram-001.png" />
 <img alt="../_images/remote-proctoring-diagram-003.png" src="../_images/remote-proctoring-diagram-003.png" />
-</div>
-<div class="section" id="creating-a-proctored-exam-attempt">
-<h2>Creating a Proctored Exam Attempt<a class="headerlink" href="#creating-a-proctored-exam-attempt" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-a-proctored-exam-attempt">
+<h2>Creating a Proctored Exam Attempt<a class="headerlink" href="#creating-a-proctored-exam-attempt" title="Permalink to this heading">¶</a></h2>
 <p>First, a proctored exam attempt must be created. Exams are launched
-using the <a class="reference internal" href="attempt.html#od-feed.deliveryodata.Attempts" title="Attempts"><code class="xref od od-feed docutils literal"><span class="pre">deliveryodata.Attempts</span></code></a> feed. An exam attempt can be
+using the <a class="reference internal" href="attempt.html#od-feed.deliveryodata.Attempts" title="Attempts"><code class="xref od od-feed docutils literal notranslate"><span class="pre">deliveryodata.Attempts</span></code></a> feed. An exam attempt can be
 created with a POST HTTP method request to the Attempts feed URL. Most
 of the fields are set automatically, but you must specify the following
 parameters:</p>
-<dl class="docutils">
-<dt>ExternalAttemptID</dt>
-<dd><p class="first">This is an external reference string that you can use to identify
+<dl>
+<dt>ExternalAttemptID</dt><dd><p>This is an external reference string that you can use to identify
 this specific attempt. It must be unique. This value represents the
 proctoring service reservation, registration, or appointment ID for
 the candidate and the exam.</p>
-<p class="last">Example: {81CB516C-CD4D-41A6-A359-25824F0C888D}</p>
+<p>Example: {81CB516C-CD4D-41A6-A359-25824F0C888D}</p>
 </dd>
-<dt>ParticipantID</dt>
-<dd><p class="first">This is the unique numeric ID of the candidate in Questionmark&#8217;s
+<dt>ParticipantID</dt><dd><p>This is the unique numeric ID of the candidate in Questionmark’s
 delivery system. When a specific ParticipantID value is used, only
 that candidate will be able to access the exam attempt.</p>
-<p class="last">Example: 987654321</p>
+<p>Example: 987654321</p>
 </dd>
-<dt>AssessmentID</dt>
-<dd><p class="first">This is the Questionmark assessment ID of the exam that is to be
+<dt>AssessmentID</dt><dd><p>This is the Questionmark assessment ID of the exam that is to be
 attempted by the candidate.</p>
-<p class="last">Example: 1234567890876543</p>
+<p>Example: 1234567890876543</p>
 </dd>
-<dt>LockRequired</dt>
-<dd>This is set to &#8220;True&#8221; to force the exam attempt to be locked pending
-approval from the proctor.</dd>
-<dt>LockStatus</dt>
-<dd>This is set to the same value as the LockRequired parameter (&#8220;True&#8221;
-for proctored assessments). This value will be updated to &#8220;False&#8221;
-only after the proctor unlocks the exam for the candidate to being.</dd>
+<dt>LockRequired</dt><dd><p>This is set to “True” to force the exam attempt to be locked pending
+approval from the proctor.</p>
+</dd>
+<dt>LockStatus</dt><dd><p>This is set to the same value as the LockRequired parameter (“True”
+for proctored assessments). This value will be updated to “False”
+only after the proctor unlocks the exam for the candidate to being.</p>
+</dd>
 </dl>
 <p>This transaction occurs between the candidate portal, which may or may
-not be provided by your proctoring service, and Questionmark&#8217;s delivery
+not be provided by your proctoring service, and Questionmark’s delivery
 system.</p>
 <p>Request method: <em>POST</em></p>
 <p>Request resource:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">Customer</span> <span class="n">ID</span><span class="o">&gt;/</span><span class="n">Attempts</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">Customer</span> <span class="n">ID</span><span class="o">&gt;/</span><span class="n">Attempts</span>
 </pre></div>
 </div>
 <p>Example POST request:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ExternalAttemptID&quot;</span><span class="p">:</span> <span class="s2">&quot;1000&quot;</span><span class="p">,</span>
   <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="s2">&quot;1234567890876543&quot;</span><span class="p">,</span>
   <span class="s2">&quot;ParticipantID&quot;</span><span class="p">:</span> <span class="s2">&quot;987654321&quot;</span><span class="p">,</span>
@@ -119,7 +103,7 @@ system.</p>
 </pre></div>
 </div>
 <p>Example POST response:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="s2">&quot;ID&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span>
 <span class="s2">&quot;ParticipantFacingQMLobbyUrl&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">,</span>
 <span class="s2">&quot;ProctorFacingQMControlsWidgetUrl&quot;</span><span class="p">:</span><span class="s2">&quot;https://ondemand.questionmark.com/lobby/400449/proctorwidget/Index/9?nonce=ec4947dc-972f-4701-9ec9-c9e7b137be26&amp;timestamp=2015-10-01T15:22:22.0193300Z&amp;role=proctor&amp;signature=db108ad97e546a815370586d60e28ff7b12016a370ed62bae8141574f0fc0b48&quot;</span><span class="p">,</span>
@@ -135,40 +119,37 @@ system.</p>
 </pre></div>
 </div>
 <p>The following parameters are introduced via the POST response:</p>
-<dl class="docutils">
-<dt>ID</dt>
-<dd><p class="first">This is the internal Questionmark attempt ID generated by the POST
-request, and it&#8217;s the ID used to GET the request for future
+<dl>
+<dt>ID</dt><dd><p>This is the internal Questionmark attempt ID generated by the POST
+request, and it’s the ID used to GET the request for future
 transactions.</p>
-<p class="last">Example: 9</p>
+<p>Example: 9</p>
 </dd>
-<dt>ParticipantFacingQMLobbyURL</dt>
-<dd>When the GET command is issued for the exam attempt, the response
+<dt>ParticipantFacingQMLobbyURL</dt><dd><p>When the GET command is issued for the exam attempt, the response
 will include this parameter value. This is the URL that the
 candidate is directed or redirected toward to start a proctored
-exam. This value is null on the initial POST response.</dd>
-<dt>ProctorFacingQMControlsWidgetUrl</dt>
-<dd><p class="first">This is the URL that a proctor uses to obtain access to the in-exam
+exam. This value is null on the initial POST response.</p>
+</dd>
+<dt>ProctorFacingQMControlsWidgetUrl</dt><dd><p>This is the URL that a proctor uses to obtain access to the in-exam
 proctoring controls for this exam attempt.</p>
 <p>Example:</p>
-<div class="last highlight-default"><div class="highlight"><pre><span></span>https://ondemand.questionmark.com/lobby/400449/proctorwidget/Index/9?nonce=ec4947dc-972f-4701-9ec9-c9e7b137be26&amp;timestamp=2015-10-01T15:22:22.0193300Z&amp;role=proctor&amp;signature=db108ad97e546a815370586d60e28ff7b12016a370ed62bae8141574f0fc0b48
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://ondemand.questionmark.com/lobby/400449/proctorwidget/Index/9?nonce=ec4947dc-972f-4701-9ec9-c9e7b137be26&amp;timestamp=2015-10-01T15:22:22.0193300Z&amp;role=proctor&amp;signature=db108ad97e546a815370586d60e28ff7b12016a370ed62bae8141574f0fc0b48
 </pre></div>
 </div>
 </dd>
-<dt>ParticipantFacingProctorSystemWidgetURL</dt>
-<dd>This is the URL for the proctoring tools that a candidate uses to
+<dt>ParticipantFacingProctorSystemWidgetURL</dt><dd><p>This is the URL for the proctoring tools that a candidate uses to
 communicate in real-time with a proctor during the exam. This value
 is null on the initial POST response when creating the exam attempt.
 This URL is provided by your proctoring service, typically via its
 appointment scheduling API, and is added to the attempt with a PATCH
-command in a subsequent transaction.</dd>
-<dt>LastModifiedDateTime</dt>
-<dd><p class="first">This is the timestamp of when the exam attempt was last modified.</p>
-<p class="last">Example: 2015-10-01T15:22:22.0037078Z</p>
+command in a subsequent transaction.</p>
+</dd>
+<dt>LastModifiedDateTime</dt><dd><p>This is the timestamp of when the exam attempt was last modified.</p>
+<p>Example: 2015-10-01T15:22:22.0037078Z</p>
 </dd>
 </dl>
-<div class="section" id="creating-or-getting-the-candidate-controls-delivering-the-proctor-controls">
-<h3>Creating or Getting the Candidate Controls/Delivering the Proctor Controls<a class="headerlink" href="#creating-or-getting-the-candidate-controls-delivering-the-proctor-controls" title="Permalink to this headline">¶</a></h3>
+<section id="creating-or-getting-the-candidate-controls-delivering-the-proctor-controls">
+<h3>Creating or Getting the Candidate Controls/Delivering the Proctor Controls<a class="headerlink" href="#creating-or-getting-the-candidate-controls-delivering-the-proctor-controls" title="Permalink to this heading">¶</a></h3>
 <p>If a candidate will be interacting with a candidate portal to take a
 proctored exam instead of your proctoring system directly, you must add
 a <em>ParticipantFacingProctorSystemWidgetURL</em> value to the exam attempt
@@ -179,49 +160,49 @@ service, typically via their appointment scheduling API, and is the
 <em>ParticipantFacingProctorSystemWidgetURL</em> parameter of the attempt
 resource.</p>
 <p>Additionally, this transaction allows the candidate portal to deliver
-Questionmark&#8217;s proctoring controls—the counterpart to the candidate
+Questionmark’s proctoring controls—the counterpart to the candidate
 controls—to your proctoring system. This URL is the
 <em>ProctorFacingQMControlsWidgetUrl</em> parameter of the attempt and allows
 the proctor to unlock, pause, un-pause, add time and terminate the exam.</p>
-</div>
-</div>
-<div class="section" id="updating-the-exam-attempt-for-proctor-communication">
-<h2>Updating the Exam Attempt for Proctor Communication<a class="headerlink" href="#updating-the-exam-attempt-for-proctor-communication" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="updating-the-exam-attempt-for-proctor-communication">
+<h2>Updating the Exam Attempt for Proctor Communication<a class="headerlink" href="#updating-the-exam-attempt-for-proctor-communication" title="Permalink to this heading">¶</a></h2>
 <p>The exam attempt expects and requires a URL that can be opened within
 the Questionmark exam lobby. The exam lobby houses the real-time
 communication tools that the proctoring service provides to the
 candidate within the exam. This transaction may be executed by the
-candidate portal or by the proctoring service. If it&#8217;s done by the
+candidate portal or by the proctoring service. If it’s done by the
 proctoring service, then that service must know the attempt ID for the
-given attempt in Questionmark&#8217;s delivery system. The Attempt ID is
+given attempt in Questionmark’s delivery system. The Attempt ID is
 generated in the first transaction.</p>
 <p>Request method: <em>PATCH</em></p>
 <p>Request resource:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">Customer</span> <span class="n">ID</span><span class="o">&gt;/</span><span class="n">Attempts</span><span class="p">(</span><span class="o">&lt;</span><span class="n">Attempt</span> <span class="n">ID</span><span class="o">&gt;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">Customer</span> <span class="n">ID</span><span class="o">&gt;/</span><span class="n">Attempts</span><span class="p">(</span><span class="o">&lt;</span><span class="n">Attempt</span> <span class="n">ID</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example PATCH request:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ParticipantFacingProctorSystemWidgetUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.proctor-service.com/candidate-controls&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>No data is returned in the response of the PATCH request, but a status
 code of 204 is expected upon a successful request.</p>
-</div>
-<div class="section" id="getting-the-exam-attempt-for-launching-the-exam">
-<h2>Getting the Exam Attempt for Launching the Exam<a class="headerlink" href="#getting-the-exam-attempt-for-launching-the-exam" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="getting-the-exam-attempt-for-launching-the-exam">
+<h2>Getting the Exam Attempt for Launching the Exam<a class="headerlink" href="#getting-the-exam-attempt-for-launching-the-exam" title="Permalink to this heading">¶</a></h2>
 <p>When a candidate shows up for an appointment, the candidate portal or
 the proctoring system will issue a GET request for a specific attempt
 ID. All of the parameter values will be available in the response so
 that the candidate can securely connect with a proctor.</p>
 <p>Request method: <em>GET</em></p>
 <p>Request resource:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">Customer</span> <span class="n">ID</span><span class="o">&gt;/</span><span class="n">Attempts</span><span class="p">(</span><span class="o">&lt;</span><span class="n">Attempt</span> <span class="n">ID</span><span class="o">&gt;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ondemand</span><span class="o">.</span><span class="n">questionmark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">Customer</span> <span class="n">ID</span><span class="o">&gt;/</span><span class="n">Attempts</span><span class="p">(</span><span class="o">&lt;</span><span class="n">Attempt</span> <span class="n">ID</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example GET response:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="s2">&quot;ID&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span>
 <span class="s2">&quot;ParticipantFacingQMLobbyUrl&quot;</span><span class="p">:</span><span class="s2">&quot;qmsb:url=aHR0cHM6Ly9vbmRlbWFuZC5xdWVzdGlvbm1hcmsuY29tL2xvYmJ5LzQwMDQ0OS9sb2JieS9TeXN0ZW1DaGVjay8xMj9ub25jZT0wYTM2MDViZS05MjQ3LTRmNjUtOWZhNS0yMDQ1YTdhZDgzNGQmdGltZXN0YW1wPTIwMTUtMTAtMDFUMjE6NDE6NDYuNzA2OTYwMFomcm9sZT1wYXJ0aWNpcGFudCZzaWduYXR1cmU9OWViYmY4ODkwOTY4NTFkZTAwYmVhYzkzOWVjYmJmYmZjMzRhOGVmNGNhOTRkYjY2MTEwNjA3NzI4NjI4MmU0Nw&amp;sig=330991facd937c0e15331941b4ab76015ffcb6de21e4404e69511b653107eb59&quot;</span><span class="p">,</span>
 <span class="s2">&quot;ProctorFacingQMControlsWidgetUrl&quot;</span><span class="p">:</span><span class="s2">&quot;https://ondemand.questionmark.com/lobby/400449/proctorwidget/Index/12?nonce=9c9f25cf-074d-48da-9e75-3f63fa1915a3&amp;timestamp=2015-10-01T21:41:46.7069600Z&amp;role=proctor&amp;signature=110df2f131b1edcb02bd76452fb2cf71f048545525966b57b4ebb2f5f838530f&quot;</span><span class="p">,</span>
@@ -237,13 +218,12 @@ that the candidate can securely connect with a proctor.</p>
 </pre></div>
 </div>
 <p>The parameters contained within the GET response are described below.</p>
-<dl class="docutils">
-<dt>ID</dt>
-<dd>This is Questionmark attempt ID originally generated by the POST
-request, and it&#8217;s the ID used to GET the request for future
-transactions.</dd>
-<dt>ParticipantFacingQMLobbyURL</dt>
-<dd><p class="first">This URL is a short-life, single-use URL that&#8217;s presented to the
+<dl>
+<dt>ID</dt><dd><p>This is Questionmark attempt ID originally generated by the POST
+request, and it’s the ID used to GET the request for future
+transactions.</p>
+</dd>
+<dt>ParticipantFacingQMLobbyURL</dt><dd><p>This URL is a short-life, single-use URL that’s presented to the
 candidate to launch the assessment. If the assessment requires
 Questionmark Secure Browser, this URL will be an encrypted launch
 string that will launch the secure browser directly. <a class="reference external" href="https://www.questionmark.com/content/get-questionmark-secure">Questionmark
@@ -251,26 +231,25 @@ Secure 5.8</a> or
 later is required for this, and the candidate must have installed
 the browser prior to clicking the URL to the lobby. Unlike
 assessments scheduled through Enterprise Manager, this link does not
-take you to the Questionmark Secure download page if it&#8217;s not
+take you to the Questionmark Secure download page if it’s not
 installed. The example value shown below is an example URL for a
 proctored attempt requiring Questionmark Secure.</p>
 <p>Example:</p>
-<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">qmsb</span><span class="p">:</span><span class="n">url</span><span class="o">=</span><span class="n">aHR0cHM6Ly9vbmRlbWFuZC5xdWVzdGlvbm1hcmsuY29tL2xvYmJ5LzQwMDQ0OS9sb2JieS9TeXN0ZW1DaGVjay8xMj9ub25jZT0wYTM2MDViZS05MjQ3LTRmNjUtOWZhNS0yMDQ1YTdhZDgzNGQmdGltZXN0YW1wPTIwMTUtMTAtMDFUMjE6NDE6NDYuNzA2OTYwMFomcm9sZT1wYXJ0aWNpcGFudCZzaWduYXR1cmU9OWViYmY4ODkwOTY4NTFkZTAwYmVhYzkzOWVjYmJmYmZjMzRhOGVmNGNhOTRkYjY2MTEwNjA3NzI4NjI4MmU0Nw</span><span class="o">&amp;</span><span class="n">sig</span><span class="o">=</span><span class="mi">330991</span><span class="n">facd937c0e15331941b4ab76015ffcb6de21e4404e69511b653107eb69</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qmsb</span><span class="p">:</span><span class="n">url</span><span class="o">=</span><span class="n">aHR0cHM6Ly9vbmRlbWFuZC5xdWVzdGlvbm1hcmsuY29tL2xvYmJ5LzQwMDQ0OS9sb2JieS9TeXN0ZW1DaGVjay8xMj9ub25jZT0wYTM2MDViZS05MjQ3LTRmNjUtOWZhNS0yMDQ1YTdhZDgzNGQmdGltZXN0YW1wPTIwMTUtMTAtMDFUMjE6NDE6NDYuNzA2OTYwMFomcm9sZT1wYXJ0aWNpcGFudCZzaWduYXR1cmU9OWViYmY4ODkwOTY4NTFkZTAwYmVhYzkzOWVjYmJmYmZjMzRhOGVmNGNhOTRkYjY2MTEwNjA3NzI4NjI4MmU0Nw</span><span class="o">&amp;</span><span class="n">sig</span><span class="o">=</span><span class="mi">330991</span><span class="n">facd937c0e15331941b4ab76015ffcb6de21e4404e69511b653107eb69</span>
 </pre></div>
 </div>
 </dd>
-<dt>ProctorFacingQMControlsWidgetURL</dt>
-<dd><p class="first">In order to unlock the test, the proctor will need access to the
+<dt>ProctorFacingQMControlsWidgetURL</dt><dd><p>In order to unlock the test, the proctor will need access to the
 proctor-facing controls. This is the URL from which the proctor
 obtains the in-exam controls for this exam session. The controls
 available to a proctor are</p>
 <blockquote>
 <div><ul class="simple">
-<li>unlock,</li>
-<li>pause,</li>
-<li>play,</li>
-<li>add time, and</li>
-<li>terminate.</li>
+<li><p>unlock,</p></li>
+<li><p>pause,</p></li>
+<li><p>play,</p></li>
+<li><p>add time, and</p></li>
+<li><p>terminate.</p></li>
 </ul>
 </div></blockquote>
 <p>This value is generated uniquely each time a GET request is made and
@@ -283,60 +262,55 @@ ProctorFacingQMControlsWidgetUrl previously passed to the proctoring
 system. The proctor will then have access to the controls for
 unlocking and managing the test.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">For security reasons, you must not pass this URL to
-the candidate&#8217;s browser. It must be passed privately
+<p class="admonition-title">Warning</p>
+<p>For security reasons, you must not pass this URL to
+the candidate’s browser. It must be passed privately
 to your proctoring system.</p>
 </div>
-<p class="last">Your proctoring system API may provide you with a new or updated
+<p>Your proctoring system API may provide you with a new or updated
 <em>ParticipantFacingPrctorSystemWidgetUrl</em> in exchange for the
 proctor-facing URL. In this case, you must update the exam attempt
-with the new value of this URL using OData&#8217;s PATCH command.</p>
+with the new value of this URL using OData’s PATCH command.</p>
 </dd>
-<dt>ExternalAttemptID</dt>
-<dd><p class="first">This is an external reference string that you can use to identify
+<dt>ExternalAttemptID</dt><dd><p>This is an external reference string that you can use to identify
 this specific attempt. It must be unique. Represents the proctoring
 service reservation, registration or appointment ID for this
 candidate and this exam.</p>
-<p class="last">Example: {81CB516C-CD4D-41A6-A359-25824F0C888D}</p>
+<p>Example: {81CB516C-CD4D-41A6-A359-25824F0C888D}</p>
 </dd>
-<dt>ParticipantID</dt>
-<dd><p class="first">This is the unique numeric ID of the candidate in Questionmark&#8217;s
+<dt>ParticipantID</dt><dd><p>This is the unique numeric ID of the candidate in Questionmark’s
 delivery system. When a specific ParticipantID value is used, only
 that candidate will be able to access the exam attempt.</p>
-<p class="last">Example: 987654321</p>
+<p>Example: 987654321</p>
 </dd>
-<dt>AssessmentID</dt>
-<dd><p class="first">This is the Questionmark assessment ID of the exam that is being
+<dt>AssessmentID</dt><dd><p>This is the Questionmark assessment ID of the exam that is being
 taken by the candidate.</p>
-<p class="last">Example: 1234567890876543</p>
+<p>Example: 1234567890876543</p>
 </dd>
-<dt>ResultID</dt>
-<dd><p class="first">This is the unique ID of the result associated with the exam
+<dt>ResultID</dt><dd><p>This is the unique ID of the result associated with the exam
 attempt. The value will be null until the exam is unlocked by the
 proctor.</p>
 <p>Once the exam has started, you can retrieve the attempt and examine
 the ResultID field to find the identifier of the result associated
-with this attempt. You can use the <a class="reference internal" href="result.html#od-feed.deliveryodata.Results" title="Results"><code class="xref od od-feed docutils literal"><span class="pre">deliveryodata.Results</span></code></a>
+with this attempt. You can use the <a class="reference internal" href="result.html#od-feed.deliveryodata.Results" title="Results"><code class="xref od od-feed docutils literal notranslate"><span class="pre">deliveryodata.Results</span></code></a>
 feed to read the details of this result or pass it to QMWISe. The
 following new status values were introduced for online
 proctoring:</p>
 <ol class="arabic simple" start="6">
-<li>The proctor has paused the exam</li>
-<li>The proctor has terminated the exam</li>
+<li><p>The proctor has paused the exam</p></li>
+<li><p>The proctor has terminated the exam</p></li>
 </ol>
-<p class="last">For a complete list of status codes and their meanings refer to
-<a class="reference internal" href="../model/a_result.html#qm-field.a_result.status" title="Status"><code class="xref qm qm-field docutils literal"><span class="pre">A_Result.Status</span></code></a>.</p>
+<p>For a complete list of status codes and their meanings refer to
+<a class="reference internal" href="../model/a_result.html#qm-field.a_result.status" title="Status"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">A_Result.Status</span></code></a>.</p>
 </dd>
-<dt>LockStatus</dt>
-<dd>This is set to the same value as LockRequired (&#8220;True&#8221; for proctored
-assessments). This will be updated to &#8220;False&#8221; only after the proctor
-unlocks the exam for the candidate to begin.</dd>
-<dt>LockRequired</dt>
-<dd>This is set to the same value as LockRequired (&#8220;True&#8221; for proctored
-assessments).</dd>
-<dt>ParticipantFacingProctorSystemWidgetURL</dt>
-<dd><p class="first">This is the URL of the proctoring tools that a candidate uses to
+<dt>LockStatus</dt><dd><p>This is set to the same value as LockRequired (“True” for proctored
+assessments). This will be updated to “False” only after the proctor
+unlocks the exam for the candidate to begin.</p>
+</dd>
+<dt>LockRequired</dt><dd><p>This is set to the same value as LockRequired (“True” for proctored
+assessments).</p>
+</dd>
+<dt>ParticipantFacingProctorSystemWidgetURL</dt><dd><p>This is the URL of the proctoring tools that a candidate uses to
 communicate in real-time with a proctor during the exam. This value
 is null on the initial POST response when creating the exam attempt.
 This URL is provided by your proctoring service, typically via its
@@ -346,25 +320,25 @@ the test using the <em>ParticipantFacingQMLobbyURL</em>, their browser will
 open the <em>ParticipantFacingProctorSystemWidgetUrl</em> to initiate
 communication with the proctor.</p>
 <p>Example:</p>
-<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">proctor</span><span class="o">-</span><span class="n">service</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">candidate</span><span class="o">-</span><span class="n">controls</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">proctor</span><span class="o">-</span><span class="n">service</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">candidate</span><span class="o">-</span><span class="n">controls</span>
 </pre></div>
 </div>
 </dd>
-<dt>LastModifiedDateTime</dt>
-<dd><p class="first">This is the timestamp of when the exam attempt was last modified.</p>
-<p class="last">Example: 2015-10-01T15:22:22.0037078Z</p>
+<dt>LastModifiedDateTime</dt><dd><p>This is the timestamp of when the exam attempt was last modified.</p>
+<p>Example: 2015-10-01T15:22:22.0037078Z</p>
 </dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
@@ -395,15 +369,15 @@ communication with the proctor.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -412,11 +386,11 @@ communication with the proctor.</p>
       &copy;2016-2017, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../_sources/deliveryodata/proctoring.txt"
+      <a href="../_sources/deliveryodata/proctoring.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
