@@ -244,7 +244,7 @@ Schedules Reference
 
         The number of minutes of extra time that should be allocated to
         participants launching an assessment from this schedule. This
-        time may be negative to reduce the assessment time limit.
+        time may *not* be negative and defaults to 0.
         
     ..  od:prop::   MaxAttempts    Edm.Int32
 
