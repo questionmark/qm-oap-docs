@@ -84,8 +84,6 @@ Assessment
     ..  od:prop::   TimeLimit  Edm.Int32
 
         See :qm:field:`S_Header_Ex.Time_Limit`.
-
-        .. versionadded::   2019.02
         
     ..  od:prop::   IsSecure  Edm.Boolean
         :notnull:
@@ -133,8 +131,6 @@ Assessment
         Navigation property to the collection of AssessmentTranslations
         of this (base language) Assessment.
 
-        .. versionadded::   2018.12
-
     ..  od:prop::   AssessmentSnapshots AssessmentSnapshot
         :collection:
     
@@ -151,8 +147,6 @@ Assessment
 
     ..  od:prop::   Groups  Group
         :collection:
-
-        .. versionadded::   2017.11
         
         Navigation property to the collection of Group entities
         associated with this assessment.  Assessments are associated

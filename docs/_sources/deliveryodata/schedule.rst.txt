@@ -98,8 +98,6 @@ Schedules Reference
 
 ..  od:type::   Schedule
 
-    .. versionadded::   2017.07
-
     ..  od:prop::   ID  Edm.Int32
         :key:
         :notnull:
@@ -182,8 +180,6 @@ Schedules Reference
         
     ..  od:prop::   ResumeAllowed    Edm.Boolean
         :notnull:
-
-        .. versionadded::   2017.11
 
         Set to True to enable failed attempts to be resumed using this
         schedule.  If False then the ResumeTo time is ignored.
@@ -298,8 +294,6 @@ Schedules Reference
 
     ..  od:prop::   TestCenterID    Edm.Int32
 
-        .. versionadded::   2017.11
-
         The ID of a TestCenter where participants must be located in
         order to take this test.  It is assumed that this test will be
         proctored and that access to launch the test will be controlled
@@ -351,8 +345,6 @@ Schedules Reference
         .. versionadded::   2021.08
 
     ..  od:prop::   TestCenter  TestCenter
-    
-        .. versionadded::   2017.11
 
         A navigation property to the optional TestCenter.
 
@@ -437,8 +429,6 @@ Schedules Reference
 
 ..  od:type::   ActionableSchedule
 
-    .. versionadded::   2017.08
-    
     An actionable schedule is a list of actions that are currently
     relevant to a specific schedule *for a specific participant*.  Given
     that schedules specify time windows during which certain actions,
@@ -488,8 +478,6 @@ Schedules Reference
 
 ..  od:type::   ScheduleMetadata
 
-    .. versionadded::   2017.07
-    
     ScheduleMetadata entities store key-value pairs associated with a
     schedule.  They can store any arbitrary additional data but the
     intention is to support tagging of the data for reporting purposes.

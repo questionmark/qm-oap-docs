@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>G_User &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=c0e07567" />
+    <script src="../_static/documentation_options.js?v=c0145a33"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Assessment Tables" href="assessment.html" />
@@ -18,8 +19,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -32,10 +34,10 @@
           <div class="body" role="main">
             
   <section id="g-user">
-<h1>G_User<a class="headerlink" href="#g-user" title="Permalink to this heading">¶</a></h1>
+<h1>G_User<a class="headerlink" href="#g-user" title="Link to this heading">¶</a></h1>
 <dl class="qm table">
 <dt class="sig sig-object qm" id="qm-table.g_user">
-<em class="property"><span class="pre">TABLE</span> </em><span class="sig-name descname"><span class="pre">G_User</span></span><a class="headerlink" href="#qm-table.g_user" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">TABLE</span> </em><span class="sig-name descname"><span class="pre">G_User</span></span><a class="headerlink" href="#qm-table.g_user" title="Link to this definition">¶</a></dt>
 <dd><p>Records all administrators.  An administrator is any user that has a
 role other than the special “Participant” role within the portal.
 The table does not contain the authoritative information about the
@@ -48,13 +50,13 @@ table is authoritative.</p>
 </div>
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.user_id">
-<em class="property"><span class="pre">Primary</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">User_ID</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.user_id" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">Primary</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">User_ID</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.user_id" title="Link to this definition">¶</a></dt>
 <dd><p>The administrator ID.</p>
 </dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.user_name">
-<span class="sig-name descname"><span class="pre">User_Name</span></span> <span class="pre">varchar(200)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.user_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">User_Name</span></span> <span class="pre">varchar(200)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.user_name" title="Link to this definition">¶</a></dt>
 <dd><p>You should pay particular attention to the issues around the
 storage of information in <a class="reference internal" href="../data_model.html#varchar"><span class="std std-ref">Fields defined with varchar</span></a> concerning the encoding
 of user names with characters outside US ASCII.</p>
@@ -69,127 +71,127 @@ further details.</p>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.password">
-<span class="sig-name descname"><span class="pre">Password</span></span> <span class="pre">nvarchar(255)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.password" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Password</span></span> <span class="pre">nvarchar(255)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.password" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.authenticate_ext">
-<span class="sig-name descname"><span class="pre">Authenticate_Ext</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.authenticate_ext" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Authenticate_Ext</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.authenticate_ext" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.profile_record">
-<span class="sig-name descname"><span class="pre">Profile_Record</span></span> <span class="pre">smallint</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.profile_record" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Profile_Record</span></span> <span class="pre">smallint</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.profile_record" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.profile_id">
-<span class="sig-name descname"><span class="pre">Profile_ID</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.profile_id" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Profile_ID</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.profile_id" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.authoring1">
-<span class="sig-name descname"><span class="pre">Authoring1</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.authoring1" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Authoring1</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.authoring1" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.authoring2">
-<span class="sig-name descname"><span class="pre">Authoring2</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.authoring2" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Authoring2</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.authoring2" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.admin1">
-<span class="sig-name descname"><span class="pre">Admin1</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.admin1" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Admin1</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.admin1" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.admin2">
-<span class="sig-name descname"><span class="pre">Admin2</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.admin2" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Admin2</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.admin2" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.admin3">
-<span class="sig-name descname"><span class="pre">Admin3</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.admin3" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Admin3</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.admin3" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.admin4">
-<span class="sig-name descname"><span class="pre">Admin4</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.admin4" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Admin4</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.admin4" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.grading">
-<span class="sig-name descname"><span class="pre">Grading</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.grading" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Grading</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.grading" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.reporting1">
-<span class="sig-name descname"><span class="pre">Reporting1</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.reporting1" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Reporting1</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.g_user.reporting1" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.reporting2">
-<span class="sig-name descname"><span class="pre">Reporting2</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.reporting2" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Reporting2</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.reporting2" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.misc1">
-<span class="sig-name descname"><span class="pre">Misc1</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.misc1" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Misc1</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.misc1" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.misc2">
-<span class="sig-name descname"><span class="pre">Misc2</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.misc2" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Misc2</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.misc2" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.misc3">
-<span class="sig-name descname"><span class="pre">Misc3</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.misc3" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Misc3</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.misc3" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.misc4">
-<span class="sig-name descname"><span class="pre">Misc4</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.misc4" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Misc4</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.misc4" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.restrict_host">
-<span class="sig-name descname"><span class="pre">Restrict_Host</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.restrict_host" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Restrict_Host</span></span> <span class="pre">int</span><a class="headerlink" href="#qm-field.g_user.restrict_host" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.email">
-<span class="sig-name descname"><span class="pre">Email</span></span> <span class="pre">varchar(255)</span><a class="headerlink" href="#qm-field.g_user.email" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Email</span></span> <span class="pre">varchar(255)</span><a class="headerlink" href="#qm-field.g_user.email" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.url">
-<span class="sig-name descname"><span class="pre">URL</span></span> <span class="pre">varchar(255)</span><a class="headerlink" href="#qm-field.g_user.url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">URL</span></span> <span class="pre">varchar(255)</span><a class="headerlink" href="#qm-field.g_user.url" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.first_name">
-<span class="sig-name descname"><span class="pre">First_Name</span></span> <span class="pre">varchar(200)</span><a class="headerlink" href="#qm-field.g_user.first_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">First_Name</span></span> <span class="pre">varchar(200)</span><a class="headerlink" href="#qm-field.g_user.first_name" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.last_name">
-<span class="sig-name descname"><span class="pre">Last_Name</span></span> <span class="pre">varchar(200)</span><a class="headerlink" href="#qm-field.g_user.last_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Last_Name</span></span> <span class="pre">varchar(200)</span><a class="headerlink" href="#qm-field.g_user.last_name" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.department">
-<span class="sig-name descname"><span class="pre">Department</span></span> <span class="pre">varchar(200)</span><a class="headerlink" href="#qm-field.g_user.department" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Department</span></span> <span class="pre">varchar(200)</span><a class="headerlink" href="#qm-field.g_user.department" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.alternate_name">
-<span class="sig-name descname"><span class="pre">Alternate_Name</span></span> <span class="pre">varchar(400)</span><a class="headerlink" href="#qm-field.g_user.alternate_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Alternate_Name</span></span> <span class="pre">varchar(400)</span><a class="headerlink" href="#qm-field.g_user.alternate_name" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.g_user.profile_description">
-<span class="sig-name descname"><span class="pre">Profile_Description</span></span> <span class="pre">varchar(400)</span><a class="headerlink" href="#qm-field.g_user.profile_description" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Profile_Description</span></span> <span class="pre">varchar(400)</span><a class="headerlink" href="#qm-field.g_user.profile_description" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -201,7 +203,7 @@ further details.</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
@@ -236,7 +238,7 @@ further details.</p>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -244,18 +246,18 @@ further details.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016-2017, Questionmark Computing Ltd.
+      &#169;2016-2024, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |
       <a href="../_sources/model/g_user.rst.txt"

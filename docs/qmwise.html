@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>QMWISe &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=ef2a4f93" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=1ae18abd"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=c0e07567" />
+    <script src="_static/documentation_options.js?v=c0145a33"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Web Service Methods" href="qmwise/methods.html" />
@@ -18,8 +19,9 @@
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -32,7 +34,7 @@
           <div class="body" role="main">
             
   <section id="qmwise">
-<h1>QMWISe<a class="headerlink" href="#qmwise" title="Permalink to this heading">¶</a></h1>
+<h1>QMWISe<a class="headerlink" href="#qmwise" title="Link to this heading">¶</a></h1>
 <p>QMWISe stands for Questionmark Web Integration Services environment.  It
 is a SOAP-based web services API that provides an alternative method of
 accessing the underlying data model of the qm:db:<cite>Delivery</cite> database.</p>
@@ -60,10 +62,10 @@ referred to as <em>methods</em>) covering the underlying data model.</p>
 </ul>
 </div>
 <section id="string-parameters">
-<span id="qmwise-string"></span><h2>String Parameters<a class="headerlink" href="#string-parameters" title="Permalink to this heading">¶</a></h2>
+<span id="qmwise-string"></span><h2>String Parameters<a class="headerlink" href="#string-parameters" title="Link to this heading">¶</a></h2>
 <dl class="qm xtype">
 <dt class="sig sig-object qm" id="qm-xtype.string">
-<em class="property"><span class="pre">simpleType</span> </em><span class="sig-name descname"><span class="pre">string</span></span><a class="headerlink" href="#qm-xtype.string" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">simpleType</span> </em><span class="sig-name descname"><span class="pre">string</span></span><a class="headerlink" href="#qm-xtype.string" title="Link to this definition">¶</a></dt>
 <dd><p>Due to a limitation of the technology used in the original design of
 QMWISe all parameters of type string are marked as being <em>nillable</em>
 in the WSDL.  This means that messages in which these values have
@@ -81,7 +83,7 @@ using for further restrictions.</p>
 
 </section>
 <section id="optional-parameters">
-<span id="qmwise-optional"></span><h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
+<span id="qmwise-optional"></span><h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
 <p>For XML validation purposes it is important to realise that, if an
 element is present in a SOAP request then the content of the element
 must be a valid value for that element.  In the vast majority of cases,
@@ -106,7 +108,7 @@ A empty element will cause an error as the XML of the SOAP request will
 not be valid.</p>
 </section>
 <section id="assessment-ids">
-<span id="assessmentid"></span><h2>Assessment IDs<a class="headerlink" href="#assessment-ids" title="Permalink to this heading">¶</a></h2>
+<span id="assessmentid"></span><h2>Assessment IDs<a class="headerlink" href="#assessment-ids" title="Link to this heading">¶</a></h2>
 <p>In QMWISe, Assessment IDs are represented using <a class="reference internal" href="#qm-xtype.string" title="string"><code class="xref qm qm-xtype docutils literal notranslate"><span class="pre">string</span></code></a>.
 These strings should always be padded with leading 0s to create a string
 of exactly 16 characters.  In the underlying data model assessment IDs
@@ -154,7 +156,7 @@ characters</p></li>
 </div>
 </section>
 <section id="extension-types">
-<span id="id1"></span><h2>Extension Types<a class="headerlink" href="#extension-types" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2>Extension Types<a class="headerlink" href="#extension-types" title="Link to this heading">¶</a></h2>
 <p>QMWISe uses the XML schema technique of deriving types by extension.
 For example, the <a class="reference internal" href="qmwise/results.html#qm-xtype.Result" title="Result"><code class="xref qm qm-xtype docutils literal notranslate"><span class="pre">Result</span></code></a> type is extended by the
 <a class="reference internal" href="qmwise/results.html#qm-xtype.Result2" title="Result2"><code class="xref qm qm-xtype docutils literal notranslate"><span class="pre">Result2</span></code></a> type.  These extensions sometimes represent the
@@ -197,7 +199,7 @@ to a minimum in QMWISe and the current pattern of development is to add
 new methods rather than extending the types returned by existing ones.</p>
 </section>
 <section id="default-values">
-<span id="qmwise-defaults"></span><h2>Default Values<a class="headerlink" href="#default-values" title="Permalink to this heading">¶</a></h2>
+<span id="qmwise-defaults"></span><h2>Default Values<a class="headerlink" href="#default-values" title="Link to this heading">¶</a></h2>
 <p>In some cases the WSDL for QMWISe defines structures with default
 values, for example, see <a class="reference internal" href="qmwise/schedules.html#qm-xfield.Schedule.Monitored" title="Monitored"><code class="xref qm qm-xfield docutils literal notranslate"><span class="pre">Schedule.Monitored</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">s</span><span class="p">:</span><span class="n">element</span> <span class="n">minOccurs</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">maxOccurs</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Monitored&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;s:int&quot;</span> <span class="o">/&gt;</span>
@@ -211,35 +213,35 @@ omitted.  This may be confusing at first, especially to tools that do
 not read and interpret the WSDL correctly.</p>
 </section>
 <section id="basic-types">
-<h2>Basic Types<a class="headerlink" href="#basic-types" title="Permalink to this heading">¶</a></h2>
+<h2>Basic Types<a class="headerlink" href="#basic-types" title="Link to this heading">¶</a></h2>
 <p>QMWISe makes extensive use of the following basic types from <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/">XMLSchema</a>.</p>
 <dl class="qm xtype">
 <dt class="sig sig-object qm" id="qm-xtype.boolean">
-<em class="property"><span class="pre">simpleType</span> </em><span class="sig-name descname"><span class="pre">boolean</span></span><a class="headerlink" href="#qm-xtype.boolean" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">simpleType</span> </em><span class="sig-name descname"><span class="pre">boolean</span></span><a class="headerlink" href="#qm-xtype.boolean" title="Link to this definition">¶</a></dt>
 <dd><p>Values “true”, “false”, “1” or “0”.  See <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#boolean">boolean</a>.</p>
 </dd></dl>
 
 <dl class="qm xtype">
 <dt class="sig sig-object qm" id="qm-xtype.double">
-<em class="property"><span class="pre">simpleType</span> </em><span class="sig-name descname"><span class="pre">double</span></span><a class="headerlink" href="#qm-xtype.double" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">simpleType</span> </em><span class="sig-name descname"><span class="pre">double</span></span><a class="headerlink" href="#qm-xtype.double" title="Link to this definition">¶</a></dt>
 <dd><p>See <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#double">double</a>.</p>
 </dd></dl>
 
 <dl class="qm xtype">
 <dt class="sig sig-object qm" id="qm-xtype.short">
-<em class="property"><span class="pre">simpleType</span> </em><span class="sig-name descname"><span class="pre">short</span></span><a class="headerlink" href="#qm-xtype.short" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">simpleType</span> </em><span class="sig-name descname"><span class="pre">short</span></span><a class="headerlink" href="#qm-xtype.short" title="Link to this definition">¶</a></dt>
 <dd><p>See <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#short">short</a>.</p>
 </dd></dl>
 
 <dl class="qm xtype">
 <dt class="sig sig-object qm" id="qm-xtype.int">
-<em class="property"><span class="pre">simpleType</span> </em><span class="sig-name descname"><span class="pre">int</span></span><a class="headerlink" href="#qm-xtype.int" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">simpleType</span> </em><span class="sig-name descname"><span class="pre">int</span></span><a class="headerlink" href="#qm-xtype.int" title="Link to this definition">¶</a></dt>
 <dd><p>See <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#int">int</a>.</p>
 </dd></dl>
 
 </section>
 <section id="tls-and-soapui">
-<span id="soap-tls"></span><h2>TLS and SoapUI<a class="headerlink" href="#tls-and-soapui" title="Permalink to this heading">¶</a></h2>
+<span id="soap-tls"></span><h2>TLS and SoapUI<a class="headerlink" href="#tls-and-soapui" title="Link to this heading">¶</a></h2>
 <p>In accordance with the end of support for TLS 1.0 on Questionmark
 OnDemand you will need to follow the following instructions to use
 the popular SoapUI tool with QMWISe.</p>
@@ -265,7 +267,7 @@ installation folder:</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h3><a href="index.html">Table of Contents</a></h3>
 <ul class="current">
@@ -297,7 +299,7 @@ installation folder:</p>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -305,18 +307,18 @@ installation folder:</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016-2017, Questionmark Computing Ltd.
+      &#169;2016-2024, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |
       <a href="_sources/qmwise.rst.txt"

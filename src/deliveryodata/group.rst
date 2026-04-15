@@ -86,8 +86,6 @@ Group
     ..  od:prop::   RootGroupID  Edm.Int32
         :notnull:
 
-        .. versionadded::   2017.11
-
         The numeric ID of the Group's top-level parent.  The group
         hierarchy does not have a single root node but instead supports
         multiple *root* groups that may have sub-groups (see
@@ -147,8 +145,6 @@ Group
     ..  od:prop::   AncestorGroups  Group
         :collection:
         
-        .. versionadded::   2018.05
-
         Navigation property to all ancestors of this group *including
         the group itself*.  A group is in the collection of ancestors if
         it is the group itself or if it is a parent of a member of the
@@ -158,8 +154,6 @@ Group
     ..  od:prop::   DescendantGroups  Group
         :collection:
         
-        .. versionadded::   2018.05
-
         Navigation property to all descendants of this group *including
         the group itself*.  A group is in the collection of descendents
         if it is the group itself or if it is a subgroup of a member of
@@ -169,8 +163,6 @@ Group
                             
     ..  od:prop::   SchedulableAssessments  Assessment
         :collection:
-
-        .. versionadded::   2017.11
 
         All the assessments that have had scheduling permissions
         associated with this Group.  See :od:prop:`Assessment.Groups`

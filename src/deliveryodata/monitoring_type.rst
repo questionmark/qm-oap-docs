@@ -39,8 +39,6 @@ MonitoringTypes and ProctoringProviders
 
 ..  od:type::   MonitoringType
 
-    .. versionadded::   2017.07
-
     ..  od:prop::   ID  Edm.Int32
         :key:
         :notnull:
@@ -65,8 +63,6 @@ MonitoringTypes and ProctoringProviders
             
     ..  od:prop::   RequireQSB  Edm.Boolean
         :notnull:
-
-        .. versionadded::   2017.11
         
         A flag indicating whether or not Attempts launched with this
         MonitoringType *MUST* use Questionmark's Secure Browser
@@ -74,8 +70,6 @@ MonitoringTypes and ProctoringProviders
 
     ..  od:prop::   RequireDeviceEvents  Edm.Boolean
         :notnull:
-
-        .. versionadded::   2017.11
         
         A flag indicating whether or not Attempts launched with this
         Monitoring type *MUST* use Questionmark's next-generation device
@@ -83,8 +77,6 @@ MonitoringTypes and ProctoringProviders
         Secure Browser client.
 
     ..  od:prop::   SystemCheckUrl   Edm.String
-
-        .. versionadded::   2017.11
         
         An optional URL that will be displayed to the participant on
         entering the exam lobby to assist with checking compatibility
@@ -97,14 +89,10 @@ MonitoringTypes and ProctoringProviders
 
     ..  od:prop::   ProctoringProviderId   Edm.Int32
 
-        .. versionadded::   2018.04
-
         The ID of the optional ProctoringProvider entity.  See also
         :od:prop:`ProctoringProvider`.
 
     ..  od:prop::   ProctoringProviderOptions   Edm.String
-
-        .. versionadded::   2018.04
 
         A text string containing options to be used in conjunction with
         the associated ProctoringProvider.  This property means that it
@@ -114,14 +102,10 @@ MonitoringTypes and ProctoringProviders
 
     ..  od:prop::   ProctoringProvider  ProctoringProvider
         
-        .. versionadded::   2018.04
-        
         An optional navigation property to the ProctoringProvider
         associated with this monitoring type.
 
     ..  od:prop::   RequireTestCenter   Edm.Boolean
-    
-        .. versionadded::   2018.12
 
         If True, any associated Schedule entity created with this
         MonitoringType is required to have an associated TestCenter.
@@ -157,6 +141,15 @@ MonitoringTypes and ProctoringProviders
         .. versionadded::   2021.08
 
 
+..  od:feed::   RulesOfConduct RulesOfConduct
+
+    :method GET: reading rules of conduct entities
+    :method POST: creating rules of conduct entities
+    :method PATCH: limited support for some properties, see property descriptions for details
+
+    The RulesOfConduct feed contains all the defined rules of conduct.
+
+
 ..  od:type::   RulesOfConduct
 
     .. versionadded::   2021.05
@@ -166,6 +159,17 @@ MonitoringTypes and ProctoringProviders
     HTML-fragments, one that will be presented to the Participant at the
     start of the test and one that will be presented to the Proctor
     overseeing the process.
+    
+    Rules of conduct may be associated with :od:type:`MonitoringType`,
+    :od:type:`Assessment` or :od:type:`Schedule` entities.  The rules
+    that are active for an attempt are determined by looking first at
+    the Schedule, then at the Assessment and finally at the
+    MonitoringType itself.
+    
+    Rules of conduct may be made available in multiple languages and,
+    where available, the lobby will attempt to match the language used
+    for the rules of conduct to the user interface language selected by
+    the participant on entry.
         
     ..  od:prop::   ID  Edm.Int32
         :key:
@@ -176,8 +180,17 @@ MonitoringTypes and ProctoringProviders
         The name of this rules templates.
         
     ..  od:prop::   ParticipantRules  Edm.String
+    
+        A string containing an HTML fragment (such as a <div>) that will
+        be shown to the participant in the lobby prior to starting the
+        assessment.  The participant must click to acknowledge that they
+        have read and agree to the rules.
 
     ..  od:prop::   ProctorRules  Edm.String
+    
+        A string containing an HTML fragment that may be shown to the
+        proctor.  Visibility of proctor-facing rules depends on the
+        proctoring provider.
 
     ..  od:prop::   Language  Edm.String
 

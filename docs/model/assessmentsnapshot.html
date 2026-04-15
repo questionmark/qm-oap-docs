@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>AssessmentSnapshot &amp; BlockSnapshot &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=c0e07567" />
+    <script src="../_static/documentation_options.js?v=c0145a33"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Scoring Tool Tables" href="scoringtool.html" />
@@ -18,8 +19,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -32,39 +34,39 @@
           <div class="body" role="main">
             
   <section id="assessmentsnapshot-blocksnapshot">
-<h1>AssessmentSnapshot &amp; BlockSnapshot<a class="headerlink" href="#assessmentsnapshot-blocksnapshot" title="Permalink to this heading">¶</a></h1>
+<h1>AssessmentSnapshot &amp; BlockSnapshot<a class="headerlink" href="#assessmentsnapshot-blocksnapshot" title="Link to this heading">¶</a></h1>
 <dl class="qm table">
 <dt class="sig sig-object qm" id="qm-table.assessmentsnapshot">
-<em class="property"><span class="pre">TABLE</span> </em><span class="sig-name descname"><span class="pre">AssessmentSnapshot</span></span><a class="headerlink" href="#qm-table.assessmentsnapshot" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">TABLE</span> </em><span class="sig-name descname"><span class="pre">AssessmentSnapshot</span></span><a class="headerlink" href="#qm-table.assessmentsnapshot" title="Link to this definition">¶</a></dt>
 <dd><p>Contains information about assessment snapshots</p>
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.assessmentsnapshot.assessmentsnapshot_id">
-<em class="property"><span class="pre">Primary</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">AssessmentSnapshot_ID</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.assessmentsnapshot_id" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">Primary</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">AssessmentSnapshot_ID</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.assessmentsnapshot_id" title="Link to this definition">¶</a></dt>
 <dd><p>The unique ID of the snapshot is automatically allocated.</p>
 </dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.assessmentsnapshot.assessment_id">
-<span class="sig-name descname"><span class="pre">Assessment_ID</span></span> <span class="pre">bigint</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.assessment_id" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Assessment_ID</span></span> <span class="pre">bigint</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.assessment_id" title="Link to this definition">¶</a></dt>
 <dd><p>The full ID of the assessment (combined MID and LID).  See
 <a class="reference internal" href="s_header_ex.html#qm-field.s_header_ex.session_mid" title="Session_MID"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Session_MID</span></code></a> for details.</p>
 </dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.assessmentsnapshot.lang">
-<span class="sig-name descname"><span class="pre">Lang</span></span> <span class="pre">varchar(10)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.lang" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Lang</span></span> <span class="pre">varchar(10)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.lang" title="Link to this definition">¶</a></dt>
 <dd><p>The language of the assessment.  See <a class="reference internal" href="s_header_ex.html#qm-field.s_header_ex.lang" title="Lang"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Lang</span></code></a></p>
 </dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.assessmentsnapshot.name">
-<span class="sig-name descname"><span class="pre">Name</span></span> <span class="pre">nvarchar(200)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Name</span></span> <span class="pre">nvarchar(200)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.name" title="Link to this definition">¶</a></dt>
 <dd><p>A human-readable descriptive name for this snapshot.</p>
 </dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.assessmentsnapshot.revision">
-<span class="sig-name descname"><span class="pre">Revision</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.revision" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Revision</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.revision" title="Link to this definition">¶</a></dt>
 <dd><p>The revision of the assessment.  See
 <a class="reference internal" href="s_header_ex.html#qm-field.s_header_ex.revision" title="Revision"><code class="xref qm qm-field docutils literal notranslate"><span class="pre">S_Header_Ex.Revision</span></code></a>.  The snapshot stores all the
 information it needs to deliver and assessment in this table
@@ -77,25 +79,25 @@ S_Header_Ex.</p>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.assessmentsnapshot.created_date">
-<span class="sig-name descname"><span class="pre">Created_Date</span></span> <span class="pre">datetime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.created_date" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Created_Date</span></span> <span class="pre">datetime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.created_date" title="Link to this definition">¶</a></dt>
 <dd><p>Timestamp recording creation time of snapshot.</p>
 </dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.assessmentsnapshot.modified_date">
-<span class="sig-name descname"><span class="pre">Modified_Date</span></span> <span class="pre">datetime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.modified_date" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Modified_Date</span></span> <span class="pre">datetime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.modified_date" title="Link to this definition">¶</a></dt>
 <dd><p>Timestamp recording modification time snapshot</p>
 </dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.assessmentsnapshot.expires_date">
-<span class="sig-name descname"><span class="pre">Expires_Date</span></span> <span class="pre">datetime</span><a class="headerlink" href="#qm-field.assessmentsnapshot.expires_date" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Expires_Date</span></span> <span class="pre">datetime</span><a class="headerlink" href="#qm-field.assessmentsnapshot.expires_date" title="Link to this definition">¶</a></dt>
 <dd><p>Optional timestamp recording expiry time of snapshot.</p>
 </dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.assessmentsnapshot.data">
-<span class="sig-name descname"><span class="pre">Data</span></span> <span class="pre">varbinary(max)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Data</span></span> <span class="pre">varbinary(max)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.assessmentsnapshot.data" title="Link to this definition">¶</a></dt>
 <dd><p>Binary data used to describe the snapshot.  You can obtain a
 full XML representation of the snapshot using the
 <a class="reference internal" href="../deliveryodata/assessmentsnapshot.html#od-feed.deliveryodata.AssessmentSnapshotsData" title="AssessmentSnapshotsData"><code class="xref od od-feed docutils literal notranslate"><span class="pre">deliveryodata.AssessmentSnapshotsData</span></code></a> feed.</p>
@@ -105,7 +107,7 @@ full XML representation of the snapshot using the
 
 <dl class="qm table">
 <dt class="sig sig-object qm" id="qm-table.blocksnapshot">
-<em class="property"><span class="pre">TABLE</span> </em><span class="sig-name descname"><span class="pre">BlockSnapshot</span></span><a class="headerlink" href="#qm-table.blocksnapshot" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">TABLE</span> </em><span class="sig-name descname"><span class="pre">BlockSnapshot</span></span><a class="headerlink" href="#qm-table.blocksnapshot" title="Link to this definition">¶</a></dt>
 <dd><p>Each AssessmentSnapshot is comprised of some information about the
 assessment as a whole and a set of associated blocks.  The blocks
 are stored separately because, in many cases, they are not subject
@@ -113,17 +115,17 @@ to randomization and so are therefore common to all snapshots of the
 assessment.</p>
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.blocksnapshot.blocksnapshot_id">
-<em class="property"><span class="pre">Primary</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">BlockSnapshot_ID</span></span> <span class="pre">uniqueidentifier</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.blocksnapshot.blocksnapshot_id" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">Primary</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">BlockSnapshot_ID</span></span> <span class="pre">uniqueidentifier</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.blocksnapshot.blocksnapshot_id" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.blocksnapshot.created_date">
-<span class="sig-name descname"><span class="pre">Created_Date</span></span> <span class="pre">datetime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.blocksnapshot.created_date" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Created_Date</span></span> <span class="pre">datetime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.blocksnapshot.created_date" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.blocksnapshot.data">
-<span class="sig-name descname"><span class="pre">Data</span></span> <span class="pre">varbinary(max)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.blocksnapshot.data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Data</span></span> <span class="pre">varbinary(max)</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.blocksnapshot.data" title="Link to this definition">¶</a></dt>
 <dd><p>Binary data used to describe this block within a snapshot.
 You can obtain a full XML representation of the snapshot using
 the <a class="reference internal" href="../deliveryodata/assessmentsnapshot.html#od-feed.deliveryodata.AssessmentSnapshotsData" title="AssessmentSnapshotsData"><code class="xref od od-feed docutils literal notranslate"><span class="pre">deliveryodata.AssessmentSnapshotsData</span></code></a> feed.</p>
@@ -133,7 +135,7 @@ the <a class="reference internal" href="../deliveryodata/assessmentsnapshot.html
 
 <dl class="qm table">
 <dt class="sig sig-object qm" id="qm-table.blocksinassessmentsnapshot">
-<em class="property"><span class="pre">TABLE</span> </em><span class="sig-name descname"><span class="pre">BlocksInAssessmentSnapshot</span></span><a class="headerlink" href="#qm-table.blocksinassessmentsnapshot" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">TABLE</span> </em><span class="sig-name descname"><span class="pre">BlocksInAssessmentSnapshot</span></span><a class="headerlink" href="#qm-table.blocksinassessmentsnapshot" title="Link to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>Stores the list of blocks for each snapshot.  The Order field is
 used to allow an ordered list of BlockSnapshots to be associated
@@ -141,17 +143,17 @@ with a single AssessmentSnapshot.</p>
 </div></blockquote>
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.blocksinassessmentsnapshot.assessmentsnapshot_id">
-<em class="property"><span class="pre">Primary</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">AssessmentSnapshot_ID</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.blocksinassessmentsnapshot.assessmentsnapshot_id" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">Primary</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">AssessmentSnapshot_ID</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.blocksinassessmentsnapshot.assessmentsnapshot_id" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.blocksinassessmentsnapshot.blocksnapshot_id">
-<em class="property"><span class="pre">Primary</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">BlockSnapshot_ID</span></span> <span class="pre">uniqueidentifier</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.blocksinassessmentsnapshot.blocksnapshot_id" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">Primary</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">BlockSnapshot_ID</span></span> <span class="pre">uniqueidentifier</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.blocksinassessmentsnapshot.blocksnapshot_id" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="qm field">
 <dt class="sig sig-object qm" id="qm-field.blocksinassessmentsnapshot.order">
-<span class="sig-name descname"><span class="pre">Order</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.blocksinassessmentsnapshot.order" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Order</span></span> <span class="pre">int</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#qm-field.blocksinassessmentsnapshot.order" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -163,7 +165,7 @@ with a single AssessmentSnapshot.</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
@@ -198,7 +200,7 @@ with a single AssessmentSnapshot.</p>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -206,18 +208,18 @@ with a single AssessmentSnapshot.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016-2017, Questionmark Computing Ltd.
+      &#169;2016-2024, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |
       <a href="../_sources/model/assessmentsnapshot.rst.txt"

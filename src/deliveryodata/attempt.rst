@@ -214,8 +214,6 @@ Attempt, AttemptLists and AttemptMetadata
 
     ..  od:prop::   ScheduleID  Edm.Int32
 
-        .. versionadded:: 2017.07
-
         An optional ID for the associated :od:type:`Schedule` entity.
         Unlike the ExternalAttemptID this value is used by the API's own
         *internal* scheduling features.  It is used in conjunction with
@@ -229,8 +227,6 @@ Attempt, AttemptLists and AttemptMetadata
         
     ..  od:prop::   AttemptNumber  Edm.Int32
 
-        .. versionadded:: 2017.07
-        
         An optional attempt number used in conjunction with the
         :od:prop:`ScheduleID` to control the way attempts are created
         for a scheduled assessment.  When creating attempts yourself you
@@ -284,8 +280,6 @@ Attempt, AttemptLists and AttemptMetadata
         :od:prop:`AssessmentSnapshotID` is specified.
         
     ..  od:prop::   MonitoringTypeID  Edm.Int32
-
-        .. versionadded::   2017.11
 
         An optional reference to a :od:type:`MonitoringType` entity.
         
@@ -352,8 +346,6 @@ Attempt, AttemptLists and AttemptMetadata
 
     ..  od:prop::   UnlockCode   Edm.String
 
-        .. versionadded:: 2017.03
-        
         An optional alpha-numeric string that may be used by the
         participant to start their test *without* unlocking the lobby. 
         The purpose of this code is to allow participants to be issued
@@ -372,8 +364,6 @@ Attempt, AttemptLists and AttemptMetadata
         
     ..  od:prop::   UnlockCodeExpiresDateTime   Edm.DateTime
     
-        .. versionadded:: 2017.07
-
         The expiry time of the :od:prop:`UnlockCode` in UTC.  After this
         time the unlock code will be considered void and will not permit
         the participant to start the test.
@@ -400,8 +390,6 @@ Attempt, AttemptLists and AttemptMetadata
 
     ..  od:prop::   NextBranchedAttemptID  Edm.Int32
     
-        .. versionadded:: 2017.11
-        
         Reserved for future use.
 
     ..  od:prop::   ParticipantFacingQMLobbyUrl  Edm.String
@@ -510,8 +498,6 @@ Attempt, AttemptLists and AttemptMetadata
 
     ..  od:prop::   Result  Result
 
-        .. versionadded:: 2017.11
-        
         This optional field allows you to navigate to the currently
         associated Result entity.  See also :od:prop:`ResultID`.
 
@@ -532,15 +518,11 @@ Attempt, AttemptLists and AttemptMetadata
 
     ..  od:prop::   Schedule  Schedule
 
-        .. versionadded:: 2017.07
-        
         This optional field allows you to navigate to the associated
         Schedule entity.  See also :od:prop:`ScheduleID`.
 
     ..  od:prop::   MonitoringType  MonitoringType
 
-        .. versionadded:: 2017.11
-        
         This optional field allows you to navigate to the associated
         MonitoringType entity.  See also :od:prop:`MonitoringTypeID`.
 
@@ -726,8 +708,6 @@ Attempt, AttemptLists and AttemptMetadata
         characters.
         
     ..  od:prop::   ProctorFacingQMControlsUrl  Edm.String
-
-        .. versionadded:: 2017.03
 
         This property contains a URL that can be used by a proctor to
         load a page suitable for controlling *all* attempts in the

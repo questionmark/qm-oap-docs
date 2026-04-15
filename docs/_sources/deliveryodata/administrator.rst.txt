@@ -186,8 +186,6 @@ Administrator
 
     ..  od:prop::   TestCenters  TestCenter
         :collection:
-        
-        .. versionadded::   2017.11
 
         Navigation property to the TestCenters associated with this
         administrator as per :qm:table:`G_Test_Center_Owner`.  An
@@ -224,8 +222,6 @@ Administrator
 
     ..  od:action:: ActionableSchedulesForObservation ActionableSchedule
         :collection:
-
-        .. versionadded:: 2017.11
 
         Returns a collection of actionable schedules related to this
         administrator *as an assessment observer*.  It takes no

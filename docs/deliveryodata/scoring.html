@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Subjective Scoring &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=c0e07567" />
+    <script src="../_static/documentation_options.js?v=c0145a33"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Delivery OData Feeds" href="feeds.html" />
@@ -18,8 +19,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -32,7 +34,7 @@
           <div class="body" role="main">
             
   <section id="subjective-scoring">
-<h1>Subjective Scoring<a class="headerlink" href="#subjective-scoring" title="Permalink to this heading">¶</a></h1>
+<h1>Subjective Scoring<a class="headerlink" href="#subjective-scoring" title="Link to this heading">¶</a></h1>
 <p>One application of this API is the integration of external scoring tools
 and scoring workflows with Questionmark software.</p>
 <p>This scenario requires that the rubrics for an assessment be created and
@@ -54,7 +56,7 @@ emulate this behaviour if desired. It is assumed that an external tool
 will have its own workflow rules that are mapped on to the limited set
 of status values defined here.</p>
 <section id="scoringtasks-and-scoringresults">
-<h2>ScoringTasks and ScoringResults<a class="headerlink" href="#scoringtasks-and-scoringresults" title="Permalink to this heading">¶</a></h2>
+<h2>ScoringTasks and ScoringResults<a class="headerlink" href="#scoringtasks-and-scoringresults" title="Link to this heading">¶</a></h2>
 <p>The work done by scorers is managed through two main feeds.  The
 workflow starts when the participant submits their assessment and the
 delivery system finalises a result containing unscored (subjectively
@@ -89,13 +91,13 @@ affect the participant’s result until you change the status to one of
 the other states and then back to Scored again to finalise the task.</p>
 </section>
 <section id="recommended-workflow">
-<h2>Recommended Workflow<a class="headerlink" href="#recommended-workflow" title="Permalink to this heading">¶</a></h2>
+<h2>Recommended Workflow<a class="headerlink" href="#recommended-workflow" title="Link to this heading">¶</a></h2>
 <p>In the examples below, a fictional customer ID of 12345 is used, the
 HTTP scheme and host are omitted for brevity and %-escapes have been
 removed from URLs for legibility.  Where appropriate, examples are also
 given using Microsoft’s LINQ example code.</p>
 <section id="first-step">
-<h3>First step<a class="headerlink" href="#first-step" title="Permalink to this heading">¶</a></h3>
+<h3>First step<a class="headerlink" href="#first-step" title="Link to this heading">¶</a></h3>
 <p>Monitor the <a class="reference internal" href="scoringtask.html#od-feed.deliveryodata.ScoringTasks" title="ScoringTasks"><code class="xref od od-feed docutils literal notranslate"><span class="pre">deliveryodata.ScoringTasks</span></code></a> feed for new tasks
 with an unscored status. This can be done by filtering the feed:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/deliveryodata/12345/ScoringTasks?$filter=Status eq 0&amp;$orderby=Result/WhenFinished desc
@@ -113,7 +115,7 @@ well as expand the result to obtain a reasonably-sized collection for
 local sorting.</p>
 </section>
 <section id="second-step">
-<h3>Second step<a class="headerlink" href="#second-step" title="Permalink to this heading">¶</a></h3>
+<h3>Second step<a class="headerlink" href="#second-step" title="Link to this heading">¶</a></h3>
 <p>When someone takes on a scoring task using an external scoring tool,
 update the status of the ScoringTask to indicate that it’s in progress.
 To locate the appropriate rubric and trigger the creation of the
@@ -137,13 +139,13 @@ there is no rubric associated with the question and scoring cannot
 proceed.</p>
 </section>
 <section id="third-step">
-<h3>Third step<a class="headerlink" href="#third-step" title="Permalink to this heading">¶</a></h3>
+<h3>Third step<a class="headerlink" href="#third-step" title="Link to this heading">¶</a></h3>
 <p>As the scoring task progresses, update the DimensionScores linked from
 the ScoringResult, and update the result itself with information about
 the total score awarded and any comments or other feedback.</p>
 </section>
 <section id="fourth-step">
-<h3>Fourth step<a class="headerlink" href="#fourth-step" title="Permalink to this heading">¶</a></h3>
+<h3>Fourth step<a class="headerlink" href="#fourth-step" title="Link to this heading">¶</a></h3>
 <p>Once complete, set the status of the ScoringTask to indicate that
 marking is now complete using status value 3 (Scored). At this point,
 the delivery system will update the participant’s result information (as
@@ -153,7 +155,7 @@ moderation or approval of grades) prior to the ScoringTask being updated
 to indicate that scoring is complete.</p>
 </section>
 <section id="resolving-conflicts">
-<h3>Resolving conflicts<a class="headerlink" href="#resolving-conflicts" title="Permalink to this heading">¶</a></h3>
+<h3>Resolving conflicts<a class="headerlink" href="#resolving-conflicts" title="Link to this heading">¶</a></h3>
 <p>It is possible that a ScoringResult will be retrieved from the OData
 feed, updated, and then processed through a time-consuming workflow by
 an external scoring tool before being sent back to the Questionmark
@@ -173,7 +175,7 @@ tool.</p>
 </section>
 </section>
 <section id="sample-application">
-<h2>Sample Application<a class="headerlink" href="#sample-application" title="Permalink to this heading">¶</a></h2>
+<h2>Sample Application<a class="headerlink" href="#sample-application" title="Link to this heading">¶</a></h2>
 <img alt="../_images/example-app001.png" src="../_images/example-app001.png" />
 <p>On this screen, a list of groups is shown to the end user. The
 underlying OData request was:</p>
@@ -357,7 +359,7 @@ similar PUT request to the ScoringTask.</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
@@ -389,7 +391,7 @@ similar PUT request to the ScoringTask.</p>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -397,18 +399,18 @@ similar PUT request to the ScoringTask.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016-2017, Questionmark Computing Ltd.
+      &#169;2016-2024, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |
       <a href="../_sources/deliveryodata/scoring.rst.txt"

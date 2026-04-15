@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>AnswerUpload &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef2a4f93" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1ae18abd"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=c0e07567" />
+    <script src="../_static/documentation_options.js?v=c0145a33"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Assessment" href="assessment.html" />
@@ -18,8 +19,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -32,10 +34,10 @@
           <div class="body" role="main">
             
   <section id="answerupload">
-<h1>AnswerUpload<a class="headerlink" href="#answerupload" title="Permalink to this heading">¶</a></h1>
+<h1>AnswerUpload<a class="headerlink" href="#answerupload" title="Link to this heading">¶</a></h1>
 <dl class="od feed">
 <dt class="sig sig-object od" id="od-feed.deliveryodata.AnswerUploads">
-<span class="sig-name descname"><span class="pre">AnswerUploads</span></span> <a class="reference internal" href="#od-type.deliveryodata.AnswerUpload" title="AnswerUpload"><span class="pre">AnswerUpload</span></a> <span class="pre">(Media</span> <span class="pre">Link</span> <span class="pre">Entry)</span><a class="headerlink" href="#od-feed.deliveryodata.AnswerUploads" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">AnswerUploads</span></span> <a class="reference internal" href="#od-type.deliveryodata.AnswerUpload" title="AnswerUpload"><span class="pre">AnswerUpload</span></a> <span class="pre">(Media</span> <span class="pre">Link</span> <span class="pre">Entry)</span><a class="headerlink" href="#od-feed.deliveryodata.AnswerUploads" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -59,13 +61,13 @@ form for future audit.</p>
 
 <dl class="od type">
 <dt class="sig sig-object od" id="od-type.deliveryodata.AnswerUpload">
-<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">AnswerUpload</span></span><a class="headerlink" href="#od-type.deliveryodata.AnswerUpload" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">AnswerUpload</span></span><a class="headerlink" href="#od-type.deliveryodata.AnswerUpload" title="Link to this definition">¶</a></dt>
 <dd><p>AnswerUpload entities are media link entries that contain the
 response files uploaded for scoring.  Only one format is supported
 and that is application/json with fields as documented below.</p>
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerUpload.AttemptID">
-<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">AttemptID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.AttemptID" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">AttemptID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.AttemptID" title="Link to this definition">¶</a></dt>
 <dd><p>Each AnswerUpload must be associated with an Attempt.  Due to
 the nature of media link entries the AttemptID cannot be
 specified in the URL on upload as the response file is POSTed to
@@ -76,14 +78,14 @@ entity on creation.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.AnswerUpload.Attempt">
-<span class="sig-name descname"><span class="pre">Attempt</span></span> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt"><span class="pre">Attempt</span></a><a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.Attempt" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Attempt</span></span> <a class="reference internal" href="attempt.html#od-type.deliveryodata.Attempt" title="Attempt"><span class="pre">Attempt</span></a><a class="headerlink" href="#od-prop.deliveryodata.AnswerUpload.Attempt" title="Link to this definition">¶</a></dt>
 <dd><p>Navigation property to the associated Attempt.</p>
 </dd></dl>
 
 </dd></dl>
 
 <section id="answer-upload-file-format">
-<span id="id1"></span><h2>Answer Upload File Format<a class="headerlink" href="#answer-upload-file-format" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2>Answer Upload File Format<a class="headerlink" href="#answer-upload-file-format" title="Link to this heading">¶</a></h2>
 <p>The answer upload file format is a JSON format (content-type
 application/json) file with the following fields.</p>
 <blockquote>
@@ -167,7 +169,7 @@ file:</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
@@ -199,7 +201,7 @@ file:</p>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -207,18 +209,18 @@ file:</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016-2017, Questionmark Computing Ltd.
+      &#169;2016-2024, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |
       <a href="../_sources/deliveryodata/answerupload.rst.txt"

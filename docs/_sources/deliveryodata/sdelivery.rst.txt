@@ -1,8 +1,6 @@
 Scheduled Delivery
 ------------------
 
-.. versionadded::   2017.07
-
 .. warning::    This page documents parts of the API that should be
                 considered to be of 'beta' quality.  The details *are*
                 subject to minor changes in future versions.
