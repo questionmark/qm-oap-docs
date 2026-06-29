@@ -1,4 +1,4 @@
-Administrator
+﻿Administrator
 -------------
 
 ..  od:service::    deliveryodata
@@ -33,7 +33,7 @@ Administrator
     :od:action:`Upsert` action.
     
     ..  od:action:: Upsert
-        :input: Name Edm.String, Email Edm.String, Password Edm.String, FirstName Edm.String, LastName Edm.String, Department Edm.String, SsoId Edm.String, Url Edm.String, AlternateName Edm.String, Roles Collection(Edm.String), Groups Collection(Edm.String)
+        :input: Name Edm.String, Email Edm.String, Password Edm.String, FirstName Edm.String, LastName Edm.String, Department Edm.String, SsoId Edm.String, Url Edm.String, AlternateName Edm.String, PeopleSyncID Edm.String, Blocked Edm.Boolean, ReplaceExistingGroups Edm.Boolean, ReplaceExistingRoles Edm.Boolean, Roles Collection(Edm.String), Groups Collection(Edm.String)
 
         .. versionadded::   2021.08
                 
@@ -113,6 +113,18 @@ Administrator
     ..  od:prop::   AlternateName  Edm.String
 
         .. versionadded::   2021.05
+
+    ..  od:prop::   PeopleSyncID  Edm.String
+
+        .. versionadded::   2021.08
+
+        An external identifier used for people synchronization.
+
+    ..  od:prop::   Blocked  Edm.Boolean
+
+        .. versionadded::   2021.08
+
+        If True, the administrator account is blocked from access.
 
     ..  od:prop::   Groups  Group
         :collection:
@@ -246,3 +258,14 @@ Administrator
     ..  od:prop::   ID  Edm.String
         :key:
         :notnull:
+
+..  od:feed::   Roles Role
+
+    :method GET: read only
+    :filter ID: primary key (the role name)
+
+    .. versionadded::   2021.05
+
+    The Roles feed provides access to the list of administrator roles
+    defined in the portal.
+

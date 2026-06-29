@@ -1,10 +1,10 @@
-Timezone
+﻿Timezone
 --------
 
 ..  od:service::    deliveryodata
 
 
-..  od:feed::   TimeZones Timezone
+..  od:feed::   Timezones Timezone
 
     :method GET: for reading test centres
     :filter ID: the primary key

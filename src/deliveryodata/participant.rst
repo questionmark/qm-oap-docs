@@ -1,4 +1,4 @@
-Participant
+﻿Participant
 -----------
 
 ..  od:service::    deliveryodata
@@ -186,6 +186,24 @@ Participant
         The date and time when the participant was first registered.
         Sourced from :qm:field:`G_Participant.Date_Registration` but
         converted to UTC.
+
+    ..  od:prop::   JobTitle  Edm.String
+
+        .. versionadded::   2021.08
+
+        The participant's job title.
+
+    ..  od:prop::   PeopleSyncID  Edm.String
+
+        .. versionadded::   2021.08
+
+        An external identifier used for people synchronization.
+
+    ..  od:prop::   Blocked  Edm.Boolean
+
+        .. versionadded::   2021.08
+
+        If True, the participant account is blocked from access.
 
     ..  od:prop::   Groups Group
         :collection:

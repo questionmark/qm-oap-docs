@@ -1,4 +1,4 @@
-Attempt, AttemptLists and AttemptMetadata
+﻿Attempt, AttemptLists and AttemptMetadata
 -----------------------------------------
 
 ..  od:service::    deliveryodata
@@ -151,7 +151,7 @@ Attempt, AttemptLists and AttemptMetadata
         }
 
 
-..  od:feed::   SessionAuditLog SessionAuditLog
+..  od:feed::   SessionAuditLogs SessionAuditLog
 
     :method GET: read only
 
@@ -681,6 +681,18 @@ Attempt, AttemptLists and AttemptMetadata
 
     
     
+
+..  od:feed::   Appointments Appointment
+
+    :method GET: read only
+    :filter ID: primary key
+    :filter AttemptID: the related attempt
+
+    .. versionadded::   2019.05
+
+    The Appointments feed provides access to appointment information
+    associated with proctored attempts.
+
 ..  od:type::   AttemptList
 
     .. versionadded:: 2016.09
