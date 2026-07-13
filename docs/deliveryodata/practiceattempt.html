@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PracticeAttempt &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=c0e07567" />
+    <script src="../_static/documentation_options.js?v=c0145a33"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PrintBatch" href="printbatch.html" />
+    <link rel="prev" title="Participant" href="participant.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="practiceattempt">
+<h1>PracticeAttempt<a class="headerlink" href="#practiceattempt" title="Link to this heading">¶</a></h1>
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.PracticeAttempts">
+<span class="sig-name descname"><span class="pre">PracticeAttempts</span></span> <a class="reference internal" href="#od-type.deliveryodata.PracticeAttempt" title="PracticeAttempt"><span class="pre">PracticeAttempt</span></a><a class="headerlink" href="#od-feed.deliveryodata.PracticeAttempts" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – read practice attempt entities</p></li>
+<li><p><strong>DELETE</strong> – delete a practice attempt entity</p></li>
+</ul>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+</ul>
+</dd>
+</dl>
+<p>The PracticeAttempts feed provides access to information about
+practice attempts taken by participants.</p>
+</dd></dl>
+
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.PracticeAttempt">
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">PracticeAttempt</span></span><a class="headerlink" href="#od-type.deliveryodata.PracticeAttempt" title="Link to this definition">¶</a></dt>
+<dd><p>An entity representing a participant’s practice attempt.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.ID">
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.ID" title="Link to this definition">¶</a></dt>
+<dd><p>The numeric ID of the practice attempt.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.ParticipantID">
+<span class="sig-name descname"><span class="pre">ParticipantID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.ParticipantID" title="Link to this definition">¶</a></dt>
+<dd><p>A reference to the <a class="reference internal" href="participant.html#od-type.deliveryodata.Participant" title="Participant"><code class="xref od od-type docutils literal notranslate"><span class="pre">Participant</span></code></a> that took the practice
+attempt.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.MonitoringTypeID">
+<span class="sig-name descname"><span class="pre">MonitoringTypeID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.MonitoringTypeID" title="Link to this definition">¶</a></dt>
+<dd><p>A reference to the <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal notranslate"><span class="pre">MonitoringType</span></code></a> associated with the
+practice attempt.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.AppointmentID">
+<span class="sig-name descname"><span class="pre">AppointmentID</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.AppointmentID" title="Link to this definition">¶</a></dt>
+<dd><p>An optional reference to the associated <a class="reference internal" href="attempt.html#od-type.deliveryodata.Appointment" title="Appointment"><code class="xref od od-type docutils literal notranslate"><span class="pre">Appointment</span></code></a>.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.SessionID">
+<span class="sig-name descname"><span class="pre">SessionID</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.SessionID" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.IsSecureBrowser">
+<span class="sig-name descname"><span class="pre">IsSecureBrowser</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.IsSecureBrowser" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.LastVisitedStep">
+<span class="sig-name descname"><span class="pre">LastVisitedStep</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.LastVisitedStep" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.OperatingSystem">
+<span class="sig-name descname"><span class="pre">OperatingSystem</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.OperatingSystem" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.Browser">
+<span class="sig-name descname"><span class="pre">Browser</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.Browser" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.ActivityLog">
+<span class="sig-name descname"><span class="pre">ActivityLog</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.ActivityLog" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.WhenStartedUtc">
+<span class="sig-name descname"><span class="pre">WhenStartedUtc</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.WhenStartedUtc" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.WhenFinishedUtc">
+<span class="sig-name descname"><span class="pre">WhenFinishedUtc</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.WhenFinishedUtc" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PracticeAttempt.LastModifiedUtc">
+<span class="sig-name descname"><span class="pre">LastModifiedUtc</span></span>  <span class="pre">Edm.DateTime</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PracticeAttempt.LastModifiedUtc" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odata.html">OData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authoringodata.html">Authoring OData API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../deliveryodata.html">Delivery OData API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html">Delivery OData Feeds</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="types.html">Entity Type Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resultsodata.html">Results OData API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qmwise.html">QMWISe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip.html">PIP</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
+  <li><a href="types.html">Entity Type Reference</a><ul>
+      <li>Previous: <a href="participant.html" title="previous chapter">Participant</a></li>
+      <li>Next: <a href="printbatch.html" title="next chapter">PrintBatch</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2016-2024, Questionmark Computing Ltd.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/deliveryodata/practiceattempt.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

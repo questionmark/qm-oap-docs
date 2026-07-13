@@ -241,7 +241,18 @@
         like this::
         
             POST /deliveryodata/<customer-id>/Administrator(456789)/ActionableSchedulesForObservation
-            
+
+            {
+            }
+
+    ..  od:action:: GetAccessUrl Edm.String
+
+        Returns a URL that provides the administrator with authenticated
+        access to the platform.  It is bound to a specific Administrator
+        so is called like this::
+
+            POST /deliveryodata/<customer-id>/Administrator(456789)/GetAccessUrl
+
             {
             }
 

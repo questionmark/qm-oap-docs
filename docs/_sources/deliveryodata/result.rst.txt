@@ -1,4 +1,4 @@
-Result
+﻿Result
 ------
 
 ..  od:service::    deliveryodata
@@ -111,6 +111,16 @@ Result
         .. versionadded::   2021.03
 
         Reserved for internal use.
+
+
+    ..  od:action:: SubmitResultsByAdministrator
+        :input: AdministratorName Edm.String, Reason Edm.String, ResultIds Collection(Edm.Int32)
+
+        .. versionadded::   2021.08
+                
+        Submits (finalizes) the specified results on behalf of an
+        administrator. The Reason parameter provides an audit trail
+        explanation for the submission.
 
     ..  od:action:: ReplayResultsByIDList
         :input: ResultIds Collection(Edm.Int32)

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>MonitoringTypes and ProctoringProviders &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=c0e07567" />
     <script src="../_static/documentation_options.js?v=c0145a33"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Participant" href="participant.html" />
@@ -81,8 +81,8 @@ type.</p>
 of external proctoring providers integrated through a proctoring
 API. Entries are defined by the <a class="reference internal" href="#od-type.deliveryodata.ProctoringProvider" title="ProctoringProvider"><code class="xref od od-type docutils literal notranslate"><span class="pre">ProctoringProvider</span></code></a> type.</p>
 <dl class="od action">
-<dt class="sig sig-object od">
-<span class="sig-name descname"><span class="pre">AppointmentDateRange</span> <span class="pre">Edm.String</span></span></dt>
+<dt class="sig sig-object od" id="od-action.deliveryodata.ProctoringProviders.AppointmentDateRange">
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">AppointmentDateRange</span></span> <span class="pre">(</span><span class="pre">TimeZoneID</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">AttemptID</span>  <span class="pre">Edm.Int32</span><span class="pre">)</span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-action.deliveryodata.ProctoringProviders.AppointmentDateRange" title="Link to this definition">¶</a></dt>
 <dd><p>Reserved for internal use.</p>
 </dd></dl>
 
@@ -90,10 +90,10 @@ API. Entries are defined by the <a class="reference internal" href="#od-type.del
 
 <dl class="od type">
 <dt class="sig sig-object od" id="od-type.deliveryodata.MonitoringType">
-<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">MonitoringType</span></span><a class="headerlink" href="#od-type.deliveryodata.MonitoringType" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">MonitoringType</span></span><a class="headerlink" href="#od-type.deliveryodata.MonitoringType" title="Link to this definition">¶</a></dt>
 <dd><dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.ID">
-<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ID" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.ID" title="Link to this definition">¶</a></dt>
 <dd><p>The numeric ID of this monitoring type.</p>
 </dd></dl>
 
@@ -179,6 +179,60 @@ the <a class="reference internal" href="schedule.html#od-type.deliveryodata.Sche
 </dd></dl>
 
 <dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.TranslationToolLangs">
+<span class="sig-name descname"><span class="pre">TranslationToolLangs</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.TranslationToolLangs" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+</div>
+<p>Languages supported for translation tools.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.TextToSpeech">
+<span class="sig-name descname"><span class="pre">TextToSpeech</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.TextToSpeech" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+</div>
+<p>If True, text-to-speech is enabled for this monitoring type.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.RequireObserver">
+<span class="sig-name descname"><span class="pre">RequireObserver</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireObserver" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+</div>
+<p>If True, an observer is required for attempts using this type.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.RequireConfirmation">
+<span class="sig-name descname"><span class="pre">RequireConfirmation</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireConfirmation" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+</div>
+<p>If True, confirmation is required before starting.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.RequirePasscode">
+<span class="sig-name descname"><span class="pre">RequirePasscode</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequirePasscode" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+</div>
+<p>If True, a passcode is required to start the assessment.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.Category">
+<span class="sig-name descname"><span class="pre">Category</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.Category" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+</div>
+<p>A category for grouping monitoring types.</p>
+</dd></dl>
+
+<dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.Disabled">
 <span class="sig-name descname"><span class="pre">Disabled</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.Disabled" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
@@ -231,7 +285,7 @@ default. These rules may themselves be overridden in the
 
 <dl class="od type">
 <dt class="sig sig-object od" id="od-type.deliveryodata.RulesOfConduct">
-<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">RulesOfConduct</span></span><a class="headerlink" href="#od-type.deliveryodata.RulesOfConduct" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">RulesOfConduct</span></span><a class="headerlink" href="#od-type.deliveryodata.RulesOfConduct" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 2021.05.</span></p>
 </div>
@@ -251,7 +305,7 @@ for the rules of conduct to the user interface language selected by
 the participant on entry.</p>
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConduct.ID">
-<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ID" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConduct.ID" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="od prop">
@@ -301,10 +355,10 @@ proctoring provider.</p>
 
 <dl class="od type">
 <dt class="sig sig-object od" id="od-type.deliveryodata.RulesOfConductTranslation">
-<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">RulesOfConductTranslation</span></span><a class="headerlink" href="#od-type.deliveryodata.RulesOfConductTranslation" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">RulesOfConductTranslation</span></span><a class="headerlink" href="#od-type.deliveryodata.RulesOfConductTranslation" title="Link to this definition">¶</a></dt>
 <dd><dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConductTranslation.ID">
-<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ID" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.ID" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="od prop">
@@ -319,7 +373,7 @@ proctoring provider.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConductTranslation.Language">
-<span class="sig-name descname"><span class="pre">Language</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.Language" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">Language</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.Language" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="od prop">
@@ -334,14 +388,34 @@ proctoring provider.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.RulesOfConductTranslation.RulesOfConduct">
-<span class="sig-name descname"><span class="pre">RulesOfConduct</span></span>  <span class="pre">Edm.RulesOfConduct</span><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.RulesOfConduct" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">RulesOfConduct</span></span> <a class="reference internal" href="#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><span class="pre">RulesOfConduct</span></a><a class="headerlink" href="#od-prop.deliveryodata.RulesOfConductTranslation.RulesOfConduct" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.RulesOfConductTranslations">
+<span class="sig-name descname"><span class="pre">RulesOfConductTranslations</span></span> <a class="reference internal" href="#od-type.deliveryodata.RulesOfConductTranslation" title="RulesOfConductTranslation"><span class="pre">RulesOfConductTranslation</span></a><a class="headerlink" href="#od-feed.deliveryodata.RulesOfConductTranslations" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – read only</p></li>
+</ul>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – the rules of conduct ID</p></li>
+<li><p><strong>Language</strong> – the translation language</p></li>
+</ul>
+</dd>
+</dl>
+<p>The RulesOfConductTranslations feed provides access to translated
+versions of rules of conduct.</p>
+</dd></dl>
+
 <dl class="od type">
 <dt class="sig sig-object od" id="od-type.deliveryodata.ProctoringProvider">
-<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">ProctoringProvider</span></span><a class="headerlink" href="#od-type.deliveryodata.ProctoringProvider" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">ProctoringProvider</span></span><a class="headerlink" href="#od-type.deliveryodata.ProctoringProvider" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 2018.04.</span></p>
 </div>
@@ -350,7 +424,7 @@ information associated with an external provider of proctoring
 services.</p>
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.ProctoringProvider.ID">
-<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.ID" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ProctoringProvider.ID" title="Link to this definition">¶</a></dt>
 <dd><p>The numeric ID of this proctoring provider entity, allocated
 automatically by the API.</p>
 </dd></dl>
@@ -416,8 +490,8 @@ with this ProctoringProvider entity.</p>
 </dd></dl>
 
 <dl class="od action">
-<dt class="sig sig-object od">
-<span class="sig-name descname"><span class="pre">AvailableAppointments</span> <span class="pre">Edm.DateTime</span></span></dt>
+<dt class="sig sig-object od" id="od-action.deliveryodata.ProctoringProvider.AvailableAppointments">
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">AvailableAppointments</span></span> <span class="pre">(</span><span class="pre">LocalDate</span>  <span class="pre">Edm.DateTime</span><span class="pre">,</span> <span class="pre">TimeZoneID</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">AttemptID</span>  <span class="pre">Edm.Int32</span><span class="pre">)</span>  <span class="pre">Edm.DateTime</span> <span class="pre">Collection</span><a class="headerlink" href="#od-action.deliveryodata.ProctoringProvider.AvailableAppointments" title="Link to this definition">¶</a></dt>
 <dd><p>Reserved for internal use.</p>
 </dd></dl>
 
@@ -480,7 +554,7 @@ with this ProctoringProvider entity.</p>
       &#169;2016-2024, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
       &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |

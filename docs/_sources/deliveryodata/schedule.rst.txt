@@ -1,4 +1,4 @@
-Schedule and ScheduleMetadata
+﻿Schedule and ScheduleMetadata
 -----------------------------
 
 ..  od:service::    deliveryodata
@@ -306,6 +306,19 @@ Schedules Reference
 
         .. versionadded::   2021.08
 
+    ..  od:prop::   IsDeleted  Edm.Boolean
+
+        .. versionadded::   2021.08
+
+        If True, this schedule has been soft-deleted.
+
+    ..  od:prop::   MinMinutesBetweenAttempts  Edm.Int32
+
+        .. versionadded::   2021.08
+
+        The minimum number of minutes that must elapse between attempts
+        at this scheduled assessment.
+
     ..  od:prop::   Assessment  Assessment
     
         A navigation property to the Assessment.
@@ -421,6 +434,21 @@ Schedules Reference
         review URL will launch a tool that allows the user to review the
         recordings of the participants' attempts.
         
+
+    ..  od:action:: CanLiveProctor Edm.Boolean
+
+        .. versionadded::   2021.08
+                
+        Returns True if live proctoring is available for this schedule.
+
+    ..  od:action:: GetLiveProctorUrl Edm.String
+        :input: ProctorID Edm.Int32
+
+        .. versionadded::   2021.08
+                
+        Returns a URL for the proctor to access the live proctoring
+        interface for this schedule.
+
     ..  od:action:: ActionableSchedules ActionableSchedule
         :collection:
         

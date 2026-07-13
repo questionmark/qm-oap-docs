@@ -248,12 +248,13 @@
     ..  od:prop::   ProctorRules  Edm.String
 
     ..  od:prop::   Language  Edm.String
+        :key:
 
     ..  od:prop::   CreatedDateTime  Edm.DateTime
 
     ..  od:prop::   ModifiedDateTime  Edm.DateTime
 
-    ..  od:prop::   RulesOfConduct  Edm.RulesOfConduct
+    ..  od:prop::   RulesOfConduct  RulesOfConduct
 
          
 

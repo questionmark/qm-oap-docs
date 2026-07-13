@@ -57,15 +57,28 @@ Timezones: see :od:feed:`deliveryodata.Timezones`
     
 
 
-AnswerAuditLogs: details moved to :od:feed:deliveryodata.AnswerAuditLogs`n
-Appointments: details moved to :od:feed:deliveryodata.Appointments`n
-AssessmentMetadata: details moved to :od:feed:deliveryodata.AssessmentMetadata`n
-AssessmentOutcomes: details moved to :od:feed:deliveryodata.AssessmentOutcomes`n
-AssessmentTranslations: details moved to :od:feed:deliveryodata.AssessmentTranslations`n
-PrintBatchUploads: details moved to :od:feed:deliveryodata.PrintBatchUploads`n
-ProctoringProviders: details moved to :od:feed:deliveryodata.ProctoringProviders`n
-Roles: details moved to :od:feed:deliveryodata.Roles`n
-RulesOfConduct: details moved to :od:feed:deliveryodata.RulesOfConduct`n
-RulesOfConductTranslations: details moved to :od:feed:deliveryodata.RulesOfConductTranslations`n
-SessionAuditLogs: details moved to :od:feed:deliveryodata.SessionAuditLogs`n
-TopicScores: details moved to :od:feed:deliveryodata.TopicScores`n
+AnswerAuditLogs: details moved to :od:feed:`deliveryodata.AnswerAuditLogs`
+
+Appointments: details moved to :od:feed:`deliveryodata.Appointments`
+
+AssessmentMetadata: details moved to :od:feed:`deliveryodata.AssessmentMetadata`
+
+AssessmentOutcomes: details moved to :od:feed:`deliveryodata.AssessmentOutcomes`
+
+AssessmentTranslations: details moved to :od:feed:`deliveryodata.AssessmentTranslations`
+
+PracticeAttempts: details moved to :od:feed:`deliveryodata.PracticeAttempts`
+
+PrintBatchUploads: details moved to :od:feed:`deliveryodata.PrintBatchUploads`
+
+ProctoringProviders: details moved to :od:feed:`deliveryodata.ProctoringProviders`
+
+Roles: details moved to :od:feed:`deliveryodata.Roles`
+
+RulesOfConduct: details moved to :od:feed:`deliveryodata.RulesOfConduct`
+
+RulesOfConductTranslations: details moved to :od:feed:`deliveryodata.RulesOfConductTranslations`
+
+SessionAuditLogs: details moved to :od:feed:`deliveryodata.SessionAuditLogs`
+
+TopicScores: details moved to :od:feed:`deliveryodata.TopicScores`

@@ -1,4 +1,4 @@
-PrintBatch
+﻿PrintBatch
 ----------
 
 ..  od:service::    deliveryodata
@@ -79,4 +79,14 @@ PrintBatch
     bubble sheets in PDF format that are uploaded and then processed to
     create individual :od:type:`AnswerUpload` entities.  Print batch
     uploads are not used when uploading PDFs for scanning.
+
+..  od:feed::   PrintBatchUploads PrintBatchUpload
+
+    :method GET: read only
+    :filter ID: primary key
+
+    .. versionadded::   2020.02
+
+    The PrintBatchUploads feed provides access to uploaded CSV files
+    containing scanned responses for print batches.
 
