@@ -43,6 +43,16 @@ Full endpoints, source repos, and owning teams: `rails/service-inventory.md`.
 - **Edit `od:` directives correctly:** `rails/editing-od-directives.md`.
 - **Understand a past decision:** `adrs/`.
 
+## Audit status (2026-07-14)
+
+| Service | Findings | Fixed | Remaining | Notes |
+|---------|----------|-------|-----------|-------|
+| Delivery | 78 | 62 | 16 | SVC bugs raised with Firestar |
+| Authoring | 36 | 34 | 2 | Implicit key nullability (spec-compliant) |
+| Results | — | — | — | Help Center redirect, no `od:` audit |
+
+Details: [`proposed-fixes/`](proposed-fixes/README.md)
+
 ## Decision log
 
 | ADR | Title |

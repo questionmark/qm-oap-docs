@@ -11,8 +11,17 @@ touched. Nothing here is applied until the owning reviewer approves.
 
 | File | Service | Source of truth | Status |
 |------|---------|-----------------|--------|
-| [`delivery.md`](delivery.md) | Delivery OData (v3) | `qm-DeliveryOData` | Ready for review |
-| `authoring.md` | Authoring OData (v4) | `qm-AuthoringApi` | Pending (Phase 3) |
+| [`delivery.md`](delivery.md) | Delivery OData (v3) | `qm-DeliveryOData` | ✅ Applied (2026-07-14) |
+| [`authoring.md`](authoring.md) | Authoring OData (v4) | `qm-AuthoringApi` | ✅ Applied (2026-07-14) |
+
+## Audit summary
+
+| Service | Initial findings | Fixed | Remaining | Remaining reason |
+|---------|------------------|-------|-----------|------------------|
+| Delivery | 37 (+41 upgraded) | 62 | 16 | SVC bugs (E1-E3), deployment lag (F1), intentional nullability (H2) |
+| Authoring | 36 | 34 | 2 | Composite key nullability (implicit per OData v4 spec) |
+
+Service-side bugs for Delivery are tracked in `ignore/firestar-ticket-delivery-odata-metadata-bugs.md`.
 
 Results OData is intentionally excluded: it is documented via a redirect to the Help
 Center, not `od:` directives (see [`../adrs/0003-results-odata-help-redirect.md`](../adrs/0003-results-odata-help-redirect.md)).
