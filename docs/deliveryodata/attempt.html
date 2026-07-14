@@ -122,7 +122,7 @@ proctor or external business process.</p>
 <dt class="field-even">Filters supported<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>ID</strong> – primary key</p></li>
-<li><p><strong>AttemptID</strong> – associated attempt</p></li>
+<li><p><strong>AttemptId</strong> – associated attempt</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Expansions supported<span class="colon">:</span></dt>
@@ -608,7 +608,7 @@ associated Result entity.  See also <a class="reference internal" href="#od-prop
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.Attempt.BranchedResults">
-<span class="sig-name descname"><span class="pre">BranchedResults</span></span> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><span class="pre">Result</span></a><a class="headerlink" href="#od-prop.deliveryodata.Attempt.BranchedResults" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BranchedResults</span></span> <a class="reference internal" href="result.html#od-type.deliveryodata.Result" title="Result"><span class="pre">Result</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Attempt.BranchedResults" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 2020.01.</span></p>
 </div>
@@ -721,8 +721,8 @@ Questionmark Analytics and in Enterprise Reporter.</p>
 </dd></dl>
 
 <dl class="od prop">
-<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptMetadata.AttemptID">
-<span class="sig-name descname"><span class="pre">AttemptID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.AttemptID" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object od" id="od-prop.deliveryodata.AttemptMetadata.AttemptId">
+<span class="sig-name descname"><span class="pre">AttemptId</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.AttemptMetadata.AttemptId" title="Link to this definition">¶</a></dt>
 <dd><p>ID of the associated Attempt, see <a class="reference internal" href="#od-prop.deliveryodata.AttemptMetadata.Attempt" title="Attempt"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Attempt</span></code></a> for a more
 convenient navigation property.</p>
 </dd></dl>
@@ -822,6 +822,12 @@ indicated by <a class="reference internal" href="#od-prop.deliveryodata.Appointm
 <span class="sig-name descname"><span class="pre">Status</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Appointment.Status" title="Link to this definition">¶</a></dt>
 <dd><p>The status of this appointment.  The status values may vary
 depending on the proctoring provider in use.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Appointment.ExternalAppointmentData">
+<span class="sig-name descname"><span class="pre">ExternalAppointmentData</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Appointment.ExternalAppointmentData" title="Link to this definition">¶</a></dt>
+<dd><p>Additional data from the external proctoring provider.</p>
 </dd></dl>
 
 <dl class="od prop">

@@ -66,7 +66,8 @@ QuestionRevision
         :od:prop:`QuestionId`.
 
     ..  od:prop::   QuestionId  Edm.Int64
-        
+        :notnull:
+
         A 64-bit integer ID, sometimes represented as a string or split
         in to two integers (MID/LID) in other contexts.  When published,
         the same QuestionId is available in the delivery catalog as
@@ -78,6 +79,7 @@ QuestionRevision
         set the string "-" is used.
 
     ..  od:prop::   CreatedDateTime  Edm.DateTimeOffset
+        :notnull:
 
         The date and time (in UTC) when the Question was created.
 
@@ -85,9 +87,10 @@ QuestionRevision
     
         The user name of the user that created the question
 
-    ..  od:prop::   ModifiedDateTime  Edm.String
+    ..  od:prop::   ModifiedDateTime  Edm.DateTimeOffset
+        :notnull:
 
-        The date and time (in UTC) when the Question was last modified. 
+        The date and time (in UTC) when the Question was last modified.
         This revision time refers only to the base language. 
         Modifications to any translations are represented in the related
         :od:prop:`QuestionQMLs` entities.
@@ -111,14 +114,17 @@ QuestionRevision
         A free-text field for tracking customer-specific status
         labels.
         
-    ..  od:prop::   TopicPath  Edm.String
+    ..  od:prop::   TopicId  Edm.Int32
 
-        The full path of the Question within the Topic hierarchy, for
-        example::
-        
-            "RootTopic/SubTopicB/SubSubTopic1"
-        
+        The ID of the Topic containing this question revision. May be
+        null if the question is not assigned to a topic.
+
+    ..  od:prop::   Topic  Topic
+
+        Navigation property to the Topic containing this question.
+
     ..  od:prop::   IsDeleted  Edm.Boolean
+        :notnull:
 
         A flag indicating whether or not the Question has been deleted
         from the item bank.  Deleting Questions *does not* remove them

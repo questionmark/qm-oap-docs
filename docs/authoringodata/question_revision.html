@@ -111,7 +111,7 @@ identifier that persists across repositories can be found in
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.QuestionId">
-<span class="sig-name descname"><span class="pre">QuestionId</span></span>  <span class="pre">Edm.Int64</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.QuestionId" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">QuestionId</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.QuestionId" title="Link to this definition">¶</a></dt>
 <dd><p>A 64-bit integer ID, sometimes represented as a string or split
 in to two integers (MID/LID) in other contexts.  When published,
 the same QuestionId is available in the delivery catalog as
@@ -127,7 +127,7 @@ set the string “-” is used.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.CreatedDateTime">
-<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTimeOffset</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.CreatedDateTime" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTimeOffset</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.CreatedDateTime" title="Link to this definition">¶</a></dt>
 <dd><p>The date and time (in UTC) when the Question was created.</p>
 </dd></dl>
 
@@ -139,7 +139,7 @@ set the string “-” is used.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.ModifiedDateTime">
-<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.ModifiedDateTime" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTimeOffset</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.ModifiedDateTime" title="Link to this definition">¶</a></dt>
 <dd><p>The date and time (in UTC) when the Question was last modified.
 This revision time refers only to the base language.
 Modifications to any translations are represented in the related
@@ -172,18 +172,21 @@ labels.</p>
 </dd></dl>
 
 <dl class="od prop">
-<dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.TopicPath">
-<span class="sig-name descname"><span class="pre">TopicPath</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.TopicPath" title="Link to this definition">¶</a></dt>
-<dd><p>The full path of the Question within the Topic hierarchy, for
-example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;RootTopic/SubTopicB/SubSubTopic1&quot;</span>
-</pre></div>
-</div>
+<dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.TopicId">
+<span class="sig-name descname"><span class="pre">TopicId</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.TopicId" title="Link to this definition">¶</a></dt>
+<dd><p>The ID of the Topic containing this question revision. May be
+null if the question is not assigned to a topic.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.Topic">
+<span class="sig-name descname"><span class="pre">Topic</span></span> <a class="reference internal" href="topic.html#od-type.authoringodata.Topic" title="Topic"><span class="pre">Topic</span></a><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.Topic" title="Link to this definition">¶</a></dt>
+<dd><p>Navigation property to the Topic containing this question.</p>
 </dd></dl>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.IsDeleted">
-<span class="sig-name descname"><span class="pre">IsDeleted</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.IsDeleted" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">IsDeleted</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.IsDeleted" title="Link to this definition">¶</a></dt>
 <dd><p>A flag indicating whether or not the Question has been deleted
 from the item bank.  Deleting Questions <em>does not</em> remove them
 from the item bank, it marks them as deleted and removes from

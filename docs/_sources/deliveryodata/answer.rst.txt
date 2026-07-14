@@ -91,6 +91,7 @@
         .. versionadded::   2021.05
 
     ..  od:prop::   Revision Edm.Int32
+        :notnull:
 
         Reserved for future use.
 

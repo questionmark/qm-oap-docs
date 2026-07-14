@@ -57,6 +57,60 @@
 <span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">AssessmentAML</span></span><a class="headerlink" href="#od-type.authoringodata.AssessmentAML" title="Link to this definition">¶</a></dt>
 <dd><p>AssessmentAML entities are media-link entities containing the full
 XML description of the Assessment.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentAML.AssessmentRevisionId">
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">AssessmentRevisionId</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentAML.AssessmentRevisionId" title="Link to this definition">¶</a></dt>
+<dd><p>The ID of the parent AssessmentRevision entity.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentAML.Language">
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">Language</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentAML.Language" title="Link to this definition">¶</a></dt>
+<dd><p>The language code for this AML translation.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentAML.CreatedDateTime">
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTimeOffset</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentAML.CreatedDateTime" title="Link to this definition">¶</a></dt>
+<dd><p>The date and time (in UTC) when this translation was created.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentAML.Author">
+<span class="sig-name descname"><span class="pre">Author</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentAML.Author" title="Link to this definition">¶</a></dt>
+<dd><p>The user name of the user that created this translation.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentAML.ModifiedDateTime">
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTimeOffset</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentAML.ModifiedDateTime" title="Link to this definition">¶</a></dt>
+<dd><p>The date and time (in UTC) when this translation was last modified.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentAML.Editor">
+<span class="sig-name descname"><span class="pre">Editor</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentAML.Editor" title="Link to this definition">¶</a></dt>
+<dd><p>The user name of the user that last modified this translation.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentAML.TranslationStatus">
+<span class="sig-name descname"><span class="pre">TranslationStatus</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentAML.TranslationStatus" title="Link to this definition">¶</a></dt>
+<dd><p>Status indicator for the translation.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentAML.IsDeleted">
+<span class="sig-name descname"><span class="pre">IsDeleted</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentAML.IsDeleted" title="Link to this definition">¶</a></dt>
+<dd><p>A flag indicating whether or not this AML has been deleted.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentAML.AssessmentRevision">
+<span class="sig-name descname"><span class="pre">AssessmentRevision</span></span> <a class="reference internal" href="assessment_revision.html#od-type.authoringodata.AssessmentRevision" title="AssessmentRevision"><span class="pre">AssessmentRevision</span></a><a class="headerlink" href="#od-prop.authoringodata.AssessmentAML.AssessmentRevision" title="Link to this definition">¶</a></dt>
+<dd><p>Navigation property to the parent AssessmentRevision entity.</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>

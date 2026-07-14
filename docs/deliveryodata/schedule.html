@@ -403,11 +403,19 @@ by the proctor.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.IsDeleted">
-<span class="sig-name descname"><span class="pre">IsDeleted</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.IsDeleted" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">IsDeleted</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.IsDeleted" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 2021.08.</span></p>
 </div>
 <p>If True, this schedule has been soft-deleted.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.ExternalProctoringID">
+<span class="sig-name descname"><span class="pre">ExternalProctoringID</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ExternalProctoringID" title="Link to this definition">¶</a></dt>
+<dd><p>A system-managed identifier for the proctoring provider. This
+property is read-only; it is set server-side for Talview-protocol
+proctoring and explicitly rejected on PATCH.</p>
 </dd></dl>
 
 <dl class="od prop">
@@ -449,7 +457,6 @@ at this scheduled assessment.</p>
 <span class="sig-name descname"><span class="pre">ExceptionSchedules</span></span> <a class="reference internal" href="#od-type.deliveryodata.Schedule" title="Schedule"><span class="pre">Schedule</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.ExceptionSchedules" title="Link to this definition">¶</a></dt>
 <dd><p>A navigation property from a parent schedule to all the
 exceptions to this schedule.</p>
-<p>A navigation property to the (optional) parent schedule.</p>
 </dd></dl>
 
 <dl class="od prop">
@@ -599,6 +606,12 @@ participant.</p>
 <dt class="sig sig-object od" id="od-prop.deliveryodata.ActionableSchedule.ScheduleID">
 <span class="sig-name descname"><span class="pre">ScheduleID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.ScheduleID" title="Link to this definition">¶</a></dt>
 <dd><p>The ID of the schedule these possible actions relate to</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.ActionableSchedule.AssessmentID">
+<span class="sig-name descname"><span class="pre">AssessmentID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ActionableSchedule.AssessmentID" title="Link to this definition">¶</a></dt>
+<dd><p>The ID of the assessment being scheduled.</p>
 </dd></dl>
 
 <dl class="od prop">

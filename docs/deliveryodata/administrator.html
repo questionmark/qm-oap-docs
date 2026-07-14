@@ -66,17 +66,17 @@ defined as being a user with <em>any</em> role other than special
 Participant role.</p>
 <p>The feed can be used to create, update and delete Administrators.
 Note that creating an Administrator editor does not associate the
-new user with any role.  You can use the <code class="xref od od-action docutils literal notranslate"><span class="pre">Upsert</span></code> action
+new user with any role.  You can use the <a class="reference internal" href="#od-action.deliveryodata.Administrators.Upsert" title="Upsert"><code class="xref od od-action docutils literal notranslate"><span class="pre">Upsert</span></code></a> action
 to create a user with one or more existing Administrator roles.</p>
 <p>If you want to promote a user that exists in the Portal as a
 Participant (or as an authenticated user with no assigned role) to
 being an Administrator then you may POST to the Administrators feed
 to create the entity representing the user and then assign the
 additional roles but the recommended approach would be to use the
-<code class="xref od od-action docutils literal notranslate"><span class="pre">Upsert</span></code> action.</p>
+<a class="reference internal" href="#od-action.deliveryodata.Administrators.Upsert" title="Upsert"><code class="xref od od-action docutils literal notranslate"><span class="pre">Upsert</span></code></a> action.</p>
 <dl class="od action">
 <dt class="sig sig-object od" id="od-action.deliveryodata.Administrators.Upsert">
-<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">Upsert</span></span> <span class="pre">(</span><span class="pre">Name</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Email</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Password</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">FirstName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">LastName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Department</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SsoId</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Url</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">AlternateName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PeopleSyncID</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Blocked</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">ReplaceExistingGroups</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">ReplaceExistingRoles</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">Roles</span> <span class="pre">Collection(</span> <span class="pre">Edm.String</span><span class="pre">)</span><span class="pre">,</span> <span class="pre">Groups</span> <span class="pre">Collection(</span> <span class="pre">Edm.String</span><span class="pre">)</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Administrators.Upsert" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">Upsert</span></span> <span class="pre">(</span><span class="pre">Name</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Email</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Password</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">FirstName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">LastName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Department</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SsoId</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Url</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">AlternateName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PeopleSyncID</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Blocked</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">ReplaceExistingGroups</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">ReplaceExistingRoles</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">Roles</span> <span class="pre">Collection(</span> <span class="pre">Edm.String</span><span class="pre">)</span><span class="pre">,</span> <span class="pre">Groups</span> <span class="pre">Collection(</span> <span class="pre">Edm.String</span><span class="pre">)</span><span class="pre">)</span> <a class="reference internal" href="#od-type.deliveryodata.UpsertAdministratorResponse" title="UpsertAdministratorResponse"><span class="pre">UpsertAdministratorResponse</span></a><a class="headerlink" href="#od-action.deliveryodata.Administrators.Upsert" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 2021.08.</span></p>
 </div>
@@ -102,6 +102,18 @@ user.</p>
 implementation of the individual combined operations to reduce
 the impact of network latency on integrated systems.</p>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.UpsertAdministratorResponse">
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">UpsertAdministratorResponse</span></span><a class="headerlink" href="#od-type.deliveryodata.UpsertAdministratorResponse" title="Link to this definition">¶</a></dt>
+<dd><p>Response type returned by the Administrator
+<a class="reference internal" href="#od-action.deliveryodata.Administrators.Upsert" title="Upsert"><code class="xref od od-action docutils literal notranslate"><span class="pre">Upsert</span></code></a> action.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.UpsertAdministratorResponse.AdministratorID">
+<span class="sig-name descname"><span class="pre">AdministratorID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.UpsertAdministratorResponse.AdministratorID" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -194,7 +206,7 @@ an Administrator’s record.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.Blocked">
-<span class="sig-name descname"><span class="pre">Blocked</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.Blocked" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Blocked</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.Blocked" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 2021.08.</span></p>
 </div>
@@ -313,14 +325,15 @@ return an unfiltered list.</p>
 
 <dl class="od action">
 <dt class="sig sig-object od" id="od-action.deliveryodata.Administrator.ActionableSchedulesForObservation">
-<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">ActionableSchedulesForObservation</span></span> <span class="pre">(</span><span class="pre">)</span> <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><span class="pre">ActionableSchedule</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-action.deliveryodata.Administrator.ActionableSchedulesForObservation" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">ActionableSchedulesForObservation</span></span> <span class="pre">(</span><span class="pre">ScheduleID</span>  <span class="pre">Edm.Int32</span><span class="pre">)</span> <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><span class="pre">ActionableSchedule</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-action.deliveryodata.Administrator.ActionableSchedulesForObservation" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a collection of actionable schedules related to this
-administrator <em>as an assessment observer</em>.  It takes no
-parameters and is bound to a specific Administrator so is called
-like this:</p>
+administrator <em>as an assessment observer</em>.  The required
+<code class="docutils literal notranslate"><span class="pre">ScheduleID</span></code> parameter limits the results to the given schedule.
+It is bound to a specific Administrator so is called like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrator</span><span class="p">(</span><span class="mi">456789</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedulesForObservation</span>
 
 <span class="p">{</span>
+    <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">12345</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -338,6 +351,14 @@ so is called like this:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the live OData <code class="docutils literal notranslate"><span class="pre">$metadata</span></code> for this action does not
+declare a return type, due to a registration defect in
+the service (tracked separately with the owning team).
+The action does return a JSON string in practice, which
+is what is documented here.</p>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -354,9 +375,15 @@ of roles defined in the portal.</p>
 </div>
 </div></blockquote>
 <dl class="od prop">
-<dt class="sig sig-object od" id="od-prop.deliveryodata.Role.ID">
-<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Role.ID" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Role.Name">
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">Name</span></span>  <span class="pre">Edm.String</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Role.Name" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Role.Administrators">
+<span class="sig-name descname"><span class="pre">Administrators</span></span> <a class="reference internal" href="#od-type.deliveryodata.Administrator" title="Administrator"><span class="pre">Administrator</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Role.Administrators" title="Link to this definition">¶</a></dt>
+<dd><p>Navigation property to the administrators holding this role.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -371,7 +398,7 @@ of roles defined in the portal.</p>
 </dd>
 <dt class="field-even">Filters supported<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>ID</strong> – primary key (the role name)</p></li>
+<li><p><strong>Name</strong> – primary key (the role name)</p></li>
 </ul>
 </dd>
 </dl>

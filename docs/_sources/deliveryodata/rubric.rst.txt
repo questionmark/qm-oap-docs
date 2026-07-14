@@ -56,7 +56,7 @@ Rubric and Dimension
 
         The maximum score associated with the Rubric.
                 
-    ..  od:prop::   ShowParticipant    Edm.String
+    ..  od:prop::   ShowParticipant    Edm.Double
         :notnull:
 
     ..  od:prop::   Dimensions    Dimension

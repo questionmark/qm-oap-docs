@@ -161,7 +161,7 @@ indicating that no policy has been set.</p>
 
 <dl class="od action">
 <dt class="sig sig-object od" id="od-action.deliveryodata.Results.ReplayResultsByDateRange">
-<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">ReplayResultsByDateRange</span></span> <span class="pre">(</span><span class="pre">StartDate</span>  <span class="pre">Edm.DateTime</span><span class="pre">,</span> <span class="pre">EndDate</span>  <span class="pre">Edm.DateTime</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Results.ReplayResultsByDateRange" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">ReplayResultsByDateRange</span></span> <span class="pre">(</span><span class="pre">StartDate</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">EndDate</span>  <span class="pre">Edm.String</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Results.ReplayResultsByDateRange" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 2021.03.</span></p>
 </div>
@@ -181,12 +181,38 @@ explanation for the submission.</p>
 
 <dl class="od action">
 <dt class="sig sig-object od" id="od-action.deliveryodata.Results.ReplayResultsByIDList">
-<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">ReplayResultsByIDList</span></span> <span class="pre">(</span><span class="pre">ResultIds</span> <span class="pre">Collection(</span> <span class="pre">Edm.Int32</span><span class="pre">)</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Results.ReplayResultsByIDList" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">ReplayResultsByIDList</span></span> <span class="pre">(</span><span class="pre">ResultIds</span> <span class="pre">Collection(</span> <span class="pre">Edm.Int32</span><span class="pre">)</span><span class="pre">)</span> <a class="reference internal" href="#od-type.deliveryodata.PublishResultResponse" title="PublishResultResponse"><span class="pre">PublishResultResponse</span></a><a class="headerlink" href="#od-action.deliveryodata.Results.ReplayResultsByIDList" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 2022.02.</span></p>
 </div>
 <p>Reserved for internal use.</p>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.PublishResultResponse">
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">PublishResultResponse</span></span><a class="headerlink" href="#od-type.deliveryodata.PublishResultResponse" title="Link to this definition">¶</a></dt>
+<dd><p>Response type returned by result publishing actions.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PublishResultResponse.SuccessCount">
+<span class="sig-name descname"><span class="pre">SuccessCount</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PublishResultResponse.SuccessCount" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PublishResultResponse.FailureCount">
+<span class="sig-name descname"><span class="pre">FailureCount</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PublishResultResponse.FailureCount" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PublishResultResponse.Message">
+<span class="sig-name descname"><span class="pre">Message</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.PublishResultResponse.Message" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PublishResultResponse.FailureResultIds">
+<span class="sig-name descname"><span class="pre">FailureResultIds</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.PublishResultResponse.FailureResultIds" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -680,7 +706,7 @@ of the machine that issued the request.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.ResultAuditLog.IsInQueue">
-<span class="sig-name descname"><span class="pre">IsInQueue</span></span>  <span class="pre">Edm.Boolean&quot;</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.IsInQueue" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">IsInQueue</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.ResultAuditLog.IsInQueue" title="Link to this definition">¶</a></dt>
 <dd><p>A boolean which is “true” if the request is waiting to be
 processed. Auditable actions are placed in a queue and actioned
 when system resources become available.  Once the action has

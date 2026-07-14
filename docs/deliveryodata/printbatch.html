@@ -137,6 +137,35 @@ entity is used to represent the uploaded CSV.</p>
 bubble sheets in PDF format that are uploaded and then processed to
 create individual <a class="reference internal" href="answerupload.html#od-type.deliveryodata.AnswerUpload" title="AnswerUpload"><code class="xref od od-type docutils literal notranslate"><span class="pre">AnswerUpload</span></code></a> entities.  Print batch
 uploads are not used when uploading PDFs for scanning.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatchUpload.ID">
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatchUpload.ID" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatchUpload.PrintBatchId">
+<span class="sig-name descname"><span class="pre">PrintBatchId</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatchUpload.PrintBatchId" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatchUpload.RequestData">
+<span class="sig-name descname"><span class="pre">RequestData</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatchUpload.RequestData" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatchUpload.PrecessedDateTime">
+<span class="sig-name descname"><span class="pre">PrecessedDateTime</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatchUpload.PrecessedDateTime" title="Link to this definition">¶</a></dt>
+<dd><p>Note: the property name is misspelled in the service code
+(should be “ProcessedDateTime”). Document it verbatim to match
+the wire contract.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatchUpload.PrintBatch">
+<span class="sig-name descname"><span class="pre">PrintBatch</span></span> <a class="reference internal" href="#od-type.deliveryodata.PrintBatch" title="PrintBatch"><span class="pre">PrintBatch</span></a><a class="headerlink" href="#od-prop.deliveryodata.PrintBatchUpload.PrintBatch" title="Link to this definition">¶</a></dt>
+<dd><p>Navigation property to the parent PrintBatch.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="od feed">
@@ -145,7 +174,8 @@ uploads are not used when uploading PDFs for scanning.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>GET</strong> – read only</p></li>
+<li><p><strong>GET</strong> – reading uploaded CSV files</p></li>
+<li><p><strong>POST</strong> – uploading CSV files</p></li>
 </ul>
 </dd>
 <dt class="field-even">Filters supported<span class="colon">:</span></dt>

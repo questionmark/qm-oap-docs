@@ -200,6 +200,7 @@
         An external identifier used for people synchronization.
 
     ..  od:prop::   Blocked  Edm.Boolean
+        :notnull:
 
         .. versionadded::   2021.08
 
@@ -236,10 +237,11 @@
 
     ..  od:action:: ActionableSchedules ActionableSchedule
         :collection:
+        :input: ShowHidden Edm.Boolean
 
         Returns a collection of :od:type:`ActionableSchedule` related to
-        this participant.  It takes no parameters and is bound to a
-        specific Participant so is called like this::
+        this participant.  It is bound to a specific Participant and takes
+        an optional ``ShowHidden`` parameter (defaults to False):
 
             POST /deliveryodata/<customer-id>/Participant(123456)/ActionableSchedules
 
@@ -297,7 +299,7 @@
                         the returned ActionableSchedule may have a
                         *different* ID from the passed parameter value.
 
-    ..  od:action:: Upsert
+    ..  od:action:: Upsert UpsertParticipantResponse
         :collection:
         :input: Name Edm.String, Password Edm.String, FirstName Edm.String, LastName Edm.String, MiddleName Edm.String, PrimaryAddress1 Edm.String, PrimaryAddress2 Edm.String, PrimaryCity Edm.String, PrimaryState Edm.String, PrimaryZIPCode Edm.String, PrimaryCountry Edm.String, PrimaryPhone Edm.String, PrimaryFax Edm.String, PrimaryEmail Edm.String, SecondaryAddress1 Edm.String, SecondaryAddress2 Edm.String, SecondaryCity Edm.String, SecondaryState Edm.String, SecondaryZIPCode Edm.String, SecondaryCountry Edm.String, SecondaryPhone Edm.String, SecondaryFax Edm.String, SecondaryEmail Edm.String, Salutation Edm.String, OrganizationName Edm.String, Department Edm.String, Title Edm.String, JobTitle Edm.String, AssistantName Edm.String, ManagerName Edm.String, Gender Edm.String, URL Edm.String, Details Edm.String, Details1 Edm.String, Details2 Edm.String, Details3 Edm.String, Details4 Edm.String, Details5 Edm.String, Details6 Edm.String, Details7 Edm.String, Details8 Edm.String, Details9 Edm.String, Details10 Edm.String, Details11 Edm.String, Details12 Edm.String, Details13 Edm.String, Details14 Edm.String, Details15 Edm.String, Details16 Edm.String, Details17 Edm.String, Details18 Edm.String, Details19 Edm.String, Details20 Edm.String, PreferredLang Edm.String, PreferredTimezone Edm.String, DateOfBirth Edm.String, SsoId Edm.String, PeopleSyncID Edm.String, Blocked Edm.Boolean, ReplaceExistingGroups Edm.Boolean, Groups Collection(Edm.String)
 
@@ -318,7 +320,7 @@
                 "Groups": ["GroupA", "GroupB"]
             }
 
-    ..  od:action:: ScheduleAndLaunch
+    ..  od:action:: ScheduleAndLaunch CustomScheduleAndLaunchResponse
         :input: Name Edm.String, AssessmentID Edm.Int64, ExtraTime Edm.Int32, ScheduleDuration Edm.Int32, MaxAttempts Edm.Int32, MonitoringTypeID Edm.Int32, TestCenterID Edm.Int32, Hidden Edm.Boolean, ExternalID Edm.String, Language Edm.String, GroupID Edm.Int32, MinMinutesBetweenAttempts Edm.Int32
 
         Schedules the participant for an assessment and returns the
@@ -331,7 +333,7 @@
                 "AssessmentID": 1234567890123
             }
 
-    ..  od:action:: UpsertParticipantAndSchedule
+    ..  od:action:: UpsertParticipantAndSchedule UpsertParticipantAndScheduleResponse
         :collection:
         :input: Participant_Name Edm.String, Participant_Password Edm.String, Participant_FirstName Edm.String, Participant_LastName Edm.String, Participant_MiddleName Edm.String, Participant_PrimaryAddress1 Edm.String, Participant_PrimaryAddress2 Edm.String, Participant_PrimaryCity Edm.String, Participant_PrimaryState Edm.String, Participant_PrimaryZIPCode Edm.String, Participant_PrimaryCountry Edm.String, Participant_PrimaryPhone Edm.String, Participant_PrimaryFax Edm.String, Participant_PrimaryEmail Edm.String, Participant_SecondaryAddress1 Edm.String, Participant_SecondaryAddress2 Edm.String, Participant_SecondaryCity Edm.String, Participant_SecondaryState Edm.String, Participant_SecondaryZIPCode Edm.String, Participant_SecondaryCountry Edm.String, Participant_SecondaryPhone Edm.String, Participant_SecondaryFax Edm.String, Participant_SecondaryEmail Edm.String, Participant_Salutation Edm.String, Participant_OrganizationName Edm.String, Participant_Department Edm.String, Participant_Title Edm.String, Participant_JobTitle Edm.String, Participant_AssistantName Edm.String, Participant_ManagerName Edm.String, Participant_Gender Edm.String, Participant_URL Edm.String, Participant_Details Edm.String, Participant_Details1 Edm.String, Participant_Details2 Edm.String, Participant_Details3 Edm.String, Participant_Details4 Edm.String, Participant_Details5 Edm.String, Participant_Details6 Edm.String, Participant_Details7 Edm.String, Participant_Details8 Edm.String, Participant_Details9 Edm.String, Participant_Details10 Edm.String, Participant_Details11 Edm.String, Participant_Details12 Edm.String, Participant_Details13 Edm.String, Participant_Details14 Edm.String, Participant_Details15 Edm.String, Participant_Details16 Edm.String, Participant_Details17 Edm.String, Participant_Details18 Edm.String, Participant_Details19 Edm.String, Participant_Details20 Edm.String, Participant_PreferredLang Edm.String, Participant_PreferredTimezone Edm.String, Participant_DateOfBirth Edm.String, Participant_SsoId Edm.String, Participant_PeopleSyncID Edm.String, Participant_Blocked Edm.Boolean, Schedule_Name Edm.String, Schedule_ExternalID Edm.String, Schedule_ExternalProctoringID Edm.String, Schedule_AssessmentID Edm.Int64, Schedule_Language Edm.String, Schedule_GroupID Edm.Int32, Schedule_StartFrom Edm.DateTime, Schedule_StartTo Edm.DateTime, Schedule_ResumeTo Edm.DateTime, Schedule_ReportFrom Edm.DateTime, Schedule_ReportTo Edm.DateTime, Schedule_ExtraTime Edm.Int32, Schedule_MaxAttempts Edm.Int32, Schedule_MonitoringTypeID Edm.Int32, Schedule_ObserverID Edm.Int32, Schedule_Created Edm.DateTime, Schedule_CreatedBy Edm.String, Schedule_Modified Edm.DateTime, Schedule_ModifiedBy Edm.String, Schedule_Hidden Edm.Boolean, Schedule_Disabled Edm.Boolean, Schedule_ResumeAllowed Edm.Boolean, Schedule_ObserverInitiated Edm.Boolean, Schedule_TestCenterID Edm.Int32, Schedule_RulesOfConductID Edm.Int32, Schedule_ReportTemplateName Edm.String, Schedule_ReportedResult Edm.String, Schedule_MinMinutesBetweenAttempts Edm.Int32
 
@@ -349,5 +351,34 @@
         Participant.
 
 
+..  od:type::   UpsertParticipantResponse
+
+    Response type returned by the Participant
+    :od:action:`Upsert <Participant.Upsert>` action.
+
+    ..  od:prop::   ParticipantID  Edm.Int32
+        :notnull:
 
 
+..  od:type::   UpsertParticipantAndScheduleResponse
+
+    Response type returned by the
+    :od:action:`UpsertParticipantAndSchedule <Participant.UpsertParticipantAndSchedule>`
+    action.
+
+    ..  od:prop::   ParticipantID  Edm.Int32
+        :notnull:
+
+    ..  od:prop::   ScheduleID  Edm.Int32
+        :notnull:
+
+
+..  od:type::   CustomScheduleAndLaunchResponse
+
+    Response type returned by the
+    :od:action:`ScheduleAndLaunch <Participant.ScheduleAndLaunch>` action.
+
+    ..  od:prop::   ScheduleID  Edm.Int32
+        :notnull:
+
+    ..  od:prop::   LaunchURL  Edm.String

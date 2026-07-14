@@ -123,7 +123,7 @@ found in <a class="reference internal" href="#od-prop.authoringodata.AssessmentR
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentRevision.AssessmentId">
-<span class="sig-name descname"><span class="pre">AssessmentId</span></span>  <span class="pre">Edm.Int64</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentRevision.AssessmentId" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">AssessmentId</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentRevision.AssessmentId" title="Link to this definition">¶</a></dt>
 <dd><p>A 64-bit integer ID, sometimes represented as a string or split
 in to two integers (MID/LID) in other contexts.  When published,
 the same AssessmentId is available in the delivery catalog as
@@ -139,7 +139,7 @@ been set the string “-” is used.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentRevision.CreatedDateTime">
-<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTimeOffset</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentRevision.CreatedDateTime" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTimeOffset</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentRevision.CreatedDateTime" title="Link to this definition">¶</a></dt>
 <dd><p>The date and time (in UTC) when the Assessment was created.</p>
 </dd></dl>
 
@@ -151,7 +151,7 @@ been set the string “-” is used.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentRevision.ModifiedDateTime">
-<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentRevision.ModifiedDateTime" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTimeOffset</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentRevision.ModifiedDateTime" title="Link to this definition">¶</a></dt>
 <dd><p>The date and time (in UTC) when the Assessment was last
 modified. This revision time refers only to the base language.
 Modifications to any translations are represented in the related
@@ -177,8 +177,14 @@ hierarchy, for example:</p>
 </dd></dl>
 
 <dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentRevision.AssessmentName">
+<span class="sig-name descname"><span class="pre">AssessmentName</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentRevision.AssessmentName" title="Link to this definition">¶</a></dt>
+<dd><p>The name of the assessment.</p>
+</dd></dl>
+
+<dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.AssessmentRevision.IsDeleted">
-<span class="sig-name descname"><span class="pre">IsDeleted</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentRevision.IsDeleted" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">IsDeleted</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.AssessmentRevision.IsDeleted" title="Link to this definition">¶</a></dt>
 <dd><p>A flag indicating whether or not the Assessment has been deleted
 from the item bank.  Deleting Assessments <em>does not</em> remove them
 from the item bank, it marks them as deleted and removes them
