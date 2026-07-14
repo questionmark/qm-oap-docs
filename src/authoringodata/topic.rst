@@ -28,10 +28,12 @@ Topic
         The full path of the Topic.
 
     ..  od:prop::   PublishedId  Edm.Int32
+        :notnull:
 
     ..  od:prop::   Language  Edm.String
 
     ..  od:prop::   CreatedDateTime  Edm.DateTimeOffset
+        :notnull:
 
         The date and time (in UTC) when the Topic was created.
 
@@ -39,9 +41,10 @@ Topic
     
         The user name of the user that created the question
 
-    ..  od:prop::   ModifiedDateTime  Edm.String
+    ..  od:prop::   ModifiedDateTime  Edm.DateTimeOffset
+        :notnull:
 
-        The date and time (in UTC) when the Topic was last modified. 
+        The date and time (in UTC) when the Topic was last modified.
 
     ..  od:prop::   Editor  Edm.String
 
