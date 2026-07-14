@@ -307,10 +307,17 @@ Schedules Reference
         .. versionadded::   2021.08
 
     ..  od:prop::   IsDeleted  Edm.Boolean
+        :notnull:
 
         .. versionadded::   2021.08
 
         If True, this schedule has been soft-deleted.
+
+    ..  od:prop::   ExternalProctoringID    Edm.String
+
+        A system-managed identifier for the proctoring provider. This
+        property is read-only; it is set server-side for Talview-protocol
+        proctoring and explicitly rejected on PATCH.
 
     ..  od:prop::   MinMinutesBetweenAttempts  Edm.Int32
 
@@ -340,9 +347,7 @@ Schedules Reference
 
         A navigation property from a parent schedule to all the
         exceptions to this schedule.
-            
-        A navigation property to the (optional) parent schedule.
-        
+
     ..  od:prop::   MonitoringType  MonitoringType
     
         A navigation property to the (optional) monitoring type.
@@ -468,9 +473,14 @@ Schedules Reference
 
     ..  od:prop::    ScheduleID  Edm.Int32
         :notnull:
-        
+
         The ID of the schedule these possible actions relate to
-    
+
+    ..  od:prop::    AssessmentID  Edm.Int64
+        :notnull:
+
+        The ID of the assessment being scheduled.
+
     ..  od:prop::    Name        Edm.String
         
         The human-readable name of this schedule.  This is repeated here

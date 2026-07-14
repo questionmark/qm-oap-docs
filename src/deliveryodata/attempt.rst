@@ -57,7 +57,7 @@
     :method GET: reading attempt metadata key-value pairs
     :method POST: creating attempt metadata key-value pairs
     :filter ID: primary key
-    :filter AttemptID: associated attempt
+    :filter AttemptId: associated attempt
     :expand Attempt: expands the associated Attempt    
 
     $orderby is *not* supported.
@@ -502,7 +502,8 @@
         associated Result entity.  See also :od:prop:`ResultID`.
 
     ..  od:prop::   BranchedResults Result
-    
+        :collection:
+
         .. versionadded:: 2020.01
 
         Assessment branching allows a single Attempt to be used to
@@ -596,7 +597,7 @@
 
         Unique ID of this metadata record.
 
-    ..  od:prop::   AttemptID  Edm.Int32
+    ..  od:prop::   AttemptId  Edm.Int32
         :notnull:
 
         ID of the associated Attempt, see :od:prop:`Attempt` for a more
@@ -675,12 +676,13 @@
         The status of this appointment.  The status values may vary
         depending on the proctoring provider in use.
 
-    ..  od:prop::   Attempt  Attempt
-    
-        The :od:type:`Attempt` associated with this Appointment.
+    ..  od:prop::   ExternalAppointmentData  Edm.String
 
-    
-    
+        Additional data from the external proctoring provider.
+
+    ..  od:prop::   Attempt  Attempt
+
+        The :od:type:`Attempt` associated with this Appointment.
 
 ..  od:feed::   Appointments Appointment
 

@@ -19,13 +19,15 @@ TestCenter
     :qm:table:`G_Test_Center` table.
     
     ..  od:prop::   ID      Edm.Int32
+        :key:
         :notnull:
 
         The ID of this TestCenter.
-        
+
     ..  od:prop::   Label      Edm.String
 
     ..  od:prop::   Name      Edm.String
+        :notnull:
 
     ..  od:prop::   Department      Edm.String
 

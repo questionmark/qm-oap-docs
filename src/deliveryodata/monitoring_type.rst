@@ -46,6 +46,7 @@
         The numeric ID of this monitoring type.
     
     ..  od:prop::   Name  Edm.String
+        :notnull:
 
         A language-independent name to be used as an alternative key for
         this monitoring type.  This version of the key is used to
@@ -122,24 +123,28 @@
         Languages supported for translation tools.
 
     ..  od:prop::   TextToSpeech  Edm.Boolean
+        :notnull:
 
         .. versionadded::   2021.08
 
         If True, text-to-speech is enabled for this monitoring type.
 
     ..  od:prop::   RequireObserver  Edm.Boolean
+        :notnull:
 
         .. versionadded::   2021.08
 
         If True, an observer is required for attempts using this type.
 
     ..  od:prop::   RequireConfirmation  Edm.Boolean
+        :notnull:
 
         .. versionadded::   2021.08
 
         If True, confirmation is required before starting.
 
     ..  od:prop::   RequirePasscode  Edm.Boolean
+        :notnull:
 
         .. versionadded::   2021.08
 
@@ -152,9 +157,10 @@
         A category for grouping monitoring types.
 
     ..  od:prop::   Disabled    Edm.Boolean
+        :notnull:
 
         .. versionadded::   2020.06
-                    
+
         A MonitoringType can be disabled by setting this flag to True.
         When disabled, all associated Schedules become inactive and
         Attempts cannot be launched.
@@ -223,19 +229,26 @@
         have read and agree to the rules.
 
     ..  od:prop::   ProctorRules  Edm.String
-    
+
         A string containing an HTML fragment that may be shown to the
         proctor.  Visibility of proctor-facing rules depends on the
         proctoring provider.
 
+    ..  od:prop::   AllowedResources  Edm.String
+
     ..  od:prop::   Language  Edm.String
 
     ..  od:prop::   CreatedDateTime  Edm.DateTime
+        :notnull:
 
     ..  od:prop::   ModifiedDateTime  Edm.DateTime
+        :notnull:
 
-    ..  od:prop::   RulesOfConductTranslations  Edm.RulesOfConductTranslation
-    
+    ..  od:prop::   RulesOfConductTranslations  RulesOfConductTranslation
+        :collection:
+
+        Navigation property to translations of this rules of conduct.
+
 
 ..  od:type::   RulesOfConductTranslation
 
@@ -247,12 +260,17 @@
 
     ..  od:prop::   ProctorRules  Edm.String
 
+    ..  od:prop::   AllowedResources  Edm.String
+
     ..  od:prop::   Language  Edm.String
         :key:
+        :notnull:
 
     ..  od:prop::   CreatedDateTime  Edm.DateTime
+        :notnull:
 
     ..  od:prop::   ModifiedDateTime  Edm.DateTime
+        :notnull:
 
     ..  od:prop::   RulesOfConduct  RulesOfConduct
 
@@ -283,12 +301,14 @@
         automatically by the API.
     
     ..  od:prop::   Name  Edm.String
-    
+        :notnull:
+
         The human readable string identifier to use for the proctoring
         provider.
 
     ..  od:prop::   Protocol  Edm.String
-    
+        :notnull:
+
         The protocol to use when communicating with the proctoring
         provider.  This property's value is taken from a limited
         vocabulary of supported protocols.  Information about the

@@ -22,7 +22,7 @@
 
     The feed can be used to create, update and delete Administrators. 
     Note that creating an Administrator editor does not associate the
-    new user with any role.  You can use the :od:action:`Upsert` action
+    new user with any role.  You can use the :od:action:`Upsert <Administrators.Upsert>` action
     to create a user with one or more existing Administrator roles.
 
     If you want to promote a user that exists in the Portal as a
@@ -30,9 +30,9 @@
     being an Administrator then you may POST to the Administrators feed
     to create the entity representing the user and then assign the
     additional roles but the recommended approach would be to use the
-    :od:action:`Upsert` action.
+    :od:action:`Upsert <Administrators.Upsert>` action.
     
-    ..  od:action:: Upsert
+    ..  od:action:: Upsert UpsertAdministratorResponse
         :input: Name Edm.String, Email Edm.String, Password Edm.String, FirstName Edm.String, LastName Edm.String, Department Edm.String, SsoId Edm.String, Url Edm.String, AlternateName Edm.String, PeopleSyncID Edm.String, Blocked Edm.Boolean, ReplaceExistingGroups Edm.Boolean, ReplaceExistingRoles Edm.Boolean, Roles Collection(Edm.String), Groups Collection(Edm.String)
 
         .. versionadded::   2021.08
@@ -59,7 +59,16 @@
         The purpose of Upsert is to provide a more efficient
         implementation of the individual combined operations to reduce
         the impact of network latency on integrated systems.
-        
+
+
+..  od:type::   UpsertAdministratorResponse
+
+    Response type returned by the Administrator
+    :od:action:`Upsert <Administrators.Upsert>` action.
+
+    ..  od:prop::   AdministratorID  Edm.Int32
+        :notnull:
+
 
 ..  od:type::   Administrator
 
@@ -121,6 +130,7 @@
         An external identifier used for people synchronization.
 
     ..  od:prop::   Blocked  Edm.Boolean
+        :notnull:
 
         .. versionadded::   2021.08
 
@@ -234,15 +244,17 @@
 
     ..  od:action:: ActionableSchedulesForObservation ActionableSchedule
         :collection:
+        :input: ScheduleID Edm.Int32
 
         Returns a collection of actionable schedules related to this
-        administrator *as an assessment observer*.  It takes no
-        parameters and is bound to a specific Administrator so is called
-        like this::
-        
+        administrator *as an assessment observer*.  The required
+        ``ScheduleID`` parameter limits the results to the given schedule.
+        It is bound to a specific Administrator so is called like this::
+
             POST /deliveryodata/<customer-id>/Administrator(456789)/ActionableSchedulesForObservation
 
             {
+                "ScheduleID": 12345
             }
 
     ..  od:action:: GetAccessUrl Edm.String
@@ -256,6 +268,12 @@
             {
             }
 
+        ..  note::  the live OData ``$metadata`` for this action does not
+                    declare a return type, due to a registration defect in
+                    the service (tracked separately with the owning team).
+                    The action does return a JSON string in practice, which
+                    is what is documented here.
+
 
 ..  od:type::   Role
 
@@ -266,14 +284,19 @@
 
         .. versionadded::   2021.05
 
-    ..  od:prop::   ID  Edm.String
+    ..  od:prop::   Name  Edm.String
         :key:
         :notnull:
+
+    ..  od:prop::   Administrators  Administrator
+        :collection:
+
+        Navigation property to the administrators holding this role.
 
 ..  od:feed::   Roles Role
 
     :method GET: read only
-    :filter ID: primary key (the role name)
+    :filter Name: primary key (the role name)
 
     .. versionadded::   2021.05
 

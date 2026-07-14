@@ -251,9 +251,13 @@
         The revision of the Assessment that was translated.
         
     ..  od:prop::   Name         Edm.String
-    
+
         The translated name of the Assessment.
-        
+
+    ..  od:prop::   Description         Edm.String
+
+        The translated description of the Assessment.
+
     ..  od:prop::   Author              Edm.String
     
         The name of the user that created this translation.
