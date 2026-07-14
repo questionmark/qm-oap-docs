@@ -102,10 +102,16 @@ def _parse_type(et, assocs: dict) -> EntityType:
     for p in _children_local(et, "Property"):
         name = p.get("Name")
         raw = p.get("Type", "")
+        # Key properties are non-nullable by spec (v4 CSDL 6.2.1; v3 likewise)
+        # even when the emitter omits Nullable="false" - the Authoring service
+        # does exactly that on its composite keys, so key membership must win
+        # over the attribute default or every such key flags as a false
+        # NOTNULL EXTRA.
         t.props[name] = Prop(
             name=name,
             type=_short(raw),
-            nullable=(p.get("Nullable", "true") != "false"),
+            nullable=(p.get("Nullable", "true") != "false")
+            and name not in t.keys,
             is_key=name in t.keys,
             is_collection=raw.startswith("Collection("),
         )

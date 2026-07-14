@@ -1,92 +1,162 @@
-﻿# qm-oap-docs
+﻿<p align="center">
+  <img src="https://img.shields.io/badge/Questionmark-OAP_API_Docs-D4AF37?style=for-the-badge&labelColor=1a1a1a" alt="Questionmark OAP API Docs"/>
+</p>
 
-Source for the **Questionmark Open Assessment Platform (OAP) API documentation**.
-These pages document Questionmark's public integration APIs and are published as a
-static Sphinx site to GitHub Pages.
+<p align="center">
+  <a href="https://questionmark.github.io/qm-oap-docs/">
+    <img src="https://img.shields.io/badge/📚_Live_Docs-View_Site-D4AF37?style=flat-square&labelColor=1a1a1a" alt="Live Docs"/>
+  </a>
+  <a href="https://questionmark.github.io/qm-oap-docs/deliveryodata.html">
+    <img src="https://img.shields.io/badge/🚀_Delivery-OData_v3-D4AF37?style=flat-square&labelColor=1a1a1a" alt="Delivery OData"/>
+  </a>
+  <a href="https://questionmark.github.io/qm-oap-docs/authoringodata.html">
+    <img src="https://img.shields.io/badge/✏️_Authoring-OData_v4-D4AF37?style=flat-square&labelColor=1a1a1a" alt="Authoring OData"/>
+  </a>
+  <img src="https://img.shields.io/badge/Sphinx-Documentation-D4AF37?style=flat-square&labelColor=1a1a1a&logo=sphinx&logoColor=white" alt="Sphinx"/>
+  <img src="https://img.shields.io/badge/License-Proprietary-D4AF37?style=flat-square&labelColor=1a1a1a" alt="License"/>
+</p>
 
-- Live site: https://questionmark.github.io/qm-oap-docs/
-- Delivery OData: https://questionmark.github.io/qm-oap-docs/deliveryodata.html
+<p align="center">
+  <strong>Public integration API documentation for the Questionmark Open Assessment Platform</strong>
+</p>
 
-This repository is **documentation only**. The APIs it describes are implemented in
-their own service repositories (for Delivery OData that is `qm-DeliveryOData`).
+---
 
-## What is documented
+## 📖 Overview
 
-| Area | Source | Notes |
-|------|--------|-------|
-| Overview / data model | `src/overview.rst`, `src/data_model.rst`, `src/model/` | Platform concepts and shared data model |
-| OData (general) | `src/odata.rst` | Common OData conventions |
-| Authoring OData | `src/authoringodata.rst`, `src/authoringodata/` | Authoring API feeds/types |
-| Delivery OData | `src/deliveryodata.rst`, `src/deliveryodata/` | Delivery API feeds/types/actions |
-| Results OData | `src/resultsodata.rst` | Results API |
-| QMWISe (SOAP) | `src/qmwise.rst`, `src/qmwise/` | Legacy SOAP API |
-| Python client | `src/pip.rst` | pip-installable client notes |
+This repository contains the **source and generated HTML** for Questionmark's public OAP API documentation. It is published as a static Sphinx site to GitHub Pages.
 
-## Repository layout
+> ⚠️ **Documentation only** — The APIs described here are implemented in their own service repositories (`qm-DeliveryOData`, `qm-AuthoringApi`, etc.)
+
+---
+
+## 🗂️ What's Documented
+
+| API | Type | Source | Description |
+|:---:|:----:|--------|-------------|
+| 📊 | **Delivery OData** | `src/deliveryodata/` | Assessment delivery, scheduling, proctoring (v3) |
+| ✏️ | **Authoring OData** | `src/authoringodata/` | Question & assessment authoring (v4) |
+| 📈 | **Results OData** | `src/resultsodata.rst` | Reporting & analytics (v3) |
+| 🔗 | **QMWISe** | `src/qmwise/` | Legacy SOAP integration API |
+| 🐍 | **Python Client** | `src/pip.rst` | pip-installable client library |
+| 📐 | **Data Model** | `src/model/` | Platform concepts & shared schema |
+
+---
+
+## 🏗️ Repository Structure
 
 ```
-src/
-  conf.py            Sphinx configuration (project: QuestionmarkAPIs)
-  qmdomain.py        Custom Sphinx domains: od (OData) and qm (QMWISe/SQL)
-  index.rst          Master toctree
-  *.rst              Per-product top-level pages
-  deliveryodata/     Delivery OData feed/type/action pages (.rst)
-  authoringodata/    Authoring OData pages
-  qmwise/            QMWISe pages
-  model/             Data model pages
-docs/                Generated HTML output (published to GitHub Pages)
+📁 qm-oap-docs/
+├── 📁 src/                    # Sphinx source files
+│   ├── 📄 conf.py             # Sphinx configuration
+│   ├── 📄 qmdomain.py         # Custom od: and qm: domains
+│   ├── 📄 index.rst           # Master toctree
+│   ├── 📁 deliveryodata/      # Delivery OData feeds/types/actions
+│   ├── 📁 authoringodata/     # Authoring OData entities
+│   ├── 📁 qmwise/             # QMWISe SOAP methods
+│   └── 📁 model/              # Data model pages
+├── 📁 docs/                   # Generated HTML (GitHub Pages)
+├── 📁 ai-docs/                # Reconciliation ADRs & rails
+├── 📁 ai-scripts/             # Metadata reconciliation tooling
+└── 📄 AGENTS.md               # Contributor workflow
 ```
 
-## Building the docs
+---
 
-Requires Python with Sphinx and the Alabaster theme:
+## 🚀 Quick Start
+
+### Prerequisites
 
 ```bash
 pip install sphinx alabaster
 ```
 
-Build the HTML site (output to `docs/`):
+### Build Documentation
 
 ```bash
-make docs            # runs: sphinx-build -b html src docs/
-```
+# Using make (Linux/macOS)
+make docs
 
-On Windows without `make`, build directly:
-
-```powershell
+# Direct command (Windows/any)
 sphinx-build -b html src docs
 ```
 
-Resolve Sphinx build warnings before publishing - an unresolved `:od:type:` or
-`:od:feed:` cross-reference indicates a broken or misnamed link.
+### Verify Build
 
-## Custom OData markup (`od` domain)
+Resolve all Sphinx warnings before publishing. Unresolved `:od:type:` or `:od:feed:` cross-references indicate broken links.
 
-OData entities are documented with directives defined in `src/qmdomain.py`:
+---
 
-| Directive | Purpose |
-|-----------|---------|
-| `.. od:service::` | Declares the OData service for a page |
-| `.. od:feed::` | An entity set (URL-addressable feed) |
-| `.. od:type::` | An entity / complex type |
-| `.. od:prop::` | A property of a type (flags: `:key:`, `:notnull:`, `:collection:`) |
-| `.. od:action::` | A bound/unbound action (`:input:` for parameters) |
+## 🔧 Custom OData Markup
 
-Cross-reference roles: `:od:feed:`, `:od:type:`, `:od:prop:`, `:od:action:`.
+OData entities use custom directives from `src/qmdomain.py`:
 
-## Source of truth
+| Directive | Purpose | Example |
+|-----------|---------|---------|
+| `.. od:service::` | Declares OData service context | `.. od:service:: deliveryodata` |
+| `.. od:feed::` | Entity set (queryable feed) | `.. od:feed:: Assessments Assessment` |
+| `.. od:type::` | Entity or complex type | `.. od:type:: Assessment` |
+| `.. od:prop::` | Type property | `.. od:prop:: ID Edm.Int64` |
+| `.. od:action::` | Bound/unbound action | `.. od:action:: Upsert UpsertResponse` |
 
-The Delivery OData contract is **defined by the service code**, not by these docs.
-When documenting or correcting Delivery OData, the authoritative source is the
-`qm-DeliveryOData` repository - primarily:
+**Property flags:** `:key:` · `:notnull:` · `:collection:`
 
-- `solutions/src/QM.Delivery.ODataService/App_Start/ODataConfig.cs` (entity sets + actions)
-- `solutions/src/QM.Delivery.ODataService.Entity/*.cs` (properties + keys)
-- `solutions/src/QM.Delivery.ODataService/Controllers/*.cs` (actions)
+**Cross-references:** `:od:feed:` · `:od:type:` · `:od:prop:` · `:od:action:`
 
-See [AGENTS.md](AGENTS.md) for the contribution and verification workflow.
+---
 
-## Feedback
+## 📋 Source of Truth
 
-developer@questionmark.com or open an issue on the
-[GitHub project](https://github.com/questionmark/qm-oap-docs).
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Service Code  →  $metadata  →  Documentation               │
+│     (truth)        (contract)     (description)             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+The OData contract is **defined by the service code**, not by these docs. Authoritative sources:
+
+| Service | Repository | Key Files |
+|---------|------------|-----------|
+| **Delivery** | `qm-DeliveryOData` | `ODataConfig.cs`, `Entity/*.cs`, `Controllers/*.cs` |
+| **Authoring** | `qm-AuthoringApi` | `OData.Entity/*.cs`, `Data/Mapping/*.cs` |
+
+See [`AGENTS.md`](AGENTS.md) for the verification workflow and [`ai-docs/`](ai-docs/README.md) for reconciliation tooling.
+
+---
+
+## 🔍 Reconciliation Tooling
+
+This repository includes automated tooling to verify documentation against live `$metadata`:
+
+```bash
+# Fetch current metadata baselines
+.\ai-scripts\fetch_baselines.ps1
+
+# Run reconciliation check
+python ai-scripts/reconcile_odata.py \
+  --metadata ignore/metadata-baselines/delivery.2026-07-13.metadata.xml \
+  --rst-dir src/deliveryodata \
+  --product Delivery
+```
+
+See [`ai-scripts/README.md`](ai-scripts/README.md) for full usage.
+
+---
+
+## 📬 Feedback
+
+<p align="center">
+  <a href="mailto:developer@questionmark.com">
+    <img src="https://img.shields.io/badge/Email-developer%40questionmark.com-D4AF37?style=for-the-badge&labelColor=1a1a1a&logo=gmail&logoColor=white" alt="Email"/>
+  </a>
+  <a href="https://github.com/questionmark/qm-oap-docs/issues">
+    <img src="https://img.shields.io/badge/GitHub-Open_Issue-D4AF37?style=for-the-badge&labelColor=1a1a1a&logo=github&logoColor=white" alt="GitHub Issues"/>
+  </a>
+</p>
+
+---
+
+<p align="center">
+  <sub>© Questionmark Computing Ltd. All rights reserved.</sub>
+</p>
