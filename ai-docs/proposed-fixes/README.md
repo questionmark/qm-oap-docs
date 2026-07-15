@@ -13,6 +13,7 @@ touched. Nothing here is applied until the owning reviewer approves.
 |------|---------|-----------------|--------|
 | [`delivery.md`](delivery.md) | Delivery OData (v3) | `qm-DeliveryOData` | ✅ Applied (2026-07-14) |
 | [`authoring.md`](authoring.md) | Authoring OData (v4) | `qm-AuthoringApi` | ✅ Applied (2026-07-14) |
+| [`branch-review-remediation.md`](branch-review-remediation.md) | Both (pre-merge review) | baselines + service repos | ⚠️ Open defects - blocks merge |
 
 ## Audit summary
 

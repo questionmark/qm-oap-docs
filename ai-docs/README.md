@@ -7,6 +7,10 @@ against the services**, so the process is repeatable and does not rot.
 It complements the contributor-facing `AGENTS.md` (workflow rules) and `README.md`
 (repo overview / build) at the repository root.
 
+> **Opening the PR for this work?** Start with [`pr-report.md`](pr-report.md) -
+> the single-page audit report, reviewer guide, accepted-residual list, and
+> service tickets to raise.
+
 ## What lives where
 
 | Path | Contents |
