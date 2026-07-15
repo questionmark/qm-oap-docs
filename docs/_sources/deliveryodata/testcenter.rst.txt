@@ -73,7 +73,7 @@ TestCenter
         
         For example::
         
-            POST /deliveryodata/<customer-id>/TestCenter(3824)/Open
+            POST /deliveryodata/<customer-id>/TestCenters(3824)/Open
             
             {
                 "ExternalAttemptListID": "94a253aa-6a2e-48f2-9031-ebd343a5dfd1"

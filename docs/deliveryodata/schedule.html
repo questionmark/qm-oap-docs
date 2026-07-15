@@ -397,7 +397,7 @@ by the proctor.</p>
 <dd><p>The ID of an associated <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal notranslate"><span class="pre">RulesOfConduct</span></code></a> entity.  See
 <a class="reference internal" href="#od-prop.deliveryodata.Schedule.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-prop docutils literal notranslate"><span class="pre">Schedule.RulesOfConduct</span></code></a> for more information.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2021.07.</span></p>
 </div>
 </dd></dl>
 
@@ -405,7 +405,7 @@ by the proctor.</p>
 <dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.IsDeleted">
 <span class="sig-name descname"><span class="pre">IsDeleted</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.IsDeleted" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2024.04.</span></p>
 </div>
 <p>If True, this schedule has been soft-deleted.</p>
 </dd></dl>
@@ -421,10 +421,7 @@ proctoring and explicitly rejected on PATCH.</p>
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.Schedule.MinMinutesBetweenAttempts">
 <span class="sig-name descname"><span class="pre">MinMinutesBetweenAttempts</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.deliveryodata.Schedule.MinMinutesBetweenAttempts" title="Link to this definition">¶</a></dt>
-<dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
-</div>
-<p>The minimum number of minutes that must elapse between attempts
+<dd><p>The minimum number of minutes that must elapse between attempts
 at this scheduled assessment.</p>
 </dd></dl>
 
@@ -474,7 +471,7 @@ associated rules of conduct are used instead of the default
 rules associated with the <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><code class="xref od od-type docutils literal notranslate"><span class="pre">Assessment</span></code></a> or
 <a class="reference internal" href="monitoring_type.html#od-type.deliveryodata.MonitoringType" title="MonitoringType"><code class="xref od od-type docutils literal notranslate"><span class="pre">MonitoringType</span></code></a> used.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2021.07.</span></p>
 </div>
 </dd></dl>
 
@@ -514,7 +511,7 @@ for the assessment and the (optional) ObserverID is the observer
 that will be observing the assessment (observational schedules
 only).</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedule</span><span class="p">(</span><span class="mi">654321</span><span class="p">)</span><span class="o">/</span><span class="n">InvokeAction</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Schedules</span><span class="p">(</span><span class="mi">654321</span><span class="p">)</span><span class="o">/</span><span class="n">InvokeAction</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;Action&quot;</span><span class="p">:</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span>
@@ -567,19 +564,19 @@ recordings of the participants’ attempts.</p>
 <dl class="od action">
 <dt class="sig sig-object od" id="od-action.deliveryodata.Schedule.CanLiveProctor">
 <span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">CanLiveProctor</span></span> <span class="pre">(</span><span class="pre">)</span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-action.deliveryodata.Schedule.CanLiveProctor" title="Link to this definition">¶</a></dt>
-<dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<dd><p>Returns True if live proctoring is available for this schedule.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the service’s OData <code class="docutils literal notranslate"><span class="pre">$metadata</span></code> does not currently
+advertise a return type for this action.  The action
+returns a boolean, as documented here.</p>
 </div>
-<p>Returns True if live proctoring is available for this schedule.</p>
 </dd></dl>
 
 <dl class="od action">
 <dt class="sig sig-object od" id="od-action.deliveryodata.Schedule.GetLiveProctorUrl">
 <span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">GetLiveProctorUrl</span></span> <span class="pre">(</span><span class="pre">ProctorID</span>  <span class="pre">Edm.Int32</span><span class="pre">)</span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-action.deliveryodata.Schedule.GetLiveProctorUrl" title="Link to this definition">¶</a></dt>
-<dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
-</div>
-<p>Returns a URL for the proctor to access the live proctoring
+<dd><p>Returns a URL for the proctor to access the live proctoring
 interface for this schedule.</p>
 </dd></dl>
 

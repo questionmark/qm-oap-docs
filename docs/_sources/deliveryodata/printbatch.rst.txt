@@ -91,9 +91,9 @@
 
     ..  od:prop::   PrecessedDateTime  Edm.DateTime
 
-        Note: the property name is misspelled in the service code
-        (should be "ProcessedDateTime"). Document it verbatim to match
-        the wire contract.
+        The date and time (UTC) at which the print batch upload was
+        processed.  The property name is spelled ``PrecessedDateTime``
+        in the API, as shown; use that spelling when querying.
 
     ..  od:prop::   PrintBatch  PrintBatch
 

@@ -7,7 +7,8 @@ AssessmentAML
 ..  od:feed::   AssessmentAMLs AssessmentAML
 
     :method GET: feed is read only
-    :filter Id: primary key
+    :filter AssessmentRevisionId: part of the composite key
+    :filter Language: part of the composite key (translation language)
 
 
 ..  od:type::   AssessmentAML

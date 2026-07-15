@@ -111,7 +111,7 @@
         The ID of an associated :od:type:`RulesOfConduct` entity.  See
         :od:prop:`Assessment.RulesOfConduct` for more information.
 
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
 
     ..  od:prop::   Type    Edm.Int16
 
@@ -180,7 +180,7 @@
         These rules may themselves be overridden in the
         :od:type:`Schedule` entity itself.
 
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
         
 
 ..  od:type::   AssessmentOutcome
@@ -298,7 +298,10 @@
 
 ..  od:feed::   AssessmentMetadata AssessmentMetadata
 
-    :method GET: read only
+    :method GET: read assessment metadata entities
+    :method POST: create assessment metadata entity
+    :method PATCH: update assessment metadata entity
+    :method DELETE: delete assessment metadata entity
     :filter ID: primary key
     :filter AssessmentID: the related assessment
 
@@ -336,6 +339,7 @@
         The name of the metadata field.
         
     ..  od:prop::   Value  Edm.String
+        :notnull:
 
         The value of the metadata field.
         

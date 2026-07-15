@@ -7,7 +7,8 @@ QuestionQML
 ..  od:feed::   QuestionQMLs QuestionQML
 
     :method GET: feed is read only
-    :filter Id: primary key
+    :filter QuestionRevisionId: part of the composite key
+    :filter Language: part of the composite key (translation language)
 
 
 ..  od:type::   QuestionQML

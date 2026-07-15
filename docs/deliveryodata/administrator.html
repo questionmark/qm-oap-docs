@@ -78,7 +78,7 @@ additional roles but the recommended approach would be to use the
 <dt class="sig sig-object od" id="od-action.deliveryodata.Administrators.Upsert">
 <span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">Upsert</span></span> <span class="pre">(</span><span class="pre">Name</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Email</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Password</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">FirstName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">LastName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Department</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SsoId</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Url</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">AlternateName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PeopleSyncID</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Blocked</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">ReplaceExistingGroups</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">ReplaceExistingRoles</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">Roles</span> <span class="pre">Collection(</span> <span class="pre">Edm.String</span><span class="pre">)</span><span class="pre">,</span> <span class="pre">Groups</span> <span class="pre">Collection(</span> <span class="pre">Edm.String</span><span class="pre">)</span><span class="pre">)</span> <a class="reference internal" href="#od-type.deliveryodata.UpsertAdministratorResponse" title="UpsertAdministratorResponse"><span class="pre">UpsertAdministratorResponse</span></a><a class="headerlink" href="#od-action.deliveryodata.Administrators.Upsert" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2022.01.</span></p>
 </div>
 <p>To invoke this action use http POST with a JSON body like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrators</span><span class="o">/</span><span class="n">Upsert</span>
@@ -199,7 +199,7 @@ an Administrator’s record.</p>
 <dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.PeopleSyncID">
 <span class="sig-name descname"><span class="pre">PeopleSyncID</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.PeopleSyncID" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2022.08.</span></p>
 </div>
 <p>An external identifier used for people synchronization.</p>
 </dd></dl>
@@ -208,7 +208,7 @@ an Administrator’s record.</p>
 <dt class="sig sig-object od" id="od-prop.deliveryodata.Administrator.Blocked">
 <span class="sig-name descname"><span class="pre">Blocked</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Administrator.Blocked" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2023.01.</span></p>
 </div>
 <p>If True, the administrator account is blocked from access.</p>
 </dd></dl>
@@ -223,12 +223,9 @@ be associated with multiple Group entities.</p>
 where the RootGroupID matches the Group ID (and the navigation
 property ParentGroup is empty).</p>
 <p>You can modify this list using the special $links property.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
-</div>
 <p>To add a Group to the list you must use the full URL of the
 Group Entity and POST it to the following URL:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>POST /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Groups
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>POST /deliveryodata/&lt;customer-id&gt;/Administrators(&lt;administrator-id&gt;)/$links/Groups
 
 {
     &quot;url&quot;: &quot;https://&lt;platform&gt;/deliveryodata/&lt;customer-id&gt;/Groups(&lt;group-id&gt;)&quot;
@@ -238,7 +235,7 @@ Group Entity and POST it to the following URL:</p>
 <p>You must replace &lt;customer-id&gt;, &lt;administrator-id&gt;, &lt;platform&gt;
 and &lt;group-id&gt; accordingly.</p>
 <p>To remove a Group membership use the DELETE operation as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DELETE /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Groups(&lt;group-id&gt;)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DELETE /deliveryodata/&lt;customer-id&gt;/Administrators(&lt;administrator-id&gt;)/$links/Groups(&lt;group-id&gt;)
 </pre></div>
 </div>
 </dd></dl>
@@ -258,14 +255,14 @@ Administrators feed until they are assigned a non-Participant
 role <em>in the user interface</em>.</p>
 <p>You can modify this list using the special $links property.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2021.07.</span></p>
 </div>
 <p>To add a Role to the list you must use the full URL of the
 Role Entity and POST it to the following URL:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>POST /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Roles
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>POST /deliveryodata/&lt;customer-id&gt;/Administrators(&lt;administrator-id&gt;)/$links/Roles
 
 {
-    &quot;url&quot;: &quot;https://&lt;platform&gt;/deliveryodata/&lt;customer-id&gt;/Groups(&lt;role-id&gt;)&quot;
+    &quot;url&quot;: &quot;https://&lt;platform&gt;/deliveryodata/&lt;customer-id&gt;/Roles(&lt;role-id&gt;)&quot;
 }
 </pre></div>
 </div>
@@ -273,7 +270,7 @@ Role Entity and POST it to the following URL:</p>
 and &lt;role-id&gt; accordingly.  Note that Role IDs are actually
 strings with the name of the Role, e.g., Roles(‘Author’).</p>
 <p>To remove a Group membership use the DELETE operation as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DELETE /deliveryodata/&lt;customer-id&gt;/Administrator(&lt;administrator-id&gt;)/$links/Roles(&lt;group-id&gt;)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DELETE /deliveryodata/&lt;customer-id&gt;/Administrators(&lt;administrator-id&gt;)/$links/Roles(&lt;group-id&gt;)
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -330,7 +327,7 @@ return an unfiltered list.</p>
 administrator <em>as an assessment observer</em>.  The required
 <code class="docutils literal notranslate"><span class="pre">ScheduleID</span></code> parameter limits the results to the given schedule.
 It is bound to a specific Administrator so is called like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrator</span><span class="p">(</span><span class="mi">456789</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedulesForObservation</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrators</span><span class="p">(</span><span class="mi">456789</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedulesForObservation</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">12345</span>
@@ -345,7 +342,7 @@ It is bound to a specific Administrator so is called like this:</p>
 <dd><p>Returns a URL that provides the administrator with authenticated
 access to the platform.  It is bound to a specific Administrator
 so is called like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrator</span><span class="p">(</span><span class="mi">456789</span><span class="p">)</span><span class="o">/</span><span class="n">GetAccessUrl</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrators</span><span class="p">(</span><span class="mi">456789</span><span class="p">)</span><span class="o">/</span><span class="n">GetAccessUrl</span>
 
 <span class="p">{</span>
 <span class="p">}</span>
@@ -353,11 +350,9 @@ so is called like this:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>the live OData <code class="docutils literal notranslate"><span class="pre">$metadata</span></code> for this action does not
-declare a return type, due to a registration defect in
-the service (tracked separately with the owning team).
-The action does return a JSON string in practice, which
-is what is documented here.</p>
+<p>the service’s OData <code class="docutils literal notranslate"><span class="pre">$metadata</span></code> does not currently
+advertise a return type for this action.  The action
+returns a JSON string, as documented here.</p>
 </div>
 </dd></dl>
 

@@ -182,7 +182,7 @@ the <a class="reference internal" href="schedule.html#od-type.deliveryodata.Sche
 <dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.TranslationToolLangs">
 <span class="sig-name descname"><span class="pre">TranslationToolLangs</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.TranslationToolLangs" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2022.06.</span></p>
 </div>
 <p>Languages supported for translation tools.</p>
 </dd></dl>
@@ -191,7 +191,7 @@ the <a class="reference internal" href="schedule.html#od-type.deliveryodata.Sche
 <dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.TextToSpeech">
 <span class="sig-name descname"><span class="pre">TextToSpeech</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.TextToSpeech" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2022.08.</span></p>
 </div>
 <p>If True, text-to-speech is enabled for this monitoring type.</p>
 </dd></dl>
@@ -200,7 +200,7 @@ the <a class="reference internal" href="schedule.html#od-type.deliveryodata.Sche
 <dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.RequireObserver">
 <span class="sig-name descname"><span class="pre">RequireObserver</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireObserver" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2022.10.</span></p>
 </div>
 <p>If True, an observer is required for attempts using this type.</p>
 </dd></dl>
@@ -209,7 +209,7 @@ the <a class="reference internal" href="schedule.html#od-type.deliveryodata.Sche
 <dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.RequireConfirmation">
 <span class="sig-name descname"><span class="pre">RequireConfirmation</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequireConfirmation" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2024.02.</span></p>
 </div>
 <p>If True, confirmation is required before starting.</p>
 </dd></dl>
@@ -217,19 +217,13 @@ the <a class="reference internal" href="schedule.html#od-type.deliveryodata.Sche
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.RequirePasscode">
 <span class="sig-name descname"><span class="pre">RequirePasscode</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.RequirePasscode" title="Link to this definition">¶</a></dt>
-<dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
-</div>
-<p>If True, a passcode is required to start the assessment.</p>
+<dd><p>If True, a passcode is required to start the assessment.</p>
 </dd></dl>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.MonitoringType.Category">
 <span class="sig-name descname"><span class="pre">Category</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.MonitoringType.Category" title="Link to this definition">¶</a></dt>
-<dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
-</div>
-<p>A category for grouping monitoring types.</p>
+<dd><p>A category for grouping monitoring types.</p>
 </dd></dl>
 
 <dl class="od prop">
@@ -249,7 +243,7 @@ Attempts cannot be launched.</p>
 <dd><p>The ID of an associated <a class="reference internal" href="#od-type.deliveryodata.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-type docutils literal notranslate"><span class="pre">RulesOfConduct</span></code></a> entity.  See
 <a class="reference internal" href="#od-prop.deliveryodata.MonitoringType.RulesOfConduct" title="RulesOfConduct"><code class="xref od od-prop docutils literal notranslate"><span class="pre">MonitoringType.RulesOfConduct</span></code></a> for more information.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2021.07.</span></p>
 </div>
 </dd></dl>
 
@@ -262,7 +256,7 @@ this monitoring type the associated rules of conduct are used by
 default. These rules may themselves be overridden in the
 <a class="reference internal" href="assessment.html#od-type.deliveryodata.Assessment" title="Assessment"><code class="xref od od-type docutils literal notranslate"><span class="pre">Assessment</span></code></a> or <a class="reference internal" href="schedule.html#od-type.deliveryodata.Schedule" title="Schedule"><code class="xref od od-type docutils literal notranslate"><span class="pre">Schedule</span></code></a> entities.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2021.07.</span></p>
 </div>
 </dd></dl>
 
@@ -410,7 +404,9 @@ proctoring provider.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>GET</strong> – read only</p></li>
+<li><p><strong>GET</strong> – read rules of conduct translation entities</p></li>
+<li><p><strong>POST</strong> – create rules of conduct translation entities</p></li>
+<li><p><strong>PATCH</strong> – update rules of conduct translation entities</p></li>
 </ul>
 </dd>
 <dt class="field-even">Filters supported<span class="colon">:</span></dt>

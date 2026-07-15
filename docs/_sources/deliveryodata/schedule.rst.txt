@@ -304,12 +304,12 @@ Schedules Reference
         The ID of an associated :od:type:`RulesOfConduct` entity.  See
         :od:prop:`Schedule.RulesOfConduct` for more information.
 
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
 
     ..  od:prop::   IsDeleted  Edm.Boolean
         :notnull:
 
-        .. versionadded::   2021.08
+        .. versionadded::   2024.04
 
         If True, this schedule has been soft-deleted.
 
@@ -320,8 +320,6 @@ Schedules Reference
         proctoring and explicitly rejected on PATCH.
 
     ..  od:prop::   MinMinutesBetweenAttempts  Edm.Int32
-
-        .. versionadded::   2021.08
 
         The minimum number of minutes that must elapse between attempts
         at this scheduled assessment.
@@ -360,7 +358,7 @@ Schedules Reference
         rules associated with the :od:type:`Assessment` or
         :od:type:`MonitoringType` used.
 
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
 
     ..  od:prop::   TestCenter  TestCenter
 
@@ -395,7 +393,7 @@ Schedules Reference
         
         For example::
         
-            POST /deliveryodata/<customer-id>/Schedule(654321)/InvokeAction
+            POST /deliveryodata/<customer-id>/Schedules(654321)/InvokeAction
             
             {
                 "Action": "start",
@@ -441,15 +439,15 @@ Schedules Reference
         
 
     ..  od:action:: CanLiveProctor Edm.Boolean
-
-        .. versionadded::   2021.08
                 
         Returns True if live proctoring is available for this schedule.
 
+        ..  note::  the service's OData ``$metadata`` does not currently
+                    advertise a return type for this action.  The action
+                    returns a boolean, as documented here.
+
     ..  od:action:: GetLiveProctorUrl Edm.String
         :input: ProctorID Edm.Int32
-
-        .. versionadded::   2021.08
                 
         Returns a URL for the proctor to access the live proctoring
         interface for this schedule.

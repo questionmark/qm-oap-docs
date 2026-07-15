@@ -35,7 +35,7 @@
     ..  od:action:: Upsert UpsertAdministratorResponse
         :input: Name Edm.String, Email Edm.String, Password Edm.String, FirstName Edm.String, LastName Edm.String, Department Edm.String, SsoId Edm.String, Url Edm.String, AlternateName Edm.String, PeopleSyncID Edm.String, Blocked Edm.Boolean, ReplaceExistingGroups Edm.Boolean, ReplaceExistingRoles Edm.Boolean, Roles Collection(Edm.String), Groups Collection(Edm.String)
 
-        .. versionadded::   2021.08
+        .. versionadded::   2022.01
                 
         To invoke this action use http POST with a JSON body like this::
         
@@ -125,14 +125,14 @@
 
     ..  od:prop::   PeopleSyncID  Edm.String
 
-        .. versionadded::   2021.08
+        .. versionadded::   2022.08
 
         An external identifier used for people synchronization.
 
     ..  od:prop::   Blocked  Edm.Boolean
         :notnull:
 
-        .. versionadded::   2021.08
+        .. versionadded::   2023.01
 
         If True, the administrator account is blocked from access.
 
@@ -149,12 +149,10 @@
         
         You can modify this list using the special $links property.
         
-        .. versionadded::   2021.08
-
         To add a Group to the list you must use the full URL of the
         Group Entity and POST it to the following URL::
         
-            POST /deliveryodata/<customer-id>/Administrator(<administrator-id>)/$links/Groups
+            POST /deliveryodata/<customer-id>/Administrators(<administrator-id>)/$links/Groups
             
             {
                 "url": "https://<platform>/deliveryodata/<customer-id>/Groups(<group-id>)"
@@ -165,7 +163,7 @@
 
         To remove a Group membership use the DELETE operation as follows::
         
-            DELETE /deliveryodata/<customer-id>/Administrator(<administrator-id>)/$links/Groups(<group-id>)
+            DELETE /deliveryodata/<customer-id>/Administrators(<administrator-id>)/$links/Groups(<group-id>)
         
 
     ..  od:prop::   Roles  Role
@@ -184,15 +182,15 @@
 
         You can modify this list using the special $links property.
         
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
 
         To add a Role to the list you must use the full URL of the
         Role Entity and POST it to the following URL::
         
-            POST /deliveryodata/<customer-id>/Administrator(<administrator-id>)/$links/Roles
-            
+            POST /deliveryodata/<customer-id>/Administrators(<administrator-id>)/$links/Roles
+
             {
-                "url": "https://<platform>/deliveryodata/<customer-id>/Groups(<role-id>)"
+                "url": "https://<platform>/deliveryodata/<customer-id>/Roles(<role-id>)"
             }
 
         You must replace <customer-id>, <administrator-id>, <platform>
@@ -201,7 +199,7 @@
 
         To remove a Group membership use the DELETE operation as follows::
         
-            DELETE /deliveryodata/<customer-id>/Administrator(<administrator-id>)/$links/Roles(<group-id>)
+            DELETE /deliveryodata/<customer-id>/Administrators(<administrator-id>)/$links/Roles(<group-id>)
         
         ..  warning::   DELETE operation planned for release in 2022
 
@@ -251,7 +249,7 @@
         ``ScheduleID`` parameter limits the results to the given schedule.
         It is bound to a specific Administrator so is called like this::
 
-            POST /deliveryodata/<customer-id>/Administrator(456789)/ActionableSchedulesForObservation
+            POST /deliveryodata/<customer-id>/Administrators(456789)/ActionableSchedulesForObservation
 
             {
                 "ScheduleID": 12345
@@ -263,16 +261,14 @@
         access to the platform.  It is bound to a specific Administrator
         so is called like this::
 
-            POST /deliveryodata/<customer-id>/Administrator(456789)/GetAccessUrl
+            POST /deliveryodata/<customer-id>/Administrators(456789)/GetAccessUrl
 
             {
             }
 
-        ..  note::  the live OData ``$metadata`` for this action does not
-                    declare a return type, due to a registration defect in
-                    the service (tracked separately with the owning team).
-                    The action does return a JSON string in practice, which
-                    is what is documented here.
+        ..  note::  the service's OData ``$metadata`` does not currently
+                    advertise a return type for this action.  The action
+                    returns a JSON string, as documented here.
 
 
 ..  od:type::   Role
