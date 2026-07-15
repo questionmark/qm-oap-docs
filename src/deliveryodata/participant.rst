@@ -155,7 +155,7 @@
 
     ..  od:prop::   DateOfBirth  Edm.String
 
-        .. versionadded:: 2021.08
+        .. versionadded:: 2022.01
 
         The optional date of birth of the participant.
 
@@ -189,20 +189,18 @@
 
     ..  od:prop::   JobTitle  Edm.String
 
-        .. versionadded::   2021.08
-
         The participant's job title.
 
     ..  od:prop::   PeopleSyncID  Edm.String
 
-        .. versionadded::   2021.08
+        .. versionadded::   2022.08
 
         An external identifier used for people synchronization.
 
     ..  od:prop::   Blocked  Edm.Boolean
         :notnull:
 
-        .. versionadded::   2021.08
+        .. versionadded::   2023.01
 
         If True, the participant account is blocked from access.
 
@@ -241,9 +239,9 @@
 
         Returns a collection of :od:type:`ActionableSchedule` related to
         this participant.  It is bound to a specific Participant and takes
-        an optional ``ShowHidden`` parameter (defaults to False):
+        an optional ``ShowHidden`` parameter (defaults to False)::
 
-            POST /deliveryodata/<customer-id>/Participant(123456)/ActionableSchedules
+            POST /deliveryodata/<customer-id>/Participants(123456)/ActionableSchedules
 
             {
             }
@@ -260,17 +258,13 @@
                 "value": []
             }
 
-        ..  warning::   as of the 2022.03 release, a new optional
-                        parameter *ShowHidden* will be supported that
-                        will default to False.  Currently, all schedules
-                        are returned by default but in future you *must*
-                        pass ShowHidden as True if you want hidden
-                        schedules to be returned by this call.  To
-                        determine if a hidden schedule is actionable for
-                        a Participant it is recommended to use
-                        :od:action:`ActionableSchedule` passing the
-                        ScheduleID explicitly as to avoid returning
-                        hidden Schedules that apply to all Participants.
+        ..  note::  ``ShowHidden`` is optional and defaults to False, in
+                    which case hidden schedules are excluded.  Pass True
+                    to include schedules that are hidden.  To determine
+                    whether a specific hidden schedule is actionable for a
+                    Participant, use :od:action:`ActionableSchedule`
+                    passing the ScheduleID explicitly, to avoid returning
+                    hidden Schedules that apply to all Participants.
 
     ..  od:action:: ActionableSchedule ActionableSchedule
         :input: ScheduleID Edm.Int32
@@ -281,7 +275,7 @@
 
         It is called like this::
 
-            POST /deliveryodata/<customer-id>/Participant(123456)/ActionableSchedule
+            POST /deliveryodata/<customer-id>/Participants(123456)/ActionableSchedule
 
             {
                 "ScheduleID": 12345
@@ -327,7 +321,7 @@
         information required to launch it in a single operation.  It is
         bound to a specific Participant so is called like this::
 
-            POST /deliveryodata/<customer-id>/Participant(123456)/ScheduleAndLaunch
+            POST /deliveryodata/<customer-id>/Participants(123456)/ScheduleAndLaunch
 
             {
                 "AssessmentID": 1234567890123

@@ -686,7 +686,9 @@
 
 ..  od:feed::   Appointments Appointment
 
-    :method GET: read only
+    :method GET: read appointment entities
+    :method POST: create appointment entity
+    :method DELETE: delete appointment entity
     :filter ID: primary key
     :filter AttemptID: the related attempt
 

@@ -42,7 +42,7 @@ QuestionRevision
                     "Editor": "steve",
                     "Status": "Normal",
                     "ReviewStatus": null,
-                    "TopicPath": "SubjectiveQuestions",
+                    "TopicId": 1024,
                     "IsDeleted": false
                 }
             ]

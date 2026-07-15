@@ -118,41 +118,37 @@
 
     ..  od:prop::   TranslationToolLangs  Edm.String
 
-        .. versionadded::   2021.08
+        .. versionadded::   2022.06
 
         Languages supported for translation tools.
 
     ..  od:prop::   TextToSpeech  Edm.Boolean
         :notnull:
 
-        .. versionadded::   2021.08
+        .. versionadded::   2022.08
 
         If True, text-to-speech is enabled for this monitoring type.
 
     ..  od:prop::   RequireObserver  Edm.Boolean
         :notnull:
 
-        .. versionadded::   2021.08
+        .. versionadded::   2022.10
 
         If True, an observer is required for attempts using this type.
 
     ..  od:prop::   RequireConfirmation  Edm.Boolean
         :notnull:
 
-        .. versionadded::   2021.08
+        .. versionadded::   2024.02
 
         If True, confirmation is required before starting.
 
     ..  od:prop::   RequirePasscode  Edm.Boolean
         :notnull:
 
-        .. versionadded::   2021.08
-
         If True, a passcode is required to start the assessment.
 
     ..  od:prop::   Category  Edm.String
-
-        .. versionadded::   2021.08
 
         A category for grouping monitoring types.
 
@@ -170,7 +166,7 @@
         The ID of an associated :od:type:`RulesOfConduct` entity.  See
         :od:prop:`MonitoringType.RulesOfConduct` for more information.
 
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
 
     ..  od:prop::   RulesOfConduct  RulesOfConduct
         
@@ -180,7 +176,7 @@
         default. These rules may themselves be overridden in the
         :od:type:`Assessment` or :od:type:`Schedule` entities.
 
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
 
 
 ..  od:feed::   RulesOfConduct RulesOfConduct
@@ -278,7 +274,9 @@
 
 ..  od:feed::   RulesOfConductTranslations RulesOfConductTranslation
 
-    :method GET: read only
+    :method GET: read rules of conduct translation entities
+    :method POST: create rules of conduct translation entities
+    :method PATCH: update rules of conduct translation entities
     :filter ID: the rules of conduct ID
     :filter Language: the translation language
 
