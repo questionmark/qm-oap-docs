@@ -1,4 +1,4 @@
-Schedule and ScheduleMetadata
+﻿Schedule and ScheduleMetadata
 -----------------------------
 
 ..  od:service::    deliveryodata
@@ -304,7 +304,25 @@ Schedules Reference
         The ID of an associated :od:type:`RulesOfConduct` entity.  See
         :od:prop:`Schedule.RulesOfConduct` for more information.
 
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
+
+    ..  od:prop::   IsDeleted  Edm.Boolean
+        :notnull:
+
+        .. versionadded::   2024.04
+
+        If True, this schedule has been soft-deleted.
+
+    ..  od:prop::   ExternalProctoringID    Edm.String
+
+        A system-managed identifier for the proctoring provider. This
+        property is read-only; it is set server-side for Talview-protocol
+        proctoring and explicitly rejected on PATCH.
+
+    ..  od:prop::   MinMinutesBetweenAttempts  Edm.Int32
+
+        The minimum number of minutes that must elapse between attempts
+        at this scheduled assessment.
 
     ..  od:prop::   Assessment  Assessment
     
@@ -327,9 +345,7 @@ Schedules Reference
 
         A navigation property from a parent schedule to all the
         exceptions to this schedule.
-            
-        A navigation property to the (optional) parent schedule.
-        
+
     ..  od:prop::   MonitoringType  MonitoringType
     
         A navigation property to the (optional) monitoring type.
@@ -342,7 +358,7 @@ Schedules Reference
         rules associated with the :od:type:`Assessment` or
         :od:type:`MonitoringType` used.
 
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
 
     ..  od:prop::   TestCenter  TestCenter
 
@@ -377,7 +393,7 @@ Schedules Reference
         
         For example::
         
-            POST /deliveryodata/<customer-id>/Schedule(654321)/InvokeAction
+            POST /deliveryodata/<customer-id>/Schedules(654321)/InvokeAction
             
             {
                 "Action": "start",
@@ -421,6 +437,21 @@ Schedules Reference
         review URL will launch a tool that allows the user to review the
         recordings of the participants' attempts.
         
+
+    ..  od:action:: CanLiveProctor Edm.Boolean
+                
+        Returns True if live proctoring is available for this schedule.
+
+        ..  note::  the service's OData ``$metadata`` does not currently
+                    advertise a return type for this action.  The action
+                    returns a boolean, as documented here.
+
+    ..  od:action:: GetLiveProctorUrl Edm.String
+        :input: ProctorID Edm.Int32
+                
+        Returns a URL for the proctor to access the live proctoring
+        interface for this schedule.
+
     ..  od:action:: ActionableSchedules ActionableSchedule
         :collection:
         
@@ -440,9 +471,14 @@ Schedules Reference
 
     ..  od:prop::    ScheduleID  Edm.Int32
         :notnull:
-        
+
         The ID of the schedule these possible actions relate to
-    
+
+    ..  od:prop::    AssessmentID  Edm.Int64
+        :notnull:
+
+        The ID of the assessment being scheduled.
+
     ..  od:prop::    Name        Edm.String
         
         The human-readable name of this schedule.  This is repeated here

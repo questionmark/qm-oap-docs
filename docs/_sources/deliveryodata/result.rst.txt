@@ -1,4 +1,4 @@
-Result
+﻿Result
 ------
 
 ..  od:service::    deliveryodata
@@ -106,20 +106,44 @@ Result
         indicating that no policy has been set.
 
     ..  od:action:: ReplayResultsByDateRange
-        :input: StartDate Edm.DateTime, EndDate Edm.DateTime
+        :input: StartDate Edm.String, EndDate Edm.String
 
         .. versionadded::   2021.03
 
         Reserved for internal use.
 
-    ..  od:action:: ReplayResultsByIDList
+
+    ..  od:action:: SubmitResultsByAdministrator
+        :input: AdministratorName Edm.String, Reason Edm.String, ResultIds Collection(Edm.Int32)
+
+        Submits (finalizes) the specified results on behalf of an
+        administrator. The Reason parameter provides an audit trail
+        explanation for the submission.
+
+    ..  od:action:: ReplayResultsByIDList PublishResultResponse
         :input: ResultIds Collection(Edm.Int32)
 
         .. versionadded::   2022.02
 
         Reserved for internal use.
 
- 
+..  od:type::   PublishResultResponse
+
+    Response type returned by result publishing actions.
+
+    ..  od:prop::   SuccessCount  Edm.Int32
+        :notnull:
+
+    ..  od:prop::   FailureCount  Edm.Int32
+        :notnull:
+
+    ..  od:prop::   Message  Edm.String
+
+    ..  od:prop::   FailureResultIds  Edm.Int32
+        :collection:
+        :notnull:
+
+
 ..  od:type::   Result
 
     Result entities are drawn from :qm:table:`A_Result` in the data
@@ -465,7 +489,7 @@ Result
 
         The time the request was made.
         
-    ..  od:prop::   IsInQueue Edm.Boolean"
+    ..  od:prop::   IsInQueue Edm.Boolean
         :notnull:
     
         A boolean which is "true" if the request is waiting to be

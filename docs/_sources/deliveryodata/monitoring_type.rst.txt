@@ -1,4 +1,4 @@
-MonitoringTypes and ProctoringProviders
+﻿MonitoringTypes and ProctoringProviders
 ---------------------------------------
 
 ..  od:service::    deliveryodata
@@ -32,7 +32,7 @@ MonitoringTypes and ProctoringProviders
     API. Entries are defined by the :od:type:`ProctoringProvider` type.
 
     ..  od:action:: AppointmentDateRange Edm.String
-        :input: TimeZoneID Edm.String, AttemptID, Edm.Int32
+        :input: TimeZoneID Edm.String, AttemptID Edm.Int32
 
         Reserved for internal use.
 
@@ -46,6 +46,7 @@ MonitoringTypes and ProctoringProviders
         The numeric ID of this monitoring type.
     
     ..  od:prop::   Name  Edm.String
+        :notnull:
 
         A language-independent name to be used as an alternative key for
         this monitoring type.  This version of the key is used to
@@ -115,10 +116,47 @@ MonitoringTypes and ProctoringProviders
         are implemented automatically when using the actions related to
         the :od:type:`Schedule` entity to start or resume an assessment.
 
+    ..  od:prop::   TranslationToolLangs  Edm.String
+
+        .. versionadded::   2022.06
+
+        Languages supported for translation tools.
+
+    ..  od:prop::   TextToSpeech  Edm.Boolean
+        :notnull:
+
+        .. versionadded::   2022.08
+
+        If True, text-to-speech is enabled for this monitoring type.
+
+    ..  od:prop::   RequireObserver  Edm.Boolean
+        :notnull:
+
+        .. versionadded::   2022.10
+
+        If True, an observer is required for attempts using this type.
+
+    ..  od:prop::   RequireConfirmation  Edm.Boolean
+        :notnull:
+
+        .. versionadded::   2024.02
+
+        If True, confirmation is required before starting.
+
+    ..  od:prop::   RequirePasscode  Edm.Boolean
+        :notnull:
+
+        If True, a passcode is required to start the assessment.
+
+    ..  od:prop::   Category  Edm.String
+
+        A category for grouping monitoring types.
+
     ..  od:prop::   Disabled    Edm.Boolean
+        :notnull:
 
         .. versionadded::   2020.06
-                    
+
         A MonitoringType can be disabled by setting this flag to True.
         When disabled, all associated Schedules become inactive and
         Attempts cannot be launched.
@@ -128,7 +166,7 @@ MonitoringTypes and ProctoringProviders
         The ID of an associated :od:type:`RulesOfConduct` entity.  See
         :od:prop:`MonitoringType.RulesOfConduct` for more information.
 
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
 
     ..  od:prop::   RulesOfConduct  RulesOfConduct
         
@@ -138,7 +176,7 @@ MonitoringTypes and ProctoringProviders
         default. These rules may themselves be overridden in the
         :od:type:`Assessment` or :od:type:`Schedule` entities.
 
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
 
 
 ..  od:feed::   RulesOfConduct RulesOfConduct
@@ -187,19 +225,26 @@ MonitoringTypes and ProctoringProviders
         have read and agree to the rules.
 
     ..  od:prop::   ProctorRules  Edm.String
-    
+
         A string containing an HTML fragment that may be shown to the
         proctor.  Visibility of proctor-facing rules depends on the
         proctoring provider.
 
+    ..  od:prop::   AllowedResources  Edm.String
+
     ..  od:prop::   Language  Edm.String
 
     ..  od:prop::   CreatedDateTime  Edm.DateTime
+        :notnull:
 
     ..  od:prop::   ModifiedDateTime  Edm.DateTime
+        :notnull:
 
-    ..  od:prop::   RulesOfConductTranslations  Edm.RulesOfConductTranslation
-    
+    ..  od:prop::   RulesOfConductTranslations  RulesOfConductTranslation
+        :collection:
+
+        Navigation property to translations of this rules of conduct.
+
 
 ..  od:type::   RulesOfConductTranslation
 
@@ -211,15 +256,33 @@ MonitoringTypes and ProctoringProviders
 
     ..  od:prop::   ProctorRules  Edm.String
 
+    ..  od:prop::   AllowedResources  Edm.String
+
     ..  od:prop::   Language  Edm.String
+        :key:
+        :notnull:
 
     ..  od:prop::   CreatedDateTime  Edm.DateTime
+        :notnull:
 
     ..  od:prop::   ModifiedDateTime  Edm.DateTime
+        :notnull:
 
-    ..  od:prop::   RulesOfConduct  Edm.RulesOfConduct
+    ..  od:prop::   RulesOfConduct  RulesOfConduct
 
          
+
+..  od:feed::   RulesOfConductTranslations RulesOfConductTranslation
+
+    :method GET: read rules of conduct translation entities
+    :method POST: create rules of conduct translation entities
+    :method PATCH: update rules of conduct translation entities
+    :filter ID: the rules of conduct ID
+    :filter Language: the translation language
+
+    The RulesOfConductTranslations feed provides access to translated
+    versions of rules of conduct.
+
 ..  od:type::   ProctoringProvider
 
     .. versionadded::   2018.04
@@ -236,12 +299,14 @@ MonitoringTypes and ProctoringProviders
         automatically by the API.
     
     ..  od:prop::   Name  Edm.String
-    
+        :notnull:
+
         The human readable string identifier to use for the proctoring
         provider.
 
     ..  od:prop::   Protocol  Edm.String
-    
+        :notnull:
+
         The protocol to use when communicating with the proctoring
         provider.  This property's value is taken from a limited
         vocabulary of supported protocols.  Information about the
@@ -284,7 +349,7 @@ MonitoringTypes and ProctoringProviders
     
     ..  od:action:: AvailableAppointments Edm.DateTime
         :collection:
-        :input: LocalDate Edm.DateTime, TimeZoneID Edm.String, AttemptID, Edm.Int32
+        :input: LocalDate Edm.DateTime, TimeZoneID Edm.String, AttemptID Edm.Int32
 
         Reserved for internal use.
     

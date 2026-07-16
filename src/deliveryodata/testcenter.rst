@@ -19,13 +19,15 @@ TestCenter
     :qm:table:`G_Test_Center` table.
     
     ..  od:prop::   ID      Edm.Int32
+        :key:
         :notnull:
 
         The ID of this TestCenter.
-        
+
     ..  od:prop::   Label      Edm.String
 
     ..  od:prop::   Name      Edm.String
+        :notnull:
 
     ..  od:prop::   Department      Edm.String
 
@@ -71,7 +73,7 @@ TestCenter
         
         For example::
         
-            POST /deliveryodata/<customer-id>/TestCenter(3824)/Open
+            POST /deliveryodata/<customer-id>/TestCenters(3824)/Open
             
             {
                 "ExternalAttemptListID": "94a253aa-6a2e-48f2-9031-ebd343a5dfd1"

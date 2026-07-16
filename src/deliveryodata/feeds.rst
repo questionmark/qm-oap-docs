@@ -1,4 +1,4 @@
-Delivery OData Feeds
+﻿Delivery OData Feeds
 --------------------
 
 ..  od:service::    deliveryodata
@@ -53,5 +53,32 @@ ScoringTasks: details moved to :od:feed:`deliveryodata.ScoringTasks`
 
 TestCenters: details moved to :od:feed:`deliveryodata.TestCenters`
 
-TimeZones: see :od:feed:`deliveryodata.TimeZones`    
+Timezones: see :od:feed:`deliveryodata.Timezones`    
     
+
+
+AnswerAuditLogs: details moved to :od:feed:`deliveryodata.AnswerAuditLogs`
+
+Appointments: details moved to :od:feed:`deliveryodata.Appointments`
+
+AssessmentMetadata: details moved to :od:feed:`deliveryodata.AssessmentMetadata`
+
+AssessmentOutcomes: details moved to :od:feed:`deliveryodata.AssessmentOutcomes`
+
+AssessmentTranslations: details moved to :od:feed:`deliveryodata.AssessmentTranslations`
+
+PracticeAttempts: details moved to :od:feed:`deliveryodata.PracticeAttempts`
+
+PrintBatchUploads: details moved to :od:feed:`deliveryodata.PrintBatchUploads`
+
+ProctoringProviders: details moved to :od:feed:`deliveryodata.ProctoringProviders`
+
+Roles: details moved to :od:feed:`deliveryodata.Roles`
+
+RulesOfConduct: details moved to :od:feed:`deliveryodata.RulesOfConduct`
+
+RulesOfConductTranslations: details moved to :od:feed:`deliveryodata.RulesOfConductTranslations`
+
+SessionAuditLogs: details moved to :od:feed:`deliveryodata.SessionAuditLogs`
+
+TopicScores: details moved to :od:feed:`deliveryodata.TopicScores`

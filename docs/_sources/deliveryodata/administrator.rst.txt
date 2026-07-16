@@ -1,4 +1,4 @@
-Administrator
+﻿Administrator
 -------------
 
 ..  od:service::    deliveryodata
@@ -22,7 +22,7 @@ Administrator
 
     The feed can be used to create, update and delete Administrators. 
     Note that creating an Administrator editor does not associate the
-    new user with any role.  You can use the :od:action:`Upsert` action
+    new user with any role.  You can use the :od:action:`Upsert <Administrators.Upsert>` action
     to create a user with one or more existing Administrator roles.
 
     If you want to promote a user that exists in the Portal as a
@@ -30,12 +30,12 @@ Administrator
     being an Administrator then you may POST to the Administrators feed
     to create the entity representing the user and then assign the
     additional roles but the recommended approach would be to use the
-    :od:action:`Upsert` action.
+    :od:action:`Upsert <Administrators.Upsert>` action.
     
-    ..  od:action:: Upsert
-        :input: Name Edm.String, Email Edm.String, Password Edm.String, FirstName Edm.String, LastName Edm.String, Department Edm.String, SsoId Edm.String, Url Edm.String, AlternateName Edm.String, Roles Collection(Edm.String), Groups Collection(Edm.String)
+    ..  od:action:: Upsert UpsertAdministratorResponse
+        :input: Name Edm.String, Email Edm.String, Password Edm.String, FirstName Edm.String, LastName Edm.String, Department Edm.String, SsoId Edm.String, Url Edm.String, AlternateName Edm.String, PeopleSyncID Edm.String, Blocked Edm.Boolean, ReplaceExistingGroups Edm.Boolean, ReplaceExistingRoles Edm.Boolean, Roles Collection(Edm.String), Groups Collection(Edm.String)
 
-        .. versionadded::   2021.08
+        .. versionadded::   2022.01
                 
         To invoke this action use http POST with a JSON body like this::
         
@@ -59,7 +59,16 @@ Administrator
         The purpose of Upsert is to provide a more efficient
         implementation of the individual combined operations to reduce
         the impact of network latency on integrated systems.
-        
+
+
+..  od:type::   UpsertAdministratorResponse
+
+    Response type returned by the Administrator
+    :od:action:`Upsert <Administrators.Upsert>` action.
+
+    ..  od:prop::   AdministratorID  Edm.Int32
+        :notnull:
+
 
 ..  od:type::   Administrator
 
@@ -114,6 +123,19 @@ Administrator
 
         .. versionadded::   2021.05
 
+    ..  od:prop::   PeopleSyncID  Edm.String
+
+        .. versionadded::   2022.08
+
+        An external identifier used for people synchronization.
+
+    ..  od:prop::   Blocked  Edm.Boolean
+        :notnull:
+
+        .. versionadded::   2023.01
+
+        If True, the administrator account is blocked from access.
+
     ..  od:prop::   Groups  Group
         :collection:
         
@@ -127,12 +149,10 @@ Administrator
         
         You can modify this list using the special $links property.
         
-        .. versionadded::   2021.08
-
         To add a Group to the list you must use the full URL of the
         Group Entity and POST it to the following URL::
         
-            POST /deliveryodata/<customer-id>/Administrator(<administrator-id>)/$links/Groups
+            POST /deliveryodata/<customer-id>/Administrators(<administrator-id>)/$links/Groups
             
             {
                 "url": "https://<platform>/deliveryodata/<customer-id>/Groups(<group-id>)"
@@ -143,7 +163,7 @@ Administrator
 
         To remove a Group membership use the DELETE operation as follows::
         
-            DELETE /deliveryodata/<customer-id>/Administrator(<administrator-id>)/$links/Groups(<group-id>)
+            DELETE /deliveryodata/<customer-id>/Administrators(<administrator-id>)/$links/Groups(<group-id>)
         
 
     ..  od:prop::   Roles  Role
@@ -162,15 +182,15 @@ Administrator
 
         You can modify this list using the special $links property.
         
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
 
         To add a Role to the list you must use the full URL of the
         Role Entity and POST it to the following URL::
         
-            POST /deliveryodata/<customer-id>/Administrator(<administrator-id>)/$links/Roles
-            
+            POST /deliveryodata/<customer-id>/Administrators(<administrator-id>)/$links/Roles
+
             {
-                "url": "https://<platform>/deliveryodata/<customer-id>/Groups(<role-id>)"
+                "url": "https://<platform>/deliveryodata/<customer-id>/Roles(<role-id>)"
             }
 
         You must replace <customer-id>, <administrator-id>, <platform>
@@ -179,7 +199,7 @@ Administrator
 
         To remove a Group membership use the DELETE operation as follows::
         
-            DELETE /deliveryodata/<customer-id>/Administrator(<administrator-id>)/$links/Roles(<group-id>)
+            DELETE /deliveryodata/<customer-id>/Administrators(<administrator-id>)/$links/Roles(<group-id>)
         
         ..  warning::   DELETE operation planned for release in 2022
 
@@ -222,16 +242,33 @@ Administrator
 
     ..  od:action:: ActionableSchedulesForObservation ActionableSchedule
         :collection:
+        :input: ScheduleID Edm.Int32
 
         Returns a collection of actionable schedules related to this
-        administrator *as an assessment observer*.  It takes no
-        parameters and is bound to a specific Administrator so is called
-        like this::
-        
-            POST /deliveryodata/<customer-id>/Administrator(456789)/ActionableSchedulesForObservation
-            
+        administrator *as an assessment observer*.  The required
+        ``ScheduleID`` parameter limits the results to the given schedule.
+        It is bound to a specific Administrator so is called like this::
+
+            POST /deliveryodata/<customer-id>/Administrators(456789)/ActionableSchedulesForObservation
+
+            {
+                "ScheduleID": 12345
+            }
+
+    ..  od:action:: GetAccessUrl Edm.String
+
+        Returns a URL that provides the administrator with authenticated
+        access to the platform.  It is bound to a specific Administrator
+        so is called like this::
+
+            POST /deliveryodata/<customer-id>/Administrators(456789)/GetAccessUrl
+
             {
             }
+
+        ..  note::  the service's OData ``$metadata`` does not currently
+                    advertise a return type for this action.  The action
+                    returns a JSON string, as documented here.
 
 
 ..  od:type::   Role
@@ -243,6 +280,22 @@ Administrator
 
         .. versionadded::   2021.05
 
-    ..  od:prop::   ID  Edm.String
+    ..  od:prop::   Name  Edm.String
         :key:
         :notnull:
+
+    ..  od:prop::   Administrators  Administrator
+        :collection:
+
+        Navigation property to the administrators holding this role.
+
+..  od:feed::   Roles Role
+
+    :method GET: read only
+    :filter Name: primary key (the role name)
+
+    .. versionadded::   2021.05
+
+    The Roles feed provides access to the list of administrator roles
+    defined in the portal.
+

@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>PrintBatch &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=c0e07567" />
     <script src="../_static/documentation_options.js?v=c0145a33"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Question and QuestionTranslation" href="question.html" />
-    <link rel="prev" title="Participant" href="participant.html" />
+    <link rel="prev" title="PracticeAttempt" href="practiceattempt.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -59,10 +59,10 @@ take externally, typically through printing and scanning.</p>
 
 <dl class="od type">
 <dt class="sig sig-object od" id="od-type.deliveryodata.PrintBatch">
-<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">PrintBatch</span></span><a class="headerlink" href="#od-type.deliveryodata.PrintBatch" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">PrintBatch</span></span><a class="headerlink" href="#od-type.deliveryodata.PrintBatch" title="Link to this definition">¶</a></dt>
 <dd><dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatch.ID">
-<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.ID" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatch.ID" title="Link to this definition">¶</a></dt>
 <dd><p>The numeric ID of this batch.</p>
 </dd></dl>
 
@@ -122,7 +122,7 @@ take externally, typically through printing and scanning.</p>
 
 <dl class="od type">
 <dt class="sig sig-object od" id="od-type.deliveryodata.PrintBatchUpload">
-<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">PrintBatchUpload</span></span><a class="headerlink" href="#od-type.deliveryodata.PrintBatchUpload" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">PrintBatchUpload</span></span><a class="headerlink" href="#od-type.deliveryodata.PrintBatchUpload" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 2020.02.</span></p>
 </div>
@@ -137,6 +137,58 @@ entity is used to represent the uploaded CSV.</p>
 bubble sheets in PDF format that are uploaded and then processed to
 create individual <a class="reference internal" href="answerupload.html#od-type.deliveryodata.AnswerUpload" title="AnswerUpload"><code class="xref od od-type docutils literal notranslate"><span class="pre">AnswerUpload</span></code></a> entities.  Print batch
 uploads are not used when uploading PDFs for scanning.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatchUpload.ID">
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatchUpload.ID" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatchUpload.PrintBatchId">
+<span class="sig-name descname"><span class="pre">PrintBatchId</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatchUpload.PrintBatchId" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatchUpload.RequestData">
+<span class="sig-name descname"><span class="pre">RequestData</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatchUpload.RequestData" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatchUpload.PrecessedDateTime">
+<span class="sig-name descname"><span class="pre">PrecessedDateTime</span></span>  <span class="pre">Edm.DateTime</span><a class="headerlink" href="#od-prop.deliveryodata.PrintBatchUpload.PrecessedDateTime" title="Link to this definition">¶</a></dt>
+<dd><p>The date and time (UTC) at which the print batch upload was
+processed.  The property name is spelled <code class="docutils literal notranslate"><span class="pre">PrecessedDateTime</span></code>
+in the API, as shown; use that spelling when querying.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.PrintBatchUpload.PrintBatch">
+<span class="sig-name descname"><span class="pre">PrintBatch</span></span> <a class="reference internal" href="#od-type.deliveryodata.PrintBatch" title="PrintBatch"><span class="pre">PrintBatch</span></a><a class="headerlink" href="#od-prop.deliveryodata.PrintBatchUpload.PrintBatch" title="Link to this definition">¶</a></dt>
+<dd><p>Navigation property to the parent PrintBatch.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="od feed">
+<dt class="sig sig-object od" id="od-feed.deliveryodata.PrintBatchUploads">
+<span class="sig-name descname"><span class="pre">PrintBatchUploads</span></span> <a class="reference internal" href="#od-type.deliveryodata.PrintBatchUpload" title="PrintBatchUpload"><span class="pre">PrintBatchUpload</span></a><a class="headerlink" href="#od-feed.deliveryodata.PrintBatchUploads" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Methods Supported<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>GET</strong> – reading uploaded CSV files</p></li>
+<li><p><strong>POST</strong> – uploading CSV files</p></li>
+</ul>
+</dd>
+<dt class="field-even">Filters supported<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ID</strong> – primary key</p></li>
+</ul>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2020.02.</span></p>
+</div>
+<p>The PrintBatchUploads feed provides access to uploaded CSV files
+containing scanned responses for print batches.</p>
 </dd></dl>
 
 </section>
@@ -171,7 +223,7 @@ uploads are not used when uploading PDFs for scanning.</p>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
   <li><a href="types.html">Entity Type Reference</a><ul>
-      <li>Previous: <a href="participant.html" title="previous chapter">Participant</a></li>
+      <li>Previous: <a href="practiceattempt.html" title="previous chapter">PracticeAttempt</a></li>
       <li>Next: <a href="question.html" title="next chapter">Question and QuestionTranslation</a></li>
   </ul></li>
   </ul></li>
@@ -196,7 +248,7 @@ uploads are not used when uploading PDFs for scanning.</p>
       &#169;2016-2024, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
       &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |

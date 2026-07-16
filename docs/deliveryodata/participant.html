@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Participant &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=c0e07567" />
     <script src="../_static/documentation_options.js?v=c0145a33"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="PrintBatch" href="printbatch.html" />
+    <link rel="next" title="PracticeAttempt" href="practiceattempt.html" />
     <link rel="prev" title="MonitoringTypes and ProctoringProviders" href="monitoring_type.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -65,7 +65,7 @@ special Participant role.</p>
 
 <dl class="od type">
 <dt class="sig sig-object od" id="od-type.deliveryodata.Participant">
-<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">Participant</span></span><a class="headerlink" href="#od-type.deliveryodata.Participant" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">Participant</span></span><a class="headerlink" href="#od-type.deliveryodata.Participant" title="Link to this definition">¶</a></dt>
 <dd><dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.Participant.Password">
 <span class="sig-name descname"><span class="pre">Password</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Participant.Password" title="Link to this definition">¶</a></dt>
@@ -80,7 +80,7 @@ Participant record.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.Participant.ID">
-<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Participant.ID" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">ID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Participant.ID" title="Link to this definition">¶</a></dt>
 <dd><p>The numeric ID of the Participant.</p>
 </dd></dl>
 
@@ -354,7 +354,7 @@ participant’s full name.</p>
 <dt class="sig sig-object od" id="od-prop.deliveryodata.Participant.DateOfBirth">
 <span class="sig-name descname"><span class="pre">DateOfBirth</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Participant.DateOfBirth" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 2021.08.</span></p>
+<p><span class="versionmodified added">Added in version 2022.01.</span></p>
 </div>
 <p>The optional date of birth of the participant.</p>
 </dd></dl>
@@ -397,6 +397,30 @@ converted to UTC.</p>
 </dd></dl>
 
 <dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Participant.JobTitle">
+<span class="sig-name descname"><span class="pre">JobTitle</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Participant.JobTitle" title="Link to this definition">¶</a></dt>
+<dd><p>The participant’s job title.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Participant.PeopleSyncID">
+<span class="sig-name descname"><span class="pre">PeopleSyncID</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.Participant.PeopleSyncID" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 2022.08.</span></p>
+</div>
+<p>An external identifier used for people synchronization.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.Participant.Blocked">
+<span class="sig-name descname"><span class="pre">Blocked</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.Participant.Blocked" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 2023.01.</span></p>
+</div>
+<p>If True, the participant account is blocked from access.</p>
+</dd></dl>
+
+<dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.deliveryodata.Participant.Groups">
 <span class="sig-name descname"><span class="pre">Groups</span></span> <a class="reference internal" href="group.html#od-type.deliveryodata.Group" title="Group"><span class="pre">Group</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-prop.deliveryodata.Participant.Groups" title="Link to this definition">¶</a></dt>
 <dd><p>Navigation property to the Groups this participant is a member
@@ -411,7 +435,7 @@ of.</p>
 
 <dl class="od action">
 <dt class="sig sig-object od" id="od-action.deliveryodata.Participant.CheckPassword">
-<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">CheckPassword</span></span> <span class="pre">(</span><span class="pre">Password</span>  <span class="pre">Edm.String</span><span class="pre">)</span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-action.deliveryodata.Participant.CheckPassword" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">CheckPassword</span></span> <span class="pre">(</span><span class="pre">Password</span>  <span class="pre">Edm.String</span><span class="pre">)</span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-action.deliveryodata.Participant.CheckPassword" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 2021.05.</span></p>
 </div>
@@ -421,7 +445,7 @@ this participant and False otherwise.</p>
 
 <dl class="od action">
 <dt class="sig sig-object od" id="od-action.deliveryodata.Participant.SendWelcomeEmail">
-<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">SendWelcomeEmail</span></span> <span class="pre">(</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Participant.SendWelcomeEmail" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">SendWelcomeEmail</span></span> <span class="pre">(</span><span class="pre">)</span>  <span class="pre">Edm.Null</span><a class="headerlink" href="#od-action.deliveryodata.Participant.SendWelcomeEmail" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 2021.05.</span></p>
 </div>
@@ -434,11 +458,11 @@ time to resend the message.</p>
 
 <dl class="od action">
 <dt class="sig sig-object od" id="od-action.deliveryodata.Participant.ActionableSchedules">
-<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">ActionableSchedules</span></span> <span class="pre">(</span><span class="pre">)</span> <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><span class="pre">ActionableSchedule</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-action.deliveryodata.Participant.ActionableSchedules" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">ActionableSchedules</span></span> <span class="pre">(</span><span class="pre">ShowHidden</span>  <span class="pre">Edm.Boolean</span><span class="pre">)</span> <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><span class="pre">ActionableSchedule</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-action.deliveryodata.Participant.ActionableSchedules" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a collection of <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><code class="xref od od-type docutils literal notranslate"><span class="pre">ActionableSchedule</span></code></a> related to
-this participant.  It takes no parameters and is bound to a
-specific Participant so is called like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Participant</span><span class="p">(</span><span class="mi">123456</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedules</span>
+this participant.  It is bound to a specific Participant and takes
+an optional <code class="docutils literal notranslate"><span class="pre">ShowHidden</span></code> parameter (defaults to False):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Participants</span><span class="p">(</span><span class="mi">123456</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedules</span>
 
 <span class="p">{</span>
 <span class="p">}</span>
@@ -456,30 +480,26 @@ follows:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>as of the 2022.03 release, a new optional
-parameter <em>ShowHidden</em> will be supported that
-will default to False.  Currently, all schedules
-are returned by default but in future you <em>must</em>
-pass ShowHidden as True if you want hidden
-schedules to be returned by this call.  To
-determine if a hidden schedule is actionable for
-a Participant it is recommended to use
-<a class="reference internal" href="#od-action.deliveryodata.Participant.ActionableSchedule" title="ActionableSchedule"><code class="xref od od-action docutils literal notranslate"><span class="pre">ActionableSchedule</span></code></a> passing the
-ScheduleID explicitly as to avoid returning
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">ShowHidden</span></code> is optional and defaults to False, in
+which case hidden schedules are excluded.  Pass True
+to include schedules that are hidden.  To determine
+whether a specific hidden schedule is actionable for a
+Participant, use <a class="reference internal" href="#od-action.deliveryodata.Participant.ActionableSchedule" title="ActionableSchedule"><code class="xref od od-action docutils literal notranslate"><span class="pre">ActionableSchedule</span></code></a>
+passing the ScheduleID explicitly, to avoid returning
 hidden Schedules that apply to all Participants.</p>
 </div>
 </dd></dl>
 
 <dl class="od action">
 <dt class="sig sig-object od" id="od-action.deliveryodata.Participant.ActionableSchedule">
-<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">ActionableSchedule</span></span> <span class="pre">(</span><span class="pre">ScheduleID</span>  <span class="pre">Edm.Int32</span><span class="pre">)</span> <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><span class="pre">ActionableSchedule</span></a><a class="headerlink" href="#od-action.deliveryodata.Participant.ActionableSchedule" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">ActionableSchedule</span></span> <span class="pre">(</span><span class="pre">ScheduleID</span>  <span class="pre">Edm.Int32</span><span class="pre">)</span> <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><span class="pre">ActionableSchedule</span></a><a class="headerlink" href="#od-action.deliveryodata.Participant.ActionableSchedule" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a single <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><code class="xref od od-type docutils literal notranslate"><span class="pre">ActionableSchedule</span></code></a> related to
 this participant and the Schedule referred to in the input
 parameter.</p>
 <p>It is called like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Participant</span><span class="p">(</span><span class="mi">123456</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedule</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Participants</span><span class="p">(</span><span class="mi">123456</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedule</span>
 
 <span class="p">{</span>
     <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">12345</span>
@@ -499,6 +519,107 @@ the returned ActionableSchedule may have a
 <em>different</em> ID from the passed parameter value.</p>
 </div>
 </dd></dl>
+
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Participant.Upsert">
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">Upsert</span></span> <span class="pre">(</span><span class="pre">Name</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Password</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">FirstName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">LastName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">MiddleName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PrimaryAddress1</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PrimaryAddress2</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PrimaryCity</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PrimaryState</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PrimaryZIPCode</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PrimaryCountry</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PrimaryPhone</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PrimaryFax</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PrimaryEmail</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SecondaryAddress1</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SecondaryAddress2</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SecondaryCity</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SecondaryState</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SecondaryZIPCode</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SecondaryCountry</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SecondaryPhone</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SecondaryFax</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SecondaryEmail</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Salutation</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">OrganizationName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Department</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Title</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">JobTitle</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">AssistantName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">ManagerName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Gender</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">URL</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details1</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details2</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details3</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details4</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details5</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details6</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details7</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details8</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details9</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details10</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details11</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details12</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details13</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details14</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details15</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details16</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details17</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details18</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details19</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Details20</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PreferredLang</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PreferredTimezone</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">DateOfBirth</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">SsoId</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">PeopleSyncID</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Blocked</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">ReplaceExistingGroups</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">Groups</span> <span class="pre">Collection(</span> <span class="pre">Edm.String</span><span class="pre">)</span><span class="pre">)</span> <a class="reference internal" href="#od-type.deliveryodata.UpsertParticipantResponse" title="UpsertParticipantResponse"><span class="pre">UpsertParticipantResponse</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-action.deliveryodata.Participant.Upsert" title="Link to this definition">¶</a></dt>
+<dd><p>Creates a participant when one with a matching Name does not
+exist or updates the existing participant otherwise.  Omitted
+parameters are ignored.  The Groups parameter is a list of Group
+names the participant should belong to; pass ReplaceExistingGroups
+as True to replace the participant’s current group membership
+rather than adding to it.</p>
+<p>To invoke this action use http POST with a JSON body like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Participants</span><span class="o">/</span><span class="n">Upsert</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;bob&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PrimaryEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;bob@example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Groups&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;GroupA&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupB&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Participant.ScheduleAndLaunch">
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">ScheduleAndLaunch</span></span> <span class="pre">(</span><span class="pre">Name</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">AssessmentID</span>  <span class="pre">Edm.Int64</span><span class="pre">,</span> <span class="pre">ExtraTime</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">ScheduleDuration</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">MaxAttempts</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">MonitoringTypeID</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">TestCenterID</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">Hidden</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">ExternalID</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Language</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">GroupID</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">MinMinutesBetweenAttempts</span>  <span class="pre">Edm.Int32</span><span class="pre">)</span> <a class="reference internal" href="#od-type.deliveryodata.CustomScheduleAndLaunchResponse" title="CustomScheduleAndLaunchResponse"><span class="pre">CustomScheduleAndLaunchResponse</span></a><a class="headerlink" href="#od-action.deliveryodata.Participant.ScheduleAndLaunch" title="Link to this definition">¶</a></dt>
+<dd><p>Schedules the participant for an assessment and returns the
+information required to launch it in a single operation.  It is
+bound to a specific Participant so is called like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Participants</span><span class="p">(</span><span class="mi">123456</span><span class="p">)</span><span class="o">/</span><span class="n">ScheduleAndLaunch</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;AssessmentID&quot;</span><span class="p">:</span> <span class="mi">1234567890123</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Participant.UpsertParticipantAndSchedule">
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">UpsertParticipantAndSchedule</span></span> <span class="pre">(</span><span class="pre">Participant_Name</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Password</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_FirstName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_LastName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_MiddleName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_PrimaryAddress1</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_PrimaryAddress2</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_PrimaryCity</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_PrimaryState</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_PrimaryZIPCode</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_PrimaryCountry</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_PrimaryPhone</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_PrimaryFax</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_PrimaryEmail</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_SecondaryAddress1</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_SecondaryAddress2</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_SecondaryCity</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_SecondaryState</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_SecondaryZIPCode</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_SecondaryCountry</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_SecondaryPhone</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_SecondaryFax</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_SecondaryEmail</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Salutation</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_OrganizationName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Department</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Title</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_JobTitle</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_AssistantName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_ManagerName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Gender</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_URL</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details1</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details2</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details3</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details4</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details5</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details6</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details7</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details8</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details9</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details10</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details11</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details12</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details13</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details14</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details15</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details16</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details17</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details18</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details19</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Details20</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_PreferredLang</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_PreferredTimezone</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_DateOfBirth</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_SsoId</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_PeopleSyncID</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Participant_Blocked</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">Schedule_Name</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Schedule_ExternalID</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Schedule_ExternalProctoringID</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Schedule_AssessmentID</span>  <span class="pre">Edm.Int64</span><span class="pre">,</span> <span class="pre">Schedule_Language</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Schedule_GroupID</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">Schedule_StartFrom</span>  <span class="pre">Edm.DateTime</span><span class="pre">,</span> <span class="pre">Schedule_StartTo</span>  <span class="pre">Edm.DateTime</span><span class="pre">,</span> <span class="pre">Schedule_ResumeTo</span>  <span class="pre">Edm.DateTime</span><span class="pre">,</span> <span class="pre">Schedule_ReportFrom</span>  <span class="pre">Edm.DateTime</span><span class="pre">,</span> <span class="pre">Schedule_ReportTo</span>  <span class="pre">Edm.DateTime</span><span class="pre">,</span> <span class="pre">Schedule_ExtraTime</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">Schedule_MaxAttempts</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">Schedule_MonitoringTypeID</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">Schedule_ObserverID</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">Schedule_Created</span>  <span class="pre">Edm.DateTime</span><span class="pre">,</span> <span class="pre">Schedule_CreatedBy</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Schedule_Modified</span>  <span class="pre">Edm.DateTime</span><span class="pre">,</span> <span class="pre">Schedule_ModifiedBy</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Schedule_Hidden</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">Schedule_Disabled</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">Schedule_ResumeAllowed</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">Schedule_ObserverInitiated</span>  <span class="pre">Edm.Boolean</span><span class="pre">,</span> <span class="pre">Schedule_TestCenterID</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">Schedule_RulesOfConductID</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">Schedule_ReportTemplateName</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Schedule_ReportedResult</span>  <span class="pre">Edm.String</span><span class="pre">,</span> <span class="pre">Schedule_MinMinutesBetweenAttempts</span>  <span class="pre">Edm.Int32</span><span class="pre">)</span> <a class="reference internal" href="#od-type.deliveryodata.UpsertParticipantAndScheduleResponse" title="UpsertParticipantAndScheduleResponse"><span class="pre">UpsertParticipantAndScheduleResponse</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-action.deliveryodata.Participant.UpsertParticipantAndSchedule" title="Link to this definition">¶</a></dt>
+<dd><p>Combines <a class="reference internal" href="#od-action.deliveryodata.Participant.Upsert" title="Upsert"><code class="xref od od-action docutils literal notranslate"><span class="pre">Upsert</span></code></a> and scheduling in a single
+operation.  Parameters prefixed with <code class="docutils literal notranslate"><span class="pre">Participant_</span></code> describe the
+participant to create or update (matched by <code class="docutils literal notranslate"><span class="pre">Participant_Name</span></code>)
+and parameters prefixed with <code class="docutils literal notranslate"><span class="pre">Schedule_</span></code> describe the schedule
+to create.  Omitted parameters are ignored.</p>
+</dd></dl>
+
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Participant.ActionableScheduleForObservation">
+<span class="property"><span class="pre">action</span> </span><span class="sig-name descname"><span class="pre">ActionableScheduleForObservation</span></span> <span class="pre">(</span><span class="pre">ScheduleID</span>  <span class="pre">Edm.Int32</span><span class="pre">,</span> <span class="pre">ObserverID</span>  <span class="pre">Edm.Int32</span><span class="pre">)</span> <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><span class="pre">ActionableSchedule</span></a><a class="headerlink" href="#od-action.deliveryodata.Participant.ActionableScheduleForObservation" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><code class="xref od od-type docutils literal notranslate"><span class="pre">ActionableSchedule</span></code></a> for the given Schedule
+evaluated for the specified observer.  It is bound to a specific
+Participant.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.UpsertParticipantResponse">
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">UpsertParticipantResponse</span></span><a class="headerlink" href="#od-type.deliveryodata.UpsertParticipantResponse" title="Link to this definition">¶</a></dt>
+<dd><p>Response type returned by the Participant
+<a class="reference internal" href="#od-action.deliveryodata.Participant.Upsert" title="Upsert"><code class="xref od od-action docutils literal notranslate"><span class="pre">Upsert</span></code></a> action.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.UpsertParticipantResponse.ParticipantID">
+<span class="sig-name descname"><span class="pre">ParticipantID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.UpsertParticipantResponse.ParticipantID" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.UpsertParticipantAndScheduleResponse">
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">UpsertParticipantAndScheduleResponse</span></span><a class="headerlink" href="#od-type.deliveryodata.UpsertParticipantAndScheduleResponse" title="Link to this definition">¶</a></dt>
+<dd><p>Response type returned by the
+<a class="reference internal" href="#od-action.deliveryodata.Participant.UpsertParticipantAndSchedule" title="UpsertParticipantAndSchedule"><code class="xref od od-action docutils literal notranslate"><span class="pre">UpsertParticipantAndSchedule</span></code></a>
+action.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.UpsertParticipantAndScheduleResponse.ParticipantID">
+<span class="sig-name descname"><span class="pre">ParticipantID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.UpsertParticipantAndScheduleResponse.ParticipantID" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.UpsertParticipantAndScheduleResponse.ScheduleID">
+<span class="sig-name descname"><span class="pre">ScheduleID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.UpsertParticipantAndScheduleResponse.ScheduleID" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="od type">
+<dt class="sig sig-object od" id="od-type.deliveryodata.CustomScheduleAndLaunchResponse">
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">CustomScheduleAndLaunchResponse</span></span><a class="headerlink" href="#od-type.deliveryodata.CustomScheduleAndLaunchResponse" title="Link to this definition">¶</a></dt>
+<dd><p>Response type returned by the
+<a class="reference internal" href="#od-action.deliveryodata.Participant.ScheduleAndLaunch" title="ScheduleAndLaunch"><code class="xref od od-action docutils literal notranslate"><span class="pre">ScheduleAndLaunch</span></code></a> action.</p>
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.CustomScheduleAndLaunchResponse.ScheduleID">
+<span class="sig-name descname"><span class="pre">ScheduleID</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.deliveryodata.CustomScheduleAndLaunchResponse.ScheduleID" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.deliveryodata.CustomScheduleAndLaunchResponse.LaunchURL">
+<span class="sig-name descname"><span class="pre">LaunchURL</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.deliveryodata.CustomScheduleAndLaunchResponse.LaunchURL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -535,7 +656,7 @@ the returned ActionableSchedule may have a
   <li><a href="../deliveryodata.html">Delivery OData API</a><ul>
   <li><a href="types.html">Entity Type Reference</a><ul>
       <li>Previous: <a href="monitoring_type.html" title="previous chapter">MonitoringTypes and ProctoringProviders</a></li>
-      <li>Next: <a href="printbatch.html" title="next chapter">PrintBatch</a></li>
+      <li>Next: <a href="practiceattempt.html" title="next chapter">PracticeAttempt</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -559,7 +680,7 @@ the returned ActionableSchedule may have a
       &#169;2016-2024, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
       &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |

@@ -51,6 +51,7 @@ Question and QuestionTranslation
         :collection:
 
     ..  od:prop::   Rubric Rubric
+        :collection:
 
     ..  od:prop::   Answers Answer
         :collection:

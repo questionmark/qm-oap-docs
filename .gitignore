@@ -58,3 +58,6 @@ target/
 # Local files
 .DS_Store
 local/
+
+# Local-only ignore folder (symlinks to source repos, scratch files, etc.)
+/ignore/

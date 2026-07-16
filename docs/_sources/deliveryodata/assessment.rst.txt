@@ -1,4 +1,4 @@
-Assessment
+﻿Assessment
 ----------
 
 ..  od:service::    deliveryodata
@@ -111,7 +111,7 @@ Assessment
         The ID of an associated :od:type:`RulesOfConduct` entity.  See
         :od:prop:`Assessment.RulesOfConduct` for more information.
 
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
 
     ..  od:prop::   Type    Edm.Int16
 
@@ -165,6 +165,12 @@ Assessment
         This relationship is represented in the model by
         :qm:table:`G_Session`.
 
+    ..  od:prop::   AssessmentMetadata AssessmentMetadata
+        :collection:
+
+        Navigation property to the collection of AssessmentMetadata
+        key-value pairs associated with this assessment.
+
     ..  od:prop::   RulesOfConduct  RulesOfConduct
         
         Navigation property to an optional :od:type:`RulesOfConduct`
@@ -174,7 +180,7 @@ Assessment
         These rules may themselves be overridden in the
         :od:type:`Schedule` entity itself.
 
-        .. versionadded::   2021.08
+        .. versionadded::   2021.07
         
 
 ..  od:type::   AssessmentOutcome
@@ -212,6 +218,18 @@ Assessment
         Navigation property to the Assessment.
     
 
+
+..  od:feed::   AssessmentOutcomes AssessmentOutcome
+
+    :method GET: read only
+    :filter ID: the assessment ID
+    :filter ScoreBandNumber: the score band number
+
+    .. versionadded::   2020.08
+
+    The AssessmentOutcomes feed provides access to the defined score
+    bands (outcomes) for assessments.
+
 ..  od:type::   AssessmentTranslation
 
     ..  od:prop::   ID                  Edm.Int64
@@ -233,9 +251,13 @@ Assessment
         The revision of the Assessment that was translated.
         
     ..  od:prop::   Name         Edm.String
-    
+
         The translated name of the Assessment.
-        
+
+    ..  od:prop::   Description         Edm.String
+
+        The translated description of the Assessment.
+
     ..  od:prop::   Author              Edm.String
     
         The name of the user that created this translation.
@@ -262,4 +284,66 @@ Assessment
 
         A navigation property to the base language version of the
         assessment.
+
+..  od:feed::   AssessmentTranslations AssessmentTranslation
+
+    :method GET: read only
+    :filter ID: the assessment ID
+    :filter Language: the translation language
+
+    The AssessmentTranslations feed provides access to translated
+    versions of assessments.
+
+
+
+..  od:feed::   AssessmentMetadata AssessmentMetadata
+
+    :method GET: read assessment metadata entities
+    :method POST: create assessment metadata entity
+    :method PATCH: update assessment metadata entity
+    :method DELETE: delete assessment metadata entity
+    :filter ID: primary key
+    :filter AssessmentID: the related assessment
+
+    The AssessmentMetadata feed provides access to key-value metadata
+    associated with assessments.
+
+
+..  od:type::   AssessmentMetadata
+
+    AssessmentMetadata entities store key-value pairs associated with
+    an assessment.
+    
+    ..  od:prop::   ID  Edm.Int32
+        :key:
+        :notnull:
+
+        Unique ID of this metadata record.
+
+    ..  od:prop::   Revision  Edm.Int32
+
+        The revision of the assessment this metadata applies to.
+
+    ..  od:prop::   Language  Edm.String
+
+        The language this metadata applies to, if language-specific.
+
+    ..  od:prop::   AssessmentID  Edm.Int64
+        :notnull:
+
+        The ID of the associated Assessment.
+
+    ..  od:prop::   Key  Edm.String
+        :notnull:
+
+        The name of the metadata field.
         
+    ..  od:prop::   Value  Edm.String
+        :notnull:
+
+        The value of the metadata field.
+        
+    ..  od:prop::   Assessment  Assessment
+        
+        A navigation property to the associated Assessment.
+

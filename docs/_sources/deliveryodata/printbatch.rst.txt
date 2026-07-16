@@ -1,4 +1,4 @@
-PrintBatch
+﻿PrintBatch
 ----------
 
 ..  od:service::    deliveryodata
@@ -66,7 +66,7 @@ PrintBatch
 ..  od:type::   PrintBatchUpload
 
     .. versionadded:: 2020.02
-    
+
     With Questionmark OnPremise and certain configurations of
     Questionmark OnDemand, printing and scanning uses an external
     scanning process resulting in CSV files that are uploaded
@@ -79,4 +79,34 @@ PrintBatch
     bubble sheets in PDF format that are uploaded and then processed to
     create individual :od:type:`AnswerUpload` entities.  Print batch
     uploads are not used when uploading PDFs for scanning.
+
+    ..  od:prop::   ID  Edm.Int64
+        :key:
+        :notnull:
+
+    ..  od:prop::   PrintBatchId  Edm.Int64
+        :notnull:
+
+    ..  od:prop::   RequestData  Edm.String
+
+    ..  od:prop::   PrecessedDateTime  Edm.DateTime
+
+        The date and time (UTC) at which the print batch upload was
+        processed.  The property name is spelled ``PrecessedDateTime``
+        in the API, as shown; use that spelling when querying.
+
+    ..  od:prop::   PrintBatch  PrintBatch
+
+        Navigation property to the parent PrintBatch.
+
+..  od:feed::   PrintBatchUploads PrintBatchUpload
+
+    :method GET: reading uploaded CSV files
+    :method POST: uploading CSV files
+    :filter ID: primary key
+
+    .. versionadded::   2020.02
+
+    The PrintBatchUploads feed provides access to uploaded CSV files
+    containing scanned responses for print batches.
 

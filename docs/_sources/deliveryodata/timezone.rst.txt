@@ -1,10 +1,10 @@
-Timezone
+﻿Timezone
 --------
 
 ..  od:service::    deliveryodata
 
 
-..  od:feed::   TimeZones Timezone
+..  od:feed::   Timezones Timezone
 
     :method GET: for reading test centres
     :filter ID: the primary key
@@ -35,15 +35,19 @@ Timezone
     ..  od:prop::   BaseUTCOffset    Edm.String
 
     ..  od:prop::   BaseUTCOffsetMinutes    Edm.Double
-    
+        :notnull:
+
     ..  od:prop::   CurrentUTCOffset    Edm.String
 
     ..  od:prop::   CurrentUTCOffsetMinutes    Edm.Double
-    
-    ..  od:prop::   CurrentUtcTime    Edm.DateTime
+        :notnull:
+
+    ..  od:prop::   CurrentUTCTime    Edm.DateTime
+        :notnull:
 
         The current time in UTC.
 
     ..  od:prop::   CurrentTimezoneTime    Edm.DateTime
+        :notnull:
 
         The local time in this timezone.

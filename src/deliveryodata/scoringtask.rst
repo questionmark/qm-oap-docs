@@ -306,6 +306,6 @@ unscored responses please refer to :doc:`scoring`.
         
     ..  od:prop::   Comment    Edm.String
 
-    ..  od:prop::   ScoringResult    Edm.ScoringResult
+    ..  od:prop::   ScoringResult    ScoringResult
 
-    ..  od:prop::   Dimension    Edm.Dimension
+    ..  od:prop::   Dimension    Dimension

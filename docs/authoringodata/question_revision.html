@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>QuestionRevision &#8212; QuestionmarkAPIs 2016.10.12a documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=c0e07567" />
     <script src="../_static/documentation_options.js?v=c0145a33"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="QuestionQML" href="question_qml.html" />
@@ -84,7 +84,7 @@ are show unescaped in the URL.  Example response:</p>
             <span class="s2">&quot;Editor&quot;</span><span class="p">:</span> <span class="s2">&quot;steve&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;Normal&quot;</span><span class="p">,</span>
             <span class="s2">&quot;ReviewStatus&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-            <span class="s2">&quot;TopicPath&quot;</span><span class="p">:</span> <span class="s2">&quot;SubjectiveQuestions&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;TopicId&quot;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
             <span class="s2">&quot;IsDeleted&quot;</span><span class="p">:</span> <span class="n">false</span>
         <span class="p">}</span>
     <span class="p">]</span>
@@ -95,13 +95,13 @@ are show unescaped in the URL.  Example response:</p>
 
 <dl class="od type">
 <dt class="sig sig-object od" id="od-type.authoringodata.QuestionRevision">
-<em class="property"><span class="pre">EntityType:</span> </em><span class="sig-name descname"><span class="pre">QuestionRevision</span></span><a class="headerlink" href="#od-type.authoringodata.QuestionRevision" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">EntityType:</span> </span><span class="sig-name descname"><span class="pre">QuestionRevision</span></span><a class="headerlink" href="#od-type.authoringodata.QuestionRevision" title="Link to this definition">¶</a></dt>
 <dd><p>QuestionRevision entities contain only a subset of the attributes of
 a Question.  The full information about a Question is obtained from
 the associated <a class="reference internal" href="question_qml.html#od-type.authoringodata.QuestionQML" title="QuestionQML"><code class="xref od od-type docutils literal notranslate"><span class="pre">QuestionQML</span></code></a> entities.</p>
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.Id">
-<em class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </em><span class="sig-name descname"><span class="pre">Id</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.Id" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="pre">Entity</span> <span class="pre">Key:</span> </span><span class="sig-name descname"><span class="pre">Id</span></span>  <span class="pre">Edm.Int32</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.Id" title="Link to this definition">¶</a></dt>
 <dd><p>The key used within the item bank.  This value will change when
 moving Questions between banks (using QPacks) and should only be
 used in the context of a specific item bank.  A general purpose
@@ -111,7 +111,7 @@ identifier that persists across repositories can be found in
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.QuestionId">
-<span class="sig-name descname"><span class="pre">QuestionId</span></span>  <span class="pre">Edm.Int64</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.QuestionId" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">QuestionId</span></span>  <span class="pre">Edm.Int64</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.QuestionId" title="Link to this definition">¶</a></dt>
 <dd><p>A 64-bit integer ID, sometimes represented as a string or split
 in to two integers (MID/LID) in other contexts.  When published,
 the same QuestionId is available in the delivery catalog as
@@ -127,7 +127,7 @@ set the string “-” is used.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.CreatedDateTime">
-<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTimeOffset</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.CreatedDateTime" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CreatedDateTime</span></span>  <span class="pre">Edm.DateTimeOffset</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.CreatedDateTime" title="Link to this definition">¶</a></dt>
 <dd><p>The date and time (in UTC) when the Question was created.</p>
 </dd></dl>
 
@@ -139,7 +139,7 @@ set the string “-” is used.</p>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.ModifiedDateTime">
-<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.ModifiedDateTime" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ModifiedDateTime</span></span>  <span class="pre">Edm.DateTimeOffset</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.ModifiedDateTime" title="Link to this definition">¶</a></dt>
 <dd><p>The date and time (in UTC) when the Question was last modified.
 This revision time refers only to the base language.
 Modifications to any translations are represented in the related
@@ -172,18 +172,21 @@ labels.</p>
 </dd></dl>
 
 <dl class="od prop">
-<dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.TopicPath">
-<span class="sig-name descname"><span class="pre">TopicPath</span></span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.TopicPath" title="Link to this definition">¶</a></dt>
-<dd><p>The full path of the Question within the Topic hierarchy, for
-example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;RootTopic/SubTopicB/SubSubTopic1&quot;</span>
-</pre></div>
-</div>
+<dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.TopicId">
+<span class="sig-name descname"><span class="pre">TopicId</span></span>  <span class="pre">Edm.Int32</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.TopicId" title="Link to this definition">¶</a></dt>
+<dd><p>The ID of the Topic containing this question revision. May be
+null if the question is not assigned to a topic.</p>
+</dd></dl>
+
+<dl class="od prop">
+<dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.Topic">
+<span class="sig-name descname"><span class="pre">Topic</span></span> <a class="reference internal" href="topic.html#od-type.authoringodata.Topic" title="Topic"><span class="pre">Topic</span></a><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.Topic" title="Link to this definition">¶</a></dt>
+<dd><p>Navigation property to the Topic containing this question.</p>
 </dd></dl>
 
 <dl class="od prop">
 <dt class="sig sig-object od" id="od-prop.authoringodata.QuestionRevision.IsDeleted">
-<span class="sig-name descname"><span class="pre">IsDeleted</span></span>  <span class="pre">Edm.Boolean</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.IsDeleted" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">IsDeleted</span></span>  <span class="pre">Edm.Boolean</span> <span class="pre">NOT</span> <span class="pre">NULL</span><a class="headerlink" href="#od-prop.authoringodata.QuestionRevision.IsDeleted" title="Link to this definition">¶</a></dt>
 <dd><p>A flag indicating whether or not the Question has been deleted
 from the item bank.  Deleting Questions <em>does not</em> remove them
 from the item bank, it marks them as deleted and removes from
@@ -256,7 +259,7 @@ available language.</p>
       &#169;2016-2024, Questionmark Computing Ltd.
       
       |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
       &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |

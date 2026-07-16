@@ -1,4 +1,4 @@
-Answer
+﻿Answer
 ------
 
 ..  od:service::    deliveryodata
@@ -91,6 +91,7 @@ Answer
         .. versionadded::   2021.05
 
     ..  od:prop::   Revision Edm.Int32
+        :notnull:
 
         Reserved for future use.
 
@@ -207,6 +208,19 @@ Answer
         Navigation property to the Answer entity affected by this
         change.
 
+
+
+
+..  od:feed::   AnswerAuditLogs AnswerAuditLog
+
+    :method GET: read only
+    :filter ID: primary key
+    :filter ResultID: the related result
+
+    .. versionadded::   2021.05
+
+    The AnswerAuditLogs feed provides access to audit records for
+    changes made to Answer entities (e.g., via Scoring Editor).
 
 Reading the Participant's Answer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

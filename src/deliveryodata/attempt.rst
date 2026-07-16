@@ -1,4 +1,4 @@
-Attempt, AttemptLists and AttemptMetadata
+﻿Attempt, AttemptLists and AttemptMetadata
 -----------------------------------------
 
 ..  od:service::    deliveryodata
@@ -57,7 +57,7 @@ Attempt, AttemptLists and AttemptMetadata
     :method GET: reading attempt metadata key-value pairs
     :method POST: creating attempt metadata key-value pairs
     :filter ID: primary key
-    :filter AttemptID: associated attempt
+    :filter AttemptId: associated attempt
     :expand Attempt: expands the associated Attempt    
 
     $orderby is *not* supported.
@@ -151,7 +151,7 @@ Attempt, AttemptLists and AttemptMetadata
         }
 
 
-..  od:feed::   SessionAuditLog SessionAuditLog
+..  od:feed::   SessionAuditLogs SessionAuditLog
 
     :method GET: read only
 
@@ -502,7 +502,8 @@ Attempt, AttemptLists and AttemptMetadata
         associated Result entity.  See also :od:prop:`ResultID`.
 
     ..  od:prop::   BranchedResults Result
-    
+        :collection:
+
         .. versionadded:: 2020.01
 
         Assessment branching allows a single Attempt to be used to
@@ -596,7 +597,7 @@ Attempt, AttemptLists and AttemptMetadata
 
         Unique ID of this metadata record.
 
-    ..  od:prop::   AttemptID  Edm.Int32
+    ..  od:prop::   AttemptId  Edm.Int32
         :notnull:
 
         ID of the associated Attempt, see :od:prop:`Attempt` for a more
@@ -675,12 +676,27 @@ Attempt, AttemptLists and AttemptMetadata
         The status of this appointment.  The status values may vary
         depending on the proctoring provider in use.
 
+    ..  od:prop::   ExternalAppointmentData  Edm.String
+
+        Additional data from the external proctoring provider.
+
     ..  od:prop::   Attempt  Attempt
-    
+
         The :od:type:`Attempt` associated with this Appointment.
 
-    
-    
+..  od:feed::   Appointments Appointment
+
+    :method GET: read appointment entities
+    :method POST: create appointment entity
+    :method DELETE: delete appointment entity
+    :filter ID: primary key
+    :filter AttemptID: the related attempt
+
+    .. versionadded::   2019.05
+
+    The Appointments feed provides access to appointment information
+    associated with proctored attempts.
+
 ..  od:type::   AttemptList
 
     .. versionadded:: 2016.09

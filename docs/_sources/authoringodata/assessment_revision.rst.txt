@@ -76,7 +76,8 @@ AssessmentRevision
         found in :od:prop:`AssessmentId`.
 
     ..  od:prop::   AssessmentId  Edm.Int64
-        
+        :notnull:
+
         A 64-bit integer ID, sometimes represented as a string or split
         in to two integers (MID/LID) in other contexts.  When published,
         the same AssessmentId is available in the delivery catalog as
@@ -88,6 +89,7 @@ AssessmentRevision
         been set the string "-" is used.
 
     ..  od:prop::   CreatedDateTime  Edm.DateTimeOffset
+        :notnull:
 
         The date and time (in UTC) when the Assessment was created.
 
@@ -95,7 +97,8 @@ AssessmentRevision
     
         The user name of the user that created the assessment
 
-    ..  od:prop::   ModifiedDateTime  Edm.String
+    ..  od:prop::   ModifiedDateTime  Edm.DateTimeOffset
+        :notnull:
 
         The date and time (in UTC) when the Assessment was last
         modified. This revision time refers only to the base language.
@@ -115,7 +118,12 @@ AssessmentRevision
         
             "RootFolder/SubFolderB/SubSubFolder1"
         
+    ..  od:prop::   AssessmentName  Edm.String
+
+        The name of the assessment.
+
     ..  od:prop::   IsDeleted  Edm.Boolean
+        :notnull:
 
         A flag indicating whether or not the Assessment has been deleted
         from the item bank.  Deleting Assessments *does not* remove them
