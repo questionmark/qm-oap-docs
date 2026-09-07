@@ -297,12 +297,35 @@ return an unfiltered list.</p>
 <dt class="sig sig-object od" id="od-action.deliveryodata.Administrator.ActionableSchedulesForObservation">
 <em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">ActionableSchedulesForObservation</span></span> <span class="pre">(</span><span class="pre">)</span> <a class="reference internal" href="schedule.html#od-type.deliveryodata.ActionableSchedule" title="ActionableSchedule"><span class="pre">ActionableSchedule</span></a> <span class="pre">Collection</span><a class="headerlink" href="#od-action.deliveryodata.Administrator.ActionableSchedulesForObservation" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a collection of actionable schedules related to this
-administrator <em>as an assessment observer</em>.  It takes no
-parameters and is bound to a specific Administrator so is called
+administrator <em>as an assessment observer</em>.  The required
+<code class="docutils literal notranslate"><span class="pre">ScheduleID</span></code> parameter limits the results to the given
+schedule. It is bound to a specific Administrator so is called
 like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrator</span><span class="p">(</span><span class="mi">456789</span><span class="p">)</span><span class="o">/</span><span class="n">ActionableSchedulesForObservation</span>
 
 <span class="p">{</span>
+    <span class="s2">&quot;ScheduleID&quot;</span><span class="p">:</span> <span class="mi">12345</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="od action">
+<dt class="sig sig-object od" id="od-action.deliveryodata.Administrator.GetAccessUrl">
+<em class="property"><span class="pre">action</span> </em><span class="sig-name descname"><span class="pre">GetAccessUrl</span></span> <span class="pre">(</span><span class="pre">)</span>  <span class="pre">Edm.String</span><a class="headerlink" href="#od-action.deliveryodata.Administrator.GetAccessUrl" title="Link to this definition">¶</a></dt>
+<dd><p>Returns a URL that provides the administrator with authenticated
+access to the platform.  It is bound to a specific Administrator
+so is called like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">deliveryodata</span><span class="o">/&lt;</span><span class="n">customer</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;/</span><span class="n">Administrators</span><span class="p">(</span><span class="mi">456789</span><span class="p">)</span><span class="o">/</span><span class="n">GetAccessUrl</span>
+
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;odata.metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;https://&lt;host&gt;/deliveryodata/&lt;customer-id&gt;/$metadata#Edm.String&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;https://&lt;host&gt;/home/&lt;customer-id&gt;/&lt;one-time-login-link&gt;&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>

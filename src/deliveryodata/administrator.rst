@@ -224,16 +224,37 @@ Administrator
         :collection:
 
         Returns a collection of actionable schedules related to this
-        administrator *as an assessment observer*.  It takes no
-        parameters and is bound to a specific Administrator so is called
+        administrator *as an assessment observer*.  The required
+        ``ScheduleID`` parameter limits the results to the given
+        schedule. It is bound to a specific Administrator so is called
         like this::
         
             POST /deliveryodata/<customer-id>/Administrator(456789)/ActionableSchedulesForObservation
             
             {
+                "ScheduleID": 12345
             }
 
 
+    ..  od:action:: GetAccessUrl Edm.String
+
+        Returns a URL that provides the administrator with authenticated
+        access to the platform.  It is bound to a specific Administrator
+        so is called like this::
+
+            POST /deliveryodata/<customer-id>/Administrators(456789)/GetAccessUrl
+
+            {
+            }
+
+        Response::
+        
+            {
+                "odata.metadata": "https://<host>/deliveryodata/<customer-id>/$metadata#Edm.String",
+                "value": "https://<host>/home/<customer-id>/<one-time-login-link>"
+            }
+
+                    
 ..  od:type::   Role
 
     Role entities are simple entities that allow access to read the list
