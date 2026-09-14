@@ -194,10 +194,19 @@ a proctored test was terminated by the proctor, presumably
 due to a violation of the rules of conduct or a technical
 issue requiring the assessment attempt to be invalidated.</p>
 </li>
-<li><p>Reserved for future use</p></li>
+<li><p>Finished by Administrator</p>
+<p>The result was forced into a final state from In Progress or
+Paused by Proctor by an administrator.</p>
+</li>
 <li><p>Finished, Scanned In</p>
 <p>The result was imported from an external delivery system,
 typically a paper-based Printing and Scanning process.</p>
+</li>
+<li><p>Submitted</p>
+<p>The result has been submitted by the participant but is
+waiting for automatic scoring to complete.  This is a
+transient state that exists between states 1 (or 6) and the
+final result status (any other value).</p>
 </li>
 </ol>
 <p>All other values of the status field are reserved for future use.</p>

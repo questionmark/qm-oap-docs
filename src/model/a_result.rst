@@ -144,12 +144,22 @@ A_Result
             due to a violation of the rules of conduct or a technical
             issue requiring the assessment attempt to be invalidated.
 
-        8.  Reserved for future use
+        8.  Finished by Administrator
+        
+            The result was forced into a final state from In Progress or
+            Paused by Proctor by an administrator.
         
         9.  Finished, Scanned In
         
             The result was imported from an external delivery system,
             typically a paper-based Printing and Scanning process.
+        
+        10. Submitted
+        
+            The result has been submitted by the participant but is
+            waiting for automatic scoring to complete.  This is a
+            transient state that exists between states 1 (or 6) and the
+            final result status (any other value).
 
         All other values of the status field are reserved for future use.
 
